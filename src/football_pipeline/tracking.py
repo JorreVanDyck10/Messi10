@@ -9,7 +9,7 @@ import numpy as np
 import yaml
 
 from .contracts import Detection, PipelineError
-from .geometry import valid_box
+from .participants import player_exclusion_reason
 
 
 def load_tracker_config(path: str | Path) -> dict:
@@ -73,7 +73,7 @@ class ByteTrackAdapter:
         self.last_frame = frame_index
         for detection in detections:
             detection.track_id = None
-        players = [d for d in detections if d.semantic_class == "player" and valid_box(d, image_size)]
+        players = [d for d in detections if player_exclusion_reason(d, image_size) is None]
         # A single tracker class prevents goalkeeper/player subclass switching.
         raw = np.array([[*d.bbox_xyxy, d.confidence, 0] for d in players], dtype=np.float32).reshape(-1, 6)
         boxes = Boxes(raw, (image_size[1], image_size[0]))

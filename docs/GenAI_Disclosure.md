@@ -48,3 +48,9 @@ De gebruiker vroeg om echte player/referee-klassen, een complete modeloverdracht
 EXP-P001 had onvolledige officiallabels; EXP-P002 is tijdens de laatste labelcontrole gestopt. EXP-P003 en EXP-P004 zijn echte vergelijkbare runs op v2.1. Het geselecteerde P004-checkpoint verbetert de speler-AP, maar vermindert official-recall op het werkpunt. Voorspellingen, configuraties, logs, daadwerkelijke modelnamen en hashes zijn bewaard.
 
 Een latere pull bracht ontwikkelannotaties uit de gereserveerde testclip binnen. Die overlap is gemeld; er zijn geen onafhankelijke projecteindtestresultaten geclaimd. De AI kan de zelfstandige verdediging of daadwerkelijke beoordeling door twee studenten niet als verricht registreren.
+
+## Rollen en spelertelling bij automatische veldherkenning
+
+De gebruiker vroeg vervolgens om GitHub-synchronisatie en verduidelijkte: `alleen spelers op het veld ga tellen en nie stewards bv op het veld`, met afzonderlijke herkenning van stewards, supporters en officials. Codex heeft de telregels en trackerfilter gekoppeld aan zowel de voorspelde rol als de geldige actuele veldpositie, aparte semantische rollen in de pipeline ondersteund en de interface en overdracht aangepast. De veldherkenningsalgoritmen van persoon 2 zijn daarbij behouden.
+
+De bestaande gewichten hebben slechts `player` en `referee`. Het verzoek is daarom niet als bewijs geïnterpreteerd dat steward-, supporter- of volledige officialherkenning al werkt. De toegevoegde extra-roltests gebruiken expliciet synthetische detectoruitvoer. Er is voor deze softwarewijziging geen nieuwe roltraining of mAP-meting uitgevoerd en geen menselijke annotatiereview geregistreerd. [Telregels en open modelwerk](Spelertelling_en_Rollen.md) beschrijven die grens concreet.

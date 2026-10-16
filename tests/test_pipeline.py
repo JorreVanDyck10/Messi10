@@ -114,6 +114,45 @@ def test_tracking_pipeline_preserves_empty_frame_without_predicted_position(
     assert result.manifest["tracker_effective"]["effective_buffer_updates"] == 30
 
 
+def test_pipeline_projects_before_tracking_and_preserves_nonplayers(demo_fixture, tmp_path, monkeypatch):
+    from football_pipeline import pipeline
+    from football_pipeline.contracts import Detection
+    from football_pipeline.video import ROOT
+
+    class MixedRoles(SyntheticDetector):
+        def detect(self, frame, frame_index):
+            players = super().detect(frame, frame_index)
+            if not players:
+                return []
+            # Deliberately place an excluded candidate first to exercise ByteTrack's index mapping.
+            return [
+                Detection(f"{frame_index}:off", "fixture", 0, "player", [5, 100, 15, 150], 0.9),
+                Detection(f"{frame_index}:s", "fixture", 3, "steward", [200, 100, 220, 180], 0.9),
+                *players,
+            ]
+
+    monkeypatch.setattr(pipeline, "check_mvp_acceptance", lambda *args: {"test_boundary_stub": True})
+    result = process_video(
+        demo_fixture["video"],
+        demo_fixture["calibration"],
+        demo_fixture["models"],
+        tmp_path,
+        detector=MixedRoles(),
+        tracker_config_path=ROOT / "configs/bytetrack.yaml",
+    )
+    rows = [json.loads(line) for line in (result.directory / "framegegevens.jsonl").read_text().splitlines()]
+    first = rows[0]
+    assert len(first["detections"]) == 3
+    assert first["player_summary"]["on_field"] == 1
+    assert first["player_summary"]["outside_field"] == 1
+    assert first["player_summary"]["other_roles"] == {"steward": 1}
+    assert [d["track_id"] for d in first["detections"]] == [None, None, 1]
+    assert first["detections"][1]["projection_status"] == "valid"
+    assert rows[8]["player_summary"]["on_field"] == 0
+    assert rows[9]["detections"][2]["track_id"] == 1
+    assert result.manifest["player_policy"]["requires_valid_current_calibration"] is True
+
+
 def test_technical_pilot_never_impersonates_human_review_or_enables_tracking(demo_fixture, tmp_path):
     from dataclasses import replace
 

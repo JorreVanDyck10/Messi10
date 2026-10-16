@@ -6,7 +6,16 @@ from football_pipeline.video import ROOT
 
 
 def item(index, confidence=0.9, semantic="player", x=100):
-    return Detection(f"{index}:0", "test", 0, semantic, [x, 80, x + 30, 160], confidence)
+    return Detection(
+        f"{index}:0",
+        "test",
+        0,
+        semantic,
+        [x, 80, x + 30, 160],
+        confidence,
+        field_position=[0.3, 0.5],
+        projection_status="valid",
+    )
 
 
 def test_actual_bytetrack_indexes_low_confidence_and_empty_updates():
@@ -33,6 +42,27 @@ def test_actual_bytetrack_indexes_low_confidence_and_empty_updates():
     new_item = [item(0)]
     fresh.update(new_item, 0, (640, 360))
     assert new_item[0].track_id == 1
+
+
+def test_tracking_excludes_off_field_players_and_all_other_roles_inside_field():
+    tracker = ByteTrackAdapter(load_tracker_config(ROOT / "configs/bytetrack.yaml"), 25)
+    off_field = item(0, x=10)
+    off_field.field_position, off_field.projection_status = None, "outside_field"
+    people = [
+        item(0, semantic=role, x=200)
+        for role in ("referee", "assistant_referee", "steward", "spectator", "staff", "person")
+    ]
+    players = [off_field, *people, item(0, x=100)]
+    tracker.update(players, 0, (640, 360))
+    assert [d.track_id for d in players] == [None] * 7 + [1]
+    missing_field = item(1, x=102)
+    missing_field.field_position, missing_field.projection_status = None, "calibration_unavailable"
+    tracker.update([missing_field], 1, (640, 360))
+    assert missing_field.track_id is None
+    assert tracker.tracker.frame_id == 2
+    returning = item(2, x=104)
+    tracker.update([returning], 2, (640, 360))
+    assert returning.track_id == 1
 
 
 def test_observed_trajectories_keep_gaps_and_expire():

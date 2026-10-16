@@ -2,6 +2,8 @@
 
 Start het geleverde GPU-profiel met `scripts/Start-Spelermodel.ps1`. In een bestaande CPU-omgeving gebruik je expliciet `scripts/Start-Spelermodel.ps1 -Device cpu`; de rechtstreekse Streamlit-start hieronder neemt het standaardprofiel met GPU-device 0 over.
 
+**Spelertelling en veldherkenning:** alleen voorspelde spelers met hun voetpunt binnen het geldige veld tellen mee. Officials en eventuele andere herkende rollen blijven afzonderlijk zichtbaar. Bij ontbrekende veldherkenning is het aantal onbekend. De huidige gewichten herkennen nog geen afzonderlijke stewards of supporters. [Telregels, interface en beperkingen](docs/Spelertelling_en_Rollen.md).
+
 # Sports Vision — data, modellen en tactical map
 
 Deze repository bevat beide werkpakketten: persoon 1 beheert data, annotaties, training en detectie-evaluatie; persoon 2 beheert kalibratie, videopipeline, minimap en tracking.
@@ -30,7 +32,7 @@ Voer vanuit de projectmap uit:
 .\.venv\Scripts\python.exe -m streamlit run streamlit_app.py
 ```
 
-De virtuele omgeving, CPU-dependencies, FFmpeg/ffprobe en `weights/yolo11n.pt` zijn lokaal voorbereid. Open de lokale URL die Streamlit toont. Het standaardmodel detecteert **personen** en een eventuele bal; het herkent nog geen spelers of scheidsrechters als afzonderlijke klassen.
+FFmpeg/ffprobe en de modelbestanden zijn lokaal voorbereid. Open de lokale URL die Streamlit toont. Het standaardprofiel gebruikt het getrainde `player`/`referee`-model op GPU-device 0. Het afzonderlijke profiel `models-coco-baseline.json` levert alleen generieke personen en een eventuele bal; dat profiel ondersteunt geen spelertelling of spelertracking op basis van rol.
 
 ### Installeren op een tweede Windows-laptop
 

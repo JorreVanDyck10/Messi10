@@ -167,8 +167,12 @@ def test_full_pipeline_loss_recovery_artifacts_cache_and_frame_identity(demo_fix
     for i in (3, 4):
         assert records[i]["detections"][0]["field_position"] is None
         assert records[i]["detections"][0]["projection_status"] == "calibration_unavailable"
+        assert records[i]["player_summary"]["on_field"] is None
+        assert records[i]["detections"][0]["counted_as_player"] is False
     assert records[5]["detections"][0]["field_position"] is not None
+    assert records[5]["player_summary"]["on_field"] == 1
     assert records[8]["detections"] == []
+    assert records[8]["player_summary"]["on_field"] == 0
     assert records[19]["calibration"]["frame_index"] == 19
     assert result.manifest["measurements"]["calibration_usable_fraction"] == 0.9
     portable = load_automatic_calibration(result.directory / "calibration.json")

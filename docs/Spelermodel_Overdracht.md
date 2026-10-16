@@ -1,5 +1,7 @@
 # Van gelabelde data naar spelertracking
 
+**Telregels voor de veldherkenning:** zie [Spelertelling en rollen](Spelertelling_en_Rollen.md). Alleen de rol `player` met een geldig voetpunt binnen het actuele veld telt mee en gaat naar spelertracking. Andere rollen blijven afzonderlijk beschikbaar. De huidige gewichten hebben uitsluitend `player` en de gezamenlijke officialklasse `referee`; extra rolondersteuning in de code betekent nog geen getrainde steward- of supporterherkenning.
+
 **Nieuwe feitelijke overdracht:** zie [het resultatenverslag](Resultaten_Spelermodel.md), `reports/players-experiments/handoff.json`, `configs/models-players.json` en `artifacts/players-v2/players_best.pt`. De gewichten zijn daadwerkelijk getraind met 0=player en 1=referee. AI-review, gedeeltelijke officialdekking en eindtestbeperkingen zijn expliciet vastgelegd. De historische checklist hieronder is geen bewijs van menselijke acceptatie.
 
 ## Oorspronkelijke acceptatieafspraken

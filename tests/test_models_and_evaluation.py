@@ -17,9 +17,11 @@ def test_duplicate_semantic_suppliers_rejected(model_manifest):
         load_model_manifest(path)
 
 
-def test_person_never_becomes_player(model_manifest):
+@pytest.mark.parametrize("role", ["player", "referee", "assistant_referee", "steward", "spectator", "staff"])
+def test_person_never_becomes_a_specialized_role(model_manifest, role):
     path, manifest = model_manifest
     manifest["models"][0]["expected_names"] = {"0": "person"}
+    manifest["models"][0]["class_mapping"] = {"0": role}
     write_json(path, manifest)
     with pytest.raises(PipelineError, match="stilzwijgend"):
         load_model_manifest(path)

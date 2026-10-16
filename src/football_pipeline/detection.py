@@ -4,6 +4,7 @@ import math
 from pathlib import Path
 
 from .contracts import Detection, PipelineError, read_json, sha256_file
+from .participants import GROUND_ROLES
 
 
 def load_model_manifest(path: str | Path) -> dict:
@@ -37,10 +38,12 @@ def load_model_manifest(path: str | Path) -> dict:
             if set(mapping) != set(expected):
                 raise PipelineError("expected_names moet iedere gebruikte bronklasse beschrijven.")
             if any(
-                expected[k].lower() == "person" and value in {"player", "referee"}
+                expected[k].lower() == "person" and value in GROUND_ROLES - {"person"}
                 for k, value in mapping.items()
             ):
-                raise PipelineError("De klasse person mag niet stilzwijgend player of referee worden.")
+                raise PipelineError(
+                    "De klasse person mag niet stilzwijgend player, referee of een andere rol worden."
+                )
             weights_hash = sha256_file(weights)
             if spec.get("weights_sha256") and spec["weights_sha256"] != weights_hash:
                 raise PipelineError(f"Gewichtshash wijkt af van de overdracht voor {identifier}.")

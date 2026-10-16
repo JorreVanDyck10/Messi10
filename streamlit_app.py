@@ -25,7 +25,7 @@ from football_pipeline.geometry import (
 from football_pipeline.model_handoff import available_model_profiles
 from football_pipeline.pipeline import process_video
 from football_pipeline.point_picker import apply_point_click, point_picker
-from football_pipeline.render import calibration_preview
+from football_pipeline.render import LABELS, calibration_preview
 from football_pipeline.video import ROOT, inspect_video, read_frame
 
 st.set_page_config(page_title="Voetbal · tactical map", page_icon=":material/sports_soccer:", layout="wide")
@@ -469,6 +469,22 @@ try:
         st.session_state.tracking = False
         st.session_state.pop("result", None)
     semantic_classes = {value for spec in models["models"] for value in spec["class_mapping"].values()}
+    st.caption(
+        "Dit model onderscheidt: "
+        + ", ".join(LABELS.get(role, role) for role in sorted(semantic_classes))
+        + ". Alleen gedetecteerde spelers met hun voetpunt binnen het geldige veld tellen mee. "
+        "Zonder geldige veldherkenning is het aantal onbekend."
+    )
+    if "steward" not in semantic_classes or "spectator" not in semantic_classes:
+        st.warning(
+            "Dit model heeft nog geen aparte herkenning voor stewards en supporters. "
+            "Als het iemand verkeerd als speler classificeert, kan die binnen het veld toch meetellen."
+        )
+    if models.get("handoff", {}).get("human_review_completed") is False:
+        st.caption(
+            "Dit spelermodel is voorlopig. De menselijke labelreview staat nog open; "
+            "scheidsrechters en lijnrechters worden nog geregeld gemist."
+        )
     if "player" not in semantic_classes:
         st.warning(
             "Dit profiel detecteert personen. Spelertracking vereist een model met expliciete spelerklassen."

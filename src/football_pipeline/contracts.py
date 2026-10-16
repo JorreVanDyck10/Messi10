@@ -73,6 +73,12 @@ class Detection:
     field_position: list[float] | None = None
     projection_status: str = "not_projected"
 
+    @classmethod
+    def from_dict(cls, value: dict) -> Detection:
+        # These fields are derived for export, never authoritative detection inputs.
+        derived = {"counted_as_player", "player_exclusion_reason"}
+        return cls(**{key: item for key, item in value.items() if key not in derived})
+
 
 @dataclass
 class FrameRecord:
@@ -81,11 +87,18 @@ class FrameRecord:
     image_size: tuple[int, int]
     detections: list[Detection] = field(default_factory=list)
     calibration: dict | None = None
+    player_model_available: bool = True
 
     def to_dict(self) -> dict:
+        from .participants import count_exclusion_reason, counted_as_player, player_summary
+
         result = asdict(self)
         if self.calibration is None:
             result.pop("calibration")
+        result["player_summary"] = player_summary(self)
+        for detection, serialized in zip(self.detections, result["detections"]):
+            serialized["counted_as_player"] = counted_as_player(self, detection)
+            serialized["player_exclusion_reason"] = count_exclusion_reason(self, detection)
         return result
 
 
