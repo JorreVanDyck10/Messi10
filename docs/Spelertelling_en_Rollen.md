@@ -1,6 +1,6 @@
 # Spelers tellen met rolherkenning en veldherkenning
 
-**Actuele uitbreiding:** [R007 gebruikt nu een werkelijk getrainde aanvullende rolclassifier en teamindeling](Resultaten_Rollen_en_Teams.md). De paragraaf hieronder over twee uitvoerklassen beschrijft de behouden P004-basisdetector. Het standaardprofiel combineert die met een persoonsdetector en zes classifieruitgangen: `player`, `referee`, `assistant_referee`, `steward`, `spectator`, `person`. De regel dat locatie op zichzelf geen spelersrol bewijst, blijft gelden. De nieuwe metingen vervangen geen menselijke review of onafhankelijke eindtest.
+**Actuele uitbreiding:** [R007 gebruikt nu een werkelijk getrainde aanvullende rolclassifier en teamindeling](Resultaten_Rollen_en_Teams.md), gekozen met `-Recognition players`. De paragraaf hieronder over twee uitvoerklassen beschrijft de behouden P004-basisdetector. Het rolprofiel combineert die met een persoonsdetector en zes classifieruitgangen: `player`, `referee`, `assistant_referee`, `steward`, `spectator`, `person`. De algemene persoonsroute van persoon 2 blijft daarnaast beschikbaar. Locatie op zichzelf bewijst geen spelersrol. De nieuwe metingen vervangen geen menselijke review of onafhankelijke eindtest.
 
 De telling gebruikt twee verschillende voorspellingen: **welke rol de detector geeft** en **of het voetpunt binnen het geldige veld ligt**. Een steward op het veld blijft een steward als de detector die rol correct aanlevert. De veldlocatie verandert de rol nooit automatisch in `player`.
 
@@ -78,6 +78,6 @@ De ruwe detectoroverdracht van persoon 1 in `reports/handoff/players-v2` bevat n
 
 De regressietests controleren rollen binnen het veld, spelers buiten het veld, lage scores, lege frames, veldverlies/herstel, veranderende framegeometrie, afgesneden voeten en de detectie-indexen van de echte ByteTrack-implementatie. De volledige verwerkingsproeven gebruiken expliciet synthetische detectoruitvoer en echte video-encoding. Zij bewijzen de telregels en softwarekoppeling, geen nauwkeurigheid voor stewards of supporters.
 
-De oorspronkelijke filtercontrole slaagde met 162 tests en 4 subtests. De uitgebreide rol-/teamversie slaagt met **169 tests en 4 subtests**; de actuele uitvoer staat in `reports/appearance-experiments/software-tests.xml`. De eerdere uitvoer onder `reports/players-experiments/field-role-*` blijft historische software-evidence. Ruff en de dependencycontrole slagen eveneens.
+De oorspronkelijke filtercontrole slaagde met 162 tests en 4 subtests. De uitgebreide rol-/teamversie slaagt met **199 tests en 4 subtests**; de actuele uitvoer staat in `reports/appearance-experiments/software-tests.xml`. De eerdere uitvoer onder `reports/players-experiments/field-role-*` blijft historische software-evidence. Ruff en de dependencycontrole slagen eveneens.
 
 De extra training en overdracht zijn nu uitgevoerd. De totale selectie omvat 80 bronbeelden; menselijke review, betere supporter-/officialdekking en onafhankelijke eindevaluatie blijven open. De bestaande eindtestbeperking blijft gelden; bestaande gereserveerde beelden worden niet opnieuw als onaangeroerde eindtest voorgesteld.

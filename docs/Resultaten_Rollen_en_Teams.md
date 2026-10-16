@@ -1,6 +1,6 @@
 # Getrainde rolherkenning en teams — R007
 
-De standaardpipeline gebruikt nu werkelijk getrainde aanvullende rol- en teamherkenning. Zij onderscheidt spelers, scheidsrechters, lijnrechters, stewards, supporters en personen met een onduidelijke rol. Spelers krijgen Team A, Team B of team onbekend. Dit is experimenteel: vooral supporters, kleine centrale officials en afwijkende doelmankleding blijven zwak. Alle aanvullende labels zijn door AI gecontroleerd; menselijke review is niet nagebootst.
+Het rolprofiel `configs/models-players.json` gebruikt nu werkelijk getrainde aanvullende rol- en teamherkenning. Het onderscheidt spelers, scheidsrechters, lijnrechters, stewards, supporters en personen met een onduidelijke rol. Spelers krijgen Team A, Team B of team onbekend. Dit is experimenteel: vooral supporters, kleine centrale officials en afwijkende doelmankleding blijven zwak. Alle aanvullende labels zijn door AI gecontroleerd; menselijke review is niet nagebootst.
 
 ## Modellen en echte klassen
 
@@ -122,10 +122,12 @@ Een opnieuw gecodeerd ontwikkelfragment heeft een nieuwe video-identiteit en act
 Na `git pull` en `git lfs pull`:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/Start-Spelermodel.ps1
+powershell -ExecutionPolicy Bypass -File scripts/Start-Spelermodel.ps1 -Recognition players
 ```
 
-De standaardprofielen zijn `configs/models.json` en `configs/models-players.json`. Het oude tweeklassenprofiel blijft `configs/models-players-base.json`; de uitsnedenproef is `configs/models-roles-tiles.json`. CPU-fallback: `Start-Spelermodel.ps1 -Device cpu`.
+Het R007-rolprofiel is `configs/models-players.json`. Het algemene standaardprofiel `configs/models.json` en `configs/models-persons.json` blijven de door persoon 2 op de 4050 gecontroleerde persoonsroute gebruiken. Het oude tweeklassenprofiel blijft `configs/models-players-base.json`; de uitsnedenproef is `configs/models-roles-tiles.json`. CPU-fallback voor rollen: `Start-Spelermodel.ps1 -Recognition players -Device cpu`.
+
+Tijdens afronding zijn de nieuwe velddata-/trainingscode en RTX 4050-controles van persoon 2 samengevoegd. Zijn Broadcast-records betreffen de algemene persoonsdetector en oorspronkelijke P004-detector. De aanvullende R007-classifier is nog niet op die Broadcast-clip of de 4050 gemeten; de eerdere tekortkomingen zijn behouden als waarschuwing en niet als nieuwe R007-evaluatie voorgesteld.
 
 De geselecteerde trainingsroute herhalen met een nieuwe runmap:
 
@@ -140,3 +142,5 @@ De training gebruikt de geleverde R004-seed en bronbeelden uit Git LFS en oversc
 `player_summary.teams` verdeelt uitsluitend de werkelijk meegetelde veldspelers over A, B en onbekend; samen vormen zij het veldtotaal. Bij ongeldige veldherkenning blijft ook die verdeling onbekend. Replay bewaart de modeluitvoer voor rol/team en herberekent geometrie, telling en tracking. De bestaande MVP-acceptatie en blokkade op automatische cameratracking blijven gelden.
 
 De softwaretests en echte modelmetingen zijn afzonderlijk bewaard. Menselijke labelreview, onafhankelijke projecteindtest en beoordeling op de 4050 blijven open.
+
+De samengevoegde versie slaagt met **199 tests en 4 subtests**, inclusief de nieuwste veldtraining en GPU-/persoonscontroles van persoon 2. Ruff, formatting en dependencycontrole slagen. Zie `reports/appearance-experiments/software-validation.json`.

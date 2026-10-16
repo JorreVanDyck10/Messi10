@@ -29,6 +29,10 @@ PLAYER_POLICY = {
 def player_exclusion_reason(detection: Detection, image_size: tuple[int, int]) -> str | None:
     if detection.semantic_class != "player":
         return "not_player"
+    return field_exclusion_reason(detection, image_size)
+
+
+def field_exclusion_reason(detection: Detection, image_size: tuple[int, int]) -> str | None:
     if not valid_box(detection, image_size):
         return "invalid_box"
     if detection.projection_status != "valid":
@@ -95,6 +99,14 @@ def player_summary(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
         else len(players),
         "other_roles": dict(Counter(d.semantic_class for d in visible if d.semantic_class != "player")),
         "teams": {name: teams[name] for name in ("team_a", "team_b", "unknown")} if available else None,
+        "persons_on_field": sum(
+            field_exclusion_reason(d, record.image_size) is None
+            for d in visible
+            if d.semantic_class == "person"
+        )
+        if field_available(record)
+        else None,
+        "visible_person_candidates": sum(d.semantic_class == "person" for d in visible),
         "display_confidence": confidence,
         "include_matched_low_confidence": True,
     }

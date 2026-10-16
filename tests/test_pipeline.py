@@ -92,6 +92,33 @@ def test_only_one_processing_job_per_root(tmp_path):
             pass
 
 
+def test_unavailable_detector_gpu_fails_before_field_worker(demo_fixture, tmp_path, monkeypatch):
+    import torch
+
+    from football_pipeline import pipeline
+    from football_pipeline.contracts import write_json
+
+    models = read_json(demo_fixture["models"])
+    models["models"][0]["device"] = "0"
+    profile = tmp_path / "gpu-models.json"
+    # Resolve weights before relocating the manifest.
+    from football_pipeline.detection import load_model_manifest
+
+    resolved = load_model_manifest(demo_fixture["models"])
+    models["models"][0]["weights"] = resolved["models"][0]["weights"]
+    write_json(profile, models)
+    monkeypatch.setattr(torch.cuda, "is_available", lambda: False)
+
+    def forbidden_worker(*args, **kwargs):
+        raise AssertionError("The field worker must not start for an unusable detector profile")
+
+    monkeypatch.setattr(pipeline, "prepare_automatic_calibration", forbidden_worker)
+    with pytest.raises(PipelineError, match="CUDA-GPU"):
+        process_video(
+            demo_fixture["video"], None, profile, tmp_path / "runs", field_runtime_path=tmp_path / "unused"
+        )
+
+
 def test_tracking_pipeline_preserves_empty_frame_without_predicted_position(
     demo_fixture, tmp_path, monkeypatch
 ):

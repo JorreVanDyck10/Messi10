@@ -1,0 +1,141 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-10-16T20:40:02.921690+00:00",
+  "run_directory": "C:\\Messi10\\runs\\45000b200bbc046b7af6205ce2b72057059ac49d4bffdad15b0a2860ee2ddcdc",
+  "video_sha256": "6cdaf4089cb578636bc4773bde0ebdc1e68b8554e169d413e855bdf144780f4a",
+  "model_profile": "C:\\Messi10\\configs\\models.json",
+  "models": [
+    {
+      "model_id": "coco-persons-1920",
+      "weights": "C:\\Messi10\\models\\yolo11n.pt",
+      "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+      "class_mapping": {
+        "0": "person"
+      },
+      "expected_names": {
+        "0": "person"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    }
+  ],
+  "inference_reused_from": "runs\\d8ec65eaa9c6b8e1be57d800bcf40a369f19b717e4c93961cf9658dbe45d15a7",
+  "original_inference_measurements": {
+    "processed_frames": 1239,
+    "runtime_s": 140.5064754999985,
+    "processing_fps": 8.818098920999647,
+    "inference_or_replay_s": 91.02354769982048,
+    "tracking_s": 0.0,
+    "peak_process_ram_bytes_sampled": 1334829056,
+    "peak_gpu_allocated_bytes": 343633408,
+    "projection_counts": {
+      "calibration_unavailable": 31412,
+      "valid": 5828,
+      "outside_field": 3494,
+      "truncated_bottom": 1
+    },
+    "calibration_preparation_s": 1.6999983927235007e-06,
+    "calibration_status_counts": {
+      "insufficient_points": 743,
+      "insufficient_controls": 66,
+      "inconsistent_controls": 95,
+      "inconsistent_points": 17,
+      "orientation_unknown": 3,
+      "valid": 251,
+      "motion_semantic_disagreement": 30,
+      "degenerate_geometry": 27,
+      "motion_line_disagreement": 1,
+      "inconsistent_lines": 2,
+      "invalid_observation": 4
+    },
+    "calibration_usable_fraction": 0.20258272800645682
+  },
+  "semantic_classes": [
+    "person"
+  ],
+  "dependencies": {
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "opencv-python": "4.11.0.86",
+    "numpy": "2.2.6",
+    "psutil": "7.2.2",
+    "lap": "0.5.13"
+  },
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "audit": {
+    "frames": 1239,
+    "detections_by_role": {
+      "person": 40735
+    },
+    "displayed_detections_by_role": {
+      "person": 23671
+    },
+    "projection_status_counts": {
+      "calibration_unavailable": 31412,
+      "valid": 5828,
+      "outside_field": 3494,
+      "truncated_bottom": 1
+    },
+    "unknown_player_count_frames": 1239,
+    "empty_detection_frames": 0,
+    "unknown_person_count_frames": 988,
+    "known_person_count_min_median_max": [
+      13,
+      18.0,
+      29
+    ],
+    "known_player_count_min_median_max": null,
+    "checks": [
+      "source_coordinates",
+      "finite_confidence",
+      "normalized_field_positions",
+      "role_and_field_count_filter",
+      "unknown_count_without_field",
+      "frame_synchronization",
+      "h264_encoding",
+      "artifact_hashes"
+    ]
+  },
+  "measurements": {
+    "processed_frames": 1239,
+    "runtime_s": 45.43386499999906,
+    "processing_fps": 27.27040721717216,
+    "inference_or_replay_s": 0.4320407999693998,
+    "tracking_s": 0.0,
+    "peak_process_ram_bytes_sampled": 633700352,
+    "peak_gpu_allocated_bytes": 0,
+    "projection_counts": {
+      "calibration_unavailable": 31412,
+      "valid": 5828,
+      "outside_field": 3494,
+      "truncated_bottom": 1
+    },
+    "calibration_preparation_s": 1.1999945854768157e-06,
+    "calibration_status_counts": {
+      "insufficient_points": 743,
+      "insufficient_controls": 66,
+      "inconsistent_controls": 95,
+      "inconsistent_points": 17,
+      "orientation_unknown": 3,
+      "valid": 251,
+      "motion_semantic_disagreement": 30,
+      "degenerate_geometry": 27,
+      "motion_line_disagreement": 1,
+      "inconsistent_lines": 2,
+      "invalid_observation": 4
+    },
+    "calibration_usable_fraction": 0.20258272800645682
+  },
+  "human_accuracy_reference": null,
+  "tracking_enabled": false,
+  "limitations": [
+    "Technical integration check; no new detection accuracy score.",
+    "Automatic-camera player IDs remain disabled pending camera-motion validation.",
+    "Only the recorded model classes are recognized; no individual identity or team recognition."
+  ]
+}

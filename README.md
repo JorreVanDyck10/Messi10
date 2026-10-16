@@ -1,8 +1,12 @@
-> **Rollen en teams toegevoegd:** het standaardprofiel voert nu een werkelijk getrainde aanvullende rolclassifier en teamindeling uit. Spelers, scheidsrechters, lijnrechters, stewards, supporters en onduidelijke personen krijgen afzonderlijke uitvoer; spelers kunnen Team A/B krijgen. Supporters en kleine officials blijven zwak. [Echte metingen, starten en beperkingen](docs/Resultaten_Rollen_en_Teams.md).
+> **Rollen en teams toegevoegd:** kies het R007-rolprofiel of start met `scripts/Start-Spelermodel.ps1 -Recognition players`. Dit voert werkelijk getrainde aanvullende rol- en teamherkenning uit. Supporters en kleine officials blijven zwak. De op de 4050 gecontroleerde algemene persoonsherkenning van persoon 2 blijft de standaard voor zijn veldproef. [Echte rolmetingen en beperkingen](docs/Resultaten_Rollen_en_Teams.md).
 
 De bestaande tweeklassen-P004-detector blijft de basis. Zijn historische speler-validatie is AP@50 74,50% en AP@50:95 26,55%; dit is geen score voor de volledige nieuwe rolpipeline. [Oorspronkelijke detectorresultaten](docs/Resultaten_Spelermodel.md).
 
-Start het geleverde GPU-profiel met `scripts/Start-Spelermodel.ps1`. In een bestaande CPU-omgeving gebruik je expliciet `scripts/Start-Spelermodel.ps1 -Device cpu`; de rechtstreekse Streamlit-start hieronder neemt het standaardprofiel met GPU-device 0 over.
+Start de persoonsherkenning met `scripts/Start-Spelermodel.ps1`. Het rolmodel kies je in de app of met `-Recognition players`. Voor CPU gebruik je expliciet `-Device cpu`; de rechtstreekse Streamlit-start hieronder gebruikt GPU-device 0.
+
+De lokale combinatie van spelerherkenning en veldprojectie wordt beschreven in
+[Spelerintegratie op de 4050](docs/Spelerintegratie_4050.md), inclusief de GPU-controle
+en een herhaalbare integratiecheck op een volledige clip.
 
 **Spelertelling en veldherkenning:** alleen voorspelde spelers met hun voetpunt binnen het geldige veld tellen mee. Andere rollen blijven afzonderlijk zichtbaar. Bij ontbrekende veldherkenning is het aantal onbekend. De aanvullende rolclassifier is echt getraind, maar kan nog verkeerde rollen geven. [Telregels en beperkingen](docs/Spelertelling_en_Rollen.md).
 
@@ -34,7 +38,7 @@ Voer vanuit de projectmap uit:
 .\.venv\Scripts\python.exe -m streamlit run streamlit_app.py
 ```
 
-FFmpeg/ffprobe en de modelbestanden zijn lokaal voorbereid. Open de lokale URL die Streamlit toont. Het standaardprofiel gebruikt het getrainde `player`/`referee`-model op GPU-device 0. Het afzonderlijke profiel `models-coco-baseline.json` levert alleen generieke personen en een eventuele bal; dat profiel ondersteunt geen spelertelling of spelertracking op basis van rol.
+FFmpeg/ffprobe en de modelbestanden zijn lokaal voorbereid. Open de lokale URL die Streamlit toont. Het standaardprofiel toont personen op GPU-device 0, met onbekende rollen. Het afzonderlijke profiel `models-players.json` gebruikt het getrainde `player`/`referee`-model. Een personendetector ondersteunt geen spelertelling of spelertracking op basis van rol; de minimap kan wel personen met een geldige veldpositie tonen en tellen.
 
 ### Installeren op een tweede Windows-laptop
 
@@ -74,6 +78,11 @@ Naast de handmatige modus is er **Automatische veldkalibratie**. Een afzonderlij
 Eenmalig met Python 3.11: `python scripts/setup_field_model.py`. Kies vervolgens de automatische modus na het uploaden van een MP4, vul videobron en toegelaten gebruik in en klik op **Verwerken**. Dit gebruikt een aparte omgeving en verandert de trainingsomgeving van persoon 1 niet. De bestaande spelersmodeloverdracht blijft gelden.
 
 Zie [Automatische veldkalibratie](docs/Automatische_Veldkalibratie.md) voor CLI-gebruik, modelherkomst, technische proef, uitvoerformaat en onafhankelijke evaluatie. De implementatie en technische bruikbaarheid vormen geen bewijs van algemene nauwkeurigheid op wedstrijdbeelden.
+
+Voor extra velddata en echte lokale fine-tuning op Windows: zie
+[Veldmodeltraining](docs/Veldmodel_Training.md). Deze route verzamelt SoccerNet en
+officiële highlights binnen 20 GiB, houdt ongecontroleerde voorstellen buiten de
+training en vergelijkt eigen punten- en lijngewichten met de bestaande modellen.
 
 De nieuwe [Broadcast-veldtest](docs/Broadcast_Veldexperiment.md) verbetert de
 intern bruikbare kalibraties van 0 naar **252/1.239 frames (20,3%)** met gecontroleerde

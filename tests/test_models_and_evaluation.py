@@ -3,7 +3,7 @@ from copy import deepcopy
 import pytest
 
 from football_pipeline.contracts import PipelineError, write_json
-from football_pipeline.detection import load_model_manifest
+from football_pipeline.detection import load_model_manifest, validate_detection_devices
 from football_pipeline.evaluation import evaluate_frames
 
 
@@ -40,6 +40,26 @@ def test_non_object_manifest_is_an_actionable_error(tmp_path):
     path.write_text("[]", encoding="utf-8")
     with pytest.raises(PipelineError, match="JSON-object"):
         load_model_manifest(path)
+
+
+@pytest.mark.parametrize("device", ["0", "cuda", "cuda:0", "0,1"])
+def test_cuda_profile_explains_cpu_environment_before_inference(monkeypatch, device):
+    import torch
+
+    monkeypatch.setattr(torch.cuda, "is_available", lambda: False)
+    with pytest.raises(PipelineError, match="Start-Spelermodel.ps1 -Device cpu"):
+        validate_detection_devices({"models": [{"model_id": "players", "device": device}]})
+
+
+def test_explicit_cpu_and_available_cuda_devices(monkeypatch):
+    import torch
+
+    monkeypatch.setattr(torch.cuda, "is_available", lambda: True)
+    monkeypatch.setattr(torch.cuda, "device_count", lambda: 1)
+    validate_detection_devices({"models": [{"model_id": "players", "device": "cpu"}]})
+    validate_detection_devices({"models": [{"model_id": "players", "device": "cuda:0"}]})
+    with pytest.raises(PipelineError, match="GPU 1"):
+        validate_detection_devices({"models": [{"model_id": "players", "device": "1"}]})
 
 
 def test_evaluation_switches_takeovers_gaps_and_full_occlusion():

@@ -99,6 +99,10 @@ def render_frame(
     summary = player_summary(record, display_confidence)
     count = summary["on_field"]
     count_label = "Spelers op veld: onbekend" if count is None else f"Spelers op veld: {count} (detecties)"
+    if not record.player_model_available:
+        persons = summary["persons_on_field"]
+        count_label = "Personen op veld: onbekend" if persons is None else f"Personen op veld: {persons}"
+        count_label += " (rollen onbekend)"
     label(pitch, count_label, (40, 120), scale=0.6)
     if summary["teams"] is not None:
         teams = summary["teams"]
@@ -153,7 +157,7 @@ def render_frame(
     present_roles = {d.semantic_class for d in record.detections}
     legend = []
     for role in COLORS:
-        if role not in present_roles and role != "player":
+        if role not in present_roles and not (role == "player" and record.player_model_available):
             continue
         if role == "player" and any(d.team_id in TEAM_COLORS for d in record.detections):
             legend.extend(

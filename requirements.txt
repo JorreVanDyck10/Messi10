@@ -1,5 +1,6 @@
-# Persoon 1: Python 3.12 data/model/training environment.
-# Persoon 2: install requirements.lock in a separate Python 3.11 checkout/environment.
+# Shared application and player model environment: Python 3.11 or 3.12.
+# The field model/trainer retains its own isolated environment under .tools.
+# requirements.lock is a CPU-only alternative, not an overlay for this GPU environment.
 # Install the CUDA build of torch/torchvision first; see README.md.
 torch==2.6.0
 torchvision==0.21.0

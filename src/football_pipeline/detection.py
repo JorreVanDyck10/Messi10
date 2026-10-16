@@ -114,10 +114,33 @@ def merge_person_proposals(detections, overlap=0.5):
     return kept + [d for d in detections if d.semantic_class not in GROUND_ROLES]
 
 
+def validate_detection_devices(manifest: dict) -> None:
+    """Fail before expensive field inference when a requested CUDA device is unavailable."""
+    import torch
+
+    for spec in [*manifest["models"], *([manifest["appearance"]] if manifest.get("appearance") else [])]:
+        device = str(spec.get("device", "cpu")).lower().strip()
+        if device == "cuda":
+            device = "0"
+        elif device.startswith("cuda:"):
+            device = device[5:]
+        if not device.replace(",", "").isdigit():
+            continue
+        indices = [int(index) for index in device.split(",") if index]
+        if not torch.cuda.is_available() or any(index >= torch.cuda.device_count() for index in indices):
+            raise PipelineError(
+                f"Model {spec['model_id']} vraagt GPU {device}, maar deze Python-omgeving "
+                f"heeft geen beschikbare bijbehorende CUDA-GPU (PyTorch {torch.__version__}). "
+                "Voer scripts\\Setup-Persoon1.ps1 uit voor de GPU-omgeving, of start expliciet "
+                "scripts\\Start-Spelermodel.ps1 -Device cpu."
+            )
+
+
 class UltralyticsDetector:
     def __init__(self, manifest: dict):
         from ultralytics import YOLO
 
+        validate_detection_devices(manifest)
         self.manifest = manifest
         self.models = []
         self.video_hash = ""

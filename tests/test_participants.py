@@ -74,3 +74,11 @@ def test_generic_person_profile_has_no_available_player_count(calibration):
     assert record.to_dict()["player_summary"]["status"] == "player_model_unavailable"
     assert record.to_dict()["player_summary"]["on_field"] is None
     assert record.to_dict()["player_summary"]["other_roles"] == {"person": 1}
+    assert record.to_dict()["player_summary"]["persons_on_field"] == 1
+    assert not record.to_dict()["detections"][0]["counted_as_player"]
+    # Generic people have a separate geometric count, never a player role.
+    record.calibration = {"status": "insufficient_points"}
+    assert record.to_dict()["player_summary"]["persons_on_field"] is None
+    record.calibration = {"status": "valid"}
+    detection.field_position = [1.1, 0.5]
+    assert record.to_dict()["player_summary"]["persons_on_field"] == 0

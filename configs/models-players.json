@@ -44,7 +44,10 @@
     "detector_evaluation_record": "../reports/players-experiments/EXP-P004/validation-metrics/metrics.json",
     "detector_evaluation_sha256": "2b725cbb140f22297f5e397e5277ad51f17c957ac109f55ebdee56c3f1f7c240",
     "evaluation_kind": "Conditional ground-truth crop classification, not end-to-end detection AP",
-    "team_scope": "Two explicitly labelled matches; neutral automatic kit clusters for other video identities, no unseen-match accuracy claim"
+    "team_scope": "Two explicitly labelled matches; neutral automatic kit clusters for other video identities, no unseen-match accuracy claim",
+    "broadcast_transfer_adequate": false,
+    "broadcast_validation_record": "../reports/player-pipeline-4050.json",
+    "broadcast_validation_scope": "Historical P004-only record; R007 classifier is not measured on this clip"
   },
   "appearance": {
     "model_id": "appearance-r007",

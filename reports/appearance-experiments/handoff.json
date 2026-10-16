@@ -44,7 +44,7 @@
     }
   },
   "runtime_profile": "configs/models-players.json",
-  "profile_sha256": "6a7b89638b99416b7350218acb8714261f9a5733a6af2d5d3d5a3d898562937d",
+  "profile_sha256": "679f19324989d8e3c845e4fd9af77316040687efbb7847e5efe7848cc36ba035",
   "dataset_manifest": "datasets/roles-teams-v1/manifest.json",
   "dataset_sha256": "3148976f198dfd9b5fd8a2a60240966d24e1d6f38ebef1cbdf8bfaeabbe0e668",
   "conditional_classification_metrics": "reports/appearance-experiments/EXP-R007/metrics.json",
@@ -120,5 +120,17 @@
       "streamlit_app.py": "7f0d940cccaca229f4133ac065eb2dd6b349b75dfb5bce473f34161d7eb7e19f",
       "pyproject.toml": "84b294023e07584324ee385b581fab9c226e3cefb50a6c4e5f3fb5852a784942"
     }
-  }
+  },
+  "role_launch_command": "powershell -ExecutionPolicy Bypass -File scripts/Start-Spelermodel.ps1 -Recognition players",
+  "default_profile": "configs/models.json remains person-only to preserve the latest verified field pipeline",
+  "retained_p004_weights": {
+    "path": "artifacts/players-v2/players_best.pt",
+    "sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498"
+  },
+  "historical_4050_verification": {
+    "record": "reports/player-pipeline-4050.json",
+    "scope": "P004 detector only; does not verify the additional R007 classifier on RTX4050 or Broadcast"
+  },
+  "merged_main": "4844567",
+  "software_validation": "reports/appearance-experiments/software-validation.json"
 }
