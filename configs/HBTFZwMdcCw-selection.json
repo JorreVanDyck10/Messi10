@@ -1,0 +1,18 @@
+{
+  "names": ["person", "ball"],
+  "minimum_split_gap_s": 6.0,
+  "status": "candidate_frames_not_final_approved_dataset",
+  "generalisation": "New time windows in this one fixed-camera video; no claim about other matches",
+  "windows": [
+    {"group_id": "dev-00", "split": "train", "start_s": 0, "end_s": 6, "every_s": 1, "reason": "Predefined development group; difficulty and labels pending review"},
+    {"group_id": "dev-14", "split": "train", "start_s": 14, "end_s": 20, "every_s": 1, "reason": "Predefined development group; difficulty and labels pending review"},
+    {"group_id": "dev-28", "split": "train", "start_s": 28, "end_s": 34, "every_s": 1, "reason": "Predefined development group; difficulty and labels pending review"},
+    {"group_id": "dev-42", "split": "train", "start_s": 42, "end_s": 48, "every_s": 1, "reason": "Predefined development group; difficulty and labels pending review"},
+    {"group_id": "dev-56", "split": "train", "start_s": 56, "end_s": 62, "every_s": 1, "reason": "Predefined development group; difficulty and labels pending review"},
+    {"group_id": "dev-70", "split": "train", "start_s": 70, "end_s": 76, "every_s": 1, "reason": "Predefined development group; difficulty and labels pending review"},
+    {"group_id": "val-84", "split": "val", "start_s": 84, "end_s": 90, "every_s": 1, "reason": "Validation group reserved before model inference"},
+    {"group_id": "val-98", "split": "val", "start_s": 98, "end_s": 104, "every_s": 1, "reason": "Validation group reserved before model inference"},
+    {"group_id": "test-112", "split": "test", "start_s": 112, "end_s": 118, "every_s": 1, "reason": "Held-out candidate group; do not use for tuning"},
+    {"group_id": "test-126", "split": "test", "start_s": 126, "end_s": 132, "every_s": 1, "reason": "Held-out candidate group; do not use for tuning"}
+  ]
+}

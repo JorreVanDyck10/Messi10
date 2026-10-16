@@ -68,3 +68,9 @@ Alle Python-versies, inclusief indirecte dependencies en testtools, staan vast i
 - Een geslaagde GitHub Actions-run; de status daarvan moet afzonderlijk op GitHub worden gecontroleerd.
 
 Volg voor die onderdelen de nog openstaande checklist in `acceptance.md`. De productiepoort voor tracking is niet automatisch geaccepteerd; alleen de technische test stubt die grens expliciet.
+
+## Integratie met het werkpakket van persoon 1
+
+Op 16 oktober 2026 is de bijgewerkte `main` met het werkpakket van persoon 1 in `codex/pipeline-minimap` geïntegreerd. De conflicten in README, ignore-regels en requirements zijn gecombineerd met behoud van beide werkpakketten. `requirements.txt` en `requirements-lock.txt` blijven de trainingsomgeving van persoon 1 beschrijven; `requirements.lock` blijft de afzonderlijke CPU-pipelineomgeving. De gezamenlijke README legt uit dat deze verschillende omgevingen in eigen checkouts worden gebruikt.
+
+De volledige gecombineerde testsuite slaagde: **65 passed, 4 subtests passed**. Er waren 33 bestaande Pillow-deprecatiewaarschuwingen in de tests van persoon 1; geen testfouten. De pipelineomgeving kreeg PyAV 16.0.1 als testdependency voor de overgenomen videotests. De productie-instellingen van persoon 1 zijn niet veranderd. Ruff en de formaatcontrole slagen binnen het bestaande pipelinebereik; de formattering van de overgenomen persoon-1-code blijft behouden.

@@ -19,3 +19,7 @@ Technische API-aannames zijn gecontroleerd tegen de geïnstalleerde Streamlit-sk
 Het team moet de code reviewen en zelfstandig kunnen uitleggen, echte beelden en spelergewichten kiezen, brongebruik bevestigen, annotaties en splits beoordelen, echte metrics produceren en onafhankelijke eindclaims onderbouwen. De AI heeft geen menselijke review, tweede-laptopcontrole, handmatige voetbaltrackingreferenties of mondelinge verdediging gesimuleerd.
 
 Bewaar volgende echte prompts op het moment van gebruik, met doel, overgenomen/verworpen suggesties, eigen wijzigingen en controles. De uiteindelijke disclosure kan pas drie tot vijf representatieve prompts bevatten zodra die werkelijk bestaan.
+
+## Integratiehulp
+
+De gebruiker vroeg op 16 oktober 2026 letterlijk: **"fix de merge conflicts"**. Codex heeft de conflicten tussen `codex/pipeline-minimap` en de bijgewerkte `main` onderzocht, beide README-werkpakketten samengevoegd, ignore-regels gecombineerd en de afzonderlijke trainings-/pipeline-dependencies behouden. De gezamenlijke testsuite, lint en formaatcontrole zijn uitgevoerd; het resultaat staat in `validation.md`. Deze technische controle is geen vervanging voor menselijke inhoudelijke review.

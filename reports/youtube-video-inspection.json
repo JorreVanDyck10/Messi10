@@ -1,0 +1,16 @@
+{
+  "video_id": "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+  "file": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\videos\\HBTFZwMdcCw.mp4",
+  "recorded_at": "2026-10-16T10:59:23.950675+00:00",
+  "width": 3840,
+  "height": 960,
+  "declared_fps": "25",
+  "container_duration_s": 140.712925,
+  "camera_approved": false,
+  "source_approved": false,
+  "decoded_frames": 3515,
+  "last_timestamp_s": 140.56,
+  "observed_frame_intervals_s": [
+    0.04
+  ]
+}

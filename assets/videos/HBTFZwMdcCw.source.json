@@ -1,0 +1,16 @@
+{
+  "source_url": "https://www.youtube.com/watch?v=HBTFZwMdcCw",
+  "youtube_id": "HBTFZwMdcCw",
+  "title": "Panoramic video of the football pitch",
+  "uploader": "PANORIS",
+  "duration_metadata_s": 141,
+  "downloaded_at": "2026-10-16T10:54:26.254702+00:00",
+  "selection": "User supplied this source and requested inclusion in GitHub",
+  "file": "HBTFZwMdcCw.mp4",
+  "sha256": "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+  "bytes": 130034094,
+  "format": "Original VP9 video and AAC audio remuxed to MP4, no spatial resizing",
+  "license_metadata": null,
+  "camera_geometry_review": "pending",
+  "test_exposure": "No model inference on this source yet"
+}

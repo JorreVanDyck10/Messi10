@@ -10,3 +10,8 @@ data/
 runs/
 artifacts/
 requirements.lock.tmp
+.cache/
+models/
+output/
+!docs/**
+/reports/*.png

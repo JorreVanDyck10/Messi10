@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1", "av==16.0.1"]
 
 [project.scripts]
 football-minimap = "football_pipeline.cli:main"
@@ -28,6 +28,8 @@ pythonpath = ["src", "."]
 
 [tool.ruff]
 line-length = 110
+# Preserve the incoming person-1 formatting policy; its tests still run in the full pytest suite.
+extend-exclude = ["persoon1", "tests/test_person1.py", "tests/test_video_and_mapping.py"]
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "UP", "I"]
