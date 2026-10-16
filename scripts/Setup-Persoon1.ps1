@@ -36,7 +36,7 @@ try {
     }
     & $runtimePython -m persoon1 doctor --output reports/environment-local.json
     if ($LASTEXITCODE -ne 0) { throw 'De omgevingscontrole is mislukt.' }
-    Write-Host 'Klaar. Start daarna scripts\Start-Persoon1.ps1.'
+    Write-Host 'Klaar. Start het geleverde spelermodel met scripts\Start-Spelermodel.ps1.'
 } finally {
     Pop-Location
 }

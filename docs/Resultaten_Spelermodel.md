@@ -128,4 +128,6 @@ De referentierun met freeze 10 is beschikbaar via `-TrainingConfig configs/train
 
 ## 9. Grenzen van de oplevering
 
+Na het samenvoegen met de nieuwste veldkalibratie zijn **146 softwaretests en 4 subtests geslaagd**, zonder failures, errors of skips. De broncontrole en pakketcontrole slagen ook. Het [testrecord](../reports/players-experiments/software-validation.json) verwijst met hash naar de volledige testuitslag. Dit zijn softwarecontroles; de echte validatie-mAP staat afzonderlijk hierboven.
+
 Werkelijke fine-tuning, validatie, modelselectie, bronregistratie en detectorintegratie zijn uitgevoerd. Open blijven: onafhankelijke menselijke annotatiebetrouwbaarheid, volledige verre officialdekking, een onaangeroerde eindtest op een nieuwe groep, brongebonden kalibratiecontrole, echte geïntegreerde MVP-review en later gecontroleerde trackingidentiteiten. De oorspronkelijke balexperimenten zijn apart bewaard in [het balverslag](Resultaten_Balexperimenten.md); hun negatieve validatie-uitkomst wordt niet verborgen.
