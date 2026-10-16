@@ -98,3 +98,32 @@ Daarna zijn via **Pilotpunten invullen** de bestaande suggesties geladen en op r
 Het nieuwe commando `register-player-model` controleert de gewichtenmetadata, expliciete klassemapping, confidence, hashes en het reguliere modelcontract. Tests gebruiken herkenbaar gesimuleerde spelersmetadata; een echte registratiepoging met `weights/yolo11n.pt` is afgewezen met de bestaande person→player-controle en heeft geen spelersprofiel achtergelaten. Er is geen getraind voetbalmodel bijgemaakt of als beschikbaar voorgesteld.
 
 AppTest controleert dat wisselen van modelprofiel tracking uitzet en een oud resultaat niet opnieuw toont of verwerking start. De bestaande tracking- en MVP-poorten blijven gelden. Na deze toevoeging slagen **96 tests en 4 subtests**, met dezelfde 33 bestaande Pillow-waarschuwingen; lint, formattering en diffcontrole slagen. De echte spelertrackingrun wacht op getrainde spelersgewichten en menselijke MVP-review volgens `Spelermodel_Overdracht.md`.
+
+## Gecontroleerde veldherkenning en camerabeweging
+
+De uiteindelijke softwareversie slaagt met **141 tests en 4 subtests**, 33 bestaande
+Pillow-waarschuwingen en geen fouten. Ruff, formaatcontrole (43 Python-bestanden)
+en diffcontrole slagen. De tests omvatten aparte punt-/lijncontroles, uitsluiten
+van fitpunten als kwaliteitsbewijs, volledige ruwe scorebundels, confidencekeuze,
+Lucas–Kanade-pan/zoom, bidirectionele fout, RANSAC-inliereisen, verlopen
+overbrugging, drift, camerawissels, onscherpte, herstel, oude en nieuwe replay,
+de handmatige workflow en expliciete menselijke invoer via AppTest.
+
+De echte Broadcast-video is volledig opnieuw door dezelfde veldgewichten
+verwerkt. Met hetzelfde opgeslagen netwerkresultaat geven de vier stappen
+0, 228, 277 en 252 intern geldige frames. De strengere confidence blijft wegens
+gelijke ontwikkeluitkomst behouden. De uiteindelijke 252 frames omvatten
+228 directe en 24 gevolgde schattingen; dit is 20,3% van alle 1.239 frames.
+Nauwkeurigheid op menselijke referenties en dekking op kalibreerbare frames
+zijn niet ingevuld. De kandidaat is experimenteel.
+
+De demo en baselinevergelijking bevatten elk exact 1.239 H.264-frames op 25 fps
+en 1920 × 720. Alle oorspronkelijke detecties zijn zonder nieuwe detectorinference
+overgenomen; alleen de veldposities zijn opnieuw berekend. Ongeldige kalibraties
+hebben geen veldposities. Gevolgde frames voldoen aan de inlier- en leeftijdsgrenzen.
+Zoeken naar bronframes 0, 114, 723 en 1238 levert pixelidentiek beeld aan
+opeenvolgend decoderen. Er zijn geen echte menselijke referentiebestanden of
+inhoudelijke goedkeuringen door de agent aangemaakt.
+
+Zie `reports/broadcast-field-software-check.json`,
+`reports/broadcast-field-experiment.json` en [het cursusgerichte verslag](Broadcast_Veldexperiment.md).

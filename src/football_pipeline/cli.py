@@ -63,6 +63,14 @@ def main(argv=None) -> int:
     process.add_argument("--mvp-acceptance", type=Path)
     process.add_argument("--replay-run", type=Path)
     process.add_argument(
+        "--recalibrate-replay",
+        action="store_true",
+        help="Hergebruik uitsluitend echte detecties; bereken nieuwe veldkalibraties",
+    )
+    process.add_argument(
+        "--field-settings", type=Path, help="JSON-profiel voor gecontroleerde geometrie en camerabeweging"
+    )
+    process.add_argument(
         "--technical-pilot",
         action="store_true",
         help="Technisch gecontroleerde pilot zonder menselijke MVP-acceptatie",
@@ -165,6 +173,8 @@ def main(argv=None) -> int:
                 field_runtime_path=args.field_runtime if args.auto_field else None,
                 field_source=args.source,
                 field_usage=args.usage,
+                field_settings=read_json(args.field_settings) if args.field_settings else None,
+                recalibrate_replay=args.recalibrate_replay,
                 progress=lambda n, total, elapsed: print(f"{n}/{total} frames | {elapsed:.1f} s"),
                 field_progress=lambda n, total, elapsed: print(
                     f"Veldherkenning: {n}/{total} frames | {elapsed:.1f} s"

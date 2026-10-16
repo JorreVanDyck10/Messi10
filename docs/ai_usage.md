@@ -39,3 +39,27 @@ Na **"nu krijg ik dit Onafhankelijke controle faalt: fouten [13.54, 59.74] pixel
 De gebruiker vroeg **"ik wil spelertracking toevoegen, er gaat iemand binnenkort veel gelabelde data in de github zette"** en koos daarna expliciet **"Eerst echte spelerklassen, daarna spelertracking"**. Codex heeft de bestaande ByteTrack-implementatie gecontroleerd en een registratiecommando voor getrainde spelersgewichten, een modelkeuze in de frontend en een concrete overdrachtshandleiding toegevoegd. De bestaande semantische en menselijke MVP-controles zijn behouden. De geregistreerde modelmetadata is in tests gesimuleerd; er zijn geen nieuwe echte spelersgewichten, annotaties, training of evaluatie verzonnen. Een werkelijke poging om de COCO-baseline als spelersmodel te registreren is terecht afgewezen.
 
 De gebruiker vroeg daarna **"zeg ff wa moe tpersoon 1 nu nog inorde brengen en push en pull daarna alles"**. Codex heeft de overdracht aangevuld met een concrete checklist en de actuele GitHub-wijzigingen geïnspecteerd. De extra TeamTrack-video's worden onderscheiden van de nog aan te leveren label- en modeloverdracht. De lokale pipelinewijzigingen en rapporten worden gecommit en gesynchroniseerd met de taakbranch; grote lokaal gegenereerde runs en gewichten blijven volgens de projectafspraken buiten gewone Git-commits.
+
+## Verbeteren en visueel controleren van automatische veldherkenning
+
+De gebruiker leverde `Broadcast video.mp4` aan en vroeg **"zorg da da beter is ma doe wel volgens de cursus e"**.
+Daarna gaf hij letterlijk **"PLEASE IMPLEMENT THIS PLAN:"**, gevolgd door het plan
+voor ruwe scores, fit-/controlepunten, confidencevergelijking, Lucas–Kanade en
+RANSAC, een gesynchroniseerde framekiezer en afzonderlijke menselijke referenties.
+Ook commit en push naar `main` waren expliciet gevraagd.
+
+Codex heeft de software en het reproduceerbare veldexperiment geïmplementeerd.
+De twee-lijnpoort is in de nieuwe versie vervangen door aparte geometriecontroles;
+de pixelgrenzen, PnLCalib-gewichten en het modelwerk van persoon 1 zijn behouden.
+De afgeleide kalibratie blijft alleen maximaal twee seconden beschikbaar wanneer
+de camerabeweging daadwerkelijk meetbaar is. Een afwijzende lijncontrole heeft
+vier frames uit de eerste kandidaat verwijderd. De strengere puntconfidence is
+behouden wegens gelijke dekking op de ontwikkelselectie.
+
+De gemeten verbetering van 0 naar 252/1.239 frames is interne bruikbaarheid,
+geen onafhankelijke nauwkeurigheid. Codex heeft geen menselijke referentiepunten,
+kalibreerbaarheidslabels, revieweridentiteit of inhoudelijke acceptatie ingevuld.
+De geselecteerde frames, bron, code-/gewichtshashes, softwaretests, demo en open
+beoordeling staan in `Broadcast_Veldexperiment.md` en de bijbehorende rapporten.
+Het team moet deze keuzes zelfstandig kunnen uitleggen, de zichtbare fouten
+beoordelen en de gevraagde menselijke referenties daadwerkelijk invullen.

@@ -123,16 +123,22 @@ def main():
                 image = tvf.resize(image, [540, 960], antialias=True).to(device)
                 keypoints = coords_to_dict(
                     get_keypoints_from_heatmap_batch_maxpool(models[0](image)[:, :-1]),
-                    threshold=POLICY["keypoint_threshold"],
+                    threshold=float("-inf"),
                     ground_plane_only=True,
                 )[0]
                 lines = coords_to_dict(
                     get_keypoints_from_heatmap_batch_maxpool_l(models[1](image)[:, :-1]),
-                    threshold=POLICY["line_threshold"],
+                    threshold=float("-inf"),
                     ground_plane_only=True,
                 )[0]
                 points = [
-                    {"id": k, "x": p["x"] * width / 960, "y": p["y"] * height / 540, "confidence": p["p"]}
+                    {
+                        "id": k,
+                        "x": p["x"] * width / 960,
+                        "y": p["y"] * height / 540,
+                        "confidence": min(1.0, max(0.0, p["p"])),
+                        "raw_score": p["p"],
+                    }
                     for k, p in keypoints.items()
                     if k in POINTS_UV
                 ]
@@ -143,7 +149,8 @@ def main():
                             [p["x_1"] * width / 960, p["y_1"] * height / 540],
                             [p["x_2"] * width / 960, p["y_2"] * height / 540],
                         ],
-                        "confidence": min(p["p_1"], p["p_2"]),
+                        "confidence": min(1.0, max(0.0, min(p["p_1"], p["p_2"]))),
+                        "raw_scores": [p["p_1"], p["p_2"]],
                     }
                     for k, p in lines.items()
                     if k in LINES_UV
@@ -172,7 +179,8 @@ def main():
         if any(sha256_file(p) != expected for p, expected in adapter_sources.items()):
             raise ValueError("Adapter source changed during inference; rerun with a stable source tree")
         manifest = {
-            "schema_version": 1,
+            "schema_version": 2,
+            "score_storage": "all_ground_peaks_before_threshold",
             "evidence_kind": "pnlcalib",
             "kind": "automatic_field_observations",
             "coordinate_system": COORDINATE_SYSTEM,

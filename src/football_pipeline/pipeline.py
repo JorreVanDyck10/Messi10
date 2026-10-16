@@ -175,6 +175,8 @@ def process_video(
     field_runtime_path: str | Path | None = None,
     field_source: str = "",
     field_usage: str = "",
+    field_settings: dict | None = None,
+    recalibrate_replay: bool = False,
 ) -> RunResult:
     """Process sequentially; injected detectors are explicitly marked as non-model evidence."""
     output_root = Path(output_root).resolve()
@@ -201,6 +203,14 @@ def process_video(
                 "Kies één kalibratiebron; combineer geen kalibratie met een veldmodelruntime."
             )
         automatic = isinstance(calibration, AutomaticCalibration)
+        if field_settings is not None:
+            if not automatic:
+                raise PipelineError("Veldinstellingen vereisen automatische kalibratie.")
+            calibration = AutomaticCalibration(
+                calibration.manifest, calibration.observations_path, field_settings
+            )
+        if recalibrate_replay and (not replay_run or not automatic):
+            raise PipelineError("Herkalibratie vereist een detectiereplay en automatische kalibratie.")
         if automatic and (tracker_config_path or technical_pilot):
             raise PipelineError(
                 "Automatische kalibratie ondersteunt geen tracking of statische technische pilot."
@@ -248,8 +258,10 @@ def process_video(
                 or replay_manifest.get("evidence_kind") != "ultralytics"
             ):
                 raise PipelineError("Replay vereist echte detecties van dezelfde video en modelinstellingen.")
-            if (automatic or replay_manifest.get("calibration_mode") == "automatic") and (
-                replay_manifest.get("calibration_id") != calibration.identity
+            if (
+                not recalibrate_replay
+                and (automatic or replay_manifest.get("calibration_mode") == "automatic")
+                and (replay_manifest.get("calibration_id") != calibration.identity)
             ):
                 raise PipelineError("Automatische replay vereist dezelfde framekalibraties.")
             if detector is not None:
@@ -274,6 +286,7 @@ def process_video(
             "custom_provenance": provenance,
             "acceptance": acceptance,
             "replay_hash": (replay_manifest or {}).get("artifacts", {}).get("framegegevens.jsonl"),
+            "recalibrate_replay": recalibrate_replay,
         }
         key = digest_json(identity)
         for candidate in sorted(output_root.glob(key + "*")):
@@ -291,7 +304,9 @@ def process_video(
         directory.mkdir()
         (directory / "controlebeelden").mkdir()
         manifest = {
-            "schema_version": 2 if automatic else 1,
+            "schema_version": 3 if automatic and calibration.settings is not None else 2 if automatic else 1,
+            "field_settings": calibration.settings if automatic else None,
+            "recalibrate_replay": recalibrate_replay,
             "calibration_mode": "automatic" if automatic else "manual",
             "cache_key": key,
             "status": "running",
@@ -339,6 +354,13 @@ def process_video(
             writer = VideoWriter(directory / "video.partial.mp4", 1920, 720, video.fps_num, video.fps_den)
             capture = cv2.VideoCapture(video.path)
             frame_calibrations = calibration.frames(video) if automatic else None
+            from .field_motion import CameraCalibration
+
+            camera = (
+                CameraCalibration(video.fps, calibration.settings)
+                if automatic and calibration.settings
+                else None
+            )
             with (directory / "framegegevens.jsonl").open("w", encoding="utf-8") as records:
                 for index in range(video.frame_count):
                     ok, frame = capture.read()
@@ -353,6 +375,8 @@ def process_video(
                         detections = detector.detect(frame, index)
                     inference_time += time.perf_counter() - tick
                     frame_calibration = next(frame_calibrations) if automatic else None
+                    if camera:
+                        frame_calibration = camera.update(frame, frame_calibration, index)
                     if automatic:
                         calibration_counts[frame_calibration["status"]] += 1
                     if tracker:

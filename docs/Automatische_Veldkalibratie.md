@@ -4,6 +4,14 @@ Deze uitbreiding hoort bij persoon 2. Persoon 1 blijft verantwoordelijk voor `pl
 `referee`, eventueel `ball`, labels, splits, training, evaluatie en modeloverdracht. Nieuwe bronvideo's
 worden afzonderlijk gekalibreerd; de kalibratie wordt bij bewegende beelden per frame opnieuw bepaald.
 
+**Actuele versie:** nieuwe modelbundels bewaren alle vlakke piekscores vóór
+filtering en gebruiken gecontroleerde fit-/controlepunten plus maximaal twee
+seconden gemeten camerabeweging. De verplichte twee-lijncontrole hieronder
+beschrijft de behouden legacy-versie, niet de nieuwe standaard. Nieuwe runs
+gebruiken schema 3; oude bundels behouden hun oude identiteit en gedrag.
+Zie [het Broadcast-experiment](Broadcast_Veldexperiment.md) voor de nieuwe methode,
+de gemeten 252/1.239 frames (20,3%), visuele framecontrole en open menselijke beoordeling.
+
 ## Installatie en gebruik
 
 Voer vanuit de projectmap met Python 3.11 uit:
@@ -40,7 +48,7 @@ De veldherkenning kan ook apart worden uitgevoerd. De eerste opdracht print het 
 kalibratiebestanden en de CLI met `--calibration` blijven werken. Automatische verwerking ondersteunt nog
 geen ByteTrack: daarvoor moet cameracompensatie afzonderlijk worden gevalideerd.
 
-## Modellen en geometrie
+## Modellen en oorspronkelijke geometriecontrole (legacy)
 
 De adapter gebruikt de officiële **SV_kp**- en **SV_lines**-netwerken uit
 [PnLCalib](https://github.com/mguti97/PnLCalib), revisie `8c87391d6f4ea40c5e4d65e61529916c7a49ce62`.
@@ -72,7 +80,8 @@ De bal krijgt ook hier geen grondprojectie.
 
 ## Uitvoer, cache en replay
 
-Automatische runs gebruiken manifestversie 2 en bevatten naast de bestaande uitvoer:
+Legacy-runs gebruiken manifestversie 2; nieuwe runs versie 3 met `field_settings`,
+kalibratiebron, referentieframe, ouderdom en bewegingskwaliteit. Beide bevatten:
 
 - `calibration.json`: portable automatisch bundelmanifest met videohash, modelidentiteit en bronvermelding;
 - `observations.jsonl`: semantische punten en lijnen in oorspronkelijke pixels, één record per bronframe;
@@ -81,7 +90,10 @@ Automatische runs gebruiken manifestversie 2 en bevatten naast de bestaande uitv
 
 De kalibratie wordt bij laden opnieuw uit de waarnemingen berekend. Hash, resolutie, volledige framevolgorde
 en tijdstempels worden gecontroleerd. Cache-identiteit omvat video, veldbundel, spelersmodel, code en omgeving.
-Automatische replay vereist dezelfde kalibratie-identiteit en controleert alle uitvoerhashes. De benodigde
+Gewone automatische replay vereist dezelfde kalibratie-identiteit en controleert alle uitvoerhashes.
+Expliciete `--recalibrate-replay` hergebruikt alleen echte detecties van dezelfde
+video en hetzelfde spelersmodel en maakt een nieuwe run met opnieuw berekende
+veldposities; de detecties worden niet als nieuwe inference voorgesteld. De benodigde
 veldwaarnemingen worden naar de run gekopieerd, zodat de bundel daar opnieuw kan worden geladen.
 
 ## Technische proef en onafhankelijke beoordeling
