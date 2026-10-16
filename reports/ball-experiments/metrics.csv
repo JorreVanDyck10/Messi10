@@ -1,0 +1,8 @@
+run,subset,training_size,inference_size,frames,objects,mAP50,mAP50_95,precision_at_025,recall_at_025,TP_at_025,FP_at_025,FN_at_025,human_review_completed
+baseline,val,pretrained,1920,12,12,0.0,0.0,0.0,0.0,0,0,12,False
+baseline,val,pretrained,640,12,12,0.0,0.0,0.0,0.0,0,0,12,False
+EXP-001,val,640,1920,12,12,0.0,0.0,0.0,0.0,0,0,12,False
+EXP-001,val,640,640,12,12,0.0,0.0,0.0,0.0,0,0,12,False
+EXP-002,val,1920,1920,12,12,0.0,0.0,0.0,0.0,0,0,12,False
+EXP-002,train,1920,1920,27,27,0.1485148514851485,0.13069306930693067,1.0,0.14814814814814814,4,0,23,False
+EXP-002,val,1920,640,12,12,0.0,0.0,0.0,0.0,0,0,12,False

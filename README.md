@@ -1,3 +1,9 @@
+> **Spelermodel geleverd (16 oktober 2026):** `configs/models.json` gebruikt nu werkelijk getrainde `player`/`referee`-gewichten. Speler-validatie: AP@50 74,50%, AP@50:95 26,55%. AI-review blijft voorlopig; verre officials en onafhankelijke eindtest zijn nog open. [Resultaten en starten op de 4050](docs/Resultaten_Spelermodel.md).
+
+Start het geleverde GPU-profiel met `scripts/Start-Spelermodel.ps1`. In een bestaande CPU-omgeving gebruik je expliciet `scripts/Start-Spelermodel.ps1 -Device cpu`; de rechtstreekse Streamlit-start hieronder neemt het standaardprofiel met GPU-device 0 over.
+
+**Spelertelling en veldherkenning:** alleen voorspelde spelers met hun voetpunt binnen het geldige veld tellen mee. Officials en eventuele andere herkende rollen blijven afzonderlijk zichtbaar. Bij ontbrekende veldherkenning is het aantal onbekend. De huidige gewichten herkennen nog geen afzonderlijke stewards of supporters. [Telregels, interface en beperkingen](docs/Spelertelling_en_Rollen.md).
+
 # Sports Vision — data, modellen en tactical map
 
 Deze repository bevat beide werkpakketten: persoon 1 beheert data, annotaties, training en detectie-evaluatie; persoon 2 beheert kalibratie, videopipeline, minimap en tracking.
@@ -15,7 +21,7 @@ De PANORIS-bronvideo van persoon 1 wordt via Git LFS gedeeld. De gezamenlijke ac
 
 Een lokale Python-toepassing die detecties en een gekalibreerde minimap **in één gesynchroniseerde video** weergeeft. Streamlit verzorgt de invoer en weergave; de verwerkingspipeline werkt ook zonder interface.
 
-Het project bevat de implementatie van het werkpakket van persoon 2. **De bronvideo van persoon 1 is beschikbaar via Git LFS; een geschikt fragment, definitieve spelersgewichten, handmatige trackingreferenties en gezamenlijke acceptatie voor de pipeline moeten nog worden bevestigd.** De meegeleverde demo bestaat uit synthetische testbeelden en is geen voetbalbenchmark. Er zijn geen mAP- of voetbaltrackingresultaten verzonnen.
+Het project bevat de implementatie van het werkpakket van persoon 2. **De bronvideo, 60 TeamTrack-beelden en werkelijk getrainde player/referee-gewichten zijn geleverd. De labelreview is door AI uitgevoerd; volledige officialdekking, handmatige trackingreferenties en gezamenlijke MVP-acceptatie blijven open.** De meegeleverde demo bestaat uit synthetische testbeelden en is geen voetbalbenchmark. Er zijn geen mAP- of voetbaltrackingresultaten verzonnen.
 
 ### Snel starten op deze laptop
 
@@ -26,7 +32,7 @@ Voer vanuit de projectmap uit:
 .\.venv\Scripts\python.exe -m streamlit run streamlit_app.py
 ```
 
-De virtuele omgeving, CPU-dependencies, FFmpeg/ffprobe en `weights/yolo11n.pt` zijn lokaal voorbereid. Open de lokale URL die Streamlit toont. Het standaardmodel detecteert **personen** en een eventuele bal; het herkent nog geen spelers of scheidsrechters als afzonderlijke klassen.
+FFmpeg/ffprobe en de modelbestanden zijn lokaal voorbereid. Open de lokale URL die Streamlit toont. Het standaardprofiel gebruikt het getrainde `player`/`referee`-model op GPU-device 0. Het afzonderlijke profiel `models-coco-baseline.json` levert alleen generieke personen en een eventuele bal; dat profiel ondersteunt geen spelertelling of spelertracking op basis van rol.
 
 ### Installeren op een tweede Windows-laptop
 
@@ -204,137 +210,24 @@ Voor een lokale YOLO-inferenceproef op een eigen afbeelding: `python scripts/smo
 
 De handmatige modus veronderstelt een vaste camera. De automatische modus herkalibreert per frame bij pan en zoom; lenscorrectie, teamherkenning, namen, baltracking en metrische snelheid vallen buiten deze pipeline. Het veld en zijn cirkel zijn schematisch; er worden geen echte veldafmetingen aangenomen. Het onderste boxmidden blijft bij overlap en springen een benadering.
 
-Het team moet de eerste echte pilot gezamenlijk reviewen, de definitieve modellen leveren, 40–80 frames annoteren en onderling controleren, leakage beoordelen, echte mAP meten en trackingreferenties opstellen. Persoon 2 annoteert ongeveer de helft en reviewt de andere helft. Zie `docs/acceptance.md`, `docs/data_contract.md` en de logboeken voor de verdere overdracht en verdediging.
+Er zijn nu 60 gelabelde TeamTrack-beelden, getrainde gewichten en echte validatie-AP. Het team moet de eerste echte pilot gezamenlijk reviewen, de labels onafhankelijk menselijk beoordelen, een nieuwe onafhankelijke testgroep reserveren en trackingreferenties opstellen. De huidige officiallabels hebben beperkte dekking. Zie `docs/acceptance.md`, `docs/data_contract.md` en de logboeken voor de verdere overdracht en verdediging.
 
 Ultralytics is een externe dependency met eigen licentievoorwaarden. Bewaar de bijbehorende licentie-informatie bij verspreiding van model/code. Raadpleeg de [officiële modeluitvoer](https://docs.ultralytics.com/modes/predict/), [trackingdocumentatie](https://docs.ultralytics.com/modes/track/) en [OpenCV-homography](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html) bij wijzigingen.
 
-## Persoon 1: data, annotaties, training en evaluatie
+## Persoon 1: data, training, metingen en overdracht
 
-Werkende hulpmiddelen voor video-inspectie, frame-extractie, assisted bounding-boxannotatie, datasetcontrole, YOLO-training en vergelijkbare detectie-evaluatie. De doellaptop heeft een **RTX 4050**. GPU en geheugen worden op die laptop opnieuw gecontroleerd.
+- [Uitgevoerde spelerexperimenten en starten op de 4050](docs/Resultaten_Spelermodel.md): selectie, werkelijke scores, fouten, software, beperkingen en reproductiecommando's.
+- [60 TeamTrack-beelden en hun labels](datasets/teamtrack-players-v2/README.md): 36 train, 12 validatie, 12 gereserveerd; 0=player inclusief doelmannen, 1=referee met beperkte dekking.
+- [Getrainde gewichten](artifacts/players-v2/players_best.pt), [actief modelprofiel](configs/models-players.json), [overdrachtrecord](reports/players-experiments/handoff.json) en [geslaagde downloadcontrole](reports/players-experiments/remote-download-verification.json).
+- De eerdere [balexperimenten](docs/Resultaten_Balexperimenten.md) en [PANORIS-werkwijze](docs/Persoon1_Handleiding.md) blijven apart bewaard. Hun kandidaatframes en negatieve balresultaten worden niet met de spelerdataset verward.
 
-De door de gebruiker gekozen [PANORIS-video](https://www.youtube.com/watch?v=HBTFZwMdcCw) staat volledig in `assets/videos/HBTFZwMdcCw.mp4`, op 3840 × 960 pixels, met bronmetadata en checksum. De MP4 wordt met **Git LFS** beheerd. De lokale ontwikkelmachine heeft een RTX 3050; metingen daarop gelden niet als 4050-benchmark.
-
-### Starten op de 4050-laptop
-
-Installeer Python **3.12**, Git met Git LFS en een werkende NVIDIA-driver. Gebruik voor iedere laptop een eigen projectomgeving; kopieer `.venv` niet van een andere machine.
-
-Het werkpakket is geïntegreerd uit `feature/persoon1-data-model-evaluatie`. Maak voor de trainingsomgeving een eigen checkout van `main`:
+Vanuit de projectmap op de GPU-laptop:
 
 ```powershell
-git clone --branch main https://github.com/JorreVanDyck10/Messi10.git
-cd Messi10
-```
-
-Voer daar uit:
-
-```powershell
-git lfs install --local
+git pull --no-rebase origin main
 git lfs pull
 .\scripts\Setup-Persoon1.ps1
-.\scripts\Start-Persoon1.ps1 -Mode prepare
-.\scripts\Start-Persoon1.ps1 -Mode baseline -Split train
-.\scripts\Start-Persoon1.ps1 -Mode annotate -Split train
+.\scripts\Start-Spelermodel.ps1
 ```
 
-Open daarna [de lokale annotatietool](http://127.0.0.1:8765) in je browser. De tool toont bronbeelden, automatische voorstellen, boxcorrectie en aparte review. Hij blijft alleen op de eigen computer bereikbaar. Stoppen kan met Ctrl+C in het terminalvenster.
-
-Voor kleine objecten kun je in de annotatietool tot 800% inzoomen en door het vergrote beeld scrollen. Voor de bekeken panorama leverde een aanvullende pretrained proef op 1920 pixels meer bruikbare persoonsvoorstellen op. Je kunt die apart maken en laden:
-
-```powershell
-.\scripts\Start-Persoon1.ps1 -Mode baseline -Split train -InferenceSize 1920
-.\scripts\Start-Persoon1.ps1 -Mode annotate -Split train -InferenceSize 1920
-```
-
-`InferenceSize` verandert alleen inference en de gekozen voorstellenmap; de eerste trainingsreferentie blijft 640. Meer voorstellen of hogere confidence bewijzen zonder referentielabels geen betere nauwkeurigheid.
-
-Wanneer `python` naar een andere versie verwijst, gebruik je bijvoorbeeld `Setup-Persoon1.ps1 -Python 'C:\pad\naar\Python312\python.exe'`. Als PowerShell lokale scripts blokkeert, kun je één script starten met `powershell -ExecutionPolicy Bypass -File .\scripts\Setup-Persoon1.ps1`; dit wijzigt geen blijvend beleid.
-
-Een bestaande uitvoermap wordt niet overschreven. Gebruik voor herhaalde baselines een nieuwe naam, bijvoorbeeld `-RunName baseline-train-640-02`. De annotatiestarter gebruikt standaard de voorstellen uit `runs/baseline-train-640/proposals`; voor een andere map gebruik je de CLI hieronder.
-
-### Wat al is uitgevoerd en wat nog nodig is
-
-Zie [de uitvoeringsstatus](docs/Status_Persoon_1.md) voor echte resultaten en resterende stappen. De oorspronkelijke [uitgebreide werkinstructie](docs/01_Persoon_1_Data_Model_Evaluatie.md) en [invulsjablonen](docs/Invulsjablonen_Persoon_1.md) staan naast de software.
-
-De zestig geselecteerde beelden zijn **kandidaatframes**, nog geen goedgekeurde trainingsdataset. De eerste configuratie bevat `person` en `ball` om de baseline te onderzoeken. De definitieve target, klassendekking en keuze voor één of twee modellen moeten worden vastgelegd voordat training begint. De scripts verzinnen geen menselijke reviewers of modelprestaties.
-
-De selectie is vóór modelinference vastgelegd: 36 trainframes uit zes tijdgroepen, 12 validatieframes uit twee groepen en 12 gereserveerde testframes uit twee groepen. Het zijn nieuwe momenten uit dezelfde opname, geen onafhankelijke wedstrijden. De genoemde tijdafstand is een controlehulpmiddel en bewijst op zichzelf geen onafhankelijkheid.
-
-### Annoteren en reviewen
-
-1. Voer de baseline uit op train en desgewenst val; voer geen ontwikkelbaseline uit op test.
-2. Laad automatische voorstellen in de annotatietool, controleer gemiste objecten en corrigeer boxen en klassen.
-3. Vul de echte annotatornaam in en bewaar. Een leeg frame moet expliciet als werkelijk negatief worden bevestigd.
-4. Laat de andere persoon de bewaarde labels controleren en met een andere naam goedkeuren. Iedere wijziging maakt de oude review ongeldig.
-5. Bewaar review en exportvoorbeelden voor het verslag. Onbeslisbare frames blijven buiten de definitieve scored dataset of worden door andere geschikte frames vervangen.
-
-Testannotaties kunnen apart worden gemaakt met `-Mode annotate -Split test`. Gebruik de daarbij opgedane modelinzichten niet voor tuning; automatische modelinference op test vereist een latere systeemfreeze. De tool registreert namen en handelingen, maar verifieert geen menselijke identiteit.
-
-Voor een eigen voorstellenmap:
-
-```powershell
-.\.venv\Scripts\python.exe -m persoon1 annotate --manifest data/panoris/manifest.json --proposals runs/mijn-run/proposals --split train
-```
-
-### Datasetcontrole en training
-
-```powershell
-.\scripts\Start-Persoon1.ps1 -Mode validate
-```
-
-De controle geeft fouten bij ontbrekende labels, ongeldige boxen, directe overlap, te korte tijdafstand tussen subsets en ontbrekende onafhankelijke reviews. Nabije visuele duplicaten leveren een waarschuwing voor menselijke controle. Dat labels daadwerkelijk correct zijn, moet visueel worden beoordeeld.
-
-Na de controles kopieer je `configs/approvals-example.json` naar `configs/approvals.json`. Vul alleen echte besluiten en de actuele `dataset_fingerprint` uit het validatierapport in. Beide teamleden moeten labels, splits, klassendekking, bron en modelrollen hebben beoordeeld. Deze voorbeeldgoedkeuring staat bewust standaard op onwaar.
-
-```powershell
-.\scripts\Start-Persoon1.ps1 -Mode train
-```
-
-De eerste trainingsinstellingen staan in `configs/train-reference.json`: pretrained YOLO11n, 640, batch 4, Adam, learning rate 0.001, maximaal 100 epochs en patience 20. Alleen CUDA-geheugentekort activeert de terugval naar batch 2 en vervolgens 1, steeds vanuit verse pretrained gewichten. Gewichten, werkelijke frameworkconfiguratie, logs en provenance blijven per poging bewaard. Testbeelden worden niet in de trainingsdataset opgenomen.
-
-Een aparte technische proef kan met `python -m persoon1 train ... --smoke`; ook die vereist de echte datasetcontrole en is duidelijk als technische proef gemarkeerd. Een CPU-run is mogelijk met `--device cpu`, maar vormt een andere hardwaremeting.
-
-### Evaluatie en foutenanalyse
-
-Maak voor ieder model expliciet de mapping van **modelklassenaam** naar **datasetklassenaam**. Gebruik voor de pretrained referentie het voorbeeld met `person` en `sports ball`; pas de mapping aan de gekozen definitieve dataset aan. Bij een gespecialiseerde detector gebruik je de werkelijke klassen van dat model.
-
-```powershell
-.\.venv\Scripts\python.exe -m persoon1 predict --manifest data/panoris/manifest.json --weights models/yolo11n.pt --mapping configs/mapping-pretrained-example.json --output runs/baseline-val-640 --split val --device 0
-.\.venv\Scripts\python.exe -m persoon1 evaluate --manifest data/panoris/manifest.json --predictions runs/baseline-val-640 --output runs/baseline-val-metrics
-```
-
-Gebruik voor een fine-tuned model een nieuwe uitvoermap en de bijpassende mapping. Vergelijk daarna:
-
-```powershell
-.\.venv\Scripts\python.exe -m persoon1 compare --baseline runs/baseline-val-metrics/metrics.json --candidate runs/fine-val-metrics/metrics.json --output reports/comparison.json
-```
-
-Beide modellen worden met **dezelfde evaluator** gemeten: 101-punts geïnterpoleerde box-AP bij IoU 0.50 tot 0.95. Dit is een expliciete projectmeting zonder crowd/ignore-regio's; het is geen claim dat de volledige COCO-benchmark is uitgevoerd. Klassen zonder geannoteerde objecten krijgen geen verzonnen nul-AP. De datasetcontrole verlangt voldoende klassendekking vóór training.
-
-Het vaste confidencewerkpunt voor FP/FN staat los van de laag ingestelde confidence-ondergrens voor de AP-curve. Iedere evaluatie maakt `metrics.json`, `per-class.csv`, `errors.json` en `report.md`. De foutrecords bevatten echte mismatches; hun oorzaken moeten nog visueel worden vastgesteld. De vergelijking weigert verschillende labels, subsets, klassen of relevante inference-instellingen.
-
-### Onafhankelijke eindtest
-
-Leg na modelselectie een freeze vast op basis van de voltooide ontwikkelrun:
-
-```powershell
-.\.venv\Scripts\python.exe -m persoon1 freeze --manifest data/panoris/manifest.json --approvals configs/approvals.json --weights models/yolo11n.pt --inference runs/baseline-val-640/run.json --output reports/final-freeze.json
-.\.venv\Scripts\python.exe -m persoon1 predict --manifest data/panoris/manifest.json --weights models/yolo11n.pt --mapping configs/mapping-pretrained-example.json --output runs/final-test --split test --freeze reports/final-freeze.json --approvals configs/approvals.json
-.\.venv\Scripts\python.exe -m persoon1 evaluate --manifest data/panoris/manifest.json --predictions runs/final-test --output runs/final-test-metrics --freeze reports/final-freeze.json --approvals configs/approvals.json
-```
-
-Vervang de voorbeeldgewichten en mapping door de werkelijk geselecteerde configuratie. Dataset, model en inference moeten met de freeze overeenkomen. Testtoegang wordt bij de dataset vastgelegd. Gewijzigde configuraties krijgen niet opnieuw dezelfde beelden als onafhankelijke eindtest. Die discipline blijft ook een verantwoordelijkheid van het team; de bestanden zijn geen onveranderlijk extern auditregister.
-
-### Overdracht en controles
-
-Iedere inferentierun levert `detections.jsonl` met bronvideo-ID, oorspronkelijke frame-index, presentatietijd, beeldafmetingen en boxen in bronpixels. Ook een leeg detectieframe wordt geschreven. `run.json` bevat instellingen, gewichtenchecksum, beeldchecksums en de werkelijke omgeving. Voorstellen staan gescheiden van definitieve labels. Op geselecteerde beelden wordt geen volledige videoverwerking of volledige trackingclaim gebaseerd.
-
-```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
-.\.venv\Scripts\python.exe -m persoon1 --help
-```
-
-De tests gebruiken herkenbaar synthetische fixtures en controleren onder meer AP met handmatig verifieerbare gevallen, dubbele matches, leakage, reviews, coördinaten, variabele framerate en semantische klassekoppeling. Testfixtures tellen niet mee als projectannotaties of trainingsresultaten.
-
-Een extra volledige softwarecontrole van de GPU-trainingsroute is beschikbaar als `python -m persoon1.technical_check`. Die genereert uitsluitend synthetische rechthoeken, voert één epoch uit en bewaart een duidelijk als synthetisch gemarkeerd rapport. Die uitkomst bewijst geen prestatie op voetbalbeelden of geschiktheid van de echte annotaties.
-
-De volledige video wordt via Git LFS gedeeld; de grote gegenereerde datasets, gewichten, lokale omgevingen en trainingsruns blijven buiten gewone commits. Reproduceer hun inhoud via de bronvideo, vastgelegde selectie, versies en manifests.
+Gebruik `-Mode evaluate` om het bewaarde checkpoint op validatie na te meten, `-Mode annotate` om alle 60 beelden met boxen te bekijken en `-Mode train` om een nieuwe run van de geselecteerde configuratie te starten. Menselijke review en een onafhankelijke eindtest zijn niet als voltooid geregistreerd.

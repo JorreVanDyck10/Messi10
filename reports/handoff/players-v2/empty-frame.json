@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "video_id": "939eaae38f9d14d4141154f931e00e95bdc2d8d7e24f006551a3e48952a539fb",
+  "frame_id": "F_20200220_1_0660_0690_000000",
+  "frame_index": 0,
+  "timestamp_s": 0.0,
+  "width": 6500,
+  "height": 1000,
+  "configuration_id": "diagnostic-confidence-1.0",
+  "detections": [],
+  "purpose": "Empty-output contract demonstration; actual inference at confidence 1.0, not a normal operating-point result."
+}

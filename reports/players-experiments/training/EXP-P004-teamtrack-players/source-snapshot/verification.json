@@ -1,0 +1,20 @@
+{
+  "recorded_at": "2026-10-16T19:20:26.962912+00:00",
+  "expected_hashes": {
+    "__init__.py": "66805ab972173f9440b0c998545a1197b3540176911f57f24120b272853c3fd3",
+    "__main__.py": "cce2a672e6ea6fc41ced11104365aed532ca7ec647fb321eb8667039ea4941ea",
+    "annotation.py": "ab2172c147ea236dcbe3675a05559d19f776f564d614c6bc11a1b82a56f42356",
+    "core.py": "4c3cad40263168bce0b4c47791978e95948623c8ea2cd1abd0bb771fd4a08b93",
+    "metrics.py": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+    "modeling.py": "c7e345cd14ab7f8004924c092631808b209b29f6f84a57a411b972728dc72465",
+    "participant_baseline.py": "8b9176072e322f581a85a153af48c8a0fb7d85baa1259837fd83320c0fdb6085",
+    "project_dataset.py": "030e9693cbf1321233fa4775e5155ab461fd94b471b14723c6a013d75abd8d56",
+    "review_sheets.py": "b1d27552756e036cd6d04fd3dc58ed4d7544a65d626b087541252454d4cc006c",
+    "teamtrack_dataset.py": "1fc72a39a0cb5fbfb878a4f76d5cb4adab0ceae68f26359000b6178cab7f706b",
+    "technical_check.py": "43dcecffa5948eea3546c871b9b135db3524bc47d9e670a7aed009056a2d4ec0",
+    "video.py": "94639fd093f0d13ab3bc40f0a1c908ded8d29811cf4ad9bd5eb7c7205c3112b4"
+  },
+  "unavailable_exact_snapshot": [],
+  "integration_base_commit": "69e0f9f",
+  "training_was_dirty": true
+}

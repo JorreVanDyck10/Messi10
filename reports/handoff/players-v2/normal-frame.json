@@ -1,0 +1,480 @@
+{
+  "schema_version": "1.0",
+  "video_id": "939eaae38f9d14d4141154f931e00e95bdc2d8d7e24f006551a3e48952a539fb",
+  "frame_id": "F_20200220_1_0660_0690_000000",
+  "frame_index": 0,
+  "timestamp_s": 0.0,
+  "width": 6500,
+  "height": 1000,
+  "configuration_id": "7b5bbace490396c18f8c8e6df25b8064f646a7467f963d3c9b709ea0897aa79a",
+  "detections": [
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 1,
+      "class_name": "referee",
+      "semantic_class": "referee",
+      "confidence": 0.9755191206932068,
+      "bbox_xyxy": [
+        4453.53173828125,
+        805.0860595703125,
+        4518.02490234375,
+        900.5104370117188
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.8768153190612793,
+      "bbox_xyxy": [
+        3331.486572265625,
+        570.3632202148438,
+        3363.543701171875,
+        629.098388671875
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.820875883102417,
+      "bbox_xyxy": [
+        3944.601806640625,
+        600.0817260742188,
+        3980.435546875,
+        661.353759765625
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.8002912402153015,
+      "bbox_xyxy": [
+        3337.72802734375,
+        494.2762756347656,
+        3357.74462890625,
+        526.4213256835938
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.791836678981781,
+      "bbox_xyxy": [
+        3159.3251953125,
+        522.5596923828125,
+        3181.7197265625,
+        558.9769287109375
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.7446675896644592,
+      "bbox_xyxy": [
+        3046.60546875,
+        580.8709716796875,
+        3077.821044921875,
+        641.8858032226562
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.6076847314834595,
+      "bbox_xyxy": [
+        2925.464599609375,
+        595.6090698242188,
+        2960.24951171875,
+        660.0989379882812
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.5972808003425598,
+      "bbox_xyxy": [
+        3414.7578125,
+        505.6177978515625,
+        3432.508056640625,
+        535.4815673828125
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.5765631794929504,
+      "bbox_xyxy": [
+        3580.892333984375,
+        518.7303466796875,
+        3602.216552734375,
+        556.1610717773438
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.539315402507782,
+      "bbox_xyxy": [
+        3153.37353515625,
+        518.9899291992188,
+        3178.02685546875,
+        566.586181640625
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.5214365124702454,
+      "bbox_xyxy": [
+        3769.5322265625,
+        512.0748901367188,
+        3789.776123046875,
+        545.2835083007812
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.5063823461532593,
+      "bbox_xyxy": [
+        3128.340087890625,
+        635.7493896484375,
+        3168.765869140625,
+        701.998291015625
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.45831024646759033,
+      "bbox_xyxy": [
+        3706.078857421875,
+        541.709228515625,
+        3728.44091796875,
+        585.71533203125
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.4538843035697937,
+      "bbox_xyxy": [
+        3159.953125,
+        517.4261474609375,
+        3184.450927734375,
+        564.2120361328125
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.4492107331752777,
+      "bbox_xyxy": [
+        3667.360107421875,
+        517.1607666015625,
+        3685.270751953125,
+        554.2542114257812
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.42098578810691833,
+      "bbox_xyxy": [
+        3037.708984375,
+        718.8982543945312,
+        3082.595458984375,
+        801.1387939453125
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.4122334122657776,
+      "bbox_xyxy": [
+        3208.376708984375,
+        525.3490600585938,
+        3229.610595703125,
+        575.2899169921875
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.40902242064476013,
+      "bbox_xyxy": [
+        3094.90673828125,
+        743.58154296875,
+        3135.4912109375,
+        824.1980590820312
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.3723973035812378,
+      "bbox_xyxy": [
+        3630.39794921875,
+        492.18109130859375,
+        3647.692626953125,
+        523.2529907226562
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.3553752303123474,
+      "bbox_xyxy": [
+        4137.02490234375,
+        531.0142822265625,
+        4159.7333984375,
+        572.7603759765625
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.3515320122241974,
+      "bbox_xyxy": [
+        2824.047607421875,
+        775.22998046875,
+        2885.70654296875,
+        885.1036987304688
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.25967755913734436,
+      "bbox_xyxy": [
+        3054.2890625,
+        581.1323852539062,
+        3089.004638671875,
+        640.7002563476562
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.2527160048484802,
+      "bbox_xyxy": [
+        3593.741455078125,
+        574.6181640625,
+        3621.3486328125,
+        623.5401611328125
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.23638074100017548,
+      "bbox_xyxy": [
+        3090.411865234375,
+        722.7581787109375,
+        3137.843994140625,
+        824.6967163085938
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 1,
+      "class_name": "referee",
+      "semantic_class": "referee",
+      "confidence": 0.22453981637954712,
+      "bbox_xyxy": [
+        2825.99072265625,
+        776.052001953125,
+        2885.680908203125,
+        885.83837890625
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.20409587025642395,
+      "bbox_xyxy": [
+        3247.858154296875,
+        503.5243835449219,
+        3266.298583984375,
+        538.6990966796875
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.19992028176784515,
+      "bbox_xyxy": [
+        3412.966552734375,
+        507.779052734375,
+        3430.614501953125,
+        542.5557250976562
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.17960713803768158,
+      "bbox_xyxy": [
+        3451.53662109375,
+        515.2744140625,
+        3474.53271484375,
+        555.36767578125
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.17138510942459106,
+      "bbox_xyxy": [
+        3737.183837890625,
+        507.76275634765625,
+        3754.968017578125,
+        538.3157958984375
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.16300179064273834,
+      "bbox_xyxy": [
+        3015.963623046875,
+        763.00927734375,
+        3055.56787109375,
+        811.4754638671875
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.144321471452713,
+      "bbox_xyxy": [
+        3210.48046875,
+        524.0997924804688,
+        3237.379638671875,
+        571.3453979492188
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.12401261180639267,
+      "bbox_xyxy": [
+        3589.107177734375,
+        516.5171508789062,
+        3609.085693359375,
+        558.2960815429688
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.11861107498407364,
+      "bbox_xyxy": [
+        3458.9853515625,
+        511.82318115234375,
+        3482.099609375,
+        550.9495849609375
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.11830120533704758,
+      "bbox_xyxy": [
+        3138.677734375,
+        633.9133911132812,
+        3176.542724609375,
+        703.7423706054688
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.11653799563646317,
+      "bbox_xyxy": [
+        3755.921875,
+        511.3197326660156,
+        3775.969970703125,
+        548.6058349609375
+      ]
+    },
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "class_id": 0,
+      "class_name": "player",
+      "semantic_class": "player",
+      "confidence": 0.10864877700805664,
+      "bbox_xyxy": [
+        2702.58740234375,
+        520.4713134765625,
+        2724.929931640625,
+        559.3711547851562
+      ]
+    }
+  ]
+}

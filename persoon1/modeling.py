@@ -10,7 +10,7 @@ import shutil
 from pathlib import Path
 
 from .core import (canonical_hash, dataset_path, environment, label_pixels, load_manifest, now,
-                   read_json, read_labels, require_approval, sha256, write_json)
+                   read_json, read_labels, require_approval, require_experiment_data, sha256, write_json)
 from .metrics import evaluate
 
 
@@ -128,8 +128,8 @@ def predict_manifest(manifest, weights, mapping_path, out, split="val", imgsz=64
     return {"output": str(out), "frames": len(selected), "status": "automatic_proposals_only"}
 
 
-def build_yolo_dataset(manifest, approvals, output):
-    require_approval(manifest, approvals)
+def build_yolo_dataset(manifest, approvals, output, provisional_ai=False):
+    require_experiment_data(manifest, approvals, provisional_ai)
     data, root = load_manifest(manifest)
     output = fresh_output(output)
     for split in ("train", "val"):
@@ -151,20 +151,23 @@ def build_yolo_dataset(manifest, approvals, output):
     return output / "data.yaml"
 
 
-def train(manifest, approvals, config_path, weights, output, device="0", smoke=False):
+def train(manifest, approvals, config_path, weights, output, device="0", smoke=False, provisional_ai=False):
     """Only retry CUDA OOM at batches 4, 2, 1, each from fresh pretrained weights."""
     import torch
     if device != "cpu" and not torch.cuda.is_available():
         raise ValueError("CUDA is unavailable; explicitly select cpu for a separately identified run")
-    report = require_approval(manifest, approvals)
+    report = require_experiment_data(manifest, approvals, provisional_ai)
     config = read_json(config_path)
     if config.get("batch") not in (4, 2, 1):
         raise ValueError("Reference batch must follow the 4 → 2 → 1 memory rule")
     output = fresh_output(output)
-    data_path = build_yolo_dataset(manifest, approvals, output / "dataset")
+    data_path = build_yolo_dataset(manifest, approvals, output / "dataset", provisional_ai)
     write_json(output / "provenance.json", {"created_at": now(), "dataset_fingerprint": report["dataset_fingerprint"],
                "manifest_sha256": sha256(manifest), "approval_sha256": sha256(approvals), "environment": environment(),
-               "requested_config": config, "smoke_only": smoke})
+               "requested_config": config, "smoke_only": smoke,
+               "review_policy": "provisional_ai_visual" if provisional_ai else "independent_team_review",
+               "human_review_completed": not provisional_ai,
+               "initial_weights_sha256": sha256(weights)})
     if smoke:
         config.update(epochs=1, patience=1)
     attempts = []
@@ -205,13 +208,17 @@ def train(manifest, approvals, config_path, weights, output, device="0", smoke=F
     raise RuntimeError("All reference batches failed; record a new technical decision before changing other settings")
 
 
-def evaluate_run(manifest, prediction_dir, output, work_conf=0.25, freeze=None, approvals=None):
+def evaluate_run(manifest, prediction_dir, output, work_conf=0.25, freeze=None, approvals=None, provisional_ai=False):
     prediction_dir = Path(prediction_dir)
     run = read_json(prediction_dir / "run.json")
     data, root = load_manifest(manifest)
     if run["manifest_sha256"] != sha256(manifest):
         raise ValueError("Manifest changed since inference; regenerate predictions")
     split = run["split"]
+    if provisional_ai:
+        if split == "test":
+            raise ValueError("Provisional route supports development scores only; final test requires team review")
+        require_experiment_data(manifest, approvals, True)
     if split == "test":
         if not freeze or not approvals:
             raise ValueError("Final scoring requires freeze and approvals")
@@ -221,7 +228,7 @@ def evaluate_run(manifest, prediction_dir, output, work_conf=0.25, freeze=None, 
         raise ValueError("Source images changed since inference; regenerate predictions")
     truth, predicted = {}, {}
     for fid, frame in selected.items():
-        if frame.get("review_status") != "approved" or not frame.get("reviewer") or frame.get("reviewer") == frame.get("annotator"):
+        if not provisional_ai and (frame.get("review_status") != "approved" or not frame.get("reviewer") or frame.get("reviewer") == frame.get("annotator")):
             raise ValueError(f"{fid}: scored annotations require independent review")
         truth[fid] = [{"class_id": label["class_id"], "bbox_xyxy": label_pixels(label, frame["width"], frame["height"])}
                       for label in read_labels(dataset_path(root, frame["label"]), len(data["names"]))]
@@ -234,7 +241,11 @@ def evaluate_run(manifest, prediction_dir, output, work_conf=0.25, freeze=None, 
     result = evaluate(truth, predicted, data["names"], confidence=work_conf)
     result.update(recorded_at=now(), split=split, inference_config=run["config"],
                   manifest_sha256=sha256(manifest), label_fingerprint=canonical_hash(truth),
-                  prediction_sha256=sha256(prediction_dir / "detections.jsonl"), weights_sha256=run["weights_sha256"])
+                  prediction_sha256=sha256(prediction_dir / "detections.jsonl"), weights_sha256=run["weights_sha256"],
+                  review_policy="provisional_ai_visual" if provisional_ai else "independent_team_review",
+                  human_review_completed=not provisional_ai,
+                  class_annotation_coverage={"player": "22 source player tracks including both goalkeepers",
+                      "referee": data.get("referee_coverage", "see dataset annotation policy")})
     output = fresh_output(output)
     errors = result.pop("errors")
     write_json(output / "metrics.json", result)

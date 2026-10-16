@@ -21,6 +21,7 @@ from .automatic_calibration import AutomaticCalibration, prepare_automatic_calib
 from .contracts import FrameRecord, PipelineError, RunResult, digest_json, read_json, sha256_file, write_json
 from .detection import UltralyticsDetector, load_model_manifest
 from .geometry import Calibration, project_detection, valid_box
+from .participants import GROUND_ROLES, PLAYER_POLICY
 from .render import render_frame
 from .tracking import ByteTrackAdapter, Trajectories, load_tracker_config
 from .video import ROOT, VideoWriter, inspect_video, tool_versions
@@ -232,6 +233,7 @@ def process_video(
                 "Technische pilot vereist een expliciete technische kalibratiecontrole zonder menselijke goedkeuring."
             )
         models = load_model_manifest(model_manifest_path)
+        player_model_available = any("player" in spec["class_mapping"].values() for spec in models["models"])
         versions, code, tools = dependencies(), code_identity(), tool_versions()
         config = load_tracker_config(tracker_config_path) if tracker_config_path else None
         acceptance = None
@@ -287,6 +289,7 @@ def process_video(
             "acceptance": acceptance,
             "replay_hash": (replay_manifest or {}).get("artifacts", {}).get("framegegevens.jsonl"),
             "recalibrate_replay": recalibrate_replay,
+            "player_policy": PLAYER_POLICY,
         }
         key = digest_json(identity)
         for candidate in sorted(output_root.glob(key + "*")):
@@ -308,6 +311,7 @@ def process_video(
             "field_settings": calibration.settings if automatic else None,
             "recalibrate_replay": recalibrate_replay,
             "calibration_mode": "automatic" if automatic else "manual",
+            "player_policy": PLAYER_POLICY,
             "cache_key": key,
             "status": "running",
             "started_at": datetime.now(UTC).isoformat(),
@@ -379,15 +383,11 @@ def process_video(
                         frame_calibration = camera.update(frame, frame_calibration, index)
                     if automatic:
                         calibration_counts[frame_calibration["status"]] += 1
-                    if tracker:
-                        tick = time.perf_counter()
-                        tracker.update(detections, index, video.size)
-                        tracking_time += time.perf_counter() - tick
                     for detection in detections:
                         if not valid_box(detection, video.size):
                             detection.bbox_xyxy = []  # JSON has no NaN/Infinity; preserve rejection, not invalid numbers.
                             detection.confidence = 0.0
-                        if detection.semantic_class in {"player", "referee", "person"}:
+                        if detection.semantic_class in GROUND_ROLES:
                             if automatic:
                                 project_automatic(detection, frame_calibration, video.size)
                             else:
@@ -396,7 +396,19 @@ def process_video(
                             detection.field_position = None
                             detection.projection_status = "not_ground_projected"
                         rejected[detection.projection_status] += 1
-                    record = FrameRecord(index, index / video.fps, video.size, detections, frame_calibration)
+                    # Project before tracking: an off-field prediction must never start a player ID.
+                    if tracker:
+                        tick = time.perf_counter()
+                        tracker.update(detections, index, video.size)
+                        tracking_time += time.perf_counter() - tick
+                    record = FrameRecord(
+                        index,
+                        index / video.fps,
+                        video.size,
+                        detections,
+                        frame_calibration,
+                        player_model_available=player_model_available,
+                    )
                     if histories:
                         histories.update(detections, index)
                     rendered = render_frame(frame, record, histories, technical_pilot=technical_pilot)

@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-16T12:13:24.367132+00:00",
+  "frame_index": 2525,
+  "before_bbox_xywh": [
+    1409,
+    356,
+    12,
+    10
+  ],
+  "after_bbox_xywh": [
+    1413,
+    355,
+    9,
+    9
+  ],
+  "reason": "Brightness component joined the ball and shoe. Visual correction separates the visible ball.",
+  "reviewer": "Codex AI",
+  "human_review_completed": false
+}

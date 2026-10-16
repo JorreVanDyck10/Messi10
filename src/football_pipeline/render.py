@@ -8,15 +8,29 @@ from .contracts import FrameRecord
 from .field_layout import LINES_UV
 from .field_motion import status_label
 from .geometry import valid_box
+from .participants import DISPLAY_CONFIDENCE, player_summary, visible_detection
 from .tracking import Trajectories
 
 COLORS = {
     "player": (185, 215, 65),
     "referee": (30, 170, 245),
+    "assistant_referee": (20, 210, 245),
+    "steward": (90, 130, 245),
+    "spectator": (200, 145, 205),
+    "staff": (160, 180, 210),
     "person": (225, 190, 120),
     "ball": (245, 245, 245),
 }
-LABELS = {"player": "speler", "referee": "scheidsrechter", "person": "persoon", "ball": "bal"}
+LABELS = {
+    "player": "speler",
+    "referee": "scheids/lijnrechter",
+    "assistant_referee": "lijnrechter",
+    "steward": "steward",
+    "spectator": "supporter",
+    "staff": "staf",
+    "person": "persoon",
+    "ball": "bal",
+}
 
 
 def label(image, text, point, color=(235, 240, 235), scale=0.6):
@@ -31,7 +45,7 @@ def render_frame(
     frame: np.ndarray,
     record: FrameRecord,
     histories: Trajectories | None = None,
-    display_confidence: float = 0.25,
+    display_confidence: float = DISPLAY_CONFIDENCE,
     technical_pilot: bool = False,
     recognized_points: bool = True,
     tracked_points: bool = True,
@@ -53,7 +67,7 @@ def render_frame(
         if not valid_box(detection, record.image_size):
             continue
         # Matched low-confidence observations remain visible with the same ID on both sides.
-        if detection.track_id is None and detection.confidence < display_confidence:
+        if not visible_detection(detection, display_confidence):
             continue
         x1, y1, x2, y2 = [round(x * scale) for x in detection.bbox_xyxy]
         color = COLORS.get(detection.semantic_class, (190, 190, 190))
@@ -71,12 +85,15 @@ def render_frame(
     pitch = canvas[:, 1280:]
     label(pitch, "PILOT MINIMAP" if technical_pilot else "TACTICAL MAP", (40, 52), scale=0.9)
     label(pitch, stamp, (40, 88))
-    label(pitch, "Genormaliseerd veld - geen meters", (40, 120), scale=0.55)
+    summary = player_summary(record, display_confidence)
+    count = summary["on_field"]
+    count_label = "Spelers op veld: onbekend" if count is None else f"Spelers op veld: {count} (detecties)"
+    label(pitch, count_label, (40, 120), scale=0.6)
     cv2.rectangle(pitch, (40, 170), (600, 530), (40, 85, 52), -1)
     cv2.rectangle(pitch, (40, 170), (600, 530), (205, 225, 210), 2)
     cv2.line(pitch, (320, 170), (320, 530), (205, 225, 210), 2)
     cv2.circle(pitch, (320, 350), 45, (205, 225, 210), 1)
-    label(pitch, "u: 0 -> 1", (40, 558), scale=0.5)
+    label(pitch, "u: 0 -> 1 | Genormaliseerd veld - geen meters", (40, 558), scale=0.5)
     if record.calibration:
         known = record.calibration["status"] == "valid"
         label(
@@ -104,7 +121,7 @@ def render_frame(
     for detection in record.detections:
         if detection.field_position is None:
             continue
-        if detection.track_id is None and detection.confidence < display_confidence:
+        if not visible_detection(detection, display_confidence):
             continue
         color = COLORS.get(detection.semantic_class, (190, 190, 190))
         if histories is not None and detection.track_id is not None:
@@ -114,8 +131,11 @@ def render_frame(
         cv2.circle(pitch, point, 6, color, -1, cv2.LINE_AA)
         if detection.track_id is not None:
             label(pitch, str(detection.track_id), (point[0] + 8, point[1] - 6), color, 0.5)
-    for index, (semantic, color) in enumerate(COLORS.items()):
-        x, y = 40 + (index % 2) * 280, 610 + (index // 2) * 32
+    present_roles = {d.semantic_class for d in record.detections}
+    legend = [role for role in COLORS if role in present_roles or role == "player"]
+    for index, semantic in enumerate(legend):
+        color = COLORS[semantic]
+        x, y = 40 + (index % 2) * 280, 610 + (index // 2) * 23
         cv2.circle(pitch, (x, y - 5), 5, color, -1)
         label(pitch, LABELS[semantic], (x + 15, y), scale=0.5)
     label(

@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-10-16T19:25:01.497173+00:00",
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "junit_sha256": "b0f83b3b18ad0933856f52d1f10dbe7ed2ebe1202091dd2ca7215da41e91cc67",
+  "scope": "Combined player delivery and latest main field-calibration code. Tests use controlled software fixtures; not real-world mAP or human MVP approval.",
+  "tests_including_subtests": 150,
+  "passed_tests": 146,
+  "passed_subtests": 4
+}

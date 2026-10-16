@@ -237,3 +237,27 @@ def require_approval(manifest_path, approval_path):
         if approval.get(key) is not True:
             raise ValueError(f"Missing actual team decision: {key}")
     return report
+
+
+def require_experiment_data(manifest_path, approval_path, provisional_ai=False):
+    """Keep provisional AI experiments explicit and separate from team approval."""
+    if not provisional_ai:
+        return require_approval(manifest_path, approval_path)
+    data, root = load_manifest(manifest_path)
+    if data.get("review_policy") != "provisional_ai_visual" or data.get("human_review_completed") is not False:
+        raise ValueError("Provisional experiment requires disclosed AI labels and pending human review")
+    for frame in data["frames"]:
+        if frame.get("review_status") != "ai_visual_checked" or frame.get("reviewer") or frame.get("annotator") != "Codex AI":
+            raise ValueError("Do not present AI checks as independent human review")
+        evidence = dataset_path(root, frame.get("visual_evidence"))
+        if sha256(evidence) != frame.get("visual_evidence_sha256"):
+            raise ValueError("Missing or changed visual annotation evidence")
+    report = validate_dataset(manifest_path)
+    if report["errors"]:
+        raise ValueError("Invalid provisional dataset: " + "; ".join(report["errors"][:8]))
+    attestation = read_json(approval_path)
+    if (attestation.get("dataset_fingerprint") != report["dataset_fingerprint"]
+            or attestation.get("review_policy") != "provisional_ai_visual"
+            or attestation.get("human_review_completed") is not False):
+        raise ValueError("Provisional attestation does not match this dataset")
+    return report

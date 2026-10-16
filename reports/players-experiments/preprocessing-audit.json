@@ -1,0 +1,57 @@
+{
+  "recorded_at": "2026-10-16T19:13:36.916170+00:00",
+  "scope": "training transformations only, no model scores",
+  "resolutions": {
+    "640": {
+      "original_by_class": {
+        "0": 792,
+        "1": 72
+      },
+      "retained_by_class": {
+        "0": 439,
+        "1": 37
+      },
+      "batch_image_shapes_CHW": [
+        [
+          3,
+          128,
+          672
+        ]
+      ]
+    },
+    "960": {
+      "original_by_class": {
+        "0": 792,
+        "1": 72
+      },
+      "retained_by_class": {
+        "0": 755,
+        "1": 52
+      },
+      "batch_image_shapes_CHW": [
+        [
+          3,
+          192,
+          992
+        ]
+      ]
+    },
+    "1920": {
+      "original_by_class": {
+        "0": 792,
+        "1": 72
+      },
+      "retained_by_class": {
+        "0": 792,
+        "1": 72
+      },
+      "batch_image_shapes_CHW": [
+        [
+          3,
+          320,
+          1952
+        ]
+      ]
+    }
+  }
+}

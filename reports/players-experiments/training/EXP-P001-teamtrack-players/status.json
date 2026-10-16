@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "attempts": [
+    {
+      "batch": 4,
+      "status": "completed",
+      "best": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\runs\\EXP-P001-teamtrack-players\\batch-4\\weights\\best.pt",
+      "best_sha256": "e620cae33c5a47dc766f37db88754cf03665eb2fc42eaee59327ec6eabb8c1b4"
+    }
+  ]
+}

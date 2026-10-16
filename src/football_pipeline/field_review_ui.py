@@ -104,8 +104,12 @@ def visual_review(directory):
         index,
         row["timestamp_s"],
         tuple(row["image_size"]),
-        [Detection(**d) for d in row["detections"]],
+        [Detection.from_dict(d) for d in row["detections"]],
         state,
+        player_model_available=row.get(
+            "player_model_available",
+            any("player" in spec["class_mapping"].values() for spec in manifest["models"]["models"]),
+        ),
     )
     st.image(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), caption="Oorspronkelijk beeld — zonder modeloverlay")
     st.image(

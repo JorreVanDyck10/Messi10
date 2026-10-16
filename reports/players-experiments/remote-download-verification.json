@@ -1,0 +1,413 @@
+{
+  "recorded_at": "2026-10-16T19:30:05.912558+00:00",
+  "asset_commit": "9f3f28a462ad535e5b84ab359880e9c02d8de14e",
+  "remote": "https://github.com/JorreVanDyck10/Messi10.git",
+  "method": "git lfs fetch origin main into a newly created empty lfs.storage, then SHA-256 every downloaded object against the committed Git LFS pointer. No existing object cache used.",
+  "file_paths_verified": 66,
+  "unique_downloaded_objects": 65,
+  "unique_downloaded_bytes": 218347037,
+  "downloaded_selected_checkpoint_load_names": {
+    "0": "player",
+    "1": "referee"
+  },
+  "codex_pipeline_minimap_branch_removed": true,
+  "all_codex_commits_preserved_on_main_before_deletion": true,
+  "files": [
+    {
+      "path": "artifacts/players-v2/EXP-P003-best.pt",
+      "sha256": "0744216cdea07fe23d9b4a608f334c64a23809d0ac5240b0835921f96b2f8d9c",
+      "bytes": 5495955,
+      "download_verified": true
+    },
+    {
+      "path": "artifacts/players-v2/EXP-P004-best.pt",
+      "sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+      "bytes": 5496595,
+      "download_verified": true
+    },
+    {
+      "path": "artifacts/players-v2/players_best.pt",
+      "sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+      "bytes": 5496595,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/test/F_20200220_1_0720_0750_000000.jpg",
+      "sha256": "3d3a4b7c60ae825ae9702da9bf79e184dacac94171623d826dee326cbbf3b655",
+      "bytes": 1064384,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/test/F_20200220_1_0720_0750_000060.jpg",
+      "sha256": "b57609113e02a0c02aacf3250b8755638f17a9be426b44bba33e896bd419d554",
+      "bytes": 1091123,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/test/F_20200220_1_0720_0750_000120.jpg",
+      "sha256": "3f44134a81bef5dfb666308b94f4c829429304a46aef5978d0c9cca5ae605592",
+      "bytes": 1108876,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/test/F_20200220_1_0720_0750_000180.jpg",
+      "sha256": "34a556b5837d2d932697480ec57cf29e44063cdd9d98f0efc739c403de65a77a",
+      "bytes": 1113975,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/test/F_20200220_1_0720_0750_000240.jpg",
+      "sha256": "2d5945703331dade8193441e2439482e64a0e1c92054744b71d4e3d6db9ab8e5",
+      "bytes": 1115224,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/test/F_20200220_1_0720_0750_000300.jpg",
+      "sha256": "fe7b5c1a95cd0a49d160e14507c64c9192b3cbada90dce48f5c773ff8a4fc609",
+      "bytes": 1107189,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/test/F_20200220_1_0720_0750_000360.jpg",
+      "sha256": "be51cbdc882ff06c529bdefd097febc35c77bc4009d817083cf878a0cdac1e5d",
+      "bytes": 1119829,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/test/F_20200220_1_0720_0750_000420.jpg",
+      "sha256": "094ab59c3f850e4a529f4e246a30c305815480ad2eb7455b452390142a37d60f",
+      "bytes": 1120600,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/test/F_20200220_1_0720_0750_000480.jpg",
+      "sha256": "ea3e597cae0aee4c80fe3fad8f73fce219ecceb71f2787b1f1ae4ec15eb0fe96",
+      "bytes": 1120214,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/test/F_20200220_1_0720_0750_000540.jpg",
+      "sha256": "cdce9a1843dd59801f52b3824a168ab2f3f5dfd25478c46d73c352d3ffa27976",
+      "bytes": 1106819,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/test/F_20200220_1_0720_0750_000600.jpg",
+      "sha256": "da41f8042b1f9a1c68a4f63aa165fcd275bc02e32ff4fdbbc3de71e034d604b9",
+      "bytes": 1119081,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/test/F_20200220_1_0720_0750_000660.jpg",
+      "sha256": "d3bce4b169e06f55fdf70c872c20bba165b93165f7e31c11e0d2fc2c51363d8f",
+      "bytes": 1121893,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000000.jpg",
+      "sha256": "ad4ac81eb3d795e084ea50bcb4db90111b8972ec7f5db21a131925cfb46dcb5b",
+      "bytes": 1079305,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000020.jpg",
+      "sha256": "fb16a43943aefd72e35e712040be5e47319f50d2a8eb35abac3f9253ebc7de97",
+      "bytes": 1093307,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000040.jpg",
+      "sha256": "c0c9dfc707486e7b077d8036e1bc3402d627da71db84ad5b22af1462a5f64405",
+      "bytes": 1098642,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000060.jpg",
+      "sha256": "188a9488a910f547a361987e748cefba7f7e3d7710b9949d3e03f5998a7fa301",
+      "bytes": 1101444,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000080.jpg",
+      "sha256": "47e38f907d9f2acdebec957ae186bd37f5fee5a07f1fe0605de92a02c63687dd",
+      "bytes": 1111183,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000100.jpg",
+      "sha256": "1c4cccd7b13c7b57ec0f40bd5e5fbb19768b948ce02597739436c4ab7bee59dd",
+      "bytes": 1115364,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000120.jpg",
+      "sha256": "5dab02756bcff4e0fc9afa26a4507f067970f896101be3971d0aabe8bbfeccbc",
+      "bytes": 1118654,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000140.jpg",
+      "sha256": "08b3644720e550f795dad1be786963020e554b002bc4aab77adf0c31191dd55d",
+      "bytes": 1119935,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000160.jpg",
+      "sha256": "a9643382689f33e5b9b5ecf262fcbe4b9d630fa8b8744e8719e22fc8c1c0a7a9",
+      "bytes": 1120351,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000180.jpg",
+      "sha256": "38379d565dac7c2e01a904971189f4b3212e917b60214de3b0b95f04d7759934",
+      "bytes": 1121465,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000200.jpg",
+      "sha256": "8bbd8dded1548e1959f4e2b93363d4ab98dd48aaa3511316c9dbd63bf1117527",
+      "bytes": 1121487,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000220.jpg",
+      "sha256": "84b2d7e3e71b26fd7f54fe802a83739809e2e1da7617ce93471a4d1d955ee670",
+      "bytes": 1121981,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000240.jpg",
+      "sha256": "31df6d33f9f3207a400f01168bc3cdf658f84dc7d95d94d184a6aeb5d684d1ab",
+      "bytes": 1122407,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000260.jpg",
+      "sha256": "eec8be521160d6196aa53fc6ccfdbeea70e5887f7c2900c274ae0b1b1899993a",
+      "bytes": 1105982,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000280.jpg",
+      "sha256": "039aa2aa96e03bcd5e13a6d5a18612629d7481d4d9a884a14b8bc472add3608f",
+      "bytes": 1110163,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000300.jpg",
+      "sha256": "d58b235223f534bab31d4defd59ad9a03bac055d7c00fe64e24fc9f5a542111d",
+      "bytes": 1111942,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000320.jpg",
+      "sha256": "9b900c7b0b9e863017f582fd8046d287cee9724d19ebcd7b2b71ad51235f493c",
+      "bytes": 1112089,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000340.jpg",
+      "sha256": "b9871864fee40e84569034ae91be182912d2ba058cec5faab60c84f6eb042579",
+      "bytes": 1118382,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000360.jpg",
+      "sha256": "b037c7d40b811b2c78412ebc02ead31ff6ac79a03b1e31be7410d1bd31893465",
+      "bytes": 1120010,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000380.jpg",
+      "sha256": "7fa54e3d8868a17cc4873e45253f2dd05db3e1c2ececfdcedb6adfb21d6a2bd6",
+      "bytes": 1121820,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000400.jpg",
+      "sha256": "cfb7ea022f8e059849635f74d9752030b1956ebef068df9d49de71afc92d7b82",
+      "bytes": 1122862,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000420.jpg",
+      "sha256": "924d81eb7ed910f8eb48a416879e81c2581e0da32f45793a1fbc49b336ff4546",
+      "bytes": 1123648,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000440.jpg",
+      "sha256": "76046eb0679ed05ab9e5b4d60093084f15c64db75f35df7a9c84996e430a4f30",
+      "bytes": 1123747,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000460.jpg",
+      "sha256": "6710f98540ff0924d4feef1af179000ef47d6aeac029db3fa12413d5c0966219",
+      "bytes": 1123657,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000480.jpg",
+      "sha256": "2e812a46b15a5339547d409eae9bd223a1825a576617822bee829f3ba5b53850",
+      "bytes": 1124102,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000500.jpg",
+      "sha256": "55ae668c3bcd6eea27952f6290521808361c9af5c90beda4f28717244db37a29",
+      "bytes": 1100852,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000520.jpg",
+      "sha256": "7b259cfe28ab4f9051e4db2074821158f4d880c2cab725d12458db768a71025f",
+      "bytes": 1108299,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000540.jpg",
+      "sha256": "09c65bc965460f63f1a72b0a3a5b338a52bbcaaa4ff33a480b66eec37fad75aa",
+      "bytes": 1111327,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000560.jpg",
+      "sha256": "cfd4be6fddd47a2caa21e391b07d4b54ff2c6c2a0c2a5a683a8a0578083de672",
+      "bytes": 1108581,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000580.jpg",
+      "sha256": "78568943f8775d80d8cc14db1f39ef3ca8b6fe1d34efc2d17f07d5570e934638",
+      "bytes": 1072553,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000600.jpg",
+      "sha256": "2eee6339fdb6bce59ff1224c9c12ad027a32d9d4dcb1bddddad44e2977e8fe9d",
+      "bytes": 1082696,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000620.jpg",
+      "sha256": "5e81239c495b2315fe3dfe76e0f67d3e41244a0e3234ea35d7690e846f1e95bd",
+      "bytes": 1089997,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000640.jpg",
+      "sha256": "1c7aca53d52d76c4e08763fb851473d21b7443afa888a31523de2d54300e25a4",
+      "bytes": 1092697,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000660.jpg",
+      "sha256": "0f4c796802bb81484142b00ccc46b033d2375c6b671733ff044a5b356d657828",
+      "bytes": 1095411,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000680.jpg",
+      "sha256": "9db870eed2e5a3889fdd65fd345606e119cad988309f3afb716b231962603ae0",
+      "bytes": 1097586,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000700.jpg",
+      "sha256": "36f30c1b561af1086151d74518403e6499e05649d9bf3f2667875a833839a08b",
+      "bytes": 1098701,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+      "sha256": "dbea1d5513b435026c7d599e70e0ffc25bebb9760ee5f96a111f67157654c296",
+      "bytes": 1022168,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+      "sha256": "3ae4d06d81701ebdaf9639bfaa49195fcae079853e2fdcba0b4d225ffe9a5743",
+      "bytes": 1053142,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+      "sha256": "3569a83b5c26729e8ea1cfe22c1887ae4c4a6554a34cd39f336e291966a9312c",
+      "bytes": 1098106,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+      "sha256": "f8d869bdb23fc35b028095ea07b066855add4e8644bd49adbdc0e652765a66ab",
+      "bytes": 1099824,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+      "sha256": "9646dd5c19dbe7949a6c7bed731904868512662a3ce8a9b08f855b49917724fd",
+      "bytes": 1100249,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+      "sha256": "a9232384b0ecf7d3ad9c9ce20038bc2a6034ef01dfae0c5361a92c7cbde2b5cb",
+      "bytes": 1095210,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+      "sha256": "5fce41e5846e97d8bfaba4dfe1913b31b44e549b1fbf77e4b569a906430b8a23",
+      "bytes": 1104891,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+      "sha256": "b4a265024a4310da5e3f810393876ec5a6bc077685dfdf781f25c41756e91ac6",
+      "bytes": 1107118,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+      "sha256": "6f06ee08fe7300b25592a77c8731227cfc9d078e8fd8588d823c39c95b1cabf9",
+      "bytes": 1108511,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+      "sha256": "97ed40e74d75b25dd6e052748bd63252457049a842b65675f360944d24756bdb",
+      "bytes": 1097257,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+      "sha256": "460f096b06a659a2bea2fecc088673960149ac0d9facd70685def35047b585bc",
+      "bytes": 1112712,
+      "download_verified": true
+    },
+    {
+      "path": "datasets/teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+      "sha256": "887cc73a2cb79eae0091ae0a461a25ebf3c3842c147fe34b3a19244473edfb74",
+      "bytes": 1114675,
+      "download_verified": true
+    },
+    {
+      "path": "assets/videos/HBTFZwMdcCw.mp4",
+      "sha256": "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+      "bytes": 130034094,
+      "download_verified": true
+    },
+    {
+      "path": "artifacts/ball-ai-v1/EXP-001-best.pt",
+      "sha256": "9f6b121cf8c3cadac4d40ae5a08d1b237c7b22ee5a7914575bcbc4e185f579d7",
+      "bytes": 5432403,
+      "download_verified": true
+    },
+    {
+      "path": "artifacts/ball-ai-v1/EXP-002-best.pt",
+      "sha256": "8fa01974339a0511cbde8495ae6e4fc3bc2baddeef11aaed895fe2edd9b5b172",
+      "bytes": 5542291,
+      "download_verified": true
+    }
+  ]
+}

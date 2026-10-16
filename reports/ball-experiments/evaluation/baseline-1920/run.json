@@ -1,0 +1,66 @@
+{
+  "recorded_at": "2026-10-16T12:15:43.282788+00:00",
+  "kind": "inference",
+  "split": "val",
+  "manifest_sha256": "f2e14af9a96b4ce56ffb9e82dfa33d829a212754ab9d5429164872935d708dfa",
+  "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\models\\yolo11n.pt",
+  "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "config": {
+    "imgsz": 1920,
+    "device": "0",
+    "confidence": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "mapping": {
+      "sports ball": "ball"
+    }
+  },
+  "environment": {
+    "recorded_at": "2026-10-16T12:15:43.294579+00:00",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.6.0+cu124",
+      "torchvision": "0.21.0+cu124",
+      "ultralytics": "8.3.221",
+      "numpy": "2.2.6",
+      "opencv-python": "4.11.0.86",
+      "Pillow": "11.3.0",
+      "PyYAML": "6.0.2",
+      "av": "16.0.1"
+    },
+    "source_code_sha256": {
+      "__init__.py": "66805ab972173f9440b0c998545a1197b3540176911f57f24120b272853c3fd3",
+      "__main__.py": "0300b31124688528fa5de4e9424a8252badc8196527190df12d4ad9d16f5154e",
+      "annotation.py": "502a0e50285e5440842c1a2a41d365c7850a7da4d544876867b43c3e71dd5bf9",
+      "core.py": "4c3cad40263168bce0b4c47791978e95948623c8ea2cd1abd0bb771fd4a08b93",
+      "metrics.py": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+      "modeling.py": "cc9a14d1fb74165fc1a528b539f076310947a9d5c6e6f152c2e8c44cb1bc1e47",
+      "project_dataset.py": "030e9693cbf1321233fa4775e5155ab461fd94b471b14723c6a013d75abd8d56",
+      "technical_check.py": "43dcecffa5948eea3546c871b9b135db3524bc47d9e670a7aed009056a2d4ec0",
+      "video.py": "94639fd093f0d13ab3bc40f0a1c908ded8d29811cf4ad9bd5eb7c7205c3112b4"
+    },
+    "nvidia_smi": "NVIDIA GeForce RTX 3050 Laptop GPU, 4096 MiB, 1920 MiB, 566.07",
+    "git_commit": "e2e53cfd4d9b2b964631a249cbc2bb9bfee11ea1",
+    "git_dirty": true,
+    "cuda_available": true,
+    "torch_cuda": "12.4",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_total_bytes": 4294443008
+  },
+  "input_hashes": {
+    "7990708af29a_00002100": "927b55b213eae197bb6f83f0759b09b1419a670fad6da3badbc20bccb2edaa75",
+    "7990708af29a_00002125": "5afae282980a3fb177a65919167bcf7b3dd977d693ef764305001fb973cb5c79",
+    "7990708af29a_00002150": "811ec7b6fa66f0664feaa8e7ac845c1b2fcce88f47c16ba3cae5ce0c4e985fc0",
+    "7990708af29a_00002175": "63a99477b4fe15222940425593bac99efa23ed55acbbac7cb195069e61da5430",
+    "7990708af29a_00002200": "c133c00840c496622cbc2c1dafbd4289292b000ead5107d9582e4f350fae0690",
+    "7990708af29a_00002225": "c0f5d44e3e735c78f4c99c21ae9566717efe5380cd4a246e93e78e61c57a4288",
+    "7990708af29a_00002450": "0e48d68559eb80bb6bac5e822caf22ea59c0dfa5f15c8c69403564f4615659ab",
+    "7990708af29a_00002475": "7f5b2ae069023ceff8da09fdbfd20de1eebb14de37655ffa1957c637072de747",
+    "7990708af29a_00002500": "23c6f5d46718fb1a903a7893681bfee3800562222455a1d87348c54d9bff5f00",
+    "7990708af29a_00002525": "c5b33dfe445e8f4866fe10996567fbbd086328ed57d042f9551cb07549d63710",
+    "7990708af29a_00002550": "006b784bbdd8ff02981b16a35a33f911a131d61d72aebaff8c4f8e138c79917a",
+    "7990708af29a_00002575": "80ead364b4d44839a58828f58f9bdbf3d248a563507a7d5d6d9b968631b2153a"
+  },
+  "annotation_status": "automatic_proposals_only_not_human_reviewed"
+}
