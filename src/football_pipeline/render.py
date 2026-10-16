@@ -3,7 +3,9 @@ from __future__ import annotations
 import cv2
 import numpy as np
 
+from .automatic_calibration import transform
 from .contracts import FrameRecord
+from .field_layout import LINES_UV
 from .geometry import valid_box
 from .tracking import Trajectories
 
@@ -35,7 +37,8 @@ def render_frame(
     h, w = frame.shape[:2]
     scale = min(1280 / w, 720 / h)
     target_w, target_h = round(w * scale), round(h * scale)
-    left = cv2.resize(frame, (target_w, target_h), interpolation=cv2.INTER_AREA)
+    source = automatic_preview(frame, record.calibration) if record.calibration else frame
+    left = cv2.resize(source, (target_w, target_h), interpolation=cv2.INTER_AREA)
     offset_x, offset_y = (1280 - target_w) // 2, (720 - target_h) // 2
     for detection in record.detections:
         if not valid_box(detection, record.image_size):
@@ -65,6 +68,15 @@ def render_frame(
     cv2.line(pitch, (320, 170), (320, 530), (205, 225, 210), 2)
     cv2.circle(pitch, (320, 350), 45, (205, 225, 210), 1)
     label(pitch, "u: 0 -> 1", (40, 558), scale=0.5)
+    if record.calibration:
+        known = record.calibration["status"] == "valid"
+        label(
+            pitch,
+            "Automatische veldkalibratie" if known else "Veldpositie onbekend",
+            (40, 150),
+            (100, 220, 180) if known else (80, 180, 245),
+            scale=0.6,
+        )
     for detection in record.detections:
         if detection.field_position is None:
             continue
@@ -89,6 +101,34 @@ def render_frame(
         scale=0.5,
     )
     return canvas
+
+
+def automatic_preview(frame: np.ndarray, state: dict) -> np.ndarray:
+    """Draw only visible portions; virtual offscreen corners are never fabricated observations."""
+    preview = frame.copy()
+    height, width = frame.shape[:2]
+    if state.get("homography") is not None and state["status"] == "valid":
+        inverse = np.linalg.inv(np.asarray(state["homography"]))
+        for points in LINES_UV.values():
+            try:
+                projected = transform(points, inverse)
+                if not np.isfinite(projected).all() or np.abs(projected).max() > 1e7:
+                    continue
+                a, b = [tuple(map(int, p)) for p in projected]
+                visible, a, b = cv2.clipLine((0, 0, width, height), a, b)
+                if visible:
+                    cv2.line(preview, a, b, (255, 190, 20), 2, cv2.LINE_AA)
+            except (ValueError, cv2.error):
+                continue
+    for line in state.get("lines", []):
+        a, b = [tuple(map(int, p)) for p in line["xy"]]
+        cv2.line(preview, a, b, (90, 220, 120), 1, cv2.LINE_AA)
+    for point in state.get("points", []):
+        x, y = round(point["x"]), round(point["y"])
+        cv2.circle(preview, (x, y), 4, (60, 220, 245), -1)
+        label(preview, str(point["id"]), (x + 5, max(15, y - 5)), scale=0.4)
+    label(preview, f"Veld: {state['status']}", (20, max(22, height - 20)), scale=0.65)
+    return preview
 
 
 def calibration_preview(frame: np.ndarray, points: list[dict], grid: bool = True) -> np.ndarray:

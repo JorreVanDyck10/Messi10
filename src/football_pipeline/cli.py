@@ -6,6 +6,7 @@ import sys
 from dataclasses import asdict
 from pathlib import Path
 
+from .automatic_calibration import load_automatic_calibration, prepare_automatic_calibration
 from .contracts import PipelineError, read_json, write_json
 from .geometry import Calibration, create_calibration
 from .pipeline import accept_mvp, process_video
@@ -45,7 +46,17 @@ def main(argv=None) -> int:
     calibrate.add_argument("--confirm-static-camera", action="store_true", required=True)
     process = sub.add_parser("process")
     process.add_argument("video", type=Path)
-    process.add_argument("--calibration", type=Path, required=True)
+    calibration_source = process.add_mutually_exclusive_group(required=True)
+    calibration_source.add_argument("--calibration", type=Path)
+    calibration_source.add_argument(
+        "--automatic-calibration", type=Path, help="Bestaande framekalibratiebundel"
+    )
+    calibration_source.add_argument(
+        "--auto-field", action="store_true", help="Automatische veldkalibratie per frame"
+    )
+    process.add_argument("--field-runtime", type=Path, default=ROOT / ".tools/field-runtime.json")
+    process.add_argument("--source", default="")
+    process.add_argument("--usage", default="")
     process.add_argument("--models", type=Path, default=ROOT / "configs/models.json")
     process.add_argument("--output", type=Path, default=ROOT / "runs")
     process.add_argument("--tracker", type=Path)
@@ -64,6 +75,18 @@ def main(argv=None) -> int:
     evaluation.add_argument("run", type=Path)
     evaluation.add_argument("reference", type=Path)
     evaluation.add_argument("--output", type=Path, required=True)
+    field = sub.add_parser("calibrate-auto", help="Draai het veldmodel in de afzonderlijke omgeving")
+    field.add_argument("video", type=Path)
+    field.add_argument("--runtime", type=Path, default=ROOT / ".tools/field-runtime.json")
+    field.add_argument("--output", type=Path, default=ROOT / "data/field-calibration")
+    field.add_argument("--source", required=True)
+    field.add_argument("--usage", required=True)
+    field_evaluation = sub.add_parser(
+        "evaluate-calibration", help="Meet tegen onafhankelijke menselijke veldpunten"
+    )
+    field_evaluation.add_argument("run", type=Path)
+    field_evaluation.add_argument("reference", type=Path)
+    field_evaluation.add_argument("--output", type=Path, required=True)
     demo = sub.add_parser("demo", help="Maak en verwerk uitsluitend synthetische testbeelden")
     demo.add_argument("--output", type=Path, default=ROOT / "artifacts/demo")
     args = parser.parse_args(argv)
@@ -123,18 +146,41 @@ def main(argv=None) -> int:
             write_json(args.output, asdict(calibration))
             print(args.output)
         elif args.command == "process":
+            calibration = (
+                Calibration(**read_json(args.calibration))
+                if args.calibration
+                else load_automatic_calibration(args.automatic_calibration)
+                if args.automatic_calibration
+                else None
+            )
             result = process_video(
                 args.video,
-                Calibration(**read_json(args.calibration)),
+                calibration,
                 args.models,
                 args.output,
                 tracker_config_path=args.tracker,
                 mvp_acceptance_path=args.mvp_acceptance,
                 replay_run=args.replay_run,
                 technical_pilot=args.technical_pilot,
+                field_runtime_path=args.field_runtime if args.auto_field else None,
+                field_source=args.source,
+                field_usage=args.usage,
                 progress=lambda n, total, elapsed: print(f"{n}/{total} frames | {elapsed:.1f} s"),
+                field_progress=lambda n, total, elapsed: print(
+                    f"Veldherkenning: {n}/{total} frames | {elapsed:.1f} s"
+                ),
             )
             print(result.video_path)
+        elif args.command == "calibrate-auto":
+            bundle = prepare_automatic_calibration(
+                args.video, args.runtime, args.output, source=args.source, usage=args.usage
+            )
+            print(Path(bundle.observations_path).with_name("automatic_calibration.json"))
+        elif args.command == "evaluate-calibration":
+            from .calibration_evaluation import evaluate_calibration
+
+            write_json(args.output, evaluate_calibration(args.run, args.reference))
+            print(args.output)
         elif args.command == "accept-mvp":
             print(accept_mvp(args.run, args.reviewer, args.confirm_review))
         elif args.command == "evaluate-tracking":

@@ -13,7 +13,7 @@ import pandas as pd
 import streamlit as st
 
 from football_pipeline.calibration_input import panoris_point_suggestion, point_label
-from football_pipeline.contracts import PipelineError, digest_json
+from football_pipeline.contracts import PipelineError, digest_json, read_json, sha256_file
 from football_pipeline.demo import default_points
 from football_pipeline.detection import load_model_manifest
 from football_pipeline.geometry import (
@@ -30,10 +30,8 @@ from football_pipeline.video import ROOT, inspect_video, read_frame
 
 st.set_page_config(page_title="Voetbal · tactical map", page_icon=":material/sports_soccer:", layout="wide")
 st.title("Van voetbalbeeld naar veldpositie")
-st.caption("Vaste overzichtscamera · handmatige kalibratie · gesynchroniseerde video en minimap")
-st.info(
-    "Gebruik een MP4 met constante framerate, vier zichtbare veldhoeken en een camera zonder pan of zoom."
-)
+st.caption("Handmatige of automatische veldkalibratie · gesynchroniseerde video en minimap")
+st.info("Gebruik een MP4 met constante framerate. Automatische kalibratie ondersteunt pan en zoom.")
 
 MODEL_PATH = Path(os.environ.get("FOOTBALL_MODELS", ROOT / "configs/models.json"))
 OUTPUT_ROOT = Path(os.environ.get("FOOTBALL_RUNS", ROOT / "runs"))
@@ -89,55 +87,204 @@ except (PipelineError, OSError) as exc:
     st.stop()
 
 st.subheader("2. Veld kalibreren")
-st.write(
-    "Kies hieronder een veldpunt en klik op de bijbehorende plek in het videobeeld. "
-    "De coördinaten worden automatisch ingevuld. Na elke klik ga je naar het volgende ontbrekende punt."
+mode = st.segmented_control(
+    "Kalibratiemethode",
+    ["Handmatig", "Automatische veldkalibratie"],
+    default="Handmatig",
+    selection_mode="single",
+    required=True,
+    key="calibration_mode",
 )
-st.caption(
-    "Volg de veldhoeken in het beeld: linksboven → rechtsboven → rechtsonder → linksonder. "
-    "Klik daarna waar de middenlijn de bovenste en de onderste zijlijn raakt. "
-    "Klik de hoeken van het speelveld, niet de hoeken van het videobeeld."
-)
-with st.expander("Waar horen de zes punten?"):
-    st.code(
-        "1. Linksboven ───── 5. Middenlijn boven ───── 2. Rechtsboven\n"
-        "       │                    │                      │\n"
-        "       │                 Middenstip                │\n"
-        "       │                    │                      │\n"
-        "4. Linksonder ───── 6. Middenlijn onder ───── 3. Rechtsonder",
-        language=None,
+automatic_mode = mode == "Automatische veldkalibratie"
+if st.session_state.get("active_calibration_mode") != mode:
+    st.session_state.active_calibration_mode = mode
+    st.session_state.tracking = False
+    st.session_state.pop("result", None)
+field_source, field_usage, field_runtime = "", "", None
+field_signature = None
+field_ready = True
+if automatic_mode:
+    calibration = None
+    st.write(
+        "Veldpunten en lijnen worden voor ieder frame opnieuw herkend, ook wanneer hoeken buiten beeld zijn."
     )
-    st.caption("Punt 5 en 6 liggen op de zijlijnen. De middenstip is geen vervanging voor deze twee punten.")
-calibration_upload = st.file_uploader(
-    "Bestaande kalibratie laden (.json)", type=["json"], key="calibration_upload"
-)
-if calibration_upload is not None:
-    try:
-        loaded = Calibration(**json.loads(calibration_upload.getvalue()))
-        loaded.validate_for(video)
-        st.session_state.calibration = loaded
-        st.session_state.calibration_signature = "loaded:" + loaded.identity
-        st.success(f"Goedgekeurde kalibratie geladen; reviewer: {loaded.review['reviewer']}.")
-    except (PipelineError, ValueError, TypeError, KeyError) as exc:
-        st.error(f"Kalibratie niet geladen: {exc}")
-        st.session_state.pop("calibration", None)
+    st.caption(
+        "Blauw = berekende veldlijnen · groen = herkende lijnen · geel = herkende punten. "
+        "Bij te weinig betrouwbare markeringen verschijnt ‘Veldpositie onbekend’."
+    )
+    st.info(
+        "Deze modus gebruikt een standaardveld en een hoofdcamera langs de zijlijn. "
+        "Veldposities zijn genormaliseerd. Onafhankelijke kwaliteitsbeoordeling blijft nodig."
+    )
+    field_runtime = Path(os.environ.get("FOOTBALL_FIELD_RUNTIME", ROOT / ".tools/field-runtime.json"))
+    field_source = st.text_input("Videobron", key="field_source")
+    field_usage = st.text_input("Toegelaten gebruik / bronvermelding", key="field_usage")
+    field_ready = field_runtime.is_file() and bool(field_source.strip() and field_usage.strip())
+    if not field_runtime.is_file():
+        st.warning("De afzonderlijke veldmodelomgeving is nog niet ingesteld.")
+        st.code("python scripts/setup_field_model.py", language="powershell")
+    else:
+        try:
+            runtime = read_json(field_runtime)
+            field_signature = digest_json(
+                {
+                    "runtime": runtime,
+                    "worker": sha256_file(ROOT / "scripts/field_calibration_worker.py"),
+                    "weights": {
+                        name: [Path(runtime[name]).stat().st_size, Path(runtime[name]).stat().st_mtime_ns]
+                        for name in ("weights_keypoints", "weights_lines")
+                    },
+                }
+            )
+        except (OSError, PipelineError, KeyError) as exc:
+            st.error(f"Veldmodelomgeving niet gereed: {exc}")
+            field_ready = False
+    if not field_source.strip() or not field_usage.strip():
+        st.caption("Vul de videobron en het toegelaten gebruik in om te verwerken.")
 else:
-    seed_key = f"point_seed_{video.sha256}"
-    revision_key = f"point_revision_{video.sha256}"
-    latest_key = f"point_latest_{video.sha256}"
-    selected_key = f"selected_point_{video.sha256}"
-    picker_key = f"picker_{video.sha256}"
-    st.session_state.setdefault(seed_key, default_points(video.width, video.height))
-    st.session_state.setdefault(revision_key, 0)
-    suggested_points = panoris_point_suggestion(video)
-    if suggested_points is not None:
-        st.info(
-            "Deze PANORIS-video wordt herkend. Je kunt de bestaande pilotpunten invullen en daarna zelf controleren."
+    st.write(
+        "Kies hieronder een veldpunt en klik op de bijbehorende plek in het videobeeld. "
+        "De coördinaten worden automatisch ingevuld. Na elke klik ga je naar het volgende ontbrekende punt."
+    )
+    st.caption(
+        "Volg de veldhoeken in het beeld: linksboven → rechtsboven → rechtsonder → linksonder. "
+        "Klik daarna waar de middenlijn de bovenste en de onderste zijlijn raakt. "
+        "Klik de hoeken van het speelveld, niet de hoeken van het videobeeld."
+    )
+    with st.expander("Waar horen de zes punten?"):
+        st.code(
+            "1. Linksboven ───── 5. Middenlijn boven ───── 2. Rechtsboven\n"
+            "       │                    │                      │\n"
+            "       │                 Middenstip                │\n"
+            "       │                    │                      │\n"
+            "4. Linksonder ───── 6. Middenlijn onder ───── 3. Rechtsonder",
+            language=None,
         )
-        if st.button("Pilotpunten invullen", key="load_pilot_points"):
-            st.session_state[seed_key] = suggested_points
+        st.caption(
+            "Punt 5 en 6 liggen op de zijlijnen. De middenstip is geen vervanging voor deze twee punten."
+        )
+    calibration_upload = st.file_uploader(
+        "Bestaande kalibratie laden (.json)", type=["json"], key="calibration_upload"
+    )
+    if calibration_upload is not None:
+        try:
+            loaded = Calibration(**json.loads(calibration_upload.getvalue()))
+            loaded.validate_for(video)
+            st.session_state.calibration = loaded
+            st.session_state.calibration_signature = "loaded:" + loaded.identity
+            st.success(f"Goedgekeurde kalibratie geladen; reviewer: {loaded.review['reviewer']}.")
+        except (PipelineError, ValueError, TypeError, KeyError) as exc:
+            st.error(f"Kalibratie niet geladen: {exc}")
+            st.session_state.pop("calibration", None)
+    else:
+        seed_key = f"point_seed_{video.sha256}"
+        revision_key = f"point_revision_{video.sha256}"
+        latest_key = f"point_latest_{video.sha256}"
+        selected_key = f"selected_point_{video.sha256}"
+        picker_key = f"picker_{video.sha256}"
+        st.session_state.setdefault(seed_key, default_points(video.width, video.height))
+        st.session_state.setdefault(revision_key, 0)
+        suggested_points = panoris_point_suggestion(video)
+        if suggested_points is not None:
+            st.info(
+                "Deze PANORIS-video wordt herkend. Je kunt de bestaande pilotpunten invullen en daarna zelf controleren."
+            )
+            if st.button("Pilotpunten invullen", key="load_pilot_points"):
+                st.session_state[seed_key] = suggested_points
+                st.session_state[revision_key] += 1
+                st.session_state[f"reference_{video.sha256}"] = 0
+                for name in (
+                    "calibration",
+                    "calibration_signature",
+                    "draft_calibration",
+                    "draft_signature",
+                    "result",
+                ):
+                    st.session_state.pop(name, None)
+                st.success("Pilotpunten ingevuld. Controleer de markeringen; dit is nog geen goedkeuring.")
+        reference_index = st.slider(
+            "Referentieframe", 0, video.frame_count - 1, 0, key=f"reference_{video.sha256}"
+        )
+        point_labels = [
+            f"{i + 1}. {point_label(point)}" for i, point in enumerate(st.session_state[seed_key])
+        ]
+        selected = st.selectbox(
+            "Welk veldpunt wil je aanwijzen?",
+            range(len(st.session_state[seed_key])),
+            format_func=lambda i: point_labels[i],
+            key=selected_key,
+        )
+        picker_container = st.container()
+        points_df = pd.DataFrame(st.session_state[seed_key])
+        points_df.insert(0, "plek", [point_label(point) for point in st.session_state[seed_key]])
+        points_df["x"], points_df["y"] = points_df["x"].astype(float), points_df["y"].astype(float)
+        with st.expander("Puntentabel bekijken of precies bijstellen"):
+            edited = st.data_editor(
+                points_df,
+                key=f"points_{video.sha256}_{st.session_state[revision_key]}",
+                hide_index=True,
+                disabled=["plek", "name", "role", "u", "v"],
+                column_config={
+                    "plek": st.column_config.TextColumn("Plek op het veld"),
+                    "name": None,
+                    "x": st.column_config.NumberColumn("x (pixels)", min_value=0, max_value=video.width - 1),
+                    "y": st.column_config.NumberColumn("y (pixels)", min_value=0, max_value=video.height - 1),
+                },
+            )
+        points = json.loads(edited.drop(columns=["plek"], errors="ignore").to_json(orient="records"))
+        st.session_state[latest_key] = points
+        signature = digest_json({"points": points, "reference": reference_index, "video": video.sha256})
+        failure = st.session_state.get("calibration_failure")
+        if failure and failure["signature"] != signature:
+            st.session_state.pop("calibration_failure", None)
+            failure = None
+        previous_signature = st.session_state.get("calibration_signature")
+        if previous_signature != signature:
+            st.session_state.pop("calibration", None)
+            st.session_state.pop("result", None)
+        frame = cached_frame(video, reference_index)
+        click_context = digest_json(
+            {
+                "video": video.sha256,
+                "reference": reference_index,
+                "revision": st.session_state[revision_key],
+                "points": points,
+                "selected": selected,
+            }
+        )
+
+        def save_clicked_point():
+            event = st.session_state[picker_key].clicked
+            # Reject delayed browser events after changing frame, selection or table.
+            current_points = st.session_state[latest_key]
+            current_context = digest_json(
+                {
+                    "video": video.sha256,
+                    "reference": st.session_state[f"reference_{video.sha256}"],
+                    "revision": st.session_state[revision_key],
+                    "points": current_points,
+                    "selected": st.session_state[selected_key],
+                }
+            )
+            try:
+                updated = apply_point_click(
+                    current_points,
+                    event,
+                    context=current_context,
+                    selected=st.session_state[selected_key],
+                    width=video.width,
+                    height=video.height,
+                )
+            except PipelineError as exc:
+                st.session_state["point_click_error"] = str(exc)
+                return
+            st.session_state[seed_key] = updated
             st.session_state[revision_key] += 1
-            st.session_state[f"reference_{video.sha256}"] = 0
+            missing = [
+                i for i, point in enumerate(updated) if point.get("x") is None or point.get("y") is None
+            ]
+            if missing:
+                st.session_state[selected_key] = missing[0]
             for name in (
                 "calibration",
                 "calibration_signature",
@@ -146,212 +293,127 @@ else:
                 "result",
             ):
                 st.session_state.pop(name, None)
-            st.success("Pilotpunten ingevuld. Controleer de markeringen; dit is nog geen goedkeuring.")
-    reference_index = st.slider(
-        "Referentieframe", 0, video.frame_count - 1, 0, key=f"reference_{video.sha256}"
-    )
-    point_labels = [f"{i + 1}. {point_label(point)}" for i, point in enumerate(st.session_state[seed_key])]
-    selected = st.selectbox(
-        "Welk veldpunt wil je aanwijzen?",
-        range(len(st.session_state[seed_key])),
-        format_func=lambda i: point_labels[i],
-        key=selected_key,
-    )
-    picker_container = st.container()
-    points_df = pd.DataFrame(st.session_state[seed_key])
-    points_df.insert(0, "plek", [point_label(point) for point in st.session_state[seed_key]])
-    points_df["x"], points_df["y"] = points_df["x"].astype(float), points_df["y"].astype(float)
-    with st.expander("Puntentabel bekijken of precies bijstellen"):
-        edited = st.data_editor(
-            points_df,
-            key=f"points_{video.sha256}_{st.session_state[revision_key]}",
-            hide_index=True,
-            disabled=["plek", "name", "role", "u", "v"],
-            column_config={
-                "plek": st.column_config.TextColumn("Plek op het veld"),
-                "name": None,
-                "x": st.column_config.NumberColumn("x (pixels)", min_value=0, max_value=video.width - 1),
-                "y": st.column_config.NumberColumn("y (pixels)", min_value=0, max_value=video.height - 1),
-            },
-        )
-    points = json.loads(edited.drop(columns=["plek"], errors="ignore").to_json(orient="records"))
-    st.session_state[latest_key] = points
-    signature = digest_json({"points": points, "reference": reference_index, "video": video.sha256})
-    failure = st.session_state.get("calibration_failure")
-    if failure and failure["signature"] != signature:
-        st.session_state.pop("calibration_failure", None)
-        failure = None
-    previous_signature = st.session_state.get("calibration_signature")
-    if previous_signature != signature:
-        st.session_state.pop("calibration", None)
-        st.session_state.pop("result", None)
-    frame = cached_frame(video, reference_index)
-    click_context = digest_json(
-        {
-            "video": video.sha256,
-            "reference": reference_index,
-            "revision": st.session_state[revision_key],
-            "points": points,
-            "selected": selected,
-        }
-    )
 
-    def save_clicked_point():
-        event = st.session_state[picker_key].clicked
-        # Reject delayed browser events after changing frame, selection or table.
-        current_points = st.session_state[latest_key]
-        current_context = digest_json(
-            {
-                "video": video.sha256,
-                "reference": st.session_state[f"reference_{video.sha256}"],
-                "revision": st.session_state[revision_key],
-                "points": current_points,
-                "selected": st.session_state[selected_key],
-            }
-        )
-        try:
-            updated = apply_point_click(
-                current_points,
-                event,
-                context=current_context,
-                selected=st.session_state[selected_key],
-                width=video.width,
-                height=video.height,
-            )
-        except PipelineError as exc:
-            st.session_state["point_click_error"] = str(exc)
-            return
-        st.session_state[seed_key] = updated
-        st.session_state[revision_key] += 1
-        missing = [i for i, point in enumerate(updated) if point.get("x") is None or point.get("y") is None]
-        if missing:
-            st.session_state[selected_key] = missing[0]
-        for name in (
-            "calibration",
-            "calibration_signature",
-            "draft_calibration",
-            "draft_signature",
-            "result",
-        ):
-            st.session_state.pop(name, None)
-
-    with picker_container:
-        if "point_click_error" in st.session_state:
-            st.warning(st.session_state.pop("point_click_error"))
-        point_picker(
-            frame,
-            points,
-            selected,
-            context=click_context,
-            key=picker_key,
-            on_clicked_change=save_clicked_point,
-            diagnostics=failure.get("diagnostics") if failure else None,
-        )
-        st.caption(
-            "Blauw = veldhoek · geel = onafhankelijk controlepunt · nummers volgen de keuzelijst. "
-            "Gebruik zoom en de schuifbalken voor preciezer klikken. Kies een bestaand punt om het te verplaatsen."
-        )
-    issues = point_coordinate_issues(points)
-    if issues:
-        missing_labels = [point_label(point) for point in points if point_coordinate_issues([point])]
-        st.info("Wijs nog aan of verbeter: " + "; ".join(missing_labels) + ".")
-    else:
-        st.success("Alle punten zijn ingevuld. Controleer de markeringen en bereken de kalibratie.")
-    if st.button("Kalibratie berekenen", key="calculate", disabled=bool(issues)):
-        try:
-            draft = create_calibration(video, points, reference_index)
-            st.session_state.draft_calibration = draft
-            st.session_state.draft_signature = signature
-            st.session_state.pop("calibration_failure", None)
-        except PipelineError as exc:
-            failure = {"signature": signature, "message": str(exc)}
-            if isinstance(exc, CalibrationControlError):
-                failure.update(
-                    diagnostics=exc.diagnostics,
-                    median_px=exc.median_px,
-                    maximum_px=exc.maximum_px,
-                    median_limit_px=exc.median_limit_px,
-                    maximum_limit_px=exc.maximum_limit_px,
-                )
-            st.session_state.calibration_failure = failure
-            st.rerun()
-    failure = st.session_state.get("calibration_failure")
-    if failure and failure["signature"] == signature:
-        st.error(failure["message"])
-        if failure.get("diagnostics"):
-            st.dataframe(
-                [
-                    {"Controlepunt": point_label(item), "Afwijking (pixels)": round(item["error_px"], 2)}
-                    for item in failure["diagnostics"]
-                ],
-                hide_index=True,
+        with picker_container:
+            if "point_click_error" in st.session_state:
+                st.warning(st.session_state.pop("point_click_error"))
+            point_picker(
+                frame,
+                points,
+                selected,
+                context=click_context,
+                key=picker_key,
+                on_clicked_change=save_clicked_point,
+                diagnostics=failure.get("diagnostics") if failure else None,
             )
             st.caption(
-                f"Mediaan: {failure['median_px']:.2f} px (maximaal {failure['median_limit_px']:.2f}); "
-                f"grootste fout: {failure['maximum_px']:.2f} px (maximaal {failure['maximum_limit_px']:.2f})."
+                "Blauw = veldhoek · geel = onafhankelijk controlepunt · nummers volgen de keuzelijst. "
+                "Gebruik zoom en de schuifbalken voor preciezer klikken. Kies een bestaand punt om het te verplaatsen."
             )
-            st.warning(
-                "Controleer de vier veldhoeken én de twee middenlijnpunten. De onderlinge afwijking "
-                "kan door een verkeerde klik, perspectief of panoramavervorming ontstaan. "
-                "Zoom in en klik op de echte snijpunten van de witte lijnen."
-            )
-            st.caption(
-                "Op het beeld: gekleurd punt = jouw klik; oranje kruis = berekende plek; "
-                "rode lijn = afwijking. Het kruis is een diagnose van de gekozen hoeken, "
-                "geen bewijs van de juiste plek: verplaats een controlepunt niet alleen om het kruis te raken."
-            )
-            if suggested_points is not None:
-                st.info(
-                    "Voor deze herkende clip kun je bovenaan ‘Pilotpunten invullen’ gebruiken en die punten controleren."
-                )
-    draft = st.session_state.get("draft_calibration")
-    if draft is not None and st.session_state.get("draft_signature") == signature:
-        st.success(
-            "Puntcontrole geslaagd. Afwijkingen: " + ", ".join(f"{e:.2f} px" for e in draft.check_errors_px)
-        )
-        with st.expander("Begin, midden en einde controleren", expanded=True):
-            columns = st.columns(3)
-            temporal = [0, video.frame_count // 2, video.frame_count - 1]
-            for column, index in zip(columns, temporal):
-                temporal_frame = calibration_preview(cached_frame(video, index), points, grid=False)
-                column.image(cv2.cvtColor(temporal_frame, cv2.COLOR_BGR2RGB), caption=f"Frame {index}")
-            st.caption(
-                "Controleer dat lijnen en hoeken op alle drie beelden onder dezelfde markeringen blijven."
-            )
-        with st.form("approve_calibration"):
-            reviewer = st.text_input("Naam reviewer")
-            source = st.text_input("Videobron")
-            usage = st.text_input("Toegelaten gebruik / bronvermelding")
-            static = st.checkbox("Ik bevestig de puntvolgorde en een vaste camera op begin, midden en einde.")
-            approve = st.form_submit_button("Kalibratie goedkeuren")
-        if approve:
+        issues = point_coordinate_issues(points)
+        if issues:
+            missing_labels = [point_label(point) for point in points if point_coordinate_issues([point])]
+            st.info("Wijs nog aan of verbeter: " + "; ".join(missing_labels) + ".")
+        else:
+            st.success("Alle punten zijn ingevuld. Controleer de markeringen en bereken de kalibratie.")
+        if st.button("Kalibratie berekenen", key="calculate", disabled=bool(issues)):
             try:
-                draft.review = {
-                    "approved": True,
-                    "reviewer": reviewer,
-                    "source": source,
-                    "usage": usage,
-                    "static_camera_confirmed": static,
-                    "temporal_frames": temporal,
-                }
-                draft.validate_for(video)
-                st.session_state.calibration = draft
-                st.session_state.calibration_signature = signature
-                st.success("Kalibratie goedgekeurd.")
+                draft = create_calibration(video, points, reference_index)
+                st.session_state.draft_calibration = draft
+                st.session_state.draft_signature = signature
+                st.session_state.pop("calibration_failure", None)
             except PipelineError as exc:
-                st.error(str(exc))
+                failure = {"signature": signature, "message": str(exc)}
+                if isinstance(exc, CalibrationControlError):
+                    failure.update(
+                        diagnostics=exc.diagnostics,
+                        median_px=exc.median_px,
+                        maximum_px=exc.maximum_px,
+                        median_limit_px=exc.median_limit_px,
+                        maximum_limit_px=exc.maximum_limit_px,
+                    )
+                st.session_state.calibration_failure = failure
+                st.rerun()
+        failure = st.session_state.get("calibration_failure")
+        if failure and failure["signature"] == signature:
+            st.error(failure["message"])
+            if failure.get("diagnostics"):
+                st.dataframe(
+                    [
+                        {"Controlepunt": point_label(item), "Afwijking (pixels)": round(item["error_px"], 2)}
+                        for item in failure["diagnostics"]
+                    ],
+                    hide_index=True,
+                )
+                st.caption(
+                    f"Mediaan: {failure['median_px']:.2f} px (maximaal {failure['median_limit_px']:.2f}); "
+                    f"grootste fout: {failure['maximum_px']:.2f} px (maximaal {failure['maximum_limit_px']:.2f})."
+                )
+                st.warning(
+                    "Controleer de vier veldhoeken én de twee middenlijnpunten. De onderlinge afwijking "
+                    "kan door een verkeerde klik, perspectief of panoramavervorming ontstaan. "
+                    "Zoom in en klik op de echte snijpunten van de witte lijnen."
+                )
+                st.caption(
+                    "Op het beeld: gekleurd punt = jouw klik; oranje kruis = berekende plek; "
+                    "rode lijn = afwijking. Het kruis is een diagnose van de gekozen hoeken, "
+                    "geen bewijs van de juiste plek: verplaats een controlepunt niet alleen om het kruis te raken."
+                )
+                if suggested_points is not None:
+                    st.info(
+                        "Voor deze herkende clip kun je bovenaan ‘Pilotpunten invullen’ gebruiken en die punten controleren."
+                    )
+        draft = st.session_state.get("draft_calibration")
+        if draft is not None and st.session_state.get("draft_signature") == signature:
+            st.success(
+                "Puntcontrole geslaagd. Afwijkingen: "
+                + ", ".join(f"{e:.2f} px" for e in draft.check_errors_px)
+            )
+            with st.expander("Begin, midden en einde controleren", expanded=True):
+                columns = st.columns(3)
+                temporal = [0, video.frame_count // 2, video.frame_count - 1]
+                for column, index in zip(columns, temporal):
+                    temporal_frame = calibration_preview(cached_frame(video, index), points, grid=False)
+                    column.image(cv2.cvtColor(temporal_frame, cv2.COLOR_BGR2RGB), caption=f"Frame {index}")
+                st.caption(
+                    "Controleer dat lijnen en hoeken op alle drie beelden onder dezelfde markeringen blijven."
+                )
+            with st.form("approve_calibration"):
+                reviewer = st.text_input("Naam reviewer")
+                source = st.text_input("Videobron")
+                usage = st.text_input("Toegelaten gebruik / bronvermelding")
+                static = st.checkbox(
+                    "Ik bevestig de puntvolgorde en een vaste camera op begin, midden en einde."
+                )
+                approve = st.form_submit_button("Kalibratie goedkeuren")
+            if approve:
+                try:
+                    draft.review = {
+                        "approved": True,
+                        "reviewer": reviewer,
+                        "source": source,
+                        "usage": usage,
+                        "static_camera_confirmed": static,
+                        "temporal_frames": temporal,
+                    }
+                    draft.validate_for(video)
+                    st.session_state.calibration = draft
+                    st.session_state.calibration_signature = signature
+                    st.success("Kalibratie goedgekeurd.")
+                except PipelineError as exc:
+                    st.error(str(exc))
 
-calibration = st.session_state.get("calibration")
-if calibration is None:
-    st.caption("Bereken en keur de kalibratie goed om verder te gaan.")
-    st.stop()
-st.download_button(
-    "Kalibratie downloaden",
-    json.dumps(asdict(calibration), indent=2),
-    file_name="calibration.json",
-    mime="application/json",
-    key="download_calibration",
-)
+    calibration = st.session_state.get("calibration")
+    if calibration is None:
+        st.caption("Bereken en keur de kalibratie goed om verder te gaan.")
+        st.stop()
+    st.download_button(
+        "Kalibratie downloaden",
+        json.dumps(asdict(calibration), indent=2),
+        file_name="calibration.json",
+        mime="application/json",
+        key="download_calibration",
+    )
 
 st.subheader("3. Verwerken")
 profiles = available_model_profiles(MODEL_PATH, ROOT / "configs")
@@ -380,19 +442,28 @@ try:
             "ByteTrack en trajecten zijn al ingebouwd. Nieuwe labels moeten eerst worden gebruikt om een "
             "spelermodel te trainen; kies daarna het geregistreerde spelersprofiel in deze keuzelijst."
         )
-    else:
+    elif not automatic_mode:
         st.info(
             "Spelermodel geselecteerd. Controleer eerst een run zonder tracking en leg de MVP-review vast; "
             "daarna kun je ID's en trajecten toevoegen."
         )
+    else:
+        st.info("Spelermodel geselecteerd. Het veldmodel plaatst de actuele detecties op de minimap.")
 except PipelineError as exc:
     st.error(str(exc))
     st.caption("Eenmalige voorbereiding: python -m football_pipeline download-baseline")
     st.stop()
 
 tracking = st.checkbox(
-    "Spelertracking en trajecten toevoegen", disabled="player" not in semantic_classes, key="tracking"
+    "Spelertracking en trajecten toevoegen",
+    disabled=automatic_mode or "player" not in semantic_classes,
+    key="tracking",
 )
+if automatic_mode:
+    st.caption(
+        "Spelertracking bij bewegende camera’s volgt na validatie van cameracompensatie. "
+        "Deze modus toont detecties en actuele veldposities."
+    )
 acceptance_upload = None
 if tracking:
     acceptance_upload = st.file_uploader(
@@ -405,7 +476,10 @@ if tracking:
 request_signature = digest_json(
     {
         "video": video.sha256,
-        "calibration": calibration.identity,
+        "calibration": field_signature if automatic_mode else calibration.identity,
+        "calibration_mode": mode,
+        "field_source": field_source,
+        "field_usage": field_usage,
         "models": models,
         "tracking": tracking,
         "acceptance": hashlib.sha256(acceptance_upload.getvalue()).hexdigest() if acceptance_upload else None,
@@ -414,7 +488,12 @@ request_signature = digest_json(
 if st.session_state.get("result_request_signature") != request_signature:
     st.session_state.pop("result", None)
 
-if st.button("Verwerken", type="primary", key="process", disabled=tracking and acceptance_upload is None):
+if st.button(
+    "Verwerken",
+    type="primary",
+    key="process",
+    disabled=not field_ready or (tracking and acceptance_upload is None),
+):
     progress_bar = st.progress(0.0, text="Verwerking voorbereiden…")
     acceptance_path = None
     if acceptance_upload:
@@ -427,7 +506,15 @@ if st.button("Verwerken", type="primary", key="process", disabled=tracking and a
     try:
 
         def show_progress(count, total, elapsed):
-            progress_bar.progress(count / total, text=f"{count}/{total} frames · {elapsed:.1f} seconden")
+            fraction = (0.5 + count / total * 0.5) if automatic_mode else count / total
+            progress_bar.progress(
+                fraction, text=f"Detecties en minimap: {count}/{total} frames · {elapsed:.1f} seconden"
+            )
+
+        def show_field_progress(count, total, elapsed):
+            progress_bar.progress(
+                count / total * 0.5, text=f"Veldherkenning: {count}/{total} frames · {elapsed:.1f} seconden"
+            )
 
         result = process_video(
             video.path,
@@ -437,11 +524,15 @@ if st.button("Verwerken", type="primary", key="process", disabled=tracking and a
             tracker_config_path=ROOT / "configs/bytetrack.yaml" if tracking else None,
             mvp_acceptance_path=acceptance_path,
             progress=show_progress,
+            field_progress=show_field_progress if automatic_mode else None,
+            field_runtime_path=field_runtime if automatic_mode else None,
+            field_source=field_source,
+            field_usage=field_usage,
         )
         st.session_state.result = result
         st.session_state.result_request_signature = request_signature
         progress_bar.progress(1.0, text="Voltooid")
-    except PipelineError as exc:
+    except (PipelineError, OSError, ValueError, KeyError) as exc:
         st.error(str(exc))
 
 result = st.session_state.get("result")
@@ -455,6 +546,11 @@ if result is not None:
         st.metric("Verwerkingstijd", f"{metrics['runtime_s']:.1f} s")
         st.metric("Verwerkingssnelheid", f"{metrics['processing_fps']:.2f} fps")
         st.metric("Proces-RAM (bemonsterd)", f"{metrics['peak_process_ram_bytes_sampled'] / 2**20:.0f} MiB")
+    if result.manifest.get("calibration_mode") == "automatic":
+        st.metric("Frames met bruikbare veldkalibratie", f"{metrics['calibration_usable_fraction']:.1%}")
+        st.caption(
+            "Bruikbaarheid is een interne geometriecontrole, geen gemeten nauwkeurigheid tegen menselijke labels."
+        )
     for name, description, mime in (
         ("samengestelde_video.mp4", "Video downloaden", "video/mp4"),
         ("framegegevens.jsonl", "Framegegevens downloaden", "application/x-ndjson"),

@@ -80,9 +80,13 @@ class FrameRecord:
     timestamp_s: float
     image_size: tuple[int, int]
     detections: list[Detection] = field(default_factory=list)
+    calibration: dict | None = None
 
     def to_dict(self) -> dict:
-        return asdict(self)
+        result = asdict(self)
+        if self.calibration is None:
+            result.pop("calibration")
+        return result
 
 
 @dataclass

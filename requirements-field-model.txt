@@ -1,0 +1,9 @@
+# Isolated PnLCalib inference environment, Python 3.11. Never install into the pipeline/training venv.
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch==2.3.1+cu121
+torchvision==0.18.1+cu121
+numpy==1.26.4
+opencv-python==4.10.0.84
+scipy==1.13.1
+PyYAML==6.0.2
+pillow==11.1.0
