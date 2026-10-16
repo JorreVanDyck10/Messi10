@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "profile_name": "Personen op GPU — algemene herkenning, rollen onbekend",
+  "models": [
+    {
+      "model_id": "coco-persons-1920",
+      "weights": "../models/yolo11n.pt",
+      "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+      "class_mapping": {"0": "person"},
+      "expected_names": {"0": "person"},
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    }
+  ]
+}

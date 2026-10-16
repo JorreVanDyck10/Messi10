@@ -15,7 +15,7 @@ import streamlit as st
 from football_pipeline.calibration_input import panoris_point_suggestion, point_label
 from football_pipeline.contracts import PipelineError, digest_json, read_json, sha256_file
 from football_pipeline.demo import default_points
-from football_pipeline.detection import load_model_manifest
+from football_pipeline.detection import load_model_manifest, validate_detection_devices
 from football_pipeline.geometry import (
     Calibration,
     CalibrationControlError,
@@ -463,6 +463,7 @@ selected_model_path = st.selectbox(
 )
 try:
     models = load_model_manifest(selected_model_path)
+    validate_detection_devices(models)
     profile_identity = digest_json(models)
     if st.session_state.get("active_model_profile") != profile_identity:
         st.session_state.active_model_profile = profile_identity
@@ -472,10 +473,16 @@ try:
     st.caption(
         "Dit model onderscheidt: "
         + ", ".join(LABELS.get(role, role) for role in sorted(semantic_classes))
-        + ". Alleen gedetecteerde spelers met hun voetpunt binnen het geldige veld tellen mee. "
-        "Zonder geldige veldherkenning is het aantal onbekend."
+        + (
+            ". Alleen gedetecteerde spelers met hun voetpunt binnen het geldige veld tellen mee. "
+            if "player" in semantic_classes
+            else ". Personen blijven als persoon aangeduid; hun rol is onbekend. "
+        )
+        + "Zonder geldige veldherkenning is het aantal op het veld onbekend."
     )
-    if "steward" not in semantic_classes or "spectator" not in semantic_classes:
+    if "player" in semantic_classes and (
+        "steward" not in semantic_classes or "spectator" not in semantic_classes
+    ):
         st.warning(
             "Dit model heeft nog geen aparte herkenning voor stewards en supporters. "
             "Als het iemand verkeerd als speler classificeert, kan die binnen het veld toch meetellen."
@@ -485,13 +492,17 @@ try:
             "Dit spelermodel is voorlopig. De menselijke labelreview staat nog open; "
             "scheidsrechters en lijnrechters worden nog geregeld gemist."
         )
+        st.warning(
+            "Dit rolmodel is op panoramabeelden getraind en mist veel personen in de Broadcast-ontwikkelclip. "
+            "Kies ‘Personen op GPU’ voor algemene persoonsherkenning op zulke beelden."
+        )
     if "player" not in semantic_classes:
         st.warning(
             "Dit profiel detecteert personen. Spelertracking vereist een model met expliciete spelerklassen."
         )
         st.caption(
-            "ByteTrack en trajecten zijn al ingebouwd. Nieuwe labels moeten eerst worden gebruikt om een "
-            "spelermodel te trainen; kies daarna het geregistreerde spelersprofiel in deze keuzelijst."
+            "De minimap toont personen met een geldige veldpositie. Spelerrollen en individuele identiteit "
+            "zijn onbekend."
         )
     elif not automatic_mode:
         st.info(

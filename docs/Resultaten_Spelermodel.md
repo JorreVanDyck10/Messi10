@@ -4,6 +4,8 @@
 
 De overdracht is voorlopig. Alle 60 beelden zijn door AI gecontroleerd; er zijn geen menselijke reviewers ingevuld. De verre officialrollen blijven onzeker. Een onafhankelijke projecteindtest en een menselijke geïntegreerde MVP-acceptatie zijn nog niet afgerond.
 
+**Latere integratiecontrole op de 4050:** het rolmodel mist veel personen in de Broadcast-ontwikkelclip en geeft daar soms te kleine boxen. Het huidige standaardprofiel gebruikt daarom algemene persoonsherkenning; het geleverde rolmodel blijft expliciet beschikbaar. Zie [de lokale integratiecontrole](Spelerintegratie_4050.md). De panorama-metingen hieronder blijven oorspronkelijke ontwikkelmetingen.
+
 ## 1. Data en bronwijziging
 
 De [datasetbeschrijving](../datasets/teamtrack-players-v2/README.md) legt selectie, rollen, correcties en bronnen vast. Er zijn **60 beelden**, met **1320 spelerboxen en 120 boxen van de twee betrouwbaar geïdentificeerde officials**. De 36/12/12-verdeling gebruikt drie volledige tijdgroepen uit dezelfde wedstrijd, geen willekeurige losse frames. De bron-MOT-boxen komen van TeamTrack; roltoewijzing en aanvullende officialboxen zijn door AI uitgevoerd.
@@ -90,7 +92,7 @@ De hypothese “alle fouten komen door kleine objecten” is verworpen als volle
 
 - [Geselecteerde gewichten](../artifacts/players-v2/players_best.pt), ook via Git LFS; referentiecheckpoints EXP-P003 en EXP-P004 zijn bewaard.
 - SHA-256 **e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498**; werkelijke modelnamen zijn uit het gewichtenbestand gelezen en gecontroleerd.
-- [Standaardprofiel](../configs/models.json) en [expliciet spelerprofiel](../configs/models-players.json): resolutie 1920, confidence **0,10**, NMS-IoU 0,70, GPU-device 0. Er is geen balmodel toegevoegd dat onbetrouwbare validatiewinst claimt.
+- [Expliciet spelerprofiel](../configs/models-players.json): resolutie 1920, confidence **0,10**, NMS-IoU 0,70, GPU-device 0. Dit was bij de oorspronkelijke overdracht het standaardprofiel. Het huidige standaardprofiel gebruikt na de Broadcast-controle algemene personenherkenning. Er is geen balmodel toegevoegd dat onbetrouwbare validatiewinst claimt.
 - [Overdrachtrecord](../reports/players-experiments/handoff.json), met evaluatiepad/hash, data-identiteit, software en beperkingen.
 - [Werkelijke detectoruitvoer](../reports/handoff/players-v2/detections.jsonl) op 12 validatiebeelden, met 388 detecties bij confidence 0,10. Boxen zijn gecontroleerd in oorspronkelijke 6500 × 1000-pixels.
 - Normaal, moeilijk en leeg framerecord. Het lege record komt uit echte inference met diagnostische confidence **1,0** en dient uitsluitend om de lege lijst te controleren; dit is geen normale gebruiksinstelling of prestatiemeting.
@@ -109,10 +111,10 @@ Werk op `main` en haal de grote bestanden werkelijk op:
 git pull --no-rebase origin main
 git lfs pull
 .\scripts\Setup-Persoon1.ps1
-.\scripts\Start-Spelermodel.ps1
+.\scripts\Start-Spelermodel.ps1 -Recognition players
 ```
 
-Gebruik Python 3.12 en een eigen lokale `.venv`. De GPU-setup behoudt CUDA-PyTorch en installeert ook de toepassing. Installeer de aparte CPU-`requirements.lock` niet over deze GPU-omgeving. De bewaarde `requirements-players-gpu.lock` is de werkelijke pakketsnapshot. De automatische veldkalibratie heeft daarnaast de geïsoleerde runtime uit [de kalibratiehandleiding](Automatische_Veldkalibratie.md) nodig.
+Gebruik Python 3.11 of 3.12 en een eigen lokale `.venv`. De GPU-setup installeert CUDA-PyTorch, de toepassing en controleert de GPU. Installeer de aparte CPU-`requirements.lock` niet over deze GPU-omgeving. De bewaarde `requirements-players-gpu.lock` is de oorspronkelijke trainingssnapshot op Python 3.12. De automatische veldkalibratie heeft daarnaast de geïsoleerde runtime uit [de kalibratiehandleiding](Automatische_Veldkalibratie.md) nodig.
 
 Nameten van het geleverde checkpoint:
 

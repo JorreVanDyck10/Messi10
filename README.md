@@ -1,6 +1,10 @@
-> **Spelermodel geleverd (16 oktober 2026):** `configs/models.json` gebruikt nu werkelijk getrainde `player`/`referee`-gewichten. Speler-validatie: AP@50 74,50%, AP@50:95 26,55%. AI-review blijft voorlopig; verre officials en onafhankelijke eindtest zijn nog open. [Resultaten en starten op de 4050](docs/Resultaten_Spelermodel.md).
+> **Persoonsherkenning op de 4050 (16 oktober 2026):** het standaardprofiel gebruikt algemene personenherkenning op GPU. Het geleverde `player`/`referee`-model blijft beschikbaar via `configs/models-players.json`, maar mist veel personen op de Broadcast-ontwikkelclip. Zijn eerdere panorama-validatie blijft afzonderlijk: AP@50 74,50%, AP@50:95 26,55%. [Lokale integratie en beperkingen](docs/Spelerintegratie_4050.md), [oorspronkelijke modelmetingen](docs/Resultaten_Spelermodel.md).
 
-Start het geleverde GPU-profiel met `scripts/Start-Spelermodel.ps1`. In een bestaande CPU-omgeving gebruik je expliciet `scripts/Start-Spelermodel.ps1 -Device cpu`; de rechtstreekse Streamlit-start hieronder neemt het standaardprofiel met GPU-device 0 over.
+Start de persoonsherkenning met `scripts/Start-Spelermodel.ps1`. Het rolmodel kies je in de app of met `-Recognition players`. Voor CPU gebruik je expliciet `-Device cpu`; de rechtstreekse Streamlit-start hieronder gebruikt GPU-device 0.
+
+De lokale combinatie van spelerherkenning en veldprojectie wordt beschreven in
+[Spelerintegratie op de 4050](docs/Spelerintegratie_4050.md), inclusief de GPU-controle
+en een herhaalbare integratiecheck op een volledige clip.
 
 **Spelertelling en veldherkenning:** alleen voorspelde spelers met hun voetpunt binnen het geldige veld tellen mee. Officials en eventuele andere herkende rollen blijven afzonderlijk zichtbaar. Bij ontbrekende veldherkenning is het aantal onbekend. De huidige gewichten herkennen nog geen afzonderlijke stewards of supporters. [Telregels, interface en beperkingen](docs/Spelertelling_en_Rollen.md).
 
@@ -32,7 +36,7 @@ Voer vanuit de projectmap uit:
 .\.venv\Scripts\python.exe -m streamlit run streamlit_app.py
 ```
 
-FFmpeg/ffprobe en de modelbestanden zijn lokaal voorbereid. Open de lokale URL die Streamlit toont. Het standaardprofiel gebruikt het getrainde `player`/`referee`-model op GPU-device 0. Het afzonderlijke profiel `models-coco-baseline.json` levert alleen generieke personen en een eventuele bal; dat profiel ondersteunt geen spelertelling of spelertracking op basis van rol.
+FFmpeg/ffprobe en de modelbestanden zijn lokaal voorbereid. Open de lokale URL die Streamlit toont. Het standaardprofiel toont personen op GPU-device 0, met onbekende rollen. Het afzonderlijke profiel `models-players.json` gebruikt het getrainde `player`/`referee`-model. Een personendetector ondersteunt geen spelertelling of spelertracking op basis van rol; de minimap kan wel personen met een geldige veldpositie tonen en tellen.
 
 ### Installeren op een tweede Windows-laptop
 

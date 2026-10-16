@@ -88,6 +88,10 @@ def render_frame(
     summary = player_summary(record, display_confidence)
     count = summary["on_field"]
     count_label = "Spelers op veld: onbekend" if count is None else f"Spelers op veld: {count} (detecties)"
+    if not record.player_model_available:
+        persons = summary["persons_on_field"]
+        count_label = "Personen op veld: onbekend" if persons is None else f"Personen op veld: {persons}"
+        count_label += " (rollen onbekend)"
     label(pitch, count_label, (40, 120), scale=0.6)
     cv2.rectangle(pitch, (40, 170), (600, 530), (40, 85, 52), -1)
     cv2.rectangle(pitch, (40, 170), (600, 530), (205, 225, 210), 2)
