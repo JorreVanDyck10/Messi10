@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-16T20:09:22.959728+00:00",
+  "corpus": {
+    "path": "data\\field-corpus",
+    "bytes": 10682884855,
+    "limit_bytes": 21474836480
+  },
+  "dataset": {
+    "source": "https://huggingface.co/datasets/SoccerNet/SN-Calibration-2023",
+    "fingerprint": "14960bfe1c728ec403c6a5bb8ed3e5c9d4da42c5685f2cd5301cdf8f307da923",
+    "accepted_frames_by_split": {
+      "train": 8317,
+      "valid": 1649
+    },
+    "excluded_frames": 296,
+    "boundary_roundoff_corrections": 3227,
+    "match_counts": {
+      "train": 289,
+      "valid": 55
+    },
+    "cross_split_match_overlap": 0,
+    "source_archive_checksums_verified": true,
+    "pretraining_overlap": true
+  },
+  "highlights": {
+    "complete": 30,
+    "failed_candidates": 5,
+    "inventory": "data\\field-corpus\\highlight-inventory.json",
+    "sources": [
+      {
+        "title": "10 Minutes Of TENSION | Scotland v Morocco | 2026 World Cup EXTENDED HIGHLIGHTS",
+        "url": "https://www.youtube.com/watch?v=cr14MJmdOQU",
+        "sha256": "9bf763d49b9d503fc49ab078813e0dec9a8e2823fd6ce337ed418682dc09ff51",
+        "file": "highlights\\cr14MJmdOQU.mp4",
+        "license": null
+      },
+      {
+        "title": "Where It All Began... | Mexico v South Africa | 2026 World Cup EXTENDED HIGHLIGHTS",
+        "url": "https://www.youtube.com/watch?v=M4j14JSxXEc",
+        "sha256": "0eeaf7ae38f9cc9db2a79eb40c6afa2e4307fa8a89d495f23f159e80ff28d815",
+        "file": "highlights\\M4j14JSxXEc.mp4",
+        "license": null
+      },
+      {
+        "title": "Vini Jr and Saibari Star In Brazil v Morocco Deadlock | 2026 World Cup EXTENDED HIGHLIGHTS",
+        "url": "https://www.youtube.com/watch?v=GmzcVuAAWR4",
+        "sha256": "379034f6d4ec2bf48342fc7cde93dddd5beb2644fc33b76996b524689faefae1",
+        "file": "highlights\\GmzcVuAAWR4.mp4",
+        "license": null
+      },
+      {
+        "title": "When McGinn Ended Scotland's 36-Year Wait For A Win! | 2026 FIFA World Cup Highlights",
+        "url": "https://www.youtube.com/watch?v=Rq19-Tc7Oho",
+        "sha256": "ff521e805903829488566a228acc916e5ec0d0e526c9d8bafaad8d9899e636b0",
+        "file": "highlights\\Rq19-Tc7Oho.mp4",
+        "license": null
+      },
+      {
+        "title": "France 4-2 Croatia | Extended Highlights | 2018 FIFA World Cup Final",
+        "url": "https://www.youtube.com/watch?v=0rtw9uCevMg",
+        "sha256": "00f42eefd5b149e7d5a474fc15864287c5117054f87ebd7afd5bd752f9f5e285",
+        "file": "highlights\\0rtw9uCevMg.mp4",
+        "license": null
+      },
+      {
+        "title": "Italy 1-1 France (5-3 PSO) | Extended Highlights | 2006 FIFA World Cup",
+        "url": "https://www.youtube.com/watch?v=cfRkHzhM4vE",
+        "sha256": "73609b336624ad00e0bbcd5e5122448472b71d04ea7254291d36a1c45b616c4e",
+        "file": "highlights\\cfRkHzhM4vE.mp4",
+        "license": null
+      },
+      {
+        "title": "Red Card Turns Game Around! | HOFFENHEIM - HAMBURGER SV | Highlights | Matchday 5 – Bundesliga",
+        "url": "https://www.youtube.com/watch?v=7iEEjBQDNfE",
+        "sha256": "cb92cff77a09133949883c45d06a48d11ae10b349d9529b40c16ec6b64240be2",
+        "file": "highlights\\7iEEjBQDNfE.mp4",
+        "license": null
+      },
+      {
+        "title": "The Kane and Olise Late Night Show 🔥  | FC BAYERN - UNION BERLIN | Highlights | MD 4 – Bundesliga",
+        "url": "https://www.youtube.com/watch?v=v_7N6u8DvtU",
+        "sha256": "082314337cb8360049d594fce15949e4458b47faede00479e432795a099d404d",
+        "file": "highlights\\v_7N6u8DvtU.mp4",
+        "license": null
+      },
+      {
+        "title": "This Is Bundesliga HISTORY! | FC AUGSBURG - FC BAYERN | Highlights | Matchday 5 – Bundesliga 2026/27",
+        "url": "https://www.youtube.com/watch?v=NKmOGDyovpI",
+        "sha256": "1daead52bbc4a3227a22bfad36de27630988d26fbc758acbe2e456aa8522f214",
+        "file": "highlights\\NKmOGDyovpI.mp4",
+        "license": null
+      },
+      {
+        "title": "Last-Minute-Füllkrug! | BORUSSIA DORTMUND - WERDER BREMEN | Highlights | Matchday 7 – Bundesliga",
+        "url": "https://www.youtube.com/watch?v=pDQ1tB8MQoI",
+        "sha256": "ad599ca108ed29713bf118c2672978caa9f91cdbfca6fe814f748a55915bda3b",
+        "file": "highlights\\pDQ1tB8MQoI.mp4",
+        "license": null
+      },
+      {
+        "title": "Cologne Come Back From 0-2! | EINTRACHT FRANKFURT - 1. FC KÖLN | Highlights | MD 28 – Bundesliga",
+        "url": "https://www.youtube.com/watch?v=srdAl6-A0Do",
+        "sha256": "4594b9864ee2b9d39415aece376c4a581dda7b8115510e0690381f7ec5c31b15",
+        "file": "highlights\\srdAl6-A0Do.mp4",
+        "license": null
+      },
+      {
+        "title": "Dortmund Power Into The UCL! | BORUSSIA DORTMUND - SC FREIBURG | Highlights | MD 31 – Bundesliga",
+        "url": "https://www.youtube.com/watch?v=H4yL2OAtxBQ",
+        "sha256": "eb0071f06037ca47b910e148036df741604e014f469e2171d440701ac47109f8",
+        "file": "highlights\\H4yL2OAtxBQ.mp4",
+        "license": null
+      },
+      {
+        "title": "Olise-Brace In Crazy Match! | FC BAYERN - SC FREIBURG | Highlights | MD 11 – Bundesliga 2025/26",
+        "url": "https://www.youtube.com/watch?v=IcFFwnWYX_k",
+        "sha256": "83c6db618c8e214a857b7635f2e9496df5cd0da976159478feabd95d35010556",
+        "file": "highlights\\IcFFwnWYX_k.mp4",
+        "license": null
+      },
+      {
+        "title": "Guirassy ON FIRE! | BORUSSIA DORTMUND - MAINZ 05 | Highlights | Matchday 22 – Bundesliga 25/26",
+        "url": "https://www.youtube.com/watch?v=oEp-wsQXY2I",
+        "sha256": "5902553cb767ea7bd8e18d247b79940834ebc1a8561691f5c776380945c95158",
+        "file": "highlights\\oEp-wsQXY2I.mp4",
+        "license": null
+      },
+      {
+        "title": "Galatasaray v Barcelona ⚔️ | Classic Champions League Highlights",
+        "url": "https://www.youtube.com/watch?v=mqg5E3qy9pY",
+        "sha256": "687c05c9306999ba6e8ae1675dce14966740f2582f1d51efaea32e3f2d0f489e",
+        "file": "highlights\\mqg5E3qy9pY.mp4",
+        "license": null
+      },
+      {
+        "title": "Real Madrid v Atlético Madrid: 2014 UEFA Champions League final highlights",
+        "url": "https://www.youtube.com/watch?v=Ji021RYgGXQ",
+        "sha256": "f600110061694f39c1f363cdcbf8cc80863effc28a7701122d6c572cb42318f9",
+        "file": "highlights\\Ji021RYgGXQ.mp4",
+        "license": null
+      },
+      {
+        "title": "PORTUGAL 3-1 SWITZERLAND #UNL FINALS HIGHLIGHTS",
+        "url": "https://www.youtube.com/watch?v=T2Xine9LYDA",
+        "sha256": "81172626570a0fe880663ffea547026f54cfd40f61fc99a0714adc0e34f9da87",
+        "file": "highlights\\T2Xine9LYDA.mp4",
+        "license": null
+      },
+      {
+        "title": "Real Madrid vs FC Barcelona (2-3) | 2016/17 Season - Extended Highlights",
+        "url": "https://www.youtube.com/watch?v=fVufY4SCoOk",
+        "sha256": "315f5c82830c391df78051aabf1886d3c7581b70ed47713fb49a11f3d0b212c7",
+        "file": "highlights\\fVufY4SCoOk.mp4",
+        "license": null
+      },
+      {
+        "title": "FC BARCELONA 3 - 0 GETAFE CF | HIGHLIGHTS LALIGA EA SPORTS",
+        "url": "https://www.youtube.com/watch?v=08RWFNVutzM",
+        "sha256": "8657ed34c077b8c0f47750c324d29b90e5e7140b32e828c8967137b16387d4d8",
+        "file": "highlights\\08RWFNVutzM.mp4",
+        "license": null
+      },
+      {
+        "title": "DEPORTIVO ALAVÉS 1 - 2 ATLÉTICO DE MADRID | HIGHLIGHTS LALIGA EA SPORTS",
+        "url": "https://www.youtube.com/watch?v=EOx2R7NOc2U",
+        "sha256": "634e49fbe421d4a5cb79364ced4f45949157548027392f63e74ae50b6de9114e",
+        "file": "highlights\\EOx2R7NOc2U.mp4",
+        "license": null
+      },
+      {
+        "title": "REAL MADRID 6-3 GIRONA 2017/18 | Extended Highlights",
+        "url": "https://www.youtube.com/watch?v=sTXqihBwOwI",
+        "sha256": "ab5e1f7854a388e9b3183b57bcfea8c14f7914d3a57f87cb076dede24ca431b7",
+        "file": "highlights\\sTXqihBwOwI.mp4",
+        "license": null
+      },
+      {
+        "title": "REAL MADRID 1 - 0 VILLARREAL CF | HIGHLIGHTS LALIGA EA SPORTS",
+        "url": "https://www.youtube.com/watch?v=_sZK1UhrlFI",
+        "sha256": "e515590e0fe8b0bae9adb6339a547dc3ebb7098e5cd9ce50a840d6f90b559ae8",
+        "file": "highlights\\_sZK1UhrlFI.mp4",
+        "license": null
+      },
+      {
+        "title": "LEVANTE UD 3 - 3 SEVILLA FC | HIGHLIGHTS LALIGA EA SPORTS",
+        "url": "https://www.youtube.com/watch?v=hCURopCv49E",
+        "sha256": "c2b50a396aa1faebd96bf63f8a6555ecfaf505ef0f6e3939a4cf7c6dec23f5bc",
+        "file": "highlights\\hCURopCv49E.mp4",
+        "license": null
+      },
+      {
+        "title": "FC BARCELONA 7 - 2 R. RACING CLUB | HIGHLIGHTS LALIGA EA SPORTS",
+        "url": "https://www.youtube.com/watch?v=bo9g36xT5UA",
+        "sha256": "6fc079a923c2e67c59ec8533bedaea8ea1f9a6eddf161cca170c375ca64dd98e",
+        "file": "highlights\\bo9g36xT5UA.mp4",
+        "license": null
+      },
+      {
+        "title": "REAL MADRID 0-4 FC BARCELONA 2015/16 | Extended Highlights",
+        "url": "https://www.youtube.com/watch?v=Ri5JspusO1M",
+        "sha256": "ddeffd32d44a61443f258cd6a18fb8aaa74cb55e6c3012894c6c6f44901528f0",
+        "file": "highlights\\Ri5JspusO1M.mp4",
+        "license": null
+      },
+      {
+        "title": "Extended Highlights: Arsenal v Tottenham Hotspur | Barclays WSL 24/25",
+        "url": "https://www.youtube.com/watch?v=sMEGd95QdjU",
+        "sha256": "3883e4e947d20bc22314368e01f230354ef4284bb893ab3b5cbc246984ecf967",
+        "file": "highlights\\sMEGd95QdjU.mp4",
+        "license": null
+      },
+      {
+        "title": "💥 Extended Highlights: Arsenal v Manchester United | Barclays WSL 24/25",
+        "url": "https://www.youtube.com/watch?v=KSI-bJ65kvU",
+        "sha256": "7a33735f56b3d60d92fcfea77d78105f98fc89092c6f3d23337c4b367705f07c",
+        "file": "highlights\\KSI-bJ65kvU.mp4",
+        "license": null
+      },
+      {
+        "title": "Extended Highlights: Beth Mead Scores Late Equaliser! 💥 | Arsenal v Manchester City | BWSL 24/25",
+        "url": "https://www.youtube.com/watch?v=UPmu_2-caEw",
+        "sha256": "8e90865c2c39148b34fba2ccd406e371b3910106cd5e871a8ae140e544a43328",
+        "file": "highlights\\UPmu_2-caEw.mp4",
+        "license": null
+      },
+      {
+        "title": "🏆 Extended Highlights: Chelsea v Manchester City | Subway Women's League Cup Final 2024-25",
+        "url": "https://www.youtube.com/watch?v=mSEH5RQDc-4",
+        "sha256": "7568c90415acdb68c6e61c6408fd0b34ef09ad68ba9e2bdc4cc9792296b0a6e6",
+        "file": "highlights\\mSEH5RQDc-4.mp4",
+        "license": null
+      },
+      {
+        "title": "Chelsea Demolish Liverpool to Reach Semi-Final! 💥 | Highlights | Subway Women's League Cup 25/26",
+        "url": "https://www.youtube.com/watch?v=CCu553149_c",
+        "sha256": "6c9ed51bd7c7c77bf4eaed8e60bffe4910334d2a9e641e48d2fe0464687b05cd",
+        "file": "highlights\\CCu553149_c.mp4",
+        "license": null
+      }
+    ],
+    "match_identities_human_verified": false,
+    "training_eligible": false
+  },
+  "frames": {
+    "selected": 4204,
+    "categories": {
+      "closeup_candidates": 945,
+      "overview_candidates": 3259
+    },
+    "minimum_spacing_s": 2,
+    "near_duplicate_filter": "64-bit dHash <=5 differing bits",
+    "timestamps": "source frame index / declared FPS; CFR assumption recorded per video"
+  },
+  "proposals": {
+    "complete": 4204,
+    "target": 4204,
+    "training_eligible": false,
+    "human_reviewed": false,
+    "status": "complete",
+    "contract_checked": 4204
+  },
+  "smoke_training": {
+    "status": "complete",
+    "is_accuracy_evidence": false,
+    "models": {
+      "keypoints": {
+        "training_steps": 1,
+        "validation_steps": 1,
+        "peak_gpu_bytes": 2587283456,
+        "best_valid_loss": 1.5332267139456235e-05,
+        "weights_sha256": "8bf14e6d785be6a8044d72b33a65d17c50f793306847351fab6e8481f405fe59"
+      },
+      "lines": {
+        "training_steps": 1,
+        "validation_steps": 1,
+        "peak_gpu_bytes": 2545892352,
+        "best_valid_loss": 0.00024483795277774334,
+        "weights_sha256": "e6409619359b1342684f0bc8ecf2de490983ae62a6e4979a99fbcd377970f16b"
+      }
+    }
+  },
+  "smoke_comparison": {
+    "job": "artifacts/field-training-smoke/job.json",
+    "completed_models": [
+      "baseline",
+      "candidate"
+    ],
+    "report": "artifacts/field-training-smoke/comparison/comparison.json",
+    "status": "complete",
+    "metrics": {
+      "baseline": {
+        "validation_frames": 19,
+        "valid_frames": 9,
+        "wrong_calibrations": 3,
+        "reprojection_median_px": 1.3974297960533175,
+        "reprojection_p95_px": 5.882710544164972,
+        "unscored_valid_frames": 0,
+        "broadcast": {
+          "frames": 1239,
+          "coverage": 0.20258272800645682,
+          "longest_failure_s": 16.64,
+          "human_reprojection_error": null,
+          "wrong_calibrations": null,
+          "development_clip": true
+        }
+      },
+      "candidate": {
+        "validation_frames": 19,
+        "valid_frames": 12,
+        "wrong_calibrations": 4,
+        "reprojection_median_px": 1.4442633523493549,
+        "reprojection_p95_px": 7.699520542039897,
+        "unscored_valid_frames": 0,
+        "broadcast": {
+          "frames": 1239,
+          "coverage": 0.20177562550443906,
+          "longest_failure_s": 16.28,
+          "human_reprojection_error": null,
+          "wrong_calibrations": null,
+          "development_clip": true
+        }
+      }
+    }
+  },
+  "full_training": {
+    "job": "artifacts/field-training-full/job.json",
+    "status_at_snapshot": "running",
+    "phase_at_snapshot": "train",
+    "max_epochs_per_network": 30,
+    "preflight_before_full_training": true,
+    "automatic_promotion": false,
+    "preflight_status": "complete",
+    "preflight_report": "artifacts/field-training-full/preflight/training-report.json",
+    "initial_training_progress": {
+      "phase": "train",
+      "step": 300,
+      "samples": 300,
+      "loss": 2.176161342352619e-05,
+      "elapsed_s": 166.84300000000076
+    }
+  },
+  "verification": {
+    "pytest_passed": 159,
+    "focused_checkpoint_and_data_tests_passed": 18,
+    "ruff": "passed",
+    "human_broadcast_evaluation": "pending"
+  },
+  "independent_accuracy_claim": false,
+  "notes": [
+    "First training uses existing SoccerNet labels only. Highlights and unreviewed proposals do not train.",
+    "Interrupted/failed download files remain local and count toward the budget.",
+    "Training environments, checkpoints and comparison bundles are outside the 20 GiB corpus budget."
+  ]
+}

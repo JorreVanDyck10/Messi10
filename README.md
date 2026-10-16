@@ -67,6 +67,11 @@ Eenmalig met Python 3.11: `python scripts/setup_field_model.py`. Kies vervolgens
 
 Zie [Automatische veldkalibratie](docs/Automatische_Veldkalibratie.md) voor CLI-gebruik, modelherkomst, technische proef, uitvoerformaat en onafhankelijke evaluatie. De implementatie en technische bruikbaarheid vormen geen bewijs van algemene nauwkeurigheid op wedstrijdbeelden.
 
+Voor extra velddata en echte lokale fine-tuning op Windows: zie
+[Veldmodeltraining](docs/Veldmodel_Training.md). Deze route verzamelt SoccerNet en
+officiële highlights binnen 20 GiB, houdt ongecontroleerde voorstellen buiten de
+training en vergelijkt eigen punten- en lijngewichten met de bestaande modellen.
+
 De nieuwe [Broadcast-veldtest](docs/Broadcast_Veldexperiment.md) verbetert de
 intern bruikbare kalibraties van 0 naar **252/1.239 frames (20,3%)** met gecontroleerde
 veldpunten en korte overbrugging via optical flow. Dit blijft experimenteel;

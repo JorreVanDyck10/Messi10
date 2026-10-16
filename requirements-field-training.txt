@@ -1,0 +1,7 @@
+# Additional libraries only. setup_field_training.py imports the pinned inference runtime read-only.
+matplotlib==3.9.4
+lsq-ellipse==2.2.1
+tqdm==4.67.1
+shapely==2.0.7
+psutil==7.2.2
+yt-dlp[default]==2026.8.19

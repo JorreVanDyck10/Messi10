@@ -24,10 +24,10 @@ from football_pipeline.field_layout import (  # noqa: E402
     LINES_UV,
     POINTS_UV,
     POLICY,
-    RELEASE_WEIGHTS,
     UPSTREAM_REVISION,
     UPSTREAM_URL,
 )
+from football_pipeline.field_model_spec import validate_runtime_models  # noqa: E402
 
 
 def main():
@@ -61,18 +61,7 @@ def main():
     for name, expected in runtime["source_sha256"].items():
         if sha256_file(repository / name) != expected:
             raise ValueError(f"Upstream source changed: {name}")
-    for role, model in runtime["models"].items():
-        if (
-            model["name"] != RELEASE_WEIGHTS[role]["name"]
-            or model["sha256"] != RELEASE_WEIGHTS[role]["sha256"]
-        ):
-            raise ValueError("Unexpected release weights")
-        if Path(runtime["weights_keypoints" if role == "keypoints" else "weights_lines"]) != Path(
-            model["path"]
-        ):
-            raise ValueError("Runtime model paths disagree")
-        if sha256_file(model["path"]) != model["sha256"]:
-            raise ValueError("Weight hash mismatch")
+    validate_runtime_models(runtime)
     if sha256_file(repository / "LICENSE") != runtime["upstream"]["license_sha256"]:
         raise ValueError("Upstream license changed")
     sys.path.insert(0, str(repository))
