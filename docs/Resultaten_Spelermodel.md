@@ -97,6 +97,8 @@ De hypothese “alle fouten komen door kleine objecten” is verworpen als volle
 
 De geselecteerde klasse-ID's sluiten nu rechtstreeks op de spelertracker aan. Dat bewijst geen foutloze rolherkenning: officials kunnen nog onterecht als speler worden gedetecteerd. ByteTrack blijft achter de bestaande MVP-acceptatie staan. Er is geen menselijke acceptatie of trackingreferentie verzonnen.
 
+**Downloadbaarheid gecontroleerd:** na het pushen zijn de 60 datasetbeelden, de spelercheckpoints, de oorspronkelijke YouTube-video en de oude balcheckpoints opnieuw van GitHub opgehaald naar een lege LFS-opslag. Alle 66 bestandspaden, met 65 unieke objecten en 218.347.037 bytes, voldoen aan de vastgelegde SHA-256 en bestandsgrootte. Het opnieuw gedownloade geselecteerde checkpoint is daadwerkelijk geladen en bevat 0=`player`, 1=`referee`. Het [downloadbewijs](../reports/players-experiments/remote-download-verification.json) noemt de gecontroleerde assetcommit. De oude `codex/pipeline-minimap`-branch is verwijderd nadat zijn volledige geschiedenis op `main` was behouden.
+
 In de vastgezette GPU-versie 8.3.221 nummert ByteTrack de confidencegroepen opnieuw. Daardoor kreeg in een bestaande compatibiliteitstest de verkeerde detectie een ID. De adapter bewaart voor deze versie nu de oorspronkelijke indices door beide associatiestappen. De test controleert hoge en lage scores, lege frames, herintrede en uitsluiting van `referee`. Andere versies behouden hun bestaande native route.
 
 ## 8. Starten en reproduceren op de 4050

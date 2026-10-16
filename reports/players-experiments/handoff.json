@@ -143,5 +143,6 @@
   },
   "training_hardware": "RTX 3050 Laptop GPU, 4096 MiB; not an RTX 4050 benchmark",
   "download": "git lfs pull --include=\"artifacts/players-v2/**,datasets/teamtrack-players-v2/images/**\"",
-  "test_warning": "0720-0750 also has development labels on main; no independent final project test is claimed."
+  "test_warning": "0720-0750 also has development labels on main; no independent final project test is claimed.",
+  "remote_download_verification": "reports/players-experiments/remote-download-verification.json"
 }
