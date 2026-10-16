@@ -144,3 +144,5 @@ De training gebruikt de geleverde R004-seed en bronbeelden uit Git LFS en oversc
 De softwaretests en echte modelmetingen zijn afzonderlijk bewaard. Menselijke labelreview, onafhankelijke projecteindtest en beoordeling op de 4050 blijven open.
 
 De samengevoegde versie slaagt met **199 tests en 4 subtests**, inclusief de nieuwste veldtraining en GPU-/persoonscontroles van persoon 2. Ruff, formatting en dependencycontrole slagen. Zie `reports/appearance-experiments/software-validation.json`.
+
+De nieuwe model- en bronbestanden zijn na publicatie werkelijk opnieuw uit GitHub gedownload in een lege LFS-cache: 23 bestanden, 43.021.348 bytes. Iedere hash en bestandsgrootte is tegen de gepubliceerde pointer gecontroleerd; de verse classifier is geladen met de zes juiste rolnamen. Het bewijs staat in `reports/appearance-experiments/remote-download-verification.json`. Dit is geen controle tegen alleen de bestaande lokale cache.
