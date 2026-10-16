@@ -136,7 +136,11 @@ def render_frame(
         if detection.track_id is not None:
             label(pitch, str(detection.track_id), (point[0] + 8, point[1] - 6), color, 0.5)
     present_roles = {d.semantic_class for d in record.detections}
-    legend = [role for role in COLORS if role in present_roles or role == "player"]
+    legend = [
+        role
+        for role in COLORS
+        if role in present_roles or (role == "player" and record.player_model_available)
+    ]
     for index, semantic in enumerate(legend):
         color = COLORS[semantic]
         x, y = 40 + (index % 2) * 280, 610 + (index // 2) * 23

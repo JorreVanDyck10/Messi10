@@ -114,6 +114,7 @@ def main() -> None:
     parser.add_argument("--models", type=Path, default=ROOT / "configs/models.json")
     parser.add_argument("--runs", type=Path, default=ROOT / "runs")
     parser.add_argument("--report", type=Path, required=True)
+    parser.add_argument("--replay-run", type=Path, help="Reuse verified real detections for a new render")
     args = parser.parse_args()
     try:
         result = process_video(
@@ -121,6 +122,7 @@ def main() -> None:
             load_automatic_calibration(args.automatic_calibration),
             args.models,
             args.runs,
+            replay_run=args.replay_run,
             progress=lambda n, total, elapsed: print(f"{n}/{total} frames | {elapsed:.1f} s", flush=True),
         )
         manifest = validate_completed(result.directory)
@@ -131,6 +133,10 @@ def main() -> None:
             "video_sha256": manifest["video"]["sha256"],
             "model_profile": str(args.models.resolve()),
             "models": manifest["models"]["models"],
+            "inference_reused_from": manifest.get("replayed_from"),
+            "original_inference_measurements": validate_completed(args.replay_run)["measurements"]
+            if args.replay_run
+            else None,
             "semantic_classes": sorted(
                 {role for spec in manifest["models"]["models"] for role in spec["class_mapping"].values()}
             ),

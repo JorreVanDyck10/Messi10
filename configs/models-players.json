@@ -21,6 +21,8 @@
     }
   ],
   "handoff": {
+    "broadcast_transfer_adequate": false,
+    "broadcast_validation_record": "../reports/player-pipeline-4050.json",
     "evaluation_record": "../reports/players-experiments/EXP-P004/validation-metrics/metrics.json",
     "evaluation_sha256": "2b725cbb140f22297f5e397e5277ad51f17c957ac109f55ebdee56c3f1f7c240",
     "human_review_completed": false,

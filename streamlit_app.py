@@ -492,6 +492,7 @@ try:
             "Dit spelermodel is voorlopig. De menselijke labelreview staat nog open; "
             "scheidsrechters en lijnrechters worden nog geregeld gemist."
         )
+    if models.get("handoff", {}).get("broadcast_transfer_adequate") is False:
         st.warning(
             "Dit rolmodel is op panoramabeelden getraind en mist veel personen in de Broadcast-ontwikkelclip. "
             "Kies ‘Personen op GPU’ voor algemene persoonsherkenning op zulke beelden."
