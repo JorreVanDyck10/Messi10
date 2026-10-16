@@ -25,8 +25,18 @@ De latere gebruikersinstructie bevatte de bronlink `https://www.youtube.com/watc
 - Alfheim-beelden zijn niet zonder geometriebeoordeling als projectbron geaccepteerd wegens zichtbare vervorming.
 - Zowel 640 als 1920 inference is werkelijk op dezelfde ontwikkelframes uitgevoerd. Aantallen voorspellingen zijn niet tot nauwkeurigheidsclaims verheven.
 - Softwaretests en een synthetische training zijn daadwerkelijk uitgevoerd. Synthetische scores tellen niet mee als voetbalresultaten.
-- Datasetvalidatie weigert de huidige ongereviewde kandidaatlabels; er zijn geen testmetrics of menselijke goedkeuringen verzonnen.
+- Datasetvalidatie weigert de oorspronkelijke ongereviewde kandidaatdataset. De later toegevoegde baldataset gebruikt een afzonderlijke, expliciet voorlopige AI-route. Er zijn geen testmetrics of menselijke goedkeuringen verzonnen.
+
+## Werkelijke vervolgstap: balannotaties en training
+
+De gebruiker vroeg daarna expliciet: `Echte fine-tuning en project-mAP zijn nog niet uitgevoerd` en `hoort dit bij alles van persoon 1 zoja doe dit dan ook`.
+
+Codex heeft daarop 47 beelden uit de gekozen echte voetbalvideo visueel van balboxen voorzien, met oorspronkelijke context en vergrote uitsneden. Helderheidscomponenten en de eerdere YOLO-voorstellen hielpen bij het zoeken; verkeerde of ontbrekende voorstellen zijn visueel gecorrigeerd. Eén voorbeeld is frame 2525: de helderheidscomponent nam een schoen mee, waarna de box is beperkt tot de bal. Onduidelijke bronmomenten zijn uitgesloten en zijn geen negatieve labels geworden.
+
+Deze dataset staat nadrukkelijk als `provisional_ai_visual` geregistreerd. Annotator is `Codex AI`; menselijke reviewernamen blijven leeg en `human_review_completed` is onwaar. Er zijn geen twee onafhankelijk werkende mensen nagebootst. De afzonderlijke voorlopige ontwikkelroute controleert labels, bronbeelden en bewijschecksums. De normale teamreview en formele testbeveiliging blijven bestaan.
+
+De echte trainings- en validatieresultaten worden in `docs/Resultaten_Balexperimenten.md` vastgelegd. De 640-run bracht daadwerkelijk een voorbewerkingsfout voor deze kleine ballen aan het licht: er bleven nul trainingsinstanties over. Het vervolg op 1920 met rechthoekige batches is vooraf als gericht experiment geregistreerd. Het wordt niet als een zuivere wijziging van uitsluitend resolutie voorgesteld.
 
 ## Wat het team nog zelf moet doen
 
-Beide studenten moeten de code en aannames inhoudelijk reviewen, echte labels maken en controleren, de modelkeuzes verdedigen en de resultaten van echte trainingsruns begrijpen. Werk deze disclosure verder bij met genomen beslissingen, eigen wijzigingen, feedback en werkelijke vervolgprompts.
+Beide studenten moeten de code, aannames en nu vastgelegde AI-labels inhoudelijk reviewen, de modelkeuzes verdedigen en de resultaten van de echte trainingsruns begrijpen. De gezamenlijke zes proefannotaties, onafhankelijke review en verdediging blijven hun eigen werk. Werk deze disclosure verder bij met genomen beslissingen, eigen wijzigingen, feedback en werkelijke vervolgprompts.

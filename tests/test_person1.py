@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 from persoon1.annotation import save_annotation
-from persoon1.core import dataset_path, read_json, read_labels, require_approval, validate_dataset, write_json
+from persoon1.core import dataset_path, read_json, read_labels, require_approval, require_experiment_data, sha256, validate_dataset, write_json
 from persoon1.metrics import evaluate, iou
 
 
@@ -181,6 +181,48 @@ class DatasetTests(TempCase):
         result = save_annotation(self.manifest, {"frame_id": "f0", "action": "approve", "reviewer": "actual-second-fixture-user"})
         self.assertEqual(result["review_status"], "approved")
         self.assertEqual(before, (self.root / "0.txt").read_text())
+
+    def provisional_fixture(self):
+        self.data.update(review_policy="provisional_ai_visual", human_review_completed=False)
+        for frame in self.data["frames"]:
+            frame.update(annotator="Codex AI", reviewer="", review_status="ai_visual_checked",
+                         visual_evidence=frame["image"], visual_evidence_sha256=sha256(self.root / frame["image"]))
+        self.update()
+        report = self.check(review=False)
+        approval = self.root / "ai-attestation.json"
+        write_json(approval, {"dataset_fingerprint": report["dataset_fingerprint"],
+                             "review_policy": "provisional_ai_visual", "human_review_completed": False})
+        return approval, report
+
+    def test_provisional_labels_do_not_pass_human_review(self):
+        approval, _ = self.provisional_fixture()
+        self.assertTrue(any("independent" in e for e in self.check()["errors"]))
+        with self.assertRaises(ValueError):
+            require_experiment_data(self.manifest, approval)
+
+    def test_explicit_provisional_route_checks_attestation(self):
+        from unittest.mock import patch
+        approval, report = self.provisional_fixture()
+        # The three-image fixture tests provenance separately from the production 40-frame rule.
+        with patch("persoon1.core.validate_dataset", return_value=report):
+            self.assertEqual(require_experiment_data(self.manifest, approval, True), report)
+            write_json(approval, {"dataset_fingerprint": "stale"})
+            with self.assertRaisesRegex(ValueError, "attestation"):
+                require_experiment_data(self.manifest, approval, True)
+
+    def test_provisional_route_rejects_changed_evidence(self):
+        approval, _ = self.provisional_fixture()
+        (self.root / "0.png").write_bytes(b"changed")
+        with self.assertRaisesRegex(ValueError, "evidence"):
+            require_experiment_data(self.manifest, approval, True)
+
+    def test_provisional_final_test_is_forbidden(self):
+        from persoon1.modeling import evaluate_run
+        predictions = self.root / "predictions"
+        predictions.mkdir()
+        write_json(predictions / "run.json", {"manifest_sha256": sha256(self.manifest), "split": "test"})
+        with self.assertRaisesRegex(ValueError, "development scores only"):
+            evaluate_run(self.manifest, predictions, self.root / "scores", provisional_ai=True)
 
 
 if __name__ == "__main__":

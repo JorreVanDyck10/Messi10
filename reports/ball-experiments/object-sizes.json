@@ -1,0 +1,17 @@
+{
+  "train": {
+    "count": 27,
+    "median_native_width": 8,
+    "median_native_height": 8
+  },
+  "val": {
+    "count": 12,
+    "median_native_width": 6.0,
+    "median_native_height": 6.0
+  },
+  "test": {
+    "count": 8,
+    "median_native_width": 9.5,
+    "median_native_height": 9.0
+  }
+}

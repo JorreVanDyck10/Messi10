@@ -1,0 +1,30 @@
+{
+  "recorded_at": "2026-10-16T12:25:07.161243+00:00",
+  "records": [
+    {
+      "id": "AI-001",
+      "purpose": "Implement reproducible video/data/train/evaluation tooling.",
+      "tool": "Codex",
+      "verification": "36 actual unit/integration tests pass; no synthetic score presented as football accuracy."
+    },
+    {
+      "id": "AI-002",
+      "purpose": "Locate and bound ball on actual source images.",
+      "tool": "Codex visual inspection with source crops and component proposals",
+      "output": "47 AI-labelled frames; visible box reviews and one explicit shoe/ball correction.",
+      "limitation": "No independent human annotation reliability measurement; both teammates still need to review."
+    },
+    {
+      "id": "AI-003",
+      "purpose": "Execute genuine fine-tuning and score project predictions.",
+      "tool": "Codex orchestrating pinned local Ultralytics/PyTorch",
+      "verification": "Run logs, checkpoints, hashes, CSV curves and explicit same-evaluator comparison.",
+      "limitation": "Current execution GPU is RTX 3050, not target RTX 4050."
+    },
+    {
+      "id": "AI-004",
+      "purpose": "Interpret failure modes.",
+      "verification": "Check native source, annotation and prediction together; preserve unconfirmed alternatives and negative results."
+    }
+  ]
+}

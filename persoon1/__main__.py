@@ -46,6 +46,7 @@ def parser():
     p.add_argument("--output", required=True)
     p.add_argument("--device", default="0")
     p.add_argument("--smoke", action="store_true")
+    p.add_argument("--provisional-ai-labels", action="store_true", help="Explicit provisional experiment; does not count as human team review")
     p = sub.add_parser("evaluate", help="Score mapped predictions and produce FP/FN records")
     p.add_argument("--manifest", required=True)
     p.add_argument("--predictions", required=True)
@@ -53,6 +54,7 @@ def parser():
     p.add_argument("--work-confidence", type=float, default=0.25)
     p.add_argument("--freeze")
     p.add_argument("--approvals")
+    p.add_argument("--provisional-ai-labels", action="store_true")
     p = sub.add_parser("freeze", help="Freeze model, dataset and inference before independent test")
     p.add_argument("--manifest", required=True)
     p.add_argument("--approvals", required=True)
@@ -95,10 +97,10 @@ def execute(args):
         return serve(args.manifest, args.proposals, args.split, args.port)
     if args.command == "train":
         from .modeling import train
-        return train(args.manifest, args.approvals, args.config, args.weights, args.output, args.device, args.smoke)
+        return train(args.manifest, args.approvals, args.config, args.weights, args.output, args.device, args.smoke, args.provisional_ai_labels)
     if args.command == "evaluate":
         from .modeling import evaluate_run
-        return evaluate_run(args.manifest, args.predictions, args.output, args.work_confidence, args.freeze, args.approvals)
+        return evaluate_run(args.manifest, args.predictions, args.output, args.work_confidence, args.freeze, args.approvals, args.provisional_ai_labels)
     if args.command == "freeze":
         report = require_approval(args.manifest, args.approvals)
         run = read_json(args.inference)
@@ -116,7 +118,7 @@ def execute(args):
         return result
     if args.command == "compare":
         a, b = read_json(args.baseline), read_json(args.candidate)
-        for key in ("method", "split", "manifest_sha256", "label_fingerprint", "workpoint"):
+        for key in ("method", "split", "manifest_sha256", "label_fingerprint", "workpoint", "review_policy"):
             if a[key] != b[key]:
                 raise ValueError(f"Not a comparable evaluation: {key}")
         if [c["name"] for c in a["per_class"]] != [c["name"] for c in b["per_class"]]:
