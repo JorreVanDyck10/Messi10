@@ -24,3 +24,21 @@ Veldfitpunten staan in vaste volgorde `(0,0),(1,0),(1,1),(0,1)`. `u` is de lengt
 Het minimale handoverpakket van persoon 1 bevat videobron en hash, model/gewichtshash, werkelijke klassennamen, semantische mapping, voorbeeld-detecties, inferenceconfiguratie en dependencyversies. Voor de eindclaim horen dataset-/splitversie en de echte evaluatierun erbij. Klassewijzigingen en dependencywijzigingen vragen een gecoördineerde review.
 
 Grote bestanden worden extern gedeeld volgens de toegangsrechten. Leg hun locatie, identiteit, versie en toegang vast; commit geen ruwe video's, gewichten, omgevingen of trainingsmappen. Onafhankelijke testdata wordt niet gebruikt voor deze integratie of parametertuning.
+
+
+## Automatische framekalibratie (runmanifestversie 2)
+
+De handmatige schema-1-kalibratie blijft beschikbaar. Automatische runs bevatten aanvullend een
+`calibration`-object per frame met `frame_index`, `model_identity`, `status`, `homography` (3×3 of null),
+`quality`, `points` en `lines`. `homography` projecteert oorspronkelijke beeldpixels naar hetzelfde
+bestaande genormaliseerde veldstelsel. Een ongeldige kalibratie heeft altijd een null-matrix.
+
+De statussen omvatten `valid`, `insufficient_points`, `insufficient_lines`, `inconsistent_points`,
+`inconsistent_lines`, `degenerate_geometry`, `orientation_unknown` en `invalid_observation`.
+Detecties behouden de bestaande velden. Bij een ontbrekende veldkalibratie hebben personen/spelers
+`field_position=null` en `projection_status=calibration_unavailable`; er worden geen vorige posities herhaald.
+
+Het automatische `calibration.json` bevat het bron-/modelmanifest. `observations.jsonl` bevat de
+onveranderde semantische punt- en lijnwaarnemingen, gebonden aan videohash, resolutie en tijdlijn.
+Replay controleert ook deze bundelidentiteit. Confidence en interne residuals gelden niet als
+menselijk vastgestelde nauwkeurigheid. Zie `Automatische_Veldkalibratie.md` voor de beoordelingsprocedure.

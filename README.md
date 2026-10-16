@@ -47,7 +47,7 @@ powershell -ExecutionPolicy Bypass -File scripts\setup_tools.ps1
 
 FFmpeg wordt door het script in `.tools/` uitgepakt, zonder de systeembrede PATH te veranderen. De downloader gebruikt een Windows-build van BtbN, een provider op [ffmpeg.org/download.html](https://ffmpeg.org/download.html). Een nieuwe download kan een nieuwere build opleveren; runmanifesten bewaren de daadwerkelijk gebruikte versie. Voor identieke herhaling delen jullie dezelfde build en zijn SHA-256. Bestaande tools kunnen ook via PATH of `FOOTBALL_FFMPEG` en `FOOTBALL_FFPROBE` worden aangewezen.
 
-### Een video verwerken via de interface
+### Een video verwerken via de interface (handmatige modus)
 
 1. Kies een legaal te gebruiken `.mp4`, bij voorkeur een ontwikkelfragment van 30–60 seconden. Het volledige veld moet zichtbaar zijn, met vier hoeken en twee onafhankelijke controlepunten. De camera blijft vast: geen zoom, pan of camerawissel.
 2. De toepassing controleert ieder frametijdstip, het beeldformaat en de videohash. Variabele framerate en rotatiemetadata worden afgewezen. Normaliseer zo nodig een kopie vooraf en kalibreer die nieuwe kopie opnieuw.
@@ -58,6 +58,14 @@ FFmpeg wordt door het script in `.tools/` uitgepakt, zonder de systeembrede PATH
 7. Klik op **Verwerken**. De uitvoer bevat één H.264-video van 1920 × 720, met links het beeld en rechts de minimap. Afspelen, pauzeren en zoeken gelden automatisch voor beide kanten.
 
 Een kalibratie kan alleen worden geladen voor exact dezelfde cliphash en beeldafmetingen. De opgeslagen matrix en controlefouten worden opnieuw uit de puntparen berekend. Een ander bestand met dezelfde resolutie is geen bewijs van dezelfde camera.
+
+### Automatische veldkalibratie bij pan en zoom
+
+Naast de handmatige modus is er **Automatische veldkalibratie**. Een afzonderlijke PnLCalib-omgeving herkent veldpunten en lijnen per frame; de minimap gebruikt de kalibratie van datzelfde frame. De vier buitenhoeken hoeven niet allemaal zichtbaar te zijn. Bij te weinig betrouwbare markeringen blijft de veldpositie onbekend. Spelertracking bij bewegende camera’s staat voorlopig uit.
+
+Eenmalig met Python 3.11: `python scripts/setup_field_model.py`. Kies vervolgens de automatische modus na het uploaden van een MP4, vul videobron en toegelaten gebruik in en klik op **Verwerken**. Dit gebruikt een aparte omgeving en verandert de trainingsomgeving van persoon 1 niet. De bestaande spelersmodeloverdracht blijft gelden.
+
+Zie [Automatische veldkalibratie](docs/Automatische_Veldkalibratie.md) voor CLI-gebruik, modelherkomst, technische proef, uitvoerformaat en onafhankelijke evaluatie. De implementatie en technische bruikbaarheid vormen geen bewijs van algemene nauwkeurigheid op wedstrijdbeelden.
 
 ### Zonder interface werken
 
@@ -182,7 +190,7 @@ Voor een lokale YOLO-inferenceproef op een eigen afbeelding: `python scripts/smo
 
 ### Beperkingen en gezamenlijk vervolg
 
-Automatische camerabewegingsdetectie, lenscorrectie, teamherkenning, namen, baltracking, metrische snelheid en training vallen buiten deze implementatie. Het veld en zijn cirkel zijn schematisch; er worden geen echte veldafmetingen aangenomen. Het onderste boxmidden blijft bij overlap en springen een benadering.
+De handmatige modus veronderstelt een vaste camera. De automatische modus herkalibreert per frame bij pan en zoom; lenscorrectie, teamherkenning, namen, baltracking en metrische snelheid vallen buiten deze pipeline. Het veld en zijn cirkel zijn schematisch; er worden geen echte veldafmetingen aangenomen. Het onderste boxmidden blijft bij overlap en springen een benadering.
 
 Het team moet de eerste echte pilot gezamenlijk reviewen, de definitieve modellen leveren, 40–80 frames annoteren en onderling controleren, leakage beoordelen, echte mAP meten en trackingreferenties opstellen. Persoon 2 annoteert ongeveer de helft en reviewt de andere helft. Zie `docs/acceptance.md`, `docs/data_contract.md` en de logboeken voor de verdere overdracht en verdediging.
 
