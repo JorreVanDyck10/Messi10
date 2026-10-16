@@ -1,0 +1,53 @@
+{
+  "status": "not_approved_for_mvp",
+  "reason": "Visible barrel distortion in field lines; rectification and geometry review needed before a single homography is appropriate.",
+  "downloaded_sources": [
+    {
+      "url": "https://datasets.simula.no/downloads/alfheim/2013-11-03/First%20Half/1/0056_2013-11-03%2018:01:14.248366000.h264",
+      "file": "0056.h264",
+      "status": "screening_only_not_approved"
+    },
+    {
+      "url": "https://datasets.simula.no/downloads/alfheim/2013-11-03/First%20Half/1/0176_2013-11-03%2018:07:14.256068000.h264",
+      "file": "0176.h264",
+      "status": "screening_only_not_approved"
+    },
+    {
+      "url": "https://datasets.simula.no/downloads/alfheim/2013-11-03/First%20Half/1/0296_2013-11-03%2018:13:14.262486000.h264",
+      "file": "0296.h264",
+      "status": "screening_only_not_approved"
+    }
+  ],
+  "conversions": [
+    {
+      "source": "data\\candidates\\alfheim\\0056.h264",
+      "source_sha256": "7c73c38ac6c77b0b1e5114e2d26626f804f2b8e5158dd03955eb3903f79c13c5",
+      "output": "data\\candidates\\alfheim\\0056.mp4",
+      "output_sha256": "60de3f4463331345b0f1425377ff9b6a630b22807ab95fed528e13322968d1ca",
+      "decoded_frames": 90,
+      "fps": 25,
+      "timing": "Assigned 25 fps for a derived technical sample. Original raw presentation timing is unverified; no cross-segment timing or motion-speed claim."
+    },
+    {
+      "source": "data\\candidates\\alfheim\\0176.h264",
+      "source_sha256": "246b13e0dd8ebae7a4455962dff9b903cf6312cb66a93486c7fadf4da35cf704",
+      "output": "data\\candidates\\alfheim\\0176.mp4",
+      "output_sha256": "d0360a6ce5193ad1829ea52a6ed60d9d624705fca55f8a1037b29a1471ae0a3d",
+      "decoded_frames": 90,
+      "fps": 25,
+      "timing": "Assigned 25 fps for a derived technical sample. Original raw presentation timing is unverified; no cross-segment timing or motion-speed claim."
+    },
+    {
+      "source": "data\\candidates\\alfheim\\0296.h264",
+      "source_sha256": "63775fd0879a6a88f0d7ae66966e6543cf30cd10535ee82375311c18c7342be2",
+      "output": "data\\candidates\\alfheim\\0296.mp4",
+      "output_sha256": "e91589130e124742a251bf599b35959da6778eaae2dee25301e7b4f54c464253",
+      "decoded_frames": 90,
+      "fps": 25,
+      "timing": "Assigned 25 fps for a derived technical sample. Original raw presentation timing is unverified; no cross-segment timing or motion-speed claim."
+    }
+  ],
+  "screening_frames": 9,
+  "human_review": "not_performed",
+  "target_gpu": "RTX 4050 laptop; VRAM to inspect on target hardware"
+}
