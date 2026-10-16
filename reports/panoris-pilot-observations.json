@@ -1,0 +1,80 @@
+{
+  "kind": "technical_observations_not_ground_truth_error_counts",
+  "human_reviewed": false,
+  "clip_sha256": "9baec79f611f7eae97ef484be181a2b426ea1c6b0ddeab03245afd7a96823836",
+  "review_examples": [
+    {
+      "frame_index": 0,
+      "timestamp_s": 0.0,
+      "displayed_person_boxes": 17,
+      "displayed_person_map_points": 13
+    },
+    {
+      "frame_index": 75,
+      "timestamp_s": 3.0,
+      "displayed_person_boxes": 15,
+      "displayed_person_map_points": 11
+    },
+    {
+      "frame_index": 149,
+      "timestamp_s": 5.96,
+      "displayed_person_boxes": 22,
+      "displayed_person_map_points": 18
+    }
+  ],
+  "observations": [
+    {
+      "id": "GEO-01",
+      "category": "projection_geometry",
+      "frame_index": 0,
+      "observation": "Near-touchline midpoint has the largest residual, 12.9737 source pixels. The actual touchline deviates from the straight corner polygon.",
+      "hypothesis": "Panoramic warp, manual corner selection and line thickness contribute. Sparse controls cannot isolate the cause.",
+      "consequence": "A narrow near-boundary strip can be rejected; no positions are clipped onto the boundary.",
+      "next_check": "Human review of corner/control points and additional line points; do not tune on held-out groups."
+    },
+    {
+      "id": "PERSON-01",
+      "category": "semantic_scope",
+      "frame_index": 0,
+      "detection_ids": [
+        "0:0",
+        "0:1",
+        "0:5"
+      ],
+      "observation": "High-confidence near-touchline persons have ground points outside the field and remain visible on video without map points.",
+      "next_check": "Confirm their role visually. Do not call these false positives just because they are not players."
+    },
+    {
+      "id": "EDGE-01",
+      "category": "detection_projection_boundary",
+      "frame_index": 0,
+      "detection_ids": [
+        "0:15"
+      ],
+      "observation": "Far-edge person has confidence 0.340 and box bottom y=193.889; field polygon rejects it.",
+      "hypothesis": "Actual position, box-foot uncertainty and corner error all affect boundary classification.",
+      "next_check": "Review the native-resolution far-touchline crop before classifying the detection or projection as wrong."
+    },
+    {
+      "id": "DET-01",
+      "category": "detection_or_display_threshold",
+      "frame_index": 0,
+      "observation": "Some small visible field persons are not shown at display threshold 0.25; no reviewed bounding-box references exist.",
+      "hypothesis": "A candidate can be below display threshold or missing from the detector.",
+      "next_check": "Annotate and review before counting FN, precision, recall or mAP."
+    },
+    {
+      "id": "OCC-01",
+      "category": "occlusion_and_localization",
+      "frame_index": 149,
+      "observation": "Several nearby field persons produce overlapping labels/boxes. No identity continuity is available in this tracking-free pilot.",
+      "next_check": "Review the footpoint per box and possible duplicate detections; tracking waits for MVP acceptance and player classes."
+    },
+    {
+      "id": "BALL-01",
+      "category": "non_planar_object",
+      "observation": "24 ball detections at confidence >=0.10 were preserved, all without ground positions.",
+      "next_check": "Review labels before deciding whether detections correspond to the real ball; no ball-tracking claim."
+    }
+  ]
+}

@@ -47,6 +47,22 @@ def test_invalid_calibrations_rejected(video_metadata, calibration, mutation):
         create_calibration(video_metadata, points)
 
 
+def test_failed_independent_check_exposes_diagnostics_without_moving_click(video_metadata, calibration):
+    from football_pipeline.geometry import CalibrationControlError
+
+    points = deepcopy(calibration.points)
+    original_y = points[4]["y"]
+    points[4]["y"] += 20
+    with pytest.raises(CalibrationControlError) as caught:
+        create_calibration(video_metadata, points)
+    failure = caught.value
+    assert failure.diagnostics[0]["clicked"][1] == original_y + 20
+    assert failure.diagnostics[0]["predicted"][1] == pytest.approx(original_y)
+    assert failure.diagnostics[0]["error_px"] == pytest.approx(20)
+    assert failure.median_limit_px == pytest.approx(np.hypot(640, 360) * 0.005)
+    assert points[4]["y"] == original_y + 20
+
+
 @pytest.mark.parametrize(
     "box,status",
     [

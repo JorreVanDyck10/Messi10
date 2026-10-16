@@ -17,6 +17,20 @@ def main(argv=None) -> int:
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("doctor", help="Controleer FFmpeg, ffprobe en Python-dependencies")
     sub.add_parser("download-baseline", help="Download expliciet COCO YOLO11n; geen spelersclassificatie")
+    register = sub.add_parser(
+        "register-player-model", help="Controleer getrainde gewichten en maak een spelersprofiel"
+    )
+    register.add_argument("weights", type=Path)
+    register.add_argument(
+        "--mapping", type=Path, required=True, help="JSON-object: modelklasse-ID naar semantische klasse"
+    )
+    register.add_argument("--output", type=Path, default=ROOT / "configs/models-players.json")
+    register.add_argument("--model-id", default="players_v1")
+    register.add_argument("--imgsz", type=int, default=1920)
+    register.add_argument("--confidence", type=float, default=0.10)
+    register.add_argument("--iou", type=float, default=0.70)
+    register.add_argument("--device", default="cpu")
+    register.add_argument("--evaluation-record", type=Path)
     inspect = sub.add_parser("inspect")
     inspect.add_argument("video", type=Path)
     calibrate = sub.add_parser("calibrate")
@@ -37,6 +51,11 @@ def main(argv=None) -> int:
     process.add_argument("--tracker", type=Path)
     process.add_argument("--mvp-acceptance", type=Path)
     process.add_argument("--replay-run", type=Path)
+    process.add_argument(
+        "--technical-pilot",
+        action="store_true",
+        help="Technisch gecontroleerde pilot zonder menselijke MVP-acceptatie",
+    )
     accept = sub.add_parser("accept-mvp")
     accept.add_argument("run", type=Path)
     accept.add_argument("--reviewer", required=True)
@@ -64,6 +83,30 @@ def main(argv=None) -> int:
             if not path.is_file():
                 raise PipelineError("Modeldownload leverde geen gewichten op.")
             print(path)
+        elif args.command == "register-player-model":
+            from .model_handoff import register_player_model
+
+            registered = register_player_model(
+                args.weights,
+                args.mapping,
+                args.output,
+                model_id=args.model_id,
+                imgsz=args.imgsz,
+                confidence=args.confidence,
+                iou=args.iou,
+                device=args.device,
+                evaluation_record=args.evaluation_record,
+            )
+            print(
+                json.dumps(
+                    {
+                        "profile": str(args.output),
+                        "models": registered["models"],
+                        "next_step": "Kies het profiel in Streamlit en controleer eerst een MVP zonder tracking.",
+                    },
+                    indent=2,
+                )
+            )
         elif args.command == "calibrate":
             video = inspect_video(args.video)
             points = json.loads(args.points.read_text(encoding="utf-8-sig"))
@@ -88,6 +131,7 @@ def main(argv=None) -> int:
                 tracker_config_path=args.tracker,
                 mvp_acceptance_path=args.mvp_acceptance,
                 replay_run=args.replay_run,
+                technical_pilot=args.technical_pilot,
                 progress=lambda n, total, elapsed: print(f"{n}/{total} frames | {elapsed:.1f} s"),
             )
             print(result.video_path)

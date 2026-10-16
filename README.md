@@ -7,7 +7,9 @@ Deze repository bevat beide werkpakketten: persoon 1 beheert data, annotaties, t
 - [Persoon 2: pipeline, minimap en tracking](#persoon-2-pipeline-minimap-en-tracking)
 - [Persoon 1: data, annotaties, training en evaluatie](#persoon-1-data-annotaties-training-en-evaluatie)
 
-De PANORIS-bronvideo van persoon 1 wordt via Git LFS gedeeld. De geschiktheid van een ontwikkelfragment voor de vaste-camera-kalibratie van persoon 2 moet nog worden gecontroleerd. Datasetlabels, menselijke reviews en eindprestaties worden niet automatisch goedgekeurd door deze integratie.
+De PANORIS-bronvideo van persoon 1 wordt via Git LFS gedeeld. De gezamenlijke acceptatie van de eerste technische kalibratieproef staat nog open. Datasetlabels, menselijke reviews en eindprestaties worden niet automatisch goedgekeurd door deze integratie.
+
+**Eerste echte minimapproef:** bronframes 0–149 zijn inmiddels technisch gecontroleerd en volledig verwerkt. Zie [het PANORIS-pilotrapport](docs/PANORIS_Pilot.md) voor de video, kalibratiefouten, runtime en nog openstaande menselijke review. Reproduceren in de pipelineomgeving: `python scripts/panoris_pilot.py`. Deze technische pilot geldt niet als menselijke MVP-acceptatie.
 
 ## Persoon 2: pipeline, minimap en tracking
 
@@ -49,8 +51,8 @@ FFmpeg wordt door het script in `.tools/` uitgepakt, zonder de systeembrede PATH
 
 1. Kies een legaal te gebruiken `.mp4`, bij voorkeur een ontwikkelfragment van 30–60 seconden. Het volledige veld moet zichtbaar zijn, met vier hoeken en twee onafhankelijke controlepunten. De camera blijft vast: geen zoom, pan of camerawissel.
 2. De toepassing controleert ieder frametijdstip, het beeldformaat en de videohash. Variabele framerate en rotatiemetadata worden afgewezen. Normaliseer zo nodig een kopie vooraf en kalibreer die nieuwe kopie opnieuw.
-3. Voer de vier veldhoeken in oorspronkelijke pixels in. De vaste volgorde is `(0,0)`, `(1,0)`, `(1,1)`, `(0,1)`. Benoem welke echte veldhoek daarbij hoort; beeldbovenkant en veldoriëntatie zijn niet automatisch hetzelfde.
-4. Voer twee onafhankelijke controlepunten in: de middenlijn op beide zijlijnen, met veldposities `(0.5,0)` en `(0.5,1)`. Gebruik deze punten niet opnieuw als fitpunten.
+3. Kies **Linksboven**, **Rechtsboven**, **Rechtsonder** en **Linksonder** en klik telkens op de echte veldhoek in het referentiebeeld. De app vult oorspronkelijke pixelcoördinaten in en selecteert het volgende ontbrekende punt. Zoom tot 4× en gebruik de schuifbalken voor nauwkeuriger klikken. In deze handmatige workflow wordt de beeldoriëntatie gekoppeld aan de vaste veldhoeken `(0,0)`, `(1,0)`, `(1,1)`, `(0,1)`; die oriëntatie blijft gedurende de clip gelijk.
+4. Klik **Middenlijn boven** en **Middenlijn onder**: waar de middenlijn de twee zijlijnen raakt, dus niet de middenstip. Dit zijn onafhankelijke controlepunten met veldposities `(0.5,0)` en `(0.5,1)`. Een schema staat onder **Waar horen de zes punten?**. Selecteer een punt opnieuw om het te verplaatsen; de puntentabel blijft beschikbaar voor precieze correcties. Bij een herkende PANORIS-bron of het exacte pilotfragment kun je **Pilotpunten invullen** gebruiken; die suggesties moeten nog visueel worden gecontroleerd en goedgekeurd.
 5. Bereken de kalibratie. De terugprojectiefouten moeten aan de grenswaarden voldoen: mediaan ≤ 0,5% van de beelddiagonaal en maximum ≤ 1%.
 6. Bekijk begin, midden en einde. Blijven de veldlijnen bij dezelfde markeringen? Bevestig de puntvolgorde, camera, reviewer, videobron en toegelaten gebruik. Download het kalibratierecord.
 7. Klik op **Verwerken**. De uitvoer bevat één H.264-video van 1920 × 720, met links het beeld en rechts de minimap. Afspelen, pauzeren en zoeken gelden automatisch voor beide kanten.
@@ -109,7 +111,9 @@ Voorbeeld voor een **daadwerkelijk zo getraind** model:
 
 Een optioneel veld `weights_sha256` wordt tegen het werkelijke bestand gecontroleerd. Zonder dat veld berekent en bewaart de pipeline de hash zelf. De adapter controleert ook of de opgegeven klassennamen overeenkomen met het geladen model. `person` mag niet naar `player` of `referee` worden omgezet. Een doelmanklasse mag wel naar de gezamenlijke spelerklasse worden gemapt.
 
-Voor een ander interfaceprofiel, stel vóór het starten bijvoorbeeld `$env:FOOTBALL_MODELS = 'C:\pad\models.json'` in. `FOOTBALL_RUNS` stelt de uitvoermap in. Dit zijn voorbereidingsinstellingen; gewone gebruikers hoeven geen trainingsparameters in te voeren.
+De frontend heeft een keuzelijst **Modelprofiel** voor de profielen `configs/models*.json`. `FOOTBALL_MODELS` bepaalt het eerste aangeboden profiel en mag ook een extern manifest aanwijzen; `FOOTBALL_RUNS` stelt de uitvoermap in. Gewone gebruikers hoeven geen trainingsparameters in te voeren.
+
+Nieuwe gelabelde data wordt eerst door persoon 1 gebruikt voor training en evaluatie. Daarna kan `register-player-model` de getrainde gewichten en expliciete klassemapping controleren en een profiel voor de frontend maken. Zie [de concrete overdracht naar spelertracking](docs/Spelermodel_Overdracht.md) voor de labelafspraken, het importcommando en de eerste trackingrun. ByteTrack is al aanwezig; een baseline met alleen `person` blijft uitgesloten van spelertracking.
 
 ### ByteTrack en waargenomen trajecten
 
@@ -180,7 +184,7 @@ Voor een lokale YOLO-inferenceproef op een eigen afbeelding: `python scripts/smo
 
 Automatische camerabewegingsdetectie, lenscorrectie, teamherkenning, namen, baltracking, metrische snelheid en training vallen buiten deze implementatie. Het veld en zijn cirkel zijn schematisch; er worden geen echte veldafmetingen aangenomen. Het onderste boxmidden blijft bij overlap en springen een benadering.
 
-Het team moet nog een geschikt ontwikkelfragment uit de bronvideo kiezen en reviewen, de definitieve modellen leveren, 40–80 frames annoteren en onderling controleren, leakage beoordelen, echte mAP meten en trackingreferenties opstellen. Persoon 2 annoteert ongeveer de helft en reviewt de andere helft. Zie `docs/acceptance.md`, `docs/data_contract.md` en de logboeken voor de verdere overdracht en verdediging.
+Het team moet de eerste echte pilot gezamenlijk reviewen, de definitieve modellen leveren, 40–80 frames annoteren en onderling controleren, leakage beoordelen, echte mAP meten en trackingreferenties opstellen. Persoon 2 annoteert ongeveer de helft en reviewt de andere helft. Zie `docs/acceptance.md`, `docs/data_contract.md` en de logboeken voor de verdere overdracht en verdediging.
 
 Ultralytics is een externe dependency met eigen licentievoorwaarden. Bewaar de bijbehorende licentie-informatie bij verspreiding van model/code. Raadpleeg de [officiële modeluitvoer](https://docs.ultralytics.com/modes/predict/), [trackingdocumentatie](https://docs.ultralytics.com/modes/track/) en [OpenCV-homography](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html) bij wijzigingen.
 

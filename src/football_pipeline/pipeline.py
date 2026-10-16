@@ -106,7 +106,9 @@ def accept_mvp(directory: Path, reviewer: str, confirmed: bool) -> Path:
             "Accepteer een MVP zonder tracking met reviewer en expliciete controlebevestiging."
         )
     if manifest.get("evidence_kind") != "ultralytics":
-        raise PipelineError("Synthetische of aangepaste detectoruitvoer is geen echte MVP-acceptatie.")
+        raise PipelineError(
+            "Synthetische, aangepaste of technische pilotuitvoer is geen echte MVP-acceptatie."
+        )
     record = {
         "schema_version": 1,
         "human_accepted": True,
@@ -162,12 +164,27 @@ def process_video(
     progress: Callable | None = None,
     detector=None,
     replay_run: str | Path | None = None,
+    technical_pilot: bool = False,
 ) -> RunResult:
     """Process sequentially; injected detectors are explicitly marked as non-model evidence."""
     output_root = Path(output_root).resolve()
     with processing_lock(output_root):
         video = inspect_video(video_path)
-        calibration.validate_for(video)
+        if technical_pilot and (tracker_config_path or replay_run):
+            raise PipelineError("Een technische pilot gebruikt nieuwe detecties zonder tracking of replay.")
+        calibration.validate_for(video, approved=not technical_pilot)
+        if technical_pilot and not (
+            calibration.review.get("kind") == "agent_technical"
+            and calibration.review.get("technical_passed") is True
+            and calibration.review.get("approved") is False
+            and calibration.review.get("human_reviewed") is False
+            and calibration.review.get("static_camera_technical_check") is True
+            and calibration.review.get("temporal_frames")
+            == [0, video.frame_count // 2, video.frame_count - 1]
+        ):
+            raise PipelineError(
+                "Technische pilot vereist een expliciete technische kalibratiecontrole zonder menselijke goedkeuring."
+            )
         models = load_model_manifest(model_manifest_path)
         versions, code, tools = dependencies(), code_identity(), tool_versions()
         config = load_tracker_config(tracker_config_path) if tracker_config_path else None
@@ -198,6 +215,8 @@ def process_video(
             if detector is not None:
                 raise PipelineError("Replay en aangepaste detector kunnen niet tegelijk.")
         evidence = "ultralytics" if detector is None else getattr(detector, "evidence_kind", "custom")
+        if technical_pilot:
+            evidence += "_technical_pilot"
         provenance = getattr(detector, "provenance", {}) if detector else {}
         identity = {
             "video_sha256": video.sha256,
@@ -208,6 +227,7 @@ def process_video(
             "dependencies": versions,
             "tools": tools,
             "evidence_kind": evidence,
+            "technical_pilot": technical_pilot,
             "custom_provenance": provenance,
             "acceptance": acceptance,
             "replay_hash": (replay_manifest or {}).get("artifacts", {}).get("framegegevens.jsonl"),
@@ -241,6 +261,7 @@ def process_video(
             "tracker_config": config,
             "mvp_acceptance": acceptance,
             "evidence_kind": evidence,
+            "technical_pilot": technical_pilot,
             "custom_provenance": provenance,
             "replayed_from": str(replay_run) if replay_run else None,
         }
@@ -297,7 +318,7 @@ def process_video(
                     record = FrameRecord(index, index / video.fps, video.size, detections)
                     if histories:
                         histories.update(detections, index)
-                    rendered = render_frame(frame, record, histories)
+                    rendered = render_frame(frame, record, histories, technical_pilot=technical_pilot)
                     writer.write(rendered)
                     records.write(json.dumps(record.to_dict(), allow_nan=False) + "\n")
                     if index in {0, video.frame_count // 2, video.frame_count - 1}:

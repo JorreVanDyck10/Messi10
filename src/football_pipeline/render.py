@@ -29,6 +29,7 @@ def render_frame(
     record: FrameRecord,
     histories: Trajectories | None = None,
     display_confidence: float = 0.25,
+    technical_pilot: bool = False,
 ) -> np.ndarray:
     canvas = np.full((720, 1920, 3), (22, 35, 29), dtype=np.uint8)
     h, w = frame.shape[:2]
@@ -53,8 +54,10 @@ def render_frame(
     cv2.rectangle(canvas, (0, 0), (470, 42), (20, 30, 25), -1)
     stamp = f"Frame {record.frame_index} | {record.timestamp_s:.3f} s"
     label(canvas, stamp, (20, 28))
+    if technical_pilot:
+        label(canvas, "TECHNISCHE PILOT - personen, geen speler-ID's", (20, 65), (80, 205, 245), 0.65)
     pitch = canvas[:, 1280:]
-    label(pitch, "TACTICAL MAP", (40, 52), scale=0.9)
+    label(pitch, "PILOT MINIMAP" if technical_pilot else "TACTICAL MAP", (40, 52), scale=0.9)
     label(pitch, stamp, (40, 88))
     label(pitch, "Genormaliseerd veld - geen meters", (40, 120), scale=0.55)
     cv2.rectangle(pitch, (40, 170), (600, 530), (40, 85, 52), -1)
@@ -79,7 +82,12 @@ def render_frame(
         x, y = 40 + (index % 2) * 280, 610 + (index // 2) * 32
         cv2.circle(pitch, (x, y - 5), 5, color, -1)
         label(pitch, LABELS[semantic], (x + 15, y), scale=0.5)
-    label(pitch, "Alleen actuele waarnemingen", (40, 700), scale=0.5)
+    label(
+        pitch,
+        "Menselijke review: nog open" if technical_pilot else "Alleen actuele waarnemingen",
+        (40, 700),
+        scale=0.5,
+    )
     return canvas
 
 

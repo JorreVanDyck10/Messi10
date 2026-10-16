@@ -20,8 +20,10 @@ def test_preloaded_calibration_processes_once_on_explicit_click(demo_fixture, tm
     import json
     from unittest.mock import Mock
 
-    from football_pipeline import pipeline
+    from football_pipeline import model_handoff, pipeline
+    from football_pipeline.contracts import write_json
     from football_pipeline.demo import SyntheticDetector
+    from football_pipeline.detection import load_model_manifest
 
     # Real renderer/encoder/processing, synthetic detector explicitly marked in its runmanifest.
     real_process = pipeline.process_video
@@ -29,6 +31,19 @@ def test_preloaded_calibration_processes_once_on_explicit_click(demo_fixture, tm
     monkeypatch.setattr(pipeline, "process_video", calls)
     monkeypatch.setenv("FOOTBALL_MODELS", str(demo_fixture["models"]))
     monkeypatch.setenv("FOOTBALL_RUNS", str(tmp_path / "runs"))
+    alternate = tmp_path / "models-alternate.json"
+    # Resolve the fixture's relative weights before writing a second profile elsewhere.
+    alternate_manifest = load_model_manifest(demo_fixture["models"])
+    alternate_manifest["models"][0]["model_id"] = "alternate_fixture"
+    write_json(alternate, alternate_manifest)
+    monkeypatch.setattr(
+        model_handoff,
+        "available_model_profiles",
+        lambda *a: {
+            demo_fixture["models"].resolve(): "Testprofiel A",
+            alternate.resolve(): "Testprofiel B",
+        },
+    )
     video_bytes = demo_fixture["video"].read_bytes()
     calibration_bytes = json.dumps(asdict(demo_fixture["calibration"])).encode()
     video_upload = SimpleNamespace(file_id="demo-video", getbuffer=lambda: video_bytes)
@@ -50,6 +65,11 @@ def test_preloaded_calibration_processes_once_on_explicit_click(demo_fixture, tm
     assert calls.call_count == 1
     app.checkbox(key="tracking").check().run()
     assert not app.exception
+    assert "result" not in app.session_state
+    assert calls.call_count == 1
+    app.selectbox(key="model_profile").select_index(1).run()
+    assert not app.exception
+    assert not app.checkbox(key="tracking").value
     assert "result" not in app.session_state
     assert calls.call_count == 1
 
@@ -87,3 +107,82 @@ def test_point_table_calculation_review_and_invalidation(demo_fixture, monkeypat
     assert not app.exception
     assert "calibration" not in app.session_state
     assert calls.call_count == 0
+
+
+def test_image_click_workflow_advances_persists_and_invalidates_draft(demo_fixture, monkeypatch):
+    from football_pipeline import point_picker as picker_module
+    from football_pipeline.video import inspect_video
+
+    content = demo_fixture["video"].read_bytes()
+    upload = SimpleNamespace(file_id="click-workflow", getbuffer=lambda: content)
+    monkeypatch.setattr(st, "file_uploader", lambda *a, **kw: upload if kw["key"] == "video_upload" else None)
+    targets = demo_fixture["calibration"].points
+
+    def simulate_browser(frame, points, selected, *, context, key, on_clicked_change, diagnostics=None):
+        def click():
+            st.session_state[key] = SimpleNamespace(
+                clicked={
+                    "context": context,
+                    "index": selected,
+                    "x": targets[selected]["x"],
+                    "y": targets[selected]["y"],
+                }
+            )
+            on_clicked_change()
+
+        st.button("Simulated image click", key="browser_click", on_click=click)
+
+    monkeypatch.setattr(picker_module, "point_picker", simulate_browser)
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20).run()
+    assert not app.exception
+    assert app.button(key="calculate").disabled
+    assert not app.error
+    video = inspect_video(demo_fixture["video"])
+    for index in range(6):
+        assert app.selectbox[0].value == index
+        app.button(key="browser_click").click().run()
+        assert not app.exception
+        saved = app.session_state[f"point_latest_{video.sha256}"]
+        assert saved[index]["x"] == targets[index]["x"]
+        assert saved[index]["y"] == targets[index]["y"]
+    assert not app.button(key="calculate").disabled
+    app.button(key="calculate").click().run()
+    assert not app.exception
+    assert "draft_calibration" in app.session_state
+    app.run()
+    assert "draft_calibration" in app.session_state
+    app.selectbox[0].select_index(0).run()
+    app.button(key="browser_click").click().run()
+    assert not app.exception
+    assert "draft_calibration" not in app.session_state
+    assert "calibration" not in app.session_state
+    assert "result" not in app.session_state
+
+
+def test_failed_calibration_shows_named_errors_and_persists_until_correction(demo_fixture, monkeypatch):
+    from copy import deepcopy
+
+    import pandas as pd
+
+    content = demo_fixture["video"].read_bytes()
+    upload = SimpleNamespace(file_id="failed-check-workflow", getbuffer=lambda: content)
+    monkeypatch.setattr(st, "file_uploader", lambda *a, **kw: upload if kw["key"] == "video_upload" else None)
+    points = deepcopy(demo_fixture["calibration"].points)
+    points[4]["y"] += 20
+    monkeypatch.setattr(st, "data_editor", lambda *a, **kw: pd.DataFrame(points))
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20).run()
+    app.button(key="calculate").click().run()
+    assert not app.exception
+    assert "Onafhankelijke controle faalt" in app.error[0].value
+    assert app.dataframe[0].value.iloc[0]["Controlepunt"] == "Middenlijn boven (op de zijlijn)"
+    assert "draft_calibration" not in app.session_state
+    app.run()
+    assert app.error
+    assert "calibration" not in app.session_state
+    points[4]["y"] -= 20
+    app.run()
+    assert not app.error
+    assert "calibration_failure" not in app.session_state
+    app.button(key="calculate").click().run()
+    assert not app.exception
+    assert "draft_calibration" in app.session_state

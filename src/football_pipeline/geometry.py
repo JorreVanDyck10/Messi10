@@ -10,6 +10,46 @@ from .contracts import Detection, PipelineError, VideoMetadata, digest_json
 FIELD_CORNERS = np.array([[0, 0], [1, 0], [1, 1], [0, 1]], dtype=np.float64)
 
 
+class CalibrationControlError(PipelineError):
+    """Rejected calibration with independent checks available for visual diagnosis."""
+
+    def __init__(self, checks, projected, errors, diagonal):
+        super().__init__(f"Onafhankelijke controle faalt: fouten {errors.round(2).tolist()} pixels.")
+        self.diagnostics = [
+            {
+                "name": point["name"],
+                "u": point["u"],
+                "v": point["v"],
+                "clicked": [point["x"], point["y"]],
+                "predicted": xy.tolist(),
+                "error_px": float(error),
+            }
+            for point, xy, error in zip(checks, projected, errors)
+        ]
+        self.median_px = float(np.median(errors))
+        self.maximum_px = float(max(errors))
+        self.median_limit_px = float(0.005 * diagonal)
+        self.maximum_limit_px = float(0.01 * diagonal)
+
+
+def point_coordinate_issues(points: list[dict]) -> list[str]:
+    """Name missing/non-finite cells without silently replacing them with zero."""
+    issues = []
+    for index, point in enumerate(points):
+        invalid = []
+        for field in ("x", "y", "u", "v"):
+            value = point.get(field)
+            try:
+                valid = value is not None and not isinstance(value, bool) and np.isfinite(float(value))
+            except (ValueError, TypeError, OverflowError):
+                valid = False
+            if not valid:
+                invalid.append(field)
+        if invalid:
+            issues.append(f"{point.get('name', f'punt {index + 1}')} ({', '.join(invalid)})")
+    return issues
+
+
 @dataclass
 class Calibration:
     video_sha256: str
@@ -76,6 +116,13 @@ def create_calibration(video: VideoMetadata, points: list[dict], reference_frame
             raise PipelineError(
                 "Gebruik precies vier fitpunten en minstens twee onafhankelijke controlepunten."
             )
+        issues = point_coordinate_issues(points)
+        if issues:
+            raise PipelineError(
+                "Vul geldige coördinaten in voor: "
+                + "; ".join(issues)
+                + ". Lege velden, NaN en oneindig zijn niet toegestaan."
+            )
         src = np.array([[p["x"], p["y"]] for p in fit], dtype=np.float64)
         dst = np.array([[p["u"], p["v"]] for p in fit], dtype=np.float64)
         all_xy = np.array([[p["x"], p["y"]] for p in points], dtype=np.float64)
@@ -109,7 +156,7 @@ def create_calibration(video: VideoMetadata, points: list[dict], reference_frame
             or np.median(errors) > 0.005 * diagonal
             or max(errors) > 0.01 * diagonal
         ):
-            raise PipelineError(f"Onafhankelijke controle faalt: fouten {errors.round(2).tolist()} pixels.")
+            raise CalibrationControlError(check, projected, errors, diagonal)
         return Calibration(
             video.sha256,
             list(video.size),

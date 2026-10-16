@@ -112,3 +112,59 @@ def test_tracking_pipeline_preserves_empty_frame_without_predicted_position(
     assert rows[7]["detections"][0]["track_id"] == rows[9]["detections"][0]["track_id"] == 1
     assert rows[8]["detections"] == []
     assert result.manifest["tracker_effective"]["effective_buffer_updates"] == 30
+
+
+def test_technical_pilot_never_impersonates_human_review_or_enables_tracking(demo_fixture, tmp_path):
+    from dataclasses import replace
+
+    from football_pipeline.video import ROOT
+
+    calibration = replace(
+        demo_fixture["calibration"],
+        review={
+            "kind": "agent_technical",
+            "technical_passed": True,
+            "approved": False,
+            "human_reviewed": False,
+            "static_camera_technical_check": True,
+            "temporal_frames": [0, 10, 19],
+        },
+    )
+    with pytest.raises(PipelineError, match="Bevestig reviewer"):
+        process_video(
+            demo_fixture["video"], calibration, demo_fixture["models"], tmp_path, detector=SyntheticDetector()
+        )
+    result = process_video(
+        demo_fixture["video"],
+        calibration,
+        demo_fixture["models"],
+        tmp_path,
+        detector=SyntheticDetector(),
+        technical_pilot=True,
+    )
+    assert result.manifest["technical_pilot"] is True
+    assert result.manifest["evidence_kind"] == "synthetic_technical_pilot"
+    assert read_json(result.directory / "calibration.json")["review"]["approved"] is False
+    with pytest.raises(PipelineError, match="geen echte MVP"):
+        accept_mvp(result.directory, "tester", True)
+    with pytest.raises(PipelineError, match="zonder tracking"):
+        process_video(
+            demo_fixture["video"],
+            calibration,
+            demo_fixture["models"],
+            tmp_path,
+            technical_pilot=True,
+            tracker_config_path=ROOT / "configs/bytetrack.yaml",
+        )
+
+
+def test_technical_pilot_requires_explicit_technical_evidence(demo_fixture, tmp_path):
+    with pytest.raises(PipelineError, match="expliciete technische"):
+        process_video(
+            demo_fixture["video"],
+            demo_fixture["calibration"],
+            demo_fixture["models"],
+            tmp_path,
+            technical_pilot=True,
+            detector=SyntheticDetector(),
+        )
