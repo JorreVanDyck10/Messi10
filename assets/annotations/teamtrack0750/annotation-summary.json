@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-10-16T12:51:09.986631+00:00",
+  "annotator": "Codex (AI; model-assisted visual annotation)",
+  "frames": 3,
+  "object_counts": {
+    "person": 74,
+    "ball": 3
+  },
+  "crowd_ignore_regions_per_frame": 2,
+  "independent_human_review": false,
+  "frames_detail": [
+    {
+      "frame_id": "teamtrack0750_00000225",
+      "timestamp_s": 9.0,
+      "counts": {
+        "person": 26,
+        "ball": 1
+      },
+      "notes": "Added the visually recognizable ball immediately beside the foreground white player's left foot. Removed person proposals 0 and 1 on tree/background features."
+    },
+    {
+      "frame_id": "teamtrack0750_00000250",
+      "timestamp_s": 10.0,
+      "counts": {
+        "person": 23,
+        "ball": 1
+      },
+      "notes": "Ball at x3789,y692 verified on an enlarged source crop. Removed background/tree person proposals 0 and 24."
+    },
+    {
+      "frame_id": "teamtrack0750_00000275",
+      "timestamp_s": 11.0,
+      "counts": {
+        "person": 25,
+        "ball": 1
+      },
+      "notes": "Kept the foreground white person (13) and blue person behind (15) as separate instances; removed merged duplicate box 14 and tightened the blue player's visible extent. Removed background/tree proposals 0 and 27. Ball 28 is visibly distinct from the shoe."
+    }
+  ],
+  "note": "Three temporally close validation excerpt frames with a visually identifiable match ball; not an independent full training dataset."
+}

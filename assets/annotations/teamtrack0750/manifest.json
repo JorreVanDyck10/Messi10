@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "dataset_version": "teamtrack0750-small-001",
+  "names": [
+    "person",
+    "ball"
+  ],
+  "minimum_split_gap_s": 6,
+  "created_at": "2026-10-16T12:51:09.268079+00:00",
+  "purpose": "Three selected validation frames from one 20-second excerpt; a contribution to the larger challenge dataset",
+  "video": {
+    "file": "../../clips20/F_20200220_1_0720_0750/clip_0000_0020.mp4",
+    "source_repository_file": "../../videos/teamtrack/F_20200220_1_0720_0750.mp4",
+    "source_filename": "F_20200220_1_0720_0750.mp4",
+    "video_id": "678c8070c60a60a5f8c939caf5ea6f3fa36403bf2d136a1920726dc2e9a2933e",
+    "source_bytes": 8150830,
+    "source_duration_s": 30,
+    "source_fps": 25,
+    "source_start_s": 0,
+    "source_end_s": 20,
+    "original_match_start_s_from_filename": 720,
+    "clip_sha256": "5e89ce0906f53b13a279fff0b674f08bdb83fd784ed8d2c39309745bd5319ba7",
+    "frame_index_basis": "original source clip; equals clip frame index",
+    "timestamp_basis": "seconds relative to first presented source video frame",
+    "clip_frames": 500,
+    "clip_duration_s": 20.0,
+    "clip_first_video_pts_s": 0.0
+  },
+  "frames": [
+    {
+      "frame_id": "teamtrack0750_00000225",
+      "frame_index": 225,
+      "timestamp_s": 9.0,
+      "clip_timestamp_s": 9.0,
+      "width": 6500,
+      "height": 1000,
+      "group_id": "teamtrack0750-0-20",
+      "split": "val",
+      "image": "images/teamtrack0750_00000225.jpg",
+      "label": "labels/teamtrack0750_00000225.txt",
+      "label_status": "positive",
+      "annotator": "Codex (AI; model-assisted visual annotation)",
+      "reviewer": "",
+      "review_status": "open",
+      "video_id": "678c8070c60a60a5f8c939caf5ea6f3fa36403bf2d136a1920726dc2e9a2933e",
+      "annotated_at": "2026-10-16T12:51:09.680862+00:00"
+    },
+    {
+      "frame_id": "teamtrack0750_00000250",
+      "frame_index": 250,
+      "timestamp_s": 10.0,
+      "clip_timestamp_s": 10.0,
+      "width": 6500,
+      "height": 1000,
+      "group_id": "teamtrack0750-0-20",
+      "split": "val",
+      "image": "images/teamtrack0750_00000250.jpg",
+      "label": "labels/teamtrack0750_00000250.txt",
+      "label_status": "positive",
+      "annotator": "Codex (AI; model-assisted visual annotation)",
+      "reviewer": "",
+      "review_status": "open",
+      "video_id": "678c8070c60a60a5f8c939caf5ea6f3fa36403bf2d136a1920726dc2e9a2933e",
+      "annotated_at": "2026-10-16T12:51:09.809189+00:00"
+    },
+    {
+      "frame_id": "teamtrack0750_00000275",
+      "frame_index": 275,
+      "timestamp_s": 11.0,
+      "clip_timestamp_s": 11.0,
+      "width": 6500,
+      "height": 1000,
+      "group_id": "teamtrack0750-0-20",
+      "split": "val",
+      "image": "images/teamtrack0750_00000275.jpg",
+      "label": "labels/teamtrack0750_00000275.txt",
+      "label_status": "positive",
+      "annotator": "Codex (AI; model-assisted visual annotation)",
+      "reviewer": "",
+      "review_status": "open",
+      "video_id": "678c8070c60a60a5f8c939caf5ea6f3fa36403bf2d136a1920726dc2e9a2933e",
+      "annotated_at": "2026-10-16T12:51:09.938806+00:00"
+    }
+  ],
+  "annotation_origin": "AI, model-assisted and visually corrected",
+  "independent_human_review": false,
+  "ignore_regions": [
+    [
+      3180,
+      457,
+      3520,
+      495
+    ],
+    [
+      3670,
+      457,
+      3860,
+      498
+    ]
+  ],
+  "ignore_policy": "COCO person crowds; foreground GT takes precedence. Plain YOLO TXT cannot encode ignore regions.",
+  "annotation_provenance": {
+    "method": "pretrained proposals plus visual AI correction on enlarged original-resolution crops",
+    "model": "YOLO11n",
+    "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "ultralytics": "8.4.23",
+    "inference_image_size": 1280,
+    "proposal_confidence": 0.12,
+    "tiling": "1280 x 800 source crops, y=200, x steps of 960 with final right-aligned crop",
+    "source_frame_selection_reason": "Ball visually identifiable on each chosen frame; temporally close moments retained in one validation group",
+    "independent_human_review": false
+  }
+}
