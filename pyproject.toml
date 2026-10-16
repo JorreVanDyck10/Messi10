@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "football-minimap"
+version = "0.1.0"
+description = "Local football video, calibrated minimap and observed ByteTrack trajectories"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "streamlit==1.64.0", "ultralytics>=8.3,<9", "torch>=2.4,<3",
+  "torchvision>=0.19,<1", "opencv-python>=4.10,<5", "numpy>=1.26,<3",
+  "psutil>=5.9,<8", "PyYAML>=6,<7", "scipy>=1.13,<2", "lap>=0.5.12,<0.6", "pandas>=2,<4"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
+
+[project.scripts]
+football-minimap = "football_pipeline.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "UP", "I"]

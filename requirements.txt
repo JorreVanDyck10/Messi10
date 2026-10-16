@@ -1,0 +1,2 @@
+# For a reproducible runtime use the tested lock, then install this project with --no-deps -e .
+-r requirements.lock
