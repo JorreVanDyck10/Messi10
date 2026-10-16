@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "profile_name": "YOLO11n baseline — personen, geen speleridentificatie",
+  "models": [
+    {
+      "model_id": "coco_baseline",
+      "weights": "../weights/yolo11n.pt",
+      "class_mapping": {"0": "person", "32": "ball"},
+      "expected_names": {"0": "person", "32": "sports ball"},
+      "imgsz": 640,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "cpu"
+    }
+  ]
+}

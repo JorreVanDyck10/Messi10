@@ -1,0 +1,91 @@
+{
+  "source": "coordinates read from browser point table, rounded to displayed precision",
+  "video_sha256": "9baec79f611f7eae97ef484be181a2b426ea1c6b0ddeab03245afd7a96823836",
+  "reference_frame": 9,
+  "human_reviewed": false,
+  "points": [
+    {
+      "name": "hoek_00",
+      "role": "fit",
+      "x": 1181.12,
+      "y": 193.49,
+      "u": 0,
+      "v": 0
+    },
+    {
+      "name": "hoek_10",
+      "role": "fit",
+      "x": 2669.49,
+      "y": 175.63,
+      "u": 1,
+      "v": 0
+    },
+    {
+      "name": "hoek_11",
+      "role": "fit",
+      "x": 3800.65,
+      "y": 830.51,
+      "u": 1,
+      "v": 1
+    },
+    {
+      "name": "hoek_01",
+      "role": "fit",
+      "x": 73.77,
+      "y": 830.51,
+      "u": 0,
+      "v": 1
+    },
+    {
+      "name": "middenlijn_ver",
+      "role": "check",
+      "x": 1925.3,
+      "y": 193.49,
+      "u": 0.5,
+      "v": 0
+    },
+    {
+      "name": "middenlijn_nabij",
+      "role": "check",
+      "x": 1930.79,
+      "y": 812.06,
+      "u": 0.5,
+      "v": 1
+    }
+  ],
+  "diagnostics": [
+    {
+      "name": "middenlijn_ver",
+      "u": 0.5,
+      "v": 0,
+      "clicked": [
+        1925.3,
+        193.49
+      ],
+      "predicted": [
+        1915.0169329061232,
+        184.68345886843602
+      ],
+      "error_px": 13.538708784780741
+    },
+    {
+      "name": "middenlijn_nabij",
+      "u": 0.5,
+      "v": 1,
+      "clicked": [
+        1930.79,
+        812.06
+      ],
+      "predicted": [
+        1872.7178631889037,
+        830.5100097656249
+      ],
+      "error_px": 60.93255233582732
+    }
+  ],
+  "median_px": 37.23563056030403,
+  "maximum_px": 60.93255233582732,
+  "median_limit_px": 19.790907002964772,
+  "maximum_limit_px": 39.581814005929544,
+  "status": "rejected; numerical thresholds unchanged"
+}
