@@ -1,2 +1,8 @@
 * text=auto eol=lf
 assets/videos/*.mp4 filter=lfs diff=lfs merge=lfs -text
+artifacts/ball-ai-v1/*.pt filter=lfs diff=lfs merge=lfs -text
+# Preserve recorded evidence bytes: SHA-256 values include original line endings.
+datasets/panoris-ball-ai-v1/** -text whitespace=cr-at-eol
+reports/ball-experiments/** -text whitespace=cr-at-eol
+reports/handoff/** -text whitespace=cr-at-eol
+reports/ball-experiments/training/*/*.log -whitespace

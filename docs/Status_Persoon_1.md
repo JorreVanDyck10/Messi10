@@ -1,63 +1,41 @@
 # Uitvoeringsstatus persoon 1
 
-**Datum:** 16 oktober 2026. **Doelhardware:** laptop met RTX 4050, volgens de gebruiker. **Werkelijk gebruikte ontwikkelhardware:** RTX 3050 Laptop GPU, 4 GB. De resultaten worden niet als 4050-metingen voorgesteld.
+**Bijgewerkt op 16 oktober 2026. Echte fine-tuning en project-mAP zijn nu uitgevoerd.** De resultaten zijn voorlopig wegens openstaande menselijke labelreview; de validatiescores tonen nog geen verbetering. Zie [het volledige resultatenverslag](Resultaten_Balexperimenten.md).
 
-## Werkelijk uitgevoerd
+## Werkelijk afgerond
 
-- Repository en oorspronkelijke opdracht onderzocht; uitgebreid werkplan en invulsjablonen toegevoegd.
-- Afzonderlijke Python 3.12-omgeving ingericht met vastgezette YOLO-, CUDA-, video- en beeldbibliotheken. De werkelijk geïnstalleerde versies staan in `requirements-lock.txt` en het omgevingsrapport.
-- Openbare videobronnen vergeleken. Drie korte Alfheim-segmenten bekeken en afgewezen als directe MVP-bron wegens zichtbare lensvervorming.
-- De door de gebruiker opgegeven PANORIS-video volledig gedownload: 3840 × 960 pixels, 25 fps, 3515 gedecodeerde videoframes en ongeveer 140,7 seconden containerduur. De video is zonder ruimtelijke verkleining naar MP4 gemuxt.
-- De volledige MP4, bronvermelding en checksum klaargezet voor Git LFS in de bestaande repository.
-- Vóór inference een selectie met tien tijdgroepen vastgelegd: 36 train-, 12 validatie- en 12 gereserveerde testframes. Alle zestig kandidaatframes zijn geëxtraheerd met oorspronkelijke frame-index en presentatietijd.
-- Pretrained YOLO11n daadwerkelijk uitgevoerd op de 36 trainframes en 12 validatieframes op 640. Geen modelinference op de gereserveerde testframes uitgevoerd.
-- Een aanvullende inferentieproef op dezelfde 36 trainframes uitgevoerd op 1920, met dezelfde pretrained gewichten. Dit is geen fine-tuningexperiment.
-- Automatische labelvoorstellen, detectie-overdracht en overlays gemaakt. De lokale annotatietool is in de browser geopend en het laden van voorstellen is gecontroleerd. Er zijn geen verzonnen annotator- of reviewernamen opgeslagen.
-- 32 automatische softwaretests geslaagd, waaronder expliciete AP-voorbeelden, labelkwaliteit, leakage, onafhankelijke review, VFR-tijdstempels en class mapping.
-- Een echte technische GPU-trainingsproef van één epoch op 16 gegenereerde rechthoekbeelden uitgevoerd, met batch 4, resolutie 640, pretrained initialisatie, freeze 10 en AMP. De proef voltooide en schreef checkpoints. Dit is uitsluitend een softwarecontrole, geen voetbalmodel of bewijs van project-mAP.
+- Gekozen bronvideo volledig gedownload en gedeeld via Git LFS, met bronmetadata en checksum.
+- Vastgezette Python-, PyTorch-, CUDA- en Ultralytics-omgeving ingericht. Doelhardware: RTX 4050. Werkelijke uitvoerhardware: RTX 3050 Laptop GPU, 4 GB.
+- Oorspronkelijke tijdgroepen voor inference gereserveerd en zestig kandidaatframes geëxtraheerd.
+- Voorlopige baldataset gemaakt: 47 visueel door AI gecontroleerde bronframes, verdeeld in 27 train, 12 validatie en 8 gereserveerde testframes. Pixelboxen, YOLO-labels, uitsluitingen, bewijsbeelden en reproductiecode zijn bewaard.
+- Twee echte runs van elk 100 epochs uitgevoerd, met batch 4 en verse pretrained YOLO11n-initialisatie. EXP-001: 640. EXP-002: 1920 met rechthoekige batches. De synthetische softwareproef blijft daarvan gescheiden.
+- Voorbewerkingsprobleem vastgesteld: op 640 verwijdert de trainingsfilter alle 27 balboxen; op 1920 blijven ze behouden.
+- Baseline en beide checkpoints op dezelfde twaalf validatiebeelden gemeten, bij gelijke inferentieresoluties van 640 en 1920. **Alle validatierijen: mAP@50 = 0% en mAP@50:95 = 0%.**
+- Trainingsdiagnose voor EXP-002: **mAP@50 = 14,85%, mAP@50:95 = 13,07%**, met 4 TP, 0 FP en 23 FN bij confidence 0,25. Dit is geen onafhankelijke prestatiemeting.
+- Checkpoints, volledige instellingen, logs, curves, meetbestanden, vergelijkingen, beslissingen, fouten en AI-gebruik bewaard. Geen checkpoint is gepromoveerd tot bruikbare baldetector.
+- Overdracht voor persoon 2: twaalf bronmomenten met 135 persoonsvoorspellingen en correcte lege balrecords bij confidence 0,25. Identiteiten, tijdstempels en oorspronkelijke pixelcoördinaten gecontroleerd.
+- 36 automatische softwaretests geslaagd. De voorlopige AI-route kan geen formele eindtest of menselijke goedkeuring nabootsen.
 
-## Wat de baseline daadwerkelijk laat zien
+## Openstaande inhoudelijke stappen
 
-Op de 36 ontwikkelframes waren bij een confidencewerkpunt van 0,25 in totaal 29 persoonsvoorspellingen bij `imgsz=640` en 691 bij `imgsz=1920`. Het aantal balvoorspellingen op dat werkpunt was respectievelijk 0 en 1.
-
-Dit zijn **aantallen voorspellingen over 36 frames**, geen aantallen unieke personen, true positives of gemiste ballen. De bekeken 1920-overlay bevat zichtbaar meer gelokaliseerde personen, maar een betrouwbare uitspraak over precision, recall en mAP vraagt volledige gecontroleerde labels. De bal blijft een relevante kandidaat voor de gerichte data gap; zijn labelbaarheid en de daadwerkelijke modelmissers moeten nog worden beoordeeld.
-
-De globale beeldvergelijking waarschuwt voor sterke gelijkenis tussen subsets. Het vaste veld en de achtergrond veroorzaken veel overeenkomst. Tijdgroepen alleen bewijzen geen onafhankelijkheid; de actie-inhoud en groepsgrenzen moeten visueel worden gereviewd. Claims blijven beperkt tot nieuwe momenten uit dezelfde opname.
-
-## Nog niet uitgevoerd of niet gezamenlijk goedgekeurd
-
-| Fase | Wat nog werkelijk moet gebeuren | Waarom dit niet als afgerond geldt |
-|---|---|---|
-| 0–1 | Gezamenlijke scope- en geometriecontrole | De gebruiker koos de bron; persoon 2 heeft veldpunten en projectie nog niet bevestigd |
-| 2 | Definitieve data gap vastleggen | Er zijn modelvoorspellingen, nog geen gecontroleerde referenties voor foutaantallen |
-| 3 | Zes proefannotaties, labelregels, modelrollen en toolbesluit bespreken | Softwaretests vervangen de gezamenlijke inhoudelijke keuzes niet |
-| 4 | Zestig kandidaten op moeilijkheid en labelbaarheid beoordelen, annoteren en onderling reviewen | Automatische voorstellen zijn geen goedgekeurde ground truth |
-| 4 | Groepsgrenzen en visuele gelijkenis beoordelen; definitieve splits goedkeuren | De huidige indeling is een vooraf vastgelegde kandidaatselectie |
-| 5 | Echte fine-tuning op de goedgekeurde voetbaldata uitvoeren | De synthetische technische proef telt daarvoor niet mee |
-| 6 | Formele baseline en fine-tuning met beide mAP-varianten meten | Zonder gecontroleerde annotaties zijn zulke scores niet verantwoord |
-| 7–8 | Getelde FP/FN, hypotheses en gerichte trainingsverbeteringen beoordelen | Voorspellingsaantallen zijn geen vastgestelde foutaantallen |
-| 13 | Systeemfreeze, onafhankelijke eindtest en definitieve claims | Modelkeuze, echte training en integratie zijn nog niet afgerond |
-
-De datasetcontrole is daadwerkelijk uitgevoerd en weigert de kandidaatdataset terecht wegens ontbrekende definitieve labels. Training wordt niet gestart door automatisch voorstellen tot menselijke labels te promoveren of goedkeuringen te verzinnen.
-
-## Bewijsstukken in de repository
-
-| Bestand | Betekenis |
+| Onderdeel | Wat nog nodig is |
 |---|---|
-| `assets/videos/HBTFZwMdcCw.mp4` | Volledige gekozen bronvideo, via Git LFS |
-| `assets/videos/HBTFZwMdcCw.source.json` | Bron, formaat, bestandsgrootte en checksum |
-| `reports/environment.json` | Werkelijk gebruikte omgeving en ontwikkel-GPU |
-| `reports/youtube-video-inspection.json` | Werkelijke videoframes en tijdsintervallen |
-| `reports/panoris-frame-selection.json` | Alle zestig bronmomenten en subsets |
-| `reports/baseline-panoris-train-summary.json` | Feitelijke pretrained uitvoer op 640; project-mAP is leeg |
-| `reports/baseline-panoris-train-detections.jsonl` | Echte overdrachtsgegevens voor 36 geselecteerde frames |
-| `reports/inference-resolution-diagnostic.json` | Gelijke gewichten en frames op 640 en 1920 |
-| `reports/baseline-panoris-1920-preview.jpg` | Werkelijk baselinevoorbeeld; geen menselijke ground truth |
-| `reports/panoris-dataset-validation.json` | Open labelproblemen en waarschuwingen voor gelijkenis |
-| `reports/training-software-check.json` | Duidelijk gemarkeerde synthetische softwareproef |
+| Annotatiebetrouwbaarheid | Beide studenten maken en bespreken de zes onafhankelijke proefannotaties en reviewen het volledige pakket |
+| Splits | Actie-inhoud, groepsgrenzen en waarschuwingen voor visuele overeenkomst gezamenlijk beoordelen |
+| Bron en modelrollen | Geometrie door persoon 2 en gezamenlijke keuzes inhoudelijk bevestigen |
+| Bruikbare baldetectie | De validatiefouten ondersteunen een nieuwe ontwikkelhypothese; er is nog geen bewezen verbetering |
+| Onafhankelijke eindtest | Na menselijke review en modelselectie eerst een systeemfreeze; nog geen testinference uitgevoerd |
+| Geïntegreerde toepassing | Homography, tactical map en synchronisatie door persoon 2 integreren en controleren |
+| Verdediging | Beide studenten moeten keuzes, code, fouten, beperkingen en AI-hulp zelf kunnen uitleggen |
 
-Grote gegenereerde werkbestanden blijven lokaal onder `data/`, `models/`, `runs/` en `output/`. Op de 4050-laptop zijn de kandidaatframes en voorstellen vanuit de bronvideo en scripts opnieuw te maken.
+De oorspronkelijke kandidaatdataset onder data/panoris blijft een historisch ontwikkelpakket met person/ball. Oudere rapporten met lege mAP-velden gaan over dat pakket vóór referentielabels. Nieuwe echte projectmetingen staan onder reports/ball-experiments en horen bij panoris-ball-ai-v1.
 
-## Eerstvolgende concrete handeling op de 4050-laptop
+## Meteen gebruiken op de 4050-laptop
 
-Volg de startstappen in de README. Maak daarna de zes proefannotaties en bespreek klassen, boxregels en de modelrollen. Rond annotatie en onderlinge review af vóór de echte training. Leg pas na geldige controles de daadwerkelijke datasetgoedkeuring vast.
+Volg de README voor installatie en git lfs pull. Meet de bewaarde gewichten na met:
+
+```powershell
+.\scripts\Run-BallExperiment.ps1 -Resolution 1920 -CandidateWeights artifacts/ball-ai-v1/EXP-002-best.pt
+```
+
+Voor opnieuw trainen laat je -CandidateWeights weg. De starter schrijft nieuwe uitvoermappen en bewaart de werkelijke hardware. De menselijke review staat beschreven in datasets/panoris-ball-ai-v1/README.md.

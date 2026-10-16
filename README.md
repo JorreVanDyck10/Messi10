@@ -4,6 +4,8 @@ Werkende hulpmiddelen voor video-inspectie, frame-extractie, assisted bounding-b
 
 De door de gebruiker gekozen [PANORIS-video](https://www.youtube.com/watch?v=HBTFZwMdcCw) staat volledig in `assets/videos/HBTFZwMdcCw.mp4`, op 3840 × 960 pixels, met bronmetadata en checksum. De MP4 wordt met **Git LFS** beheerd. De lokale ontwikkelmachine heeft een RTX 3050; metingen daarop gelden niet als 4050-benchmark.
 
+**Echte uitvoering:** twee runs van elk 100 epochs zijn afgerond. Validatie-mAP@50 en mAP@50:95 blijven 0%; een trainingsdiagnose van de tweede run geeft 14,85% en 13,07%. Dit zijn voorlopige metingen met expliciet gemarkeerde AI-labels. Lees [de resultaten en foutenanalyse](docs/Resultaten_Balexperimenten.md) voor de betekenis en beperkingen.
+
 ## Starten op de 4050-laptop
 
 Installeer Python **3.12**, Git met Git LFS en een werkende NVIDIA-driver. Gebruik voor iedere laptop een eigen projectomgeving; kopieer `.venv` niet van een andere machine.
@@ -21,12 +23,12 @@ Voer daar uit:
 git lfs install --local
 git lfs pull
 .\scripts\Setup-Persoon1.ps1
-.\scripts\Start-Persoon1.ps1 -Mode prepare
-.\scripts\Start-Persoon1.ps1 -Mode baseline -Split train
-.\scripts\Start-Persoon1.ps1 -Mode annotate -Split train
+.\scripts\Run-BallExperiment.ps1 -Resolution 1920 -CandidateWeights artifacts/ball-ai-v1/EXP-002-best.pt
 ```
 
-Open daarna [de lokale annotatietool](http://127.0.0.1:8765) in je browser. De tool toont bronbeelden, automatische voorstellen, boxcorrectie en aparte review. Hij blijft alleen op de eigen computer bereikbaar. Stoppen kan met Ctrl+C in het terminalvenster.
+Dit bouwt de voorlopige baldataset opnieuw op en meet de meegeleverde gewichten en de pretrained referentie op jouw laptop. Het checkpoint is experimenteel; de meetresultaten en beperkingen bepalen of het bruikbaar is. Wil je zelf opnieuw trainen, laat dan `-CandidateWeights` weg.
+
+Voor het oorspronkelijke annotatietraject gebruik je `Start-Persoon1.ps1 -Mode prepare`, vervolgens `-Mode baseline -Split train` en `-Mode annotate -Split train`. Open dan [de lokale annotatietool](http://127.0.0.1:8765) in je browser. De tool toont bronbeelden, automatische voorstellen, boxcorrectie en aparte review. Hij blijft alleen op de eigen computer bereikbaar. Stoppen kan met Ctrl+C in het terminalvenster. De voorlopige baldataset heeft zijn eigen reviewcommando in de dataset-README.
 
 Voor kleine objecten kun je in de annotatietool tot 800% inzoomen en door het vergrote beeld scrollen. Voor de bekeken panorama leverde een aanvullende pretrained proef op 1920 pixels meer bruikbare persoonsvoorstellen op. Je kunt die apart maken en laden:
 
@@ -45,9 +47,23 @@ Een bestaande uitvoermap wordt niet overschreven. Gebruik voor herhaalde baselin
 
 Zie [de uitvoeringsstatus](docs/Status_Persoon_1.md) voor echte resultaten en resterende stappen. De oorspronkelijke [uitgebreide werkinstructie](docs/01_Persoon_1_Data_Model_Evaluatie.md) en [invulsjablonen](docs/Invulsjablonen_Persoon_1.md) staan naast de software.
 
-De zestig geselecteerde beelden zijn **kandidaatframes**, nog geen goedgekeurde trainingsdataset. De eerste configuratie bevat `person` en `ball` om de baseline te onderzoeken. De definitieve target, klassendekking en keuze voor één of twee modellen moeten worden vastgelegd voordat training begint. De scripts verzinnen geen menselijke reviewers of modelprestaties.
+Naast de oorspronkelijke zestig kandidaatbeelden is nu een afzonderlijke **voorlopige baldataset met 47 visueel door AI gecontroleerde frames** opgebouwd: 27 train, 12 validatie en 8 gereserveerd voor test. De route gebruikt een baldetector naast de pretrained personendetector. De [selectie, boxregels en beperkingen](datasets/panoris-ball-ai-v1/README.md) en alle pixelboxen staan in de repository. Onderlinge menselijke review staat nog open; die wordt niet door de AI-controle vervangen.
 
 De selectie is vóór modelinference vastgelegd: 36 trainframes uit zes tijdgroepen, 12 validatieframes uit twee groepen en 12 gereserveerde testframes uit twee groepen. Het zijn nieuwe momenten uit dezelfde opname, geen onafhankelijke wedstrijden. De genoemde tijdafstand is een controlehulpmiddel en bewijst op zichzelf geen onafhankelijkheid.
+
+## Echte balexperimenten herhalen
+
+Na installatie en `git lfs pull` voert dit de echte training en een gelijke vergelijking met de pretrained baseline uit:
+
+```powershell
+.\scripts\Run-BallExperiment.ps1 -Resolution 1920
+```
+
+De starter bouwt de 47 bronframes en vastgelegde AI-labels opnieuw op. Hij traint maximaal 100 epochs met `configs/train-ball-1920.json` en maakt voorspellingen, beide mAP-varianten en FP/FN-records op dezelfde 12 validatiebeelden. Geheugentekort verlaagt batch 4 naar 2 en 1. Er wordt geen testinference uitgevoerd. Een unieke uitvoermap bewaart iedere herhaling.
+
+De oorspronkelijke 640-configuratie is eveneens werkelijk getest. Bij deze panorama verwijdert de voorbewerking alle trainingsboxen: op 640 zijn hun breedte en hoogte te klein. Op 960 zouden slechts 4 van de 27 boxen de vastgestelde filter passeren; op 1920 alle 27. Daarom gebruikt het vervolgexperiment 1920 en rechthoekige batches. Zie `reports/ball-preprocessing-diagnostic.json`. De 640-run is een vastgelegd negatief resultaat en geen bruikbare baldetector.
+
+Voor deze duidelijk gemarkeerde ontwikkelroute gebruiken training en scoring expliciet `--provisional-ai-labels` met een inhoudsgebonden AI-attestatie. De standaardroute blijft onafhankelijke teamreview vereisen. Voor de formele eindtest moeten de studenten eerst de labels en besluiten controleren. Scores uit deze voorlopige route mogen niet als menselijk geverifieerde eindresultaten worden voorgesteld.
 
 ## Annoteren en reviewen
 
@@ -127,4 +143,4 @@ De tests gebruiken herkenbaar synthetische fixtures en controleren onder meer AP
 
 Een extra volledige softwarecontrole van de GPU-trainingsroute is beschikbaar als `python -m persoon1.technical_check`. Die genereert uitsluitend synthetische rechthoeken, voert één epoch uit en bewaart een duidelijk als synthetisch gemarkeerd rapport. Die uitkomst bewijst geen prestatie op voetbalbeelden of geschiktheid van de echte annotaties.
 
-De volledige video wordt via Git LFS gedeeld; de grote gegenereerde datasets, gewichten, lokale omgevingen en trainingsruns blijven buiten gewone commits. Reproduceer hun inhoud via de bronvideo, vastgelegde selectie, versies en manifests.
+De volledige video en de bewaarde experimentele checkpoints worden via Git LFS gedeeld. Kleine meetbestanden, selectie, labelspecificaties en bewijsbeelden staan in Git. Grote gegenereerde datasets, lokale omgevingen en volledige werkmappen blijven lokaal. Reproduceer hun inhoud via de bronvideo, vastgelegde selectie, versies en manifests.

@@ -1,0 +1,24 @@
+{
+  "recorded_at": "2026-10-16T12:28:31.782659+00:00",
+  "models": [
+    {
+      "experiment": "EXP-001",
+      "file": "artifacts/ball-ai-v1/EXP-001-best.pt",
+      "sha256": "9f6b121cf8c3cadac4d40ae5a08d1b237c7b22ee5a7914575bcbc4e185f579d7",
+      "bytes": 5432403,
+      "source": "Actual fine-tuning on PANORIS ball dataset; not synthetic",
+      "deployment_status": "experimental_not_promoted",
+      "human_review_completed": false
+    },
+    {
+      "experiment": "EXP-002",
+      "file": "artifacts/ball-ai-v1/EXP-002-best.pt",
+      "sha256": "8fa01974339a0511cbde8495ae6e4fc3bc2baddeef11aaed895fe2edd9b5b172",
+      "bytes": 5542291,
+      "source": "Actual fine-tuning on PANORIS ball dataset; not synthetic",
+      "deployment_status": "experimental_not_promoted",
+      "human_review_completed": false
+    }
+  ],
+  "person_detector": "Keep original pretrained YOLO11n; these single-class checkpoints are ball-only experiments."
+}

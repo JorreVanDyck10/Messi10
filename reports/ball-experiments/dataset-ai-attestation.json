@@ -1,0 +1,7 @@
+{
+  "recorded_at": "2026-10-16T12:07:44.965251+00:00",
+  "dataset_fingerprint": "1cf505020932c4f490383a29646d02cb6fa0aaf870fe3d312125fbf3212a542f",
+  "review_policy": "provisional_ai_visual",
+  "human_review_completed": false,
+  "limitations": "AI visual annotation only. Both teammates must review before formal final evaluation."
+}
