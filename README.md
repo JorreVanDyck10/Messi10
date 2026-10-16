@@ -1,3 +1,7 @@
+> **Spelermodel geleverd (16 oktober 2026):** `configs/models.json` gebruikt nu werkelijk getrainde `player`/`referee`-gewichten. Speler-validatie: AP@50 74,50%, AP@50:95 26,55%. AI-review blijft voorlopig; verre officials en onafhankelijke eindtest zijn nog open. [Resultaten en starten op de 4050](docs/Resultaten_Spelermodel.md).
+
+Start het geleverde GPU-profiel met `scripts/Start-Spelermodel.ps1`. In een bestaande CPU-omgeving gebruik je expliciet `scripts/Start-Spelermodel.ps1 -Device cpu`; de rechtstreekse Streamlit-start hieronder neemt het standaardprofiel met GPU-device 0 over.
+
 # Sports Vision — data, modellen en tactical map
 
 Deze repository bevat beide werkpakketten: persoon 1 beheert data, annotaties, training en detectie-evaluatie; persoon 2 beheert kalibratie, videopipeline, minimap en tracking.

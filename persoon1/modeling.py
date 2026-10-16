@@ -243,7 +243,9 @@ def evaluate_run(manifest, prediction_dir, output, work_conf=0.25, freeze=None, 
                   manifest_sha256=sha256(manifest), label_fingerprint=canonical_hash(truth),
                   prediction_sha256=sha256(prediction_dir / "detections.jsonl"), weights_sha256=run["weights_sha256"],
                   review_policy="provisional_ai_visual" if provisional_ai else "independent_team_review",
-                  human_review_completed=not provisional_ai)
+                  human_review_completed=not provisional_ai,
+                  class_annotation_coverage={"player": "22 source player tracks including both goalkeepers",
+                      "referee": data.get("referee_coverage", "see dataset annotation policy")})
     output = fresh_output(output)
     errors = result.pop("errors")
     write_json(output / "metrics.json", result)

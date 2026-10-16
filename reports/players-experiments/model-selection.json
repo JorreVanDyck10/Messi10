@@ -1,0 +1,78 @@
+{
+  "recorded_at": "2026-10-16T19:13:32.804866+00:00",
+  "selected_run": "EXP-P004",
+  "weights": "artifacts/players-v2/players_best.pt",
+  "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+  "actual_names": {
+    "0": "player",
+    "1": "referee"
+  },
+  "criterion": "player AP50:95, then player AP50 on the same validation split",
+  "results": {
+    "EXP-P003": {
+      "mAP50": 0.595584983376449,
+      "mAP50_95": 0.30639844009556594,
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "player",
+          "objects": 264,
+          "AP50": 0.6862194717033933,
+          "AP50_95": 0.2489655684885331,
+          "TP": 191,
+          "FP": 88,
+          "FN": 73,
+          "precision": 0.6845878136200717,
+          "recall": 0.7234848484848485
+        },
+        {
+          "class_id": 1,
+          "name": "referee",
+          "objects": 24,
+          "AP50": 0.504950495049505,
+          "AP50_95": 0.3638313117025988,
+          "TP": 12,
+          "FP": 1,
+          "FN": 12,
+          "precision": 0.9230769230769231,
+          "recall": 0.5
+        }
+      ]
+    },
+    "EXP-P004": {
+      "mAP50": 0.6215610862155106,
+      "mAP50_95": 0.3141320179416004,
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "player",
+          "objects": 264,
+          "AP50": 0.7450262089885232,
+          "AP50_95": 0.265510617684238,
+          "TP": 199,
+          "FP": 65,
+          "FN": 65,
+          "precision": 0.7537878787878788,
+          "recall": 0.7537878787878788
+        },
+        {
+          "class_id": 1,
+          "name": "referee",
+          "objects": 24,
+          "AP50": 0.49809596344249807,
+          "AP50_95": 0.36275341819896273,
+          "TP": 10,
+          "FP": 0,
+          "FN": 14,
+          "precision": 1.0,
+          "recall": 0.4166666666666667
+        }
+      ]
+    }
+  },
+  "tradeoff": "Unfreezing improves player localization and reduces player FP/FN; known-official recall worsens at .25. Central official remains weak. Referee coverage is incomplete.",
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "source_change": "TeamTrack 6500x1000 25fps. Original PANORIS geometry must not be reused.",
+  "manifest_sha256": "69b6f83426125f5826044afd868aad2e021b7ca2cf25e5982a779ff038e17773"
+}

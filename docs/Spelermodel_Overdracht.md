@@ -1,5 +1,9 @@
 # Van gelabelde data naar spelertracking
 
+**Nieuwe feitelijke overdracht:** zie [het resultatenverslag](Resultaten_Spelermodel.md), `reports/players-experiments/handoff.json`, `configs/models-players.json` en `artifacts/players-v2/players_best.pt`. De gewichten zijn daadwerkelijk getraind met 0=player en 1=referee. AI-review, gedeeltelijke officialdekking en eindtestbeperkingen zijn expliciet vastgelegd. De historische checklist hieronder is geen bewijs van menselijke acceptatie.
+
+## Oorspronkelijke acceptatieafspraken
+
 De ByteTrack-adapter en vijf seconden waargenomen trajecten zijn al geïmplementeerd. De huidige PANORIS-baseline levert `person` en `ball`. De gebruiker koos expliciet om pas echte spelertracking te gebruiken na levering van echte spelerklassen; tijdelijke person-tracking is niet toegevoegd.
 
 ## Eerst afspraken bij de labels

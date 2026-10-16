@@ -121,7 +121,7 @@ def serve(manifest, proposals, split, port):
         def do_GET(self):
             try:
                 data, root = load_manifest(manifest)
-                selected = [f for f in data["frames"] if f["split"] == split]
+                selected = [f for f in data["frames"] if split == "all" or f["split"] == split]
                 if self.path == "/":
                     return self.respond(html, "text/html; charset=utf-8")
                 if self.path == "/api/state":
@@ -153,7 +153,7 @@ def serve(manifest, proposals, split, port):
                     raise ValueError("Invalid request size")
                 payload = json.loads(self.rfile.read(length))
                 data, _ = load_manifest(manifest)
-                if not any(f["frame_id"] == payload.get("frame_id") and f["split"] == split for f in data["frames"]):
+                if not any(f["frame_id"] == payload.get("frame_id") and (split == "all" or f["split"] == split) for f in data["frames"]):
                     raise ValueError("Frame outside active subset")
                 save_annotation(manifest, payload)
                 self.respond({"message": "Bewaard. Een gewijzigde annotatie moet opnieuw onafhankelijk worden gereviewd."})

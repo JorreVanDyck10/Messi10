@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-10-16T19:04:27.874725+00:00",
+  "dataset": "teamtrack-players-v2.1",
+  "reference": "EXP-P003",
+  "change": {
+    "freeze": [
+      10,
+      0
+    ]
+  },
+  "hypothesis": "Frozen pretrained features may insufficiently adapt to small players and grey central officials. Allow feature adaptation while holding data, seed, resolution and remaining settings fixed.",
+  "evidence": "P003 validation: player 73 FN/264, referee 12 FN/24 at confidence .25. Central official is not detected.",
+  "primary_selection": "player AP50:95 on the same 12 validation frames, then player AP50; retain simpler usable model on tie. Referee coverage is incomplete and not a general role-recognition benchmark.",
+  "test_used_for_selection": false
+}

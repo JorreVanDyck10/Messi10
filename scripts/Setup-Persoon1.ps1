@@ -25,6 +25,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Installeren van PyTorch is mislukt.' }
     & $runtimePython -m pip install --only-binary=:all: -r requirements.txt
     if ($LASTEXITCODE -ne 0) { throw 'Installeren van de projectbibliotheken is mislukt.' }
+    & $runtimePython -m pip install --only-binary=:all: -r requirements-app-gpu.txt
+    if ($LASTEXITCODE -ne 0) { throw 'Installeren van de toepassing is mislukt.' }
     if (-not (Test-Path -LiteralPath 'models\yolo11n.pt')) {
         Invoke-WebRequest -UseBasicParsing -Uri 'https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n.pt' -OutFile 'models\yolo11n.pt'
     }

@@ -8,7 +8,10 @@ __pycache__/
 weights/
 data/
 runs/
-artifacts/
+artifacts/*
+!artifacts/ball-ai-v1/
+!artifacts/players-v2/
+datasets/teamtrack-players-v1/
 requirements.lock.tmp
 .cache/
 models/

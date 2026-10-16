@@ -1,0 +1,58 @@
+{
+  "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+  "mAP50": 0.6215610862155106,
+  "mAP50_95": 0.3141320179416004,
+  "workpoint": {
+    "confidence": 0.25,
+    "matching_iou": 0.5
+  },
+  "per_class": [
+    {
+      "class_id": 0,
+      "name": "player",
+      "objects": 264,
+      "AP50": 0.7450262089885232,
+      "AP50_95": 0.265510617684238,
+      "TP": 199,
+      "FP": 65,
+      "FN": 65,
+      "precision": 0.7537878787878788,
+      "recall": 0.7537878787878788
+    },
+    {
+      "class_id": 1,
+      "name": "referee",
+      "objects": 24,
+      "AP50": 0.49809596344249807,
+      "AP50_95": 0.36275341819896273,
+      "TP": 10,
+      "FP": 0,
+      "FN": 14,
+      "precision": 1.0,
+      "recall": 0.4166666666666667
+    }
+  ],
+  "recorded_at": "2026-10-16T19:11:13.188495+00:00",
+  "split": "val",
+  "inference_config": {
+    "imgsz": 1920,
+    "device": "0",
+    "confidence": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "mapping": {
+      "player": "player",
+      "referee": "referee"
+    }
+  },
+  "manifest_sha256": "69b6f83426125f5826044afd868aad2e021b7ca2cf25e5982a779ff038e17773",
+  "label_fingerprint": "eb394b21925c7fd36c885315dd05cbad31f07fc29e2683e5f82b1d9cd0df8a65",
+  "prediction_sha256": "ea8461bb068cee99e25d8816eb0a835b3ef1f751784e59ac42033ee05bae928c",
+  "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+  "review_policy": "provisional_ai_visual",
+  "human_review_completed": false,
+  "class_annotation_coverage": {
+    "player": "22 source player tracks including both goalkeepers",
+    "referee": "central official and near assistant only; unresolved far-side roles, incomplete coverage"
+  }
+}

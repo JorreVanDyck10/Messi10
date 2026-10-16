@@ -40,3 +40,11 @@ De echte trainings- en validatieresultaten worden in `docs/Resultaten_Balexperim
 ## Wat het team nog zelf moet doen
 
 Beide studenten moeten de code, aannames en nu vastgelegde AI-labels inhoudelijk reviewen, de modelkeuzes verdedigen en de resultaten van de echte trainingsruns begrijpen. De gezamenlijke zes proefannotaties, onafhankelijke review en verdediging blijven hun eigen werk. Werk deze disclosure verder bij met genomen beslissingen, eigen wijzigingen, feedback en werkelijke vervolgprompts.
+
+## Spelerpakket en expliciete AI-review
+
+De gebruiker vroeg om echte player/referee-klassen, een complete modeloverdracht, pushen op main en vervolgens: `kijk da zelf na en ga verder`. Codex heeft daarop alle 60 TeamTrack-beelden en spelerboxen visueel onderzocht, doelmannen als player behouden, de centrale official toegevoegd en verkeerde voorstellen gecorrigeerd. Ambigue verre rolvoorstellen zijn verworpen. De coveragebeperking blijft zichtbaar; menselijke reviewernamen zijn niet verzonnen.
+
+EXP-P001 had onvolledige officiallabels; EXP-P002 is tijdens de laatste labelcontrole gestopt. EXP-P003 en EXP-P004 zijn echte vergelijkbare runs op v2.1. Het geselecteerde P004-checkpoint verbetert de speler-AP, maar vermindert official-recall op het werkpunt. Voorspellingen, configuraties, logs, daadwerkelijke modelnamen en hashes zijn bewaard.
+
+Een latere pull bracht ontwikkelannotaties uit de gereserveerde testclip binnen. Die overlap is gemeld; er zijn geen onafhankelijke projecteindtestresultaten geclaimd. De AI kan de zelfstandige verdediging of daadwerkelijke beoordeling door twee studenten niet als verricht registreren.

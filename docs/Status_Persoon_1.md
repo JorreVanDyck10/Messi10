@@ -1,5 +1,7 @@
 # Uitvoeringsstatus persoon 1
 
+**Nieuwe speleroplevering:** [TeamTrack-spelermodel, dataset, echte metingen en overdracht](Resultaten_Spelermodel.md). Het standaardprofiel gebruikt nu `player`/`referee`; de onderstaande balstatus blijft als afzonderlijk experiment gelden. Er is nog geen volledige verre officialdekking of onafhankelijke projecteindtest.
+
 **Bijgewerkt op 16 oktober 2026. Echte fine-tuning en project-mAP zijn nu uitgevoerd.** De resultaten zijn voorlopig wegens openstaande menselijke labelreview; de validatiescores tonen nog geen verbetering. Zie [het volledige resultatenverslag](Resultaten_Balexperimenten.md).
 
 ## Werkelijk afgerond

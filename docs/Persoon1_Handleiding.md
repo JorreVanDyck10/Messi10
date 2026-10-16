@@ -4,16 +4,16 @@ Werkende hulpmiddelen voor video-inspectie, frame-extractie, assisted bounding-b
 
 De door de gebruiker gekozen [PANORIS-video](https://www.youtube.com/watch?v=HBTFZwMdcCw) staat volledig in `assets/videos/HBTFZwMdcCw.mp4`, op 3840 × 960 pixels, met bronmetadata en checksum. De MP4 wordt met **Git LFS** beheerd. De lokale ontwikkelmachine heeft een RTX 3050; metingen daarop gelden niet als 4050-benchmark.
 
-**Echte uitvoering:** twee runs van elk 100 epochs zijn afgerond. Validatie-mAP@50 en mAP@50:95 blijven 0%; een trainingsdiagnose van de tweede run geeft 14,85% en 13,07%. Dit zijn voorlopige metingen met expliciet gemarkeerde AI-labels. Lees [de resultaten en foutenanalyse](docs/Resultaten_Balexperimenten.md) voor de betekenis en beperkingen.
+**Echte uitvoering:** twee runs van elk 100 epochs zijn afgerond. Validatie-mAP@50 en mAP@50:95 blijven 0%; een trainingsdiagnose van de tweede run geeft 14,85% en 13,07%. Dit zijn voorlopige metingen met expliciet gemarkeerde AI-labels. Lees [de resultaten en foutenanalyse](Resultaten_Balexperimenten.md) voor de betekenis en beperkingen.
 
 ## Starten op de 4050-laptop
 
 Installeer Python **3.12**, Git met Git LFS en een werkende NVIDIA-driver. Gebruik voor iedere laptop een eigen projectomgeving; kopieer `.venv` niet van een andere machine.
 
-De implementatie wordt geleverd op branch `feature/persoon1-data-model-evaluatie`. Clone die branch op de doellaptop en open de projectmap:
+De implementatie wordt geleverd op branch `main`. Clone die branch op de doellaptop en open de projectmap:
 
 ```powershell
-git clone --branch feature/persoon1-data-model-evaluatie https://github.com/JorreVanDyck10/Messi10.git
+git clone --branch main https://github.com/JorreVanDyck10/Messi10.git
 cd Messi10
 ```
 
@@ -45,9 +45,9 @@ Een bestaande uitvoermap wordt niet overschreven. Gebruik voor herhaalde baselin
 
 ## Wat al is uitgevoerd en wat nog nodig is
 
-Zie [de uitvoeringsstatus](docs/Status_Persoon_1.md) voor echte resultaten en resterende stappen. De oorspronkelijke [uitgebreide werkinstructie](docs/01_Persoon_1_Data_Model_Evaluatie.md) en [invulsjablonen](docs/Invulsjablonen_Persoon_1.md) staan naast de software.
+Zie [de uitvoeringsstatus](Status_Persoon_1.md) voor echte resultaten en resterende stappen. De oorspronkelijke [uitgebreide werkinstructie](01_Persoon_1_Data_Model_Evaluatie.md) en [invulsjablonen](Invulsjablonen_Persoon_1.md) staan naast de software.
 
-Naast de oorspronkelijke zestig kandidaatbeelden is nu een afzonderlijke **voorlopige baldataset met 47 visueel door AI gecontroleerde frames** opgebouwd: 27 train, 12 validatie en 8 gereserveerd voor test. De route gebruikt een baldetector naast de pretrained personendetector. De [selectie, boxregels en beperkingen](datasets/panoris-ball-ai-v1/README.md) en alle pixelboxen staan in de repository. Onderlinge menselijke review staat nog open; die wordt niet door de AI-controle vervangen.
+Naast de oorspronkelijke zestig kandidaatbeelden is nu een afzonderlijke **voorlopige baldataset met 47 visueel door AI gecontroleerde frames** opgebouwd: 27 train, 12 validatie en 8 gereserveerd voor test. De route gebruikt een baldetector naast de pretrained personendetector. De [selectie, boxregels en beperkingen](../datasets/panoris-ball-ai-v1/README.md) en alle pixelboxen staan in de repository. Onderlinge menselijke review staat nog open; die wordt niet door de AI-controle vervangen.
 
 De selectie is vóór modelinference vastgelegd: 36 trainframes uit zes tijdgroepen, 12 validatieframes uit twee groepen en 12 gereserveerde testframes uit twee groepen. Het zijn nieuwe momenten uit dezelfde opname, geen onafhankelijke wedstrijden. De genoemde tijdafstand is een controlehulpmiddel en bewijst op zichzelf geen onafhankelijkheid.
 

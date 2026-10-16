@@ -36,7 +36,7 @@ def parser():
     p = sub.add_parser("annotate", help="Local assisted box annotation and independent review")
     p.add_argument("--manifest", required=True)
     p.add_argument("--proposals")
-    p.add_argument("--split", choices=["train", "val", "test"], default="train")
+    p.add_argument("--split", choices=["train", "val", "test", "all"], default="train")
     p.add_argument("--port", type=int, default=8765)
     p = sub.add_parser("train", help="Train after real dataset and team review")
     p.add_argument("--manifest", required=True)

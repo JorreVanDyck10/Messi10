@@ -1,0 +1,83 @@
+{
+  "recorded_at": "2026-10-16T13:33:47.533039+00:00",
+  "errors": [],
+  "warnings": [
+    "Global-image similarity screen: 33 near-duplicate pairs across test/train; static backgrounds can trigger this. Manual action/group review required.",
+    "Global-image similarity screen: 85 near-duplicate pairs across test/val; static backgrounds can trigger this. Manual action/group review required.",
+    "Global-image similarity screen: 273 near-duplicate pairs across train/val; static backgrounds can trigger this. Manual action/group review required."
+  ],
+  "counts": {
+    "train": {
+      "frames": 36,
+      "labelled_frames": 36,
+      "reviewed_frames": 0,
+      "negative_frames": 0,
+      "class_0_objects": 792,
+      "class_1_objects": 72
+    },
+    "val": {
+      "frames": 12,
+      "labelled_frames": 12,
+      "reviewed_frames": 0,
+      "negative_frames": 0,
+      "class_0_objects": 264,
+      "class_1_objects": 24
+    },
+    "test": {
+      "frames": 12,
+      "labelled_frames": 12,
+      "reviewed_frames": 0,
+      "negative_frames": 0,
+      "class_0_objects": 264,
+      "class_1_objects": 24
+    }
+  },
+  "near_duplicate_pair_counts": {
+    "train/val": 273,
+    "test/val": 85,
+    "test/train": 33
+  },
+  "near_duplicate_examples": [
+    [
+      "F_20200220_1_0660_0690_000000",
+      "F_20200220_1_0540_0570_000000"
+    ],
+    [
+      "F_20200220_1_0660_0690_000000",
+      "F_20200220_1_0540_0570_000020"
+    ],
+    [
+      "F_20200220_1_0660_0690_000000",
+      "F_20200220_1_0540_0570_000040"
+    ],
+    [
+      "F_20200220_1_0660_0690_000000",
+      "F_20200220_1_0540_0570_000060"
+    ],
+    [
+      "F_20200220_1_0660_0690_000000",
+      "F_20200220_1_0540_0570_000080"
+    ],
+    [
+      "F_20200220_1_0660_0690_000000",
+      "F_20200220_1_0540_0570_000100"
+    ],
+    [
+      "F_20200220_1_0660_0690_000000",
+      "F_20200220_1_0540_0570_000120"
+    ],
+    [
+      "F_20200220_1_0660_0690_000000",
+      "F_20200220_1_0540_0570_000140"
+    ],
+    [
+      "F_20200220_1_0660_0690_000000",
+      "F_20200220_1_0540_0570_000160"
+    ],
+    [
+      "F_20200220_1_0660_0690_000000",
+      "F_20200220_1_0540_0570_000180"
+    ]
+  ],
+  "dataset_fingerprint": "8aab7e9b3a8c38866501acbef414da6b3a95c9a315a917171953c33288e66346"
+}
