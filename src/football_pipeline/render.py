@@ -6,6 +6,7 @@ import numpy as np
 from .automatic_calibration import transform
 from .contracts import FrameRecord
 from .field_layout import LINES_UV
+from .field_motion import status_label
 from .geometry import valid_box
 from .tracking import Trajectories
 
@@ -32,12 +33,20 @@ def render_frame(
     histories: Trajectories | None = None,
     display_confidence: float = 0.25,
     technical_pilot: bool = False,
+    recognized_points: bool = True,
+    tracked_points: bool = True,
 ) -> np.ndarray:
     canvas = np.full((720, 1920, 3), (22, 35, 29), dtype=np.uint8)
     h, w = frame.shape[:2]
     scale = min(1280 / w, 720 / h)
     target_w, target_h = round(w * scale), round(h * scale)
-    source = automatic_preview(frame, record.calibration) if record.calibration else frame
+    source = (
+        automatic_preview(
+            frame, record.calibration, recognized_points=recognized_points, tracked_points=tracked_points
+        )
+        if record.calibration
+        else frame
+    )
     left = cv2.resize(source, (target_w, target_h), interpolation=cv2.INTER_AREA)
     offset_x, offset_y = (1280 - target_w) // 2, (720 - target_h) // 2
     for detection in record.detections:
@@ -72,11 +81,26 @@ def render_frame(
         known = record.calibration["status"] == "valid"
         label(
             pitch,
-            "Automatische veldkalibratie" if known else "Veldpositie onbekend",
+            status_label(record.calibration),
             (40, 150),
             (100, 220, 180) if known else (80, 180, 245),
             scale=0.6,
         )
+        state = record.calibration
+        label(
+            pitch,
+            f"Punten: {len(state.get('points', []))} | {state.get('recognition_status', state['status'])}",
+            (40, 578),
+            scale=0.43,
+        )
+        age = state.get("age_s")
+        if age is not None:
+            label(
+                pitch,
+                f"Sinds herkenning: {age:.2f} s | referentie {state.get('reference_frame')}",
+                (40, 598),
+                scale=0.43,
+            )
     for detection in record.detections:
         if detection.field_position is None:
             continue
@@ -103,7 +127,9 @@ def render_frame(
     return canvas
 
 
-def automatic_preview(frame: np.ndarray, state: dict) -> np.ndarray:
+def automatic_preview(
+    frame: np.ndarray, state: dict, *, recognized_points=True, tracked_points=True
+) -> np.ndarray:
     """Draw only visible portions; virtual offscreen corners are never fabricated observations."""
     preview = frame.copy()
     height, width = frame.shape[:2]
@@ -123,11 +149,13 @@ def automatic_preview(frame: np.ndarray, state: dict) -> np.ndarray:
     for line in state.get("lines", []):
         a, b = [tuple(map(int, p)) for p in line["xy"]]
         cv2.line(preview, a, b, (90, 220, 120), 1, cv2.LINE_AA)
-    for point in state.get("points", []):
+    for point in state.get("points", []) if recognized_points else []:
         x, y = round(point["x"]), round(point["y"])
         cv2.circle(preview, (x, y), 4, (60, 220, 245), -1)
         label(preview, str(point["id"]), (x + 5, max(15, y - 5)), scale=0.4)
-    label(preview, f"Veld: {state['status']}", (20, max(22, height - 20)), scale=0.65)
+    for point in state.get("tracked_points", []) if tracked_points else []:
+        cv2.circle(preview, tuple(round(v) for v in point), 2, (235, 120, 245), -1)
+    label(preview, f"{status_label(state)} | {state['status']}", (20, max(22, height - 20)), scale=0.65)
     return preview
 
 

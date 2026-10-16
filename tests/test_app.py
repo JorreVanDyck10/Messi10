@@ -97,7 +97,7 @@ def test_point_table_calculation_review_and_invalidation(demo_fixture, monkeypat
     app.text_input[0].set_value("Reviewer")
     app.text_input[1].set_value("Generated test frames")
     app.text_input[2].set_value("Engineering test")
-    app.checkbox[0].check()
+    app.checkbox(key="confirm_static_camera").check()
     next(b for b in app.button if b.label == "Kalibratie goedkeuren").click().run()
     assert not app.exception
     assert app.session_state["calibration"].review["reviewer"] == "Reviewer"

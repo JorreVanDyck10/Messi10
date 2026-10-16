@@ -27,6 +27,11 @@ def evaluate_calibration(run_directory, reference_path):
         or not reference.get("selection_frozen_at")
         or not reference.get("source")
         or not reference.get("usage")
+        or (
+            reference.get("calibration_id") is not None
+            and reference["calibration_id"] != manifest["calibration_id"]
+        )
+        or (manifest.get("schema_version", 1) >= 3 and not reference.get("settings_frozen_at"))
     ):
         raise PipelineError(
             "Referentie vereist dezelfde video, menselijke review en onafhankelijke selectie."
@@ -103,6 +108,7 @@ def evaluate_calibration(run_directory, reference_path):
     possible = sum(r["calibratable"] for r in results)
     usable = sum(r["calibratable"] and r["system_status"] == "valid" for r in results)
     false_valid = sum(not r["calibratable"] and r["system_status"] == "valid" for r in results)
+    within_limits = sum(r["within_limits"] is True for r in results)
     return {
         "schema_version": 1,
         "video_sha256": manifest["video"]["sha256"],
@@ -112,9 +118,19 @@ def evaluate_calibration(run_directory, reference_path):
         "reference_frames": len(results),
         "calibratable_reference_frames": possible,
         "usable_reference_frames": usable,
-        "coverage_on_calibratable_frames": usable / possible if possible else None,
+        "coverage_on_calibratable_frames": within_limits / possible if possible else None,
+        "output_coverage_on_calibratable_frames": usable / possible if possible else None,
         "false_valid_on_uncalibratable_frames": false_valid,
-        "within_limits_frames": sum(r["within_limits"] is True for r in results),
+        "within_limits_frames": within_limits,
+        "numerical_criteria_passed": bool(
+            possible
+            and within_limits / possible >= 0.9
+            and not false_valid
+            and errors
+            and np.median(errors) <= diagonal * 0.005
+            and max(errors) <= diagonal * 0.01
+        ),
+        "human_content_accepted": None,
         "median_error_px": float(np.median(errors)) if errors else None,
         "maximum_error_px": float(max(errors)) if errors else None,
         "median_limit_px": diagonal * 0.005,

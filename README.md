@@ -67,6 +67,13 @@ Eenmalig met Python 3.11: `python scripts/setup_field_model.py`. Kies vervolgens
 
 Zie [Automatische veldkalibratie](docs/Automatische_Veldkalibratie.md) voor CLI-gebruik, modelherkomst, technische proef, uitvoerformaat en onafhankelijke evaluatie. De implementatie en technische bruikbaarheid vormen geen bewijs van algemene nauwkeurigheid op wedstrijdbeelden.
 
+De nieuwe [Broadcast-veldtest](docs/Broadcast_Veldexperiment.md) verbetert de
+intern bruikbare kalibraties van 0 naar **252/1.239 frames (20,3%)** met gecontroleerde
+veldpunten en korte overbrugging via optical flow. Dit blijft experimenteel;
+menselijke projectiefouten en de 90%-doelstelling zijn nog open. Kies bovenaan
+**Een opgeslagen veldtest visueel openen** om het bronbeeld, overlay en minimap
+per exact frame te vergelijken, naar uitval te springen en eigen referenties op te slaan.
+
 ### Zonder interface werken
 
 Hieronder zijn paden met `gekozen_clip` en `RUNMAP` voorbeelden die je vervangt door de echte bestanden.

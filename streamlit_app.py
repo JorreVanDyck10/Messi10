@@ -31,10 +31,44 @@ from football_pipeline.video import ROOT, inspect_video, read_frame
 st.set_page_config(page_title="Voetbal · tactical map", page_icon=":material/sports_soccer:", layout="wide")
 st.title("Van voetbalbeeld naar veldpositie")
 st.caption("Handmatige of automatische veldkalibratie · gesynchroniseerde video en minimap")
-st.info("Gebruik een MP4 met constante framerate. Automatische kalibratie ondersteunt pan en zoom.")
+st.info(
+    "Gebruik een MP4 met constante framerate. Pan en zoom zijn een experimentele uitbreiding; controleer de veld-overlay zelf."
+)
 
 MODEL_PATH = Path(os.environ.get("FOOTBALL_MODELS", ROOT / "configs/models.json"))
 OUTPUT_ROOT = Path(os.environ.get("FOOTBALL_RUNS", ROOT / "runs"))
+
+# Saved results can be inspected immediately, without uploading or processing again.
+if st.checkbox("Een opgeslagen veldtest visueel openen", key="open_field_review"):
+    from football_pipeline.field_review_ui import visual_review
+
+    saved_runs = []
+    for run_path in OUTPUT_ROOT.glob("*/runmanifest.json"):
+        try:
+            saved = read_json(run_path)
+            if saved.get("status") == "completed" and saved.get("calibration_mode") == "automatic":
+                saved_runs.append((run_path.parent, saved))
+        except PipelineError:
+            continue
+    saved_runs.sort(key=lambda item: item[1].get("completed_at", ""), reverse=True)
+    if saved_runs:
+        selected_run = st.selectbox(
+            "Opgeslagen veldtest",
+            range(len(saved_runs)),
+            format_func=lambda i: (
+                f"{saved_runs[i][1].get('completed_at', '')[:19]} · {saved_runs[i][1]['measurements'].get('calibration_usable_fraction', 0):.1%} bruikbaar · {saved_runs[i][0].name[:12]}"
+            ),
+            key="saved_field_run",
+        )
+        directory = saved_runs[selected_run][0]
+        st.video(str(directory / "samengestelde_video.mp4"))
+        try:
+            visual_review(directory)
+        except (PipelineError, OSError) as exc:
+            st.error(str(exc))
+    else:
+        st.caption("Nog geen voltooide veldtest beschikbaar.")
+    st.stop()
 
 
 @st.cache_data(max_entries=8, show_spinner=False)
@@ -383,7 +417,8 @@ else:
                 source = st.text_input("Videobron")
                 usage = st.text_input("Toegelaten gebruik / bronvermelding")
                 static = st.checkbox(
-                    "Ik bevestig de puntvolgorde en een vaste camera op begin, midden en einde."
+                    "Ik bevestig de puntvolgorde en een vaste camera op begin, midden en einde.",
+                    key="confirm_static_camera",
                 )
                 approve = st.form_submit_button("Kalibratie goedkeuren")
             if approve:
@@ -551,6 +586,9 @@ if result is not None:
         st.caption(
             "Bruikbaarheid is een interne geometriecontrole, geen gemeten nauwkeurigheid tegen menselijke labels."
         )
+        from football_pipeline.field_review_ui import visual_review
+
+        visual_review(result.directory)
     for name, description, mime in (
         ("samengestelde_video.mp4", "Video downloaden", "video/mp4"),
         ("framegegevens.jsonl", "Framegegevens downloaden", "application/x-ndjson"),

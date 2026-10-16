@@ -155,16 +155,39 @@ def estimate_frame(observation: dict, image_size) -> dict:
 class AutomaticCalibration:
     manifest: dict
     observations_path: str
+    profile: dict | None = None
+
+    @property
+    def settings(self):
+        from .field_motion import DEFAULT_SETTINGS, validate_settings
+
+        if self.profile is None and self.manifest.get("schema_version") == 1:
+            return None
+        settings = validate_settings({**DEFAULT_SETTINGS, **(self.profile or {})})
+        if self.manifest.get("schema_version") == 1 and any(
+            settings[name] < POLICY[name] for name in ("keypoint_threshold", "line_threshold")
+        ):
+            raise PipelineError(
+                "Deze oude bundel bevat gefilterde scores; voer het veldmodel opnieuw uit voor een lagere confidence."
+            )
+        return settings
 
     @property
     def identity(self):
-        return digest_json({"manifest": self.manifest, "policy": POLICY})
+        identity = {"manifest": self.manifest, "policy": POLICY}
+        if self.settings is not None:
+            identity["settings"] = self.settings
+            identity["implementation_sha256"] = {
+                name: sha256_file(Path(__file__).with_name(name))
+                for name in ("automatic_calibration.py", "field_motion.py")
+            }
+        return digest_json(identity)
 
     def validate_for(self, video: VideoMetadata, approved=True):
         m = self.manifest
         upstream = m.get("upstream")
         if (
-            m.get("schema_version") != 1
+            m.get("schema_version") not in (1, 2)
             or m.get("kind") != "automatic_field_observations"
             or m.get("coordinate_system") != COORDINATE_SYSTEM
             or m.get("policy") != POLICY
@@ -173,6 +196,9 @@ class AutomaticCalibration:
             or upstream.get("url") != UPSTREAM_URL
         ):
             raise PipelineError("Niet-ondersteund automatisch kalibratieformaat of modelversie.")
+        if m["schema_version"] == 2 and m.get("score_storage") != "all_ground_peaks_before_threshold":
+            raise PipelineError("Ruwe veldscores ontbreken in de nieuwe kalibratiebundel.")
+        self.settings
         expected = {
             "sha256": video.sha256,
             "image_size": list(video.size),
@@ -216,7 +242,29 @@ class AutomaticCalibration:
                         or abs(row["timestamp_s"] - index / video.fps) > 1e-6
                     ):
                         raise ValueError("Afwijkende tijdlijn")
-                    state = estimate_frame(row, video.size)
+                    if self.manifest["schema_version"] == 2:
+                        if {p["id"] for p in row["points"]} != set(POINTS_UV) or {
+                            p["id"] for p in row["lines"]
+                        } != set(LINES_UV):
+                            raise ValueError("Ruwe bundel mist semantische punt- of lijnscores")
+                        for point in row["points"]:
+                            raw = float(point["raw_score"])
+                            if not np.isfinite(raw) or point["confidence"] != min(1.0, max(0.0, raw)):
+                                raise ValueError("Ruwe puntscore wijkt af van confidence")
+                        for line in row["lines"]:
+                            raw = np.asarray(line["raw_scores"], float)
+                            if (
+                                raw.shape != (2,)
+                                or not np.isfinite(raw).all()
+                                or line["confidence"] != min(1.0, max(0.0, float(raw.min())))
+                            ):
+                                raise ValueError("Ruwe lijnscores ontbreken of wijken af van confidence")
+                    if self.settings is None:
+                        state = estimate_frame(row, video.size)
+                    else:
+                        from .field_motion import estimate_checked
+
+                        state = estimate_checked(row, video.size, self.settings)
                     state.update(frame_index=index, model_identity=self.identity)
                     yield state
                 except (ValueError, TypeError, KeyError) as exc:
