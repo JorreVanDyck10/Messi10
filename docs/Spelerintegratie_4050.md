@@ -63,3 +63,34 @@ ingevuld.
 
 Zie [de oorspronkelijke modelmetingen](Resultaten_Spelermodel.md) en
 [de telregels](Spelertelling_en_Rollen.md).
+
+## Werkelijk gecontroleerd op deze laptop
+
+De Broadcast-clip van 49,56 seconden is met beide modellen volledig verwerkt:
+1.239 bronframes op 25 fps, met gesynchroniseerde H.264-uitvoer van 1920 × 720.
+De omgeving gebruikt PyTorch 2.6.0+cu124, torchvision 0.21.0+cu124 en Ultralytics
+8.3.221 op de RTX 4050 Laptop GPU. De pakketcontrole slaagt.
+
+- [Echte persoonsinference](../reports/person-inference-4050.json): 140,51 seconden
+  voor detecties, geometrie en encoding. De eerder berekende veldwaarnemingen
+  zijn hergebruikt. De veldtraining draaide tegelijk; dit is geen geïsoleerde
+  snelheidsbenchmark of realtimeclaim.
+- [Rolmodelcontrole](../reports/player-pipeline-4050.json): technisch voltooid,
+  maar de bekeken frames 0 en 619 tonen veel gemiste lichamen en te kleine
+  boxen. Er is geen onafhankelijke nauwkeurigheidsscore voor deze clip.
+- [Definitieve personenvideo](../reports/person-pipeline-4050.json): de laatste
+  legenda-aanpassing is opnieuw gerenderd met gecontroleerde echte detecties.
+  Het rapport benoemt die replay en bewaart de oorspronkelijke inferentiemeting.
+- Dezelfde veldinstellingen geven voor beide modellen 251 bruikbare frames
+  (20,26%). De overige 988 frames krijgen een onbekende veldtelling. ‘Bruikbaar’
+  betekent dat de geometrische filters slagen; het bewijst geen menselijke
+  kalibratienauwkeurigheid. De aparte veldtraining is nog niet voltooid.
+- De volledige suite slaagt met 190 tests en 4 subtests. Daarnaast is het
+  opgeslagen echte resultaat in de Streamlit-testomgeving geopend en is naar
+  frame 18 gesprongen, zonder applicatiefout of ingediende menselijke review.
+
+De bronvideo, controlebeelden en vergelijkingsafbeelding blijven lokale
+bestanden onder `runs/` en `artifacts/player-integration-4050/`. De rapporten
+leggen hun uitvoerpaden en modelidentiteiten vast. Het eerdere rolrapport
+verwijst naar het profiel dat tijdens die eerste proef nog de standaard was;
+zijn volledige gewichtsidentiteit is in dat rapport bewaard.
