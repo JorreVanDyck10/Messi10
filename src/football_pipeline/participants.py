@@ -76,6 +76,11 @@ def player_summary(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
     players = [d for d in visible if d.semantic_class == "player"]
     reasons = Counter(player_exclusion_reason(d, record.image_size) for d in players)
     available = field_available(record) and record.player_model_available
+    teams = Counter(
+        d.team_id if d.team_id in {"team_a", "team_b"} else "unknown"
+        for d in players
+        if counted_as_player(record, d, confidence)
+    )
     return {
         "status": "player_model_unavailable"
         if not record.player_model_available
@@ -89,6 +94,7 @@ def player_summary(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
         if available
         else len(players),
         "other_roles": dict(Counter(d.semantic_class for d in visible if d.semantic_class != "player")),
+        "teams": {name: teams[name] for name in ("team_a", "team_b", "unknown")} if available else None,
         "display_confidence": confidence,
         "include_matched_low_confidence": True,
     }

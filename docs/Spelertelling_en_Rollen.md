@@ -1,8 +1,10 @@
 # Spelers tellen met rolherkenning en veldherkenning
 
+**Actuele uitbreiding:** [R007 gebruikt nu een werkelijk getrainde aanvullende rolclassifier en teamindeling](Resultaten_Rollen_en_Teams.md). De paragraaf hieronder over twee uitvoerklassen beschrijft de behouden P004-basisdetector. Het standaardprofiel combineert die met een persoonsdetector en zes classifieruitgangen: `player`, `referee`, `assistant_referee`, `steward`, `spectator`, `person`. De regel dat locatie op zichzelf geen spelersrol bewijst, blijft gelden. De nieuwe metingen vervangen geen menselijke review of onafhankelijke eindtest.
+
 De telling gebruikt twee verschillende voorspellingen: **welke rol de detector geeft** en **of het voetpunt binnen het geldige veld ligt**. Een steward op het veld blijft een steward als de detector die rol correct aanlevert. De veldlocatie verandert de rol nooit automatisch in `player`.
 
-## Wat de huidige gewichten werkelijk herkennen
+## Behouden P004-basisdetector en latere uitbreiding
 
 Het geleverde `artifacts/players-v2/players_best.pt` heeft exact twee uitvoerklassen:
 
@@ -11,11 +13,11 @@ Het geleverde `artifacts/players-v2/players_best.pt` heeft exact twee uitvoerkla
 | 0 | `player` | Veldspelers en beide doelmannen |
 | 1 | `referee` | Centrale scheidsrechter en de bevestigde nabije lijnrechter, samen in één klasse |
 
-Er is **geen afzonderlijke getrainde klasse** voor `assistant_referee`, `steward`, `spectator` of `staff`. De pipeline kan deze rollen verwerken zodra een detector ze werkelijk levert. De extra ondersteuning is geen bewijs dat de bestaande gewichten deze personen herkennen.
+De P004-basisdetector heeft geen afzonderlijke uitgangen voor lijnrechter, steward of supporter. Die worden nu door de aanvullende getrainde classifier geleverd. `staff` heeft nog geen eigen getrainde uitgang; zulke onduidelijke personen kunnen `person` blijven. De betrouwbaarheid verschilt sterk per rol; zie de actuele resultaten.
 
 Ook de bestaande officialherkenning is nog beperkt. Op de twaalf validatiebeelden met gedeeltelijke officiallabels haalt de geselecteerde run bij confidence 0,25 en matching-IoU 0,50 **10 TP, 0 FP en 14 FN** voor de gezamenlijke klasse `referee`: recall 41,67%. Dit bewijst geen volledige herkenning van centrale scheidsrechters en beide lijnrechters. Zie [de volledige resultaten](Resultaten_Spelermodel.md) en `reports/players-experiments/EXP-P004/validation-metrics/metrics.json`.
 
-Als een steward ten onrechte de voorspelling `player` krijgt en zijn voetpunt binnen het veld ligt, kan hij nog meetellen. Die fout vraagt nieuwe betrouwbare rollabels en modeltraining of een afzonderlijk gevalideerde rolclassifier. De veldfilter kan die classificatiefout niet oplossen. Er worden geen stewards of supporters als achtergrondlabel verzonnen op basis van alleen kleding, afstand of positie.
+Als een steward ten onrechte de voorspelling `player` krijgt en zijn voetpunt binnen het veld ligt, kan hij nog meetellen. De veldfilter kan zo’n classificatiefout niet oplossen. De echte aanvullende training is uitgevoerd; verdere representatieve rollabels en evaluatie blijven nodig voor betere betrouwbaarheid. Er worden geen achtergrondlabels verzonnen op basis van alleen kleding, afstand of positie.
 
 ## Concrete telregels
 
@@ -43,7 +45,7 @@ De detector bewaart kandidaten vanaf confidence 0,10. De normale weergave en tel
 2. De pipeline projecteert **vóór** ByteTrack. Alleen `player` met geldige projectie gaat naar de spelertracker. Uitgesloten detecties blijven in het framerecord; hun index wordt correct teruggekoppeld na filtering.
 3. Stewards, supporters en officials kunnen als afzonderlijke rol op beeld en minimap verschijnen wanneer het geladen model die echte klasse levert. Een generieke `person` mag via een manifest niet stilzwijgend worden hernoemd naar een van deze rollen.
 4. De automatische cameramodus houdt haar bestaande trackingblokkade totdat cameracompensatie is gevalideerd. Deze wijziging heft de menselijke MVP-acceptatie en andere bestaande controles niet op.
-5. De veldherkenningscode, bronnen, beeldafmetingen, datasetlabels en gewichten zijn voor deze wijziging niet aangepast. Een andere video behoudt haar eigen kalibratievereiste.
+5. De veldherkenningsalgoritmen en oorspronkelijke YOLO-labels/-gewichten blijven behouden. De afzonderlijke classificatiedataset en gewichten zijn toegevoegd. Een andere video behoudt haar eigen kalibratievereiste; bronnen en afmetingen staan in het actuele resultatenverslag.
 
 ## Uitvoer voor telling en controle
 
@@ -76,6 +78,6 @@ De ruwe detectoroverdracht van persoon 1 in `reports/handoff/players-v2` bevat n
 
 De regressietests controleren rollen binnen het veld, spelers buiten het veld, lage scores, lege frames, veldverlies/herstel, veranderende framegeometrie, afgesneden voeten en de detectie-indexen van de echte ByteTrack-implementatie. De volledige verwerkingsproeven gebruiken expliciet synthetische detectoruitvoer en echte video-encoding. Zij bewijzen de telregels en softwarekoppeling, geen nauwkeurigheid voor stewards of supporters.
 
-De volledige suite slaagt met **162 tests en 4 subtests**. De afzonderlijke JUnit-uitvoer staat in `reports/players-experiments/field-role-software-tests.xml`; bronhashes en de afbakening van dit bewijs staan in `reports/players-experiments/field-role-software-validation.json`. Ruff en de dependencycontrole slagen eveneens.
+De oorspronkelijke filtercontrole slaagde met 162 tests en 4 subtests. De uitgebreide rol-/teamversie slaagt met **169 tests en 4 subtests**; de actuele uitvoer staat in `reports/appearance-experiments/software-tests.xml`. De eerdere uitvoer onder `reports/players-experiments/field-role-*` blijft historische software-evidence. Ruff en de dependencycontrole slagen eveneens.
 
-Voor echte extra rolherkenning blijft nodig: een gereviewde uitbreiding van de klassen en annotaties, een expliciete beslissing over de datasetomvang, training met die klassen, validatie op voldoende afzonderlijke voorbeelden en een nieuwe overdracht met werkelijke namen en gewichtshash. De bestaande onafhankelijke eindtestbeperking blijft gelden; bestaande gereserveerde beelden worden niet opnieuw als onaangeroerde eindtest voorgesteld.
+De extra training en overdracht zijn nu uitgevoerd. De totale selectie omvat 80 bronbeelden; menselijke review, betere supporter-/officialdekking en onafhankelijke eindevaluatie blijven open. De bestaande eindtestbeperking blijft gelden; bestaande gereserveerde beelden worden niet opnieuw als onaangeroerde eindtest voorgesteld.

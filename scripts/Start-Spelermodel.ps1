@@ -30,6 +30,10 @@ try {
             $model.device = $Device
             $model.weights = [IO.Path]::GetFullPath((Join-Path "$projectRoot\configs" $model.weights))
         }
+        if ($profile.appearance) {
+            $profile.appearance.device = $Device
+            $profile.appearance.weights = [IO.Path]::GetFullPath((Join-Path "$projectRoot\configs" $profile.appearance.weights))
+        }
         if ($profile.handoff) {
             $profile.handoff.evaluation_record = [IO.Path]::GetFullPath((Join-Path "$projectRoot\configs" $profile.handoff.evaluation_record))
         }

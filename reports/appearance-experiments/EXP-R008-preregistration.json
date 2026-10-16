@@ -1,0 +1,6 @@
+{
+  "reference": "R007 full-frame inference",
+  "hypothesis": "Central official FN mainly starts with insufficient image detail in the 6500px panorama.",
+  "change": "Same weights and thresholds; COCO person proposal stage additionally runs overlapping horizontal tiles width1600, overlap.25, inference1280. Tile coordinates mapped to source before shared NMS and appearance classification.",
+  "decision": "Measure player and official AP/workpoint plus runtime; retain only as an explicit measured tradeoff. No test data."
+}

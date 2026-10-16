@@ -1,0 +1,1288 @@
+{
+  "sources": [
+    {
+      "id": "steward-nec",
+      "title": "File:Steward NEC.jpg",
+      "split": "train",
+      "image": "sources/steward-nec.jpg",
+      "sha256": "6c7fc47f640c79c7cb07b227a0a553922219977dbd2458ab2b5b5dd17aa9a850",
+      "metadata": {
+        "size": 726193,
+        "width": 1944,
+        "height": 2592,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Steward_NEC.jpg/960px-Steward_NEC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 1280,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Steward_NEC.jpg/1920px-Steward_NEC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Steward_NEC.jpg/960px-Steward_NEC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 1280,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Steward_NEC.jpg/1920px-Steward_NEC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Steward_NEC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Steward_NEC.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=3204014",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2008-05-03 13:38:01",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Steward NEC",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "GFDL|Taken with Nikon Coolpix L3|Guards|Goffertstadion|License migration completed|Self-published work",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Zelfgemaakte foto",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "26 June 2006 (original upload date)",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "Transfered from <a class=\"external text\" data-mw-original-href=\"http://nl.wikipedia.org\" href=\"https://nl.wikipedia.org\">nl.wikipedia</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "Original uploader was <a href=\"https://nl.wikipedia.org/wiki/User:Erik1980\" class=\"extiw\" title=\"nl:User:Erik1980\">Erik1980</a> at <a class=\"external text\" data-mw-original-href=\"http://nl.wikipedia.org\" href=\"https://nl.wikipedia.org\">nl.wikipedia</a>",
+            "source": "commons-desc-page"
+          },
+          "Permission": {
+            "value": "Released under the <a href=\"//commons.wikimedia.org/wiki/GNU_Free_Documentation_License\" class=\"mw-redirect\" title=\"GNU Free Documentation License\">GNU Free Documentation License</a>.",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 3.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 3.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Attribution": {
+            "value": "<a href=\"https://nl.wikipedia.org/wiki/User:Erik1980\" class=\"extiw\" title=\"nl:User:Erik1980\">Erik1980</a> at <a class=\"external text\" data-mw-original-href=\"http://nl.wikipedia.org\" href=\"https://nl.wikipedia.org\">nl.wikipedia</a>",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-3.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "delivered_image_size": [
+        1944,
+        2592
+      ],
+      "variant_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Steward_NEC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "steward-torino",
+      "title": "File:Steward (3095108553).jpg",
+      "split": "train",
+      "image": "sources/steward-torino.jpg",
+      "sha256": "445d935058f882752d6ddb50f5a73abb6765d319d343f1a42a676b30cff24bfb",
+      "metadata": {
+        "size": 1401941,
+        "width": 1200,
+        "height": 1800,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Steward_%283095108553%29.jpg/960px-Steward_%283095108553%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 1440,
+        "responsiveUrls": {
+          "2": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Steward_%283095108553%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Steward_%283095108553%29.jpg/960px-Steward_%283095108553%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 1440,
+          "srcset": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Steward_%283095108553%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Steward_%283095108553%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Steward_(3095108553).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=26291087",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2013-05-24 23:06:13",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Steward (3095108553)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Stadio Olimpico Grande Torino|Flickr images reviewed by File Upload Bot (Magnus Manske)|People in the rain|Files with coordinates missing SDC location of creation|Files from Roberto Ferrari Flickr stream",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "45.041749",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "7.650041",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Torino - 29 novembre 2008",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2008-12-09 17:50",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/roberto_ferrari/3095108553/\">Steward</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/52485003@N00\">Roberto Ferrari</a> from Campogalliano (Modena), Italy",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 2.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 2.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/2.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-2.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "delivered_image_size": [
+        1200,
+        1800
+      ],
+      "variant_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Steward_%283095108553%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "steward-cardiff",
+      "title": "File:Steward do the Ayatollah! (3638636491).jpg",
+      "split": "train",
+      "image": "sources/steward-cardiff.jpg",
+      "sha256": "f02938421622bce5038573459ace6b88c6a44d811a600cd1aa45c59c7204eafb",
+      "metadata": {
+        "size": 284338,
+        "width": 1473,
+        "height": 911,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Steward_do_the_Ayatollah%21_%283638636491%29.jpg/960px-Steward_do_the_Ayatollah%21_%283638636491%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 594,
+        "responsiveUrls": {
+          "2": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Steward_do_the_Ayatollah%21_%283638636491%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Steward_do_the_Ayatollah%21_%283638636491%29.jpg/960px-Steward_do_the_Ayatollah%21_%283638636491%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 594,
+          "srcset": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Steward_do_the_Ayatollah%21_%283638636491%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Steward_do_the_Ayatollah%21_%283638636491%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Steward_do_the_Ayatollah!_(3638636491).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=144968473",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2024-02-03 17:34:35",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Steward do the Ayatollah! (3638636491)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Flickr images reviewed by FlickreviewR 2|The Ayatollah (football celebration)|Files with coordinates missing SDC location of creation (51° N, 4° W)",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "51.474651",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "-3.200070",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "25/04/09 Final Game V Ipswich",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2009-04-25 16:17",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/joncandy/3638636491/\">Steward do the Ayatollah!</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/37195744@N03\">Jon Candy</a> from Cardiff, Wales",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 2.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 2.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/2.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-2.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "delivered_image_size": [
+        1473,
+        911
+      ],
+      "variant_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Steward_do_the_Ayatollah%21_%283638636491%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "london-control",
+      "title": "File:London Stadium crowd control.jpg",
+      "split": "val",
+      "image": "sources/london-control.jpg",
+      "sha256": "2b734878e2ecdef84e76f3e68d5372ed0e3c27dc2d7ae300ced4f549ec2f0d2e",
+      "metadata": {
+        "size": 1134012,
+        "width": 2048,
+        "height": 1536,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/London_Stadium_crowd_control.jpg/960px-London_Stadium_crowd_control.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 720,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/London_Stadium_crowd_control.jpg/1920px-London_Stadium_crowd_control.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/London_Stadium_crowd_control.jpg/960px-London_Stadium_crowd_control.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 720,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/London_Stadium_crowd_control.jpg/1920px-London_Stadium_crowd_control.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/London_Stadium_crowd_control.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:London_Stadium_crowd_control.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=52584974",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2016-10-28 16:42:29",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "London Stadium crowd control",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "West Ham United FC|Self-published work|2016 in the London Borough of Newham|Association football matches at the London Stadium",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Stewards attempt to control fans during a West Ham United game at the London Stadium.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2016-09-10 15:42:04",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Egghead06\" title=\"User:Egghead06\">Egghead06</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 4.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 4.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-4.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "delivered_image_size": [
+        2048,
+        1536
+      ],
+      "variant_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/London_Stadium_crowd_control.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "liverpool-steward",
+      "title": "File:Liverpool FC's Might Red liver bird mascot at Anfield giving thumbs up with steward in the background.png",
+      "split": "val",
+      "image": "sources/liverpool-steward.png",
+      "sha256": "b4f2ab2d9b92262167e03e28bd6c2b90a24e1953f96cd5e69f7f1b98950efcfe",
+      "metadata": {
+        "size": 15966690,
+        "width": 2766,
+        "height": 3687,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Liverpool_FC%27s_Might_Red_liver_bird_mascot_at_Anfield_giving_thumbs_up_with_steward_in_the_background.png/960px-Liverpool_FC%27s_Might_Red_liver_bird_mascot_at_Anfield_giving_thumbs_up_with_steward_in_the_background.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 1280,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Liverpool_FC%27s_Might_Red_liver_bird_mascot_at_Anfield_giving_thumbs_up_with_steward_in_the_background.png/1920px-Liverpool_FC%27s_Might_Red_liver_bird_mascot_at_Anfield_giving_thumbs_up_with_steward_in_the_background.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Liverpool_FC%27s_Might_Red_liver_bird_mascot_at_Anfield_giving_thumbs_up_with_steward_in_the_background.png/960px-Liverpool_FC%27s_Might_Red_liver_bird_mascot_at_Anfield_giving_thumbs_up_with_steward_in_the_background.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 1280,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Liverpool_FC%27s_Might_Red_liver_bird_mascot_at_Anfield_giving_thumbs_up_with_steward_in_the_background.png/1920px-Liverpool_FC%27s_Might_Red_liver_bird_mascot_at_Anfield_giving_thumbs_up_with_steward_in_the_background.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Liverpool_FC%27s_Might_Red_liver_bird_mascot_at_Anfield_giving_thumbs_up_with_steward_in_the_background.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Liverpool_FC%27s_Might_Red_liver_bird_mascot_at_Anfield_giving_thumbs_up_with_steward_in_the_background.png",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=142163458",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2023-12-14 17:52:58",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Liverpool FC's Might Red liver bird mascot at Anfield giving thumbs up with steward in the background",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Liverpool FC|Liver birds|Self-published work|Files with coordinates missing SDC location of creation (53° N, 3° W)|Association football mascots of England",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "53.430487",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "-2.960613",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Liverpool FC's Mighty Red liver bird mascot at Anfield giving thumbs up with steward in the background",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2023-10-15",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "Jonathan Deamer",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY 4.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution 4.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by/4.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-4.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "delivered_image_size": [
+        2766,
+        3687
+      ],
+      "variant_url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Liverpool_FC%27s_Might_Red_liver_bird_mascot_at_Anfield_giving_thumbs_up_with_steward_in_the_background.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "local-fans",
+      "title": "File:Local football fans.jpg",
+      "split": "train",
+      "image": "sources/local-fans.jpg",
+      "sha256": "2967684c531040d50e52b6ce7e439a18d2ad6d528f5fb0f0c8bc08da72f4d8b5",
+      "metadata": {
+        "size": 511322,
+        "width": 2556,
+        "height": 2926,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Local_football_fans.jpg/960px-Local_football_fans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 1099,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Local_football_fans.jpg/1920px-Local_football_fans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Local_football_fans.jpg/960px-Local_football_fans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 1099,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Local_football_fans.jpg/1920px-Local_football_fans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Local_football_fans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Local_football_fans.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=174369295",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2025-09-04 11:19:27",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Local football fans",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "CC-Zero|Association football teams|Self-published work",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Local football fans",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2021-03-21 17:03:28",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Samson_Ssemakadde&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Samson Ssemakadde (page does not exist)\">Samson Ssemakadde</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "delivered_image_size": [
+        2556,
+        2926
+      ],
+      "variant_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Local_football_fans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "chennai-fan",
+      "title": "File:A Chennaiyin FC Fan.jpg",
+      "split": "train",
+      "image": "sources/chennai-fan.jpg",
+      "sha256": "0d12eda06ed745751dcc55c39de917f6a600d507851fc9416647e8923744dd5a",
+      "metadata": {
+        "size": 1307354,
+        "width": 1456,
+        "height": 2592,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/A_Chennaiyin_FC_Fan.jpg/960px-A_Chennaiyin_FC_Fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 1709,
+        "responsiveUrls": {
+          "2": "https://upload.wikimedia.org/wikipedia/commons/9/9e/A_Chennaiyin_FC_Fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/A_Chennaiyin_FC_Fan.jpg/960px-A_Chennaiyin_FC_Fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 1709,
+          "srcset": "https://upload.wikimedia.org/wikipedia/commons/9/9e/A_Chennaiyin_FC_Fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/A_Chennaiyin_FC_Fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:A_Chennaiyin_FC_Fan.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=36770690",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2014-11-14 16:58:07",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "A Chennaiyin FC Fan",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Association football supporters|Self-published work",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "A Chennaiyin FC Fan",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2014-10-21 17:42:24",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Tappium&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Tappium (page does not exist)\">Tappium</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 4.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 4.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-4.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "delivered_image_size": [
+        1456,
+        2592
+      ],
+      "variant_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/A_Chennaiyin_FC_Fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "cardiff-fans",
+      "title": "File:Cardiff Fans do the Ayatollah (6935239821).jpg",
+      "split": "train",
+      "image": "sources/cardiff-fans.jpg",
+      "sha256": "fccd2090857abba26cd7b514d03ec5aa95bd1fa429fada255b34a0e1fb6bc3fd",
+      "metadata": {
+        "size": 798429,
+        "width": 2640,
+        "height": 1632,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Cardiff_Fans_do_the_Ayatollah_%286935239821%29.jpg/960px-Cardiff_Fans_do_the_Ayatollah_%286935239821%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 593,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Cardiff_Fans_do_the_Ayatollah_%286935239821%29.jpg/1920px-Cardiff_Fans_do_the_Ayatollah_%286935239821%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Cardiff_Fans_do_the_Ayatollah_%286935239821%29.jpg/960px-Cardiff_Fans_do_the_Ayatollah_%286935239821%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 593,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Cardiff_Fans_do_the_Ayatollah_%286935239821%29.jpg/1920px-Cardiff_Fans_do_the_Ayatollah_%286935239821%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Cardiff_Fans_do_the_Ayatollah_%286935239821%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cardiff_Fans_do_the_Ayatollah_(6935239821).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=144968500",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2024-02-03 17:35:20",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Cardiff Fans do the Ayatollah (6935239821)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Flickr images reviewed by FlickreviewR 2|The Ayatollah (football celebration)|Files with coordinates missing SDC location of creation (51° N, 1° W)",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "51.555988",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "-0.280387",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "26/02/12 Cardiff V Liverpool, Carling Cup Final, Wembley, London",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2012-02-26 14:46",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/joncandy/6935239821/\">Cardiff Fans do the Ayatollah</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/37195744@N03\">Jon Candy</a> from Cardiff, Wales",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 2.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 2.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/2.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-2.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "delivered_image_size": [
+        960,
+        593
+      ],
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Cardiff_Fans_do_the_Ayatollah_%286935239821%29.jpg/960px-Cardiff_Fans_do_the_Ayatollah_%286935239821%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+      "id": "uganda-fan",
+      "title": "File:Uganda Cranes Football Fan.jpg",
+      "split": "val",
+      "image": "sources/uganda-fan.jpg",
+      "sha256": "d053ce64e75533d28a591b84e490bf7c0a215d4e10ad2b1f88b1d51e2aafb123",
+      "metadata": {
+        "size": 16375783,
+        "width": 6192,
+        "height": 4128,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Uganda_Cranes_Football_Fan.jpg/960px-Uganda_Cranes_Football_Fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 640,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Uganda_Cranes_Football_Fan.jpg/1920px-Uganda_Cranes_Football_Fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Uganda_Cranes_Football_Fan.jpg/960px-Uganda_Cranes_Football_Fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 640,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Uganda_Cranes_Football_Fan.jpg/1920px-Uganda_Cranes_Football_Fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Uganda_Cranes_Football_Fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Uganda_Cranes_Football_Fan.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=74509520",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2018-11-19 09:11:23",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Uganda Cranes Football Fan",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "2018 in association football|Association football supporters|Self-published work|African Cup of Nations qualification|Association football supporters of Uganda|Mandela National Stadium",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Football fan blowing a trumpet before the Uganda Vs Cape Verde Game",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2018-11-17 15:46:34",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Mjemma18&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Mjemma18 (page does not exist)\">Museruka Emmanuel</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 4.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 4.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-4.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "delivered_image_size": [
+        960,
+        640
+      ],
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Uganda_Cranes_Football_Fan.jpg/960px-Uganda_Cranes_Football_Fan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+      "id": "troyes-fans",
+      "title": "File:Supporters Troyens, en déplacement à Lens (2018).jpg",
+      "split": "val",
+      "image": "sources/troyes-fans.jpg",
+      "sha256": "38b0d83623d626fb7a70c962d56e0a0d3c6ddf8702a75cd35d48e68e29a3f6c8",
+      "metadata": {
+        "size": 4916651,
+        "width": 4582,
+        "height": 3490,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Supporters_Troyens%2C_en_d%C3%A9placement_%C3%A0_Lens_%282018%29.jpg/960px-Supporters_Troyens%2C_en_d%C3%A9placement_%C3%A0_Lens_%282018%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 960,
+        "thumbheight": 731,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Supporters_Troyens%2C_en_d%C3%A9placement_%C3%A0_Lens_%282018%29.jpg/1920px-Supporters_Troyens%2C_en_d%C3%A9placement_%C3%A0_Lens_%282018%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Supporters_Troyens%2C_en_d%C3%A9placement_%C3%A0_Lens_%282018%29.jpg/960px-Supporters_Troyens%2C_en_d%C3%A9placement_%C3%A0_Lens_%282018%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 960,
+          "height": 731,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Supporters_Troyens%2C_en_d%C3%A9placement_%C3%A0_Lens_%282018%29.jpg/1920px-Supporters_Troyens%2C_en_d%C3%A9placement_%C3%A0_Lens_%282018%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Supporters_Troyens%2C_en_d%C3%A9placement_%C3%A0_Lens_%282018%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Supporters_Troyens,_en_d%C3%A9placement_%C3%A0_Lens_(2018).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=71792606",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2018-08-20 08:00:03",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Supporters Troyens, en déplacement à Lens (2018)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Association football supporters|Self-published work",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Supporters Troyens, en déplacement à Lens (2018)",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2018-08-18 16:07:34",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Liondartois\" title=\"User:Liondartois\">Liondartois</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 4.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 4.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-4.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "delivered_image_size": [
+        960,
+        731
+      ],
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Supporters_Troyens%2C_en_d%C3%A9placement_%C3%A0_Lens_%282018%29.jpg/960px-Supporters_Troyens%2C_en_d%C3%A9placement_%C3%A0_Lens_%282018%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    {
+      "id": "mkdons-stewards",
+      "title": "File:MK Dons 0 Brighton & Hove Albion 0 - geograph.org.uk - 1846056.jpg",
+      "split": "train",
+      "image": "sources/mkdons-stewards.jpg",
+      "sha256": "5966d4c0c9b317b5491c4e3b60de452c7149767a8b0fd049e04916ef82f89c39",
+      "metadata": {
+        "size": 96902,
+        "width": 640,
+        "height": 484,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/MK_Dons_0_Brighton_%26_Hove_Albion_0_-_geograph.org.uk_-_1846056.jpg/500px-MK_Dons_0_Brighton_%26_Hove_Albion_0_-_geograph.org.uk_-_1846056.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 500,
+        "thumbheight": 378,
+        "responsiveUrls": {
+          "2": "https://upload.wikimedia.org/wikipedia/commons/8/82/MK_Dons_0_Brighton_%26_Hove_Albion_0_-_geograph.org.uk_-_1846056.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/MK_Dons_0_Brighton_%26_Hove_Albion_0_-_geograph.org.uk_-_1846056.jpg/500px-MK_Dons_0_Brighton_%26_Hove_Albion_0_-_geograph.org.uk_-_1846056.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 500,
+          "height": 378,
+          "srcset": "https://upload.wikimedia.org/wikipedia/commons/8/82/MK_Dons_0_Brighton_%26_Hove_Albion_0_-_geograph.org.uk_-_1846056.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/MK_Dons_0_Brighton_%26_Hove_Albion_0_-_geograph.org.uk_-_1846056.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:MK_Dons_0_Brighton_%26_Hove_Albion_0_-_geograph.org.uk_-_1846056.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=14929076",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2011-04-16 06:06:41",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "MK Dons 0 Brighton & Hove Albion 0 - geograph.org.uk - 1846056",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Stadium MK|Images from Geograph Britain and Ireland|Spot the ball|Information field template with formatting|May 2010 in Buckinghamshire|Photographs by Nigel Cox|2010 in Milton Keynes|England photographs taken on 2010-05-01|Association football matches in England in 2010|Matches of Milton Keynes Dons F.C.|Matches of Brighton & Hove Albion FC in 2010",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "52.010218",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "-0.733410",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "MK Dons 0 Brighton &amp; Hove Albion 0, near to Simpson, Milton Keynes, Great Britain.\n<p>This was typical end of season fare at the stadium:mk, with nothing hanging on the game, enlivened only by an outbreak of handbags at the end of the first half when MK Don's player and coach Alex Rae, setting a fine example to his players, managed to get himself and the Albion's Diego Arismendi sent off.\n</p><p>Spot the ball from this action from the second half when the Albion's Elliott Bennett, red shirt, white boots, far left, attempted a free kick on MK Don's goal that drifted narrowly wide.\n</p><p>stadium:mk was opened in 2007 and currently has a ground capacity of 22,000. The official attendance for this game was a surprisingly high 12,023 implying that the ground was more than half full. The upper tier, partially visible top left but the same around most of the rest of the stadium, is just stepped concrete without any seats at the moment, but does offer the opportunity to expand the stadium's capacity to 40,000. In 2009 the stadium was put forward as one of 15 potential grounds for holding matches should an England World Cup bid be successful, in which case the extra seating would be installed.\n</p><p>The stadium is not yet shown on the currently available Ordnance Survey 1:50,000 scale mapping.\n</p>\nThe stewarding of the away end at this game left a lot to be desired, with one steward in particular making seriously inflammatory gestures towards the Albion supporters. In the end he had to be replaced and was led away by the chief steward to a resounding chorus of \"Cheerio, cheerio, cheerio, cheerio, cheerio, cheerio...\" from the Albion faithful. His replacement, a somewhat elderly gentleman, made a grand and steady entry down the stadium steps, taking a great deal of delight in slowly putting on a pair of enormous black gloves, as if there might be something hazardous and nasty lurking deep in the Albion crowd that he might have to deal with. Finally a message to the stewards in the foreground here, you're meant to be watching the crowd, mateys... World Cup, you're 'aving a larf.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2010-05-01",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "From <a rel=\"nofollow\" class=\"external text\" href=\"https://www.geograph.org.uk/photo/1846056\">geograph.org.uk</a>; transferred by <a href=\"//commons.wikimedia.org/wiki/User:BaldBoris\" title=\"User:BaldBoris\">User:BaldBoris</a> using <a class=\"external text\" href=\"https://tools.wmflabs.org/geograph2commons/\">geograph_org2commons</a>.",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.geograph.org.uk/profile/2798\">Nigel Cox</a>",
+            "source": "commons-desc-page"
+          },
+          "Permission": {
+            "value": "Creative Commons Attribution Share-alike license 2.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Attribution": {
+            "value": "Nigel Cox",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 2.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 2.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/2.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-2.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "delivered_image_size": [
+        500,
+        378
+      ],
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/MK_Dons_0_Brighton_%26_Hove_Albion_0_-_geograph.org.uk_-_1846056.jpg/500px-MK_Dons_0_Brighton_%26_Hove_Albion_0_-_geograph.org.uk_-_1846056.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    }
+  ]
+}

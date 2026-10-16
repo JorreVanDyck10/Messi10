@@ -1,0 +1,8 @@
+{
+  "selected": "EXP-R007",
+  "default_inference": "Full frames, no extra tiles",
+  "reason": "R007 raises player AP and reduces player FP versus P004 at same .1 confidence floor while adding roles and teams. R006 has higher aggregate six-class crop macro F1 but substantially less player and steward coverage; R007 has weaker supporter coverage. This is an explicit mixed tradeoff.",
+  "R008": "Not default: player TP227 versus197, but FP108 versus53 and more inference work; AP95 improves .72 percentage points. Optional configs/models-roles-tiles.json retained.",
+  "no_final_test_used": true,
+  "base_profile_retained": "configs/models-players-base.json"
+}

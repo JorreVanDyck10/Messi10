@@ -72,6 +72,14 @@ class Detection:
     track_id: int | None = None
     field_position: list[float] | None = None
     projection_status: str = "not_projected"
+    detector_semantic_class: str | None = None
+    role_model_id: str | None = None
+    role_confidence: float | None = None
+    role_class_id: int | None = None
+    team_id: str | None = None
+    team_confidence: float | None = None
+    team_method: str | None = None
+    team_class_id: int | None = None
 
     @classmethod
     def from_dict(cls, value: dict) -> Detection:

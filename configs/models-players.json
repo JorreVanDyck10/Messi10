@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "profile_name": "Spelermodel TeamTrack v2.1 — voorlopig, officials nog zwak",
+  "profile_name": "R007 rollen en teams — twee wedstrijden, experimenteel",
   "models": [
     {
       "model_id": "exp-p004-teamtrack-v2_1",
@@ -18,13 +18,48 @@
       "confidence": 0.1,
       "iou": 0.7,
       "device": "0"
+    },
+    {
+      "model_id": "coco-person-proposals",
+      "weights": "../artifacts/appearance-v1/person_proposals.pt",
+      "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+      "class_mapping": {
+        "0": "person"
+      },
+      "expected_names": {
+        "0": "person"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
     }
   ],
   "handoff": {
-    "evaluation_record": "../reports/players-experiments/EXP-P004/validation-metrics/metrics.json",
-    "evaluation_sha256": "2b725cbb140f22297f5e397e5277ad51f17c957ac109f55ebdee56c3f1f7c240",
+    "evaluation_record": "../reports/appearance-experiments/EXP-R007/metrics.json",
+    "evaluation_sha256": "261544ac110d9f872f2890736256c1c61ad6399d533719bd0c37438b72d75616",
     "human_review_completed": false,
     "independent_final_test_completed": false,
-    "referee_coverage": "central and near assistant; far roles unresolved"
+    "referee_coverage": "central and near assistant; far roles unresolved",
+    "detector_evaluation_record": "../reports/players-experiments/EXP-P004/validation-metrics/metrics.json",
+    "detector_evaluation_sha256": "2b725cbb140f22297f5e397e5277ad51f17c957ac109f55ebdee56c3f1f7c240",
+    "evaluation_kind": "Conditional ground-truth crop classification, not end-to-end detection AP",
+    "team_scope": "Two explicitly labelled matches; neutral automatic kit clusters for other video identities, no unseen-match accuracy claim"
+  },
+  "appearance": {
+    "model_id": "appearance-r007",
+    "weights": "../artifacts/appearance-v1/roles_teams.pt",
+    "weights_sha256": "adad67b0e3b60803d11a179c11c24d5c6cf2a31cbe9804a93c5da43b2bc008f2",
+    "role_names": [
+      "player",
+      "referee",
+      "assistant_referee",
+      "steward",
+      "spectator",
+      "person"
+    ],
+    "role_confidence": 0.65,
+    "team_confidence": 0.65,
+    "device": "0"
   }
 }

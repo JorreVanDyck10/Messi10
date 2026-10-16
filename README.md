@@ -1,8 +1,10 @@
-> **Spelermodel geleverd (16 oktober 2026):** `configs/models.json` gebruikt nu werkelijk getrainde `player`/`referee`-gewichten. Speler-validatie: AP@50 74,50%, AP@50:95 26,55%. AI-review blijft voorlopig; verre officials en onafhankelijke eindtest zijn nog open. [Resultaten en starten op de 4050](docs/Resultaten_Spelermodel.md).
+> **Rollen en teams toegevoegd:** het standaardprofiel voert nu een werkelijk getrainde aanvullende rolclassifier en teamindeling uit. Spelers, scheidsrechters, lijnrechters, stewards, supporters en onduidelijke personen krijgen afzonderlijke uitvoer; spelers kunnen Team A/B krijgen. Supporters en kleine officials blijven zwak. [Echte metingen, starten en beperkingen](docs/Resultaten_Rollen_en_Teams.md).
+
+De bestaande tweeklassen-P004-detector blijft de basis. Zijn historische speler-validatie is AP@50 74,50% en AP@50:95 26,55%; dit is geen score voor de volledige nieuwe rolpipeline. [Oorspronkelijke detectorresultaten](docs/Resultaten_Spelermodel.md).
 
 Start het geleverde GPU-profiel met `scripts/Start-Spelermodel.ps1`. In een bestaande CPU-omgeving gebruik je expliciet `scripts/Start-Spelermodel.ps1 -Device cpu`; de rechtstreekse Streamlit-start hieronder neemt het standaardprofiel met GPU-device 0 over.
 
-**Spelertelling en veldherkenning:** alleen voorspelde spelers met hun voetpunt binnen het geldige veld tellen mee. Officials en eventuele andere herkende rollen blijven afzonderlijk zichtbaar. Bij ontbrekende veldherkenning is het aantal onbekend. De huidige gewichten herkennen nog geen afzonderlijke stewards of supporters. [Telregels, interface en beperkingen](docs/Spelertelling_en_Rollen.md).
+**Spelertelling en veldherkenning:** alleen voorspelde spelers met hun voetpunt binnen het geldige veld tellen mee. Andere rollen blijven afzonderlijk zichtbaar. Bij ontbrekende veldherkenning is het aantal onbekend. De aanvullende rolclassifier is echt getraind, maar kan nog verkeerde rollen geven. [Telregels en beperkingen](docs/Spelertelling_en_Rollen.md).
 
 # Sports Vision — data, modellen en tactical map
 

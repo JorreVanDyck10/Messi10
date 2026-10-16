@@ -1,0 +1,7 @@
+{
+  "reference": "EXP-R005/006",
+  "observation": "Warm head coefficients were reused with a newly computed normalization, and a random head refit could lose an effective fine-tuned head.",
+  "change": "Initialize encoder, first five role rows AND their normalization from R004; initialize person row to zero; adapt last three blocks at .00005; preserve best fine head if its macro F1 exceeds the refit. Team head refitted on the resulting same normalized representation.",
+  "selection": "Development macro F1 at .65, same dataset v1.1 and no test frames.",
+  "note": "This is an implementation correction plus training-choice experiment, not an isolated architecture ablation."
+}

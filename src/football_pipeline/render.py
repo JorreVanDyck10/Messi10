@@ -31,6 +31,13 @@ LABELS = {
     "person": "persoon",
     "ball": "bal",
 }
+TEAM_COLORS = {"team_a": (235, 235, 235), "team_b": (235, 140, 65)}
+
+
+def detection_color(detection):
+    if detection.semantic_class == "player":
+        return TEAM_COLORS.get(detection.team_id, COLORS["player"])
+    return COLORS.get(detection.semantic_class, (190, 190, 190))
 
 
 def label(image, text, point, color=(235, 240, 235), scale=0.6):
@@ -70,9 +77,13 @@ def render_frame(
         if not visible_detection(detection, display_confidence):
             continue
         x1, y1, x2, y2 = [round(x * scale) for x in detection.bbox_xyxy]
-        color = COLORS.get(detection.semantic_class, (190, 190, 190))
+        color = detection_color(detection)
         cv2.rectangle(left, (x1, y1), (x2, y2), color, 2)
         text = LABELS.get(detection.semantic_class, detection.semantic_class)
+        if detection.semantic_class == "referee" and detection.role_model_id:
+            text = "scheidsrechter"
+        if detection.semantic_class == "player" and detection.team_id in TEAM_COLORS:
+            text += " A" if detection.team_id == "team_a" else " B"
         if detection.track_id is not None:
             text += f" #{detection.track_id}"
         label(left, f"{text} {detection.confidence:.2f}", (x1, max(18, y1 - 5)), color, 0.45)
@@ -89,6 +100,14 @@ def render_frame(
     count = summary["on_field"]
     count_label = "Spelers op veld: onbekend" if count is None else f"Spelers op veld: {count} (detecties)"
     label(pitch, count_label, (40, 120), scale=0.6)
+    if summary["teams"] is not None:
+        teams = summary["teams"]
+        label(
+            pitch,
+            f"Team A: {teams['team_a']} | Team B: {teams['team_b']} | Onbekend: {teams['unknown']}",
+            (40, 140),
+            scale=0.48,
+        )
     cv2.rectangle(pitch, (40, 170), (600, 530), (40, 85, 52), -1)
     cv2.rectangle(pitch, (40, 170), (600, 530), (205, 225, 210), 2)
     cv2.line(pitch, (320, 170), (320, 530), (205, 225, 210), 2)
@@ -99,7 +118,7 @@ def render_frame(
         label(
             pitch,
             status_label(record.calibration),
-            (40, 150),
+            (40, 158),
             (100, 220, 180) if known else (80, 180, 245),
             scale=0.6,
         )
@@ -123,7 +142,7 @@ def render_frame(
             continue
         if not visible_detection(detection, display_confidence):
             continue
-        color = COLORS.get(detection.semantic_class, (190, 190, 190))
+        color = detection_color(detection)
         if histories is not None and detection.track_id is not None:
             for a, b in histories.segments(detection.track_id):
                 cv2.line(pitch, field_pixel(a[1:]), field_pixel(b[1:]), color, 2, cv2.LINE_AA)
@@ -132,12 +151,27 @@ def render_frame(
         if detection.track_id is not None:
             label(pitch, str(detection.track_id), (point[0] + 8, point[1] - 6), color, 0.5)
     present_roles = {d.semantic_class for d in record.detections}
-    legend = [role for role in COLORS if role in present_roles or role == "player"]
-    for index, semantic in enumerate(legend):
-        color = COLORS[semantic]
-        x, y = 40 + (index % 2) * 280, 610 + (index // 2) * 23
+    legend = []
+    for role in COLORS:
+        if role not in present_roles and role != "player":
+            continue
+        if role == "player" and any(d.team_id in TEAM_COLORS for d in record.detections):
+            legend.extend(
+                (TEAM_COLORS[team], name) for team, name in (("team_a", "Team A"), ("team_b", "Team B"))
+            )
+            if any(d.semantic_class == "player" and d.team_id is None for d in record.detections):
+                legend.append((COLORS[role], "speler: team onbekend"))
+        else:
+            name = (
+                "scheidsrechter"
+                if role == "referee" and any(d.role_model_id for d in record.detections)
+                else LABELS[role]
+            )
+            legend.append((COLORS[role], name))
+    for index, (color, name) in enumerate(legend):
+        x, y = 40 + (index % 2) * 280, 610 + (index // 2) * 20
         cv2.circle(pitch, (x, y - 5), 5, color, -1)
-        label(pitch, LABELS[semantic], (x + 15, y), scale=0.5)
+        label(pitch, name, (x + 15, y), scale=0.5)
     label(
         pitch,
         "Menselijke review: nog open" if technical_pilot else "Alleen actuele waarnemingen",

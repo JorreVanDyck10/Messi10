@@ -1,0 +1,11 @@
+{
+  "reference": "EXP-R004",
+  "observation": "Original-video 0..29 development inference suffered severe class confusion; role model did not transfer from blue/white TeamTrack kits.",
+  "changes": [
+    "Nine explicitly selected source frames: six train from dev-00/dev-14, three validation from original val-84; 80 total unique project source frames including retained base test and photo sources.",
+    "Partial crop labels with visual team/role review; no full-image detector labels claimed.",
+    "Add generic person class for visibly present sideline personnel with unresolved role.",
+    "Same partial-backbone training and refit as R004, with copied first 5 head rows and initialized 6th row."
+  ],
+  "scope": "Development improvement on two known matches and external photo sources, not universal role recognition or independent test"
+}

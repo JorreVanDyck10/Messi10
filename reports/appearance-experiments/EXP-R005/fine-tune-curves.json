@@ -1,0 +1,1082 @@
+[
+  {
+    "epoch": 1,
+    "val_macro_f1_at_0_65": 0.6286672259160299,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 283,
+        "precision": 0.9725085910652921,
+        "recall": 0.9012738853503185,
+        "f1": 0.9355371900826447
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 10,
+        "precision": 0.43478260869565216,
+        "recall": 0.6666666666666666,
+        "f1": 0.5263157894736841
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 13,
+        "precision": 1.0,
+        "recall": 0.8666666666666667,
+        "f1": 0.9285714285714286
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 2,
+        "precision": 0.25,
+        "recall": 0.25,
+        "f1": 0.25
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 6,
+        "precision": 0.75,
+        "recall": 0.5454545454545454,
+        "f1": 0.631578947368421
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 3,
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5
+      }
+    ]
+  },
+  {
+    "epoch": 2,
+    "val_macro_f1_at_0_65": 0.6687231363328126,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 292,
+        "precision": 0.9733333333333334,
+        "recall": 0.9299363057324841,
+        "f1": 0.9511400651465798
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 11,
+        "precision": 0.4583333333333333,
+        "recall": 0.7333333333333333,
+        "f1": 0.5641025641025641
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 3,
+        "precision": 0.42857142857142855,
+        "recall": 0.375,
+        "f1": 0.39999999999999997
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 6,
+        "precision": 0.75,
+        "recall": 0.5454545454545454,
+        "f1": 0.631578947368421
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 3,
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5
+      }
+    ]
+  },
+  {
+    "epoch": 3,
+    "val_macro_f1_at_0_65": 0.690808068669138,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 298,
+        "precision": 0.9706840390879479,
+        "recall": 0.9490445859872612,
+        "f1": 0.9597423510466988
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 12,
+        "precision": 0.5454545454545454,
+        "recall": 0.8,
+        "f1": 0.6486486486486486
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 3,
+        "precision": 0.42857142857142855,
+        "recall": 0.375,
+        "f1": 0.39999999999999997
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.45454545454545453,
+        "f1": 0.5555555555555556
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 4,
+        "precision": 1.0,
+        "recall": 0.4444444444444444,
+        "f1": 0.6153846153846153
+      }
+    ]
+  },
+  {
+    "epoch": 4,
+    "val_macro_f1_at_0_65": 0.7233322282003823,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 304,
+        "precision": 0.9650793650793651,
+        "recall": 0.9681528662420382,
+        "f1": 0.9666136724960256
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 10,
+        "precision": 0.7142857142857143,
+        "recall": 0.6666666666666666,
+        "f1": 0.689655172413793
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.5714285714285714,
+        "recall": 0.5,
+        "f1": 0.5333333333333333
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 4,
+        "precision": 0.6666666666666666,
+        "recall": 0.36363636363636365,
+        "f1": 0.4705882352941177
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 5,
+    "val_macro_f1_at_0_65": 0.7435107376283847,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 306,
+        "precision": 0.9683544303797469,
+        "recall": 0.9745222929936306,
+        "f1": 0.9714285714285714
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 12,
+        "precision": 0.8,
+        "recall": 0.8,
+        "f1": 0.8000000000000002
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 0.9333333333333333,
+        "recall": 0.9333333333333333,
+        "f1": 0.9333333333333333
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.6666666666666666,
+        "recall": 0.5,
+        "f1": 0.5714285714285715
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 4,
+        "precision": 0.6666666666666666,
+        "recall": 0.36363636363636365,
+        "f1": 0.4705882352941177
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 6,
+    "val_macro_f1_at_0_65": 0.751108422563629,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 307,
+        "precision": 0.9684542586750788,
+        "recall": 0.9777070063694268,
+        "f1": 0.9730586370839936
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 12,
+        "precision": 0.8,
+        "recall": 0.8,
+        "f1": 0.8000000000000002
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 0.9333333333333333,
+        "recall": 0.9333333333333333,
+        "f1": 0.9333333333333333
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 4,
+        "precision": 0.6666666666666666,
+        "recall": 0.36363636363636365,
+        "f1": 0.4705882352941177
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 7,
+    "val_macro_f1_at_0_65": 0.7487274701826766,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 307,
+        "precision": 0.9684542586750788,
+        "recall": 0.9777070063694268,
+        "f1": 0.9730586370839936
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 11,
+        "precision": 0.8461538461538461,
+        "recall": 0.7333333333333333,
+        "f1": 0.7857142857142856
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 0.9333333333333333,
+        "recall": 0.9333333333333333,
+        "f1": 0.9333333333333333
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 4,
+        "precision": 0.6666666666666666,
+        "recall": 0.36363636363636365,
+        "f1": 0.4705882352941177
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 8,
+    "val_macro_f1_at_0_65": 0.7589698279358776,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 309,
+        "precision": 0.9626168224299065,
+        "recall": 0.9840764331210191,
+        "f1": 0.973228346456693
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 11,
+        "precision": 0.9166666666666666,
+        "recall": 0.7333333333333333,
+        "f1": 0.8148148148148148
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 4,
+        "precision": 0.6666666666666666,
+        "recall": 0.36363636363636365,
+        "f1": 0.4705882352941177
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 9,
+    "val_macro_f1_at_0_65": 0.759238898075695,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 310,
+        "precision": 0.9627329192546584,
+        "recall": 0.9872611464968153,
+        "f1": 0.9748427672955974
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 11,
+        "precision": 0.9166666666666666,
+        "recall": 0.7333333333333333,
+        "f1": 0.8148148148148148
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 4,
+        "precision": 0.6666666666666666,
+        "recall": 0.36363636363636365,
+        "f1": 0.4705882352941177
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 10,
+    "val_macro_f1_at_0_65": 0.7739242271339432,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 311,
+        "precision": 0.9658385093167702,
+        "recall": 0.9904458598726115,
+        "f1": 0.9779874213836478
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 11,
+        "precision": 0.9166666666666666,
+        "recall": 0.7333333333333333,
+        "f1": 0.8148148148148148
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.45454545454545453,
+        "f1": 0.5555555555555556
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 11,
+    "val_macro_f1_at_0_65": 0.7812355904671952,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 311,
+        "precision": 0.9688473520249221,
+        "recall": 0.9904458598726115,
+        "f1": 0.9795275590551181
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 12,
+        "precision": 0.9230769230769231,
+        "recall": 0.8,
+        "f1": 0.8571428571428571
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.45454545454545453,
+        "f1": 0.5555555555555556
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 12,
+    "val_macro_f1_at_0_65": 0.7812355904671952,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 311,
+        "precision": 0.9688473520249221,
+        "recall": 0.9904458598726115,
+        "f1": 0.9795275590551181
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 12,
+        "precision": 0.9230769230769231,
+        "recall": 0.8,
+        "f1": 0.8571428571428571
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.45454545454545453,
+        "f1": 0.5555555555555556
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 13,
+    "val_macro_f1_at_0_65": 0.7812355904671952,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 311,
+        "precision": 0.9688473520249221,
+        "recall": 0.9904458598726115,
+        "f1": 0.9795275590551181
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 12,
+        "precision": 0.9230769230769231,
+        "recall": 0.8,
+        "f1": 0.8571428571428571
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.45454545454545453,
+        "f1": 0.5555555555555556
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 14,
+    "val_macro_f1_at_0_65": 0.7812355904671952,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 311,
+        "precision": 0.9688473520249221,
+        "recall": 0.9904458598726115,
+        "f1": 0.9795275590551181
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 12,
+        "precision": 0.9230769230769231,
+        "recall": 0.8,
+        "f1": 0.8571428571428571
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.45454545454545453,
+        "f1": 0.5555555555555556
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 15,
+    "val_macro_f1_at_0_65": 0.7812355904671952,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 311,
+        "precision": 0.9688473520249221,
+        "recall": 0.9904458598726115,
+        "f1": 0.9795275590551181
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 12,
+        "precision": 0.9230769230769231,
+        "recall": 0.8,
+        "f1": 0.8571428571428571
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.45454545454545453,
+        "f1": 0.5555555555555556
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 16,
+    "val_macro_f1_at_0_65": 0.7812355904671952,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 311,
+        "precision": 0.9688473520249221,
+        "recall": 0.9904458598726115,
+        "f1": 0.9795275590551181
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 12,
+        "precision": 0.9230769230769231,
+        "recall": 0.8,
+        "f1": 0.8571428571428571
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.45454545454545453,
+        "f1": 0.5555555555555556
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 17,
+    "val_macro_f1_at_0_65": 0.7812355904671952,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 311,
+        "precision": 0.9688473520249221,
+        "recall": 0.9904458598726115,
+        "f1": 0.9795275590551181
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 12,
+        "precision": 0.9230769230769231,
+        "recall": 0.8,
+        "f1": 0.8571428571428571
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.45454545454545453,
+        "f1": 0.5555555555555556
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 18,
+    "val_macro_f1_at_0_65": 0.7809673274701013,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 310,
+        "precision": 0.96875,
+        "recall": 0.9872611464968153,
+        "f1": 0.9779179810725551
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 12,
+        "precision": 0.9230769230769231,
+        "recall": 0.8,
+        "f1": 0.8571428571428571
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.45454545454545453,
+        "f1": 0.5555555555555556
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 19,
+    "val_macro_f1_at_0_65": 0.7809673274701013,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 310,
+        "precision": 0.96875,
+        "recall": 0.9872611464968153,
+        "f1": 0.9779179810725551
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 12,
+        "precision": 0.9230769230769231,
+        "recall": 0.8,
+        "f1": 0.8571428571428571
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.45454545454545453,
+        "f1": 0.5555555555555556
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  },
+  {
+    "epoch": 20,
+    "val_macro_f1_at_0_65": 0.7739242271339432,
+    "per_class": [
+      {
+        "name": "player",
+        "n": 314,
+        "correct": 311,
+        "precision": 0.9658385093167702,
+        "recall": 0.9904458598726115,
+        "f1": 0.9779874213836478
+      },
+      {
+        "name": "referee",
+        "n": 15,
+        "correct": 11,
+        "precision": 0.9166666666666666,
+        "recall": 0.7333333333333333,
+        "f1": 0.8148148148148148
+      },
+      {
+        "name": "assistant_referee",
+        "n": 15,
+        "correct": 14,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104
+      },
+      {
+        "name": "steward",
+        "n": 8,
+        "correct": 4,
+        "precision": 0.8,
+        "recall": 0.5,
+        "f1": 0.6153846153846154
+      },
+      {
+        "name": "spectator",
+        "n": 11,
+        "correct": 5,
+        "precision": 0.7142857142857143,
+        "recall": 0.45454545454545453,
+        "f1": 0.5555555555555556
+      },
+      {
+        "name": "person",
+        "n": 9,
+        "correct": 5,
+        "precision": 1.0,
+        "recall": 0.5555555555555556,
+        "f1": 0.7142857142857143
+      }
+    ]
+  }
+]

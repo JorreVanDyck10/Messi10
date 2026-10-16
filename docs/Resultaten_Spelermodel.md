@@ -1,5 +1,7 @@
 # Uitgevoerde spelertraining, evaluatie en overdracht
 
+**Latere uitbreiding:** de onderstaande resultaten blijven die van de behouden P004-basisdetector. Het actuele standaardprofiel voegt een aparte getrainde rolclassifier en teamindeling toe. Zie [R007-resultaten, data en beperkingen](Resultaten_Rollen_en_Teams.md); onderstaande P004-scores worden niet als scores van de volledige nieuwe pipeline voorgesteld.
+
 **16 oktober 2026.** Er is werkelijk een tweeklassendetector getraind en in het standaardmodelprofiel geregistreerd. Het gekozen bestand is `artifacts/players-v2/players_best.pt`: klasse **0 = player**, klasse **1 = referee**. De training en metingen draaiden op een **RTX 3050 Laptop GPU met 4 GB**, Python 3.12.14, PyTorch 2.6.0+cu124 en Ultralytics 8.3.221. Dit zijn geen gemeten prestaties van de beoogde RTX 4050.
 
 De overdracht is voorlopig. Alle 60 beelden zijn door AI gecontroleerd; er zijn geen menselijke reviewers ingevuld. De verre officialrollen blijven onzeker. Een onafhankelijke projecteindtest en een menselijke geïntegreerde MVP-acceptatie zijn nog niet afgerond.

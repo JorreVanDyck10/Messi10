@@ -1,0 +1,157 @@
+{
+  "scope": "Selected annotated people only; unlabelled predictions are not scored as FP. Not mAP.",
+  "records": [
+    {
+      "id": "london-control:steward:0",
+      "truth": "steward",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "london-control:steward:1",
+      "truth": "steward",
+      "proposal_iou": 0.6217789843158548,
+      "proposal_found": true,
+      "predicted_role": "steward",
+      "role_correct": true
+    },
+    {
+      "id": "london-control:steward:2",
+      "truth": "steward",
+      "proposal_iou": 0.6467301995036014,
+      "proposal_found": true,
+      "predicted_role": "steward",
+      "role_correct": true
+    },
+    {
+      "id": "london-control:steward:3",
+      "truth": "steward",
+      "proposal_iou": 0.000980925504864899,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "london-control:steward:4",
+      "truth": "steward",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "london-control:steward:5",
+      "truth": "steward",
+      "proposal_iou": 0.004023739596577962,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "london-control:steward:6",
+      "truth": "steward",
+      "proposal_iou": 0.5144102491870612,
+      "proposal_found": true,
+      "predicted_role": "person",
+      "role_correct": false
+    },
+    {
+      "id": "london-control:spectator:0",
+      "truth": "spectator",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "london-control:spectator:1",
+      "truth": "spectator",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "london-control:spectator:2",
+      "truth": "spectator",
+      "proposal_iou": 0.601688386060799,
+      "proposal_found": true,
+      "predicted_role": "spectator",
+      "role_correct": true
+    },
+    {
+      "id": "london-control:spectator:3",
+      "truth": "spectator",
+      "proposal_iou": 0.37702585474787603,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "liverpool-steward:steward:0",
+      "truth": "steward",
+      "proposal_iou": 0.9075536524435034,
+      "proposal_found": true,
+      "predicted_role": "steward",
+      "role_correct": true
+    },
+    {
+      "id": "uganda-fan:spectator:0",
+      "truth": "spectator",
+      "proposal_iou": 0.7537822077844258,
+      "proposal_found": true,
+      "predicted_role": "spectator",
+      "role_correct": true
+    },
+    {
+      "id": "troyes-fans:spectator:0",
+      "truth": "spectator",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "troyes-fans:spectator:1",
+      "truth": "spectator",
+      "proposal_iou": 0.3314382624970977,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "troyes-fans:spectator:2",
+      "truth": "spectator",
+      "proposal_iou": 0.567414960981578,
+      "proposal_found": true,
+      "predicted_role": "person",
+      "role_correct": false
+    },
+    {
+      "id": "troyes-fans:spectator:3",
+      "truth": "spectator",
+      "proposal_iou": 0.6484422081583028,
+      "proposal_found": true,
+      "predicted_role": "spectator",
+      "role_correct": true
+    },
+    {
+      "id": "troyes-fans:spectator:4",
+      "truth": "spectator",
+      "proposal_iou": 0.5989501434489359,
+      "proposal_found": true,
+      "predicted_role": "spectator",
+      "role_correct": true
+    },
+    {
+      "id": "troyes-fans:spectator:5",
+      "truth": "spectator",
+      "proposal_iou": 0.5440801964574928,
+      "proposal_found": true,
+      "predicted_role": "spectator",
+      "role_correct": true
+    }
+  ]
+}

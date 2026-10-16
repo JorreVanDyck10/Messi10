@@ -1,5 +1,7 @@
 # Uitvoeringsstatus persoon 1
 
+**Actuele rol-/teamuitbreiding:** [R007 is werkelijk getraind en geïntegreerd](Resultaten_Rollen_en_Teams.md), inclusief extra bronbeelden, echte validatie en een aparte overdracht. Spelers krijgen A/B of onbekend. Supporters en kleine centrale officials blijven zwak; er is geen universele betrouwbare rolherkenning of menselijke review geclaimd. Het tweeklassenprofiel blijft als basisprofiel bewaard.
+
 **Nieuwe speleroplevering:** [TeamTrack-spelermodel, dataset, echte metingen en overdracht](Resultaten_Spelermodel.md). Het standaardprofiel gebruikt nu `player`/`referee`; de onderstaande balstatus blijft als afzonderlijk experiment gelden. Er is nog geen volledige verre officialdekking of onafhankelijke projecteindtest.
 
 **Bijgewerkt op 16 oktober 2026. Echte fine-tuning en project-mAP zijn nu uitgevoerd.** De resultaten zijn voorlopig wegens openstaande menselijke labelreview; de validatiescores tonen nog geen verbetering. Zie [het volledige resultatenverslag](Resultaten_Balexperimenten.md).
