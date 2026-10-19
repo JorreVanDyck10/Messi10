@@ -1,0 +1,342 @@
+{
+  "source": {
+    "filename": "128057_panorama_1st_half.mp4",
+    "sha256": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+    "width": 4096,
+    "height": 1080,
+    "fps": 25,
+    "first_video_pts_s": 1,
+    "time_basis": "frame_index / 25, relative to first decoded video frame"
+  },
+  "clips": [
+    {
+      "group_id": "phase-0330",
+      "file": "128057_phase-0330_20s.mp4",
+      "source_start_s": 330,
+      "ffmpeg_absolute_seek_s": 331,
+      "duration_s": 20,
+      "frame_count": 500,
+      "fps": 25.0,
+      "size": [
+        4096,
+        1080
+      ],
+      "sha256": "7460a6fea2e291c0320bc62f5753a35ba14845b01b13e513e3da1d7327458d1c",
+      "split": "train",
+      "selected_frames": [
+        {
+          "frame_id": "128057_00008335",
+          "clip_time_s": 3.4
+        },
+        {
+          "frame_id": "128057_00008355",
+          "clip_time_s": 4.2
+        },
+        {
+          "frame_id": "128057_00008365",
+          "clip_time_s": 4.6
+        },
+        {
+          "frame_id": "128057_00008275",
+          "clip_time_s": 1.0
+        }
+      ]
+    },
+    {
+      "group_id": "phase-0540",
+      "file": "128057_phase-0540_20s.mp4",
+      "source_start_s": 540,
+      "ffmpeg_absolute_seek_s": 541,
+      "duration_s": 20,
+      "frame_count": 500,
+      "fps": 25.0,
+      "size": [
+        4096,
+        1080
+      ],
+      "sha256": "d9b92e58063e29be376319f680af7e136551a90f578dffff02a371f852c70ee3",
+      "split": "val",
+      "selected_frames": [
+        {
+          "frame_id": "128057_00013525",
+          "clip_time_s": 1.0
+        },
+        {
+          "frame_id": "128057_00013675",
+          "clip_time_s": 7.0
+        },
+        {
+          "frame_id": "128057_00013825",
+          "clip_time_s": 13.0
+        },
+        {
+          "frame_id": "128057_00013900",
+          "clip_time_s": 16.0
+        },
+        {
+          "frame_id": "128057_00013550",
+          "clip_time_s": 2.0
+        },
+        {
+          "frame_id": "128057_00013700",
+          "clip_time_s": 8.0
+        }
+      ]
+    },
+    {
+      "group_id": "phase-0750",
+      "file": "128057_phase-0750_20s.mp4",
+      "source_start_s": 750,
+      "ffmpeg_absolute_seek_s": 751,
+      "duration_s": 20,
+      "frame_count": 500,
+      "fps": 25.0,
+      "size": [
+        4096,
+        1080
+      ],
+      "sha256": "44470bc8927c383829909d6ee0e08f287e62d8c7a045b267bd94117d3ea11be7",
+      "split": "train",
+      "selected_frames": [
+        {
+          "frame_id": "128057_00018775",
+          "clip_time_s": 1.0
+        },
+        {
+          "frame_id": "128057_00018800",
+          "clip_time_s": 2.0
+        },
+        {
+          "frame_id": "128057_00018825",
+          "clip_time_s": 3.0
+        },
+        {
+          "frame_id": "128057_00018850",
+          "clip_time_s": 4.0
+        },
+        {
+          "frame_id": "128057_00018875",
+          "clip_time_s": 5.0
+        },
+        {
+          "frame_id": "128057_00018925",
+          "clip_time_s": 7.0
+        },
+        {
+          "frame_id": "128057_00018860",
+          "clip_time_s": 4.4
+        }
+      ]
+    },
+    {
+      "group_id": "phase-0960",
+      "file": "128057_phase-0960_20s.mp4",
+      "source_start_s": 960,
+      "ffmpeg_absolute_seek_s": 961,
+      "duration_s": 20,
+      "frame_count": 500,
+      "fps": 25.0,
+      "size": [
+        4096,
+        1080
+      ],
+      "sha256": "027967b720c94335dd5345a8433282ccce7a1ecf81ed48c4668ce06322946179",
+      "split": "train",
+      "selected_frames": [
+        {
+          "frame_id": "128057_00024000",
+          "clip_time_s": 0.0
+        },
+        {
+          "frame_id": "128057_00024025",
+          "clip_time_s": 1.0
+        },
+        {
+          "frame_id": "128057_00024050",
+          "clip_time_s": 2.0
+        },
+        {
+          "frame_id": "128057_00024125",
+          "clip_time_s": 5.0
+        },
+        {
+          "frame_id": "128057_00024175",
+          "clip_time_s": 7.0
+        },
+        {
+          "frame_id": "128057_00024075",
+          "clip_time_s": 3.0
+        },
+        {
+          "frame_id": "128057_00024100",
+          "clip_time_s": 4.0
+        }
+      ]
+    },
+    {
+      "group_id": "phase-1170",
+      "file": "128057_phase-1170_20s.mp4",
+      "source_start_s": 1170,
+      "ffmpeg_absolute_seek_s": 1171,
+      "duration_s": 20,
+      "frame_count": 500,
+      "fps": 25.0,
+      "size": [
+        4096,
+        1080
+      ],
+      "sha256": "36c692abaf9756cf444264663fa6933ee8342bd3629911e398a963323a7b2fb2",
+      "split": "train",
+      "selected_frames": [
+        {
+          "frame_id": "128057_00029475",
+          "clip_time_s": 9.0
+        },
+        {
+          "frame_id": "128057_00029500",
+          "clip_time_s": 10.0
+        },
+        {
+          "frame_id": "128057_00029575",
+          "clip_time_s": 13.0
+        },
+        {
+          "frame_id": "128057_00029350",
+          "clip_time_s": 4.0
+        },
+        {
+          "frame_id": "128057_00029375",
+          "clip_time_s": 5.0
+        }
+      ]
+    },
+    {
+      "group_id": "phase-1380",
+      "file": "128057_phase-1380_20s.mp4",
+      "source_start_s": 1380,
+      "ffmpeg_absolute_seek_s": 1381,
+      "duration_s": 20,
+      "frame_count": 500,
+      "fps": 25.0,
+      "size": [
+        4096,
+        1080
+      ],
+      "sha256": "53adda7c870ce96b66d6feda70526812f754a951893d01bd2b1bbfa69666cfed",
+      "split": "train",
+      "selected_frames": [
+        {
+          "frame_id": "128057_00034775",
+          "clip_time_s": 11.0
+        },
+        {
+          "frame_id": "128057_00034800",
+          "clip_time_s": 12.0
+        },
+        {
+          "frame_id": "128057_00034825",
+          "clip_time_s": 13.0
+        },
+        {
+          "frame_id": "128057_00034875",
+          "clip_time_s": 15.0
+        },
+        {
+          "frame_id": "128057_00034600",
+          "clip_time_s": 4.0
+        },
+        {
+          "frame_id": "128057_00034750",
+          "clip_time_s": 10.0
+        }
+      ]
+    },
+    {
+      "group_id": "phase-1590",
+      "file": "128057_phase-1590_20s.mp4",
+      "source_start_s": 1590,
+      "ffmpeg_absolute_seek_s": 1591,
+      "duration_s": 20,
+      "frame_count": 500,
+      "fps": 25.0,
+      "size": [
+        4096,
+        1080
+      ],
+      "sha256": "ec418a09ab97424c157e5cae0718a008febf1cb954175e7a1085484417257180",
+      "split": "train",
+      "selected_frames": [
+        {
+          "frame_id": "128057_00040120",
+          "clip_time_s": 14.8
+        },
+        {
+          "frame_id": "128057_00040130",
+          "clip_time_s": 15.2
+        },
+        {
+          "frame_id": "128057_00040150",
+          "clip_time_s": 16.0
+        },
+        {
+          "frame_id": "128057_00040160",
+          "clip_time_s": 16.4
+        },
+        {
+          "frame_id": "128057_00040170",
+          "clip_time_s": 16.8
+        },
+        {
+          "frame_id": "128057_00039850",
+          "clip_time_s": 4.0
+        },
+        {
+          "frame_id": "128057_00040000",
+          "clip_time_s": 10.0
+        }
+      ]
+    },
+    {
+      "group_id": "phase-2010",
+      "file": "128057_phase-2010_20s.mp4",
+      "source_start_s": 2010,
+      "ffmpeg_absolute_seek_s": 2011,
+      "duration_s": 20,
+      "frame_count": 500,
+      "fps": 25.0,
+      "size": [
+        4096,
+        1080
+      ],
+      "sha256": "7d6ef6b1f39647e977ba0ca5788bec82e2f73888dc0e6c4f70980b214378e868",
+      "split": "val",
+      "selected_frames": [
+        {
+          "frame_id": "128057_00050275",
+          "clip_time_s": 1.0
+        },
+        {
+          "frame_id": "128057_00050300",
+          "clip_time_s": 2.0
+        },
+        {
+          "frame_id": "128057_00050500",
+          "clip_time_s": 10.0
+        },
+        {
+          "frame_id": "128057_00050525",
+          "clip_time_s": 11.0
+        },
+        {
+          "frame_id": "128057_00050575",
+          "clip_time_s": 13.0
+        },
+        {
+          "frame_id": "128057_00050650",
+          "clip_time_s": 16.0
+        }
+      ]
+    }
+  ],
+  "note": "Reference videos; only selected dataset crops have labels, not every clip frame."
+}

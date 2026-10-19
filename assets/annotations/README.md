@@ -4,6 +4,7 @@ Deze selecties staan samen met de video's, bronbeelden en labels in de repositor
 
 | Selectie | Fragment | Gelabelde beelden | Persoonsboxen | Balboxen |
 | --- | --- | ---: | ---: | ---: |
+| [Training: bal en spelers](football48/README.md) | 8 fragmenten van 20 seconden | 48 | 512 | 36 |
 | [Panorama 128057](panorama128057/README.md) | 00:54-01:14, 20 seconden | 6 | 143 | 29 |
 | [TeamTrack 0720-0750](teamtrack0750/README.md) | 00:00-00:20 van de bronclip | 3 | 74 | 3 |
 
@@ -13,6 +14,6 @@ Per map vind je `images/`, `labels/`, `annotations.coco.json`, `manifest.json` e
 
 De video is het invoerfragment. De genoemde geselecteerde beelden zijn geannoteerd; de clips hebben geen doorlopende labels voor elk frame. Boxaantallen tellen instanties per beeld en zijn geen aantallen unieke objecten. De panorama-selectie bevat ook zichtbare reserveballen.
 
-De labels zijn door AI visueel gecorrigeerd en opgeslagen. Onafhankelijke menselijke review staat nog open. Beide exports bevatten achtergrondgroepen als crowd/ignore-regio's: gebruik COCO-evaluatie die die regio's respecteert; maskeer ze of label ze verder voordat je volledige beelden via gewone YOLO-TXT gebruikt voor training. De samenhangende tijdgroepen staan op `val` en horen niet willekeurig over verschillende subsets verdeeld te worden.
+De labels zijn door AI visueel gecorrigeerd en opgeslagen. Onafhankelijke menselijke review staat nog open. De twee kleine proefselecties bevatten achtergrondgroepen als crowd/ignore-regio's: gebruik COCO-evaluatie die die regio's respecteert; maskeer ze of label ze verder voordat je volledige beelden via gewone YOLO-TXT gebruikt voor training. Hun samenhangende tijdgroepen staan op `val` en horen niet willekeurig over verschillende subsets verdeeld te worden.
 
-Dit zijn kleine bijdragen aan de grotere challenge-dataset. De geselecteerde beelden samen zijn nog geen volledige set van 40-80 frames en leveren geen onafhankelijke wedstrijdtest of modelprestatiemeting op.
+De nieuwe [football48-trainingsset](football48/README.md) bevat 48 unieke bronframes en voldoet daarmee aan het gevraagde aantal van 40–80 beelden. Deze set heeft gemaskeerde uitsneden, gewone YOLO-labels, 36 train- en 12 validatiebeelden uit gescheiden tijdgroepen, plus een exportoptie voor alleen de bal. Gebruik de bijbehorende `data.yaml`; de oudere proefselecties zijn daar niet doorheen gemengd. Alle beelden komen uit één wedstrijd en leveren geen onafhankelijke wedstrijdtest of modelprestatiemeting op.

@@ -16,3 +16,4 @@ artifacts/appearance-v1/*.pt filter=lfs diff=lfs merge=lfs -text
 datasets/roles-teams-v1/sources/* filter=lfs diff=lfs merge=lfs -text
 datasets/roles-teams-v1/** -text whitespace=cr-at-eol
 reports/appearance-experiments/** -text whitespace=cr-at-eol
+assets/annotations/football48/images/**/*.png filter=lfs diff=lfs merge=lfs -text
