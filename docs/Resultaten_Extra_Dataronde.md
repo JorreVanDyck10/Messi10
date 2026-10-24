@@ -85,4 +85,6 @@ powershell -ExecutionPolicy Bypass -File scripts\Start-Spelermodel.ps1 -Recognit
 
 De roltraining en vergelijking staan in `datasets/roles-teams-v2/README.md`. Configuraties, bron-/labelhashes, preprocessing, curves, voorspellingen en fouten zijn bewaard onder `reports/football48-ball-experiments` en `reports/appearance-experiments/EXP-R009`/`EXP-R010`. De gewichten staan via Git LFS onder `artifacts/football48-ball-v1` en `artifacts/appearance-v2`.
 
+De volledige suite slaagt met **213 tests en 4 subtests**. Ruff, formatter-, pakket- en PowerShell-parsercontrole slagen. De vier nieuwe checkpoints zijn na publicatie daadwerkelijk opnieuw uit GitHub gedownload in een lege LFS-cache; bestandsgroottes, SHA-256 en geladen klassenamen zijn gecontroleerd. Het bewijs staat in `reports/football48-ball-experiments/remote-download-verification.json`.
+
 Alle nieuwe annotaties zijn voorlopig AI-werk. Definitieve menselijke review, nieuwe onafhankelijke wedstrijden en een onaangeroerde eindtest blijven nodig voor sterkere conclusies.

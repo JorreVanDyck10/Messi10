@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "asset_commit": "9ef7ef8004eb0d627626f5c9a6c0efbf35d690db",
+  "fresh_lfs_cache": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\.cache\\remote-lfs-dataround-9ef7ef8",
+  "files": [
+    {
+      "path": "artifacts/appearance-v2/roles_teams_r009.pt",
+      "sha256": "e8704ac4e973f7d71a41a7e43bd4d0a14aebbea893d25f0e069de009806c4bbe",
+      "bytes": 3853678,
+      "loaded_actual_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ]
+    },
+    {
+      "path": "artifacts/appearance-v2/roles_teams_r010.pt",
+      "sha256": "39656a85cac05192854aeb217f218d652368a03c1efb81f446b58e0387f9b2ec",
+      "bytes": 3853678,
+      "loaded_actual_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ]
+    },
+    {
+      "path": "artifacts/football48-ball-v1/EXP-F001-best.pt",
+      "sha256": "59d5e749e92edfd84bb6c204d73ec00df634a1abc9b93c507485f04b4cd9329f",
+      "bytes": 5525203,
+      "loaded_actual_names": {
+        "0": "ball"
+      }
+    },
+    {
+      "path": "artifacts/football48-ball-v1/EXP-F002-best.pt",
+      "sha256": "f523fec4e72c994d9d454e86e7a52c7a8be32334c0085713ba1bc2ce7dc2fdb4",
+      "bytes": 5525203,
+      "loaded_actual_names": {
+        "0": "ball"
+      }
+    }
+  ],
+  "unique_objects": 4,
+  "total_bytes": 18757762,
+  "hashes_sizes_and_loaded_class_names_checked": true
+}
