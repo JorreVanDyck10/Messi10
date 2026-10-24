@@ -1,3 +1,5 @@
+> **Samen starten:** `scripts/Start-Wedstrijd.ps1` selecteert rollen, Team A/B en automatische veldherkenning. De gezamenlijke pipeline is technisch uitgevoerd; herkenningsfouten en ontbrekende veldkalibratie blijven mogelijk. [Gezamenlijke controle, installatie en beperkingen](docs/Gezamenlijke_Integratie.md).
+
 > **Rollen en teams toegevoegd:** kies het R007-rolprofiel of start met `scripts/Start-Spelermodel.ps1 -Recognition players`. Dit voert werkelijk getrainde aanvullende rol- en teamherkenning uit. Supporters en kleine officials blijven zwak. De op de 4050 gecontroleerde algemene persoonsherkenning van persoon 2 blijft de standaard voor zijn veldproef. [Echte rolmetingen en beperkingen](docs/Resultaten_Rollen_en_Teams.md).
 
 De bestaande tweeklassen-P004-detector blijft de basis. Zijn historische speler-validatie is AP@50 74,50% en AP@50:95 26,55%; dit is geen score voor de volledige nieuwe rolpipeline. [Oorspronkelijke detectorresultaten](docs/Resultaten_Spelermodel.md).

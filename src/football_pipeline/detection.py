@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+import os
 from pathlib import Path
 
 from .contracts import Detection, PipelineError, read_json, sha256_file
@@ -138,6 +139,12 @@ def validate_detection_devices(manifest: dict) -> None:
 
 class UltralyticsDetector:
     def __init__(self, manifest: dict):
+        # Keep the local app usable without write access to the Windows user profile.
+        root = Path(__file__).resolve().parents[2]
+        os.environ.setdefault("YOLO_CONFIG_DIR", str(root / ".cache/ultralytics"))
+        (Path(os.environ["YOLO_CONFIG_DIR"]) / "Ultralytics").mkdir(parents=True, exist_ok=True)
+        os.environ.setdefault("MPLCONFIGDIR", str(root / ".cache/matplotlib"))
+        Path(os.environ["MPLCONFIGDIR"]).mkdir(parents=True, exist_ok=True)
         from ultralytics import YOLO
 
         validate_detection_devices(manifest)

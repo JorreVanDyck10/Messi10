@@ -92,7 +92,7 @@ def render_frame(
     stamp = f"Frame {record.frame_index} | {record.timestamp_s:.3f} s"
     label(canvas, stamp, (20, 28))
     if technical_pilot:
-        label(canvas, "TECHNISCHE PILOT - personen, geen speler-ID's", (20, 65), (80, 205, 245), 0.65)
+        label(canvas, "TECHNISCHE PILOT - menselijke beoordeling open", (20, 65), (80, 205, 245), 0.65)
     pitch = canvas[:, 1280:]
     label(pitch, "PILOT MINIMAP" if technical_pilot else "TACTICAL MAP", (40, 52), scale=0.9)
     label(pitch, stamp, (40, 88))

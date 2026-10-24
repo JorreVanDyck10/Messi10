@@ -2,6 +2,7 @@ param(
     [ValidateSet('app','evaluate','annotate','validate','train')][string]$Mode = 'app',
     [string]$Device = '0',
     [ValidateSet('persons','players')][string]$Recognition = 'persons',
+    [ValidateSet('manual','automatic')][string]$FieldMode = 'manual',
     [string]$RunName = '',
     [string]$Weights = 'artifacts/players-v2/players_best.pt',
     [string]$TrainingConfig = 'configs/train-players-unfrozen.json'
@@ -26,6 +27,7 @@ try {
     } elseif ($Mode -eq 'validate') {
         & $runtimePython -m persoon1 validate --manifest $manifest --output reports/players-validation-local.json
     } elseif ($Mode -eq 'app') {
+        $env:FOOTBALL_CALIBRATION_MODE = $FieldMode
         $modelProfile = Get-Content -Raw -LiteralPath "configs/models-$Recognition.json" | ConvertFrom-Json
         foreach ($model in $modelProfile.models) {
             $model.device = $Device

@@ -124,7 +124,9 @@ st.subheader("2. Veld kalibreren")
 mode = st.segmented_control(
     "Kalibratiemethode",
     ["Handmatig", "Automatische veldkalibratie"],
-    default="Handmatig",
+    default="Automatische veldkalibratie"
+    if os.environ.get("FOOTBALL_CALIBRATION_MODE") == "automatic"
+    else "Handmatig",
     selection_mode="single",
     required=True,
     key="calibration_mode",
