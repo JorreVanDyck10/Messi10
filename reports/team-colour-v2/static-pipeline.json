@@ -1,0 +1,211 @@
+{
+  "status": "passed",
+  "run_directory": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\runs\\joint-static-team-colour-v2\\a5aea4ef5dcf8fe0f946097a673542b8210b01bc430d72fe2eaa2b0bab519acd",
+  "audit": {
+    "frames": 150,
+    "detections_by_role": {
+      "player": 4426,
+      "person": 571,
+      "assistant_referee": 117,
+      "referee": 96,
+      "steward": 2
+    },
+    "displayed_detections_by_role": {
+      "player": 3219,
+      "person": 366,
+      "assistant_referee": 87,
+      "referee": 82,
+      "steward": 1
+    },
+    "projection_status_counts": {
+      "valid": 4549,
+      "outside_field": 663
+    },
+    "unknown_player_count_frames": 0,
+    "empty_detection_frames": 0,
+    "unknown_person_count_frames": 0,
+    "known_person_count_min_median_max": [
+      0,
+      1.0,
+      3
+    ],
+    "known_player_count_min_median_max": [
+      14,
+      21.0,
+      29
+    ],
+    "checks": [
+      "source_coordinates",
+      "finite_confidence",
+      "normalized_field_positions",
+      "role_and_field_count_filter",
+      "unknown_count_without_field",
+      "frame_synchronization",
+      "h264_encoding",
+      "artifact_hashes",
+      "role_classifier_identity_and_abstention",
+      "team_assignment_roles_and_totals"
+    ],
+    "role_classified_detections": 5212,
+    "team_assigned_detections": 3710,
+    "team_assignment_methods": {
+      "video_colour_clusters": 3710
+    },
+    "counted_player_observations_by_team": {
+      "unknown": 383,
+      "team_a": 1383,
+      "team_b": 1433
+    }
+  },
+  "code": {
+    "git_commit": "1d7c2994aee37d919ff21f17d91152eda3584517",
+    "source_sha256": "df61583609cbcd62b8c20366b495b17c00741d9bc835ef9a1ac3e3d9d3263e0d",
+    "files": {
+      "src\\football_pipeline\\__init__.py": "b130f200a792b9d0af46123ab875d28ededf9f741aec8dfef41abbc55653862e",
+      "src\\football_pipeline\\__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "src\\football_pipeline\\appearance.py": "2531d0e8983ecd227c4b5a26b64e2d85c71362be83261ed83379f5b45aff805b",
+      "src\\football_pipeline\\automatic_calibration.py": "5f9fbe2a1898f907bcfe7ed982a80311fd171c11ecff950589147f3202bc2f8d",
+      "src\\football_pipeline\\calibration_evaluation.py": "c31e48bc86740fc79d3232e216732f7eadeeb3e008ce707518613d797331bced",
+      "src\\football_pipeline\\calibration_input.py": "93ffbceec0e7ff83f9138bf1a1c3d221d99f0a8e6c5efd911561fd19a919d83f",
+      "src\\football_pipeline\\cli.py": "04a6cb9b877710940e997fb9535717f67d9a682f8317e3759233c5b38d8318b1",
+      "src\\football_pipeline\\contracts.py": "74b2eb7ae54c625c64a1cfe6bfaa9a4a0af046021546d5a25827b8380176ea51",
+      "src\\football_pipeline\\demo.py": "f26e522703651485498d55ab2418fa34e9e3ba9443dc4407389b78ab5e6f2e92",
+      "src\\football_pipeline\\detection.py": "e3b753e8ddbe43a0faf92057d16e6027c497d5178126958d102064e50c594292",
+      "src\\football_pipeline\\evaluation.py": "bda4c6d973ea0cbf26504eb631d927571dcbb7aa4363df785fffc81800ced8a3",
+      "src\\football_pipeline\\field_data.py": "60df465e7c0b5c5d17ba35d379fe59b16800b8870d53c4a369dbfd0010ac1c39",
+      "src\\football_pipeline\\field_layout.py": "62c42c3e671856b81b437eddd6bb7c30059fa8bc014852af384be021b1aaefaa",
+      "src\\football_pipeline\\field_learning.py": "565121199e358d5d6ec2c8b0b87eff829f31669e8b2fbc1e20130f546050be56",
+      "src\\football_pipeline\\field_model_spec.py": "d0dae1d2185568a4e7d7ab0f3787189179739a613a4d6b9fda0fc83c21f70057",
+      "src\\football_pipeline\\field_motion.py": "07eaf1eddfba882fc2a08307f0a09ab07a195f526497fff5f43e3fbd7138bdfd",
+      "src\\football_pipeline\\field_review.py": "17a26fd1efb01b8bc93ec8b6dbe6aab3b41bcf585b0441bf92ea37acc67d0363",
+      "src\\football_pipeline\\field_review_ui.py": "aab9f7de1af13634cbe10bf669a0767ebd4a0dcb170f42a7331118f24fefd092",
+      "src\\football_pipeline\\geometry.py": "be472de24606f58b7ba88e3d3c5e735db9831f7af1c75aeb2f38013d3a61fbe5",
+      "src\\football_pipeline\\model_handoff.py": "a7dab90147f2f32e64611d780fb870cc68a18e548fa0e81f3221776480723a72",
+      "src\\football_pipeline\\participants.py": "8d082640e568568fec62028833ad217a49c9862b04a194d2f7f5a1ae0e73190a",
+      "src\\football_pipeline\\pipeline.py": "9abadc1ca52af9d15e762f1e60ee2ec5549dab5256b27c521848fa40ecb0272b",
+      "src\\football_pipeline\\point_picker.py": "6fc4134b6366c6a504f0ccf871e1ae8afb724d31a094b63b0cfd1dd882597cc4",
+      "src\\football_pipeline\\render.py": "c0c40fac03de1760b84933e159e80e1ccc6de16fd98826944fbb789e5e42f3d3",
+      "src\\football_pipeline\\replay.py": "8776bf37790da4e0e93ed4f7054c0cb905375cfe9556bc32b79c31f4498d69b7",
+      "src\\football_pipeline\\teams.py": "9b1bea51c966f019e439e3f6dc3be1d05630f0a084d5f36334db2d886d9cd164",
+      "src\\football_pipeline\\tracking.py": "5c1f56a4050372796fd7cca83816340943834323041f19bd4250bce938097e7f",
+      "src\\football_pipeline\\video.py": "62a459da4b90fb26654903ec44b34a20d6f0df4adc38d33c585cfc0326f5765d",
+      "streamlit_app.py": "17d611a8e85c6434001b4f600241c0fe1d5d4456185ebd20f214459b37d7cd74",
+      "pyproject.toml": "84b294023e07584324ee385b581fab9c226e3cefb50a6c4e5f3fb5852a784942"
+    }
+  },
+  "video": {
+    "path": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\joint-static-roles\\dev-00-frames-000000-000149.mp4",
+    "sha256": "9baec79f611f7eae97ef484be181a2b426ea1c6b0ddeab03245afd7a96823836",
+    "width": 3840,
+    "height": 960,
+    "fps_num": 25,
+    "fps_den": 1,
+    "frame_count": 150,
+    "codec": "h264",
+    "duration_s": 6.0
+  },
+  "measurements": {
+    "processed_frames": 150,
+    "runtime_s": 20.253276000003098,
+    "processing_fps": 7.406209247332484,
+    "inference_or_replay_s": 12.709190300003684,
+    "tracking_s": 0.0,
+    "peak_process_ram_bytes_sampled": 1534201856,
+    "peak_gpu_allocated_bytes": 358401024,
+    "projection_counts": {
+      "valid": 4549,
+      "outside_field": 663
+    },
+    "calibration_preparation_s": 1.7000020307023078e-06,
+    "calibration_status_counts": {},
+    "calibration_usable_fraction": null
+  },
+  "team_calibration": {
+    "method": "video_colour_clusters",
+    "feature_version": "saturation_weighted_hsv_v2",
+    "calibration_observation_limit": 200,
+    "ready": true,
+    "samples": 200,
+    "updates": 150,
+    "centers": [
+      [
+        0.016137905418872833,
+        0.020949268713593483,
+        0.028490126132965088,
+        0.016405465081334114,
+        0.010116462595760822,
+        0.003170834155753255,
+        0.002372551942244172,
+        0.0016547980485484004,
+        0.0041579194366931915,
+        0.007018504198640585,
+        0.008747285231947899,
+        0.005553014110773802,
+        0.005181655753403902,
+        0.007792416960000992,
+        0.017438923940062523,
+        0.012529625557363033,
+        0.449245423078537,
+        0.3586127460002899,
+        0.11444367468357086,
+        0.05397435277700424,
+        0.017448807135224342,
+        0.0051561095751821995,
+        0.0008555173990316689,
+        0.00026341082411818206,
+        0.0038873280864208937,
+        0.03605097904801369,
+        0.07460034638643265,
+        0.15707072615623474,
+        0.09929125756025314,
+        0.07265346497297287,
+        0.07828593254089355,
+        0.07815998047590256
+      ],
+      [
+        0.013247734867036343,
+        0.038119181990623474,
+        0.22425775229930878,
+        0.15445329248905182,
+        0.014553082175552845,
+        0.0009856144897639751,
+        0.00016397895524278283,
+        2.2281641577137634e-05,
+        0.00010746249608928338,
+        4.700033605331555e-05,
+        0.0,
+        0.0,
+        4.048310438520275e-05,
+        1.8019100025412627e-05,
+        8.239564522227738e-06,
+        2.249695171485655e-05,
+        0.00804124865680933,
+        0.08095964789390564,
+        0.2684286832809448,
+        0.30189621448516846,
+        0.19383956491947174,
+        0.11678128689527512,
+        0.021408604457974434,
+        0.008644670248031616,
+        0.004489188548177481,
+        0.04613751173019409,
+        0.0654710978269577,
+        0.1431417614221573,
+        0.13415013253688812,
+        0.12244322896003723,
+        0.06254646927118301,
+        0.02162068709731102
+      ]
+    ],
+    "radii": [
+      0.35211288928985596,
+      0.5861139297485352
+    ],
+    "names": "neutral A/B; no club or home-away claim",
+    "confidence_meaning": "relative colour distance margin, not probability",
+    "supervised_known_match": false
+  },
+  "human_reviewed": false,
+  "mvp_accepted": false,
+  "scope": "Real 150-frame static-camera development pilot, original technical calibration retained, no human acceptance or new accuracy reference."
+}

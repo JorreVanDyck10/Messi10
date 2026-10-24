@@ -103,11 +103,35 @@ def merge_person_proposals(detections, overlap=0.5):
     for candidate in people:
         x1, y1, x2, y2 = candidate.bbox_xyxy
         duplicate = False
-        for other in kept:
+        for index, other in enumerate(kept):
             a, b, c, d = other.bbox_xyxy
             intersection = max(0, min(x2, c) - max(x1, a)) * max(0, min(y2, d) - max(y1, b))
             union = (x2 - x1) * (y2 - y1) + (c - a) * (d - b) - intersection
             if union > 0 and intersection / union >= overlap:
+                duplicate = True
+                break
+            # One detector may see the upper body while another sees the same
+            # complete person. IoU alone misses that duplicate. Require distinct
+            # proposal sources, almost full containment and aligned heads/axes;
+            # ordinary overlapping teammates must remain separate observations.
+            width, height = x2 - x1, y2 - y1
+            other_width, other_height = c - a, d - b
+            smaller_area = min(width * height, other_width * other_height)
+            ratio = max(height, other_height) / max(1e-9, min(height, other_height))
+            contained = (
+                candidate.model_id != other.model_id
+                and (candidate.semantic_class == "person") != (other.semantic_class == "person")
+                and smaller_area > 0
+                and intersection / smaller_area >= 0.9
+                and 1.35 <= ratio <= 2.5
+                and abs((x1 + x2) / 2 - (a + c) / 2) <= min(width, other_width) * 0.2
+                and abs(y1 - b) <= max(height, other_height) * 0.15
+            )
+            if contained:
+                # Preserve real model identity and original coordinates. A strong
+                # full-body proposal provides the correct feet for projection.
+                if height > other_height and candidate.confidence >= 0.5:
+                    kept[index] = candidate
                 duplicate = True
                 break
         if not duplicate:

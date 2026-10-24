@@ -1,3 +1,5 @@
+> **Teamindeling en dubbele boxen verbeterd:** de gezamenlijke rolpipeline houdt op dezelfde validatiebeelden vijf foutieve spelersdetecties minder over, met behoud van de correcte detecties. De kleurindeling voor nieuwe video's is opnieuw gemeten en aangepast. Deze softwareverbeteringen werken ook in het standaardprofiel R007. [Voor/na, voorbeelden en beperkingen](docs/Verbetering_Teams_en_Boxen.md).
+
 > **Nieuwe dataronde uitgevoerd:** 111 extra rolcrops, twee echte roltrainingen en twee echte ballentrainingen. R009 verbetert spelers/officials, met afwegingen bij andere rollen; kies het met `scripts/Start-Wedstrijd.ps1 -Recognition roles-r009`. R007 blijft standaard. [Nieuwe metingen, fouten en reproductie](docs/Resultaten_Extra_Dataronde.md).
 
 > **Samen starten:** `scripts/Start-Wedstrijd.ps1` selecteert rollen, Team A/B en automatische veldherkenning. De gezamenlijke pipeline is technisch uitgevoerd; herkenningsfouten en ontbrekende veldkalibratie blijven mogelijk. [Gezamenlijke controle, installatie en beperkingen](docs/Gezamenlijke_Integratie.md).

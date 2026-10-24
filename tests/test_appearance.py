@@ -96,6 +96,70 @@ def test_person_proposals_are_merged_without_losing_ball_or_source_identity():
     assert [d.source_class_id for d in merged] == [0, 0, 0]
 
 
+def test_contained_upper_body_uses_strong_full_body_proposal_and_real_feet():
+    upper = person("referee", [2418, 591, 2458, 659])
+    upper.model_id = "specialist"
+    upper.confidence = 0.98
+    complete = person("person", [2413, 586, 2458, 722])
+    complete.model_id = "generic"
+    complete.confidence = 0.75
+    complete.detection_id = "full-body"
+    result = merge_person_proposals([complete, upper])
+    assert result == [complete]
+    assert result[0].model_id == "generic"
+    assert result[0].bbox_xyxy[-1] == 722
+    # A weak proposal cannot replace a reliable specialized detector's box.
+    complete.confidence = 0.3
+    assert merge_person_proposals([complete, upper]) == [upper]
+
+
+def test_containment_does_not_merge_distinct_overlapping_people():
+    tall = person("person", [100, 100, 140, 240])
+    tall.model_id = "generic"
+    short = person("player", [110, 145, 138, 220])
+    short.model_id = "specialist"
+    # Contained lower body belongs to a different, occluded person: heads differ.
+    assert len(merge_person_proposals([short, tall])) == 2
+    short.bbox_xyxy = [118, 105, 140, 180]
+    # Off-axis subjects also stay separate.
+    assert len(merge_person_proposals([short, tall])) == 2
+    short.bbox_xyxy = [105, 105, 135, 180]
+    short.model_id = "generic"
+    assert len(merge_person_proposals([short, tall])) == 2
+
+
+def test_kit_features_suppress_grey_hue_noise_and_keep_green_clothing():
+    from football_pipeline.teams import kit_feature
+
+    frame = np.full((100, 80, 3), (150, 150, 150), np.uint8)
+    grey = kit_feature(frame, [0, 0, 80, 100])
+    assert not grey[:16].any()  # Undefined hue of a grey shirt contributes no evidence.
+    frame[:] = (20, 180, 20)
+    green = kit_feature(frame, [0, 0, 80, 100])
+    assert green is not None and green[:16].sum() > 0.5
+
+
+def test_refining_video_clusters_keeps_team_names_stable():
+    frame = np.zeros((360, 640, 3), np.uint8)
+    players = []
+    for i in range(8):
+        x = 20 + i * 65
+        box = [x, 100, x + 30, 180]
+        frame[100:180, x : x + 30] = (240, 240, 240) if i < 4 else (200, 40, 10)
+        d = person(box=box)
+        d.role_confidence = 0.9
+        players.append(d)
+    model = VideoTeams()
+    for _ in range(3):
+        model.update(frame, players)
+    original = [d.team_id for d in players]
+    # Opposite proposal order and more observations must not swap A and B.
+    for _ in range(30):
+        model.update(frame, list(reversed(players)))
+        assert [d.team_id for d in players] == original
+    assert len(model.samples) == 200
+
+
 def test_manifest_pins_appearance_weights_and_capabilities(model_manifest, tmp_path):
     from football_pipeline.contracts import PipelineError, write_json
 
