@@ -1,6 +1,7 @@
 """Evaluate the actual two-stage detector, keeping photo crops distinct from detection AP."""
 
 import copy
+import argparse
 import json
 import time
 from collections import Counter
@@ -17,12 +18,12 @@ from .modeling import yolo
 from .role_training import DATA, ROOT, save
 
 
-def run(output):
+def run(output, model_manifest_path=None):
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
     # Set the repo-local Ultralytics settings before the pipeline imports its detector.
     yolo(ROOT / "models/yolo11n.pt")
-    config = load_model_manifest(ROOT / "configs/models-players.json")
+    config = load_model_manifest(model_manifest_path or ROOT / "configs/models-players.json")
     detector = UltralyticsDetector(config)
     old = copy.deepcopy(config)
     old.pop("appearance")
@@ -193,4 +194,8 @@ def run(output):
 
 
 if __name__ == "__main__":
-    run("reports/appearance-experiments/EXP-R004/end-to-end")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", default="reports/appearance-experiments/EXP-R004/end-to-end")
+    parser.add_argument("--models")
+    args = parser.parse_args()
+    run(args.output, args.models)

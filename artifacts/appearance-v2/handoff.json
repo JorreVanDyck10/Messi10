@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-24T16:59:29.187657+00:00",
+  "files": {
+    "roles_teams_r009.pt": {
+      "sha256": "e8704ac4e973f7d71a41a7e43bd4d0a14aebbea893d25f0e069de009806c4bbe",
+      "bytes": 3853678
+    },
+    "roles_teams_r010.pt": {
+      "sha256": "39656a85cac05192854aeb217f218d652368a03c1efb81f446b58e0387f9b2ec",
+      "bytes": 3853678
+    }
+  },
+  "role_names": {
+    "0": "player",
+    "1": "referee",
+    "2": "assistant_referee",
+    "3": "steward",
+    "4": "spectator",
+    "5": "person"
+  },
+  "team_names": {
+    "0": "team_a",
+    "1": "team_b"
+  },
+  "role_threshold": 0.65,
+  "team_threshold": 0.65,
+  "proposal_models_retained_from": "configs/models-players.json",
+  "dataset": "datasets/roles-teams-v2/manifest.json",
+  "dataset_sha256": "129079c8e5380ade5962f533a55fa00b1298145b990f718eeb2103c051da93d7",
+  "software": {
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "opencv-python": "4.11.0.86",
+    "numpy": "2.2.6",
+    "psutil": "7.2.2",
+    "lap": "0.5.13"
+  },
+  "physical_gpu": "RTX 3050 Laptop GPU, 4 GiB",
+  "default_retained": "R007",
+  "recommended_optional_profile": "configs/models-roles-r009.json",
+  "new_role_source_has_team_labels": false,
+  "human_review_completed": false,
+  "independent_final_test": false,
+  "limitations": [
+    "Development crop and detector metrics only; supporter/steward regression prevents a universal replacement claim.",
+    "New source uses neutral kit clustering; no verified team accuracy on that source.",
+    "Field weights and projection/tracking rules unchanged."
+  ]
+}

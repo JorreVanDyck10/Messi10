@@ -1,7 +1,7 @@
 param(
     [ValidateSet('app','evaluate','annotate','validate','train')][string]$Mode = 'app',
     [string]$Device = '0',
-    [ValidateSet('persons','players')][string]$Recognition = 'persons',
+    [ValidateSet('persons','players','roles-r009','roles-r010')][string]$Recognition = 'persons',
     [ValidateSet('manual','automatic')][string]$FieldMode = 'manual',
     [string]$RunName = '',
     [string]$Weights = 'artifacts/players-v2/players_best.pt',

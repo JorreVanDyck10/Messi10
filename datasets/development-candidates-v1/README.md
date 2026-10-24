@@ -8,6 +8,8 @@ Ook de voorgestelde teams zijn ongecontroleerd: de neutrale kleurclustering word
 
 **Status:** ongelabeld, menselijke review open, niet geschikt voor training zonder verdere annotatie. Er is met dit pakket geen model getraind en geen verbeterde nauwkeurigheid gemeten. De bestaande datasets en geselecteerde gewichten zijn niet aangepast.
 
+**Vervolgronde:** een afzonderlijke [rolversie 2](../roles-teams-v2/README.md) bevat inmiddels 52 gedeeltelijke, door AI gecontroleerde trainingscrops uit deze beelden en 59 extra validatiecrops uit bestaande beelden. De voorstellen en status van dit oorspronkelijke kandidaatpakket zijn als historische bron behouden. De volledige frames zijn daarmee nog niet exhaustief geannoteerd.
+
 ## Bekijken en controleren
 
 Open `contactsheet.jpg` voor het overzicht en `images/` voor de volledige resolutie. Controleer de bronbeelden bij het annoteren, niet uitsluitend het verkleinde overzicht. Elk voorstel moet worden nagekeken, inclusief gemiste personen en objecten. Label een speler niet als steward op basis van alleen een voorspelling of veldpositie; officials, doelmannen, reserve-/technische staf en onbeslisbare personen vragen de afgesproken inhoudelijke regels.

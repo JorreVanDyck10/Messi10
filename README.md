@@ -1,3 +1,5 @@
+> **Nieuwe dataronde uitgevoerd:** 111 extra rolcrops, twee echte roltrainingen en twee echte ballentrainingen. R009 verbetert spelers/officials, met afwegingen bij andere rollen; kies het met `scripts/Start-Wedstrijd.ps1 -Recognition roles-r009`. R007 blijft standaard. [Nieuwe metingen, fouten en reproductie](docs/Resultaten_Extra_Dataronde.md).
+
 > **Samen starten:** `scripts/Start-Wedstrijd.ps1` selecteert rollen, Team A/B en automatische veldherkenning. De gezamenlijke pipeline is technisch uitgevoerd; herkenningsfouten en ontbrekende veldkalibratie blijven mogelijk. [Gezamenlijke controle, installatie en beperkingen](docs/Gezamenlijke_Integratie.md).
 
 > **Rollen en teams toegevoegd:** kies het R007-rolprofiel of start met `scripts/Start-Spelermodel.ps1 -Recognition players`. Dit voert werkelijk getrainde aanvullende rol- en teamherkenning uit. Supporters en kleine officials blijven zwak. De op de 4050 gecontroleerde algemene persoonsherkenning van persoon 2 blijft de standaard voor zijn veldproef. [Echte rolmetingen en beperkingen](docs/Resultaten_Rollen_en_Teams.md).

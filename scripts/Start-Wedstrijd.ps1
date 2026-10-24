@@ -1,5 +1,6 @@
 param(
     [string]$Device = '0',
+    [ValidateSet('players','roles-r009','roles-r010')][string]$Recognition = 'players',
     [string]$FieldRuntime = ''
 )
 $ErrorActionPreference = 'Stop'
@@ -13,4 +14,4 @@ if (-not (Test-Path -LiteralPath $env:FOOTBALL_FIELD_RUNTIME)) {
     throw 'De aparte veldomgeving ontbreekt. Voer met Python 3.11 eerst scripts\setup_field_model.py uit. Gebruik voor een CPU-veldmodel --device cpu. Zie docs\Gezamenlijke_Integratie.md.'
 }
 # Preserve the configured field environment; its GPU/CPU setting is independent.
-& (Join-Path $PSScriptRoot 'Start-Spelermodel.ps1') -Recognition players -FieldMode automatic -Device $Device
+& (Join-Path $PSScriptRoot 'Start-Spelermodel.ps1') -Recognition $Recognition -FieldMode automatic -Device $Device

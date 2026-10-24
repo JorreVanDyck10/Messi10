@@ -1,0 +1,1629 @@
+{
+  "objects": [
+    {
+      "index": 0,
+      "frame_id": "phase-0330_000250",
+      "proposal_index": 8,
+      "bbox": [
+        2154.571044921875,
+        139.30064392089844,
+        2169.4609375,
+        167.84840393066406
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 1,
+      "frame_id": "phase-0330_000250",
+      "proposal_index": 13,
+      "bbox": [
+        2902.041259765625,
+        261.1361999511719,
+        2923.6943359375,
+        306.7014465332031
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 2,
+      "frame_id": "phase-0330_000250",
+      "proposal_index": 17,
+      "bbox": [
+        2535.61669921875,
+        166.36651611328125,
+        2554.343994140625,
+        206.0113067626953
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 3,
+      "frame_id": "phase-0330_000250",
+      "proposal_index": 21,
+      "bbox": [
+        3691.522705078125,
+        523.306884765625,
+        3732.531005859375,
+        586.8133544921875
+      ],
+      "predicted_role": "assistant_referee",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 4,
+      "frame_id": "phase-0330_000250",
+      "proposal_index": 22,
+      "bbox": [
+        2220.164794921875,
+        144.6382293701172,
+        2234.35791015625,
+        172.424560546875
+      ],
+      "predicted_role": "player",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 5,
+      "frame_id": "phase-0330_000250",
+      "proposal_index": 38,
+      "bbox": [
+        1356.5787353515625,
+        224.64796447753906,
+        1376.8128662109375,
+        270.6365661621094
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 6,
+      "frame_id": "phase-0330_000250",
+      "proposal_index": 40,
+      "bbox": [
+        2529.185546875,
+        165.93484497070312,
+        2554.50537109375,
+        228.051513671875
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 7,
+      "frame_id": "phase-0330_000250",
+      "proposal_index": 41,
+      "bbox": [
+        4050.501708984375,
+        394.0389709472656,
+        4078.968017578125,
+        454.2770690917969
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 8,
+      "frame_id": "phase-0330_000400",
+      "proposal_index": 5,
+      "bbox": [
+        2372.274658203125,
+        167.66439819335938,
+        2389.69970703125,
+        205.02305603027344
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 9,
+      "frame_id": "phase-0330_000400",
+      "proposal_index": 6,
+      "bbox": [
+        2373.217529296875,
+        161.57542419433594,
+        2387.75830078125,
+        189.726806640625
+      ],
+      "predicted_role": "steward",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 10,
+      "frame_id": "phase-0330_000400",
+      "proposal_index": 12,
+      "bbox": [
+        2138.439208984375,
+        132.68392944335938,
+        2153.525390625,
+        152.41517639160156
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 11,
+      "frame_id": "phase-0330_000400",
+      "proposal_index": 23,
+      "bbox": [
+        2692.037109375,
+        223.04881286621094,
+        2714.20068359375,
+        278.8255615234375
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 12,
+      "frame_id": "phase-0330_000400",
+      "proposal_index": 24,
+      "bbox": [
+        2370.146728515625,
+        151.34730529785156,
+        2393.9150390625,
+        208.20333862304688
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 13,
+      "frame_id": "phase-0330_000400",
+      "proposal_index": 27,
+      "bbox": [
+        3139.851318359375,
+        254.45184326171875,
+        3157.491943359375,
+        291.6614685058594
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 14,
+      "frame_id": "phase-0330_000400",
+      "proposal_index": 28,
+      "bbox": [
+        2138.8681640625,
+        128.2000732421875,
+        2158.932861328125,
+        186.75860595703125
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 15,
+      "frame_id": "phase-0330_000400",
+      "proposal_index": 30,
+      "bbox": [
+        2100.748779296875,
+        128.9520721435547,
+        2113.88427734375,
+        155.80320739746094
+      ],
+      "predicted_role": "steward",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 16,
+      "frame_id": "phase-0750_000325",
+      "proposal_index": 2,
+      "bbox": [
+        1002.9994506835938,
+        277.4727783203125,
+        1020.2584228515625,
+        317.5730285644531
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 17,
+      "frame_id": "phase-0750_000325",
+      "proposal_index": 10,
+      "bbox": [
+        1059.790771484375,
+        343.12353515625,
+        1085.3345947265625,
+        411.01519775390625
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 18,
+      "frame_id": "phase-0750_000325",
+      "proposal_index": 13,
+      "bbox": [
+        684.4702758789062,
+        484.40802001953125,
+        723.5095825195312,
+        559.27197265625
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 19,
+      "frame_id": "phase-0750_000325",
+      "proposal_index": 15,
+      "bbox": [
+        1004.74755859375,
+        277.5025634765625,
+        1034.566650390625,
+        324.96832275390625
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 20,
+      "frame_id": "phase-0750_000325",
+      "proposal_index": 16,
+      "bbox": [
+        677.60693359375,
+        428.27142333984375,
+        707.2191772460938,
+        491.0416564941406
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 21,
+      "frame_id": "phase-0750_000325",
+      "proposal_index": 19,
+      "bbox": [
+        2048.372314453125,
+        207.1682586669922,
+        2064.0712890625,
+        265.1162109375
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 22,
+      "frame_id": "phase-0750_000325",
+      "proposal_index": 20,
+      "bbox": [
+        1136.9112548828125,
+        267.51348876953125,
+        1157.296142578125,
+        306.1936950683594
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 23,
+      "frame_id": "phase-0750_000325",
+      "proposal_index": 21,
+      "bbox": [
+        1069.593505859375,
+        259.9773864746094,
+        1089.7235107421875,
+        301.50714111328125
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 24,
+      "frame_id": "phase-0750_000325",
+      "proposal_index": 23,
+      "bbox": [
+        1046.925537109375,
+        268.3115234375,
+        1065.3865966796875,
+        319.6076354980469
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 25,
+      "frame_id": "phase-0750_000400",
+      "proposal_index": 2,
+      "bbox": [
+        749.0999145507812,
+        438.5867919921875,
+        775.9671020507812,
+        511.0978698730469
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 26,
+      "frame_id": "phase-0750_000400",
+      "proposal_index": 3,
+      "bbox": [
+        671.2295532226562,
+        427.2785949707031,
+        700.2142944335938,
+        485.98968505859375
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 27,
+      "frame_id": "phase-0750_000400",
+      "proposal_index": 4,
+      "bbox": [
+        802.9573364257812,
+        432.23614501953125,
+        834.7675170898438,
+        501.1093444824219
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 28,
+      "frame_id": "phase-0750_000400",
+      "proposal_index": 6,
+      "bbox": [
+        2137.85693359375,
+        582.658203125,
+        2184.6298828125,
+        726.3780517578125
+      ],
+      "predicted_role": "assistant_referee",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 29,
+      "frame_id": "phase-0750_000400",
+      "proposal_index": 7,
+      "bbox": [
+        2632.41357421875,
+        207.40048217773438,
+        2651.800048828125,
+        262.18646240234375
+      ],
+      "predicted_role": "referee",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 30,
+      "frame_id": "phase-0750_000400",
+      "proposal_index": 9,
+      "bbox": [
+        1115.7095947265625,
+        310.6579895019531,
+        1142.060302734375,
+        373.0904235839844
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 31,
+      "frame_id": "phase-0750_000400",
+      "proposal_index": 10,
+      "bbox": [
+        1029.2000732421875,
+        273.077880859375,
+        1044.91015625,
+        317.1380920410156
+      ],
+      "predicted_role": "steward",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 32,
+      "frame_id": "phase-0750_000400",
+      "proposal_index": 14,
+      "bbox": [
+        901.8519897460938,
+        326.7427062988281,
+        926.3455200195312,
+        392.5936584472656
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 33,
+      "frame_id": "phase-0750_000400",
+      "proposal_index": 16,
+      "bbox": [
+        1169.662353515625,
+        252.61187744140625,
+        1188.1029052734375,
+        298.2933654785156
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 34,
+      "frame_id": "phase-0960_000250",
+      "proposal_index": 2,
+      "bbox": [
+        2539.706787109375,
+        295.4369812011719,
+        2572.461181640625,
+        364.8732604980469
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 35,
+      "frame_id": "phase-0960_000250",
+      "proposal_index": 4,
+      "bbox": [
+        2964.43896484375,
+        275.8233947753906,
+        2982.9609375,
+        311.3560791015625
+      ],
+      "predicted_role": "steward",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 36,
+      "frame_id": "phase-0960_000250",
+      "proposal_index": 5,
+      "bbox": [
+        2183.927734375,
+        352.43804931640625,
+        2221.10791015625,
+        434.05548095703125
+      ],
+      "predicted_role": "steward",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 37,
+      "frame_id": "phase-0960_000250",
+      "proposal_index": 10,
+      "bbox": [
+        2420.0302734375,
+        153.38458251953125,
+        2434.800048828125,
+        182.6414794921875
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 38,
+      "frame_id": "phase-0960_000250",
+      "proposal_index": 11,
+      "bbox": [
+        2926.923828125,
+        237.88978576660156,
+        2946.900390625,
+        280.7577209472656
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 39,
+      "frame_id": "phase-0960_000250",
+      "proposal_index": 15,
+      "bbox": [
+        2540.038330078125,
+        320.1275329589844,
+        2564.6416015625,
+        365.06781005859375
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 40,
+      "frame_id": "phase-0960_000250",
+      "proposal_index": 17,
+      "bbox": [
+        2454.411865234375,
+        221.58006286621094,
+        2472.88525390625,
+        253.50265502929688
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 41,
+      "frame_id": "phase-0960_000250",
+      "proposal_index": 18,
+      "bbox": [
+        3058.134521484375,
+        324.4923095703125,
+        3077.159423828125,
+        367.84979248046875
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 42,
+      "frame_id": "phase-0960_000250",
+      "proposal_index": 33,
+      "bbox": [
+        3405.61279296875,
+        455.27197265625,
+        3440.302734375,
+        528.5531616210938
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 43,
+      "frame_id": "phase-0960_000250",
+      "proposal_index": 34,
+      "bbox": [
+        3724.2421875,
+        522.9878540039062,
+        3767.167724609375,
+        589.5441284179688
+      ],
+      "predicted_role": "assistant_referee",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 44,
+      "frame_id": "phase-0960_000250",
+      "proposal_index": 36,
+      "bbox": [
+        2451.8818359375,
+        173.83872985839844,
+        2479.509033203125,
+        255.52593994140625
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 45,
+      "frame_id": "phase-0960_000325",
+      "proposal_index": 0,
+      "bbox": [
+        2540.693359375,
+        181.04660034179688,
+        2560.235107421875,
+        220.27122497558594
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 46,
+      "frame_id": "phase-0960_000325",
+      "proposal_index": 4,
+      "bbox": [
+        2146.4970703125,
+        356.85345458984375,
+        2186.34814453125,
+        435.80633544921875
+      ],
+      "predicted_role": "steward",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 47,
+      "frame_id": "phase-0960_000325",
+      "proposal_index": 5,
+      "bbox": [
+        2562.93896484375,
+        234.66896057128906,
+        2588.84716796875,
+        288.9701232910156
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 48,
+      "frame_id": "phase-0960_000325",
+      "proposal_index": 11,
+      "bbox": [
+        2855.37451171875,
+        240.3179168701172,
+        2874.572021484375,
+        275.0902404785156
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 49,
+      "frame_id": "phase-0960_000325",
+      "proposal_index": 14,
+      "bbox": [
+        2771.966064453125,
+        178.4178466796875,
+        2787.791015625,
+        204.23712158203125
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 50,
+      "frame_id": "phase-0960_000325",
+      "proposal_index": 19,
+      "bbox": [
+        2339.220458984375,
+        262.8005065917969,
+        2358.18505859375,
+        302.5007019042969
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 51,
+      "frame_id": "phase-0960_000325",
+      "proposal_index": 32,
+      "bbox": [
+        2528.407958984375,
+        455.1568603515625,
+        2573.111083984375,
+        571.9585571289062
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 52,
+      "frame_id": "phase-1170_000025",
+      "proposal_index": 0,
+      "bbox": [
+        3662.725830078125,
+        524.9512939453125,
+        3702.65283203125,
+        590.8609619140625
+      ],
+      "predicted_role": "assistant_referee",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 53,
+      "frame_id": "phase-1170_000025",
+      "proposal_index": 1,
+      "bbox": [
+        2154.82177734375,
+        134.35830688476562,
+        2167.083740234375,
+        154.9364013671875
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 54,
+      "frame_id": "phase-1170_000025",
+      "proposal_index": 3,
+      "bbox": [
+        2086.995361328125,
+        147.39837646484375,
+        2100.74853515625,
+        170.83432006835938
+      ],
+      "predicted_role": "player",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 55,
+      "frame_id": "phase-1170_000025",
+      "proposal_index": 6,
+      "bbox": [
+        2288.302734375,
+        187.29031372070312,
+        2305.419921875,
+        230.59812927246094
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 56,
+      "frame_id": "phase-1170_000025",
+      "proposal_index": 7,
+      "bbox": [
+        2935.8759765625,
+        285.6416931152344,
+        2960.70556640625,
+        341.5013122558594
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 57,
+      "frame_id": "phase-1170_000025",
+      "proposal_index": 8,
+      "bbox": [
+        2711.549560546875,
+        183.83798217773438,
+        2726.838134765625,
+        216.08229064941406
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 58,
+      "frame_id": "phase-1170_000025",
+      "proposal_index": 10,
+      "bbox": [
+        2532.2490234375,
+        188.1793975830078,
+        2554.641845703125,
+        226.49835205078125
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 59,
+      "frame_id": "phase-1170_000025",
+      "proposal_index": 23,
+      "bbox": [
+        2350.08544921875,
+        178.88438415527344,
+        2374.611572265625,
+        235.69610595703125
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 60,
+      "frame_id": "phase-1170_000025",
+      "proposal_index": 24,
+      "bbox": [
+        2343.67724609375,
+        331.6815185546875,
+        2384.765869140625,
+        413.804443359375
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 61,
+      "frame_id": "phase-1170_000025",
+      "proposal_index": 28,
+      "bbox": [
+        3112.41015625,
+        241.81199645996094,
+        3130.88720703125,
+        277.2727966308594
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 62,
+      "frame_id": "phase-1170_000400",
+      "proposal_index": 0,
+      "bbox": [
+        3389.195068359375,
+        484.29376220703125,
+        3427.180419921875,
+        565.201171875
+      ],
+      "predicted_role": "steward",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 63,
+      "frame_id": "phase-1170_000400",
+      "proposal_index": 1,
+      "bbox": [
+        3227.74658203125,
+        437.67291259765625,
+        3262.298583984375,
+        518.109375
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 64,
+      "frame_id": "phase-1170_000400",
+      "proposal_index": 5,
+      "bbox": [
+        2965.39599609375,
+        312.1392822265625,
+        2988.81787109375,
+        364.9082946777344
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 65,
+      "frame_id": "phase-1170_000400",
+      "proposal_index": 6,
+      "bbox": [
+        2862.8779296875,
+        215.63070678710938,
+        2880.27587890625,
+        246.43312072753906
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 66,
+      "frame_id": "phase-1170_000400",
+      "proposal_index": 11,
+      "bbox": [
+        2786.95068359375,
+        275.0621337890625,
+        2814.396484375,
+        329.4783935546875
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 67,
+      "frame_id": "phase-1170_000400",
+      "proposal_index": 12,
+      "bbox": [
+        2672.321044921875,
+        229.56973266601562,
+        2697.80322265625,
+        289.0533447265625
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 68,
+      "frame_id": "phase-1170_000400",
+      "proposal_index": 27,
+      "bbox": [
+        3280.70654296875,
+        385.47125244140625,
+        3310.195068359375,
+        446.88909912109375
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 69,
+      "frame_id": "phase-1170_000400",
+      "proposal_index": 28,
+      "bbox": [
+        2641.841796875,
+        386.3227233886719,
+        2680.654296875,
+        463.2944030761719
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 70,
+      "frame_id": "phase-1170_000400",
+      "proposal_index": 29,
+      "bbox": [
+        2676.660888671875,
+        378.8733825683594,
+        2738.5244140625,
+        464.6242980957031
+      ],
+      "predicted_role": "assistant_referee",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 71,
+      "frame_id": "phase-1170_000400",
+      "proposal_index": 31,
+      "bbox": [
+        3746.960205078125,
+        538.4397583007812,
+        3784.962158203125,
+        599.9097900390625
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 72,
+      "frame_id": "phase-1170_000400",
+      "proposal_index": 32,
+      "bbox": [
+        1219.9969482421875,
+        243.31857299804688,
+        1240.3375244140625,
+        292.2895202636719
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 73,
+      "frame_id": "phase-1170_000400",
+      "proposal_index": 33,
+      "bbox": [
+        3214.352783203125,
+        269.7621154785156,
+        3236.3818359375,
+        317.1125183105469
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 74,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 0,
+      "bbox": [
+        3443.058837890625,
+        540.06982421875,
+        3479.317626953125,
+        614.7098999023438
+      ],
+      "predicted_role": "assistant_referee",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 75,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 4,
+      "bbox": [
+        2207.549560546875,
+        215.7168731689453,
+        2233.990234375,
+        276.9051208496094
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 76,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 5,
+      "bbox": [
+        2865.682373046875,
+        318.28204345703125,
+        2899.7470703125,
+        387.0250244140625
+      ],
+      "predicted_role": "steward",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 77,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 12,
+      "bbox": [
+        2747.91357421875,
+        229.243408203125,
+        2763.862548828125,
+        263.61077880859375
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 78,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 13,
+      "bbox": [
+        2873.677490234375,
+        396.0194091796875,
+        2907.7265625,
+        476.65411376953125
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 79,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 14,
+      "bbox": [
+        1969.0902099609375,
+        321.1719055175781,
+        2001.829833984375,
+        403.49969482421875
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 80,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 17,
+      "bbox": [
+        2367.6064453125,
+        301.88568115234375,
+        2403.1083984375,
+        372.44500732421875
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 81,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 18,
+      "bbox": [
+        2283.2705078125,
+        278.0631103515625,
+        2311.6005859375,
+        334.3836669921875
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 82,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 20,
+      "bbox": [
+        2013.95458984375,
+        211.20025634765625,
+        2036.870361328125,
+        260.67694091796875
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 83,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 21,
+      "bbox": [
+        1967.173583984375,
+        445.9669494628906,
+        2001.032958984375,
+        522.3331298828125
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 84,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 23,
+      "bbox": [
+        3049.10400390625,
+        390.8004150390625,
+        3077.248779296875,
+        463.9671325683594
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 85,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 37,
+      "bbox": [
+        2129.833740234375,
+        507.7936096191406,
+        2170.64892578125,
+        635.7697143554688
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 86,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 38,
+      "bbox": [
+        2125.017333984375,
+        393.73504638671875,
+        2170.7490234375,
+        495.5314025878906
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 87,
+      "frame_id": "phase-1380_000025",
+      "proposal_index": 40,
+      "bbox": [
+        3454.766357421875,
+        341.3846435546875,
+        3472.31005859375,
+        379.3155212402344
+      ],
+      "predicted_role": "player",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 88,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 0,
+      "bbox": [
+        2323.517333984375,
+        368.4159240722656,
+        2353.971435546875,
+        427.393798828125
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 89,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 3,
+      "bbox": [
+        2205.11376953125,
+        160.75184631347656,
+        2221.745849609375,
+        191.23098754882812
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 90,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 5,
+      "bbox": [
+        2321.193359375,
+        324.2467041015625,
+        2359.12353515625,
+        407.8144226074219
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 91,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 6,
+      "bbox": [
+        2658.744384765625,
+        389.4287414550781,
+        2696.244384765625,
+        467.1963195800781
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 92,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 8,
+      "bbox": [
+        1737.8126220703125,
+        465.81494140625,
+        1773.5235595703125,
+        537.545654296875
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 93,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 12,
+      "bbox": [
+        2937.66259765625,
+        396.8634338378906,
+        2970.193359375,
+        479.2910461425781
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 94,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 13,
+      "bbox": [
+        2872.071044921875,
+        338.5770568847656,
+        2905.27734375,
+        413.6841735839844
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 95,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 14,
+      "bbox": [
+        2734.146484375,
+        323.8377685546875,
+        2767.884033203125,
+        403.5423278808594
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 96,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 15,
+      "bbox": [
+        1830.352783203125,
+        540.6282958984375,
+        1868.3653564453125,
+        618.3665771484375
+      ],
+      "predicted_role": "steward",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 97,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 17,
+      "bbox": [
+        2056.9619140625,
+        353.2505798339844,
+        2092.40380859375,
+        428.7994079589844
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 98,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 18,
+      "bbox": [
+        2058.458984375,
+        385.35302734375,
+        2090.82373046875,
+        441.99261474609375
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 99,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 20,
+      "bbox": [
+        2659.626953125,
+        417.4317626953125,
+        2687.5263671875,
+        492.516845703125
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 100,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 37,
+      "bbox": [
+        1738.88134765625,
+        468.4309387207031,
+        1783.52978515625,
+        579.9222412109375
+      ],
+      "predicted_role": "steward",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 101,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 38,
+      "bbox": [
+        1828.273681640625,
+        539.0531616210938,
+        1877.5096435546875,
+        678.2720336914062
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 102,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 39,
+      "bbox": [
+        1891.701416015625,
+        616.2427368164062,
+        1949.8466796875,
+        774.0068359375
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 103,
+      "frame_id": "phase-1380_000175",
+      "proposal_index": 40,
+      "bbox": [
+        1155.4703369140625,
+        282.46942138671875,
+        1178.674072265625,
+        335.4416809082031
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 104,
+      "frame_id": "phase-1590_000175",
+      "proposal_index": 2,
+      "bbox": [
+        1911.6297607421875,
+        223.9878387451172,
+        1941.1083984375,
+        291.24603271484375
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 105,
+      "frame_id": "phase-1590_000175",
+      "proposal_index": 5,
+      "bbox": [
+        2362.001708984375,
+        187.57456970214844,
+        2381.94482421875,
+        225.47769165039062
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 106,
+      "frame_id": "phase-1590_000175",
+      "proposal_index": 7,
+      "bbox": [
+        2892.797607421875,
+        362.18438720703125,
+        2930.34228515625,
+        432.78680419921875
+      ],
+      "predicted_role": "steward",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 107,
+      "frame_id": "phase-1590_000175",
+      "proposal_index": 9,
+      "bbox": [
+        1914.0509033203125,
+        220.71954345703125,
+        1938.916748046875,
+        259.5770263671875
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 108,
+      "frame_id": "phase-1590_000175",
+      "proposal_index": 11,
+      "bbox": [
+        3361.34130859375,
+        551.343505859375,
+        3398.77978515625,
+        622.8973999023438
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 109,
+      "frame_id": "phase-1590_000175",
+      "proposal_index": 14,
+      "bbox": [
+        2014.6337890625,
+        187.4766387939453,
+        2029.281005859375,
+        217.71771240234375
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 110,
+      "frame_id": "phase-1590_000175",
+      "proposal_index": 15,
+      "bbox": [
+        1665.4412841796875,
+        393.6187438964844,
+        1704.6724853515625,
+        469.56640625
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 111,
+      "frame_id": "phase-1590_000175",
+      "proposal_index": 33,
+      "bbox": [
+        2044.3385009765625,
+        185.81687927246094,
+        2066.222412109375,
+        235.7781982421875
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 112,
+      "frame_id": "phase-1590_000175",
+      "proposal_index": 35,
+      "bbox": [
+        1890.210205078125,
+        127.06461334228516,
+        1907.693603515625,
+        167.6857147216797
+      ],
+      "predicted_role": "player",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 113,
+      "frame_id": "phase-1590_000325",
+      "proposal_index": 2,
+      "bbox": [
+        2734.371337890625,
+        348.526611328125,
+        2768.897705078125,
+        421.0318298339844
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 114,
+      "frame_id": "phase-1590_000325",
+      "proposal_index": 4,
+      "bbox": [
+        2049.312255859375,
+        152.03050231933594,
+        2063.56396484375,
+        180.7342529296875
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 115,
+      "frame_id": "phase-1590_000325",
+      "proposal_index": 6,
+      "bbox": [
+        1827.470458984375,
+        183.7810516357422,
+        1845.9761962890625,
+        225.00924682617188
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 116,
+      "frame_id": "phase-1590_000325",
+      "proposal_index": 7,
+      "bbox": [
+        3377.187744140625,
+        556.8402709960938,
+        3415.741943359375,
+        626.3283081054688
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 117,
+      "frame_id": "phase-1590_000325",
+      "proposal_index": 8,
+      "bbox": [
+        2284.333984375,
+        276.9272155761719,
+        2321.510986328125,
+        353.14508056640625
+      ],
+      "predicted_role": "steward",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 118,
+      "frame_id": "phase-1590_000325",
+      "proposal_index": 12,
+      "bbox": [
+        1720.0419921875,
+        203.39019775390625,
+        1741.1485595703125,
+        246.1530303955078
+      ],
+      "predicted_role": "spectator",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 119,
+      "frame_id": "phase-1590_000325",
+      "proposal_index": 13,
+      "bbox": [
+        1677.1912841796875,
+        370.44189453125,
+        1711.8052978515625,
+        439.9220886230469
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 120,
+      "frame_id": "phase-1590_000325",
+      "proposal_index": 14,
+      "bbox": [
+        2003.303955078125,
+        189.1411590576172,
+        2019.6998291015625,
+        230.78575134277344
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 121,
+      "frame_id": "phase-1590_000325",
+      "proposal_index": 15,
+      "bbox": [
+        2099.37255859375,
+        152.24127197265625,
+        2112.660400390625,
+        175.9963836669922
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 122,
+      "frame_id": "phase-1590_000325",
+      "proposal_index": 34,
+      "bbox": [
+        2309.985107421875,
+        146.0181427001953,
+        2326.53076171875,
+        186.46827697753906
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    },
+    {
+      "index": 123,
+      "frame_id": "phase-1590_000325",
+      "proposal_index": 36,
+      "bbox": [
+        2355.9775390625,
+        132.3545684814453,
+        2374.567138671875,
+        170.36114501953125
+      ],
+      "predicted_role": "player",
+      "outside_approximate_polygon": true
+    },
+    {
+      "index": 124,
+      "frame_id": "phase-1590_000325",
+      "proposal_index": 37,
+      "bbox": [
+        1915.3785400390625,
+        145.28480529785156,
+        1936.2701416015625,
+        185.15280151367188
+      ],
+      "predicted_role": "person",
+      "outside_approximate_polygon": false
+    }
+  ]
+}

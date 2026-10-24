@@ -157,19 +157,66 @@ def scores(target, predicted, names):
     }
 
 
-def train(output, fine_tune=False, encoder_checkpoint=None):
+def load_training_manifest(path):
+    """Explicit extension data must preserve its own train/val groups and source bytes."""
+    path = Path(path).resolve()
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if (data.get("human_review_completed") is not False
+            or data.get("review_policy") != "provisional_ai_visual"
+            or data.get("role_names") != ROLE_NAMES or data.get("team_names") != TEAM_NAMES):
+        raise ValueError("Extension manifest must disclose provisional AI labels and actual class names")
+    groups, images, identifiers, dimensions = {}, {}, set(), {}
+    for row in data["samples"]:
+        if row["split"] not in {"train", "val"}:
+            raise ValueError("Role development training must never open reserved test images")
+        if row["id"] in identifiers or row["role"] not in ROLE_NAMES:
+            raise ValueError("Duplicate crop identity or invalid role")
+        identifiers.add(row["id"])
+        if row.get("team") is not None and (row["role"] != "player" or row["team"] not in TEAM_NAMES):
+            raise ValueError("Only verified player crops may have a supervised team label")
+        if groups.setdefault(row["group"], row["split"]) != row["split"]:
+            raise ValueError("Source group crosses training/validation")
+        image = (path.parent / row["image"]).resolve()
+        if not image.is_relative_to(ROOT) or sha256_file(image) != row["image_sha256"]:
+            raise ValueError("Source image identity changed or points outside the project")
+        if images.setdefault(str(image), row["split"]) != row["split"]:
+            raise ValueError("Source image crosses training/validation")
+        if len(row["bbox"]) != 4 or not np.isfinite(row["bbox"]).all():
+            raise ValueError("Invalid crop box")
+        if str(image) not in dimensions:
+            pixels = cv2.imread(str(image))
+            if pixels is None:
+                raise ValueError("Unreadable source image")
+            dimensions[str(image)] = pixels.shape[:2]
+        height, width = dimensions[str(image)]
+        x1, y1, x2, y2 = row["bbox"]
+        if not (0 <= x1 < x2 <= width and 0 <= y1 < y2 <= height):
+            raise ValueError("Crop box outside its source image")
+    return data
+
+
+def supervised_team_videos(rows, base):
+    # Role-only additions never make a new match eligible for a trained team head.
+    return sorted({r["video_id"] for r in base["frames"]}
+                  | {r["video_sha256"] for r in rows if r.get("video_sha256") and r.get("team") is not None})
+
+
+def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, fine_tune_blocks=3):
     torch.manual_seed(42)
     np.random.seed(42)
     torch.set_num_threads(4)
     os.environ.setdefault("TORCH_HOME", str(ROOT / ".cache/torch"))
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
-    data = build()
+    explicit_manifest = manifest_path is not None
+    manifest_path = Path(manifest_path).resolve() if explicit_manifest else DATA / "manifest.json"
+    data = load_training_manifest(manifest_path) if explicit_manifest else build()
+    data_root = manifest_path.parent
     rows = data["samples"]
     # Label-preserving photo augmentation stays within each source's original training group.
     extra = []
     for r in rows:
-        if r["split"] == "train" and r["image"].startswith("sources/"):
+        if r["split"] == "train" and r.get("augment_training_crops", r["image"].startswith("sources/")):
             extra.extend({**r, "id": r["id"] + f":aug{a}", "augmentation": a} for a in range(1, 6))
     rows = rows + extra
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -188,7 +235,7 @@ def train(output, fine_tune=False, encoder_checkpoint=None):
             colours = []
             for r in batch:
                 if r["image"] not in images:
-                    images[r["image"]] = cv2.imread(str(DATA / r["image"]))
+                    images[r["image"]] = cv2.imread(str(data_root / r["image"]))
                 im = images[r["image"]]
                 tensor = crop_tensor(im, r["bbox"])
                 augmentation = r.get("augmentation", 0)
@@ -225,7 +272,10 @@ def train(output, fine_tune=False, encoder_checkpoint=None):
         # Adapt only the last three feature blocks; retain batch-normalization running statistics.
         for parameter in encoder.parameters():
             parameter.requires_grad = False
-        for block in list(encoder[0].children())[-3:]:
+        if fine_tune_blocks not in (0, 1, 3):
+            raise ValueError("Choose 0, 1 or 3 trainable backbone blocks")
+        blocks = list(encoder[0].children())[-fine_tune_blocks:] if fine_tune_blocks else []
+        for block in blocks:
             for parameter in block.parameters():
                 parameter.requires_grad = True
         warm = torch.load(
@@ -390,10 +440,7 @@ def train(output, fine_tune=False, encoder_checkpoint=None):
         "role_colour_scale": 8.0,
         "role_names": ROLE_NAMES,
         "team_names": TEAM_NAMES,
-        "team_video_hashes": sorted(
-            {r["video_id"] for r in base["frames"]}
-            | {r["video_sha256"] for r in rows if r.get("video_sha256")}
-        ),
+        "team_video_hashes": supervised_team_videos(rows, base),
     }
     path = output / "roles_teams.pt"
     torch.save(state, path)
@@ -401,7 +448,7 @@ def train(output, fine_tune=False, encoder_checkpoint=None):
         output / "metrics.json",
         {
             "kind": "conditional ground-truth crop classification, not detection mAP",
-            "dataset_sha256": sha256_file(DATA / "manifest.json"),
+            "dataset_sha256": sha256_file(manifest_path),
             "device": device,
             "gpu": torch.cuda.get_device_name() if device != "cpu" else None,
             "runtime_s": time.perf_counter() - started,
@@ -421,5 +468,7 @@ if __name__ == "__main__":
     parser.add_argument("--output", default="runs/appearance/EXP-R001")
     parser.add_argument("--fine-tune", action="store_true")
     parser.add_argument("--encoder-checkpoint")
+    parser.add_argument("--manifest", help="Separate reviewed AI development manifest; preserves the base dataset")
+    parser.add_argument("--fine-tune-blocks", type=int, choices=(0, 1, 3), default=3)
     args = parser.parse_args()
-    train(args.output, args.fine_tune, args.encoder_checkpoint)
+    train(args.output, args.fine_tune, args.encoder_checkpoint, args.manifest, args.fine_tune_blocks)

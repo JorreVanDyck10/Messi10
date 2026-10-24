@@ -17,11 +17,11 @@ from .modeling import yolo
 from .role_training import ROOT, save
 
 
-def run(video_path, output, frames=30):
+def run(video_path, output, frames=30, model_manifest_path=None):
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
     yolo(ROOT / "models/yolo11n.pt")
-    config = load_model_manifest(ROOT / "configs/models-players.json")
+    config = load_model_manifest(model_manifest_path or ROOT / "configs/models-players.json")
     detector = UltralyticsDetector(config)
     video = inspect_video(video_path)
     detector.set_video_identity(video.sha256)
@@ -74,7 +74,8 @@ if __name__ == "__main__":
     p.add_argument("--video", required=True)
     p.add_argument("--output", required=True)
     p.add_argument("--frames", type=int, default=30)
+    p.add_argument("--models")
     args = p.parse_args()
     if args.frames < 1:
         raise ValueError("Choose at least one source frame")
-    run(args.video, args.output, args.frames)
+    run(args.video, args.output, args.frames, args.models)
