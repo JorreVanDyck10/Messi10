@@ -1,3 +1,5 @@
+> **Samenwerken met drie personen:** de actuele taakverdeling geeft persoon 1 data en modellen, persoon 2 veldherkenning en projectie, en persoon 3 teams, tracking en integratie. Inclusief concrete taken, bestanden, overdrachten, review en acceptatie. [Werkverdeling voor drie personen](docs/Werkverdeling_3_Personen.md).
+
 > **Teamindeling en dubbele boxen verbeterd:** de gezamenlijke rolpipeline houdt op dezelfde validatiebeelden vijf foutieve spelersdetecties minder over, met behoud van de correcte detecties. De kleurindeling voor nieuwe video's is opnieuw gemeten en aangepast. Deze softwareverbeteringen werken ook in het standaardprofiel R007. [Voor/na, voorbeelden en beperkingen](docs/Verbetering_Teams_en_Boxen.md).
 
 > **Nieuwe dataronde uitgevoerd:** 111 extra rolcrops, twee echte roltrainingen en twee echte ballentrainingen. R009 verbetert spelers/officials, met afwegingen bij andere rollen; kies het met `scripts/Start-Wedstrijd.ps1 -Recognition roles-r009`. R007 blijft standaard. [Nieuwe metingen, fouten en reproductie](docs/Resultaten_Extra_Dataronde.md).
