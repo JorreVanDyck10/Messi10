@@ -4,6 +4,7 @@ Deze selecties staan samen met de video's, bronbeelden en labels in de repositor
 
 | Selectie | Fragment | Gelabelde beelden | Persoonsboxen | Balboxen |
 | --- | --- | ---: | ---: | ---: |
+| [50 extra volledige scènes](football-fullscene50/README.md) | 50 nieuwe volledige 4096 × 1080-beelden | 50 | 1.451 | 250 |
 | [20 extra volledige scènes](football-fullscene20/README.md) | 20 nieuwe volledige 4096 × 1080-beelden | 20 | 579 | 100 |
 | [Volledige scène, ook doelen en hoekvlaggen](football-fullscene16/README.md) | 16 nieuwe volledige 4096 × 1080-beelden | 16 | 457 | 82 |
 | [Volledige originele frames](football-fullframe40/README.md) | 8 tijdgroepen; onbewerkte 4096 × 1080-beelden | 40 | 923 | 192 |
@@ -13,7 +14,7 @@ Deze selecties staan samen met de video's, bronbeelden en labels in de repositor
 
 Per map vind je `images/`, `labels/`, `annotations.coco.json`, `manifest.json` en `previews/`. De README in iedere map linkt naar het juiste MP4-fragment en geeft de geselecteerde tijden, bronverwijzingen, labelregels en het commando om de opgeslagen labels in de lokale editor te openen.
 
-**Klassen:** `football-fullscene16` en `football-fullscene20` hebben acht klassen: spelers, ballen, scheidsrechters, overige personen, publieksgroepen, doelen, hoekvlaggen en groepen opgeborgen doelen. `football-fullframe40` gebruikt YOLO 0 = `player`, 1 = `ball`, 2 = `referee`; COCO 1, 2, 3. De oudere selecties gebruiken YOLO 0 = `person`, 1 = `ball`; COCO 1 = `person`, 2 = `ball`. Koppel beelden en YOLO-labels op hun identieke bestandsstam. Coördinaten in YOLO zijn genormaliseerd; COCO gebruikt pixels van het opgeslagen invoerbeeld. In de tabel tellen persoonsboxen de afzonderlijk gelabelde personen; groepsboxen zijn daar niet bij opgeteld.
+**Klassen:** `football-fullscene16`, `football-fullscene20` en `football-fullscene50` hebben acht klassen: spelers, ballen, scheidsrechters, overige personen, publieksgroepen, doelen, hoekvlaggen en groepen opgeborgen doelen. `football-fullframe40` gebruikt YOLO 0 = `player`, 1 = `ball`, 2 = `referee`; COCO 1, 2, 3. De oudere selecties gebruiken YOLO 0 = `person`, 1 = `ball`; COCO 1 = `person`, 2 = `ball`. Koppel beelden en YOLO-labels op hun identieke bestandsstam. Coördinaten in YOLO zijn genormaliseerd; COCO gebruikt pixels van het opgeslagen invoerbeeld. In de tabel tellen persoonsboxen de afzonderlijk gelabelde personen; groepsboxen zijn daar niet bij opgeteld.
 
 De video is het invoerfragment. De genoemde geselecteerde beelden zijn geannoteerd; de clips hebben geen doorlopende labels voor elk frame. Boxaantallen tellen instanties per beeld en zijn geen aantallen unieke objecten. De panorama-selectie bevat ook zichtbare reserveballen.
 
@@ -26,3 +27,5 @@ Voor training op **volledige ongewijzigde frames** gebruik je [football-fullfram
 De uitbreiding [football-fullscene16](football-fullscene16/README.md) bevat 16 andere bronframes met 12 train en 4 val. Ook overige personen, publieksgroepen, doelen en hoekvlaggen zijn meegenomen. Gebruik de eigen `data.yaml` voor deze acht klassen; oudere beelden missen de nieuwe objectklassen en mogen voor die taak niet zonder aanvullende annotaties worden meegemengd.
 
 De uitbreiding [football-fullscene20](football-fullscene20/README.md) voegt nog 20 nieuwe volledige beelden met 979 boxen toe (15 train, 5 val). Gebruik `football-fullscene20/data-combined36.yaml` om deze samen met de vorige 16 scènes te trainen: 36 beelden, 27 train en 9 val, met dezelfde acht klassen en behouden tijdgroepen.
+
+De uitbreiding [football-fullscene50](football-fullscene50/README.md) voegt 50 nieuwe volledige beelden met 2.451 boxen toe (38 train, 12 val). Met `football-fullscene50/data-combined86.yaml` gebruik je deze samen met de vorige 36 scènes: 86 beelden, 65 train en 21 val, met dezelfde acht klassen en behouden tijdgroepen.
