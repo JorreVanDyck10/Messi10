@@ -28,3 +28,4 @@ assets/annotations/football-fullframe40/images/**/*.png filter=lfs diff=lfs merg
 assets/annotations/football-fullscene16/images/**/*.png filter=lfs diff=lfs merge=lfs -text
 assets/annotations/football-fullscene20/images/**/*.png filter=lfs diff=lfs merge=lfs -text
 assets/annotations/football-fullscene50/images/**/*.png filter=lfs diff=lfs merge=lfs -text
+assets/annotations/football-fullscene60/images/**/*.png filter=lfs diff=lfs merge=lfs -text
