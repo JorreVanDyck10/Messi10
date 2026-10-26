@@ -4,6 +4,8 @@
 
 ## Historische uitvoeringsnotities
 
+De laatste synchronisatie bevat daarnaast 130 volledige beelden uit drie nieuwe leveringen. Hun technische validators en dataloaders slagen eveneens. Er staan nu 146 achtklassenbeelden en daarnaast 40 drieklassenbeelden; de aanvullende 130 zijn niet gebruikt in de al afgeronde trainingen of in de genoemde 14-frame-balmeting. Zie het actuele verslag voor de precieze scopes.
+
 **Actuele rol-/teamuitbreiding:** [R007 is werkelijk getraind en geïntegreerd](Resultaten_Rollen_en_Teams.md), inclusief extra bronbeelden, echte validatie en een aparte overdracht. Spelers krijgen A/B of onbekend. Supporters en kleine centrale officials blijven zwak; er is geen universele betrouwbare rolherkenning of menselijke review geclaimd. Het tweeklassenprofiel blijft als basisprofiel bewaard.
 
 **Nieuwe speleroplevering:** [TeamTrack-spelermodel, dataset, echte metingen en overdracht](Resultaten_Spelermodel.md). Het standaardprofiel gebruikt nu `player`/`referee`; de onderstaande balstatus blijft als afzonderlijk experiment gelden. Er is nog geen volledige verre officialdekking of onafhankelijke projecteindtest.

@@ -1,0 +1,416 @@
+{
+  "recorded_at": "2026-10-26T20:45:15.107512+00:00",
+  "published_asset_revision": "e2d8f867bf8b7b35ef85a2f4ce9cd2dd019adcbc",
+  "new_lfs_storage": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\.cache\\remote-lfs-person1-round3-e2d8f86",
+  "files": [
+    {
+      "path": "artifacts/appearance-v3/roles_teams_r011.pt",
+      "sha256": "0d1e2baabd4d8ed6e268a77bb616bcf974bf1b12b2406105dde837beb488b420",
+      "bytes": 3853678,
+      "kind": "crop_role_classifier",
+      "actual_role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "role_colour_scale": 8.0
+    },
+    {
+      "path": "artifacts/appearance-v3/roles_teams_r012.pt",
+      "sha256": "ad74a6f0eee85ac4cac48b601ee7e6ab2c0fb7990e2b56ad8d09ef508f55813e",
+      "bytes": 3853678,
+      "kind": "crop_role_classifier",
+      "actual_role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "role_colour_scale": 8.0
+    },
+    {
+      "path": "artifacts/appearance-v3/roles_teams_r013.pt",
+      "sha256": "8a0e50f0840bf6f840a089f5d03285c675c39c8f934da90c028323d57fde379a",
+      "bytes": 3853678,
+      "kind": "crop_role_classifier",
+      "actual_role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "role_colour_scale": 1.0
+    },
+    {
+      "path": "artifacts/appearance-v3/roles_teams_r014.pt",
+      "sha256": "16cf4e1ffb87ecb1be7b9b5c6f06725b5e238ab69aa76a2ea636588297f98010",
+      "bytes": 3853678,
+      "kind": "crop_role_classifier",
+      "actual_role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "role_colour_scale": 8.0
+    },
+    {
+      "path": "artifacts/appearance-v3/roles_teams_r015.pt",
+      "sha256": "6ab7a9d2e8273153591c5d251a980f399dcda955a9d94af7b30238e8edfcf53c",
+      "bytes": 3853934,
+      "kind": "crop_role_classifier",
+      "actual_role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "role_colour_scale": 8.0
+    },
+    {
+      "path": "artifacts/appearance-v3/roles_teams_r016.pt",
+      "sha256": "b1706eda279ba5a8cabe896d88bbd8449739013a2fbcbe17aa5c9e014469b91d",
+      "bytes": 3853678,
+      "kind": "crop_role_classifier",
+      "actual_role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "role_colour_scale": 8.0
+    },
+    {
+      "path": "artifacts/football48-ball-v2/EXP-F003-best.pt",
+      "sha256": "1aa203d2971ad582da9631ce54ad5cb057aa79667a064d8a0c771805b4ce0fa4",
+      "bytes": 5592147,
+      "kind": "yolo_detector",
+      "actual_names": {
+        "0": "person",
+        "1": "bicycle",
+        "2": "car",
+        "3": "motorcycle",
+        "4": "airplane",
+        "5": "bus",
+        "6": "train",
+        "7": "truck",
+        "8": "boat",
+        "9": "traffic light",
+        "10": "fire hydrant",
+        "11": "stop sign",
+        "12": "parking meter",
+        "13": "bench",
+        "14": "bird",
+        "15": "cat",
+        "16": "dog",
+        "17": "horse",
+        "18": "sheep",
+        "19": "cow",
+        "20": "elephant",
+        "21": "bear",
+        "22": "zebra",
+        "23": "giraffe",
+        "24": "backpack",
+        "25": "umbrella",
+        "26": "handbag",
+        "27": "tie",
+        "28": "suitcase",
+        "29": "frisbee",
+        "30": "skis",
+        "31": "snowboard",
+        "32": "sports ball",
+        "33": "kite",
+        "34": "baseball bat",
+        "35": "baseball glove",
+        "36": "skateboard",
+        "37": "surfboard",
+        "38": "tennis racket",
+        "39": "bottle",
+        "40": "wine glass",
+        "41": "cup",
+        "42": "fork",
+        "43": "knife",
+        "44": "spoon",
+        "45": "bowl",
+        "46": "banana",
+        "47": "apple",
+        "48": "sandwich",
+        "49": "orange",
+        "50": "broccoli",
+        "51": "carrot",
+        "52": "hot dog",
+        "53": "pizza",
+        "54": "donut",
+        "55": "cake",
+        "56": "chair",
+        "57": "couch",
+        "58": "potted plant",
+        "59": "bed",
+        "60": "dining table",
+        "61": "toilet",
+        "62": "tv",
+        "63": "laptop",
+        "64": "mouse",
+        "65": "remote",
+        "66": "keyboard",
+        "67": "cell phone",
+        "68": "microwave",
+        "69": "oven",
+        "70": "toaster",
+        "71": "sink",
+        "72": "refrigerator",
+        "73": "book",
+        "74": "clock",
+        "75": "vase",
+        "76": "scissors",
+        "77": "teddy bear",
+        "78": "hair drier",
+        "79": "toothbrush"
+      }
+    },
+    {
+      "path": "artifacts/football48-ball-v2/EXP-F004-best.pt",
+      "sha256": "2d3b00417a8ea19c4506c5daf09436542a611d32ca30e653e6e62251dee4b408",
+      "bytes": 5591891,
+      "kind": "yolo_detector",
+      "actual_names": {
+        "0": "person",
+        "1": "bicycle",
+        "2": "car",
+        "3": "motorcycle",
+        "4": "airplane",
+        "5": "bus",
+        "6": "train",
+        "7": "truck",
+        "8": "boat",
+        "9": "traffic light",
+        "10": "fire hydrant",
+        "11": "stop sign",
+        "12": "parking meter",
+        "13": "bench",
+        "14": "bird",
+        "15": "cat",
+        "16": "dog",
+        "17": "horse",
+        "18": "sheep",
+        "19": "cow",
+        "20": "elephant",
+        "21": "bear",
+        "22": "zebra",
+        "23": "giraffe",
+        "24": "backpack",
+        "25": "umbrella",
+        "26": "handbag",
+        "27": "tie",
+        "28": "suitcase",
+        "29": "frisbee",
+        "30": "skis",
+        "31": "snowboard",
+        "32": "sports ball",
+        "33": "kite",
+        "34": "baseball bat",
+        "35": "baseball glove",
+        "36": "skateboard",
+        "37": "surfboard",
+        "38": "tennis racket",
+        "39": "bottle",
+        "40": "wine glass",
+        "41": "cup",
+        "42": "fork",
+        "43": "knife",
+        "44": "spoon",
+        "45": "bowl",
+        "46": "banana",
+        "47": "apple",
+        "48": "sandwich",
+        "49": "orange",
+        "50": "broccoli",
+        "51": "carrot",
+        "52": "hot dog",
+        "53": "pizza",
+        "54": "donut",
+        "55": "cake",
+        "56": "chair",
+        "57": "couch",
+        "58": "potted plant",
+        "59": "bed",
+        "60": "dining table",
+        "61": "toilet",
+        "62": "tv",
+        "63": "laptop",
+        "64": "mouse",
+        "65": "remote",
+        "66": "keyboard",
+        "67": "cell phone",
+        "68": "microwave",
+        "69": "oven",
+        "70": "toaster",
+        "71": "sink",
+        "72": "refrigerator",
+        "73": "book",
+        "74": "clock",
+        "75": "vase",
+        "76": "scissors",
+        "77": "teddy bear",
+        "78": "hair drier",
+        "79": "toothbrush"
+      }
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/bohemians-fans.jpg",
+      "sha256": "334c5fffca284a16733349d365998d0ab075e87bfcbb7a440ce0387e18562706",
+      "bytes": 856805,
+      "kind": "source_image",
+      "decoded_size": [
+        1920,
+        1277
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/event-stewards-2010.jpg",
+      "sha256": "972d6353eaaa537e40b7041a24657bb4900b2ae9e79a0249750cae0092d58c4c",
+      "bytes": 805085,
+      "kind": "source_image",
+      "decoded_size": [
+        1920,
+        2880
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/event-stewards-2012.jpg",
+      "sha256": "6d5483263f99ba2f94e9a44f360fe77506ac06676ec166693155c762a63a50fc",
+      "bytes": 1485014,
+      "kind": "source_image",
+      "decoded_size": [
+        1400,
+        1050
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/faroe-fans.jpg",
+      "sha256": "1096cd391ada985969d25b6c3ad8a037e04c84e25d8e86234000938e05bcd5d3",
+      "bytes": 739814,
+      "kind": "source_image",
+      "decoded_size": [
+        1920,
+        1440
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/grand-rapids.jpg",
+      "sha256": "6ade885962386f97de8f9b00ba84c73c5dc0f0395866b9f4d9111f22f051269f",
+      "bytes": 686260,
+      "kind": "source_image",
+      "decoded_size": [
+        1920,
+        1152
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/japan-audience.jpg",
+      "sha256": "dc2457f4e209d72f8cccd631f583de2d48d281e261b2a253b8f5a1dccc5ba092",
+      "bytes": 459136,
+      "kind": "source_image",
+      "decoded_size": [
+        1024,
+        680
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/leverkusen-fans.jpg",
+      "sha256": "ed60f5b4376ab08628fada59e5951df24a7d811a551edba8dd369cc230942bda",
+      "bytes": 711191,
+      "kind": "source_image",
+      "decoded_size": [
+        1920,
+        1440
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/nz-canada-frame0.jpg",
+      "sha256": "ffef76388dd5636386c525e59d7445b624c556d0c7ba33270e7d5c5ad5860b05",
+      "bytes": 231314,
+      "kind": "source_image",
+      "decoded_size": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/portugal-stewards.jpg",
+      "sha256": "01a73c2f5049f21cd1f20310e4ec193e0cd185e8ac328e52969c6e579f4c25d4",
+      "bytes": 819319,
+      "kind": "source_image",
+      "decoded_size": [
+        1920,
+        1278
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/seattle-portland.jpg",
+      "sha256": "679efe9dc70ae2eb77542d403a0e2bd7baa3127cd9d4ad40a6aec2c3cd03dfb4",
+      "bytes": 763849,
+      "kind": "source_image",
+      "decoded_size": [
+        1920,
+        1285
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/shimizu-fans.jpg",
+      "sha256": "853fa22656a69b5227bb198cb2d94433c8a67415ca2d9a204e8f9323dcca2648",
+      "bytes": 796973,
+      "kind": "source_image",
+      "decoded_size": [
+        1920,
+        1440
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/sosnowiec-night.jpg",
+      "sha256": "ba7bdde60b825c99377ccf327c0387aba3994abdb8818c753f17ca1cfe9f123f",
+      "bytes": 467269,
+      "kind": "source_image",
+      "decoded_size": [
+        1920,
+        782
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/sweden-u21-fans.jpg",
+      "sha256": "15e09cded357fbd64a068a36ec88287fba89cd95c319d2d12ca38ddf2ce35b89",
+      "bytes": 643915,
+      "kind": "source_image",
+      "decoded_size": [
+        1920,
+        926
+      ]
+    },
+    {
+      "path": "datasets/roles-teams-v3/sources/us-venezuela-fans.jpg",
+      "sha256": "298d4fad4c1c982fdb70854d1f61882442b60f8073f8fab87e95c9cbdf204717",
+      "bytes": 984011,
+      "kind": "source_image",
+      "decoded_size": [
+        1920,
+        1280
+      ]
+    }
+  ],
+  "count": 22,
+  "all_remote_bytes_and_loads_verified": true,
+  "human_accuracy_review": false
+}
