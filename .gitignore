@@ -16,6 +16,7 @@ artifacts/*
 !artifacts/football48-ball-v1/
 !artifacts/appearance-v3/
 !artifacts/football48-ball-v2/
+!artifacts/fullscene-ball-v1/
 datasets/teamtrack-players-v1/
 requirements.lock.tmp
 .cache/

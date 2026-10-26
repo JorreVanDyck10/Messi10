@@ -1,0 +1,3918 @@
+{
+  "source_dataset": "football-fullscene60-001",
+  "manifest_sha256": "905df00bcc5234ccc83dd74340e55cd146d7ffc9ed8146a11e3a2b809d5e5a1b",
+  "annotations_sha256": "1727128ba7fab1110249b49cef449bca58f4f74cdd8b9477d662f01693b4a574",
+  "source_hashes": {
+    "images/val/128057_scene60_00013570.png": "946ffe5ebcff94f7bc5b3d6f20216d0882be4c972d4a5e5ca957e742b5b34ea8",
+    "images/val/128057_scene60_00013572.png": "e7d04e9f5bc2ff3a1cc93a48111fa356c37d0a8aadf36f2024faa2d50649320a",
+    "images/val/128057_scene60_00013580.png": "2dc8b8e71c4fb62810c362d4e0d6581940b2ad42595f7cc330f3d9a409a218ec",
+    "images/val/128057_scene60_00013582.png": "f4590bc932781a0c86b263268f0713d0317594f9c69130dc40007d8ebffd4983",
+    "images/val/128057_scene60_00013590.png": "89ceb77cc1cd40167e8e3418b8db9f33c4a123b1f728303b2f80c0189dc7973e",
+    "images/val/128057_scene60_00013610.png": "e861f88382ca6b8eea2be0c73b7ca363bb1ad12bd53b64457044318769b96e94",
+    "images/val/128057_scene60_00013760.png": "4353a3369c0a912c93081bd96d88bf05f5a8defd2345d6e3721ca704402e9de3",
+    "images/val/128057_scene60_00013770.png": "08c6acedc594c04509d96298d71ef6395b0ffac2e79bb5772545b14d0a81715a",
+    "images/val/128057_scene60_00013860.png": "3f59483c76bec54f04823a1fc84c387d044519d24c4e4a31fb00d6534a892048",
+    "images/val/128057_scene60_00013910.png": "cd058d05fe1daab5292dc62857be9ead82a82e5eaa4c0d216786f24ccaf961ef",
+    "images/train/128057_scene60_00018910.png": "0b282b046fcb5203ee8ff03c77d02c22dbbef0bce9620ec27e27fe3ff4a96a94",
+    "images/train/128057_scene60_00018920.png": "7c46146749c4e697df5670a30e92929924707bb5f27a5cead704e898bb51e131",
+    "images/train/128057_scene60_00018930.png": "1e418ed35a1cf7caa392eeeb730b0283830cdbddfddd6c4c5cf26504d8a1bc6e",
+    "images/train/128057_scene60_00018940.png": "5000439b817dee86df9eb13f71a3a377b0fb8d00e5d901249d8c9cbab5e16ba7",
+    "images/train/128057_scene60_00018960.png": "7c8ce55819a9ff814f8085cb25a8ca3f398f12181a53c99270ed7535fa52fa32",
+    "images/train/128057_scene60_00018970.png": "7f7b9979c50769b65da99451f1b09c2e3c162ec1c2fb7bb90e6e4b2612eb8f2c",
+    "images/train/128057_scene60_00018980.png": "a77301a0172c1fdf597031c221696c00b74f0a3edc236ac4f732dbf11153b6b1",
+    "images/train/128057_scene60_00018990.png": "717d3457e38aeea14a8655d440d6548a799c7c6b6a3c85605e4c67858e24a08e",
+    "images/train/128057_scene60_00019010.png": "1965f9bd4002d62b95690d3bfc1aecce77000bbf41515901b3f65eeadf154d8c",
+    "images/train/128057_scene60_00019210.png": "8a38561e94ee3b969d4ce2a2e3095e9bad5ce0b6c26fd6a1cd27a7045c557023",
+    "images/train/128057_scene60_00024228.png": "4cde85ff58c781596bfa4d0a5ac47ed7e86f9a382fc865f8cd210a33b421c836",
+    "images/train/128057_scene60_00024229.png": "bac51c6a7aec7f040bd4220835893c9c0969cda728189c30bf9cdd673683e92b",
+    "images/train/128057_scene60_00024230.png": "649ed213ed3947e78d215466583c429690016e8fc306bc86464de43ade991d50",
+    "images/train/128057_scene60_00024236.png": "f8cb36c6503c12ce1f63ac93f36125bbb0ecb0f40167201c6bb6467ff6446028",
+    "images/train/128057_scene60_00024244.png": "76d1e386ade5cb0e27e61110a81ad913ab86f9b7e06ea40add20c240c2d2ddcc",
+    "images/train/128057_scene60_00024252.png": "23f7af6fda3ad93d0aecdf18ea575e923e1cbadcdb1249b07f0b7a5a7097fdc4",
+    "images/train/128057_scene60_00024260.png": "be3d79dea8464de1e9eae28cda00ba91102d8a36011706556940a27b0036d6e9",
+    "images/train/128057_scene60_00024268.png": "cdc531e2a86fd1facd1fbdebb7bc04698f033dfe052d95c68784a5046e320e1f",
+    "images/train/128057_scene60_00024276.png": "78edf550b67a89f8abde4c76fe5cf45ae0ae2eaa0a3b1bca827de20b47e9d10e",
+    "images/train/128057_scene60_00024284.png": "86612786d2614b9744961b788349644b3447c5ac9058c25e5c0b651834f44bad",
+    "images/train/128057_scene60_00029588.png": "e5792cb2433d87fe0f3a5b33693f5b99646a3a4640380e87668251ec6c874dbc",
+    "images/train/128057_scene60_00029596.png": "f2becae59bcfefa24994473b3300522223839fd1cd6fcbf68033560d3c8f6ae2",
+    "images/train/128057_scene60_00029604.png": "d7886cb07d9ac62aff5e94b25e72bf56b1a2a1ceab5a91098f2b7b7c55205e74",
+    "images/train/128057_scene60_00029612.png": "e2a72354cc00991ccb84167290d6b95c89970397b719ae53818f77f31294881b",
+    "images/train/128057_scene60_00029620.png": "bc1d38e7e75ec64f4f8afa7d883af054434ca27173027e18c35988f445236f6b",
+    "images/train/128057_scene60_00029752.png": "3195ad8360e802799c04981c4978a64f9714286d98f6f222fa91f60b6ac5b0b3",
+    "images/train/128057_scene60_00029760.png": "af4759a6a3d727052397690aef88fb7b066d2966e90cd56f179bae0fb975aca8",
+    "images/train/128057_scene60_00029768.png": "04c59e087bf5304a10cf10654c84d3c4d96c839fd624f16b62ff95cb31a925a2",
+    "images/train/128057_scene60_00029776.png": "58fc3e99d457106a7e342aa592a2cf5497febfecec61389e8212847285e883ad",
+    "images/train/128057_scene60_00029784.png": "21c3bcdbd199883d5151a6b2b960450e75adaec90bf22d21f47634f9add8e80e",
+    "images/train/128057_scene60_00034888.png": "af7490b0b87b53586fccd61e1c9ba48f47d3ce75127c2ddbb1692a845a4df8ed",
+    "images/train/128057_scene60_00034892.png": "b7512242632b0075e7aa6600267339afacccfcc3413ce2088f8c313e8b4c2dd9",
+    "images/train/128057_scene60_00034896.png": "552a05e94ea8d81ad0f5bdb07652a29d6502b50a75750d952b775a5da258ba71",
+    "images/train/128057_scene60_00034904.png": "af482ba596697ce85af99a63991015e23292d16c77e8af5e73edf5b467b9a292",
+    "images/train/128057_scene60_00034908.png": "e1fae92f99f191c3a4a435b79d48f8a73202f68def8cadf9269178e3cb5ee113",
+    "images/train/128057_scene60_00034912.png": "595b9013bc96540c08ffc06ccb945498279f798c4396828576ae892d11384906",
+    "images/train/128057_scene60_00034916.png": "4b4f9b61b440f224d1d45b5ae1d9ab45d66afc55bf9dc619f15d244592778d4d",
+    "images/train/128057_scene60_00034920.png": "87497dae189ab4c7d2005eb50a98806e4a4db6291a59f6751c60ee9ea76239e2",
+    "images/train/128057_scene60_00034924.png": "05c2f98d282146ba6d271c53208ac55003dff46ff92667acb005f80705876abc",
+    "images/train/128057_scene60_00034928.png": "b5dee8009b227955f9cef917921ad9948674bcc4b990aab82c73512368aaf541",
+    "images/val/128057_scene60_00050320.png": "d1c36ad5afebd7297a102dc72184e93fc6450b4a6790f665dd6dac14c3d0b0db",
+    "images/val/128057_scene60_00050340.png": "95b0d6b134cd33f13785b411afd49afa62b434181d54a4a03f19fb2ba8442e72",
+    "images/val/128057_scene60_00050360.png": "38ecf77d0cca45bdd80308b163128eff19652e281c07a819bb828dc488e18ac7",
+    "images/val/128057_scene60_00050380.png": "8c7192fd50d72b9db712bd60b15f02a799fb95f8c257111c6174ecdb0c48ca00",
+    "images/val/128057_scene60_00050410.png": "b1c4931d33c27dff0e6520e0e13edba960b6da98f1d98e5ae865a8863b07464b",
+    "images/val/128057_scene60_00050440.png": "3a905c93e2e063245f5f1eb665127355aaa6709af112fc0bee612c611426eaa6",
+    "images/val/128057_scene60_00050460.png": "68ba19336933b5e3402aeed42798d5890dee1ef32a0fbb1351dd4fedfc86f5b8",
+    "images/val/128057_scene60_00050480.png": "4272bf4fc242fd850d3ed250c354b2433ff443cc3d66fe94ad3951d87b86427d",
+    "images/val/128057_scene60_00050520.png": "715b482ce1877dbc073103f91cbaa455afb7d97f9f861617e79005bee5a3aab9",
+    "images/val/128057_scene60_00050560.png": "422e64bd66e229b3e4074a658b3e3e42222736364e955b695542598378584690"
+  },
+  "rows": [
+    {
+      "image": "images/val/128057_scene60_00013570-tile0.png",
+      "label": "labels/val/128057_scene60_00013570-tile0.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013570",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "ded4bb2d309049dba0aff3e12ec9ca9843590cdeeae4a7e22dc5fe433ba402fb",
+      "label_sha256": "4da770b44506b3a51af73b3cf1b48c18bab674f0d0717c21a9ef7d292e1579dd"
+    },
+    {
+      "image": "images/val/128057_scene60_00013570-tile1.png",
+      "label": "labels/val/128057_scene60_00013570-tile1.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013570",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "482889e469511e2bbc2f138d62ce4fa783918f6a04eaaed19912940c8ef152f5",
+      "label_sha256": "22ae70d2f789c220dcc2732f9fa0043aea429ed46e0e8ba15978319b73ffd64b"
+    },
+    {
+      "image": "images/val/128057_scene60_00013570-tile2.png",
+      "label": "labels/val/128057_scene60_00013570-tile2.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013570",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "95b9699ab96f2e834b699615ff78e604d64c1f7d7680e8d0fe74c8e6e252d15a",
+      "label_sha256": "8679e8a0626b9c7ed007218f651bcbefb289a88fc0edc0e2d2d5e7aa309eb913"
+    },
+    {
+      "image": "images/val/128057_scene60_00013570-tile3.png",
+      "label": "labels/val/128057_scene60_00013570-tile3.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013570",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "008f275a33d879d1d342d0cd88a768882b63cd1550926eafed5ec3c99f2db1b7",
+      "label_sha256": "6ed52a61b0753255fdd2aa191adf047f883cb4cc61ef8c70b5678caa30f8ac5f"
+    },
+    {
+      "image": "images/val/128057_scene60_00013572-tile0.png",
+      "label": "labels/val/128057_scene60_00013572-tile0.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013572",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "53a51c83b905188bfe0d916ea516367314724e2e333062aaf81e320304f85fe5",
+      "label_sha256": "4da770b44506b3a51af73b3cf1b48c18bab674f0d0717c21a9ef7d292e1579dd"
+    },
+    {
+      "image": "images/val/128057_scene60_00013572-tile1.png",
+      "label": "labels/val/128057_scene60_00013572-tile1.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013572",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "a88651f81005c6af710489e138d3c41a0e6a09261d65e0f3ba7e3254498628f6",
+      "label_sha256": "b7370b0f6e326254b3b63e76da90ad9283007245b5d077d3208a936048e351b0"
+    },
+    {
+      "image": "images/val/128057_scene60_00013572-tile2.png",
+      "label": "labels/val/128057_scene60_00013572-tile2.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013572",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "a395f88fa197d233c366ec15b4822eb6463cc0e7f6df1a3c75b4ed246d367169",
+      "label_sha256": "8679e8a0626b9c7ed007218f651bcbefb289a88fc0edc0e2d2d5e7aa309eb913"
+    },
+    {
+      "image": "images/val/128057_scene60_00013572-tile3.png",
+      "label": "labels/val/128057_scene60_00013572-tile3.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013572",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "d2615bce1012c0a0569ec839549c2619e2e798ff96f525bc8a762582545f5b41",
+      "label_sha256": "6ed52a61b0753255fdd2aa191adf047f883cb4cc61ef8c70b5678caa30f8ac5f"
+    },
+    {
+      "image": "images/val/128057_scene60_00013580-tile0.png",
+      "label": "labels/val/128057_scene60_00013580-tile0.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013580",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "30fa1e096de32b4af62fae846c16fb1e63da0264cd05603c6746272895776994",
+      "label_sha256": "4da770b44506b3a51af73b3cf1b48c18bab674f0d0717c21a9ef7d292e1579dd"
+    },
+    {
+      "image": "images/val/128057_scene60_00013580-tile1.png",
+      "label": "labels/val/128057_scene60_00013580-tile1.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013580",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "8a1c0b98d514db28b05dcc5e6d1477a0b2e0fb853a66cabf3e44414a8809b39e",
+      "label_sha256": "33be30f25694f6a02b0078e6bb0ef4bf6f082bf8c7807268634a73f8948c3d15"
+    },
+    {
+      "image": "images/val/128057_scene60_00013580-tile2.png",
+      "label": "labels/val/128057_scene60_00013580-tile2.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013580",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "4b6899b497141f11fc13ac38974ac9fa2a3ba8f254bb43808e06a5c1777684e2",
+      "label_sha256": "8679e8a0626b9c7ed007218f651bcbefb289a88fc0edc0e2d2d5e7aa309eb913"
+    },
+    {
+      "image": "images/val/128057_scene60_00013580-tile3.png",
+      "label": "labels/val/128057_scene60_00013580-tile3.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013580",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "6996c2d2ebb6b1168f0b0a59a1cc4fb071325c57f4ac49d3b9caae4d86cb66b3",
+      "label_sha256": "6ed52a61b0753255fdd2aa191adf047f883cb4cc61ef8c70b5678caa30f8ac5f"
+    },
+    {
+      "image": "images/val/128057_scene60_00013582-tile0.png",
+      "label": "labels/val/128057_scene60_00013582-tile0.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013582",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "5597b801777dbacb91f7dadb175d995a420a06c4e7034acc602b5ec32d29fbbb",
+      "label_sha256": "4da770b44506b3a51af73b3cf1b48c18bab674f0d0717c21a9ef7d292e1579dd"
+    },
+    {
+      "image": "images/val/128057_scene60_00013582-tile1.png",
+      "label": "labels/val/128057_scene60_00013582-tile1.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013582",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "f3318dddc766f32a550a6c25db225608cb76fe7b111dfbad183ba749c70d80ad",
+      "label_sha256": "b7370b0f6e326254b3b63e76da90ad9283007245b5d077d3208a936048e351b0"
+    },
+    {
+      "image": "images/val/128057_scene60_00013582-tile2.png",
+      "label": "labels/val/128057_scene60_00013582-tile2.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013582",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "ae00f6f62fc9d5d44039fb2e79c7e76f15c3b5a663ed9b65414caac818f7a262",
+      "label_sha256": "8679e8a0626b9c7ed007218f651bcbefb289a88fc0edc0e2d2d5e7aa309eb913"
+    },
+    {
+      "image": "images/val/128057_scene60_00013582-tile3.png",
+      "label": "labels/val/128057_scene60_00013582-tile3.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013582",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "7f11acb5bb9234bd5a1f2047e3a462df993fd62fa3fa5b64184837476f978a75",
+      "label_sha256": "6ed52a61b0753255fdd2aa191adf047f883cb4cc61ef8c70b5678caa30f8ac5f"
+    },
+    {
+      "image": "images/val/128057_scene60_00013590-tile0.png",
+      "label": "labels/val/128057_scene60_00013590-tile0.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013590",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "97cf015ff9c16837a2f5786f6b585f32101371fd5dbdbc19073f39480f4a2158",
+      "label_sha256": "4da770b44506b3a51af73b3cf1b48c18bab674f0d0717c21a9ef7d292e1579dd"
+    },
+    {
+      "image": "images/val/128057_scene60_00013590-tile1.png",
+      "label": "labels/val/128057_scene60_00013590-tile1.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013590",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "5915ed83998cde0e219f4ca56048a3ee65c2c683294d903959f1c223f554e11d",
+      "label_sha256": "d655d8d52b5f93bb897b018a272adcee8aa1b59e13ec204e4baa535d5c9f5607"
+    },
+    {
+      "image": "images/val/128057_scene60_00013590-tile2.png",
+      "label": "labels/val/128057_scene60_00013590-tile2.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013590",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "b868f9841e71979415ed97af8a4d1bd977cc59c40dd55852d9a583bfa5316fbb",
+      "label_sha256": "8679e8a0626b9c7ed007218f651bcbefb289a88fc0edc0e2d2d5e7aa309eb913"
+    },
+    {
+      "image": "images/val/128057_scene60_00013590-tile3.png",
+      "label": "labels/val/128057_scene60_00013590-tile3.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013590",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "59391532bde43d849c59fdcde0e9f57bab52ccdbf09fbdec4908049bd506c490",
+      "label_sha256": "6ed52a61b0753255fdd2aa191adf047f883cb4cc61ef8c70b5678caa30f8ac5f"
+    },
+    {
+      "image": "images/val/128057_scene60_00013610-tile0.png",
+      "label": "labels/val/128057_scene60_00013610-tile0.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013610",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "4634a526a0283925ebe3f160b8985b4474eaa717cb04b21ce1ac35d52c4a46bb",
+      "label_sha256": "4da770b44506b3a51af73b3cf1b48c18bab674f0d0717c21a9ef7d292e1579dd"
+    },
+    {
+      "image": "images/val/128057_scene60_00013610-tile1.png",
+      "label": "labels/val/128057_scene60_00013610-tile1.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013610",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "077879502bf56de6976d88fd2cb74f53b154779831d045e5c27a9b08a469a845",
+      "label_sha256": "d80eda66720214998cedc5ba0b2fb5822c21f6eca32a04017f5b3499f533b876"
+    },
+    {
+      "image": "images/val/128057_scene60_00013610-tile2.png",
+      "label": "labels/val/128057_scene60_00013610-tile2.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013610",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "d87a970d2448c2ae2ffadbdf663b365e76e12d864c5522bdda7c7f5d2f655de7",
+      "label_sha256": "fce2b24e8378afbd8135f812b969c6750fad262ee7b91f55c50736d4dd60d878"
+    },
+    {
+      "image": "images/val/128057_scene60_00013610-tile3.png",
+      "label": "labels/val/128057_scene60_00013610-tile3.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013610",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "7b23985714fe76d0e8bd861178c34ad5eec5ec7405aa2ab14a47282df27a04f7",
+      "label_sha256": "212f3ca27f8b876e764363631019be17c5518d1b4f77058c34be900bae00f719"
+    },
+    {
+      "image": "images/val/128057_scene60_00013760-tile0.png",
+      "label": "labels/val/128057_scene60_00013760-tile0.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013760",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "088094064e0c9403ad1737e71cfd6ab0f7ea87f6a933ce42c78f3d3fcce7f360",
+      "label_sha256": "4da770b44506b3a51af73b3cf1b48c18bab674f0d0717c21a9ef7d292e1579dd"
+    },
+    {
+      "image": "images/val/128057_scene60_00013760-tile1.png",
+      "label": "labels/val/128057_scene60_00013760-tile1.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013760",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "abe045ada18afc12b3d9360823b9bf18a7f50db279bb7b3435d5261cc25ad832",
+      "label_sha256": "dfeea9d9f1d6f3bdb04dfa5245917dc841af8e79f331a9890fc871d0283a80ee"
+    },
+    {
+      "image": "images/val/128057_scene60_00013760-tile2.png",
+      "label": "labels/val/128057_scene60_00013760-tile2.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013760",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "3a3a3da4850ab1d2323b9d6fc8e0c4a9b604ff36a0683ebb81a791c72661b9e7",
+      "label_sha256": "8679e8a0626b9c7ed007218f651bcbefb289a88fc0edc0e2d2d5e7aa309eb913"
+    },
+    {
+      "image": "images/val/128057_scene60_00013760-tile3.png",
+      "label": "labels/val/128057_scene60_00013760-tile3.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013760",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "4f9b950969768b6f5f8fac3d48b6db45574d93e9fbf12a15f88dc805e1195b92",
+      "label_sha256": "ccfbe17209c8c4025ce7e55b45d5bf0a8cbcd21e44aaa4cf2cc71645c9efa682"
+    },
+    {
+      "image": "images/val/128057_scene60_00013770-tile0.png",
+      "label": "labels/val/128057_scene60_00013770-tile0.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013770",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "ca1d0cdfc173828c2496a69a26f3bdd79bda061a332454fb60e65ff3d1f2df25",
+      "label_sha256": "a686f376d9d979a68f350565ad3db3e80507d31ffe20d95472e0c5e54905a888"
+    },
+    {
+      "image": "images/val/128057_scene60_00013770-tile1.png",
+      "label": "labels/val/128057_scene60_00013770-tile1.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013770",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "3153faefbda772a10bd990ad7ed6d03cb58742af887cde8884b909653c65a2f3",
+      "label_sha256": "481f50c5f65d1f8e35b512209e84eef3e2c5395d03f3072987b3c55cdb505b6b"
+    },
+    {
+      "image": "images/val/128057_scene60_00013770-tile2.png",
+      "label": "labels/val/128057_scene60_00013770-tile2.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013770",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "055c6ae42109e87bb9df8eede5fcc662744203803dbe26b384d1db20a4319e5a",
+      "label_sha256": "0059219853f767951587e97bbb9185af747c1799f067e02fc5443a633ef54ac9"
+    },
+    {
+      "image": "images/val/128057_scene60_00013770-tile3.png",
+      "label": "labels/val/128057_scene60_00013770-tile3.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013770",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "a79c5df2b608ccb3998e0bc87d45affec18b2caff7869478540808b96205e6eb",
+      "label_sha256": "ad31dd114a53ce5eaf9cba0c56a19aca98fb03671bf9f87bab4f31b690739d85"
+    },
+    {
+      "image": "images/val/128057_scene60_00013860-tile0.png",
+      "label": "labels/val/128057_scene60_00013860-tile0.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013860",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 4,
+      "image_sha256": "a0185ff037208436777dfb4c6d08a141fe728ab7465fbe315ce220b20d46e1b1",
+      "label_sha256": "d2860f07b3df64377a31d062c56bdc397a545c4d6a12bed8d968ccc9efd38d71"
+    },
+    {
+      "image": "images/val/128057_scene60_00013860-tile1.png",
+      "label": "labels/val/128057_scene60_00013860-tile1.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013860",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "8aa828650503231c80a5dc2515adf8c45d952a582faf6240910ffc455ae1e157",
+      "label_sha256": "4c175ffaaac87ecc6177302dec0e1efee6a7b5b883eb85cb19a926c03a4b10a1"
+    },
+    {
+      "image": "images/val/128057_scene60_00013860-tile2.png",
+      "label": "labels/val/128057_scene60_00013860-tile2.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013860",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "6744b006ed52702db9e47640c06e049264ba4d41b10075e008e0e2cf14e58834",
+      "label_sha256": "0059219853f767951587e97bbb9185af747c1799f067e02fc5443a633ef54ac9"
+    },
+    {
+      "image": "images/val/128057_scene60_00013860-tile3.png",
+      "label": "labels/val/128057_scene60_00013860-tile3.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013860",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "e0d2c603a3e80ea2b0c86b17ab753986b8fbe8d771b1a632e7402d108b32a0b4",
+      "label_sha256": "ad31dd114a53ce5eaf9cba0c56a19aca98fb03671bf9f87bab4f31b690739d85"
+    },
+    {
+      "image": "images/val/128057_scene60_00013910-tile0.png",
+      "label": "labels/val/128057_scene60_00013910-tile0.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013910",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 4,
+      "image_sha256": "3c96566b953860b002b5406d8b38893f6239e82a7040e4ba8a7f66ab0f1cf6a8",
+      "label_sha256": "712ddbfe01a09b0a4e802addfe051fdacf8d833b3ba026df174862d5fea4152d"
+    },
+    {
+      "image": "images/val/128057_scene60_00013910-tile1.png",
+      "label": "labels/val/128057_scene60_00013910-tile1.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013910",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "4ec9499c520d7b0c75bcbd4a24a467e7c4ebf75816d69e40aba5dd45d0bc8b6d",
+      "label_sha256": "1eb6767849cfaa5ca1546865c0ad86e83789496719d5343c76e9cf9132d08934"
+    },
+    {
+      "image": "images/val/128057_scene60_00013910-tile2.png",
+      "label": "labels/val/128057_scene60_00013910-tile2.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013910",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "7f825a4a955ce11446ec08c917cb8d97ffbf42dc6f7835c4f6e669adbb7662ea",
+      "label_sha256": "0059219853f767951587e97bbb9185af747c1799f067e02fc5443a633ef54ac9"
+    },
+    {
+      "image": "images/val/128057_scene60_00013910-tile3.png",
+      "label": "labels/val/128057_scene60_00013910-tile3.txt",
+      "split": "val",
+      "group": "phase-0540",
+      "frame_id": "128057_scene60_00013910",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "d6d18ed70cd64a89038fcfa674346e8f3cf6ea2e2d00b188109849d72f5ca2dc",
+      "label_sha256": "ad31dd114a53ce5eaf9cba0c56a19aca98fb03671bf9f87bab4f31b690739d85"
+    },
+    {
+      "image": "images/train/128057_scene60_00018910-tile0.png",
+      "label": "labels/train/128057_scene60_00018910-tile0.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018910",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "33222951162ba70b26778b1463579a57a1e3fbc2e6f1eec51538b6fdbde4f28a",
+      "label_sha256": "e742105f4d388d4fb6765cabe9361831ccca4a5802a955c4034a6725d40e7864"
+    },
+    {
+      "image": "images/train/128057_scene60_00018910-tile1.png",
+      "label": "labels/train/128057_scene60_00018910-tile1.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018910",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "8fe4eefd0c98f2134b8f0694a7d65edcb543aecc42a62be19675cb71d021a8f1",
+      "label_sha256": "9bde75edb3118f87eaf988823a6384ee785c008965b968e07e4bc3b4f71378e3"
+    },
+    {
+      "image": "images/train/128057_scene60_00018910-tile2.png",
+      "label": "labels/train/128057_scene60_00018910-tile2.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018910",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "91bad82d907c1a914b31164658342655c75fb53a6a6662784ef3ce6f7ec516b7",
+      "label_sha256": "9133251573ca524194ba3ccb03a2da54751361baa62d336dc12f5d5a77357308"
+    },
+    {
+      "image": "images/train/128057_scene60_00018910-tile3.png",
+      "label": "labels/train/128057_scene60_00018910-tile3.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018910",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "4080404c5716fbebdc9da695abe7d88d10459ed18852ab9e6d2f4a916e56c6c9",
+      "label_sha256": "0e85f97f54dedc7868396fd97b7e99fd2509ba32ab77f74fc4366926f4a7a44d"
+    },
+    {
+      "image": "images/train/128057_scene60_00018920-tile0.png",
+      "label": "labels/train/128057_scene60_00018920-tile0.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018920",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "c0306502fdea3d815957c706a81de03f2c25bebdc69237a317b9c6e28c5be5cc",
+      "label_sha256": "e742105f4d388d4fb6765cabe9361831ccca4a5802a955c4034a6725d40e7864"
+    },
+    {
+      "image": "images/train/128057_scene60_00018920-tile1.png",
+      "label": "labels/train/128057_scene60_00018920-tile1.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018920",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "0448cf4e193b3bc8fb847797935366b2389cd5d4db140ce01df032332ddd9195",
+      "label_sha256": "9bde75edb3118f87eaf988823a6384ee785c008965b968e07e4bc3b4f71378e3"
+    },
+    {
+      "image": "images/train/128057_scene60_00018920-tile2.png",
+      "label": "labels/train/128057_scene60_00018920-tile2.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018920",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "847c191682567d0539d23b522e6dcc0fd3906ac77edab4f4be127fdec30d8d4b",
+      "label_sha256": "9133251573ca524194ba3ccb03a2da54751361baa62d336dc12f5d5a77357308"
+    },
+    {
+      "image": "images/train/128057_scene60_00018920-tile3.png",
+      "label": "labels/train/128057_scene60_00018920-tile3.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018920",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "36dd644134ba7c697a742b94c11fedbe1b07d0e7992c732077c8e10d65579a8b",
+      "label_sha256": "0e85f97f54dedc7868396fd97b7e99fd2509ba32ab77f74fc4366926f4a7a44d"
+    },
+    {
+      "image": "images/train/128057_scene60_00018930-tile0.png",
+      "label": "labels/train/128057_scene60_00018930-tile0.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018930",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "5ae4928214c2af6632565782e4b8bf098bac396563a5dca3b7084fe8507d55d6",
+      "label_sha256": "e742105f4d388d4fb6765cabe9361831ccca4a5802a955c4034a6725d40e7864"
+    },
+    {
+      "image": "images/train/128057_scene60_00018930-tile1.png",
+      "label": "labels/train/128057_scene60_00018930-tile1.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018930",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "685b01b3f6f038a21195a7099086fdb4d7a8a8c4aa3cedf6bbe3426d73a778bd",
+      "label_sha256": "9bde75edb3118f87eaf988823a6384ee785c008965b968e07e4bc3b4f71378e3"
+    },
+    {
+      "image": "images/train/128057_scene60_00018930-tile2.png",
+      "label": "labels/train/128057_scene60_00018930-tile2.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018930",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "878909d96c1ca2542e42b9b64b98e74cf63aa9da71a8497754a7bd7b784d6d9d",
+      "label_sha256": "9133251573ca524194ba3ccb03a2da54751361baa62d336dc12f5d5a77357308"
+    },
+    {
+      "image": "images/train/128057_scene60_00018930-tile3.png",
+      "label": "labels/train/128057_scene60_00018930-tile3.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018930",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "0256c0b4fdc328ffe1e8e405eb96cfedb40115fe8b82ab254c0d46f5031c69c3",
+      "label_sha256": "0e85f97f54dedc7868396fd97b7e99fd2509ba32ab77f74fc4366926f4a7a44d"
+    },
+    {
+      "image": "images/train/128057_scene60_00018940-tile0.png",
+      "label": "labels/train/128057_scene60_00018940-tile0.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018940",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "5d2c3b1e0330b2cd3a855b562e6c67e58c8ff22ca08aa1d7d907052ee1f9df46",
+      "label_sha256": "e742105f4d388d4fb6765cabe9361831ccca4a5802a955c4034a6725d40e7864"
+    },
+    {
+      "image": "images/train/128057_scene60_00018940-tile1.png",
+      "label": "labels/train/128057_scene60_00018940-tile1.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018940",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "0121434356059c7fc8163d0592996bff81a532c7ee059a6b6d5d25fff24f650a",
+      "label_sha256": "9bde75edb3118f87eaf988823a6384ee785c008965b968e07e4bc3b4f71378e3"
+    },
+    {
+      "image": "images/train/128057_scene60_00018940-tile2.png",
+      "label": "labels/train/128057_scene60_00018940-tile2.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018940",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "e77581ccf28f916eca0b93cf5e908db140f8407e38c926bbda85c927f2c6fab6",
+      "label_sha256": "9133251573ca524194ba3ccb03a2da54751361baa62d336dc12f5d5a77357308"
+    },
+    {
+      "image": "images/train/128057_scene60_00018940-tile3.png",
+      "label": "labels/train/128057_scene60_00018940-tile3.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018940",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "e59ebf3bc693c654f6468ec182323fd52d2427e8221cbbfb18e20fd78d8300c2",
+      "label_sha256": "0e85f97f54dedc7868396fd97b7e99fd2509ba32ab77f74fc4366926f4a7a44d"
+    },
+    {
+      "image": "images/train/128057_scene60_00018960-tile0.png",
+      "label": "labels/train/128057_scene60_00018960-tile0.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018960",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "4d836da43c11261537833393c7794e4fd3a3e9169719c5874b25e6c3bfdbc3d5",
+      "label_sha256": "e742105f4d388d4fb6765cabe9361831ccca4a5802a955c4034a6725d40e7864"
+    },
+    {
+      "image": "images/train/128057_scene60_00018960-tile1.png",
+      "label": "labels/train/128057_scene60_00018960-tile1.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018960",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "c9380f7062ab622f673dd2a42451dfbf495e826a8df2f6056ef01e25add21106",
+      "label_sha256": "9bde75edb3118f87eaf988823a6384ee785c008965b968e07e4bc3b4f71378e3"
+    },
+    {
+      "image": "images/train/128057_scene60_00018960-tile2.png",
+      "label": "labels/train/128057_scene60_00018960-tile2.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018960",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "ae1bdc8d83fc528642dff880f9e5475133193aa82ce7740720eda59287af2272",
+      "label_sha256": "9133251573ca524194ba3ccb03a2da54751361baa62d336dc12f5d5a77357308"
+    },
+    {
+      "image": "images/train/128057_scene60_00018960-tile3.png",
+      "label": "labels/train/128057_scene60_00018960-tile3.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018960",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "517277fd354d6bfc2f9180b831c3e285488cd2849467a440210809bde43f02a0",
+      "label_sha256": "0e85f97f54dedc7868396fd97b7e99fd2509ba32ab77f74fc4366926f4a7a44d"
+    },
+    {
+      "image": "images/train/128057_scene60_00018970-tile0.png",
+      "label": "labels/train/128057_scene60_00018970-tile0.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018970",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "d445fde8a4ec229ec5778398b860187c0ad4e3cb644c5e0133bcf7bcd3f4d2cb",
+      "label_sha256": "e742105f4d388d4fb6765cabe9361831ccca4a5802a955c4034a6725d40e7864"
+    },
+    {
+      "image": "images/train/128057_scene60_00018970-tile1.png",
+      "label": "labels/train/128057_scene60_00018970-tile1.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018970",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "4209160a2c0acb4b5e58d6dacc6ccc3a46aa4b781aa2a7862eebf1046e9822c7",
+      "label_sha256": "9bde75edb3118f87eaf988823a6384ee785c008965b968e07e4bc3b4f71378e3"
+    },
+    {
+      "image": "images/train/128057_scene60_00018970-tile2.png",
+      "label": "labels/train/128057_scene60_00018970-tile2.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018970",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "97c47e39d4471cd73d9126dc490902d194ece3e440f17d84e3d70d02c959be2e",
+      "label_sha256": "9133251573ca524194ba3ccb03a2da54751361baa62d336dc12f5d5a77357308"
+    },
+    {
+      "image": "images/train/128057_scene60_00018970-tile3.png",
+      "label": "labels/train/128057_scene60_00018970-tile3.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018970",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "26234faa5f24d0dea6327b62bb9c283c0c03f0e64af7e575f3530f5d4cac1346",
+      "label_sha256": "0e85f97f54dedc7868396fd97b7e99fd2509ba32ab77f74fc4366926f4a7a44d"
+    },
+    {
+      "image": "images/train/128057_scene60_00018980-tile0.png",
+      "label": "labels/train/128057_scene60_00018980-tile0.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018980",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "08466371ebb63f62b0b00484802448af9f9e948d548475f0199e63156ed3e347",
+      "label_sha256": "e742105f4d388d4fb6765cabe9361831ccca4a5802a955c4034a6725d40e7864"
+    },
+    {
+      "image": "images/train/128057_scene60_00018980-tile1.png",
+      "label": "labels/train/128057_scene60_00018980-tile1.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018980",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "4413fe4a2282615116b0286f7499923c975731867b08c8553bb1bee9ca120ad7",
+      "label_sha256": "9bde75edb3118f87eaf988823a6384ee785c008965b968e07e4bc3b4f71378e3"
+    },
+    {
+      "image": "images/train/128057_scene60_00018980-tile2.png",
+      "label": "labels/train/128057_scene60_00018980-tile2.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018980",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "37283866661e61824ab7e6fdabc1f4d2f7581b16e7858a5e08d1bae0e930e6c2",
+      "label_sha256": "9133251573ca524194ba3ccb03a2da54751361baa62d336dc12f5d5a77357308"
+    },
+    {
+      "image": "images/train/128057_scene60_00018980-tile3.png",
+      "label": "labels/train/128057_scene60_00018980-tile3.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018980",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "fea52b0c66be95b428088c951bad55fe238ba33af49f690cbaf22d3966f7fcbb",
+      "label_sha256": "0e85f97f54dedc7868396fd97b7e99fd2509ba32ab77f74fc4366926f4a7a44d"
+    },
+    {
+      "image": "images/train/128057_scene60_00018990-tile0.png",
+      "label": "labels/train/128057_scene60_00018990-tile0.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018990",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "73db7fbca668bfaeb0ce954d682cb9820054e37106e41192e2334ad373e0ac9f",
+      "label_sha256": "9f4a8f6cb35ef2bc8bda85b2abb95db9263e51d3a81a2e9831984d84f759dc4c"
+    },
+    {
+      "image": "images/train/128057_scene60_00018990-tile1.png",
+      "label": "labels/train/128057_scene60_00018990-tile1.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018990",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "eff3d0cb334e5cd8881f4b1a4a22a2c43d772d3b7e949d4e9e7d36d9374e0ff1",
+      "label_sha256": "9bde75edb3118f87eaf988823a6384ee785c008965b968e07e4bc3b4f71378e3"
+    },
+    {
+      "image": "images/train/128057_scene60_00018990-tile2.png",
+      "label": "labels/train/128057_scene60_00018990-tile2.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018990",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "49598f0ef7f86d05aaf22b10aff393b258055126c47eba1efb62a882f8187157",
+      "label_sha256": "9133251573ca524194ba3ccb03a2da54751361baa62d336dc12f5d5a77357308"
+    },
+    {
+      "image": "images/train/128057_scene60_00018990-tile3.png",
+      "label": "labels/train/128057_scene60_00018990-tile3.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00018990",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "d226b217e0fc232a290d6f80feed23d0a85e2ab3a9c97f77a0d709b268a2cf2d",
+      "label_sha256": "0e85f97f54dedc7868396fd97b7e99fd2509ba32ab77f74fc4366926f4a7a44d"
+    },
+    {
+      "image": "images/train/128057_scene60_00019010-tile0.png",
+      "label": "labels/train/128057_scene60_00019010-tile0.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00019010",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "6043552b9480481f1fc2e59ffd8dbbaf9a33429c66b0e05093218b8bd54cba38",
+      "label_sha256": "5caabb9b28433ebfaa6b7f66b3534ccbf95fb6acd7ebaf86330bd7ef63441957"
+    },
+    {
+      "image": "images/train/128057_scene60_00019010-tile1.png",
+      "label": "labels/train/128057_scene60_00019010-tile1.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00019010",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "4801ff849857297be94b3be5c39a23fc6bdaed59a85e7d2d81df83291e50c5e8",
+      "label_sha256": "9bde75edb3118f87eaf988823a6384ee785c008965b968e07e4bc3b4f71378e3"
+    },
+    {
+      "image": "images/train/128057_scene60_00019010-tile2.png",
+      "label": "labels/train/128057_scene60_00019010-tile2.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00019010",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "fd09c8d5cc781f183657664bc82e581c2a90da86465f0425643d8604601ef475",
+      "label_sha256": "9133251573ca524194ba3ccb03a2da54751361baa62d336dc12f5d5a77357308"
+    },
+    {
+      "image": "images/train/128057_scene60_00019010-tile3.png",
+      "label": "labels/train/128057_scene60_00019010-tile3.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00019010",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "8e2534c36c39e7677402ff809758f1fc23ab1fc8c74d2b8e5f99e4f4bafd7fc7",
+      "label_sha256": "0e85f97f54dedc7868396fd97b7e99fd2509ba32ab77f74fc4366926f4a7a44d"
+    },
+    {
+      "image": "images/train/128057_scene60_00019210-tile0.png",
+      "label": "labels/train/128057_scene60_00019210-tile0.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00019210",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "ebff06b262fe8acac7e96bd5b6a83610177445d8566fafb7126bde1eabb7873d",
+      "label_sha256": "7d592bcfd92b924ec1c579a1420da55e4c55eeefe61c467453d3950665ba0034"
+    },
+    {
+      "image": "images/train/128057_scene60_00019210-tile1.png",
+      "label": "labels/train/128057_scene60_00019210-tile1.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00019210",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "aa315de098815a4c4cb7f7e3ddcc717880b56272677de595d82f1d8a2051c28a",
+      "label_sha256": "2291f69a180956fa34ed6397349201b08cdbe8476d38d1f81c5f01b17333ff5a"
+    },
+    {
+      "image": "images/train/128057_scene60_00019210-tile2.png",
+      "label": "labels/train/128057_scene60_00019210-tile2.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00019210",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "f2f83d77107d6fbb63d3d42ad469de77cb89c10e856c68aea9ae80ec74c926dd",
+      "label_sha256": "2da65736611e8584d085d9f9a93ea720ba3b675db0a1c5cfbafef5b49c34101e"
+    },
+    {
+      "image": "images/train/128057_scene60_00019210-tile3.png",
+      "label": "labels/train/128057_scene60_00019210-tile3.txt",
+      "split": "train",
+      "group": "phase-0750",
+      "frame_id": "128057_scene60_00019210",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "7b0492bd38660e058e15d2c18501f020a4e6e27b4e394cd22a72d30c69ef6681",
+      "label_sha256": "de0a22104cb892bcd6fec121d0433d5ca2c2293e296af94d0f6cbd24d8b3dadf"
+    },
+    {
+      "image": "images/train/128057_scene60_00024228-tile0.png",
+      "label": "labels/train/128057_scene60_00024228-tile0.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024228",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "0cf39b0568ab49cd1284d21edec48b41b49e26c471f4b157037c29b2e08406ae",
+      "label_sha256": "71f6ca0df7a80b835f28b4574964937d05b2b3529fc5d4e2a94d2e43ec83285a"
+    },
+    {
+      "image": "images/train/128057_scene60_00024228-tile1.png",
+      "label": "labels/train/128057_scene60_00024228-tile1.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024228",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "3b65e8087b2d64eb112a400446463481b5e30b7e7200461012a65dbcbfb96b61",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00024228-tile2.png",
+      "label": "labels/train/128057_scene60_00024228-tile2.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024228",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "2df8997766ea4fad62f654b64dd8900be68e21946502c19962a93bd551278dbd",
+      "label_sha256": "56c54fe1c4a7378eb2b72cbb5d9cb03b1cb3c2fb1319816656dd7c1523e35cd4"
+    },
+    {
+      "image": "images/train/128057_scene60_00024228-tile3.png",
+      "label": "labels/train/128057_scene60_00024228-tile3.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024228",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "c6bd9db29aea9d5e534907b1d31ade976ee3ba9a1125d0219036243b2c77d21a",
+      "label_sha256": "aed50a089d05ac50e3625c266c9c3db3b88711eb583a78ae8b8ad5e4c0d6c223"
+    },
+    {
+      "image": "images/train/128057_scene60_00024229-tile0.png",
+      "label": "labels/train/128057_scene60_00024229-tile0.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024229",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "98e34f78a426982ee9e27f97f3f1bae377b6084272c74b95b9f64400d85d9b4e",
+      "label_sha256": "71f6ca0df7a80b835f28b4574964937d05b2b3529fc5d4e2a94d2e43ec83285a"
+    },
+    {
+      "image": "images/train/128057_scene60_00024229-tile1.png",
+      "label": "labels/train/128057_scene60_00024229-tile1.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024229",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "d56199967d054a6f7c7d4823042a6b05ebae7e02c5a838ebfcb9e45743f96e9d",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00024229-tile2.png",
+      "label": "labels/train/128057_scene60_00024229-tile2.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024229",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "f424667710ecb61f92ab4862eb4b4f8004023fd34428aa1c472dd459fadfdf68",
+      "label_sha256": "bb6d9bfd4e28cb5a6cc9274a746cb23483fb2c55a07c7ccad62ae3e53ca014c8"
+    },
+    {
+      "image": "images/train/128057_scene60_00024229-tile3.png",
+      "label": "labels/train/128057_scene60_00024229-tile3.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024229",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "507a41fdbb52f7d7c5df68629c72c749fb99727880c12a947f956fa598098379",
+      "label_sha256": "0d3562ac640fd94d12996c734af7a868db60743cf07d84f43fa66b016d2baa8b"
+    },
+    {
+      "image": "images/train/128057_scene60_00024230-tile0.png",
+      "label": "labels/train/128057_scene60_00024230-tile0.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024230",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "c1d1bf4bc854edb6ce34c955774f15b26ac3a910382c816646eaff842b7906b4",
+      "label_sha256": "71f6ca0df7a80b835f28b4574964937d05b2b3529fc5d4e2a94d2e43ec83285a"
+    },
+    {
+      "image": "images/train/128057_scene60_00024230-tile1.png",
+      "label": "labels/train/128057_scene60_00024230-tile1.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024230",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "e9b9866937378bb089c95252302f5f6adfa15d7c464a607d38be68128411b43e",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00024230-tile2.png",
+      "label": "labels/train/128057_scene60_00024230-tile2.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024230",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "88986e58bec991e8c190ecbed724ded768eb72f9cb4c8f66ed38a54bf0b6e520",
+      "label_sha256": "7445ffc4b065cd01afe2fc1d92a1e0f17a22cf264179e16fa419848c4b1cd769"
+    },
+    {
+      "image": "images/train/128057_scene60_00024230-tile3.png",
+      "label": "labels/train/128057_scene60_00024230-tile3.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024230",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "5570bf243c009a94d3f561dda5667c403e4e91be103e4651eb5d8e91b90f391d",
+      "label_sha256": "097b4503c1dc0864ffcf66a27baa0d62d4866dd3c2b54eae4310a6afc09474f8"
+    },
+    {
+      "image": "images/train/128057_scene60_00024236-tile0.png",
+      "label": "labels/train/128057_scene60_00024236-tile0.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024236",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "6430592250efc0b840691992a365c459ebd9bd2e4745fff963be802ae7cf8d01",
+      "label_sha256": "71f6ca0df7a80b835f28b4574964937d05b2b3529fc5d4e2a94d2e43ec83285a"
+    },
+    {
+      "image": "images/train/128057_scene60_00024236-tile1.png",
+      "label": "labels/train/128057_scene60_00024236-tile1.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024236",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "549f20c397ecfe02738963f7fc57c9f34c293b91cb28e878d6faa5d754cb31ec",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00024236-tile2.png",
+      "label": "labels/train/128057_scene60_00024236-tile2.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024236",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "5ff3d6ee9abd66cdfa8e5302f8320ee8fbbe60fc0dbf0a9f65f7532be6e7ded5",
+      "label_sha256": "307df7fca5192986e37e5bc5433dd994d003896077bf78e2713a2c2266ff0aad"
+    },
+    {
+      "image": "images/train/128057_scene60_00024236-tile3.png",
+      "label": "labels/train/128057_scene60_00024236-tile3.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024236",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "5b21405ca32c68078db5be83df4599c5e51c22796f663255495066c801f5930f",
+      "label_sha256": "5541180bfc124db4422cd28e9b86646f3e0a93d3b2edcb34f115b0c95f7ec321"
+    },
+    {
+      "image": "images/train/128057_scene60_00024244-tile0.png",
+      "label": "labels/train/128057_scene60_00024244-tile0.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024244",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "143cebb9bd9a1c74c4d2daef997c904cb14a347d64a02e5e11cdf1d15bb65bd9",
+      "label_sha256": "71f6ca0df7a80b835f28b4574964937d05b2b3529fc5d4e2a94d2e43ec83285a"
+    },
+    {
+      "image": "images/train/128057_scene60_00024244-tile1.png",
+      "label": "labels/train/128057_scene60_00024244-tile1.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024244",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "ff780a7e5e0d316fe45f9b5d8c86df958854a75af9a3fa5da379097e36e63d68",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00024244-tile2.png",
+      "label": "labels/train/128057_scene60_00024244-tile2.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024244",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "e2f20cdd3fe7108b74565f571f06d00b0041460face569ef30c176463dd67cea",
+      "label_sha256": "09f95193962a859332003ae161796ca729768be561c09d2d68136a3230a24606"
+    },
+    {
+      "image": "images/train/128057_scene60_00024244-tile3.png",
+      "label": "labels/train/128057_scene60_00024244-tile3.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024244",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "ce8acec11149a2bdf44687b6215c2d298834dd028a9e61653766e31f88253fcb",
+      "label_sha256": "cbae9bd8bd365d071d80e8947eea290a2943ee8d3fc4a3bc167fc125e9f7116a"
+    },
+    {
+      "image": "images/train/128057_scene60_00024252-tile0.png",
+      "label": "labels/train/128057_scene60_00024252-tile0.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024252",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "29d2a3838a10af78cb148aeba9393312877857f0549c533ca885ea45d5710b5d",
+      "label_sha256": "71f6ca0df7a80b835f28b4574964937d05b2b3529fc5d4e2a94d2e43ec83285a"
+    },
+    {
+      "image": "images/train/128057_scene60_00024252-tile1.png",
+      "label": "labels/train/128057_scene60_00024252-tile1.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024252",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "ecab2f074fd86e1f38539bf30ebdf595769db1b223175e703f80900edfd979d2",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00024252-tile2.png",
+      "label": "labels/train/128057_scene60_00024252-tile2.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024252",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "a9cd5ae1d10988f5e0827b0a6ce91abd02d8d321b1919e3256aec9dc01ad8c46",
+      "label_sha256": "18dff99eebbbefb75cbb5971acd562644668d6d4051b4f3510f183678151746f"
+    },
+    {
+      "image": "images/train/128057_scene60_00024252-tile3.png",
+      "label": "labels/train/128057_scene60_00024252-tile3.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024252",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "640022770de3c103d17164946cc84a10b194fafe4ffb479f35977ed8ad24e8f9",
+      "label_sha256": "be4acfad508e5b5b8e4516f98a1a8ca2d1dc17c50d2725376d5eae6f70bc371d"
+    },
+    {
+      "image": "images/train/128057_scene60_00024260-tile0.png",
+      "label": "labels/train/128057_scene60_00024260-tile0.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024260",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "70784b9a2e2843d7201a862718c70f1a99e79ba572b7916b06bbf6ad46e84fbc",
+      "label_sha256": "71f6ca0df7a80b835f28b4574964937d05b2b3529fc5d4e2a94d2e43ec83285a"
+    },
+    {
+      "image": "images/train/128057_scene60_00024260-tile1.png",
+      "label": "labels/train/128057_scene60_00024260-tile1.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024260",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "887b17d01fad3b8f321c3e95b8a8a5db0616f8fd2c470dc6334cd8be36673814",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00024260-tile2.png",
+      "label": "labels/train/128057_scene60_00024260-tile2.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024260",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "a092842e5548f9045668169276cc905fb83538bf5dfef1778b3ee612dc199fcf",
+      "label_sha256": "67b9eee8529cf663bd07dd76af42a2dc666085303f44e10c965afcceaf29cf94"
+    },
+    {
+      "image": "images/train/128057_scene60_00024260-tile3.png",
+      "label": "labels/train/128057_scene60_00024260-tile3.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024260",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "bc55a35e0682df488ed155e063b0b319078b17e25bf2fd387093ffe7307250a4",
+      "label_sha256": "77aafe8faff72c97a2be450e82546779d76f4810daa8730c8f52ceeae9497d38"
+    },
+    {
+      "image": "images/train/128057_scene60_00024268-tile0.png",
+      "label": "labels/train/128057_scene60_00024268-tile0.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024268",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "f0f791ed44aea62b9f38c53556017983e1324f9848c89866bb04e30b21f1f0b3",
+      "label_sha256": "71f6ca0df7a80b835f28b4574964937d05b2b3529fc5d4e2a94d2e43ec83285a"
+    },
+    {
+      "image": "images/train/128057_scene60_00024268-tile1.png",
+      "label": "labels/train/128057_scene60_00024268-tile1.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024268",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "ce20c2251c06e19b95b48eee8c45d82605634b8cbeecdab39f013dbfd31a2e2e",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00024268-tile2.png",
+      "label": "labels/train/128057_scene60_00024268-tile2.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024268",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "eade951f4934dcd267eee955ee68f9a6ac22cb21cea9b0747249bd16a4c41552",
+      "label_sha256": "7161546606fea1299918ba7df56a29f24d9156c8c43e56e6ef25fa4d93de842d"
+    },
+    {
+      "image": "images/train/128057_scene60_00024268-tile3.png",
+      "label": "labels/train/128057_scene60_00024268-tile3.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024268",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "ac28c3a4939efc408b0c72cf54be6becb314f9a43f3209530eddcc9aa9a331bc",
+      "label_sha256": "ec553ed1944cc4c1021a8b2b2efc3dff1d21e64d455fe9c81bbeee57b46d2f6f"
+    },
+    {
+      "image": "images/train/128057_scene60_00024276-tile0.png",
+      "label": "labels/train/128057_scene60_00024276-tile0.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024276",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "b42fd245ba30347d8346ffb98ffe5603a82ab74e0c7697220e2fcfefeca35a2b",
+      "label_sha256": "71f6ca0df7a80b835f28b4574964937d05b2b3529fc5d4e2a94d2e43ec83285a"
+    },
+    {
+      "image": "images/train/128057_scene60_00024276-tile1.png",
+      "label": "labels/train/128057_scene60_00024276-tile1.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024276",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "b947f6e685ae5af6565b7435fcd4f19283c72207133f1c230ef74d7480e1b00f",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00024276-tile2.png",
+      "label": "labels/train/128057_scene60_00024276-tile2.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024276",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "b424416b995790bbddc664118c96ec20879a8b7da469a9a2cdbd7eff891f741b",
+      "label_sha256": "86e03297666e28644cc8f13b33afe4f8dfe36bd29694a1549ad3f95b292fdb4e"
+    },
+    {
+      "image": "images/train/128057_scene60_00024276-tile3.png",
+      "label": "labels/train/128057_scene60_00024276-tile3.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024276",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "9cae48b9e2a5e551692c678715f35f57a47d3676fda487302e4f714782ae131d",
+      "label_sha256": "0088cd523e37579757a18e668813b7d7a6f3374d84558c4e806f4dc98717ca9a"
+    },
+    {
+      "image": "images/train/128057_scene60_00024284-tile0.png",
+      "label": "labels/train/128057_scene60_00024284-tile0.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024284",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "5029c65b5b42858b35473b69d6cbf248dde5cc465404901993adf49963c2bee9",
+      "label_sha256": "5af61261b822ec59d8f0ca8969f9e5dfd01795ebbbc1269dab01aef32563868c"
+    },
+    {
+      "image": "images/train/128057_scene60_00024284-tile1.png",
+      "label": "labels/train/128057_scene60_00024284-tile1.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024284",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "53a647173fca66601560b597784190176245f7878bc90ad19b2fb922f094334a",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00024284-tile2.png",
+      "label": "labels/train/128057_scene60_00024284-tile2.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024284",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "13059999874f3f5ef4cb54570371507353b72640750317a3e8d62ab561b9ffd6",
+      "label_sha256": "3227fe69bd2cb80b75245ac456e20ef4c368bdc819fe10df9d2fe36b4dc61548"
+    },
+    {
+      "image": "images/train/128057_scene60_00024284-tile3.png",
+      "label": "labels/train/128057_scene60_00024284-tile3.txt",
+      "split": "train",
+      "group": "phase-0960",
+      "frame_id": "128057_scene60_00024284",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "6b3078850366cc007c7ccd179d9ba2d731b8defdcb8378927c5b0236d946b90e",
+      "label_sha256": "c37adafd0070d99fb649f6cc0c8bd5a0fdeec8c98754312c84968845ea295b90"
+    },
+    {
+      "image": "images/train/128057_scene60_00029588-tile0.png",
+      "label": "labels/train/128057_scene60_00029588-tile0.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029588",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "96b22dd5d4461b46793ac201f3ea19886ee74649aff6cd3e284145fb6b595bbb",
+      "label_sha256": "363c912bc04b4080c027c0d32f660cd05222a2b360028445e811bc843437f2ff"
+    },
+    {
+      "image": "images/train/128057_scene60_00029588-tile1.png",
+      "label": "labels/train/128057_scene60_00029588-tile1.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029588",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "ec2239782150a0bebf65a0e884967504bbfe8ecfe04ccf6ad86cf08f75900e5f",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00029588-tile2.png",
+      "label": "labels/train/128057_scene60_00029588-tile2.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029588",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "eef06d585170c067c65ef5374025610b23f36df14864a062aa34ee3250f8e521",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00029588-tile3.png",
+      "label": "labels/train/128057_scene60_00029588-tile3.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029588",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "da12b59eab8ab736e67d39ee0a9996f687e90e174dcb1cefbb73530c77a78dc8",
+      "label_sha256": "8b4bc5d00f2969e9a4b62312ae706d0f87e88b2d31590d9ff992814469a251f5"
+    },
+    {
+      "image": "images/train/128057_scene60_00029596-tile0.png",
+      "label": "labels/train/128057_scene60_00029596-tile0.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029596",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "e0a5c98b89514331007506315fc56e0765190afeac3c6a8e8ca9d69ff0eba074",
+      "label_sha256": "363c912bc04b4080c027c0d32f660cd05222a2b360028445e811bc843437f2ff"
+    },
+    {
+      "image": "images/train/128057_scene60_00029596-tile1.png",
+      "label": "labels/train/128057_scene60_00029596-tile1.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029596",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "460e9d533867412cfa7e7c2f1605094de6444bb29739918280a33c712baa850c",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00029596-tile2.png",
+      "label": "labels/train/128057_scene60_00029596-tile2.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029596",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "275c84c623ad4e663fe95c16b774a0c6048f29086b6dff077c0193a5ae12b8bd",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00029596-tile3.png",
+      "label": "labels/train/128057_scene60_00029596-tile3.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029596",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "62405ee1b6d27f82d744c81b0b370e71b639a975f814f872b38fbdef3e5b0cab",
+      "label_sha256": "6befa99f799cbcfff124fe4363888b0463582824585fd26a227ac586c877f59e"
+    },
+    {
+      "image": "images/train/128057_scene60_00029604-tile0.png",
+      "label": "labels/train/128057_scene60_00029604-tile0.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029604",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "8a2fcc96ce7fe06bd0ca22d2fa59052ff687be49b9c2db9857c7bf7f88a092de",
+      "label_sha256": "363c912bc04b4080c027c0d32f660cd05222a2b360028445e811bc843437f2ff"
+    },
+    {
+      "image": "images/train/128057_scene60_00029604-tile1.png",
+      "label": "labels/train/128057_scene60_00029604-tile1.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029604",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "949ab9c661c356552ea391a86a5b7e345c4e96797e9cf6c576d04f385a92d19f",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00029604-tile2.png",
+      "label": "labels/train/128057_scene60_00029604-tile2.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029604",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "1ae297d0f4629e702603bbe0d9ef5922591a6a36b67ae256910c61bde134b6d0",
+      "label_sha256": "39ec0276056331b15dcc2df8198b07339e4feacc86a6f64c7cf69ee98486087d"
+    },
+    {
+      "image": "images/train/128057_scene60_00029604-tile3.png",
+      "label": "labels/train/128057_scene60_00029604-tile3.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029604",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "a4221166378d0d11aa02747e9b6db1763db3357713ca6173ad7a05d490041091",
+      "label_sha256": "f73459a38ecad0422872abd8efa191f7f4f7dfb0317c0665df7fecb7d2c43ed9"
+    },
+    {
+      "image": "images/train/128057_scene60_00029612-tile0.png",
+      "label": "labels/train/128057_scene60_00029612-tile0.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029612",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "fb508f3aa720b498de9c8881827d8862e1b015845e361301a95e730526e794e4",
+      "label_sha256": "363c912bc04b4080c027c0d32f660cd05222a2b360028445e811bc843437f2ff"
+    },
+    {
+      "image": "images/train/128057_scene60_00029612-tile1.png",
+      "label": "labels/train/128057_scene60_00029612-tile1.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029612",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "36f7f11ce837d8f098409092fc973a730e1141601daaab142ac55346e32db07c",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00029612-tile2.png",
+      "label": "labels/train/128057_scene60_00029612-tile2.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029612",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "1af9b7a104ab7a1240af1ab3f75890cb44b36c76ea5cdc6fde7609831e055718",
+      "label_sha256": "ee142e3d372c9d717f0664be9783c3242d565a8fcf00e4d588d5d11c0cf8054e"
+    },
+    {
+      "image": "images/train/128057_scene60_00029612-tile3.png",
+      "label": "labels/train/128057_scene60_00029612-tile3.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029612",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "dbd23f90e340fb5219c1b8e3a43dc6546ddcefe0baa97d966b3d4281d348a98e",
+      "label_sha256": "cbae3ccadc6031c90dd7e5c6cd89109044e4e5d80fd718b1d22e324ea39d4520"
+    },
+    {
+      "image": "images/train/128057_scene60_00029620-tile0.png",
+      "label": "labels/train/128057_scene60_00029620-tile0.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029620",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "4b2b27ec5349ec64fd047b41c4e8c10c2f2c1215e52d3145bae448e8dffd1887",
+      "label_sha256": "363c912bc04b4080c027c0d32f660cd05222a2b360028445e811bc843437f2ff"
+    },
+    {
+      "image": "images/train/128057_scene60_00029620-tile1.png",
+      "label": "labels/train/128057_scene60_00029620-tile1.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029620",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "5bd874e91e80923f3b43d620ed63c446594274af88e4660f0d1f8fe5b0399c18",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00029620-tile2.png",
+      "label": "labels/train/128057_scene60_00029620-tile2.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029620",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "eca55894292769dc41e31314617e2ed1fadd2ef48a8eaa1a665519489450b1c0",
+      "label_sha256": "2ee9100bc2bd5850cd5502f365febf75b2846ba819d96c6203b0962d5612eae8"
+    },
+    {
+      "image": "images/train/128057_scene60_00029752-tile0.png",
+      "label": "labels/train/128057_scene60_00029752-tile0.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029752",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "7e8856828f6ba3b2c7d502d4ac577e8679c160ca29bc9f69de48840771791aa4",
+      "label_sha256": "4c1cf08e24e99cf82a3988815f945bbef203077f279a979f6de8b91892299977"
+    },
+    {
+      "image": "images/train/128057_scene60_00029752-tile1.png",
+      "label": "labels/train/128057_scene60_00029752-tile1.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029752",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "d0113c3b92e89e06acd858eba7f7765adff197d5e31a052a7ac4d903c8baad65",
+      "label_sha256": "52ef9955fbf47af702a87f3548dd49858a4a598599980648dd81e3a4963c5f6c"
+    },
+    {
+      "image": "images/train/128057_scene60_00029752-tile2.png",
+      "label": "labels/train/128057_scene60_00029752-tile2.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029752",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "e580dd2813ad5d3dd73b4fb86eacd886ca5dc3ee4b6ad9f4a3b6a51f060d758e",
+      "label_sha256": "c3a378350dfe933827e45f90a1dbb689554b37646031f6518cb94e53e8184812"
+    },
+    {
+      "image": "images/train/128057_scene60_00029752-tile3.png",
+      "label": "labels/train/128057_scene60_00029752-tile3.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029752",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "ddb9e0beb46bc6e37ac2f2c1151d3fcebefd26b53482609382d357f93fc0a649",
+      "label_sha256": "00f4ede7b860744f6bad0fd445462002b39e53e99d42e8adce38ca7f69dc00be"
+    },
+    {
+      "image": "images/train/128057_scene60_00029760-tile0.png",
+      "label": "labels/train/128057_scene60_00029760-tile0.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029760",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "a4b5c3f6a941660a4116cd9bfe13741e8fcdb5b1a8f0d5bb8d5b703e327517e1",
+      "label_sha256": "4c1cf08e24e99cf82a3988815f945bbef203077f279a979f6de8b91892299977"
+    },
+    {
+      "image": "images/train/128057_scene60_00029760-tile1.png",
+      "label": "labels/train/128057_scene60_00029760-tile1.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029760",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "e153afcd34c9055c71f68610a28b27430a615b44cc4cbdfa3f92a0bde9b0181b",
+      "label_sha256": "395d98503a7858125eb42f2e87ab66b6e30d787d8ac539a273bf87516550522a"
+    },
+    {
+      "image": "images/train/128057_scene60_00029760-tile2.png",
+      "label": "labels/train/128057_scene60_00029760-tile2.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029760",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "975d16c13cc4dd6cdb5c8d24015cd215d6ea3a3e2ad328da71f073d0eeb15b20",
+      "label_sha256": "cf975a2b94a5e6bae7f401e2be41d151e27d6c928cfec4f5ddf2db7dd98a8fde"
+    },
+    {
+      "image": "images/train/128057_scene60_00029760-tile3.png",
+      "label": "labels/train/128057_scene60_00029760-tile3.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029760",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "408f27b445acb2fe1842a43d1a1d434c08af59fab954ab98d888979d590fce28",
+      "label_sha256": "00f4ede7b860744f6bad0fd445462002b39e53e99d42e8adce38ca7f69dc00be"
+    },
+    {
+      "image": "images/train/128057_scene60_00029768-tile0.png",
+      "label": "labels/train/128057_scene60_00029768-tile0.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029768",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "ab1639b0fef6fa398939790f80b3c496983904d6ff6f27e7b122cbeabfd452ab",
+      "label_sha256": "4c1cf08e24e99cf82a3988815f945bbef203077f279a979f6de8b91892299977"
+    },
+    {
+      "image": "images/train/128057_scene60_00029768-tile1.png",
+      "label": "labels/train/128057_scene60_00029768-tile1.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029768",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "fc7fb43f3b9cccda869a42146a83d146c90d210e8352398e129ac8f0cabf4b9f",
+      "label_sha256": "983603383ba2504dbe4d364d0b4674cfa3cbe1e1c8a764ad2d485088b173477d"
+    },
+    {
+      "image": "images/train/128057_scene60_00029768-tile2.png",
+      "label": "labels/train/128057_scene60_00029768-tile2.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029768",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "93b879ba3541040f3dfc231c82b5e91920faa18ac076308de01c50b805258977",
+      "label_sha256": "10d485fc8c5161ad113c3f336eaff3edfda64c22de5d965eb5d9c8e8675b0621"
+    },
+    {
+      "image": "images/train/128057_scene60_00029768-tile3.png",
+      "label": "labels/train/128057_scene60_00029768-tile3.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029768",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "9793948359106cb9a96269a3cc1f6c2d9af226eb19b73884f1982e60586ade14",
+      "label_sha256": "00f4ede7b860744f6bad0fd445462002b39e53e99d42e8adce38ca7f69dc00be"
+    },
+    {
+      "image": "images/train/128057_scene60_00029776-tile0.png",
+      "label": "labels/train/128057_scene60_00029776-tile0.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029776",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "edd86ef81b0a3702d5ac4223f4b17c7f1e1f74d4fe89d1619646190826ad5e66",
+      "label_sha256": "4c1cf08e24e99cf82a3988815f945bbef203077f279a979f6de8b91892299977"
+    },
+    {
+      "image": "images/train/128057_scene60_00029776-tile1.png",
+      "label": "labels/train/128057_scene60_00029776-tile1.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029776",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "00175900043b9ed23ee839a228d7449fb7bcb821ba906f3d8e7fc4af8775cdb8",
+      "label_sha256": "ce33613f245b51357c5f56698f8730822110c1c74a460817f42abdd61e21d0fe"
+    },
+    {
+      "image": "images/train/128057_scene60_00029776-tile2.png",
+      "label": "labels/train/128057_scene60_00029776-tile2.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029776",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "dcbf641d2658a3b23dba262ad161d937ae820b22cfd833e8a91b71ddf806de6a",
+      "label_sha256": "369a0f7a2a207dc64e93996b11656557ff20bf80b74161a03c2a09042be27841"
+    },
+    {
+      "image": "images/train/128057_scene60_00029776-tile3.png",
+      "label": "labels/train/128057_scene60_00029776-tile3.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029776",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "8633967faca567051c5567dca0aaf65c03331897ce79d0d6a89a362ef23a7fbb",
+      "label_sha256": "00f4ede7b860744f6bad0fd445462002b39e53e99d42e8adce38ca7f69dc00be"
+    },
+    {
+      "image": "images/train/128057_scene60_00029784-tile0.png",
+      "label": "labels/train/128057_scene60_00029784-tile0.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029784",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "ad3f8794bdb43889b20aa1467bd8116c1e18cad768cae99a41a3299834e74139",
+      "label_sha256": "4c1cf08e24e99cf82a3988815f945bbef203077f279a979f6de8b91892299977"
+    },
+    {
+      "image": "images/train/128057_scene60_00029784-tile1.png",
+      "label": "labels/train/128057_scene60_00029784-tile1.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029784",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "b02167e9694e6658b14282738baadd945228b6b6582edd70a38672e7d874c60c",
+      "label_sha256": "29ab35235bd2cc07139c3ee1f22e76617dcab85367406a707137819866a67b04"
+    },
+    {
+      "image": "images/train/128057_scene60_00029784-tile2.png",
+      "label": "labels/train/128057_scene60_00029784-tile2.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029784",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "bad7b7a2951418ce63692b5a9b822a34f4db1b9d719266164e6c6056a79a84be",
+      "label_sha256": "a10008da522d4c8fb7831341e9eb10aa44492c02fca6823c9fd92ec95a1fbe8a"
+    },
+    {
+      "image": "images/train/128057_scene60_00029784-tile3.png",
+      "label": "labels/train/128057_scene60_00029784-tile3.txt",
+      "split": "train",
+      "group": "phase-1170",
+      "frame_id": "128057_scene60_00029784",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "eadd192d47e437ccf5d59fee6642b56239632cee8e2ec3e825e36d16ed60c875",
+      "label_sha256": "00f4ede7b860744f6bad0fd445462002b39e53e99d42e8adce38ca7f69dc00be"
+    },
+    {
+      "image": "images/train/128057_scene60_00034888-tile0.png",
+      "label": "labels/train/128057_scene60_00034888-tile0.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034888",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "718de3cf729324e34c973a52bf646b05551dc538c28a9817ba79c26c13a63cc8",
+      "label_sha256": "fd33e2905ae5042be5c62ebcbe6aadbc68055d818a7e955cd3638c54b39f16f7"
+    },
+    {
+      "image": "images/train/128057_scene60_00034888-tile1.png",
+      "label": "labels/train/128057_scene60_00034888-tile1.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034888",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "ebcc514de192d4b5b819349dfe0cc64d96921793c12b6e4c6e324e83d0fb8628",
+      "label_sha256": "68dfcaec71bc346c9cd8d36a8530de7ce8ac4c94403d1f609b1d518e3fe1f50f"
+    },
+    {
+      "image": "images/train/128057_scene60_00034888-tile2.png",
+      "label": "labels/train/128057_scene60_00034888-tile2.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034888",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "6c5352f5d1e087cde9d2b79ce93202fb4fe5447b5ad19f0b17612f11436a9c23",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034888-tile3.png",
+      "label": "labels/train/128057_scene60_00034888-tile3.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034888",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "7947ad7a23cd4f328c62f5ec9641d283901f7a4678e0bece974db192a599fc14",
+      "label_sha256": "1ce4f67d49650c28dcaf63608ae739a31ad38724bdb4bbcbe8f11597c05a1c62"
+    },
+    {
+      "image": "images/train/128057_scene60_00034892-tile0.png",
+      "label": "labels/train/128057_scene60_00034892-tile0.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034892",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "d76ce471eb8b56a21894c9cda91fa1e3e1b41af5a6be9d61c53099fb74fe0794",
+      "label_sha256": "224738c2c458e2def84c1e2caa8a7d49a7375c98e3e81078bee172b8225364e1"
+    },
+    {
+      "image": "images/train/128057_scene60_00034892-tile1.png",
+      "label": "labels/train/128057_scene60_00034892-tile1.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034892",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "70a49a71caefea9f1955446148e6b0d7a95fc188bddbce53c85c0bd3167ee58c",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034892-tile2.png",
+      "label": "labels/train/128057_scene60_00034892-tile2.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034892",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "f60d9d989200e0c69f553b71dd6f8d901d5891637435aab3ec86481ee53ca686",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034892-tile3.png",
+      "label": "labels/train/128057_scene60_00034892-tile3.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034892",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "dbcc7b1c9558443861447cd197978c0090154635bafc09cebca7cb8a2be34487",
+      "label_sha256": "1ce4f67d49650c28dcaf63608ae739a31ad38724bdb4bbcbe8f11597c05a1c62"
+    },
+    {
+      "image": "images/train/128057_scene60_00034896-tile0.png",
+      "label": "labels/train/128057_scene60_00034896-tile0.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034896",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "9e821631dab763320ad41abbe3d8ac3e07ed3265dea1064f210f70e3f1257f27",
+      "label_sha256": "9614aebb338e7509757aeba51ac4f20f7f08b0757435b4b597aabcf6e37a7b67"
+    },
+    {
+      "image": "images/train/128057_scene60_00034896-tile1.png",
+      "label": "labels/train/128057_scene60_00034896-tile1.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034896",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "2effdea1adf726da00e9fee17a8b77340ee91c9e06f58815647d001f5bde4dd1",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034896-tile2.png",
+      "label": "labels/train/128057_scene60_00034896-tile2.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034896",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "367516a41f30906327de7822b40f538fe60d36839fc523f5ba9f3df59c3ae61b",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034896-tile3.png",
+      "label": "labels/train/128057_scene60_00034896-tile3.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034896",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "616da8d198465e6d872e326eeaa6adc8468cd0b337a208bce37c5e12c0ee4955",
+      "label_sha256": "1ce4f67d49650c28dcaf63608ae739a31ad38724bdb4bbcbe8f11597c05a1c62"
+    },
+    {
+      "image": "images/train/128057_scene60_00034904-tile0.png",
+      "label": "labels/train/128057_scene60_00034904-tile0.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034904",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "e729a2f07a62260a73f2466c01d7616f56874856693532d52e05635f7bd248ed",
+      "label_sha256": "2a8d2331aa5ec5710feed1748f901bf244e8588aff850d943b099405a22f5762"
+    },
+    {
+      "image": "images/train/128057_scene60_00034904-tile1.png",
+      "label": "labels/train/128057_scene60_00034904-tile1.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034904",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "1fff56dc02368c8fc76ca2f00dc3b22fc0513dab0121ee140436243b7bae841b",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034904-tile2.png",
+      "label": "labels/train/128057_scene60_00034904-tile2.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034904",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "f011684c96df6bd3574454a83de982e7221349993fb3ca19ec153566ead12cc2",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034904-tile3.png",
+      "label": "labels/train/128057_scene60_00034904-tile3.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034904",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "297e4f8e82a56a04aaaf17599e5042f5dc5e8c43244215ea412d6a6e09be25ce",
+      "label_sha256": "1ce4f67d49650c28dcaf63608ae739a31ad38724bdb4bbcbe8f11597c05a1c62"
+    },
+    {
+      "image": "images/train/128057_scene60_00034908-tile0.png",
+      "label": "labels/train/128057_scene60_00034908-tile0.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034908",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "1670bf76d993497a8765f3544f0e6d5ac90f7e5055d86c89c21142d3186a2eb5",
+      "label_sha256": "e45736f49cbfa581ef6425448dbb860dbfa156c5ca4da7e1a3bd31d92a3ce724"
+    },
+    {
+      "image": "images/train/128057_scene60_00034908-tile1.png",
+      "label": "labels/train/128057_scene60_00034908-tile1.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034908",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "1fddc0b61b49fd2ba404717cc540550140123d64fc66ef513178770e344309b3",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034908-tile2.png",
+      "label": "labels/train/128057_scene60_00034908-tile2.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034908",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "75bf28d6ec1288b3509d51c0028c8ad36fdae497b1a523fa1a75edb99e982494",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034908-tile3.png",
+      "label": "labels/train/128057_scene60_00034908-tile3.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034908",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "00df99cc94148072c59dd0f72b7bf1aedd80f66106b9f72a785ccdf8d2e53f9a",
+      "label_sha256": "1ce4f67d49650c28dcaf63608ae739a31ad38724bdb4bbcbe8f11597c05a1c62"
+    },
+    {
+      "image": "images/train/128057_scene60_00034912-tile0.png",
+      "label": "labels/train/128057_scene60_00034912-tile0.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034912",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "9e91e2840e1c4e298be4f2988855ccf8e95b4e8eb65736ad140c3a801a0f5c28",
+      "label_sha256": "41e73af055eb2404bda37756f658c73dc81882ae718f62d42f20f37bd4e6667b"
+    },
+    {
+      "image": "images/train/128057_scene60_00034912-tile1.png",
+      "label": "labels/train/128057_scene60_00034912-tile1.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034912",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "5fa5803b13da76f108a86754560f26dcc1a7401ae1c69138cf3117d55a695325",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034912-tile2.png",
+      "label": "labels/train/128057_scene60_00034912-tile2.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034912",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "6ec8ff3ad56b9695f455855e0150b8c7f290966a5536a09d4cbd436b504dbc5f",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034912-tile3.png",
+      "label": "labels/train/128057_scene60_00034912-tile3.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034912",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "2c3cab51439b00ca3424e7d439f44b4e04e6bad14fa074139dcc25d011da0242",
+      "label_sha256": "1ce4f67d49650c28dcaf63608ae739a31ad38724bdb4bbcbe8f11597c05a1c62"
+    },
+    {
+      "image": "images/train/128057_scene60_00034916-tile0.png",
+      "label": "labels/train/128057_scene60_00034916-tile0.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034916",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "91635d2b65d9954a98b3ed4bfe22cac098f6c76d7029034090410d84e7542f8c",
+      "label_sha256": "fd3c5912d4c1e3ae4e9804cdf67c54b8332d7b94b31b6bd4cfaea9231cbd9990"
+    },
+    {
+      "image": "images/train/128057_scene60_00034916-tile1.png",
+      "label": "labels/train/128057_scene60_00034916-tile1.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034916",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "5b2280c2662d0f13d13541feb7f471be6abadf230f0a13976e0175bb9c9c3df7",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034916-tile2.png",
+      "label": "labels/train/128057_scene60_00034916-tile2.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034916",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "db6a10e2c4371b9ea35963e7e492a4db022fa6537ec71883873b69ba662f0bb2",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034916-tile3.png",
+      "label": "labels/train/128057_scene60_00034916-tile3.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034916",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "12d822f0f9ce0fd12c8e30a87606ba8e22c27aa027a4024682e45b20884474df",
+      "label_sha256": "1ce4f67d49650c28dcaf63608ae739a31ad38724bdb4bbcbe8f11597c05a1c62"
+    },
+    {
+      "image": "images/train/128057_scene60_00034920-tile0.png",
+      "label": "labels/train/128057_scene60_00034920-tile0.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034920",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "79894cd60c03631315c9e4ed142aeb0dec5ca17b9e50d1ec0dfd43ce1f51ae39",
+      "label_sha256": "193cf6af4807119ec0b2a16b7493b298d0974899a9dc2d41de96e804496d4657"
+    },
+    {
+      "image": "images/train/128057_scene60_00034920-tile1.png",
+      "label": "labels/train/128057_scene60_00034920-tile1.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034920",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "d675867aff3b135f394eb391b7f85f9681be9cdeb0d5bef501934087c62dda89",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034920-tile2.png",
+      "label": "labels/train/128057_scene60_00034920-tile2.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034920",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "569fb2df369dcc32472ca222dd1ccc22012ac940803d0dbbb0e8085ab0e2ed72",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034920-tile3.png",
+      "label": "labels/train/128057_scene60_00034920-tile3.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034920",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "3fdc9972bd0bf93c333c2947d8de0cc331a9ea7feae4e0a483d8e0f50a68de2a",
+      "label_sha256": "1ce4f67d49650c28dcaf63608ae739a31ad38724bdb4bbcbe8f11597c05a1c62"
+    },
+    {
+      "image": "images/train/128057_scene60_00034924-tile0.png",
+      "label": "labels/train/128057_scene60_00034924-tile0.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034924",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "98cc13c06d123742ccfff83a20bb6fbaef2345c2e437849f8c58f2f955f19d5c",
+      "label_sha256": "b86ad2ff2edacf85a681e3b1ef060709a8b593d3cc6fc2ea36c4f295fd64b385"
+    },
+    {
+      "image": "images/train/128057_scene60_00034924-tile1.png",
+      "label": "labels/train/128057_scene60_00034924-tile1.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034924",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "553c5806fb1cf15a52b2ee1d347ae0a0d0237868aa5f7b86ac9ca12aa5c7c736",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034924-tile2.png",
+      "label": "labels/train/128057_scene60_00034924-tile2.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034924",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "a8401695c5d3a742ef7f0e3055d43a415d315c22c7f309ee7721485eb3e795b1",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034924-tile3.png",
+      "label": "labels/train/128057_scene60_00034924-tile3.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034924",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "809025414bd0a1d2fed6fce55d9824e9d3cd23b9adfcc98184d2c35d5511dbfb",
+      "label_sha256": "1ce4f67d49650c28dcaf63608ae739a31ad38724bdb4bbcbe8f11597c05a1c62"
+    },
+    {
+      "image": "images/train/128057_scene60_00034928-tile0.png",
+      "label": "labels/train/128057_scene60_00034928-tile0.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034928",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 3,
+      "image_sha256": "b008fdb8b2fd473c96d16973558a96c50459161a7072787116153183a5450637",
+      "label_sha256": "daa8683a057a44fab8c40aabf902d15c33ce74388a36e94e4db47a198863b337"
+    },
+    {
+      "image": "images/train/128057_scene60_00034928-tile1.png",
+      "label": "labels/train/128057_scene60_00034928-tile1.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034928",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "7f3ce297d9d4fe66c8baff72f25cf22968f52b40beaa7fe0c63170a684739163",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034928-tile2.png",
+      "label": "labels/train/128057_scene60_00034928-tile2.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034928",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 0,
+      "image_sha256": "04f3b3296753df9d44dc72c3ee82b6db0f0fe78bb555fde08e7ae768a4c31f97",
+      "label_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "image": "images/train/128057_scene60_00034928-tile3.png",
+      "label": "labels/train/128057_scene60_00034928-tile3.txt",
+      "split": "train",
+      "group": "phase-1380",
+      "frame_id": "128057_scene60_00034928",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "21f5e00decfdbd20fa4d4da36b462a1e67d21ca1d52ef1353197304d0e0b25b3",
+      "label_sha256": "1ce4f67d49650c28dcaf63608ae739a31ad38724bdb4bbcbe8f11597c05a1c62"
+    },
+    {
+      "image": "images/val/128057_scene60_00050320-tile0.png",
+      "label": "labels/val/128057_scene60_00050320-tile0.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050320",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "4dd4a34947bf2d764560121a9fd9a8c6debe4e5b7c51cb0be4b929b11e299ec0",
+      "label_sha256": "6af18a76f070504294ac8e9fe5946125dd2f08e195b60473927bf533612c3920"
+    },
+    {
+      "image": "images/val/128057_scene60_00050320-tile1.png",
+      "label": "labels/val/128057_scene60_00050320-tile1.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050320",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "3ca5e11babcf9dd08a399a6d4d69301fad26cf7edea4a0c90b62ab27da5e28c2",
+      "label_sha256": "31ff2eee7ce51a86d5e18c2d6b29d0fd7e137db25be1f169b4a56bf1fbc3324b"
+    },
+    {
+      "image": "images/val/128057_scene60_00050320-tile2.png",
+      "label": "labels/val/128057_scene60_00050320-tile2.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050320",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "759be17c4d7fce012359117df369ee9c8c80fad7eec6a22a2369d8198ca22a64",
+      "label_sha256": "97d3b1467a7eedc758c7480ccab77c6c406b9b9fab2559496180c57ab585570e"
+    },
+    {
+      "image": "images/val/128057_scene60_00050320-tile3.png",
+      "label": "labels/val/128057_scene60_00050320-tile3.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050320",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "8680864bd235875f5ea2d4a6ace12be072925ad0e17275b113420578eeddf35f",
+      "label_sha256": "05eb92392b8dba9eb88aca867c7c02d9b19b518b985851768ce6107a03c703aa"
+    },
+    {
+      "image": "images/val/128057_scene60_00050340-tile0.png",
+      "label": "labels/val/128057_scene60_00050340-tile0.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050340",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "7f2546633639021f3353b3fb6db7e5e153cf72780bf76fa84d15d16d112a4910",
+      "label_sha256": "548d3889e2fadd471a0071fc1cf82d3f2004bf04f996a53f1d07c3d8ce49f403"
+    },
+    {
+      "image": "images/val/128057_scene60_00050340-tile1.png",
+      "label": "labels/val/128057_scene60_00050340-tile1.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050340",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "b3f0937243d2c1ba97c6086e0c2196dffedad6131eaccda7185d48307944afb5",
+      "label_sha256": "948f84fe09cd0d7babf30d4c86ef3d7cf5c1a50b154e7ad4ae901175f3d18fa9"
+    },
+    {
+      "image": "images/val/128057_scene60_00050340-tile2.png",
+      "label": "labels/val/128057_scene60_00050340-tile2.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050340",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "6b852252dae0076277a8d0da2d5e19ea7294b61bd5bbdabe3b28c1719a76c561",
+      "label_sha256": "24e9a9ced2615c2ae386e41dc25e4d40f7799f06a4bc83350fc024af626ded5e"
+    },
+    {
+      "image": "images/val/128057_scene60_00050340-tile3.png",
+      "label": "labels/val/128057_scene60_00050340-tile3.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050340",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "5139dc79269d1e46f746d839fcaa549ec4fb9cd1733db6a6f39d4ede481729ed",
+      "label_sha256": "05eb92392b8dba9eb88aca867c7c02d9b19b518b985851768ce6107a03c703aa"
+    },
+    {
+      "image": "images/val/128057_scene60_00050360-tile0.png",
+      "label": "labels/val/128057_scene60_00050360-tile0.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050360",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "95bdbee5654cd4f810fc65989e21d318933013241c9deeba26c0645609a1ce11",
+      "label_sha256": "0106ecb4fd92277dd48b354e4d59c017f3ccf6a7e1bc26ddbdddf1ace2df3e20"
+    },
+    {
+      "image": "images/val/128057_scene60_00050360-tile1.png",
+      "label": "labels/val/128057_scene60_00050360-tile1.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050360",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "40a9a44ba3a2f8ba68ffcb7e87458a447df6f781a43efe7fa2d7738063325e0c",
+      "label_sha256": "e893a41c7b934f9c4c45b4ddd22313bfce2a65ab2f3787e084a2a8cc934be40c"
+    },
+    {
+      "image": "images/val/128057_scene60_00050360-tile2.png",
+      "label": "labels/val/128057_scene60_00050360-tile2.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050360",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "ee934071100939051038583409da250e8868a9cb69a40a7a0abfcc0606788f8d",
+      "label_sha256": "24e9a9ced2615c2ae386e41dc25e4d40f7799f06a4bc83350fc024af626ded5e"
+    },
+    {
+      "image": "images/val/128057_scene60_00050360-tile3.png",
+      "label": "labels/val/128057_scene60_00050360-tile3.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050360",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "e52ca88d06a1ffc65e13f5e74f690cf4f8a06a451d26d458a10a66ba931a3841",
+      "label_sha256": "402caedeb68bb85c1289fe530c6d4bc71eaec6d34f0f3b3417f72b57b0b88c8a"
+    },
+    {
+      "image": "images/val/128057_scene60_00050380-tile0.png",
+      "label": "labels/val/128057_scene60_00050380-tile0.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050380",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "949bc8acf44fb4b1f2b8c78247eb1b201babe7703642cee3d512a9c223d68ab6",
+      "label_sha256": "b1bd6a627d337b3256b9c95f87fe1665318dee3a26d90ea4900dfbebc3624840"
+    },
+    {
+      "image": "images/val/128057_scene60_00050380-tile1.png",
+      "label": "labels/val/128057_scene60_00050380-tile1.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050380",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "e9479d7b5f21c83cc4855d0222a9f94f23cb4ae4309c5e88b6627b54f2ab59fa",
+      "label_sha256": "7edd73c315813576fd02521779528590eb116eb71dd73eccae36ec94d3644902"
+    },
+    {
+      "image": "images/val/128057_scene60_00050380-tile2.png",
+      "label": "labels/val/128057_scene60_00050380-tile2.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050380",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "c0dbb62c1515e1cbb69348851e0c13e44b4cb01fb71afcc5b9648df06edafa67",
+      "label_sha256": "24e9a9ced2615c2ae386e41dc25e4d40f7799f06a4bc83350fc024af626ded5e"
+    },
+    {
+      "image": "images/val/128057_scene60_00050380-tile3.png",
+      "label": "labels/val/128057_scene60_00050380-tile3.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050380",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "7b0113be4a485a39a7a774d5cb7b01d14f421e794ae68e283b07fa4204b8845e",
+      "label_sha256": "05eb92392b8dba9eb88aca867c7c02d9b19b518b985851768ce6107a03c703aa"
+    },
+    {
+      "image": "images/val/128057_scene60_00050410-tile0.png",
+      "label": "labels/val/128057_scene60_00050410-tile0.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050410",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "d53d1be4cbcf2b68fe7c6b2642c962506294fc1fe095909cd0b9449479baf7f9",
+      "label_sha256": "a7ac0333d264effac96c6e44e0ea79aa49b08d21b3b2581242d8461474664062"
+    },
+    {
+      "image": "images/val/128057_scene60_00050410-tile1.png",
+      "label": "labels/val/128057_scene60_00050410-tile1.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050410",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "4d8bda76bde4ca586ea9bae5422ce96a9aa8229f77d4c7e6725776c3bfd7b507",
+      "label_sha256": "03edbe978b66551ab77a273d90a1beabf50383bef9f3119b09f8e3b10415d2ca"
+    },
+    {
+      "image": "images/val/128057_scene60_00050410-tile2.png",
+      "label": "labels/val/128057_scene60_00050410-tile2.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050410",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "383500be7babb08f75400ab1ea1eb0f1083079465ec08523118b774b910531fe",
+      "label_sha256": "24e9a9ced2615c2ae386e41dc25e4d40f7799f06a4bc83350fc024af626ded5e"
+    },
+    {
+      "image": "images/val/128057_scene60_00050410-tile3.png",
+      "label": "labels/val/128057_scene60_00050410-tile3.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050410",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "1dfa1b4fab218d61ec1280c923b9b0bb5e4fdaf54d9611d2b91ddeffd96d235d",
+      "label_sha256": "05eb92392b8dba9eb88aca867c7c02d9b19b518b985851768ce6107a03c703aa"
+    },
+    {
+      "image": "images/val/128057_scene60_00050440-tile0.png",
+      "label": "labels/val/128057_scene60_00050440-tile0.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050440",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "913349cd7478bcd3f01e55f69abdd664697b2853a68e1265ff29952fc4245436",
+      "label_sha256": "d4142fb646e0522b0c3c11c17d3592305895df17d2463ecdb3752348d3e5d736"
+    },
+    {
+      "image": "images/val/128057_scene60_00050440-tile1.png",
+      "label": "labels/val/128057_scene60_00050440-tile1.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050440",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "16e5ead4c14ec30c444b87fa564a4ab2dcea441a7d61b07340667ea7d5b12317",
+      "label_sha256": "d8b3573500b2f86f4a4df20f3a83fe07f3f1f6f85c3b8300d3dd4388a8c7d903"
+    },
+    {
+      "image": "images/val/128057_scene60_00050440-tile2.png",
+      "label": "labels/val/128057_scene60_00050440-tile2.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050440",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "78ae68ad9bb61f717d0bb4daa0d1b6ac7cd66b50653a8dc9e8e4fe548d0de844",
+      "label_sha256": "24e9a9ced2615c2ae386e41dc25e4d40f7799f06a4bc83350fc024af626ded5e"
+    },
+    {
+      "image": "images/val/128057_scene60_00050440-tile3.png",
+      "label": "labels/val/128057_scene60_00050440-tile3.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050440",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "6befa408b4c3db4e3b2c0ea025153ae06712c55bf7b6f4165b75b8853c2214f1",
+      "label_sha256": "4acdedb70dba765bb98b358b461be7f124619f7333b66572296c88854fa836d6"
+    },
+    {
+      "image": "images/val/128057_scene60_00050460-tile0.png",
+      "label": "labels/val/128057_scene60_00050460-tile0.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050460",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "bbdedfb6100dcb03a6b8f682b5d559a15c594b852a430dd98979724e9ddf3454",
+      "label_sha256": "051c56df46b438a2d11103b0d85e93e2d32e40c41d92a576337e60e272953596"
+    },
+    {
+      "image": "images/val/128057_scene60_00050460-tile1.png",
+      "label": "labels/val/128057_scene60_00050460-tile1.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050460",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "1a92e7aaaae92c7dc7fb48109f84cab38bbbef0e05412f3d165efd08f39a8ede",
+      "label_sha256": "24df044006f43ad61d8e02a536d20c466bc838b180717fc1f5d415f39e648b11"
+    },
+    {
+      "image": "images/val/128057_scene60_00050460-tile2.png",
+      "label": "labels/val/128057_scene60_00050460-tile2.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050460",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "a9c31a1e81078a3aac964391efc6bd83ab87f3d1dc09fcb550858919001f8840",
+      "label_sha256": "24e9a9ced2615c2ae386e41dc25e4d40f7799f06a4bc83350fc024af626ded5e"
+    },
+    {
+      "image": "images/val/128057_scene60_00050460-tile3.png",
+      "label": "labels/val/128057_scene60_00050460-tile3.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050460",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "d8d421bcfd70533e29972ddc12aad1abbf0c8227de3a3a70487b27a3be62889c",
+      "label_sha256": "4acdedb70dba765bb98b358b461be7f124619f7333b66572296c88854fa836d6"
+    },
+    {
+      "image": "images/val/128057_scene60_00050480-tile0.png",
+      "label": "labels/val/128057_scene60_00050480-tile0.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050480",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "21ab53e99c0b8b30031ead2caf045b7b03d35537df7aaf34d40ca3a62ca1d30b",
+      "label_sha256": "fcaf48243806f78771a6fdb4a97ae28607c37f942ad1c50c893df9db98be216c"
+    },
+    {
+      "image": "images/val/128057_scene60_00050480-tile1.png",
+      "label": "labels/val/128057_scene60_00050480-tile1.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050480",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "7351e17840b5383eedf6afdc261dc208ec7f169deca1002e39d387ca7281bfce",
+      "label_sha256": "e37f387d2bea71ec8da935fb51cd92e702254433765622a95d93e37131271118"
+    },
+    {
+      "image": "images/val/128057_scene60_00050480-tile2.png",
+      "label": "labels/val/128057_scene60_00050480-tile2.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050480",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "186ad1a8f1189406cbea8aadc373cc18c42263212909a67fc17a6abed7f2d89d",
+      "label_sha256": "24e9a9ced2615c2ae386e41dc25e4d40f7799f06a4bc83350fc024af626ded5e"
+    },
+    {
+      "image": "images/val/128057_scene60_00050480-tile3.png",
+      "label": "labels/val/128057_scene60_00050480-tile3.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050480",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "81d88ffe76c324177ba255d591ebfc0e419420046cc531f6062da6be2a5a7e5d",
+      "label_sha256": "05eb92392b8dba9eb88aca867c7c02d9b19b518b985851768ce6107a03c703aa"
+    },
+    {
+      "image": "images/val/128057_scene60_00050520-tile0.png",
+      "label": "labels/val/128057_scene60_00050520-tile0.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050520",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "3732b3869a925ac5827894b3de197f84c7af849e57210d492b13f0d06bc3c392",
+      "label_sha256": "e285b5128e6987aa80f9fd48f69541070945f1b6e933551f99bee967758a8c93"
+    },
+    {
+      "image": "images/val/128057_scene60_00050520-tile1.png",
+      "label": "labels/val/128057_scene60_00050520-tile1.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050520",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "68feaf958707ecb51b52ad150ce976b0c8187804f578856ab3e17fb1248c8462",
+      "label_sha256": "a2b2e8a4819e0c23fde1e8215311d2c1d346b1790b419eaa8bdb7c0c903b917d"
+    },
+    {
+      "image": "images/val/128057_scene60_00050520-tile2.png",
+      "label": "labels/val/128057_scene60_00050520-tile2.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050520",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "3f5ca873a40192562107665233079d73147cf18243dfc93881aaacfac239672b",
+      "label_sha256": "24e9a9ced2615c2ae386e41dc25e4d40f7799f06a4bc83350fc024af626ded5e"
+    },
+    {
+      "image": "images/val/128057_scene60_00050520-tile3.png",
+      "label": "labels/val/128057_scene60_00050520-tile3.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050520",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "39ac494908434ce9c38e555b55fd90f5bf51d4f667724313728f4619d571a19f",
+      "label_sha256": "05eb92392b8dba9eb88aca867c7c02d9b19b518b985851768ce6107a03c703aa"
+    },
+    {
+      "image": "images/val/128057_scene60_00050560-tile0.png",
+      "label": "labels/val/128057_scene60_00050560-tile0.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050560",
+      "window_xyxy": [
+        0,
+        0,
+        1280,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "a602c3edec560dff3685e3b30b74cc10cc15b847d4f4d2e6442ac46426d95004",
+      "label_sha256": "00680a24b42ad62f6ab2061ac94562b4e89d4058582c6ccc762562c12fc4450b"
+    },
+    {
+      "image": "images/val/128057_scene60_00050560-tile1.png",
+      "label": "labels/val/128057_scene60_00050560-tile1.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050560",
+      "window_xyxy": [
+        1024,
+        0,
+        2304,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "20a3a937eeda58a95d34428b84fd96f9c27ae87f8af652d45766c33f8c99d406",
+      "label_sha256": "2c9435843e58cf075cda32900083a1012f360aa436b91267037d93101bfbdb98"
+    },
+    {
+      "image": "images/val/128057_scene60_00050560-tile2.png",
+      "label": "labels/val/128057_scene60_00050560-tile2.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050560",
+      "window_xyxy": [
+        2048,
+        0,
+        3328,
+        1080
+      ],
+      "balls": 1,
+      "image_sha256": "141794b956e16014d2ade71a943d87605289ae7dd5e47153b6f17a70a2ff341e",
+      "label_sha256": "24e9a9ced2615c2ae386e41dc25e4d40f7799f06a4bc83350fc024af626ded5e"
+    },
+    {
+      "image": "images/val/128057_scene60_00050560-tile3.png",
+      "label": "labels/val/128057_scene60_00050560-tile3.txt",
+      "split": "val",
+      "group": "phase-2010",
+      "frame_id": "128057_scene60_00050560",
+      "window_xyxy": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "balls": 2,
+      "image_sha256": "344d97c9978ea1d710801ca9ffd00d0ae250257db1acd03878f925349d12268d",
+      "label_sha256": "05eb92392b8dba9eb88aca867c7c02d9b19b518b985851768ce6107a03c703aa"
+    }
+  ],
+  "skipped": [
+    {
+      "frame": "128057_scene60_00029620",
+      "tile": [
+        2816,
+        0,
+        4096,
+        1080
+      ],
+      "reason": "partial ball or unresolved source region"
+    }
+  ],
+  "counts": {
+    "val": 80,
+    "train": 159
+  },
+  "negative_tiles": {
+    "train": 36
+  },
+  "mapping": {
+    "source_ball_1": "COCO sports ball 32"
+  },
+  "human_review_completed": false,
+  "target": "All labelled visible footballs including reserves; other COCO classes intentionally unsupervised",
+  "scope": "Derived tiles share source groups; overlapping tiles are not independent images."
+}

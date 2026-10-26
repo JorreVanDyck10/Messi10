@@ -65,6 +65,19 @@ def load_model_manifest(path: str | Path) -> dict:
                     or not 0 < float(spec.get("tile_overlap", 0)) < 0.5
                 ):
                     raise PipelineError("Ongeldige overlappende detectie-uitsneden.")
+            if "ball_tiles" in spec:
+                from .ball_tiles import validate_ball_tile_config
+
+                if (
+                    len(mapping) != 1
+                    or set(mapping.values()) != {"ball"}
+                    or "tile_width" in spec
+                    or next(iter(expected.values())).lower() not in {"ball", "sports ball", "in_play_ball"}
+                ):
+                    raise PipelineError(
+                        "Ballentegels vereisen precies één echte ballenklasse en geen persoonsuitsneden."
+                    )
+                validate_ball_tile_config(spec["ball_tiles"])
         except (KeyError, TypeError, ValueError) as exc:
             if isinstance(exc, PipelineError):
                 raise
@@ -201,6 +214,31 @@ class UltralyticsDetector:
     def detect(self, frame, frame_index: int) -> list[Detection]:
         detections = []
         for spec, model in self.models:
+            if "ball_tiles" in spec:
+                from .ball_tiles import predict_multiscale_ball
+
+                source_class = int(next(iter(spec["class_mapping"])))
+                boxes = predict_multiscale_ball(
+                    model,
+                    frame,
+                    spec["ball_tiles"],
+                    confidence=spec["confidence"],
+                    local_iou=spec["iou"],
+                    device=spec.get("device", "cpu"),
+                    source_class=source_class,
+                )
+                for box in boxes:
+                    detections.append(
+                        Detection(
+                            f"{frame_index}:{len(detections)}",
+                            spec["model_id"],
+                            source_class,
+                            "ball",
+                            box["bbox_xyxy"],
+                            box["confidence"],
+                        )
+                    )
+                continue
             inputs = [(frame, 0, int(spec["imgsz"]), False)]
             tile_width = spec.get("tile_width", frame.shape[1])
             if frame.shape[1] > tile_width:

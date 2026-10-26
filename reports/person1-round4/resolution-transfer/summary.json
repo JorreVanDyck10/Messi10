@@ -1,0 +1,392 @@
+{
+  "pretrained": {
+    "whole1280": [
+      {
+        "dataset": "football-fullframe40",
+        "frames": 10,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 45,
+        "AP50": 0.0,
+        "AP50_95": 0.0,
+        "TP": 0,
+        "FP": 3,
+        "FN": 45,
+        "precision": 0.0,
+        "recall": 0.0,
+        "elapsed_s": 1.9361679999856278
+      },
+      {
+        "dataset": "football-fullscene16",
+        "frames": 4,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 22,
+        "AP50": 0.0,
+        "AP50_95": 0.0,
+        "TP": 0,
+        "FP": 1,
+        "FN": 22,
+        "precision": 0.0,
+        "recall": 0.0,
+        "elapsed_s": 0.13573139999061823
+      }
+    ],
+    "whole4096": [
+      {
+        "dataset": "football-fullframe40",
+        "frames": 10,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 45,
+        "AP50": 0.5218493164148216,
+        "AP50_95": 0.19630093805841825,
+        "TP": 19,
+        "FP": 6,
+        "FN": 26,
+        "precision": 0.76,
+        "recall": 0.4222222222222222,
+        "elapsed_s": 1.2794871000223793
+      },
+      {
+        "dataset": "football-fullscene16",
+        "frames": 4,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 22,
+        "AP50": 0.5029168760747168,
+        "AP50_95": 0.19794281258870036,
+        "TP": 9,
+        "FP": 4,
+        "FN": 13,
+        "precision": 0.6923076923076923,
+        "recall": 0.4090909090909091,
+        "elapsed_s": 0.5038617000100203
+      }
+    ],
+    "tiles1280": [
+      {
+        "dataset": "football-fullframe40",
+        "frames": 10,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 45,
+        "AP50": 0.6391747829825989,
+        "AP50_95": 0.23045928298855484,
+        "TP": 23,
+        "FP": 0,
+        "FN": 22,
+        "precision": 1.0,
+        "recall": 0.5111111111111111,
+        "elapsed_s": 1.6555701999459416
+      },
+      {
+        "dataset": "football-fullscene16",
+        "frames": 4,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 22,
+        "AP50": 0.6249151473069985,
+        "AP50_95": 0.258075744841535,
+        "TP": 8,
+        "FP": 0,
+        "FN": 14,
+        "precision": 1.0,
+        "recall": 0.36363636363636365,
+        "elapsed_s": 0.6255801999941468
+      }
+    ],
+    "tiles640x2": [
+      {
+        "dataset": "football-fullframe40",
+        "frames": 10,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 45,
+        "AP50": 0.436505256662204,
+        "AP50_95": 0.19214409336276464,
+        "TP": 12,
+        "FP": 0,
+        "FN": 33,
+        "precision": 1.0,
+        "recall": 0.26666666666666666,
+        "elapsed_s": 6.150500400020974
+      },
+      {
+        "dataset": "football-fullscene16",
+        "frames": 4,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 22,
+        "AP50": 0.6111022181809654,
+        "AP50_95": 0.2916833967209248,
+        "TP": 4,
+        "FP": 0,
+        "FN": 18,
+        "precision": 1.0,
+        "recall": 0.18181818181818182,
+        "elapsed_s": 2.5490388999460265
+      }
+    ]
+  },
+  "F003": {
+    "whole1280": [
+      {
+        "dataset": "football-fullframe40",
+        "frames": 10,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 45,
+        "AP50": 0.0,
+        "AP50_95": 0.0,
+        "TP": 0,
+        "FP": 10,
+        "FN": 45,
+        "precision": 0.0,
+        "recall": 0.0,
+        "elapsed_s": 0.5057360000500921
+      },
+      {
+        "dataset": "football-fullscene16",
+        "frames": 4,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 22,
+        "AP50": 0.0,
+        "AP50_95": 0.0,
+        "TP": 0,
+        "FP": 6,
+        "FN": 22,
+        "precision": 0.0,
+        "recall": 0.0,
+        "elapsed_s": 0.24251209999783896
+      }
+    ],
+    "whole4096": [
+      {
+        "dataset": "football-fullframe40",
+        "frames": 10,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 45,
+        "AP50": 0.650972001563369,
+        "AP50_95": 0.20477077567980156,
+        "TP": 21,
+        "FP": 1,
+        "FN": 24,
+        "precision": 0.9545454545454546,
+        "recall": 0.4666666666666667,
+        "elapsed_s": 1.3623204000177793
+      },
+      {
+        "dataset": "football-fullscene16",
+        "frames": 4,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 22,
+        "AP50": 0.5000846987353602,
+        "AP50_95": 0.19840966787525952,
+        "TP": 11,
+        "FP": 1,
+        "FN": 11,
+        "precision": 0.9166666666666666,
+        "recall": 0.5,
+        "elapsed_s": 0.5465854000067338
+      }
+    ],
+    "tiles1280": [
+      {
+        "dataset": "football-fullframe40",
+        "frames": 10,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 45,
+        "AP50": 0.6727162454179866,
+        "AP50_95": 0.23246942966087616,
+        "TP": 24,
+        "FP": 0,
+        "FN": 21,
+        "precision": 1.0,
+        "recall": 0.5333333333333333,
+        "elapsed_s": 1.7130895000009332
+      },
+      {
+        "dataset": "football-fullscene16",
+        "frames": 4,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 22,
+        "AP50": 0.5738073807380738,
+        "AP50_95": 0.20846298915605846,
+        "TP": 10,
+        "FP": 0,
+        "FN": 12,
+        "precision": 1.0,
+        "recall": 0.45454545454545453,
+        "elapsed_s": 0.6701910000119824
+      }
+    ],
+    "tiles640x2": [
+      {
+        "dataset": "football-fullframe40",
+        "frames": 10,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 45,
+        "AP50": 0.377155518072862,
+        "AP50_95": 0.1678530373925872,
+        "TP": 1,
+        "FP": 0,
+        "FN": 44,
+        "precision": 1.0,
+        "recall": 0.022222222222222223,
+        "elapsed_s": 5.678603300038958
+      },
+      {
+        "dataset": "football-fullscene16",
+        "frames": 4,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 22,
+        "AP50": 0.5176786909460177,
+        "AP50_95": 0.2381312169678506,
+        "TP": 2,
+        "FP": 0,
+        "FN": 20,
+        "precision": 1.0,
+        "recall": 0.09090909090909091,
+        "elapsed_s": 2.1464780000096653
+      }
+    ]
+  },
+  "F004": {
+    "whole1280": [
+      {
+        "dataset": "football-fullframe40",
+        "frames": 10,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 45,
+        "AP50": 0.0,
+        "AP50_95": 0.0,
+        "TP": 0,
+        "FP": 0,
+        "FN": 45,
+        "precision": 0.0,
+        "recall": 0.0,
+        "elapsed_s": 0.45000000004074536
+      },
+      {
+        "dataset": "football-fullscene16",
+        "frames": 4,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 22,
+        "AP50": 0.0,
+        "AP50_95": 0.0,
+        "TP": 0,
+        "FP": 0,
+        "FN": 22,
+        "precision": 0.0,
+        "recall": 0.0,
+        "elapsed_s": 0.17303330000140704
+      }
+    ],
+    "whole4096": [
+      {
+        "dataset": "football-fullframe40",
+        "frames": 10,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 45,
+        "AP50": 0.5707353214821618,
+        "AP50_95": 0.20531425916766607,
+        "TP": 16,
+        "FP": 2,
+        "FN": 29,
+        "precision": 0.8888888888888888,
+        "recall": 0.35555555555555557,
+        "elapsed_s": 1.3755408000724856
+      },
+      {
+        "dataset": "football-fullscene16",
+        "frames": 4,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 22,
+        "AP50": 0.5572873040141881,
+        "AP50_95": 0.22773544806594725,
+        "TP": 10,
+        "FP": 2,
+        "FN": 12,
+        "precision": 0.8333333333333334,
+        "recall": 0.45454545454545453,
+        "elapsed_s": 0.5434980000427458
+      }
+    ],
+    "tiles1280": [
+      {
+        "dataset": "football-fullframe40",
+        "frames": 10,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 45,
+        "AP50": 0.6557710769263946,
+        "AP50_95": 0.23578509765576686,
+        "TP": 18,
+        "FP": 0,
+        "FN": 27,
+        "precision": 1.0,
+        "recall": 0.4,
+        "elapsed_s": 1.536829900025623
+      },
+      {
+        "dataset": "football-fullscene16",
+        "frames": 4,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 22,
+        "AP50": 0.5547854785478548,
+        "AP50_95": 0.21118195336017118,
+        "TP": 7,
+        "FP": 0,
+        "FN": 15,
+        "precision": 1.0,
+        "recall": 0.3181818181818182,
+        "elapsed_s": 0.5549762999580707
+      }
+    ],
+    "tiles640x2": [
+      {
+        "dataset": "football-fullframe40",
+        "frames": 10,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 45,
+        "AP50": 0.40202552472167213,
+        "AP50_95": 0.18113235920893084,
+        "TP": 9,
+        "FP": 0,
+        "FN": 36,
+        "precision": 1.0,
+        "recall": 0.2,
+        "elapsed_s": 5.6133858999819495
+      },
+      {
+        "dataset": "football-fullscene16",
+        "frames": 4,
+        "class_id": 0,
+        "name": "ball",
+        "objects": 22,
+        "AP50": 0.5465589011631868,
+        "AP50_95": 0.2729168572801137,
+        "TP": 2,
+        "FP": 0,
+        "FN": 20,
+        "precision": 1.0,
+        "recall": 0.09090909090909091,
+        "elapsed_s": 2.200776699988637
+      }
+    ]
+  }
+}

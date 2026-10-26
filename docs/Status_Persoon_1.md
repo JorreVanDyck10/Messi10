@@ -1,5 +1,7 @@
 # Uitvoeringsstatus persoon 1
 
+**Vervolg uitgevoerd:** [baldetail behouden en F005 getraind](Verbetering_Baldetectie_Detailbehoud.md), met een gelijke vergelijking op 51 volledige validatiebeelden, echte gecombineerde video-overdracht en 78 gerichte rolreviewgevallen. De suite slaagt nu met 238 tests en vier subtests. Menselijke review, een onafhankelijke eindtest en een nieuwe 4050-meting blijven open. De onderstaande derde ronde is een eerder meetmoment.
+
 **Actuele uitvoering, 26 oktober 2026:** [werkpakket 1, derde ronde](Uitvoering_Persoon_1_Derde_Ronde.md) bevat de nieuwe technische data-audit, 93 extra rolcrops, vijf echte roltrainingen, twee baltrainingen, kopmenging, evaluatie, acht checkpoints en overdracht. De samengevoegde suite slaagt met 225 tests en 4 subtests. De later ontvangen 56 volledige beelden zijn technisch gecontroleerd; op hun 14 validatiebeelden halen alle drie bevroren balmodellen bij imgsz 1280 nul AP. R007 blijft standaard; R015 en F003 zijn kandidaten met expliciete toepassingsgrenzen. Menselijke review en een onafhankelijke eindtest blijven open. De onderstaande oudere aantallen en scores zijn historische uitvoeringsnotities, geen actuele totaalscore.
 
 ## Historische uitvoeringsnotities

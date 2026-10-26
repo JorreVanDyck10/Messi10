@@ -1,0 +1,3065 @@
+{
+  "input_hashes": {
+    "reports\\person1-round3\\EXP-R015\\crop-comparison\\predictions.json": "0e0e9b0770eccb794a3cb4cf0218db75f74cd63f08b95728a97ed28aaea6692d",
+    "reports\\person1-round3\\EXP-R015\\vs-r009\\predictions.json": "543b8e99dfa0e87ea962472b009439bcd288c2ddd8c590def722fb11350cfffb"
+  },
+  "reference_crops": 468,
+  "priorities": [
+    {
+      "id": "original-002100:21",
+      "truth": "person",
+      "image": "../roles-teams-v1/sources/original-002100.jpg",
+      "bbox": [
+        2822.43701171875,
+        240.76544189453125,
+        2838.78857421875,
+        269.701171875
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.9973320960998535,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9960250854492188,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.9980046153068542,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002175:21",
+      "truth": "person",
+      "image": "../roles-teams-v1/sources/original-002175.jpg",
+      "bbox": [
+        2805.85009765625,
+        232.2032470703125,
+        2819.10595703125,
+        262.02105712890625
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.9999657869338989,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9999445676803589,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.9999638795852661,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002250:16",
+      "truth": "person",
+      "image": "../roles-teams-v1/sources/original-002250.jpg",
+      "bbox": [
+        1722.2216796875,
+        841.8880615234375,
+        1743.19091796875,
+        889.0511474609375
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.9995597004890442,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "supervised_match"
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9999145269393921,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "supervised_match"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.999717652797699,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "supervised_match"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002250:22",
+      "truth": "person",
+      "image": "../roles-teams-v1/sources/original-002250.jpg",
+      "bbox": [
+        2785.857421875,
+        225.53175354003906,
+        2799.49609375,
+        255.0175018310547
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.9970828890800476,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9920233488082886,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.9967846870422363,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "F_20200220_1_0660_0690_000360:referee",
+      "truth": "referee",
+      "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+      "bbox": [
+        3604,
+        541,
+        3618,
+        580
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.9697316288948059,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.960103452205658,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.9666450023651123,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013700:78",
+      "truth": "referee",
+      "image": "../../assets/annotations/football48/images/val/128057_00013700.png",
+      "bbox": [
+        71.19951999999999,
+        48.6679488,
+        89.0451648,
+        97.99696
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.9426368474960327,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        },
+        "R009": {
+          "role_id": 1,
+          "confidence": 0.8982646465301514,
+          "runtime_role": "referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.940517246723175,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002250:11",
+      "truth": "referee",
+      "image": "../roles-teams-v1/sources/original-002250.jpg",
+      "bbox": [
+        1545.1441650390625,
+        273.23931884765625,
+        1561.0286865234375,
+        308.56903076171875
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.9956117272377014,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9879841804504395,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.9923209547996521,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "troyes-fans:spectator:0",
+      "truth": "spectator",
+      "image": "../roles-teams-v1/sources/troyes-fans.jpg",
+      "bbox": [
+        714.0,
+        342.0,
+        740.0,
+        395.0
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.9928707480430603,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9991056323051453,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.9901303648948669,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "troyes-fans:spectator:1",
+      "truth": "spectator",
+      "image": "../roles-teams-v1/sources/troyes-fans.jpg",
+      "bbox": [
+        744.0,
+        346.0,
+        775.0,
+        405.0
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.9999364614486694,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9999781847000122,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.999935507774353,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "troyes-fans:spectator:2",
+      "truth": "spectator",
+      "image": "../roles-teams-v1/sources/troyes-fans.jpg",
+      "bbox": [
+        751.0,
+        387.0,
+        779.0,
+        440.0
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.9999973773956299,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 1.0,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.9999974966049194,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "troyes-fans:spectator:3",
+      "truth": "spectator",
+      "image": "../roles-teams-v1/sources/troyes-fans.jpg",
+      "bbox": [
+        780.0,
+        389.0,
+        802.0,
+        450.0
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.7561057209968567,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9973708391189575,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.8448416590690613,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "troyes-fans:spectator:4",
+      "truth": "spectator",
+      "image": "../roles-teams-v1/sources/troyes-fans.jpg",
+      "bbox": [
+        800.0,
+        393.0,
+        823.0,
+        454.99999999999994
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.5417780876159668,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9706448912620544,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.5695613026618958,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "troyes-fans:spectator:5",
+      "truth": "spectator",
+      "image": "../roles-teams-v1/sources/troyes-fans.jpg",
+      "bbox": [
+        823.0,
+        403.0,
+        846.0,
+        466.0
+      ],
+      "priority": 0,
+      "reason": "Non-player reference predicted as player; counting risk if field gate also accepts",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.7692362070083618,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9965255856513977,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.7385479211807251,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002250:19",
+      "truth": "assistant_referee",
+      "image": "../roles-teams-v1/sources/original-002250.jpg",
+      "bbox": [
+        1916.768310546875,
+        782.126220703125,
+        1942.335693359375,
+        845.162109375
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 5,
+          "confidence": 0.7945635914802551,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 5,
+          "confidence": 0.5269324779510498,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 5,
+          "confidence": 0.7042208313941956,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "F_20200220_1_0660_0690_000180:referee",
+      "truth": "referee",
+      "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+      "bbox": [
+        3477,
+        556,
+        3494,
+        598
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 1,
+          "confidence": 0.6729331612586975,
+          "runtime_role": "referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 1,
+          "confidence": 0.7960476279258728,
+          "runtime_role": "referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 1,
+          "confidence": 0.6394842267036438,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013550:77",
+      "truth": "referee",
+      "image": "../../assets/annotations/football48/images/val/128057_00013550.png",
+      "bbox": [
+        199.34613759999996,
+        76.943648,
+        217.9884672,
+        123.4300992
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 5,
+          "confidence": 0.469441294670105,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 1,
+          "confidence": 0.9821615219116211,
+          "runtime_role": "referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 2,
+          "confidence": 0.4191088080406189,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013675:10",
+      "truth": "referee",
+      "image": "../../assets/annotations/football48/images/val/128057_00013675.png",
+      "bbox": [
+        124.32342399999999,
+        22.6835424,
+        141.2517952,
+        86.11016
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 2,
+          "confidence": 0.4839235842227936,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 1,
+          "confidence": 0.9935765862464905,
+          "runtime_role": "referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 2,
+          "confidence": 0.46604111790657043,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013900:24",
+      "truth": "referee",
+      "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+      "bbox": [
+        1037.18384,
+        183.5276768,
+        1057.8767168,
+        243.53915200000003
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 5,
+          "confidence": 0.6705477833747864,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 1,
+          "confidence": 0.9877534508705139,
+          "runtime_role": "referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 5,
+          "confidence": 0.6780070066452026,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002175:14",
+      "truth": "referee",
+      "image": "../roles-teams-v1/sources/original-002175.jpg",
+      "bbox": [
+        1723.474365234375,
+        271.4468078613281,
+        1740.580322265625,
+        296.9237976074219
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.5491654872894287,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 1,
+          "confidence": 0.9289547204971313,
+          "runtime_role": "referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 1,
+          "confidence": 0.5379470586776733,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "london-control:spectator:1",
+      "truth": "spectator",
+      "image": "../roles-teams-v1/sources/london-control.jpg",
+      "bbox": [
+        983.04,
+        215.04000000000002,
+        1146.88,
+        445.43999999999994
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.37935471534729004,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.353297621011734,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.6666682362556458,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:japan-audience:15",
+      "truth": "spectator",
+      "image": "sources/japan-audience.jpg",
+      "bbox": [
+        533.4877319335938,
+        550.264892578125,
+        610.2589721679688,
+        654.0720825195312
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.684019923210144,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 4,
+          "confidence": 0.47283199429512024,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.8399811387062073,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:japan-audience:18",
+      "truth": "spectator",
+      "image": "sources/japan-audience.jpg",
+      "bbox": [
+        747.1703491210938,
+        469.1329040527344,
+        789.4344482421875,
+        546.7139282226562
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 2,
+          "confidence": 0.486664354801178,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 2,
+          "confidence": 0.8670976758003235,
+          "runtime_role": "assistant_referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.47443604469299316,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:japan-audience:2",
+      "truth": "spectator",
+      "image": "sources/japan-audience.jpg",
+      "bbox": [
+        577.7561645507812,
+        537.5514526367188,
+        654.2205200195312,
+        619.7628784179688
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.7457771897315979,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 4,
+          "confidence": 0.3887414336204529,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.8760886788368225,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:japan-audience:29",
+      "truth": "spectator",
+      "image": "sources/japan-audience.jpg",
+      "bbox": [
+        11.9183349609375,
+        263.8417663574219,
+        54.38941192626953,
+        342.30316162109375
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 2,
+          "confidence": 0.560472309589386,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 2,
+          "confidence": 0.8869208097457886,
+          "runtime_role": "assistant_referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 2,
+          "confidence": 0.575721025466919,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:japan-audience:7",
+      "truth": "spectator",
+      "image": "sources/japan-audience.jpg",
+      "bbox": [
+        117.24738311767578,
+        564.6801147460938,
+        245.9714813232422,
+        678.6441040039062
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.5188910961151123,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.5332121849060059,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.8645631670951843,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:japan-audience:8",
+      "truth": "spectator",
+      "image": "sources/japan-audience.jpg",
+      "bbox": [
+        484.4209289550781,
+        513.32373046875,
+        540.1957397460938,
+        596.7490234375
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.5540812015533447,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.5883185863494873,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.5496330857276917,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:leverkusen-fans:0",
+      "truth": "spectator",
+      "image": "sources/leverkusen-fans.jpg",
+      "bbox": [
+        273.69427490234375,
+        435.24749755859375,
+        379.5411071777344,
+        627.3782958984375
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.9905891418457031,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.9630315899848938,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.976387619972229,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:leverkusen-fans:10",
+      "truth": "spectator",
+      "image": "sources/leverkusen-fans.jpg",
+      "bbox": [
+        206.14010620117188,
+        1217.845703125,
+        304.42095947265625,
+        1391.833984375
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.8644247651100159,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.6686726212501526,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.5466713309288025,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:leverkusen-fans:2",
+      "truth": "spectator",
+      "image": "sources/leverkusen-fans.jpg",
+      "bbox": [
+        1270.9796142578125,
+        587.0498657226562,
+        1357.283203125,
+        793.5935668945312
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.9803813099861145,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.9746282696723938,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.9553145170211792,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:leverkusen-fans:23",
+      "truth": "spectator",
+      "image": "sources/leverkusen-fans.jpg",
+      "bbox": [
+        290.560302734375,
+        661.964111328125,
+        432.15350341796875,
+        823.5545043945312
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.6434581279754639,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.5025867223739624,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.8100746273994446,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:leverkusen-fans:35",
+      "truth": "spectator",
+      "image": "sources/leverkusen-fans.jpg",
+      "bbox": [
+        1482.8209228515625,
+        110.0894546508789,
+        1564.9454345703125,
+        330.1778869628906
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.7706497311592102,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.44045886397361755,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.5121706128120422,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:leverkusen-fans:6",
+      "truth": "spectator",
+      "image": "sources/leverkusen-fans.jpg",
+      "bbox": [
+        1769.2738037109375,
+        859.4083251953125,
+        1869.0665283203125,
+        1079.5289306640625
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.5623113512992859,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 2,
+          "confidence": 0.36233457922935486,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.7449655532836914,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:portugal-stewards:15",
+      "truth": "spectator",
+      "image": "sources/portugal-stewards.jpg",
+      "bbox": [
+        1751.8770751953125,
+        750.826171875,
+        1812.2684326171875,
+        877.085205078125
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.5344253778457642,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.6634789109230042,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.7914670705795288,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:portugal-stewards:16",
+      "truth": "spectator",
+      "image": "sources/portugal-stewards.jpg",
+      "bbox": [
+        1008.1375732421875,
+        1021.4517211914062,
+        1056.906005859375,
+        1198.91748046875
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.7473249435424805,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 1,
+          "confidence": 0.9520761966705322,
+          "runtime_role": "referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 1,
+          "confidence": 0.5854175090789795,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:portugal-stewards:9",
+      "truth": "spectator",
+      "image": "sources/portugal-stewards.jpg",
+      "bbox": [
+        1619.7423095703125,
+        913.9800415039062,
+        1699.1851806640625,
+        1088.7083740234375
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.8148164749145508,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 1,
+          "confidence": 0.8276766538619995,
+          "runtime_role": "referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.41970252990722656,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "liverpool-steward:steward:0",
+      "truth": "steward",
+      "image": "../roles-teams-v1/sources/liverpool-steward.png",
+      "bbox": [
+        27.66,
+        1732.8899999999999,
+        497.88,
+        3060.21
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.6571469306945801,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 4,
+          "confidence": 0.5635874271392822,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.6907095909118652,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "london-control:steward:1",
+      "truth": "steward",
+      "image": "../roles-teams-v1/sources/london-control.jpg",
+      "bbox": [
+        1576.96,
+        230.39999999999998,
+        1679.36,
+        460.79999999999995
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.8070554733276367,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.513911783695221,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.8080800771713257,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "london-control:steward:3",
+      "truth": "steward",
+      "image": "../roles-teams-v1/sources/london-control.jpg",
+      "bbox": [
+        675.84,
+        967.6800000000001,
+        798.72,
+        1244.16
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.7023096084594727,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.7325057983398438,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.5567874312400818,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "london-control:steward:5",
+      "truth": "steward",
+      "image": "../roles-teams-v1/sources/london-control.jpg",
+      "bbox": [
+        880.64,
+        983.04,
+        983.04,
+        1228.8000000000002
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.7919145226478577,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 4,
+          "confidence": 0.5874426960945129,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.9482579231262207,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "london-control:steward:6",
+      "truth": "steward",
+      "image": "../roles-teams-v1/sources/london-control.jpg",
+      "bbox": [
+        1597.44,
+        814.08,
+        1699.84,
+        1029.1200000000001
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.6112917065620422,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.7756713628768921,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.6399532556533813,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:portugal-stewards:2",
+      "truth": "steward",
+      "image": "sources/portugal-stewards.jpg",
+      "bbox": [
+        374.70916748046875,
+        1032.7301025390625,
+        461.5346984863281,
+        1276.238037109375
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.5634932518005371,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 3,
+          "confidence": 0.3757822513580322,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.5798160433769226,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:portugal-stewards:3",
+      "truth": "steward",
+      "image": "sources/portugal-stewards.jpg",
+      "bbox": [
+        128.72930908203125,
+        1019.7230224609375,
+        184.99391174316406,
+        1244.452392578125
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 2,
+          "confidence": 0.5900725722312927,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 1,
+          "confidence": 0.48210403323173523,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 2,
+          "confidence": 0.5212662220001221,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:portugal-stewards:5",
+      "truth": "steward",
+      "image": "sources/portugal-stewards.jpg",
+      "bbox": [
+        215.8433837890625,
+        1030.1766357421875,
+        313.441650390625,
+        1277.5140380859375
+      ],
+      "priority": 1,
+      "reason": "Rare/official role error; inspect full source context and crop evidence",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.4519958794116974,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 2,
+          "confidence": 0.6892935037612915,
+          "runtime_role": "assistant_referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.3529813289642334,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013525:2",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013525.png",
+      "bbox": [
+        988.4478783999999,
+        110.4470368,
+        1033.9805887999999,
+        225.0331296
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.5118559002876282,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.99985671043396,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.3257245421409607,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013675:7",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013675.png",
+      "bbox": [
+        203.9121088,
+        177.6744096,
+        243.58651519999998,
+        279.333104
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.6344232559204102,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9999353885650635,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.4776902198791504,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013675:8",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013675.png",
+      "bbox": [
+        718.4976768,
+        38.3697664,
+        746.2462079999999,
+        112.0710784
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.5977014899253845,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9969151020050049,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.49948352575302124,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013675:9",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013675.png",
+      "bbox": [
+        513.5344192,
+        14.697980800000003,
+        541.2084928,
+        75.2818592
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 2,
+          "confidence": 0.5922099947929382,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9870213866233826,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 2,
+          "confidence": 0.48323243856430054,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013825:13",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013825.png",
+      "bbox": [
+        506.6456896,
+        181.739104,
+        556.5093312,
+        260.1210944
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.5164908766746521,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9998828172683716,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.9138930439949036,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013900:21",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+      "bbox": [
+        395.3469888,
+        296.583008,
+        419.197088,
+        344.009824
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.4433450996875763,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9948300719261169,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.8157849311828613,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "video_colour_clusters"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013900:22",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+      "bbox": [
+        458.31475839999996,
+        409.6385216,
+        497.7238208,
+        494.54336639999997
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.5016716718673706,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9999533891677856,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.9077559113502502,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013900:28",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+      "bbox": [
+        781.1879872,
+        155.66098240000002,
+        797.2863808,
+        197.7016288
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.5187994241714478,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9999662637710571,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.925281822681427,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013900:29",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+      "bbox": [
+        517.6459392,
+        255.2751936,
+        537.0082432,
+        310.459168
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.49398115277290344,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9994151592254639,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.8115319609642029,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013900:31",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+      "bbox": [
+        926.8883008,
+        188.3473024,
+        943.8709696000001,
+        236.856
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.5179213881492615,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9969634413719177,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.8916828632354736,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "video_colour_clusters"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013900:33",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+      "bbox": [
+        369.5381504,
+        240.5017376,
+        386.08161279999996,
+        280.531888
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.5625592470169067,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9947704672813416,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.8640044331550598,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013900:35",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+      "bbox": [
+        746.4596032,
+        248.43194240000003,
+        767.3978304,
+        309.9521472
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.598231315612793,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9939514398574829,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.39555656909942627,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00013900:36",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+      "bbox": [
+        61.194649600000005,
+        444.541136,
+        100.79464960000001,
+        521.1549664
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.538289487361908,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9999492168426514,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.9480624198913574,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "video_colour_clusters"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050275:39",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050275.png",
+      "bbox": [
+        1203.4374976000001,
+        477.59997760000005,
+        1246.1491648,
+        591.3479008
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.7643823027610779,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.7092627286911011,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.7649952173233032,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050275:41",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050275.png",
+      "bbox": [
+        753.8967232,
+        258.2298912,
+        774.6511168,
+        305.6879584
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 5,
+          "confidence": 0.47693660855293274,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 1,
+          "confidence": 0.8926487565040588,
+          "runtime_role": "referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 5,
+          "confidence": 0.2951088547706604,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050275:42",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050275.png",
+      "bbox": [
+        1163.4790016,
+        212.3420736,
+        1185.9101568,
+        262.8951104
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.45623695850372314,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9992508292198181,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.6440603137016296,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050300:50",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050300.png",
+      "bbox": [
+        1015.4835776,
+        265.36132480000003,
+        1032.8723136,
+        313.0272192
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.4007265567779541,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9347365498542786,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.45293572545051575,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050500:52",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050500.png",
+      "bbox": [
+        205.4408128,
+        83.710112,
+        237.34715520000003,
+        154.0945856
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.370392769575119,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.6781541109085083,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.2872970998287201,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050500:57",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050500.png",
+      "bbox": [
+        1051.9374976,
+        38.22976,
+        1082.6643072,
+        117.13214719999999
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.46136319637298584,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.999900221824646,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.8047993779182434,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050525:60",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050525.png",
+      "bbox": [
+        729.2209407999999,
+        22.9089376,
+        759.2695295999999,
+        90.24208959999999
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.5622879266738892,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9985118508338928,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.32525113224983215,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050575:64",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050575.png",
+      "bbox": [
+        762.1212159999999,
+        132.234288,
+        789.043456,
+        198.49417279999997
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.725693941116333,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.998503565788269,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.6283471584320068,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050575:65",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050575.png",
+      "bbox": [
+        934.8294080000001,
+        91.3864576,
+        956.1760832,
+        151.63333120000001
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.4995313584804535,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.8821788430213928,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.3863043487071991,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050575:66",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050575.png",
+      "bbox": [
+        1112.5272255999998,
+        32.77150400000001,
+        1135.8861120000001,
+        87.2774176
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.5979602336883545,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.999367892742157,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.3974352180957794,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050575:67",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050575.png",
+      "bbox": [
+        694.5246592000001,
+        78.69209280000001,
+        711.8178688,
+        124.67344960000003
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.44521573185920715,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9297090768814087,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.7884501218795776,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050650:70",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050650.png",
+      "bbox": [
+        898.1262207999999,
+        186.73160000000001,
+        922.1162112000001,
+        253.5112032
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.5713053345680237,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9986587762832642,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.9334351420402527,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050650:71",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050650.png",
+      "bbox": [
+        1144.6612544,
+        114.585024,
+        1167.4966976,
+        175.3686528
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.49114614725112915,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9988898634910583,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "video_colour_clusters"
+        },
+        "R015": {
+          "role_id": 2,
+          "confidence": 0.35864028334617615,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "extension:val:128057_00050650:72",
+      "truth": "player",
+      "image": "../../assets/annotations/football48/images/val/128057_00050650.png",
+      "bbox": [
+        1173.7663488,
+        97.8081344,
+        1195.7648895999998,
+        155.4600384
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.594495952129364,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9994358420372009,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.7523505091667175,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002100:0",
+      "truth": "player",
+      "image": "../roles-teams-v1/sources/original-002100.jpg",
+      "bbox": [
+        988.676513671875,
+        342.89306640625,
+        1004.0322265625,
+        383.70965576171875
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.5879199504852295,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9939153790473938,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "supervised_match"
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.44336697459220886,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002100:6",
+      "truth": "player",
+      "image": "../roles-teams-v1/sources/original-002100.jpg",
+      "bbox": [
+        1458.3778076171875,
+        232.2449951171875,
+        1471.9647216796875,
+        259.3701477050781
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 0,
+          "confidence": 0.5615255832672119,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.99437016248703,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.7917131781578064,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002175:0",
+      "truth": "player",
+      "image": "../roles-teams-v1/sources/original-002175.jpg",
+      "bbox": [
+        950.4335327148438,
+        334.702880859375,
+        966.8934936523438,
+        375.8409423828125
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 2,
+          "confidence": 0.5642920136451721,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9732294082641602,
+          "runtime_role": "player",
+          "team_id": "team_a",
+          "team_method": "supervised_match"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.47102290391921997,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002175:20",
+      "truth": "player",
+      "image": "../roles-teams-v1/sources/original-002175.jpg",
+      "bbox": [
+        2476.177734375,
+        298.36016845703125,
+        2491.8876953125,
+        335.81744384765625
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 1,
+          "confidence": 0.352633535861969,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9976486563682556,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 1,
+          "confidence": 0.3812772333621979,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002175:3",
+      "truth": "player",
+      "image": "../roles-teams-v1/sources/original-002175.jpg",
+      "bbox": [
+        1297.164794921875,
+        344.2452697753906,
+        1311.177978515625,
+        376.4835510253906
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 1,
+          "confidence": 0.5107862949371338,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.9970828890800476,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        },
+        "R015": {
+          "role_id": 0,
+          "confidence": 0.7411579489707947,
+          "runtime_role": "player",
+          "team_id": "team_b",
+          "team_method": "supervised_match"
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002250:0",
+      "truth": "player",
+      "image": "../roles-teams-v1/sources/original-002250.jpg",
+      "bbox": [
+        926.697265625,
+        331.6844482421875,
+        941.627685546875,
+        367.0601806640625
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 3,
+          "confidence": 0.7504703998565674,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.5073888897895813,
+          "runtime_role": "person",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 3,
+          "confidence": 0.7139629125595093,
+          "runtime_role": "steward",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "original-002250:21",
+      "truth": "player",
+      "image": "../roles-teams-v1/sources/original-002250.jpg",
+      "bbox": [
+        2426.718017578125,
+        315.07318115234375,
+        2442.523193359375,
+        354.11407470703125
+      ],
+      "priority": 2,
+      "reason": "Models disagree",
+      "predictions": {
+        "R007": {
+          "role_id": 1,
+          "confidence": 0.7620429992675781,
+          "runtime_role": "referee",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 0,
+          "confidence": 0.803398072719574,
+          "runtime_role": "player",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 1,
+          "confidence": 0.7877601981163025,
+          "runtime_role": "referee",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    },
+    {
+      "id": "round3:portugal-stewards:4",
+      "truth": "person",
+      "image": "sources/portugal-stewards.jpg",
+      "bbox": [
+        0.25616455078125,
+        941.7730102539062,
+        121.47439575195312,
+        1273.0809326171875
+      ],
+      "priority": 3,
+      "reason": "All three models disagree with the existing AI reference",
+      "predictions": {
+        "R007": {
+          "role_id": 4,
+          "confidence": 0.9334376454353333,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        },
+        "R009": {
+          "role_id": 4,
+          "confidence": 0.7903497815132141,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        },
+        "R015": {
+          "role_id": 4,
+          "confidence": 0.9697166085243225,
+          "runtime_role": "spectator",
+          "team_id": null,
+          "team_method": null
+        }
+      },
+      "existing_ai_label_may_be_wrong": true,
+      "human_reviewer": "",
+      "review_status": "pending"
+    }
+  ],
+  "priority_counts": {
+    "0": 13,
+    "1": 30,
+    "2": 34,
+    "3": 1
+  },
+  "false_player_reference_roles": {
+    "person": 4,
+    "referee": 3,
+    "spectator": 6
+  },
+  "human_review_completed": false,
+  "truth_labels_changed": false,
+  "scope": "Conditional-crop development triage, not whole-image FP counts or proof that the existing AI truth is correct. See originals for context before relabelling."
+}
