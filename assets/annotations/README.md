@@ -5,21 +5,21 @@ Deze selecties staan samen met de video's, bronbeelden en labels in de repositor
 | Selectie | Fragment | Gelabelde beelden | Persoonsboxen | Balboxen |
 | --- | --- | ---: | ---: | ---: |
 | [20 extra volledige scènes](football-fullscene20/README.md) | 20 nieuwe volledige 4096 × 1080-beelden | 20 | 579 | 100 |
-| [Volledige scÃ¨ne, ook doelen en hoekvlaggen](football-fullscene16/README.md) | 16 nieuwe volledige 4096 Ã— 1080-beelden | 16 | 457 | 82 |
-| [Volledige originele frames](football-fullframe40/README.md) | 8 tijdgroepen; onbewerkte 4096 Ã— 1080-beelden | 40 | 923 | 192 |
+| [Volledige scène, ook doelen en hoekvlaggen](football-fullscene16/README.md) | 16 nieuwe volledige 4096 × 1080-beelden | 16 | 457 | 82 |
+| [Volledige originele frames](football-fullframe40/README.md) | 8 tijdgroepen; onbewerkte 4096 × 1080-beelden | 40 | 923 | 192 |
 | [Training: bal en spelers](football48/README.md) | 8 fragmenten van 20 seconden | 48 | 512 | 36 |
 | [Panorama 128057](panorama128057/README.md) | 00:54-01:14, 20 seconden | 6 | 143 | 29 |
 | [TeamTrack 0720-0750](teamtrack0750/README.md) | 00:00-00:20 van de bronclip | 3 | 74 | 3 |
 
 Per map vind je `images/`, `labels/`, `annotations.coco.json`, `manifest.json` en `previews/`. De README in iedere map linkt naar het juiste MP4-fragment en geeft de geselecteerde tijden, bronverwijzingen, labelregels en het commando om de opgeslagen labels in de lokale editor te openen.
 
-**Klassen:** `football-fullscene16` en `football-fullscene20` hebben acht klassen: spelers, ballen, scheidsrechters, overige personen, publieksgroepen, doelen, hoekvlaggen en groepen opgeborgen doelen. `football-fullframe40` gebruikt YOLO 0 = `player`, 1 = `ball`, 2 = `referee`; COCO 1, 2, 3. De oudere selecties gebruiken YOLO 0 = `person`, 1 = `ball`; COCO 1 = `person`, 2 = `ball`. Koppel beelden en YOLO-labels op hun identieke bestandsstam. CoÃ¶rdinaten in YOLO zijn genormaliseerd; COCO gebruikt pixels van het opgeslagen invoerbeeld. In de tabel tellen persoonsboxen de afzonderlijk gelabelde personen; groepsboxen zijn daar niet bij opgeteld.
+**Klassen:** `football-fullscene16` en `football-fullscene20` hebben acht klassen: spelers, ballen, scheidsrechters, overige personen, publieksgroepen, doelen, hoekvlaggen en groepen opgeborgen doelen. `football-fullframe40` gebruikt YOLO 0 = `player`, 1 = `ball`, 2 = `referee`; COCO 1, 2, 3. De oudere selecties gebruiken YOLO 0 = `person`, 1 = `ball`; COCO 1 = `person`, 2 = `ball`. Koppel beelden en YOLO-labels op hun identieke bestandsstam. Coördinaten in YOLO zijn genormaliseerd; COCO gebruikt pixels van het opgeslagen invoerbeeld. In de tabel tellen persoonsboxen de afzonderlijk gelabelde personen; groepsboxen zijn daar niet bij opgeteld.
 
 De video is het invoerfragment. De genoemde geselecteerde beelden zijn geannoteerd; de clips hebben geen doorlopende labels voor elk frame. Boxaantallen tellen instanties per beeld en zijn geen aantallen unieke objecten. De panorama-selectie bevat ook zichtbare reserveballen.
 
 De labels zijn door AI visueel gecorrigeerd en opgeslagen. Onafhankelijke menselijke review staat nog open. De twee kleine proefselecties bevatten achtergrondgroepen als crowd/ignore-regio's: gebruik COCO-evaluatie die die regio's respecteert; maskeer ze of label ze verder voordat je volledige beelden via gewone YOLO-TXT gebruikt voor training. Hun samenhangende tijdgroepen staan op `val` en horen niet willekeurig over verschillende subsets verdeeld te worden.
 
-De nieuwe [football48-trainingsset](football48/README.md) bevat 48 unieke bronframes en voldoet daarmee aan het gevraagde aantal van 40â€“80 beelden. Deze set heeft gemaskeerde uitsneden, gewone YOLO-labels, 36 train- en 12 validatiebeelden uit gescheiden tijdgroepen, plus een exportoptie voor alleen de bal. Gebruik de bijbehorende `data.yaml`; de oudere proefselecties zijn daar niet doorheen gemengd. Alle beelden komen uit Ã©Ã©n wedstrijd en leveren geen onafhankelijke wedstrijdtest of modelprestatiemeting op.
+De nieuwe [football48-trainingsset](football48/README.md) bevat 48 unieke bronframes en voldoet daarmee aan het gevraagde aantal van 40–80 beelden. Deze set heeft gemaskeerde uitsneden, gewone YOLO-labels, 36 train- en 12 validatiebeelden uit gescheiden tijdgroepen, plus een exportoptie voor alleen de bal. Gebruik de bijbehorende `data.yaml`; de oudere proefselecties zijn daar niet doorheen gemengd. Alle beelden komen uit één wedstrijd en leveren geen onafhankelijke wedstrijdtest of modelprestatiemeting op.
 
 Voor training op **volledige ongewijzigde frames** gebruik je [football-fullframe40/data.yaml](football-fullframe40/data.yaml): 30 train, 10 val, zonder uitsneden of maskers. Deze set heeft 24 nieuwe bronmomenten en 16 opnieuw gelabelde volledige frames uit `football48`. De splits blijven behouden. De README bevat ook exports voor alle ballen of uitsluitend de speelbal. Door de overlappende bronframes en verschillende klassen moet je beide sets niet willekeurig door elkaar verdelen.
 
