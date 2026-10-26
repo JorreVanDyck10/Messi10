@@ -1,0 +1,1525 @@
+{
+  "config_sha256": "8805587fc5259282821e4ff89784fcb3047675997b16ebbec7402e8be39a9a29",
+  "sources": [
+    {
+      "id": "portugal-stewards",
+      "title": "File:Stewards – Portugal vs. Argentina, 9th February 2011 (2).jpg",
+      "split": "val",
+      "group": "portugal-argentina-2011-02-09",
+      "image": "sources/portugal-stewards.jpg",
+      "sha256": "01a73c2f5049f21cd1f20310e4ec193e0cd185e8ac328e52969c6e579f4c25d4",
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Stewards_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%282%29.jpg/1920px-Stewards_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%282%29.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Stewards_%E2%80%93_Portugal_vs._Argentina,_9th_February_2011_(2).jpg",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Fanny Schertzer",
+      "retrieved_at": "2026-10-26T07:53:46.850371+00:00",
+      "metadata": {
+        "size": 13146555,
+        "width": 4592,
+        "height": 3056,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Stewards_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%282%29.jpg/1920px-Stewards_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 1600,
+        "thumbheight": 1065,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Stewards_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%282%29.jpg/3840px-Stewards_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Stewards_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%282%29.jpg/1920px-Stewards_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 1065,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Stewards_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%282%29.jpg/3840px-Stewards_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Stewards_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Stewards_%E2%80%93_Portugal_vs._Argentina,_9th_February_2011_(2).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=13320691",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2011-02-16 14:27:08",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Stewards – Portugal vs. Argentina, 9th February 2011 (2)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "GFDL|License migration redundant|Self-published work|Portugal - Argentina, 9 February 2011|All media supported by Wikimedia CH|Files by Inisheer|Files by Victor|Portugal - Argentina, 9 February 2011 - Supported by Wikimedia CH",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "<table lang=\"en\" dir=\"ltr\" cellspacing=\"8\" cellpadding=\"0\" style=\"width:100%; clear:both; margin:0.5em auto; background-color:var(--background-color-neutral-subtle, #f8f9fa); color:inherit; border:2px solid #66A7CC\">\n<tbody><tr>\n<td style=\"width:60px\"><span typeof=\"mw:File\"><span title=\"Wikimédia CH\"><img alt=\"Wikimédia CH\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/WikimediaCHLogo.svg/60px-WikimediaCHLogo.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"60\" height=\"66\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/WikimediaCHLogo.svg/120px-WikimediaCHLogo.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"491\" data-file-height=\"539\"></span></span>\n</td>\n<td style=\"text-align:center;\">The making of this document was supported by <b><a href=\"https://meta.wikimedia.org/wiki/Wikimedia_CH\" class=\"extiw\" title=\"m:Wikimedia CH\">Wikimedia CH</a></b>. <b><small>(<a rel=\"nofollow\" class=\"external text\" href=\"https://www.wikimedia.ch/\">Submit your project!</a>)</small></b><br>\n<p>For all the files concerned, please see the category <a href=\"//commons.wikimedia.org/wiki/Category:Supported_by_Wikimedia_CH\" title=\"Category:Supported by Wikimedia CH\">Supported by Wikimedia CH</a>.\n</p>\n<hr>\n<div lang=\"\"><span style=\"font-size:small;line-height:1.4\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/ar\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/ar\"><bdi class=\"language lang-ar\" lang=\"ar\">العربية</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/bn\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/bn\"><bdi class=\"language lang-bn\" lang=\"bn\">বাংলা</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/cs\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/cs\"><bdi class=\"language lang-cs\" lang=\"cs\">čeština</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/de\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/de\"><bdi class=\"language lang-de\" lang=\"de\">Deutsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/en\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/en\"><bdi class=\"language lang-en\" lang=\"en\">English</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/eo\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/eo\"><bdi class=\"language lang-eo\" lang=\"eo\">Esperanto</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/es\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/es\"><bdi class=\"language lang-es\" lang=\"es\">español</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/fr\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/fr\"><bdi class=\"language lang-fr\" lang=\"fr\">français</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/gl\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/gl\"><bdi class=\"language lang-gl\" lang=\"gl\">galego</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/hi\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/hi\"><bdi class=\"language lang-hi\" lang=\"hi\">हिन्दी</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/hu\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/hu\"><bdi class=\"language lang-hu\" lang=\"hu\">magyar</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/it\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/it\"><bdi class=\"language lang-it\" lang=\"it\">italiano</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/ja\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/ja\"><bdi class=\"language lang-ja\" lang=\"ja\">日本語</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/mk\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/mk\"><bdi class=\"language lang-mk\" lang=\"mk\">македонски</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/nl\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/nl\"><bdi class=\"language lang-nl\" lang=\"nl\">Nederlands</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/pt-br\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/pt-br\"><bdi class=\"language lang-pt-br\" lang=\"pt-br\">português do Brasil</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/rm\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/rm\"><bdi class=\"language lang-rm\" lang=\"rm\">rumantsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/ru\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/ru\"><bdi class=\"language lang-ru\" lang=\"ru\">русский</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/scn\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/scn\"><bdi class=\"language lang-scn\" lang=\"scn\">sicilianu</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/sl\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/sl\"><bdi class=\"language lang-sl\" lang=\"sl\">slovenščina</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/ta\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/ta\"><bdi class=\"language lang-ta\" lang=\"ta\">தமிழ்</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/uk\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/uk\"><bdi class=\"language lang-uk\" lang=\"uk\">українська</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/zh\" href=\"https://commons.wikimedia.org/wiki/Template:Supported_by_Wikimedia_CH/zh\"><bdi class=\"language lang-zh\" lang=\"zh\">中文</bdi></a> <b>∙</b> <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:Supported_by_Wikimedia_CH/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:Supported_by_Wikimedia_CH/lang&amp;action=edit\">+/−</a></small></span></div>\n</td></tr></tbody></table>\nPortugal vs. Argentina, 9th February 2011",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2011-02-09 23:53:59",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Inisheer\" title=\"User:Inisheer\">Fanny Schertzer</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY 3.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution 3.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by/3.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-3.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1920,
+        1278
+      ]
+    },
+    {
+      "id": "sosnowiec-night",
+      "title": "File:Mecz piłkarski Wisła Kraków - Zagłębie Sosnwoiec, 28 października 2022, Pożegnanie Stadionu Ludowego, KP.jpg",
+      "split": "train",
+      "group": "sosnowiec-2022-10-28",
+      "image": "sources/sosnowiec-night.jpg",
+      "sha256": "ba7bdde60b825c99377ccf327c0387aba3994abdb8818c753f17ca1cfe9f123f",
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec%2C_28_pa%C5%BAdziernika_2022%2C_Po%C5%BCegnanie_Stadionu_Ludowego%2C_KP.jpg/1920px-Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec%2C_28_pa%C5%BAdziernika_2022%2C_Po%C5%BCegnanie_Stadionu_Ludowego%2C_KP.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec,_28_pa%C5%BAdziernika_2022,_Po%C5%BCegnanie_Stadionu_Ludowego,_KP.jpg",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "Krzysztof Popławski",
+      "retrieved_at": "2026-10-26T07:53:47.267285+00:00",
+      "metadata": {
+        "size": 32225278,
+        "width": 9951,
+        "height": 4051,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec%2C_28_pa%C5%BAdziernika_2022%2C_Po%C5%BCegnanie_Stadionu_Ludowego%2C_KP.jpg/1920px-Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec%2C_28_pa%C5%BAdziernika_2022%2C_Po%C5%BCegnanie_Stadionu_Ludowego%2C_KP.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 1600,
+        "thumbheight": 651,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec%2C_28_pa%C5%BAdziernika_2022%2C_Po%C5%BCegnanie_Stadionu_Ludowego%2C_KP.jpg/3840px-Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec%2C_28_pa%C5%BAdziernika_2022%2C_Po%C5%BCegnanie_Stadionu_Ludowego%2C_KP.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec%2C_28_pa%C5%BAdziernika_2022%2C_Po%C5%BCegnanie_Stadionu_Ludowego%2C_KP.jpg/1920px-Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec%2C_28_pa%C5%BAdziernika_2022%2C_Po%C5%BCegnanie_Stadionu_Ludowego%2C_KP.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 651,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec%2C_28_pa%C5%BAdziernika_2022%2C_Po%C5%BCegnanie_Stadionu_Ludowego%2C_KP.jpg/3840px-Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec%2C_28_pa%C5%BAdziernika_2022%2C_Po%C5%BCegnanie_Stadionu_Ludowego%2C_KP.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec%2C_28_pa%C5%BAdziernika_2022%2C_Po%C5%BCegnanie_Stadionu_Ludowego%2C_KP.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Mecz_pi%C5%82karski_Wis%C5%82a_Krak%C3%B3w_-_Zag%C5%82%C4%99bie_Sosnwoiec,_28_pa%C5%BAdziernika_2022,_Po%C5%BCegnanie_Stadionu_Ludowego,_KP.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=147458670",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2024-04-17 12:27:59",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Mecz piłkarski Wisła Kraków - Zagłębie Sosnwoiec, 28 października 2022, Pożegnanie Stadionu Ludowego, KP",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Panoramas|Stadion Ludowy in Sosnowiec|Self-published work|Association football matches in Poland|Stitched panoramic photographs|On OSM|Files with coordinates missing SDC location of creation|2022 in Sosnowiec|Matches of Wisła Kraków|Wikigrant WG 2024-18|2022 photos by Krzysztof Popławski|Matches of Zagłębie Sosnowiec",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "50.277788",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "19.104587",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Association football match between <a href=\"https://en.wikipedia.org/wiki/en:Zag%C5%82%C4%99bie_Sosnowiec\" class=\"extiw\" title=\"w:en:Zagłębie Sosnowiec\">Zagłębie Sosnowiec</a> and <a href=\"https://en.wikipedia.org/wiki/en:Wis%C5%82a_Krak%C3%B3w\" class=\"extiw\" title=\"w:en:Wisła Kraków\">Wisła Kraków</a> at <a href=\"https://en.wikipedia.org/wiki/en:Stadion_Ludowy\" class=\"extiw\" title=\"w:en:Stadion Ludowy\">Stadion Ludowy</a> in <a href=\"https://en.wikipedia.org/wiki/en:Sosnowiec\" class=\"extiw\" title=\"w:en:Sosnowiec\">Sosnowiec</a>, <a href=\"https://en.wikipedia.org/wiki/en:Silesian_Voivodeship\" class=\"extiw\" title=\"w:en:Silesian Voivodeship\">Silesian Voivodeship</a>, <a href=\"https://en.wikipedia.org/wiki/en:Poland\" class=\"extiw\" title=\"w:en:Poland\">Poland</a>, on 28 October 2022. The panoramic photograph shows a night view from the covered stand during the official farewell to Stadion Ludowy as Zagłębie Sosnowiec’s match stadium before the opening of the Zagłębie Sports Park. The frame includes packed stands, an illuminated football pitch, players, substitutes’ benches, away supporters’ sector, roof structure, floodlights, stairs, railings, stewards, supporters’ banners and the night-time atmosphere of the match.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2022-10-28 22:04:47",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:KrzysztofPoplawski\" title=\"User:KrzysztofPoplawski\">Krzysztof Popławski</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY 4.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution 4.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by/4.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-4.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1920,
+        782
+      ]
+    },
+    {
+      "id": "grand-rapids",
+      "title": "File:Grand Rapids FC spectators at Houseman Field on June 5 2015.jpg",
+      "split": "train",
+      "group": "grand-rapids-2015-06-05",
+      "image": "sources/grand-rapids.jpg",
+      "sha256": "6ade885962386f97de8f9b00ba84c73c5dc0f0395866b9f4d9111f22f051269f",
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Grand_Rapids_FC_spectators_at_Houseman_Field_on_June_5_2015.jpg/1920px-Grand_Rapids_FC_spectators_at_Houseman_Field_on_June_5_2015.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Grand_Rapids_FC_spectators_at_Houseman_Field_on_June_5_2015.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "ByteofKnowledge",
+      "retrieved_at": "2026-10-26T07:53:48.071337+00:00",
+      "metadata": {
+        "size": 1747447,
+        "width": 2560,
+        "height": 1536,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Grand_Rapids_FC_spectators_at_Houseman_Field_on_June_5_2015.jpg/1920px-Grand_Rapids_FC_spectators_at_Houseman_Field_on_June_5_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 1600,
+        "thumbheight": 960,
+        "responsiveUrls": {
+          "2": "https://upload.wikimedia.org/wikipedia/commons/5/55/Grand_Rapids_FC_spectators_at_Houseman_Field_on_June_5_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Grand_Rapids_FC_spectators_at_Houseman_Field_on_June_5_2015.jpg/1920px-Grand_Rapids_FC_spectators_at_Houseman_Field_on_June_5_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 960,
+          "srcset": "https://upload.wikimedia.org/wikipedia/commons/5/55/Grand_Rapids_FC_spectators_at_Houseman_Field_on_June_5_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Grand_Rapids_FC_spectators_at_Houseman_Field_on_June_5_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Grand_Rapids_FC_spectators_at_Houseman_Field_on_June_5_2015.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=42602310",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2015-08-24 02:55:34",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Grand Rapids FC spectators at Houseman Field on June 5 2015",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Taken with LG Tribute|Houseman Field|Self-published work|Association football supporters of the United States",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "The south side of Houseman Field, with members of the Grand Army supporters group in the foreground. Attendance 3,843.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2015-06-05",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:ByteofKnowledge&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:ByteofKnowledge (page does not exist)\">ByteofKnowledge</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 4.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 4.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-4.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1920,
+        1152
+      ]
+    },
+    {
+      "id": "us-venezuela-fans",
+      "title": "File:USAvVEN 2019-06-09 - United States fans (51170270456).jpg",
+      "split": "train",
+      "group": "us-venezuela-2019-06-09",
+      "image": "sources/us-venezuela-fans.jpg",
+      "sha256": "298d4fad4c1c982fdb70854d1f61882442b60f8073f8fab87e95c9cbdf204717",
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/USAvVEN_2019-06-09_-_United_States_fans_%2851170270456%29.jpg/1920px-USAvVEN_2019-06-09_-_United_States_fans_%2851170270456%29.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:USAvVEN_2019-06-09_-_United_States_fans_(51170270456).jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Hayden Schiff from Cincinnati, USA",
+      "retrieved_at": "2026-10-26T07:53:48.567301+00:00",
+      "metadata": {
+        "size": 17996562,
+        "width": 6000,
+        "height": 4000,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/USAvVEN_2019-06-09_-_United_States_fans_%2851170270456%29.jpg/1920px-USAvVEN_2019-06-09_-_United_States_fans_%2851170270456%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 1600,
+        "thumbheight": 1067,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/USAvVEN_2019-06-09_-_United_States_fans_%2851170270456%29.jpg/3840px-USAvVEN_2019-06-09_-_United_States_fans_%2851170270456%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/USAvVEN_2019-06-09_-_United_States_fans_%2851170270456%29.jpg/1920px-USAvVEN_2019-06-09_-_United_States_fans_%2851170270456%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 1067,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/USAvVEN_2019-06-09_-_United_States_fans_%2851170270456%29.jpg/3840px-USAvVEN_2019-06-09_-_United_States_fans_%2851170270456%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/04/USAvVEN_2019-06-09_-_United_States_fans_%2851170270456%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:USAvVEN_2019-06-09_-_United_States_fans_(51170270456).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=105157365",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2021-05-10 23:34:32",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "USAvVEN 2019-06-09 - United States fans (51170270456)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Taken with Nikon D7100|Photographs by Hayden Schiff|Flickr images reviewed by FlickreviewR 2|United States vs. Venezuela, 2019-06-09|Supporters of United States men's national association football team",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "39.131516",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "-84.516556",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Taken at an international friendly men's soccer match between the United States and Venezuela at Nippert Stadium in Cincinnati, USA on June 9, 2019",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2019-06-09 15:22",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/oxguy3/51170270456/\">United States fans</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/65581273@N05\">Hayden Schiff</a> from Cincinnati, USA",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY 2.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution 2.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by/2.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-2.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1920,
+        1280
+      ]
+    },
+    {
+      "id": "seattle-portland",
+      "title": "File:Crowd at Seattle Reign FC vs Portland Thorns match.JPG",
+      "split": "train",
+      "group": "seattle-portland-crowd",
+      "image": "sources/seattle-portland.jpg",
+      "sha256": "679efe9dc70ae2eb77542d403a0e2bd7baa3127cd9d4ad40a6aec2c3cd03dfb4",
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG/1920px-Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Hmlarson",
+      "retrieved_at": "2026-10-26T07:53:50.676694+00:00",
+      "metadata": {
+        "size": 2481408,
+        "width": 3872,
+        "height": 2592,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG/1920px-Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 1600,
+        "thumbheight": 1071,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG/3840px-Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG/1920px-Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 1071,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG/3840px-Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Crowd_at_Seattle_Reign_FC_vs_Portland_Thorns_match.JPG",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=26330634",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2013-05-26 18:14:51",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Crowd at Seattle Reign FC vs Portland Thorns match",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Taken with Nikon D80|Starfire Sports Complex|2013 Portland Thorns season|2013 Seattle Reign FC season|Self-published work|Association football supporters of the United States",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Crowd duing Seattle Reign FC vs Portland Thorns at Starfire Stadium in Tukwila, Washington on May 25, 2013",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2013-05-25 17:58:09",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Hmlarson\" title=\"User:Hmlarson\">Hmlarson</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 3.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 3.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/3.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-3.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1920,
+        1285
+      ]
+    },
+    {
+      "id": "japan-audience",
+      "title": "File:Football audience (9897888786).jpg",
+      "split": "val",
+      "group": "japan-audience-9897888786",
+      "image": "sources/japan-audience.jpg",
+      "sha256": "dc2457f4e209d72f8cccd631f583de2d48d281e261b2a253b8f5a1dccc5ba092",
+      "variant_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Football_audience_%289897888786%29.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Football_audience_(9897888786).jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "mxmstryo",
+      "retrieved_at": "2026-10-26T07:53:51.666308+00:00",
+      "metadata": {
+        "size": 459136,
+        "width": 1024,
+        "height": 680,
+        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Football_audience_%289897888786%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbwidth": 1600,
+        "thumbheight": 1063,
+        "thumbattribs": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Football_audience_%289897888786%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 1063
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Football_audience_%289897888786%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Football_audience_(9897888786).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=38831309",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2015-03-10 09:06:52",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Football audience (9897888786)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "JEF United Chiba|Flickr images reviewed by FlickreviewR|Association football supporters of Japan|Many matching outfits",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "football audience",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2013-09-23 14:30",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/mxmstryo/9897888786/\">football audience</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/57793655@N00\">mxmstryo</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY 2.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution 2.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by/2.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-2.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1024,
+        680
+      ]
+    },
+    {
+      "id": "faroe-fans",
+      "title": "File:Faroese football supporters - Skansin - 13 June 2015.JPG",
+      "split": "val",
+      "group": "faroe-2015-06-13",
+      "image": "sources/faroe-fans.jpg",
+      "sha256": "1096cd391ada985969d25b6c3ad8a037e04c84e25d8e86234000938e05bcd5d3",
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG/1920px-Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "EileenSanda",
+      "retrieved_at": "2026-10-26T07:53:52.151806+00:00",
+      "metadata": {
+        "size": 6721523,
+        "width": 4608,
+        "height": 3456,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG/1920px-Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 1600,
+        "thumbheight": 1200,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG/3840px-Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG/1920px-Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 1200,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG/3840px-Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Faroese_football_supporters_-_Skansin_-_13_June_2015.JPG",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=42927638",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2015-09-05 21:35:55",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Faroese football supporters - Skansin - 13 June 2015",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Taken with Olympus SP-620UZ|Faroe Islands - Greece, 13 June 2015|Self-published work|Photographs taken on 2013-06-13|Association football supporters in 2015|Faroe Islands photographs taken on 2015-06-13|Photographs by Eileen Sandá",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "From the football match between the Faroe Islands vs Greece, played on Tórsvøllur Stadium in Tórshavn on 13 June 2015. Faroe Islands won the match 2-1.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "Taken on 13 June 2015, 21:15:07",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:EileenSanda\" title=\"User:EileenSanda\">EileenSanda</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 4.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 4.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-4.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1920,
+        1440
+      ]
+    },
+    {
+      "id": "sweden-u21-fans",
+      "title": "File:Fans for Sweden national under-21 football team in 2015.jpg",
+      "split": "train",
+      "group": "sweden-u21-2015",
+      "image": "sources/sweden-u21-fans.jpg",
+      "sha256": "15e09cded357fbd64a068a36ec88287fba89cd95c319d2d12ca38ddf2ce35b89",
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Fans_for_Sweden_national_under-21_football_team_in_2015.jpg/1920px-Fans_for_Sweden_national_under-21_football_team_in_2015.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Fans_for_Sweden_national_under-21_football_team_in_2015.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Frankie Fouganthin",
+      "retrieved_at": "2026-10-26T07:53:54.360205+00:00",
+      "metadata": {
+        "size": 2909821,
+        "width": 5297,
+        "height": 2555,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Fans_for_Sweden_national_under-21_football_team_in_2015.jpg/1920px-Fans_for_Sweden_national_under-21_football_team_in_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 1600,
+        "thumbheight": 772,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Fans_for_Sweden_national_under-21_football_team_in_2015.jpg/3840px-Fans_for_Sweden_national_under-21_football_team_in_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Fans_for_Sweden_national_under-21_football_team_in_2015.jpg/1920px-Fans_for_Sweden_national_under-21_football_team_in_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 772,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Fans_for_Sweden_national_under-21_football_team_in_2015.jpg/3840px-Fans_for_Sweden_national_under-21_football_team_in_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Fans_for_Sweden_national_under-21_football_team_in_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Fans_for_Sweden_national_under-21_football_team_in_2015.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=41354154",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2015-07-04 00:27:17",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Fans for Sweden national under-21 football team in 2015",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Self-published work|Association football supporters of Sweden|Sports supporters of Sweden in 2015|Association football supporters in 2015|Sweden photographs taken on 2015-07-01|U21-mästarna firas i Kungsträdgården 2015",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Sveriges U21-landslag blir hyllade i Kungsträdgården i Stockholm den 1 juli av 1000-tals fans efter guldet i U21-Europamästerskapet i fotboll 2015.",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2015-07-01 17:28:09",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:FrankieF\" class=\"mw-redirect\" title=\"User:FrankieF\">Frankie Fouganthin</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 4.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 4.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/4.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-4.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1920,
+        926
+      ]
+    },
+    {
+      "id": "shimizu-fans",
+      "title": "File:Emperor's Cup Final Shimizu S-Pulse 2011-01-01.JPG",
+      "split": "train",
+      "group": "emperor-cup-2011-01-01",
+      "image": "sources/shimizu-fans.jpg",
+      "sha256": "853fa22656a69b5227bb198cb2d94433c8a67415ca2d9a204e8f9323dcca2648",
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Emperor%27s_Cup_Final_Shimizu_S-Pulse_2011-01-01.JPG/1920px-Emperor%27s_Cup_Final_Shimizu_S-Pulse_2011-01-01.JPG",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Emperor%27s_Cup_Final_Shimizu_S-Pulse_2011-01-01.JPG",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "author": "Waka77",
+      "retrieved_at": "2026-10-26T07:53:55.168345+00:00",
+      "metadata": {
+        "size": 3932529,
+        "width": 3264,
+        "height": 2448,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Emperor%27s_Cup_Final_Shimizu_S-Pulse_2011-01-01.JPG/1920px-Emperor%27s_Cup_Final_Shimizu_S-Pulse_2011-01-01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 1600,
+        "thumbheight": 1200,
+        "responsiveUrls": {
+          "2": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Emperor%27s_Cup_Final_Shimizu_S-Pulse_2011-01-01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Emperor%27s_Cup_Final_Shimizu_S-Pulse_2011-01-01.JPG/1920px-Emperor%27s_Cup_Final_Shimizu_S-Pulse_2011-01-01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 1200,
+          "srcset": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Emperor%27s_Cup_Final_Shimizu_S-Pulse_2011-01-01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Emperor%27s_Cup_Final_Shimizu_S-Pulse_2011-01-01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Emperor%27s_Cup_Final_Shimizu_S-Pulse_2011-01-01.JPG",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=18017311",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2012-01-12 13:26:22",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Emperor's Cup Final Shimizu S-Pulse 2011-01-01",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Heart symbols|Taken with Canon Digital IXUS 860 IS|91st Emperor's Cup|CC-Zero|Self-published work|Association football supporters of Japan|Orange and white signs|Orange signs in Japan|Seating areas of stadiums in Japan|Association football tifo|Matches of Shimizu S-Pulse|People with thermal earmuffs",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Emperor's Cup Final Shimizu S-Pulse 2011-01-01",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2011-01-01",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "Waka77",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Zero, Public Domain Dedication",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1920,
+        1440
+      ]
+    },
+    {
+      "id": "leverkusen-fans",
+      "title": "File:Bayer Leverkusen-Fans.JPG",
+      "split": "val",
+      "group": "leverkusen-fans-photo",
+      "image": "sources/leverkusen-fans.jpg",
+      "sha256": "ed60f5b4376ab08628fada59e5951df24a7d811a551edba8dd369cc230942bda",
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Bayer_Leverkusen-Fans.JPG/1920px-Bayer_Leverkusen-Fans.JPG",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Bayer_Leverkusen-Fans.JPG",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "",
+      "retrieved_at": "2026-10-26T07:53:55.639021+00:00",
+      "metadata": {
+        "size": 1425201,
+        "width": 2048,
+        "height": 1536,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Bayer_Leverkusen-Fans.JPG/1920px-Bayer_Leverkusen-Fans.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 1600,
+        "thumbheight": 1200,
+        "responsiveUrls": {
+          "2": "https://upload.wikimedia.org/wikipedia/commons/d/da/Bayer_Leverkusen-Fans.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Bayer_Leverkusen-Fans.JPG/1920px-Bayer_Leverkusen-Fans.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 1200,
+          "srcset": "https://upload.wikimedia.org/wikipedia/commons/d/da/Bayer_Leverkusen-Fans.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Bayer_Leverkusen-Fans.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Bayer_Leverkusen-Fans.JPG",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=184775",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2005-06-12 19:03:45",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Bayer Leverkusen-Fans",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Association football supporters of Germany|GFDL|Taken with Minolta Dimage Z1|Bayer Leverkusen|Files with no machine-readable author|Files with no machine-readable source|License migration completed|Media missing infobox template",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 3.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 3.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "http://creativecommons.org/licenses/by-sa/3.0/",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-3.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1920,
+        1440
+      ]
+    },
+    {
+      "id": "bohemians-fans",
+      "title": "File:Bohemian Dublin supporters during the match vs.Red Bull Salzburg.JPG",
+      "split": "train",
+      "group": "bohemians-salzburg-photo",
+      "image": "sources/bohemians-fans.jpg",
+      "sha256": "334c5fffca284a16733349d365998d0ab075e87bfcbb7a440ce0387e18562706",
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Bohemian_Dublin_supporters_during_the_match_vs.Red_Bull_Salzburg.JPG/1920px-Bohemian_Dublin_supporters_during_the_match_vs.Red_Bull_Salzburg.JPG",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Bohemian_Dublin_supporters_during_the_match_vs.Red_Bull_Salzburg.JPG",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Werner100359",
+      "retrieved_at": "2026-10-26T07:56:29.750742+00:00",
+      "metadata": {
+        "size": 3956278,
+        "width": 3008,
+        "height": 2000,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Bohemian_Dublin_supporters_during_the_match_vs.Red_Bull_Salzburg.JPG/1920px-Bohemian_Dublin_supporters_during_the_match_vs.Red_Bull_Salzburg.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 1600,
+        "thumbheight": 1064,
+        "responsiveUrls": {
+          "2": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Bohemian_Dublin_supporters_during_the_match_vs.Red_Bull_Salzburg.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Bohemian_Dublin_supporters_during_the_match_vs.Red_Bull_Salzburg.JPG/1920px-Bohemian_Dublin_supporters_during_the_match_vs.Red_Bull_Salzburg.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 1064,
+          "srcset": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Bohemian_Dublin_supporters_during_the_match_vs.Red_Bull_Salzburg.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Bohemian_Dublin_supporters_during_the_match_vs.Red_Bull_Salzburg.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Bohemian_Dublin_supporters_during_the_match_vs.Red_Bull_Salzburg.JPG",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=7698451",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2009-08-31 06:40:06",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Bohemian Dublin supporters during the match vs.Red Bull Salzburg",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Association football supporters of Ireland|Taken with Pentax K100D|Self-published work|FC Red Bull Salzburg vs. Bohemian Dublin 15 July 2009|Pictures taken by Werner100359 in July 2009",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Bohemian Dublin supporters in Salzburg",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2009-07-15",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Werner100359\" title=\"User:Werner100359\">Werner100359</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY 3.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution 3.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by/3.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-3.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1920,
+        1277
+      ]
+    },
+    {
+      "id": "event-stewards-2012",
+      "title": "File:Stewards (7782147950).jpg",
+      "split": "train",
+      "group": "event-stewards-7782147950",
+      "image": "sources/event-stewards-2012.jpg",
+      "sha256": "6d5483263f99ba2f94e9a44f360fe77506ac06676ec166693155c762a63a50fc",
+      "variant_url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Stewards_%287782147950%29.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Stewards_(7782147950).jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Smoobs",
+      "retrieved_at": "2026-10-26T08:02:15.843872+00:00",
+      "metadata": {
+        "size": 1485014,
+        "width": 1400,
+        "height": 1050,
+        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Stewards_%287782147950%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "thumbwidth": 1600,
+        "thumbheight": 1200,
+        "thumbattribs": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Stewards_%287782147950%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 1200
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Stewards_%287782147950%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Stewards_(7782147950).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=87944398",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2020-03-11 21:09:52",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Stewards (7782147950)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Flickr images reviewed by FlickreviewR 2|Boomtown - 2012",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Samsung",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2012-08-12 19:44",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/smoo/7782147950/\">Stewards</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/43541636@N00\">Smoobs</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY 2.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution 2.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by/2.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-2.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1400,
+        1050
+      ]
+    },
+    {
+      "id": "event-stewards-2010",
+      "title": "File:Stewards working the crowd (4960674375).jpg",
+      "split": "train",
+      "group": "event-stewards-4960674375",
+      "image": "sources/event-stewards-2010.jpg",
+      "sha256": "972d6353eaaa537e40b7041a24657bb4900b2ae9e79a0249750cae0092d58c4c",
+      "variant_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Stewards_working_the_crowd_%284960674375%29.jpg/1920px-Stewards_working_the_crowd_%284960674375%29.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Stewards_working_the_crowd_(4960674375).jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "author": "Portable Antiquities Scheme from London, England",
+      "retrieved_at": "2026-10-26T08:02:17.591918+00:00",
+      "metadata": {
+        "size": 3352779,
+        "width": 2592,
+        "height": 3888,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Stewards_working_the_crowd_%284960674375%29.jpg/1920px-Stewards_working_the_crowd_%284960674375%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 1600,
+        "thumbheight": 2400,
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Stewards_working_the_crowd_%284960674375%29.jpg/1920px-Stewards_working_the_crowd_%284960674375%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 1600,
+          "height": 2400
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Stewards_working_the_crowd_%284960674375%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Stewards_working_the_crowd_(4960674375).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=164013849",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2025-04-23 13:43:44",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Stewards working the crowd (4960674375)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Flickr images reviewed by FlickreviewR 2|London photographs taken on 2010-09-02|Files with coordinates missing SDC location of creation (51° N, 1° W)|Events at the British Museum|Flickr images missing SDC published in",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "GPSLatitude": {
+            "value": "51.518757",
+            "source": "commons-desc-page"
+          },
+          "GPSLongitude": {
+            "value": "-0.125505",
+            "source": "commons-desc-page"
+          },
+          "GPSMapDatum": {
+            "value": "WGS-84",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Stewards working the crowd",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2010-09-02 06:16",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/finds/4960674375/\">Stewards working the crowd</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/10257668@N04\">Portable Antiquities Scheme</a> from London, England",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY 2.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution 2.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by/2.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-2.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "modifications": "Commons thumbnail requested at width 1600 (actual delivered dimensions recorded), selected role crops and research overlays; no endorsement.",
+      "delivered_image_size": [
+        1920,
+        2880
+      ]
+    }
+  ],
+  "rejected": []
+}

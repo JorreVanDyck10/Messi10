@@ -11,6 +11,8 @@ import contextlib
 import gc
 import json
 import logging
+import os
+import shutil
 import time
 from datetime import UTC, datetime
 from pathlib import Path
@@ -18,6 +20,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 import torch
+import yaml
 
 from assets.annotations.football48.make_ball_only import create
 from football_pipeline.contracts import digest_json, read_json, sha256_file, write_json
@@ -25,6 +28,53 @@ from football_pipeline.pipeline import code_identity, dependencies
 from football_pipeline.video import ROOT
 from persoon1.metrics import evaluate
 from persoon1.modeling import yolo
+
+
+def create_coco_view(source, output, manifest, names):
+    """Keep the pretrained 80-class head and actual person/ball class semantics.
+
+    This uses the delivered person annotations as well as ball labels; it never
+    calls a generic person a player. Unused COCO classes have no positive labels.
+    """
+    if output.exists():
+        raise ValueError("Choose a fresh dataset directory")
+    if names.get(0) != "person" or names.get(32) != "sports ball" or len(names) != 80:
+        raise ValueError("Expected the actual pretrained COCO class mapping")
+    if any(frame["split"] not in {"train", "val"} for frame in manifest["frames"]):
+        raise ValueError("Do not open reserved test frames for development training")
+    counts = {"train": {0: 0, 32: 0}, "val": {0: 0, 32: 0}}
+    for frame in manifest["frames"]:
+        image = output / frame["image"]
+        image.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            os.link(source / frame["image"], image)
+        except OSError:
+            shutil.copy2(source / frame["image"], image)
+        lines = []
+        for line in (source / frame["label"]).read_text().splitlines():
+            fields = line.split()
+            cls = {"0": 0, "1": 32}[fields[0]]
+            counts[frame["split"]][cls] += 1
+            lines.append(str(cls) + " " + " ".join(fields[1:]))
+        label = output / frame["label"]
+        label.parent.mkdir(parents=True, exist_ok=True)
+        label.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
+    (output / "data.yaml").write_text(
+        yaml.safe_dump(
+            {"path": output.as_posix(), "train": "images/train", "val": "images/val", "names": names}
+        ),
+        encoding="utf-8",
+    )
+    write_json(
+        output / "source.json",
+        {
+            "source_dataset": "football48-001",
+            "mapping": {"person": 0, "ball": 32},
+            "counts": counts,
+            "head_classes": 80,
+            "scope": "Existing masked person/ball annotations, not player/role annotations or independent test data.",
+        },
+    )
 
 
 def truth_and_identity(source):
@@ -157,6 +207,11 @@ def main():
     p.add_argument("--device", default="0")
     p.add_argument("--provisional-ai-labels", action="store_true", required=True)
     p.add_argument(
+        "--preserve-coco-head",
+        action="store_true",
+        help="Train existing person/ball labels with the original 80-class head",
+    )
+    p.add_argument(
         "--candidate-weights", type=Path, help="Evaluate an existing candidate instead of retraining"
     )
     args = p.parse_args()
@@ -182,7 +237,15 @@ def main():
             "gpu_memory_bytes": torch.cuda.get_device_properties(0).total_memory
             if torch.cuda.is_available()
             else None,
-            "hypothesis": "Native-scale ball crops retain detail lost in full panorama resizing; limited fine-tuning may beat the pretrained sports-ball baseline.",
+            "hypothesis": (
+                "Retaining the pretrained 80-class head and person supervision avoids resetting the sports-ball output while adapting to the small dataset."
+                if args.preserve_coco_head
+                else "Native-scale ball crops retain detail lost in full panorama resizing; limited fine-tuning may beat the pretrained sports-ball baseline."
+            ),
+            "preserve_coco_head": args.preserve_coco_head,
+            "checkpoint_fitness_scope": "Framework AP50:95 over labelled person and ball"
+            if args.preserve_coco_head
+            else "Framework ball AP50:95",
             "selection": "Primary target AP50:95, then AP50, plus FP/FN examples; no independent final test claim.",
             "limits": [
                 "One match, 26 train/10 val ball objects, AI labels only.",
@@ -197,12 +260,17 @@ def main():
         best = args.candidate_weights.resolve()
     else:
         dataset = run / "dataset"
-        create(dataset)
-        # An explicit root avoids Ultralytics resolving relative paths under a different datasets_dir.
-        (dataset / "data.yaml").write_text(
-            f"path: {dataset.as_posix()}\ntrain: images/train\nval: images/val\nnames:\n  0: ball\n",
-            encoding="utf-8",
-        )
+        if args.preserve_coco_head:
+            initial = yolo(weights)
+            create_coco_view(source, dataset, manifest, initial.names)
+            del initial
+        else:
+            create(dataset)
+            # An explicit root avoids resolving relative paths under another datasets_dir.
+            (dataset / "data.yaml").write_text(
+                f"path: {dataset.as_posix()}\ntrain: images/train\nval: images/val\nnames:\n  0: ball\n",
+                encoding="utf-8",
+            )
         attempts = []
         best = None
         for batch in (4, 2, 1):
@@ -245,7 +313,14 @@ def main():
         if best is None:
             raise RuntimeError("All batches ran out of GPU memory")
     candidate = measure(
-        best, "ball", manifest, truth, source, run / "candidate", config["imgsz"], args.device
+        best,
+        "sports ball" if args.preserve_coco_head else "ball",
+        manifest,
+        truth,
+        source,
+        run / "candidate",
+        config["imgsz"],
+        args.device,
     )
     assert data_identity == truth_and_identity(source)[2], "Dataset changed during experiment"
     report = {

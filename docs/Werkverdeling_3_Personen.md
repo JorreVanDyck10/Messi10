@@ -4,6 +4,8 @@
 
 Het gezamenlijke product blijft een lokale voetbalvideo met detecties, rollen, Team A/B, betrouwbare veldtelling en een gesynchroniseerde tactical map. Eerst moet het vaste-camera-MVP betrouwbaar worden; tracking en camerabeweging krijgen daarna hun eigen acceptatie. Er wordt geen deadline of willekeurige mAP-/FPS-ondergrens toegevoegd.
 
+**Uitvoering persoon 1:** [de derde uitvoeringsronde](Uitvoering_Persoon_1_Derde_Ronde.md) bevat het inmiddels uitgevoerde technische werk en de echte nieuwe metingen. De menselijke review-/eindtestvoorwaarden hieronder blijven gelden en zijn daarmee niet automatisch afgevinkt.
+
 ## 1. Wat bestaat en wat nog ontbreekt
 
 | Onderdeel | Werkelijk aanwezig | Verbeterwerk |

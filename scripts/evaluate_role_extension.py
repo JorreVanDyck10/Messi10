@@ -65,29 +65,45 @@ def summarize(rows, predictions):
     return result
 
 
+def cohorts(rows):
+    """Keep new rare-photo references distinct from the earlier added match."""
+    return {
+        name: subset
+        for name, subset in {
+            "all_val": rows,
+            "retained_val": [r for r in rows if r.get("origin") == "retained_v1"],
+            "new_match_val": [r for r in rows if r.get("origin") == "new_masked_match_val"],
+            "new_rare_roles_val": [r for r in rows if r.get("origin") == "new_rare_role_photo"],
+        }.items()
+        if subset
+    }
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--manifest", type=Path, default=ROOT / "datasets/roles-teams-v2/manifest.json")
     p.add_argument("--baseline", type=Path, default=ROOT / "artifacts/appearance-v1/roles_teams.pt")
+    p.add_argument("--baseline-label", default="R007")
     p.add_argument("--candidate", type=Path, required=True)
     p.add_argument("--output", type=Path, required=True)
     args = p.parse_args()
+    if args.baseline_label == "candidate":
+        p.error("Baseline label must differ from candidate")
     args.output.mkdir(parents=True, exist_ok=False)
     data = load_training_manifest(args.manifest)
     rows = [r for r in data["samples"] if r["split"] == "val"]
     predictions = {
         name: infer(weights, args.manifest.parent, rows)
-        for name, weights in (("R007", args.baseline), ("candidate", args.candidate))
+        for name, weights in ((args.baseline_label, args.baseline), ("candidate", args.candidate))
     }
-    groups = {
-        "all_val": rows,
-        "retained_val": [r for r in rows if r.get("origin") == "retained_v1"],
-        "new_match_val": [r for r in rows if r.get("origin") != "retained_v1"],
-    }
+    groups = cohorts(rows)
     report = {
         "scope": "Conditional crop classification, not detection AP; development data with AI labels.",
         "dataset_sha256": sha256_file(args.manifest),
-        "weights_sha256": {"R007": sha256_file(args.baseline), "candidate": sha256_file(args.candidate)},
+        "weights_sha256": {
+            args.baseline_label: sha256_file(args.baseline),
+            "candidate": sha256_file(args.candidate),
+        },
         "role_names": ROLE_NAMES,
         "team_names": TEAM_NAMES,
         "threshold": 0.65,

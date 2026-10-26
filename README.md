@@ -1,3 +1,5 @@
+> **Werkpakket persoon 1 technisch uitgevoerd:** 93 extra rolcrops, volledige data-audit, vijf echte roltrainingen, twee baltrainingen en een gecontroleerd R015-alternatief. De bal verbetert op native crops; raw-video- en zeldzame-rolbeperkingen blijven expliciet. R007 blijft standaard. [Nieuwe resultaten en complete overdracht](docs/Uitvoering_Persoon_1_Derde_Ronde.md).
+
 > **Samenwerken met drie personen:** de actuele taakverdeling geeft persoon 1 data en modellen, persoon 2 veldherkenning en projectie, en persoon 3 teams, tracking en integratie. Inclusief concrete taken, bestanden, overdrachten, review en acceptatie. [Werkverdeling voor drie personen](docs/Werkverdeling_3_Personen.md).
 
 > **Teamindeling en dubbele boxen verbeterd:** de gezamenlijke rolpipeline houdt op dezelfde validatiebeelden vijf foutieve spelersdetecties minder over, met behoud van de correcte detecties. De kleurindeling voor nieuwe video's is opnieuw gemeten en aangepast. Deze softwareverbeteringen werken ook in het standaardprofiel R007. [Voor/na, voorbeelden en beperkingen](docs/Verbetering_Teams_en_Boxen.md).

@@ -1,5 +1,9 @@
 # Uitvoeringsstatus persoon 1
 
+**Actuele uitvoering, 26 oktober 2026:** [werkpakket 1, derde ronde](Uitvoering_Persoon_1_Derde_Ronde.md) bevat de nieuwe technische data-audit, 93 extra rolcrops, vijf echte roltrainingen, twee baltrainingen, kopmenging, volledige evaluatie, downloadbare checkpoints en overdracht. De suite slaagt met 223 tests en 4 subtests. R007 blijft standaard; R015 en F003 zijn kandidaten met expliciete toepassingsgrenzen. Menselijke review en een onafhankelijke eindtest blijven open. De onderstaande oudere aantallen en scores zijn historische uitvoeringsnotities, geen actuele totaalscore.
+
+## Historische uitvoeringsnotities
+
 **Actuele rol-/teamuitbreiding:** [R007 is werkelijk getraind en geïntegreerd](Resultaten_Rollen_en_Teams.md), inclusief extra bronbeelden, echte validatie en een aparte overdracht. Spelers krijgen A/B of onbekend. Supporters en kleine centrale officials blijven zwak; er is geen universele betrouwbare rolherkenning of menselijke review geclaimd. Het tweeklassenprofiel blijft als basisprofiel bewaard.
 
 **Nieuwe speleroplevering:** [TeamTrack-spelermodel, dataset, echte metingen en overdracht](Resultaten_Spelermodel.md). Het standaardprofiel gebruikt nu `player`/`referee`; de onderstaande balstatus blijft als afzonderlijk experiment gelden. Er is nog geen volledige verre officialdekking of onafhankelijke projecteindtest.

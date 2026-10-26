@@ -1,0 +1,21 @@
+{
+  "human_review_completed": false,
+  "annotator": "Codex AI",
+  "corrections": [
+    {
+      "id": "round3:bohemians-fans:1",
+      "before": "spectator",
+      "after": "person",
+      "reason": "Ambiguous job; clothing and source title alone are insufficient for a specific role."
+    }
+  ],
+  "validation_labels_changed": false,
+  "prior_training_runs": [
+    "EXP-R011",
+    "EXP-R012"
+  ],
+  "new_training_runs": [
+    "EXP-R013",
+    "EXP-R014"
+  ]
+}

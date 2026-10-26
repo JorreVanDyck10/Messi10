@@ -165,7 +165,7 @@ def load_training_manifest(path):
             or data.get("review_policy") != "provisional_ai_visual"
             or data.get("role_names") != ROLE_NAMES or data.get("team_names") != TEAM_NAMES):
         raise ValueError("Extension manifest must disclose provisional AI labels and actual class names")
-    groups, images, identifiers, dimensions = {}, {}, set(), {}
+    groups, images, image_hash_splits, identifiers, dimensions = {}, {}, {}, set(), {}
     for row in data["samples"]:
         if row["split"] not in {"train", "val"}:
             raise ValueError("Role development training must never open reserved test images")
@@ -181,6 +181,8 @@ def load_training_manifest(path):
             raise ValueError("Source image identity changed or points outside the project")
         if images.setdefault(str(image), row["split"]) != row["split"]:
             raise ValueError("Source image crosses training/validation")
+        if image_hash_splits.setdefault(row["image_sha256"], row["split"]) != row["split"]:
+            raise ValueError("Duplicate image bytes cross training/validation under different file names")
         if len(row["bbox"]) != 4 or not np.isfinite(row["bbox"]).all():
             raise ValueError("Invalid crop box")
         if str(image) not in dimensions:
@@ -201,7 +203,23 @@ def supervised_team_videos(rows, base):
                   | {r["video_sha256"] for r in rows if r.get("video_sha256") and r.get("team") is not None})
 
 
-def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, fine_tune_blocks=3):
+def augment_role_tensor(tensor, augmentation):
+    """One deterministic transform shared by initial features AND later training pixels."""
+    if augmentation not in range(6):
+        raise ValueError("Unknown role crop augmentation")
+    if augmentation % 2:
+        tensor = tensor.flip(2)
+    if augmentation >= 2:
+        size = (32, 24) if augmentation < 4 else (64, 48)
+        tensor = torch.nn.functional.interpolate(tensor[None], size=size, mode="bilinear", align_corners=False)
+        tensor = torch.nn.functional.interpolate(tensor, size=(192, 128), mode="bilinear", align_corners=False)[0]
+    return tensor
+
+
+def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, fine_tune_blocks=3,
+          role_colour_scale=8.0):
+    if not np.isfinite(role_colour_scale) or role_colour_scale <= 0:
+        raise ValueError("Role colour scale must be positive and finite")
     torch.manual_seed(42)
     np.random.seed(42)
     torch.set_num_threads(4)
@@ -213,6 +231,19 @@ def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, 
     data = load_training_manifest(manifest_path) if explicit_manifest else build()
     data_root = manifest_path.parent
     rows = data["samples"]
+    save(output / "configuration.json", {
+        "seed": 42, "dataset_sha256": sha256_file(manifest_path),
+        "warm_start_sha256": sha256_file(encoder_checkpoint) if encoder_checkpoint else None,
+        "fine_tune": fine_tune, "fine_tune_blocks": fine_tune_blocks,
+        "role_colour_scale": role_colour_scale, "fine_epochs": 20, "steps_per_epoch": 10,
+        "samples_per_class_step": 12, "fine_head_lr": .0005, "fine_backbone_lr": .00005,
+        "head_refit_epochs": 400, "head_refit_lr": .005, "role_threshold": .65,
+        "selection": "Validation macro F1 at role confidence .65", "human_review_completed": False,
+        "training_source_sha256": sha256_file(__file__),
+        "photo_augmentation_applied_in_both_feature_stages": True,
+        "photo_augmentation": {"0":"original", "1":"horizontal mirror", "2":"32x24 then restore", "3":"mirror and 32x24 then restore", "4":"64x48 then restore", "5":"mirror and 64x48 then restore"},
+        "colour_histogram_source": "Original torso histogram, retained across crop-only visual transforms",
+    })
     # Label-preserving photo augmentation stays within each source's original training group.
     extra = []
     for r in rows:
@@ -238,17 +269,7 @@ def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, 
                     images[r["image"]] = cv2.imread(str(data_root / r["image"]))
                 im = images[r["image"]]
                 tensor = crop_tensor(im, r["bbox"])
-                augmentation = r.get("augmentation", 0)
-                if augmentation % 2:
-                    tensor = tensor.flip(2)
-                if augmentation >= 2:
-                    size = (32, 24) if augmentation < 4 else (64, 48)
-                    tensor = torch.nn.functional.interpolate(
-                        tensor[None], size=size, mode="bilinear", align_corners=False
-                    )
-                    tensor = torch.nn.functional.interpolate(
-                        tensor, size=(192, 128), mode="bilinear", align_corners=False
-                    )[0]
+                tensor = augment_role_tensor(tensor, r.get("augmentation", 0))
                 pixels.append(tensor)
                 colours.append(jersey_feature(im, r["bbox"]))
             features.append(
@@ -302,8 +323,7 @@ def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, 
         for r in rows:
             im = images[r["image"]]
             tensor = crop_tensor(im, r["bbox"])
-            if r.get("augmentation", 0) % 2:
-                tensor = tensor.flip(2)
+            tensor = augment_role_tensor(tensor, r.get("augmentation", 0))
             raw_pixels.append(tensor)
             raw_colours.append(jersey_feature(im, r["bbox"]))
         pixels = torch.stack(raw_pixels)
@@ -320,7 +340,7 @@ def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, 
                 )
                 embedding = encoder(pixels[chosen.cpu()].to(device))
                 features = (torch.cat([embedding, colours[chosen]], 1) - mean) / std
-                features = torch.cat([features[:, :576], features[:, 576:] * 8], 1)
+                features = torch.cat([features[:, :576], features[:, 576:] * role_colour_scale], 1)
                 opt.zero_grad()
                 loss = torch.nn.functional.cross_entropy(head(features), role_y[chosen])
                 loss.backward()
@@ -335,7 +355,7 @@ def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, 
                     )
                 raw = torch.cat(current)
                 normal = (raw - mean) / std
-                role_features = torch.cat([normal[:, :576], normal[:, 576:] * 8], 1)
+                role_features = torch.cat([normal[:, :576], normal[:, 576:] * role_colour_scale], 1)
                 probs = head(role_features[val_mask]).softmax(1).cpu().numpy()
                 report = scores(
                     role_y[val_mask].cpu().numpy(),
@@ -372,7 +392,7 @@ def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, 
     for task, y, names in [("role", role_y, ROLE_NAMES), ("team", team_y, TEAM_NAMES)]:
         task_x = x.clone()
         if task == "role":
-            task_x[:, 576:] *= 8
+            task_x[:, 576:] *= role_colour_scale
         tr = train_mask & (y >= 0)
         va = val_mask & (y >= 0)
         head = torch.nn.Linear(608, len(names)).to(device)
@@ -437,7 +457,7 @@ def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, 
         "team_head": {k: v.cpu() for k, v in heads["team"].items()},
         "mean": mean.cpu(),
         "std": std.cpu(),
-        "role_colour_scale": 8.0,
+        "role_colour_scale": float(role_colour_scale),
         "role_names": ROLE_NAMES,
         "team_names": TEAM_NAMES,
         "team_video_hashes": supervised_team_videos(rows, base),
@@ -470,5 +490,7 @@ if __name__ == "__main__":
     parser.add_argument("--encoder-checkpoint")
     parser.add_argument("--manifest", help="Separate reviewed AI development manifest; preserves the base dataset")
     parser.add_argument("--fine-tune-blocks", type=int, choices=(0, 1, 3), default=3)
+    parser.add_argument("--role-colour-scale", type=float, default=8.0)
     args = parser.parse_args()
-    train(args.output, args.fine_tune, args.encoder_checkpoint, args.manifest, args.fine_tune_blocks)
+    train(args.output, args.fine_tune, args.encoder_checkpoint, args.manifest, args.fine_tune_blocks,
+          args.role_colour_scale)

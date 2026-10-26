@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "profile_name": "F003 balonderzoek - COCO-kop behouden, alleen op native crops gevalideerd",
+  "models": [
+    {
+      "model_id": "football48-coco-head-f003",
+      "weights": "../artifacts/football48-ball-v2/EXP-F003-best.pt",
+      "weights_sha256": "1aa203d2971ad582da9631ce54ad5cb057aa79667a064d8a0c771805b4ce0fa4",
+      "class_mapping": {
+        "32": "ball"
+      },
+      "expected_names": {
+        "32": "sports ball"
+      },
+      "imgsz": 1280,
+      "confidence": 0.25,
+      "iou": 0.7,
+      "device": "0"
+    }
+  ],
+  "handoff": {
+    "evaluation_record": "../reports/person1-round3/EXP-F003/candidate/metrics.json",
+    "evaluation_sha256": "67cdc824258945200fa719641d65caf631a1faff52d84b9ca59a4d8eb8dcb9c3",
+    "evaluation_kind": "Ball AP101 on 12 masked native crops with 10 balls; no full-video accuracy claim",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "application_confidence": 0.25,
+    "ap_evaluation_confidence_floor": 0.001,
+    "raw_panorama_adequate": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "video_sha256": "d9b92e58063e29be376319f680af7e136551a90f578dffff02a371f852c70ee3",
+  "video": "assets\\clips20\\panorama128057-training48\\128057_phase-0540_20s.mp4",
+  "image_size": [
+    4096,
+    1080
+  ],
+  "fps": 25.0,
+  "frames": [
+    0,
+    29
+  ],
+  "models": {
+    "roles_r015": {
+      "schema_version": 1,
+      "profile_name": "R015 rollen - behoud van R007 met extra supporterdata, experimenteel",
+      "models": [
+        {
+          "model_id": "exp-p004-teamtrack-v2_1",
+          "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\players-v2\\players_best.pt",
+          "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+          "class_mapping": {
+            "0": "player",
+            "1": "referee"
+          },
+          "expected_names": {
+            "0": "player",
+            "1": "referee"
+          },
+          "imgsz": 1920,
+          "confidence": 0.1,
+          "iou": 0.7,
+          "device": "0"
+        },
+        {
+          "model_id": "coco-person-proposals",
+          "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\appearance-v1\\person_proposals.pt",
+          "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+          "class_mapping": {
+            "0": "person"
+          },
+          "expected_names": {
+            "0": "person"
+          },
+          "imgsz": 1920,
+          "confidence": 0.1,
+          "iou": 0.7,
+          "device": "0"
+        }
+      ],
+      "handoff": {
+        "evaluation_record": "../reports/person1-round3/EXP-R015/crop-comparison/comparison.json",
+        "evaluation_sha256": "2a6b2d170d320da6a3ce1221f4e44b2d91fa6dce8795051f5ea07e8bd57909bf",
+        "human_review_completed": false,
+        "independent_final_test_completed": false,
+        "referee_coverage": "central and near assistant; far roles unresolved",
+        "detector_evaluation_record": "../reports/players-experiments/EXP-P004/validation-metrics/metrics.json",
+        "detector_evaluation_sha256": "2b725cbb140f22297f5e397e5277ad51f17c957ac109f55ebdee56c3f1f7c240",
+        "evaluation_kind": "Conditional crop classification on 468 development crops; not detector AP or independent test",
+        "team_scope": "Unchanged R007 supervised teams; extra role-only sources do not add team identities.",
+        "broadcast_transfer_adequate": false,
+        "broadcast_validation_record": "../reports/player-pipeline-4050.json",
+        "broadcast_validation_scope": "Historical P004-only record; R007 classifier is not measured on this clip"
+      },
+      "appearance": {
+        "model_id": "appearance-r015",
+        "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\appearance-v3\\roles_teams_r015.pt",
+        "weights_sha256": "6ab7a9d2e8273153591c5d251a980f399dcda955a9d94af7b30238e8edfcf53c",
+        "role_names": [
+          "player",
+          "referee",
+          "assistant_referee",
+          "steward",
+          "spectator",
+          "person"
+        ],
+        "role_confidence": 0.65,
+        "team_confidence": 0.65,
+        "device": "0"
+      }
+    },
+    "ball_f003": {
+      "schema_version": 1,
+      "profile_name": "F003 balonderzoek - COCO-kop behouden, alleen op native crops gevalideerd",
+      "models": [
+        {
+          "model_id": "football48-coco-head-f003",
+          "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\football48-ball-v2\\EXP-F003-best.pt",
+          "weights_sha256": "1aa203d2971ad582da9631ce54ad5cb057aa79667a064d8a0c771805b4ce0fa4",
+          "class_mapping": {
+            "32": "ball"
+          },
+          "expected_names": {
+            "32": "sports ball"
+          },
+          "imgsz": 1280,
+          "confidence": 0.1,
+          "iou": 0.7,
+          "device": "0"
+        }
+      ],
+      "handoff": {
+        "evaluation_record": "../reports/person1-round3/EXP-F003/candidate/metrics.json",
+        "evaluation_sha256": "67cdc824258945200fa719641d65caf631a1faff52d84b9ca59a4d8eb8dcb9c3",
+        "evaluation_kind": "Ball AP101 on 12 masked native crops with 10 balls; no full-video accuracy claim",
+        "human_review_completed": false,
+        "independent_final_test_completed": false
+      }
+    }
+  },
+  "actual_empty_detector_frames": [],
+  "scope": "Technical development handoff on real full frames, not an accuracy evaluation. Ball crop AP does not prove raw-video detection quality. Empty records are PER detector, not a claim that the scene has no people.",
+  "human_review_completed": false,
+  "independent_final_test": false,
+  "coordinates": "All boxes use the original input video pixel dimensions; source class IDs and role-classifier IDs remain distinct."
+}

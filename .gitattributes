@@ -29,3 +29,9 @@ assets/annotations/football-fullscene16/images/**/*.png filter=lfs diff=lfs merg
 assets/annotations/football-fullscene20/images/**/*.png filter=lfs diff=lfs merge=lfs -text
 assets/annotations/football-fullscene50/images/**/*.png filter=lfs diff=lfs merge=lfs -text
 assets/annotations/football-fullscene60/images/**/*.png filter=lfs diff=lfs merge=lfs -text
+datasets/roles-teams-v3/** -text whitespace=cr-at-eol
+datasets/roles-teams-v3/sources/* filter=lfs diff=lfs merge=lfs -text
+artifacts/appearance-v3/*.pt filter=lfs diff=lfs merge=lfs -text
+artifacts/football48-ball-v2/*.pt filter=lfs diff=lfs merge=lfs -text
+reports/person1-round3/** -text whitespace=cr-at-eol
+reports/person1-round3/**/*.log -whitespace

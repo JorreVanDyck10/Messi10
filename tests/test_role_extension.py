@@ -81,3 +81,14 @@ def test_role_only_match_never_inherits_an_untrained_supervised_team_head():
     ]
     base = {"frames": [{"video_id": "known_source_match"}]}
     assert role_training.supervised_team_videos(rows, base) == ["known_source_match", "verified_addition"]
+
+
+def test_extension_rejects_identical_pixels_copied_to_different_split_paths(tmp_path, monkeypatch):
+    path, data = extension(tmp_path, monkeypatch)
+    original = tmp_path / data["samples"][0]["image"]
+    duplicate = tmp_path / data["samples"][1]["image"]
+    duplicate.write_bytes(original.read_bytes())
+    data["samples"][1]["image_sha256"] = sha256_file(duplicate)
+    path.write_text(json.dumps(data), encoding="utf-8")
+    with pytest.raises(ValueError, match="Duplicate image bytes"):
+        role_training.load_training_manifest(path)
