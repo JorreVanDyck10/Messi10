@@ -26,6 +26,9 @@
     "independent_final_test_completed": false,
     "application_confidence": 0.25,
     "ap_evaluation_confidence_floor": 0.001,
-    "raw_panorama_adequate": false
+    "raw_panorama_adequate": false,
+    "fullframe_evaluation_record": "../reports/person1-round3/fullframe-ball-development/summary.json",
+    "fullframe_evaluation_sha256": "c80194c013894f6f35f8a43067d44fde1bd00196244deeff81dc36d5999d4ea8",
+    "fullframe_transfer_AP50_95": 0.0
   }
 }

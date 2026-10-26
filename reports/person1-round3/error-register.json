@@ -31,6 +31,17 @@
       "alternative": "Proposal location/extent changes cause crop-classifier mismatch.",
       "control": "Same R015 role weights, source images and inference settings, only generic-person weights changed.",
       "action": "Reject replacement and retain pretrained generic-person proposals."
+    },
+    {
+      "id": "ERR-P1-R3-004",
+      "run": "Full-frame frozen pretrained/F003/F004 transfer measurement",
+      "type": "FN and background FP",
+      "observation": "All 67 annotated balls on 14 full panoramas are missed at IoU .50, including at AP floor .001. F003 yields 16 FP at confidence .25; one at frame50300 is the painted letter dot (confidence .453).",
+      "hypothesis": "Global resize to 1280 removes tiny ball detail while native-crop training did not cover the same background/scale.",
+      "alternative": "Limited or imperfect AI annotation coverage, location mismatch and insufficient ball shape diversity.",
+      "control": "Human review; compare original, tiled and globally resized views of the same validation frames and matched training data, with fixed group splits.",
+      "action": "Keep full-frame ball profile experimental and publish all zero AP results. Do not hide difficult references or tune on a final test.",
+      "evidence": "fullframe-ball-development/"
     }
   ],
   "human_review_completed": false

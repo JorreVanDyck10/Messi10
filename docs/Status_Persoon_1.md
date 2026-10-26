@@ -1,6 +1,6 @@
 # Uitvoeringsstatus persoon 1
 
-**Actuele uitvoering, 26 oktober 2026:** [werkpakket 1, derde ronde](Uitvoering_Persoon_1_Derde_Ronde.md) bevat de nieuwe technische data-audit, 93 extra rolcrops, vijf echte roltrainingen, twee baltrainingen, kopmenging, volledige evaluatie, downloadbare checkpoints en overdracht. De suite slaagt met 223 tests en 4 subtests. R007 blijft standaard; R015 en F003 zijn kandidaten met expliciete toepassingsgrenzen. Menselijke review en een onafhankelijke eindtest blijven open. De onderstaande oudere aantallen en scores zijn historische uitvoeringsnotities, geen actuele totaalscore.
+**Actuele uitvoering, 26 oktober 2026:** [werkpakket 1, derde ronde](Uitvoering_Persoon_1_Derde_Ronde.md) bevat de nieuwe technische data-audit, 93 extra rolcrops, vijf echte roltrainingen, twee baltrainingen, kopmenging, evaluatie, acht checkpoints en overdracht. De samengevoegde suite slaagt met 225 tests en 4 subtests. De later ontvangen 56 volledige beelden zijn technisch gecontroleerd; op hun 14 validatiebeelden halen alle drie bevroren balmodellen bij imgsz 1280 nul AP. R007 blijft standaard; R015 en F003 zijn kandidaten met expliciete toepassingsgrenzen. Menselijke review en een onafhankelijke eindtest blijven open. De onderstaande oudere aantallen en scores zijn historische uitvoeringsnotities, geen actuele totaalscore.
 
 ## Historische uitvoeringsnotities
 

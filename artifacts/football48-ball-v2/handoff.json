@@ -61,5 +61,7 @@
   "human_review_completed": false,
   "independent_final_test_completed": false,
   "raw_panorama_adequate": false,
-  "limitation": "False positives on a white field logo in the actual raw-frame probe. Native-crop AP cannot be transferred to full panoramas."
+  "limitation": "Native-crop AP does not transfer to measured full panoramas: missed tiny balls and false positives on painted field lettering. Not suitable as a general raw-video ball detector.",
+  "fullframe_transfer_evaluation": "../../reports/person1-round3/fullframe-ball-development/summary.json",
+  "fullframe_transfer_scope": "14 development full panoramas, 67 labelled balls including reserves, imgsz1280; zero AP50/AP50:95 for both candidates and pretrained. AI labels, no human review or independent final test."
 }

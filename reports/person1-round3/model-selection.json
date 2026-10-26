@@ -762,7 +762,7 @@
   "decisions": {
     "default_unchanged": "R007",
     "optional_role_candidate": "R015: macro-F1 improves versus R007 and native official AP improves, but retained/rare proposal regressions remain. R009 has higher overall crop F1.",
-    "ball_candidate": "F003 for the measured native-crop task only; raw panorama logo FP prevents full-video promotion.",
+    "ball_candidate": "F003 only for measured native crops; all three frozen models have zero AP on the new full-frame development labels at imgsz 1280. No full-video promotion.",
     "rejected_generic_person_replacement": "EXP-D001 increases player FP and loses external steward proposals; keep pretrained generic-person supplier."
   },
   "cohort_macro_note": "Saved subset macro-F1 averages all six classes, including unsupported ones; compare only identical cohorts. The report uses cohort accuracy and per-class counts.",
@@ -773,5 +773,18 @@
     "macro_f1_before": 0.7402312708386796,
     "macro_f1_after": 0.7457854916129589,
     "default_model_changed": false
+  },
+  "fullframe_ball_development": {
+    "summary": "fullframe-ball-development/summary.json",
+    "datasets": [
+      "football-fullframe40",
+      "football-fullscene16"
+    ],
+    "all_models_AP50_and_AP50_95": 0,
+    "validation_frames": 14,
+    "annotated_balls_including_reserves": 67,
+    "human_review_completed": false,
+    "independent_final_test": false,
+    "received_after_training": true
   }
 }

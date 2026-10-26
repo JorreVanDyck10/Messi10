@@ -10,7 +10,7 @@
 | P1-02 extra data | 93 aanvullende AI-gecontroleerde rolcrops, bronlicenties, gescheiden bron-/eventgroepen en versieerbare labelcorrectie | Volledige detectielabels van de nieuwe foto's en brede onafhankelijke wedstrijddekking |
 | P1-03 modellen | R011–R014 en R016 werkelijk getraind, R015 compatibele kopmenging; crop-, detector- en gedeeltelijke externe vergelijking | Een universeel beter rolmodel of onafhankelijke eindprestatie |
 | P1-04 bal | F003/F004 werkelijk getraind met intacte COCO-kop en persoon-/bal-supervisie; gelijke baselinevergelijking | Betrouwbare detectie op volledige onbewerkte panoramavideo's |
-| P1-05 overdracht | Zeven echte checkpoints, profielen, hashes, klassen, dependencies, echte JSONL-voorbeelden en technische integratiecontrole | Nieuwe 4050-benchmark of menselijke productacceptatie |
+| P1-05 overdracht | Acht echte checkpoints, profielen, hashes, klassen, dependencies, echte JSONL-voorbeelden en technische integratiecontrole | Nieuwe 4050-benchmark of menselijke productacceptatie |
 
 ## 2. Data en kwaliteitscontrole
 
@@ -117,7 +117,7 @@ Beide nieuwe runs starten vanaf dezelfde pretrained YOLO11n en gebruiken imgsz 1
 
 De baseline en beide kandidaten zijn met dezelfde mapping, AP101-berekening, confidencevloer 0,001, IoU 0,70 en inputresolutie gemeten. F003 wint 2,92 procentpunt op de primaire AP@50:95 en vindt bij de werkgrens één extra bal; AP@50 daalt 1,13 procentpunt. F004 wordt afgewezen. De referentie is klein: tien ballen uit één opname en twee validatiegroepen, met AI-labels en gemaskeerde native crops.
 
-De echte 30-frameproef op het volledige 4096×1080-panorama laat een concrete FP zien: een **wit ovaal veldlogo** wordt als bal voorspeld met confidence 0,282. De vergrote bronpatch staat in `reports/person1-round3/ball-raw-error-0.jpg`. De andere schaal en ontbrekende achtergrondvariatie zijn hypotheses; er is geen volledige raw-video-balreferentie om daar een nieuwe mAP aan toe te kennen.
+De echte 30-frameproef op het volledige 4096×1080-panorama laat een concrete FP zien: een **wit ovaal veldlogo** wordt als bal voorspeld met confidence 0,282. De vergrote bronpatch staat in `reports/person1-round3/ball-raw-error-0.jpg`. De andere schaal en ontbrekende achtergrondvariatie zijn hypotheses. Op dat moment was er geen volledige raw-video-balreferentie; de later ontvangen volledige beeldlabels zijn afzonderlijk gemeten in paragraaf 9.
 
 **Keuze:** F003 is de beste nieuwe kandidaat voor de gemeten native-croptaak. Hij wordt niet als betrouwbare full-frame-baldetector gepromoveerd. De overdracht onderscheidt de AP-confidencevloer 0,001 van de applicatiegrens 0,25. Een volgende ontwikkelronde moet gecontroleerde logo-/veldmarkeringsnegatieven en crop-versus-full-frameverwerking onderzoeken.
 
@@ -162,8 +162,36 @@ python -m pytest -q
 
 Roltraining en kopmenging staan in [de dataset-README](../datasets/roles-teams-v3/README.md). Uitvoermappen worden niet overschreven. Behoud de gearchiveerde datasets voor historische modellen; pas geen oude rapporten aan om nieuwe scores gunstiger te laten lijken.
 
-De softwarecontrole slaagt met **223 tests en 4 subtests**. Er zijn gerichte tests voor gekopieerde train/val-beelden, correcte COCO-klassemapping, blokkering van testbeelden, gescheiden evaluatiecohorten en compatibele kopmenging. De technische audit en voorbeeldexport zijn daarnaast echt uitgevoerd. Er is geen formele menselijke MVP-acceptatie geregistreerd.
+De softwarecontrole na samenvoeging slaagt met **225 tests en 4 subtests** (`software-tests-merged.xml`; de eerdere XML-bestanden bewaren 222 en 223 historische tests). Er zijn gerichte tests voor gekopieerde train/val-beelden, correcte COCO-klassemapping, blokkering van testbeelden, gescheiden evaluatiecohorten, compatibele kopmenging en de nieuwe full-framemetriek. De technische audit en voorbeeldexport zijn daarnaast echt uitgevoerd. Er is geen formele menselijke MVP-acceptatie geregistreerd.
 
 Verdedigingsvoorbeelden zijn concreet beschikbaar: de gecorrigeerde persoonsbox bij de Zweedse foto, het ambigue vestlabel met versiegeschiedenis, het betere maar beperkte F003-balresultaat, het misleidende ovaal-logo-FP, de vergeten stewards, de afgewezen D001-vervanging en de gekozen R015-afweging. `error-register.json`, `model-selection.json` en `final-test-readiness.json` maken onderscheid tussen observatie, hypothese, keuze en nog open bewijs.
 
-**Resterend:** echte menselijke review en proefannotaties, nieuwe gereserveerde eindtestgroepen, betere voetbalsteward-/supporter-proposaldekking, raw-video-balvalidatie en een werkelijke 4050-meting. De eindtest wordt pas na systeemfreeze uitgevoerd; hergebruikte ontwikkelvalidatie krijgt geen nieuwe naam als onaangeroerde test.
+**Resterend:** echte menselijke review en proefannotaties, nieuwe gereserveerde eindtestgroepen, betere voetbalsteward-/supporter-proposaldekking, bruikbare raw-video-baldetectie en een werkelijke 4050-meting. De eindtest wordt pas na systeemfreeze uitgevoerd; hergebruikte ontwikkelvalidatie krijgt geen nieuwe naam als onaangeroerde test.
+
+## 9. Later ontvangen volledige beelden: controle en aanvullende balmeting
+
+Bij het synchroniseren kwamen GitHub-commits `903fb2b` en `d889a91` binnen met **40 volledige frames** (`football-fullframe40`) en **16 volledige frames** (`football-fullscene16`). Alle beelden zijn 4096×1080. Die levering zat niet in de hierboven beschreven trainingen; de vastgelegde trainingsdatasets, gewichten en eerdere scores blijven ongewijzigd. De 40-beeldenlevering bevat zestien opnieuw volledig gelabelde bronmomenten uit de eerdere cropset. Tel 40+16+48 daarom niet als 104 onafhankelijke momenten.
+
+De technische validators en echte Ultralytics-dataloader zijn opnieuw uitgevoerd. Bestandschecksums, opgeslagen RGB-pixelchecksums, YOLO/COCO/bronboxen, klassennummers en tijdgroepen slagen. De sets hebben respectievelijk 30/10 en 12/4 train/val-beelden; de minimale tijdafstand over de splitgrens is respectievelijk 203,52 en 207 seconden. De 16 nieuwe bronindices komen niet voor in de andere twee sets. De oorspronkelijke 3,3-GB-video is bij deze aanvullende controle niet opnieuw gedecodeerd; dit is dus een controle tegen de geleverde pixelhashes. De bestaande upstream-broncontrole wordt daardoor niet overschreven. Bewijs: `incoming-fullframe40-verification.json` en `incoming-fullscene16-verification.json` in de rapportmap.
+
+Beide leveringen gebruiken 0 `player`, 1 `ball`, 2 `referee`. De achtklassenset voegt `other_person`, `crowd`, `goal`, `corner_flag` en `stored_goals` toe. **Een groepsbox `crowd` is geen afzonderlijk gelabelde supporter en levert geen personenaantal.** `other_person` bewijst geen stewardrol. De extra klassen zijn niet door deze P1-ronde getraind. Meng de sets niet rechtstreeks voor achtklassentraining: de oudere beelden missen vijf van die klassen als supervisie. Menselijke review blijft voor beide leveringen open.
+
+De nieuwe volledige validatiebeelden zijn wel gebruikt voor een vooraf vastgelegde **overdrachtsmeting van de drie al bevroren balgewichten**. Alle modellen krijgen het volledige panorama op imgsz 1280, zonder uitsneden of sliding windows, met confidencevloer 0,001, NMS-IoU 0,70, maxdet 300 en dezelfde AP101-implementatie. De modelklasse 32 `sports ball` wordt aan de datasetklasse 1 `ball` gekoppeld en voor de metriek naar klasse 0 vertaald. Trainingsbeelden worden niet voor deze scores gebruikt. Een nieuwe regressietest controleert de semantische mapping en oorspronkelijke pixelcoördinaten; een tweede blokkeert testbeelden vóór het openen van pixels.
+
+| Model | 10 volledige validatieframes, 45 balreferenties: TP / FP / FN | 4 volledige validatieframes, 22 balreferenties: TP / FP / FN | AP@50 én AP@50:95, beide sets |
+|---|---|---|---:|
+| Pretrained | 0 / 3 / 45 | 0 / 1 / 22 | 0% |
+| F003 | 0 / 10 / 45 | 0 / 6 / 22 | 0% |
+| F004 | 0 / 0 / 45 | 0 / 0 / 22 | 0% |
+
+TP/FP/FN gelden bij confidence 0,25 en IoU 0,50. Ook onder die confidencegrens levert geen model een correcte match voor de AP op deze beelden. F003 voorspelt onder meer de witte punt boven een letter in de geschilderde universiteitsnaam als bal, met confidence 0,453. De voorspellingen zijn teruggebracht naar het oorspronkelijke beeld; de opgeslagen voorbeeld-JPG toont groene referentieboxen en rode voorspellingen.
+
+Dit is **voorlopige ontwikkel-AP tegen beschikbare AI-labels**, inclusief reserveballen. Kleine onbeslisbare randregio's zijn in de bronmetadata vermeld en krijgen geen verzonnen box of verborgen ignore-masker. De uitkomst bewijst geen afzonderlijke speelbalrecall, gegarandeerd complete annotatie of prestatie op andere wedstrijden. De twee subsets delen dezelfde opname en dezelfde validatie-tijdgroepen; tel ze niet als twee onafhankelijke wedstrijdtests.
+
+De uitkomst versterkt de eerdere afwijzing voor de volledige video: meer vertrouwen of minder FP bij F004 betekent hier niet betere detectie; alle 67 referenties blijven gemist. F003 blijft uitsluitend kandidaat voor de gemeten native-croptaak. De passende volgende ontwikkelhypothese is bronresolutie behouden via gecontroleerde tiles/hogere resolutie en full-frameachtergronden, met dezelfde tijdsplits en menselijke labelreview. Er is na deze meting geen extra training of drempeltuning uitgevoerd.
+
+Alle voorspellingen, labels, gewichtshashes, beeld-/labelhashes, instellingen, softwareversies en negatieve uitkomsten staan in `reports/person1-round3/fullframe-ball-development`. Herhalen naar een nieuwe map:
+
+```powershell
+python -m scripts.evaluate_fullframe_ball --output runs/eigen-fullframe-balmeting --imgsz 1280
+```
