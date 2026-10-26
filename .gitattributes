@@ -25,3 +25,4 @@ reports/football48-ball-experiments/** -text whitespace=cr-at-eol
 reports/football48-ball-experiments/**/*.log -whitespace
 reports/team-colour-v2/** -text whitespace=cr-at-eol
 assets/annotations/football-fullframe40/images/**/*.png filter=lfs diff=lfs merge=lfs -text
+assets/annotations/football-fullscene16/images/**/*.png filter=lfs diff=lfs merge=lfs -text
