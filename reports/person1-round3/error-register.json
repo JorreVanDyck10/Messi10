@@ -1,0 +1,48 @@
+{
+  "errors": [
+    {
+      "id": "ERR-P1-R3-001",
+      "run": "EXP-F003",
+      "frame": 29,
+      "source": "handoff-examples-final/ball_f003.jsonl",
+      "type": "FP, AI visually checked",
+      "observation": "White oval painted field emblem is predicted as sports ball at confidence .282.",
+      "hypothesis": "Native masked-crop training lacks this background context and full-frame resizing changes scale.",
+      "alternative": "Insufficient negative examples of circular marks independently of input scale.",
+      "control": "Compare matched crop/full-frame preprocessing and add reviewed train-only logo negatives in a future dataset; keep validation groups separate.",
+      "action": "Do not promote to a raw-video ball detector."
+    },
+    {
+      "id": "ERR-P1-R3-002",
+      "run": "EXP-R011..R014",
+      "type": "Role forgetting",
+      "observation": "More spectators are correct but steward recall drops on the same 14 val crops.",
+      "hypothesis": "New source/class distribution shifts the classifier boundaries; limited steward source diversity.",
+      "alternative": "Some role labels require context absent from the crop.",
+      "control": "Preserved-backbone/colour-scale experiments and R015 compatible-head interpolation, with all role cohorts reported.",
+      "action": "Keep R007 default; publish R015 as a measured alternative."
+    },
+    {
+      "id": "ERR-P1-R3-003",
+      "run": "EXP-D001",
+      "type": "FP/proposal domain transfer",
+      "observation": "Replacing the generic-person supplier with F003 raises TeamTrack player FP from 48 to 76 and loses all four previously found selected steward proposals.",
+      "hypothesis": "Person fine-tuning on masked native crops does not transfer uniformly to other images.",
+      "alternative": "Proposal location/extent changes cause crop-classifier mismatch.",
+      "control": "Same R015 role weights, source images and inference settings, only generic-person weights changed.",
+      "action": "Reject replacement and retain pretrained generic-person proposals."
+    },
+    {
+      "id": "ERR-P1-R3-004",
+      "run": "Full-frame frozen pretrained/F003/F004 transfer measurement",
+      "type": "FN and background FP",
+      "observation": "All 67 annotated balls on 14 full panoramas are missed at IoU .50, including at AP floor .001. F003 yields 16 FP at confidence .25; one at frame50300 is the painted letter dot (confidence .453).",
+      "hypothesis": "Global resize to 1280 removes tiny ball detail while native-crop training did not cover the same background/scale.",
+      "alternative": "Limited or imperfect AI annotation coverage, location mismatch and insufficient ball shape diversity.",
+      "control": "Human review; compare original, tiled and globally resized views of the same validation frames and matched training data, with fixed group splits.",
+      "action": "Keep full-frame ball profile experimental and publish all zero AP results. Do not hide difficult references or tune on a final test.",
+      "evidence": "fullframe-ball-development/"
+    }
+  ],
+  "human_review_completed": false
+}

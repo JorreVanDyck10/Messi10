@@ -1,0 +1,27 @@
+{
+  "frames": 48,
+  "objects": {
+    "person": 512,
+    "ball": 36
+  },
+  "splits": {
+    "train": {
+      "person": 433,
+      "ball": 26,
+      "frames": 36,
+      "ball_positive": 26,
+      "ball_negative": 10
+    },
+    "val": {
+      "person": 79,
+      "ball": 10,
+      "frames": 12,
+      "ball_positive": 10,
+      "ball_negative": 2
+    }
+  },
+  "independent_human_review": false,
+  "unique_source_frames": 48,
+  "source_matches": 1,
+  "time_groups": 8
+}

@@ -4,6 +4,8 @@
 
 **Team:** twee personen. Persoon 1 coördineert data, modellen en detectie-evaluatie; persoon 2 reviewt en verzorgt geometrie, toepassing en tracking.
 
+**Nieuwe samenwerkingsverdeling, 26 oktober 2026:** gebruik voor de gevraagde uitbreiding naar drie personen [Werkverdeling voor drie personen](Werkverdeling_3_Personen.md). De bovenstaande twee-persoonsindeling is de historische context van dit document.
+
 **Documentversie:** 1.0, 16 oktober 2026.
 
 **Scope:** concrete uitvoering, beslisprocedures, bewijsstukken en acceptatiecriteria. Geen kalenderplanning.

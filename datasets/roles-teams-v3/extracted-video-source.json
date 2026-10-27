@@ -1,0 +1,16 @@
+{
+  "video_sha256": "92750cbcb504bf3a3aa529754d9c0f3d4037660bcb6ebc80c537e3a757ba8201",
+  "frame_index": 0,
+  "image_sha256": "ffef76388dd5636386c525e59d7445b624c556d0c7ba33270e7d5c5ad5860b05",
+  "source": "https://commons.wikimedia.org/wiki/File:2018_FIFA_U-17_Women%27s_World_Cup_-_New_Zealand_vs_Canada_-_24.webm",
+  "author": "NaBUru38",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "changes": "First frame from the existing silent 10-fps development derivative, JPEG encoding and selected role crops/overlays; no endorsement.",
+  "source_image_size": [
+    1280,
+    720
+  ],
+  "split": "train",
+  "group": "nz-canada-2018-u17-commons-24"
+}

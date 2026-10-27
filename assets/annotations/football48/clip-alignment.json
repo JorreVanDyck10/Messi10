@@ -1,0 +1,114 @@
+{
+  "status": "passed",
+  "sampled_clips": 8,
+  "frames_checked_per_clip": 1,
+  "accepted_source_frame_tolerance": 1,
+  "time_tolerance_s": 0.04,
+  "scope": "Lossy pixel correspondence, with original source checksum; exported PNG training data stays lossless.",
+  "records": [
+    {
+      "file": "128057_phase-0330_20s.mp4",
+      "checked_source_frame": 8335,
+      "checked_clip_frame": 85,
+      "closest_source_frame_offset": 0,
+      "pixel_differences_by_source_frame_offset": {
+        "-25": 5.321636199951172,
+        "-1": 3.520496368408203,
+        "0": 3.4338815212249756,
+        "1": 3.642014980316162,
+        "25": 6.402667999267578
+      }
+    },
+    {
+      "file": "128057_phase-0540_20s.mp4",
+      "checked_source_frame": 13525,
+      "checked_clip_frame": 25,
+      "closest_source_frame_offset": 0,
+      "pixel_differences_by_source_frame_offset": {
+        "-25": 7.501344680786133,
+        "-1": 3.5027012825012207,
+        "0": 3.207547903060913,
+        "1": 3.334108829498291,
+        "25": 6.9718098640441895
+      }
+    },
+    {
+      "file": "128057_phase-0750_20s.mp4",
+      "checked_source_frame": 18775,
+      "checked_clip_frame": 25,
+      "closest_source_frame_offset": -1,
+      "pixel_differences_by_source_frame_offset": {
+        "-25": 7.857091903686523,
+        "-1": 3.036919593811035,
+        "0": 3.173286199569702,
+        "1": 3.2909770011901855,
+        "25": 10.421300888061523
+      }
+    },
+    {
+      "file": "128057_phase-0960_20s.mp4",
+      "checked_source_frame": 24000,
+      "checked_clip_frame": 0,
+      "closest_source_frame_offset": 0,
+      "pixel_differences_by_source_frame_offset": {
+        "-25": 8.671796798706055,
+        "-1": 5.969114303588867,
+        "0": 2.5002832412719727,
+        "1": 3.7056851387023926,
+        "25": 10.448477745056152
+      }
+    },
+    {
+      "file": "128057_phase-1170_20s.mp4",
+      "checked_source_frame": 29475,
+      "checked_clip_frame": 225,
+      "closest_source_frame_offset": -1,
+      "pixel_differences_by_source_frame_offset": {
+        "-25": 4.639723777770996,
+        "-1": 4.024026870727539,
+        "0": 4.230584621429443,
+        "1": 4.4465179443359375,
+        "25": 6.072655200958252
+      }
+    },
+    {
+      "file": "128057_phase-1380_20s.mp4",
+      "checked_source_frame": 34775,
+      "checked_clip_frame": 275,
+      "closest_source_frame_offset": 0,
+      "pixel_differences_by_source_frame_offset": {
+        "-25": 6.438355445861816,
+        "-1": 3.4947669506073,
+        "0": 3.2611353397369385,
+        "1": 3.7096023559570312,
+        "25": 9.676873207092285
+      }
+    },
+    {
+      "file": "128057_phase-1590_20s.mp4",
+      "checked_source_frame": 40120,
+      "checked_clip_frame": 370,
+      "closest_source_frame_offset": 0,
+      "pixel_differences_by_source_frame_offset": {
+        "-25": 4.839883327484131,
+        "-1": 3.7327427864074707,
+        "0": 3.6412436962127686,
+        "1": 3.7556960582733154,
+        "25": 4.829410076141357
+      }
+    },
+    {
+      "file": "128057_phase-2010_20s.mp4",
+      "checked_source_frame": 50275,
+      "checked_clip_frame": 25,
+      "closest_source_frame_offset": -1,
+      "pixel_differences_by_source_frame_offset": {
+        "-25": 5.696375370025635,
+        "-1": 3.2567214965820312,
+        "0": 3.914311170578003,
+        "1": 4.1013875007629395,
+        "25": 8.62643814086914
+      }
+    }
+  ]
+}

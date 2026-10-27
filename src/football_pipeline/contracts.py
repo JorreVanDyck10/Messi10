@@ -77,6 +77,14 @@ class Detection:
     team_status: str = "unknown"
     team_match_score: float | None = None
     team_source: str | None = None
+    detector_semantic_class: str | None = None
+    role_model_id: str | None = None
+    role_confidence: float | None = None
+    role_class_id: int | None = None
+    team_confidence: float | None = None
+    team_method: str | None = None
+    team_class_id: int | None = None
+    appearance_team: dict | None = None
 
     @classmethod
     def from_dict(cls, value: dict) -> Detection:

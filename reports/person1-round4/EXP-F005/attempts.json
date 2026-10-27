@@ -1,0 +1,9 @@
+{
+  "attempts": [
+    {
+      "batch": 2,
+      "status": "completed",
+      "weights_sha256": "de7d869c01cb8539664c1a3917f6eee90de9d7e655cd484be99999847b0ebf11"
+    }
+  ]
+}

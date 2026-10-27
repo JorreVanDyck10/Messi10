@@ -14,16 +14,21 @@ def replay_detections(stream, frame_index: int, video: VideoMetadata) -> list[De
             or abs(record["timestamp_s"] - frame_index / video.fps) > 1e-6
         ):
             raise PipelineError("Replay heeft een afwijkende framevolgorde, schaal of tijdlijn.")
-        return [
-            Detection(
-                d["detection_id"],
-                d["model_id"],
-                int(d["source_class_id"]),
-                d["semantic_class"],
-                d["bbox_xyxy"],
-                d["confidence"],
-            )
-            for d in record["detections"]
-        ]
+        detections = [Detection.from_dict(d) for d in record["detections"]]
+        for detection in detections:
+            # Role/team appearance is model output; field positions and track IDs must be recomputed.
+            if detection.appearance_team is not None:
+                for key in ("team_id", "team_confidence", "team_method", "team_class_id"):
+                    setattr(detection, key, detection.appearance_team[key])
+            elif detection.team_source is not None:
+                detection.team_id = detection.team_confidence = detection.team_method = (
+                    detection.team_class_id
+                ) = None
+            detection.shirt_color_lab = None
+            detection.team_match_score = detection.team_source = None
+            detection.team_status = "unknown"
+            detection.track_id, detection.field_position = None, None
+            detection.projection_status = "not_projected"
+        return detections
     except (ValueError, KeyError, TypeError) as exc:
         raise PipelineError(f"Ongeldig replayframe {frame_index}: {exc}") from exc

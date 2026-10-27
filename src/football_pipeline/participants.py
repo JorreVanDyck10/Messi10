@@ -73,6 +73,10 @@ def counted_as_player(record: FrameRecord, detection: Detection, confidence=DISP
     return count_exclusion_reason(record, detection, confidence) is None
 
 
+def normalized_team_id(team_id: str | None) -> str:
+    return {"A": "A", "B": "B", "team_a": "A", "team_b": "B"}.get(team_id, "unknown")
+
+
 def player_summary(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
     visible = [
         d for d in record.detections if valid_box(d, record.image_size) and visible_detection(d, confidence)
@@ -80,6 +84,11 @@ def player_summary(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
     players = [d for d in visible if d.semantic_class == "player"]
     reasons = Counter(player_exclusion_reason(d, record.image_size) for d in players)
     available = field_available(record) and record.player_model_available
+    teams = Counter(
+        {"A": "team_a", "B": "team_b"}.get(normalized_team_id(d.team_id), "unknown")
+        for d in players
+        if counted_as_player(record, d, confidence)
+    )
     return {
         "status": "player_model_unavailable"
         if not record.player_model_available
@@ -89,8 +98,7 @@ def player_summary(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
         "on_field": sum(counted_as_player(record, d, confidence) for d in players) if available else None,
         "by_team": {
             team: sum(
-                counted_as_player(record, d, confidence)
-                and (d.team_id if d.team_id in {"A", "B"} else "unknown") == team
+                counted_as_player(record, d, confidence) and normalized_team_id(d.team_id) == team
                 for d in players
             )
             if available
@@ -103,6 +111,7 @@ def player_summary(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
         if available
         else len(players),
         "other_roles": dict(Counter(d.semantic_class for d in visible if d.semantic_class != "player")),
+        "teams": {name: teams[name] for name in ("team_a", "team_b", "unknown")} if available else None,
         "persons_on_field": sum(
             field_exclusion_reason(d, record.image_size) is None
             for d in visible

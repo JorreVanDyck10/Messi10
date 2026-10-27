@@ -1,0 +1,81 @@
+{
+  "recorded_at": "2026-10-26T08:13:27.487956+00:00",
+  "recorded_when": "R011 had been launched before this comparison plan was recorded, but its validation outcomes had not been inspected. This is not a preregistration of R011 training. R012 was not yet started at recording.",
+  "dataset": "datasets/roles-teams-v3/manifest.json",
+  "dataset_sha256": "a3a9d5fbcd049bea9eaf0992d68ddb530aa135fd2b5badb9ab43cc74f0d7186d",
+  "warm_start": "artifacts/appearance-v1/roles_teams.pt",
+  "warm_start_sha256": "adad67b0e3b60803d11a179c11c24d5c6cf2a31cbe9804a93c5da43b2bc008f2",
+  "experiments": {
+    "EXP-R011": {
+      "fine_tune_blocks": 3
+    },
+    "EXP-R012": {
+      "fine_tune_blocks": 0
+    }
+  },
+  "shared_settings": {
+    "seed": 42,
+    "fine_tune_epochs": 20,
+    "class_balanced_steps_per_epoch": 10,
+    "samples_per_role_step": 12,
+    "head_lr": 0.0005,
+    "backbone_lr": 5e-05,
+    "refit_epochs": 400,
+    "refit_lr": 0.005,
+    "role_threshold": 0.65,
+    "role_colour_scale": 8
+  },
+  "hypothesis": "Additional source-group-split spectator/steward examples improve rare-role coverage while retaining existing player/official behaviour. Compare partial versus frozen backbone, not merely training accuracy.",
+  "selection": "Framework crop macro F1 at .65 selects checkpoint; compare full/retained/new-match/new-rare cohorts and actual end-to-end detector plus rare-photo proposal coverage. Publish regressions and retain existing default if overall tradeoff is unsuitable.",
+  "provisional_ai_labels": true,
+  "human_review_completed": false,
+  "independent_final_test": false,
+  "code": {
+    "git_commit": "38a54cbd93b347ab8314e17d1e92b9551cda4fa8",
+    "source_sha256": "df61583609cbcd62b8c20366b495b17c00741d9bc835ef9a1ac3e3d9d3263e0d",
+    "files": {
+      "src\\football_pipeline\\__init__.py": "b130f200a792b9d0af46123ab875d28ededf9f741aec8dfef41abbc55653862e",
+      "src\\football_pipeline\\__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "src\\football_pipeline\\appearance.py": "2531d0e8983ecd227c4b5a26b64e2d85c71362be83261ed83379f5b45aff805b",
+      "src\\football_pipeline\\automatic_calibration.py": "5f9fbe2a1898f907bcfe7ed982a80311fd171c11ecff950589147f3202bc2f8d",
+      "src\\football_pipeline\\calibration_evaluation.py": "c31e48bc86740fc79d3232e216732f7eadeeb3e008ce707518613d797331bced",
+      "src\\football_pipeline\\calibration_input.py": "93ffbceec0e7ff83f9138bf1a1c3d221d99f0a8e6c5efd911561fd19a919d83f",
+      "src\\football_pipeline\\cli.py": "04a6cb9b877710940e997fb9535717f67d9a682f8317e3759233c5b38d8318b1",
+      "src\\football_pipeline\\contracts.py": "74b2eb7ae54c625c64a1cfe6bfaa9a4a0af046021546d5a25827b8380176ea51",
+      "src\\football_pipeline\\demo.py": "f26e522703651485498d55ab2418fa34e9e3ba9443dc4407389b78ab5e6f2e92",
+      "src\\football_pipeline\\detection.py": "e3b753e8ddbe43a0faf92057d16e6027c497d5178126958d102064e50c594292",
+      "src\\football_pipeline\\evaluation.py": "bda4c6d973ea0cbf26504eb631d927571dcbb7aa4363df785fffc81800ced8a3",
+      "src\\football_pipeline\\field_data.py": "60df465e7c0b5c5d17ba35d379fe59b16800b8870d53c4a369dbfd0010ac1c39",
+      "src\\football_pipeline\\field_layout.py": "62c42c3e671856b81b437eddd6bb7c30059fa8bc014852af384be021b1aaefaa",
+      "src\\football_pipeline\\field_learning.py": "565121199e358d5d6ec2c8b0b87eff829f31669e8b2fbc1e20130f546050be56",
+      "src\\football_pipeline\\field_model_spec.py": "d0dae1d2185568a4e7d7ab0f3787189179739a613a4d6b9fda0fc83c21f70057",
+      "src\\football_pipeline\\field_motion.py": "07eaf1eddfba882fc2a08307f0a09ab07a195f526497fff5f43e3fbd7138bdfd",
+      "src\\football_pipeline\\field_review.py": "17a26fd1efb01b8bc93ec8b6dbe6aab3b41bcf585b0441bf92ea37acc67d0363",
+      "src\\football_pipeline\\field_review_ui.py": "aab9f7de1af13634cbe10bf669a0767ebd4a0dcb170f42a7331118f24fefd092",
+      "src\\football_pipeline\\geometry.py": "be472de24606f58b7ba88e3d3c5e735db9831f7af1c75aeb2f38013d3a61fbe5",
+      "src\\football_pipeline\\model_handoff.py": "a7dab90147f2f32e64611d780fb870cc68a18e548fa0e81f3221776480723a72",
+      "src\\football_pipeline\\participants.py": "8d082640e568568fec62028833ad217a49c9862b04a194d2f7f5a1ae0e73190a",
+      "src\\football_pipeline\\pipeline.py": "9abadc1ca52af9d15e762f1e60ee2ec5549dab5256b27c521848fa40ecb0272b",
+      "src\\football_pipeline\\point_picker.py": "6fc4134b6366c6a504f0ccf871e1ae8afb724d31a094b63b0cfd1dd882597cc4",
+      "src\\football_pipeline\\render.py": "c0c40fac03de1760b84933e159e80e1ccc6de16fd98826944fbb789e5e42f3d3",
+      "src\\football_pipeline\\replay.py": "8776bf37790da4e0e93ed4f7054c0cb905375cfe9556bc32b79c31f4498d69b7",
+      "src\\football_pipeline\\teams.py": "9b1bea51c966f019e439e3f6dc3be1d05630f0a084d5f36334db2d886d9cd164",
+      "src\\football_pipeline\\tracking.py": "5c1f56a4050372796fd7cca83816340943834323041f19bd4250bce938097e7f",
+      "src\\football_pipeline\\video.py": "62a459da4b90fb26654903ec44b34a20d6f0df4adc38d33c585cfc0326f5765d",
+      "streamlit_app.py": "17d611a8e85c6434001b4f600241c0fe1d5d4456185ebd20f214459b37d7cd74",
+      "pyproject.toml": "84b294023e07584324ee385b581fab9c226e3cefb50a6c4e5f3fb5852a784942"
+    }
+  },
+  "training_source_sha256": "0fb25afd07417c973667c6328a8ed581c7b6cc185d35fcd162419b80198009f1",
+  "dependencies": {
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "opencv-python": "4.11.0.86",
+    "numpy": "2.2.6",
+    "psutil": "7.2.2",
+    "lap": "0.5.13"
+  },
+  "timing_clarification": "Clarified after reading the R011 output: completed training output may already have existed when this file was first written. Selection criteria are unchanged."
+}

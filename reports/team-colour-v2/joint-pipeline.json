@@ -1,0 +1,267 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-10-24T17:35:18.530532+00:00",
+  "run_directory": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\runs\\joint-team-colour-v2\\27c56ef6d2ee0d873f72b4918974304e25edd0a577349899e12ed26cf4962608",
+  "video_sha256": "92750cbcb504bf3a3aa529754d9c0f3d4037660bcb6ebc80c537e3a757ba8201",
+  "model_profile": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\configs\\models-players.json",
+  "models": [
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\players-v2\\players_best.pt",
+      "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+      "class_mapping": {
+        "0": "player",
+        "1": "referee"
+      },
+      "expected_names": {
+        "0": "player",
+        "1": "referee"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    },
+    {
+      "model_id": "coco-person-proposals",
+      "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\appearance-v1\\person_proposals.pt",
+      "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+      "class_mapping": {
+        "0": "person"
+      },
+      "expected_names": {
+        "0": "person"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    }
+  ],
+  "appearance": {
+    "model_id": "appearance-r007",
+    "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\appearance-v1\\roles_teams.pt",
+    "weights_sha256": "adad67b0e3b60803d11a179c11c24d5c6cf2a31cbe9804a93c5da43b2bc008f2",
+    "role_names": [
+      "player",
+      "referee",
+      "assistant_referee",
+      "steward",
+      "spectator",
+      "person"
+    ],
+    "role_confidence": 0.65,
+    "team_confidence": 0.65,
+    "device": "0"
+  },
+  "team_calibration": {
+    "method": "video_colour_clusters",
+    "feature_version": "saturation_weighted_hsv_v2",
+    "calibration_observation_limit": 200,
+    "ready": true,
+    "samples": 200,
+    "updates": 120,
+    "centers": [
+      [
+        0.03474795073270798,
+        0.013967993669211864,
+        0.00319410627707839,
+        0.0010615417268127203,
+        0.0015547869261354208,
+        0.0007880502962507308,
+        0.0011999619891867042,
+        0.0019600368104875088,
+        0.006159757263958454,
+        0.014832795597612858,
+        0.011085866019129753,
+        0.004430622793734074,
+        0.004720061086118221,
+        0.003473907010629773,
+        0.012272910214960575,
+        0.02091466262936592,
+        0.5815390944480896,
+        0.28554388880729675,
+        0.09780054539442062,
+        0.026948340237140656,
+        0.006697027012705803,
+        0.000888961658347398,
+        0.0004595588252414018,
+        0.00012254902685526758,
+        0.0026724236086010933,
+        0.0757957324385643,
+        0.1231558546423912,
+        0.18320630490779877,
+        0.13319234549999237,
+        0.042539022862911224,
+        0.014611092396080494,
+        0.024827193468809128
+      ],
+      [
+        0.05975557491183281,
+        0.01340742502361536,
+        0.00225006858818233,
+        0.00017752109852153808,
+        3.0480328859994188e-05,
+        3.6630324757425115e-05,
+        0.00013085066166240722,
+        0.00020975639927200973,
+        0.0018675222527235746,
+        0.029384419322013855,
+        0.04402732849121094,
+        0.0029492180328816175,
+        0.003314595902338624,
+        0.003178104292601347,
+        0.04243277758359909,
+        0.18049487471580505,
+        0.04590233787894249,
+        0.16075754165649414,
+        0.28067758679389954,
+        0.3161679804325104,
+        0.11429399251937866,
+        0.04528657719492912,
+        0.03417329490184784,
+        0.002740633673965931,
+        0.0009697680943645537,
+        0.10329429060220718,
+        0.30183783173561096,
+        0.11969363689422607,
+        0.05540308356285095,
+        0.014312263578176498,
+        0.002426811493933201,
+        0.0020623484160751104
+      ]
+    ],
+    "radii": [
+      0.49764546751976013,
+      0.62032151222229
+    ],
+    "names": "neutral A/B; no club or home-away claim",
+    "confidence_meaning": "relative colour distance margin, not probability",
+    "supervised_known_match": false
+  },
+  "field_models": {
+    "keypoints": {
+      "name": "SV_kp",
+      "path": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\weights\\pnlcalib\\SV_kp",
+      "url": "https://github.com/mguti97/PnLCalib/releases/download/v1.0.0/SV_kp",
+      "sha256": "7ea78fa76aaf94976a8eca428d6e3c59697a93430cba1a4603e20284b61f5113"
+    },
+    "lines": {
+      "name": "SV_lines",
+      "path": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\weights\\pnlcalib\\SV_lines",
+      "url": "https://github.com/mguti97/PnLCalib/releases/download/v1.0.0/SV_lines",
+      "sha256": "d72f4ed71734a2e3df9fa084f666e9b8adaef21bf69bac8952d6d3f970ff7455"
+    }
+  },
+  "field_settings": {
+    "version": 2,
+    "keypoint_threshold": 0.3434,
+    "line_threshold": 0.7867,
+    "motion": true,
+    "tracking_width": 960,
+    "forward_backward_px": 1.5,
+    "minimum_motion_inliers": 20,
+    "minimum_motion_ratio": 0.6,
+    "maximum_age_s": 2.0,
+    "ransac_px": 3.0,
+    "median_diagonal_fraction": 0.005,
+    "maximum_diagonal_fraction": 0.01,
+    "minimum_image_hull_fraction": 0.001,
+    "minimum_motion_hull_fraction": 0.01,
+    "cut_mean_difference": 45.0,
+    "cut_histogram_distance": 0.55,
+    "holdout_rule": "two_semantic_tertiles_no_refit"
+  },
+  "inference_reused_from": null,
+  "original_inference_measurements": null,
+  "semantic_classes": [
+    "assistant_referee",
+    "person",
+    "player",
+    "referee",
+    "spectator",
+    "steward"
+  ],
+  "dependencies": {
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "opencv-python": "4.11.0.86",
+    "numpy": "2.2.6",
+    "psutil": "7.2.2",
+    "lap": "0.5.13"
+  },
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "audit": {
+    "frames": 120,
+    "detections_by_role": {
+      "steward": 790,
+      "assistant_referee": 120,
+      "person": 2175,
+      "player": 2107,
+      "referee": 215,
+      "spectator": 396
+    },
+    "displayed_detections_by_role": {
+      "steward": 514,
+      "assistant_referee": 114,
+      "person": 1196,
+      "player": 815,
+      "referee": 93,
+      "spectator": 257
+    },
+    "projection_status_counts": {
+      "calibration_unavailable": 5803
+    },
+    "unknown_player_count_frames": 120,
+    "empty_detection_frames": 0,
+    "unknown_person_count_frames": 120,
+    "known_person_count_min_median_max": null,
+    "known_player_count_min_median_max": null,
+    "checks": [
+      "source_coordinates",
+      "finite_confidence",
+      "normalized_field_positions",
+      "role_and_field_count_filter",
+      "unknown_count_without_field",
+      "frame_synchronization",
+      "h264_encoding",
+      "artifact_hashes",
+      "role_classifier_identity_and_abstention",
+      "team_assignment_roles_and_totals"
+    ],
+    "role_classified_detections": 5803,
+    "team_assigned_detections": 1632,
+    "team_assignment_methods": {
+      "video_colour_clusters": 1632
+    },
+    "counted_player_observations_by_team": {}
+  },
+  "measurements": {
+    "processed_frames": 120,
+    "runtime_s": 22.549272799999017,
+    "processing_fps": 5.3216793758424545,
+    "inference_or_replay_s": 15.572053899966704,
+    "tracking_s": 0.0,
+    "peak_process_ram_bytes_sampled": 1394704384,
+    "peak_gpu_allocated_bytes": 358687232,
+    "projection_counts": {
+      "calibration_unavailable": 5803
+    },
+    "calibration_preparation_s": 8.999995770864189e-07,
+    "calibration_status_counts": {
+      "insufficient_points": 120
+    },
+    "calibration_usable_fraction": 0.0
+  },
+  "human_accuracy_reference": null,
+  "tracking_enabled": false,
+  "limitations": [
+    "Technical integration check; no new detection accuracy score.",
+    "Automatic-camera player IDs remain disabled pending camera-motion validation.",
+    "Role and team predictions are experimental; this audit supplies no human accuracy reference.",
+    "Team A/B denotes supervised known-match kits or neutral video-local clusters, never player names."
+  ]
+}

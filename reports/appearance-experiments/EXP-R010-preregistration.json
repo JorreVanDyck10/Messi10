@@ -1,0 +1,13 @@
+{
+  "recorded_at": "2026-10-24T16:47:29.526678+00:00",
+  "reference": "EXP-R009",
+  "change": {
+    "fine_tune_blocks": [
+      3,
+      0
+    ]
+  },
+  "dataset_sha256": "129079c8e5380ade5962f533a55fa00b1298145b990f718eeb2103c051da93d7",
+  "hypothesis": "Keep the R007 image representation fixed to reduce rare-role degradation seen after R009 backbone adaptation; adapt the warmed role head to the added player and official crops.",
+  "decision_rule": "Same expanded validation plus retained/new subsets; compare rare roles as well as players, no final test claim."
+}

@@ -1,0 +1,13 @@
+{
+  "actual_epochs": 57,
+  "selected_best_epoch": 37,
+  "selection_criterion": "Ultralytics detection fitness (this version AP50:95)",
+  "batch": 4,
+  "imgsz": 1280,
+  "rect": true,
+  "effective_nbs": 64,
+  "training_physical_device": "RTX 3050 Laptop GPU, 4 GiB",
+  "framework_best_val_AP50": 0.39534,
+  "framework_best_val_AP50_95": 0.27075,
+  "note": "Use separate project AP101 evaluation for the baseline/candidate comparison; framework metric interpolation differs."
+}

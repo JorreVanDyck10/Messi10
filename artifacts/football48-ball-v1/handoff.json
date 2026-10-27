@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "files": {
+    "EXP-F001-best.pt": {
+      "sha256": "59d5e749e92edfd84bb6c204d73ec00df634a1abc9b93c507485f04b4cd9329f",
+      "bytes": 5525203
+    },
+    "EXP-F002-best.pt": {
+      "sha256": "f523fec4e72c994d9d454e86e7a52c7a8be32334c0085713ba1bc2ce7dc2fdb4",
+      "bytes": 5525203
+    }
+  },
+  "actual_names": {
+    "0": "ball"
+  },
+  "dataset": "football48-001; derived single-class view",
+  "initial_weights": "yolo11n.pt",
+  "initial_weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "runtime_input": "Masked native-resolution crops 1280x640; not verified on raw full panorama",
+  "software": {
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "opencv-python": "4.11.0.86",
+    "numpy": "2.2.6",
+    "psutil": "7.2.2",
+    "lap": "0.5.13"
+  },
+  "selected_for_application": false,
+  "reason": "Both project AP50:95 values below pretrained sports-ball baseline.",
+  "human_review_completed": false,
+  "independent_final_test": false
+}

@@ -1,5 +1,7 @@
 # Spelerherkenning en veldprojectie op de RTX 4050
 
+**Latere roluitbreiding:** de metingen hieronder blijven de daadwerkelijke controles van de persoonsdetector en oorspronkelijke P004-detector. Het P004-profiel is nu apart bewaard als `configs/models-players-base.json`. `configs/models-players.json` bevat inmiddels [R007 met extra rollen en teams](Resultaten_Rollen_en_Teams.md), gestart met `-Recognition players`. Die uitbreiding is nog niet op de Broadcast-clip of de 4050 gemeten. De algemene persoonsroute blijft standaard; de historische metingen worden niet aan nieuwe gewichten toegeschreven.
+
 Het standaardprofiel `configs/models.json` gebruikt algemene persoonsherkenning
 op GPU, met invoerresolutie 1920. Het geleverde TeamTrack-model met `player` en
 `referee` blijft apart beschikbaar via `configs/models-players.json`. Beide

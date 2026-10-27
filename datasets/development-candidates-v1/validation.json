@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-10-24T14:47:34.832713+00:00",
+  "images": 12,
+  "unique_file_hashes": 12,
+  "source_train_groups": {
+    "phase-0330": 2,
+    "phase-0750": 2,
+    "phase-0960": 2,
+    "phase-1170": 2,
+    "phase-1380": 2,
+    "phase-1590": 2
+  },
+  "source_val_or_test_groups": [],
+  "sequential_source_frame_checks": 12,
+  "exact_jpeg_reproduction_checks": 12,
+  "prediction_boxes_checked": 480,
+  "formal_labels_added": 0,
+  "model_training_performed": false,
+  "human_review_completed": false,
+  "total_bytes": 26192226
+}

@@ -19,7 +19,7 @@ import psutil
 
 from .automatic_calibration import AutomaticCalibration, prepare_automatic_calibration, project_automatic
 from .contracts import FrameRecord, PipelineError, RunResult, digest_json, read_json, sha256_file, write_json
-from .detection import UltralyticsDetector, load_model_manifest, validate_detection_devices
+from .detection import UltralyticsDetector, available_roles, load_model_manifest, validate_detection_devices
 from .geometry import Calibration, project_detection, valid_box
 from .participants import GROUND_ROLES, PLAYER_POLICY
 from .render import render_frame
@@ -254,7 +254,7 @@ def process_video(
             raise PipelineError(
                 "Technische pilot vereist een expliciete technische kalibratiecontrole zonder menselijke goedkeuring."
             )
-        player_model_available = any("player" in spec["class_mapping"].values() for spec in models["models"])
+        player_model_available = "player" in available_roles(models)
         versions, code, tools = dependencies(), code_identity(), tool_versions()
         config = load_tracker_config(tracker_config_path) if tracker_config_path else None
         acceptance = None
@@ -390,6 +390,8 @@ def process_video(
                 torch.cuda.reset_peak_memory_stats()
             if not replay_run and detector is None:
                 detector = UltralyticsDetector(models)
+            if detector is not None and hasattr(detector, "set_video_identity"):
+                detector.set_video_identity(video.sha256)
             if replay_run:
                 replay_stream = (Path(replay_run) / "framegegevens.jsonl").open(encoding="utf-8")
             tracker = ByteTrackAdapter(config, video.fps, camera_motion=automatic) if config else None
@@ -515,6 +517,11 @@ def process_video(
                 (directory / "video.partial.mp4").replace(directory / "samengestelde_video.mp4")
             if torch.cuda.is_available():
                 gpu_peak = torch.cuda.max_memory_allocated()
+            if detector is not None and getattr(detector, "appearance", None) is not None:
+                manifest["team_calibration"] = {
+                    **detector.appearance.video_teams.info,
+                    "supervised_known_match": video.sha256 in detector.appearance.team_video_hashes,
+                }
             artifacts = [p for p in directory.rglob("*") if p.is_file() and p.name != "runmanifest.json"]
             manifest.update(
                 status="completed",

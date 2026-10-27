@@ -16,7 +16,7 @@ from football_pipeline.app_results import show_result
 from football_pipeline.calibration_input import panoris_point_suggestion, point_label
 from football_pipeline.contracts import PipelineError, RunResult, digest_json, read_json, sha256_file
 from football_pipeline.demo import default_points
-from football_pipeline.detection import load_model_manifest, validate_detection_devices
+from football_pipeline.detection import available_roles, load_model_manifest, validate_detection_devices
 from football_pipeline.geometry import (
     Calibration,
     CalibrationControlError,
@@ -168,7 +168,9 @@ st.subheader("2. Veld kalibreren")
 mode = st.segmented_control(
     "Kalibratiemethode",
     ["Handmatig", "Automatische veldkalibratie"],
-    default="Handmatig",
+    default="Automatische veldkalibratie"
+    if os.environ.get("FOOTBALL_CALIBRATION_MODE") == "automatic"
+    else "Handmatig",
     selection_mode="single",
     required=True,
     key="calibration_mode",
@@ -513,10 +515,13 @@ try:
         st.session_state.active_model_profile = profile_identity
         st.session_state.tracking = False
         st.session_state.pop("result", None)
-    semantic_classes = {value for spec in models["models"] for value in spec["class_mapping"].values()}
+    semantic_classes = available_roles(models)
     st.caption(
         "Dit model onderscheidt: "
-        + ", ".join(LABELS.get(role, role) for role in sorted(semantic_classes))
+        + ", ".join(
+            "scheidsrechter" if role == "referee" and models.get("appearance") else LABELS.get(role, role)
+            for role in sorted(semantic_classes)
+        )
         + (
             ". Alleen gedetecteerde spelers met hun voetpunt binnen het geldige veld tellen mee. "
             if "player" in semantic_classes
@@ -524,6 +529,12 @@ try:
         )
         + "Zonder geldige veldherkenning is het aantal op het veld onbekend."
     )
+    if models.get("appearance"):
+        st.caption(
+            "Spelers krijgen Team A, Team B of team onbekend. Bekende wedstrijdclips gebruiken de getrainde "
+            "teamindeling; nieuwe video's verzamelen eerst shirtkleuren. A/B zijn geen clubnamen. "
+            "Bij twijfel blijft de rol persoon of het team onbekend."
+        )
     if "player" in semantic_classes and (
         "steward" not in semantic_classes or "spectator" not in semantic_classes
     ):
@@ -533,13 +544,14 @@ try:
         )
     if models.get("handoff", {}).get("human_review_completed") is False:
         st.caption(
-            "Dit spelermodel is voorlopig. De menselijke labelreview staat nog open; "
-            "scheidsrechters en lijnrechters worden nog geregeld gemist."
+            "Dit model is voorlopig. De menselijke labelreview staat nog open. "
+            "Controleer gemiste personen, verkeerde rollen en onbekende teamindelingen."
         )
     if models.get("handoff", {}).get("broadcast_transfer_adequate") is False:
         st.warning(
-            "Dit rolmodel is op panoramabeelden getraind en mist veel personen in de Broadcast-ontwikkelclip. "
-            "Kies ‘Personen op GPU’ voor algemene persoonsherkenning op zulke beelden."
+            "De P004-basisdetector miste veel personen in de Broadcast-ontwikkelclip. "
+            "De aanvullende rolclassifier is op die clip nog niet gevalideerd. "
+            "Het profiel ‘Personen op GPU’ blijft beschikbaar voor algemene herkenning."
         )
     if "player" not in semantic_classes:
         st.warning(
@@ -563,7 +575,7 @@ except PipelineError as exc:
 
 tracking = st.checkbox(
     "Spelertracking en trajecten toevoegen",
-    disabled="player" not in semantic_classes,
+    disabled=not any("player" in spec["class_mapping"].values() for spec in models["models"]),
     key="tracking",
 )
 teams_enabled = (

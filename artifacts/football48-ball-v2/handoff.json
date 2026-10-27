@@ -1,0 +1,67 @@
+{
+  "models": [
+    {
+      "run": "EXP-F003",
+      "weights": "EXP-F003-best.pt",
+      "sha256": "1aa203d2971ad582da9631ce54ad5cb057aa79667a064d8a0c771805b4ce0fa4",
+      "bytes": 5592147,
+      "classes": 80,
+      "person_class_id": 0,
+      "person_meaning": "Generic person, not a verified player/official role",
+      "ball_class_id": 32,
+      "ball_class_name": "sports ball",
+      "evaluation": "../../reports/person1-round3/EXP-F003/comparison.json",
+      "selected_for_native_crops": true
+    },
+    {
+      "run": "EXP-F004",
+      "weights": "EXP-F004-best.pt",
+      "sha256": "2d3b00417a8ea19c4506c5daf09436542a611d32ca30e653e6e62251dee4b408",
+      "bytes": 5591891,
+      "classes": 80,
+      "person_class_id": 0,
+      "person_meaning": "Generic person, not a verified player/official role",
+      "ball_class_id": 32,
+      "ball_class_name": "sports ball",
+      "evaluation": "../../reports/person1-round3/EXP-F004/comparison.json",
+      "selected_for_native_crops": false
+    }
+  ],
+  "inference_profile": "../../configs/models-ball-f003.json",
+  "native_crop_scope": {
+    "size": [
+      1280,
+      640
+    ],
+    "frames_train_val": [
+      36,
+      12
+    ],
+    "ball_objects_train_val": [
+      26,
+      10
+    ],
+    "AP_inference_confidence_floor": 0.001,
+    "AP_nms_iou": 0.7,
+    "application_confidence": 0.25
+  },
+  "original_head_preserved": true,
+  "person_labels_also_used": true,
+  "checkpoint_selection": "Ultralytics fitness over person and ball; target-only project AP reported separately.",
+  "dependencies": {
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "opencv-python": "4.11.0.86",
+    "numpy": "2.2.6",
+    "psutil": "7.2.2",
+    "lap": "0.5.13"
+  },
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "raw_panorama_adequate": false,
+  "limitation": "Native-crop AP does not transfer to measured full panoramas: missed tiny balls and false positives on painted field lettering. Not suitable as a general raw-video ball detector.",
+  "fullframe_transfer_evaluation": "../../reports/person1-round3/fullframe-ball-development/summary.json",
+  "fullframe_transfer_scope": "14 development full panoramas, 67 labelled balls including reserves, imgsz1280; zero AP50/AP50:95 for both candidates and pretrained. AI labels, no human review or independent final test."
+}

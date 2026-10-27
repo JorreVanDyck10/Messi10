@@ -1,0 +1,1824 @@
+{
+  "scope": "Team accuracy conditional on matched player detections at proposal confidence .25 and box IoU .50",
+  "matched_players": 227,
+  "correct": 222,
+  "unknown": 3,
+  "records": [
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:11",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9988197684288025
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:9",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.993477463722229
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:5",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9965474009513855
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:21",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9999023675918579
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:8",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9918288588523865
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:12",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9996168613433838
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:6",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9997339844703674
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:1",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9996211528778076
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:15",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.999747097492218
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:3",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9310368895530701
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:18",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9999523162841797
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:20",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.998129665851593
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:19",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9958693385124207
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:16",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9987566471099854
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:17",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9994340538978577
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:2",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9943193197250366
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:7",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9996036887168884
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:0",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9873958230018616
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000000",
+      "id": "F_20200220_1_0660_0690_000000:player:10",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9873970150947571
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:19",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9965158700942993
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:21",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9991206526756287
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:16",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9992905855178833
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:18",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998464584350586
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:6",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9932262301445007
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:15",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9847928285598755
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:14",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9931679368019104
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:7",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.998829185962677
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:12",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9993463158607483
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:11",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9961000680923462
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:0",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9447168111801147
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:2",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.998530387878418
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:5",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9994568228721619
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:9",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9967400431632996
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:8",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9967654943466187
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:13",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9992700219154358
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:3",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9858997464179993
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:17",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9909987449645996
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000060",
+      "id": "F_20200220_1_0660_0690_000060:player:4",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9995068311691284
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:3",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9806622862815857
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:16",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9987269043922424
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:2",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9635834693908691
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:10",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9992079138755798
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:6",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9975583553314209
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:9",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9883180260658264
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:0",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9953281879425049
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:19",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9981088638305664
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:21",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9969969987869263
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:17",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998637437820435
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:20",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9972357153892517
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:15",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9979041814804077
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:14",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9940855503082275
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:4",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9994922876358032
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:11",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9979996085166931
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:7",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9886791110038757
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:13",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9995515942573547
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:8",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9948792457580566
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:18",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9997757077217102
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:12",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9942271709442139
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:1",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9861004948616028
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000120",
+      "id": "F_20200220_1_0660_0690_000120:player:5",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9822618961334229
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:14",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9945200085639954
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:1",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9995380640029907
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:17",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.999640703201294
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:16",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.992078959941864
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:4",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9341899156570435
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:9",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.999107301235199
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:19",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9954037666320801
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:15",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9999281167984009
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:0",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9104407429695129
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:3",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9969483017921448
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:20",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9986806511878967
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:7",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9966527819633484
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:21",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9967381358146667
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:11",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9987707734107971
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:12",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9621940851211548
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:10",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9925006031990051
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:18",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9995624423027039
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:13",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9995052814483643
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:2",
+      "truth": "team_a",
+      "prediction": null,
+      "correct": false,
+      "confidence": 0.5012654066085815
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:6",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9988899827003479
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000180",
+      "id": "F_20200220_1_0660_0690_000180:player:8",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.998006284236908
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:19",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9999657869338989
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:1",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9997671246528625
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:14",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.8969730138778687
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:7",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9929953217506409
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:0",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.8878931999206543
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:16",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9885717034339905
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:11",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9988780617713928
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:13",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9473239183425903
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:21",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9980137348175049
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:9",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9986760020256042
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:17",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9999020099639893
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:4",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9962112903594971
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:10",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.996356725692749
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:6",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9998418092727661
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:2",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9960222840309143
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:18",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9991593360900879
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:3",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9988077878952026
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:20",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998929500579834
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000240",
+      "id": "F_20200220_1_0660_0690_000240:player:15",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9918727278709412
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:19",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998633861541748
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:11",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9983742237091064
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:14",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9864407181739807
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:6",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9990382194519043
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:0",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9910460114479065
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:7",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9926580786705017
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:20",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9991781115531921
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:10",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9998708963394165
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:13",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9976432919502258
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:9",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9994131326675415
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:1",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9998757839202881
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:16",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9930033087730408
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:2",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9952444434165955
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:12",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9755738973617554
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:4",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9993292093276978
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:18",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9999949932098389
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:8",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9995104074478149
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000300",
+      "id": "F_20200220_1_0660_0690_000300:player:15",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9979100823402405
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:15",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9837265610694885
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:0",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9926929473876953
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:7",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9998192191123962
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:21",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998584985733032
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:8",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.758844256401062
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:4",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9929759502410889
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:10",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9943212270736694
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:11",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9599945545196533
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:17",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9986352324485779
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:14",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9407870769500732
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:18",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9999369382858276
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:6",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.999369204044342
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:9",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9988200068473816
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:19",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998427629470825
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:3",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.999690055847168
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000360",
+      "id": "F_20200220_1_0660_0690_000360:player:1",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.999537467956543
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:4",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9943401217460632
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:6",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9923865795135498
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:16",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9832162261009216
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:15",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998586177825928
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:0",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9283562898635864
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:17",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998173117637634
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:7",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9997312426567078
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:18",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998420476913452
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:1",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9989786148071289
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:19",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9828813076019287
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:10",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9967993497848511
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:2",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9996055960655212
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:12",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9989967942237854
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:13",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.999476969242096
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:11",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9970786571502686
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:9",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9989364743232727
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:14",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9966797828674316
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:21",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9987163543701172
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000420",
+      "id": "F_20200220_1_0660_0690_000420:player:8",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9854621887207031
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:7",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9996436834335327
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:19",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9284690022468567
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:11",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9922574758529663
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:2",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9201235175132751
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:16",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9928215146064758
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:10",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9826159477233887
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:12",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998760223388672
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:15",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9954432249069214
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:17",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9999629259109497
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:18",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998231530189514
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:21",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9990984201431274
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:9",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9989818930625916
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:20",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9989462494850159
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:6",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9989566802978516
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:8",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9757810235023499
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:1",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9979667663574219
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:4",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9998936653137207
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:14",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998431205749512
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000480",
+      "id": "F_20200220_1_0660_0690_000480:player:13",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9973466396331787
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:8",
+      "truth": "team_a",
+      "prediction": null,
+      "correct": false,
+      "confidence": 0.6060770153999329
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:10",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9946915507316589
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:4",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9996275901794434
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:11",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9843893647193909
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:12",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9999809265136719
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:2",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9960044026374817
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:15",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9995644688606262
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:0",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9271401166915894
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:16",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9997175335884094
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:7",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.999366819858551
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:18",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9740704298019409
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:13",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9955193996429443
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:17",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9995213747024536
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:21",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9996104836463928
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:1",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9986696243286133
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:19",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9997720122337341
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:6",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9968889355659485
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:3",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9995354413986206
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:20",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9998230338096619
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000540",
+      "id": "F_20200220_1_0660_0690_000540:player:5",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9988833069801331
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:21",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9639967083930969
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:19",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.999988317489624
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:13",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9899740815162659
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:17",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9968942403793335
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:18",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9476197957992554
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:1",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9983751773834229
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:7",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9999428987503052
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:2",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9995204210281372
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:9",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9969947338104248
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:10",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.869588315486908
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:11",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9997405409812927
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:6",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9941944479942322
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:16",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9997105002403259
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:8",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9906310439109802
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:0",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9946565628051758
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:15",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9955083131790161
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:3",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9985361099243164
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000600",
+      "id": "F_20200220_1_0660_0690_000600:player:5",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9976338148117065
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:17",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9999508857727051
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:3",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9993844032287598
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:18",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9971098303794861
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:20",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9957834482192993
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:19",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9836441874504089
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:16",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9982234835624695
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:0",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9818480014801025
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:14",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.990029513835907
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:9",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9849072694778442
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:10",
+      "truth": "team_a",
+      "prediction": "team_b",
+      "correct": false,
+      "confidence": 0.7242559790611267
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:2",
+      "truth": "team_a",
+      "prediction": "team_b",
+      "correct": false,
+      "confidence": 0.9775043725967407
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:4",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.8997778296470642
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:21",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9928746223449707
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:6",
+      "truth": "team_a",
+      "prediction": null,
+      "correct": false,
+      "confidence": 0.5424988865852356
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:5",
+      "truth": "team_a",
+      "prediction": "team_a",
+      "correct": true,
+      "confidence": 0.9995988011360168
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:13",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.9999648332595825
+    },
+    {
+      "source_frame_id": "F_20200220_1_0660_0690_000660",
+      "id": "F_20200220_1_0660_0690_000660:player:12",
+      "truth": "team_b",
+      "prediction": "team_b",
+      "correct": true,
+      "confidence": 0.8164302706718445
+    }
+  ]
+}

@@ -13,6 +13,8 @@ from scipy.spatial.distance import cdist
 
 from .contracts import Detection, PipelineError, read_json
 from .geometry import valid_box
+from .video_teams import VideoTeams as VideoTeams
+from .video_teams import kit_feature as kit_feature
 
 DEFAULT_TEAM_SETTINGS = {
     "schema_version": 1,
@@ -276,6 +278,16 @@ class TeamAssigner:
         cutoff = index - max(1, round(self.fps * self.settings["history_seconds"]))
         self.history = {key: state for key, state in self.history.items() if state["last"] >= cutoff}
         for d in detections:
+            # The optional appearance model's match-specific labels are separate
+            # evidence from this run's colour clusters and manual corrections.
+            if d.team_method is not None:
+                d.appearance_team = {
+                    "team_id": d.team_id,
+                    "team_confidence": d.team_confidence,
+                    "team_method": d.team_method,
+                    "team_class_id": d.team_class_id,
+                }
+            d.team_confidence = d.team_method = d.team_class_id = None
             d.team_id = d.team_match_score = d.team_source = None
             d.team_status = "not_player" if d.semantic_class != "player" else "unknown"
             if d.semantic_class != "player":

@@ -1,5 +1,15 @@
 # Uitvoeringsstatus persoon 1
 
+**Vervolg uitgevoerd:** [baldetail behouden en F005 getraind](Verbetering_Baldetectie_Detailbehoud.md), met een gelijke vergelijking op 51 volledige validatiebeelden, echte gecombineerde video-overdracht en 78 gerichte rolreviewgevallen. De suite slaagt nu met 238 tests en vier subtests. Menselijke review, een onafhankelijke eindtest en een nieuwe 4050-meting blijven open. De onderstaande derde ronde is een eerder meetmoment.
+
+**Actuele uitvoering, 26 oktober 2026:** [werkpakket 1, derde ronde](Uitvoering_Persoon_1_Derde_Ronde.md) bevat de nieuwe technische data-audit, 93 extra rolcrops, vijf echte roltrainingen, twee baltrainingen, kopmenging, evaluatie, acht checkpoints en overdracht. De samengevoegde suite slaagt met 225 tests en 4 subtests. De later ontvangen 56 volledige beelden zijn technisch gecontroleerd; op hun 14 validatiebeelden halen alle drie bevroren balmodellen bij imgsz 1280 nul AP. R007 blijft standaard; R015 en F003 zijn kandidaten met expliciete toepassingsgrenzen. Menselijke review en een onafhankelijke eindtest blijven open. De onderstaande oudere aantallen en scores zijn historische uitvoeringsnotities, geen actuele totaalscore.
+
+## Historische uitvoeringsnotities
+
+De laatste synchronisatie bevat daarnaast 130 volledige beelden uit drie nieuwe leveringen. Hun technische validators en dataloaders slagen eveneens. Er staan nu 146 achtklassenbeelden en daarnaast 40 drieklassenbeelden; de aanvullende 130 zijn niet gebruikt in de al afgeronde trainingen of in de genoemde 14-frame-balmeting. Zie het actuele verslag voor de precieze scopes.
+
+**Actuele rol-/teamuitbreiding:** [R007 is werkelijk getraind en geïntegreerd](Resultaten_Rollen_en_Teams.md), inclusief extra bronbeelden, echte validatie en een aparte overdracht. Spelers krijgen A/B of onbekend. Supporters en kleine centrale officials blijven zwak; er is geen universele betrouwbare rolherkenning of menselijke review geclaimd. Het tweeklassenprofiel blijft als basisprofiel bewaard.
+
 **Nieuwe speleroplevering:** [TeamTrack-spelermodel, dataset, echte metingen en overdracht](Resultaten_Spelermodel.md). Het standaardprofiel gebruikt nu `player`/`referee`; de onderstaande balstatus blijft als afzonderlijk experiment gelden. Er is nog geen volledige verre officialdekking of onafhankelijke projecteindtest.
 
 **Bijgewerkt op 16 oktober 2026. Echte fine-tuning en project-mAP zijn nu uitgevoerd.** De resultaten zijn voorlopig wegens openstaande menselijke labelreview; de validatiescores tonen nog geen verbetering. Zie [het volledige resultatenverslag](Resultaten_Balexperimenten.md).

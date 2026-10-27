@@ -32,6 +32,7 @@ LABELS = {
     "person": "persoon",
     "ball": "bal",
 }
+TEAM_COLORS = {"team_a": (235, 235, 235), "team_b": (235, 140, 65)}
 
 
 def label(image, text, point, color=(235, 240, 235), scale=0.6):
@@ -42,10 +43,12 @@ def field_pixel(position):
     return round(40 + 560 * position[0]), round(170 + 360 * position[1])
 
 
-def detection_color(detection, record):
-    if detection.semantic_class == "player" and record.team_context:
+def detection_color(detection, record=None):
+    if detection.semantic_class == "player" and record is not None and record.team_context:
         team = record.team_context["teams"].get(detection.team_id)
         return tuple(reversed(hex_rgb(team["display_color"] if team else UNKNOWN_COLOR)))
+    if detection.semantic_class == "player":
+        return TEAM_COLORS.get(detection.team_id, COLORS["player"])
     return COLORS.get(detection.semantic_class, (190, 190, 190))
 
 
@@ -53,7 +56,12 @@ def detection_label(detection, record):
     if detection.semantic_class == "player" and record.team_context:
         team = record.team_context["teams"].get(detection.team_id)
         return team["name"][:24] if team else "team onbekend"
-    return LABELS.get(detection.semantic_class, detection.semantic_class)
+    if detection.semantic_class == "referee" and detection.role_model_id:
+        return "scheidsrechter"
+    text = LABELS.get(detection.semantic_class, detection.semantic_class)
+    if detection.semantic_class == "player" and detection.team_id in TEAM_COLORS:
+        text += " A" if detection.team_id == "team_a" else " B"
+    return text
 
 
 def render_frame(
@@ -96,7 +104,7 @@ def render_frame(
     stamp = f"Frame {record.frame_index} | {record.timestamp_s:.3f} s"
     label(canvas, stamp, (20, 28))
     if technical_pilot:
-        label(canvas, "TECHNISCHE PILOT - personen, geen speler-ID's", (20, 65), (80, 205, 245), 0.65)
+        label(canvas, "TECHNISCHE PILOT - menselijke beoordeling open", (20, 65), (80, 205, 245), 0.65)
     pitch = canvas[:, 1280:]
     label(pitch, "PILOT MINIMAP" if technical_pilot else "TACTICAL MAP", (40, 52), scale=0.9)
     label(pitch, stamp, (40, 88))
@@ -116,6 +124,14 @@ def render_frame(
         ]
         parts.append(f"Onbekend: {values['unknown'] if values['unknown'] is not None else '?'}")
         label(pitch, " | ".join(parts), (40, 145), scale=0.44)
+    elif summary["teams"] is not None and any(d.team_method for d in record.detections):
+        teams = summary["teams"]
+        label(
+            pitch,
+            f"Team A: {teams['team_a']} | Team B: {teams['team_b']} | Onbekend: {teams['unknown']}",
+            (40, 140),
+            scale=0.48,
+        )
     cv2.rectangle(pitch, (40, 170), (600, 530), (40, 85, 52), -1)
     cv2.rectangle(pitch, (40, 170), (600, 530), (205, 225, 210), 2)
     cv2.line(pitch, (320, 170), (320, 530), (205, 225, 210), 2)
@@ -126,7 +142,7 @@ def render_frame(
         label(
             pitch,
             status_label(record.calibration),
-            (40, 578) if record.team_context else (40, 150),
+            (40, 578) if record.team_context else (40, 158),
             (100, 220, 180) if known else (80, 180, 245),
             scale=0.6,
         )
@@ -169,6 +185,22 @@ def render_frame(
         if role in present_roles or (role == "player" and record.player_model_available)
     ]
     entries = [(COLORS[role], LABELS[role]) for role in legend if role != "player" or not record.team_context]
+    if not record.team_context:
+        entries = []
+        for role in legend:
+            if role == "player" and any(d.team_id in TEAM_COLORS for d in record.detections):
+                entries.extend(
+                    (TEAM_COLORS[team], name) for team, name in (("team_a", "Team A"), ("team_b", "Team B"))
+                )
+                if any(d.semantic_class == "player" and d.team_id is None for d in record.detections):
+                    entries.append((COLORS["player"], "team onbekend"))
+            else:
+                name = (
+                    "scheidsrechter"
+                    if role == "referee" and any(d.role_model_id for d in record.detections)
+                    else LABELS[role]
+                )
+                entries.append((COLORS[role], name))
     if record.team_context:
         entries = (
             [

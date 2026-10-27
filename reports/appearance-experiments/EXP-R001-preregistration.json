@@ -1,0 +1,10 @@
+{
+  "hypothesis": "Frozen pretrained MobileNetV3-small features with supervised balanced heads can distinguish five crop roles and the two known TeamTrack teams.",
+  "backbone": "torchvision MobileNetV3 Small IMAGENET1K_V1 frozen",
+  "training": "400 Adam full-batch updates per head, lr .005, weight_decay .01, role inverse-frequency cross entropy",
+  "selection": "Highest validation macro F1, earliest epoch on ties",
+  "abstention_threshold": 0.65,
+  "scope": "Conditional crop classification; source-image grouped external validation; same-match new-clip team validation. Not independent project test or full-image role mAP.",
+  "test_images_used": false,
+  "human_review_completed": false
+}

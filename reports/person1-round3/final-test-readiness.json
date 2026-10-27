@@ -1,0 +1,21 @@
+{
+  "ready_for_independent_final_test": false,
+  "model_freeze_approved": false,
+  "human_review_completed": false,
+  "inter_annotator_agreement_measured": false,
+  "reserved_images_opened_in_this_round": false,
+  "reasons": [
+    "Real human review and independent pilot annotations are not available.",
+    "Current validation has been reused for development/model selection.",
+    "No new independent final-test video has been reserved and approved."
+  ],
+  "review_materials": "data-audit-final/human-review.csv and new-crops/",
+  "actual_work_completed": [
+    "Technical data audit and leakage guards",
+    "New AI-reviewed rare-role data and immutable correction history",
+    "Five real role trainings, two ball trainings, head interpolation and person-proposal ablation",
+    "Crop and end-to-end evaluation, real video handoff and technical integration audit",
+    "Photo augmentation preprocessing bug fixed and controlled R016 repetition completed"
+  ],
+  "formal_team_acceptance_fabricated": false
+}

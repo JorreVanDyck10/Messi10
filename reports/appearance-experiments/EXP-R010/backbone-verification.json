@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "seed": "R007",
+  "backbone_exactly_unchanged": true,
+  "normalization_exactly_unchanged": true,
+  "role_head_changed": true,
+  "weights_sha256": "39656a85cac05192854aeb217f218d652368a03c1efb81f446b58e0387f9b2ec"
+}

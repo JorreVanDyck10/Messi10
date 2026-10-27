@@ -1,0 +1,149 @@
+{
+  "video_sha256": "d9b92e58063e29be376319f680af7e136551a90f578dffff02a371f852c70ee3",
+  "frames": 30,
+  "video_size": [
+    4096,
+    1080
+  ],
+  "fps": 25.0,
+  "model_manifest_sha256": "a75c3fd228cbb735526fc368b168bc2ae755ea8c070d239273bcaace1740854d",
+  "models": {
+    "schema_version": 1,
+    "profile_name": "R007 rollen en teams + F005 bal, experimenteel",
+    "models": [
+      {
+        "model_id": "exp-p004-teamtrack-v2_1",
+        "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\players-v2\\players_best.pt",
+        "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+        "class_mapping": {
+          "0": "player",
+          "1": "referee"
+        },
+        "expected_names": {
+          "0": "player",
+          "1": "referee"
+        },
+        "imgsz": 1920,
+        "confidence": 0.1,
+        "iou": 0.7,
+        "device": "0"
+      },
+      {
+        "model_id": "coco-person-proposals",
+        "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\appearance-v1\\person_proposals.pt",
+        "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+        "class_mapping": {
+          "0": "person"
+        },
+        "expected_names": {
+          "0": "person"
+        },
+        "imgsz": 1920,
+        "confidence": 0.1,
+        "iou": 0.7,
+        "device": "0"
+      },
+      {
+        "model_id": "fullscene-ball-f005-multiscale",
+        "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\fullscene-ball-v1\\fullscene_ball_f005.pt",
+        "weights_sha256": "de7d869c01cb8539664c1a3917f6eee90de9d7e655cd484be99999847b0ebf11",
+        "class_mapping": {
+          "32": "ball"
+        },
+        "expected_names": {
+          "32": "sports ball"
+        },
+        "imgsz": 1280,
+        "confidence": 0.25,
+        "iou": 0.7,
+        "device": "0",
+        "ball_tiles": {
+          "sizes": [
+            1280,
+            640
+          ],
+          "imgsz": 1280,
+          "overlap": 0.2,
+          "merge_iou": 0.5
+        }
+      }
+    ],
+    "handoff": {
+      "evaluation_record": "../reports/appearance-experiments/EXP-R007/metrics.json",
+      "evaluation_sha256": "261544ac110d9f872f2890736256c1c61ad6399d533719bd0c37438b72d75616",
+      "human_review_completed": false,
+      "independent_final_test_completed": false,
+      "referee_coverage": "central and near assistant; far roles unresolved",
+      "detector_evaluation_record": "../reports/players-experiments/EXP-P004/validation-metrics/metrics.json",
+      "detector_evaluation_sha256": "2b725cbb140f22297f5e397e5277ad51f17c957ac109f55ebdee56c3f1f7c240",
+      "evaluation_kind": "Conditional ground-truth crop classification, not end-to-end detection AP",
+      "team_scope": "Two explicitly labelled matches; neutral automatic kit clusters for other video identities, no unseen-match accuracy claim",
+      "broadcast_transfer_adequate": false,
+      "broadcast_validation_record": "../reports/player-pipeline-4050.json",
+      "broadcast_validation_scope": "Historical P004-only record; R007 classifier is not measured on this clip",
+      "ball_inference": {
+        "human_review_completed": false,
+        "independent_final_test_completed": false,
+        "evaluation_record": "../reports/person1-round4/all-validation-summary/summary.json",
+        "target": "All visible labelled footballs including reserve balls; not automatic in-play identification.",
+        "default_promoted": false,
+        "scope": "Development-only multiscale inference; preserve R007 default and field-counting policy.",
+        "evaluation_sha256": "c42a5e535a22c8c9d506aa553366d33cfadca90ea9d9a40ca4c78bb2b70ab065",
+        "tradeoff": "Compared with pretrained under equal multiscale inference: more labelled balls found and better AP, but 36 rather than 5 FP on 51 validation frames; visible in-play matches 20/47 vs18/47."
+      }
+    },
+    "appearance": {
+      "model_id": "appearance-r007",
+      "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\appearance-v1\\roles_teams.pt",
+      "weights_sha256": "adad67b0e3b60803d11a179c11c24d5c6cf2a31cbe9804a93c5da43b2bc008f2",
+      "role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "role_confidence": 0.65,
+      "team_confidence": 0.65,
+      "device": "0"
+    }
+  },
+  "ball_detections": 140,
+  "ball_empty_frames": [],
+  "inference_seconds": [
+    1.7506703000108246,
+    0.8008634000143502,
+    0.8533281999989413,
+    0.8519883000117261,
+    0.806800899998052,
+    0.7619378999806941,
+    0.7559934000018984,
+    0.726965099980589,
+    0.791594799986342,
+    0.7067243999917991,
+    0.6991719999932684,
+    0.6983247000025585,
+    0.7142218000080902,
+    0.7092923000163864,
+    0.7134502999833785,
+    0.7294530000071973,
+    0.742982399999164,
+    0.721351499989396,
+    0.7178470999933779,
+    0.7216426999948453,
+    0.6990573999937624,
+    0.7269580000138376,
+    0.7017884000088088,
+    0.7206090999825392,
+    0.6808529999980237,
+    0.6973119000031147,
+    0.7024925000150688,
+    0.7241143000137527,
+    0.6870090999873355,
+    0.7470101999933831
+  ],
+  "scope": "Real combined detector/role/team/rendering technical handoff; not calibrated field, tactical-map, tracking, accuracy or comparative 4050 benchmark.",
+  "counting_gate_verified_unknown_without_field": true,
+  "human_review_completed": false
+}

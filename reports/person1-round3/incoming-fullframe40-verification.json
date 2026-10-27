@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "frames": 40,
+  "native_size": [
+    4096,
+    1080
+  ],
+  "unique_source_frames": 40,
+  "unique_pixel_hashes": 40,
+  "new_source_frames_vs_football48": 24,
+  "previous_source_frames_relabelled_full_size": 16,
+  "objects": {
+    "player": 843,
+    "referee": 80,
+    "ball": 192
+  },
+  "ball_kinds": {
+    "in_play_ball": 37,
+    "reserve_ball": 155
+  },
+  "splits": {
+    "train": 30,
+    "val": 10
+  },
+  "time_groups": 8,
+  "minimum_cross_split_gap_s": 203.51999999999998,
+  "source_video_checksum_checked": false,
+  "full_frames_pixel_identical_to_decoded_source": 0,
+  "coco_yolo_source_box_agreement": true,
+  "existing_dataset_split_overlap_checked": true,
+  "ultralytics_loader": {
+    "train": {
+      "images": 30,
+      "objects": 838,
+      "corrupt_or_missing_images": 0
+    },
+    "val": {
+      "images": 10,
+      "objects": 277,
+      "corrupt_or_missing_images": 0
+    }
+  },
+  "ball_only_exports": {},
+  "independent_human_review_complete": false,
+  "model_training_performed": false,
+  "scope": "File and geometry checks; no human review, semantic accuracy score or independent-match test is claimed."
+}

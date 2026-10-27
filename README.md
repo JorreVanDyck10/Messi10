@@ -1,4 +1,22 @@
+**Samengevoegd op 27 oktober 2026:** alle binnengekomen data-, rol- en balprofielen zijn behouden naast onderdeel 2 en 3. `Start-Spelermodel.ps1` en `configs/models-players.json` gebruiken spelermodel v3. Het afzonderlijke R007-profiel staat nu in `configs/models-roles-r007.json`; `Start-Wedstrijd.ps1` selecteert dat profiel voor de bestaande gezamenlijke rolproef. R009, R010, R015 en de balprofielen blijven afzonderlijk selecteerbaar. De berichten hieronder beschrijven hun oorspronkelijke metingen; hun vroegere standaardkeuzes gelden alleen voor die versie.
+
 > **Spelermodel v3 (19 oktober 2026):** het nieuwe standaardmodel is getraind op drie wedstrijden en geselecteerd op twintig beelden uit drie andere wedstrijden. Spelers: AP@50 **93,17%**, AP@50:95 **58,98%**, recall **91,78%**, precision **80,48%** bij confidence 0,25. Officials blijven zwak; balherkenning wordt niet aangeboden. Dit is een kleine ontwikkelvalidatie met providerlabels, geen onafhankelijke eindtest. [Werkwijze volgens de cursus](docs/Modelverbetering_Volgens_Cursus.md), [modelkaart en exacte beperkingen](artifacts/players-v3/README.md). Het oude model is bewaard als `configs/models-players-v2.json`; algemene persoonsherkenning staat in `configs/models-persons.json`.
+
+> **Baldetectie verder verbeterd:** verwerking in tegels behoudt baldetail. Op 51 volledige ontwikkelbeelden haalt het nieuwe F005-model met dezelfde tegelverwerking AP@50 75,70% en AP@50:95 37,88%, met meer correcte detecties én meer foutmeldingen. Nieuwe optionele profielen combineren dit met R007-rollen en Team A/B; de standaard blijft behouden. 238 tests en vier subtests slagen. [Resultaten, gebruik en beperkingen](docs/Verbetering_Baldetectie_Detailbehoud.md).
+
+> **Werkpakket persoon 1 technisch uitgevoerd:** 93 extra rolcrops, data-audit, vijf echte roltrainingen, twee baltrainingen en een gecontroleerd R015-alternatief. De later ontvangen 56 panoramabeelden zijn gecontroleerd. De bal verbetert op native crops, maar alle drie gemeten modellen halen nul bal-AP op de nieuwe volledige validatiebeelden bij imgsz 1280. R007 blijft standaard; 225 tests en 4 subtests slagen. [Nieuwe resultaten en complete overdracht](docs/Uitvoering_Persoon_1_Derde_Ronde.md).
+
+> **Samenwerken met drie personen:** de actuele taakverdeling geeft persoon 1 data en modellen, persoon 2 veldherkenning en projectie, en persoon 3 teams, tracking en integratie. Inclusief concrete taken, bestanden, overdrachten, review en acceptatie. [Werkverdeling voor drie personen](docs/Werkverdeling_3_Personen.md).
+
+> **Teamindeling en dubbele boxen verbeterd:** de gezamenlijke rolpipeline houdt op dezelfde validatiebeelden vijf foutieve spelersdetecties minder over, met behoud van de correcte detecties. De kleurindeling voor nieuwe video's is opnieuw gemeten en aangepast. Deze softwareverbeteringen werken ook in het standaardprofiel R007. [Voor/na, voorbeelden en beperkingen](docs/Verbetering_Teams_en_Boxen.md).
+
+> **Nieuwe dataronde uitgevoerd:** 111 extra rolcrops, twee echte roltrainingen en twee echte ballentrainingen. R009 verbetert spelers/officials, met afwegingen bij andere rollen; kies het met `scripts/Start-Wedstrijd.ps1 -Recognition roles-r009`. R007 blijft standaard. [Nieuwe metingen, fouten en reproductie](docs/Resultaten_Extra_Dataronde.md).
+
+> **Samen starten:** `scripts/Start-Wedstrijd.ps1` selecteert rollen, Team A/B en automatische veldherkenning. De gezamenlijke pipeline is technisch uitgevoerd; herkenningsfouten en ontbrekende veldkalibratie blijven mogelijk. [Gezamenlijke controle, installatie en beperkingen](docs/Gezamenlijke_Integratie.md).
+
+> **Rollen en teams toegevoegd:** kies het R007-rolprofiel of start met `scripts/Start-Spelermodel.ps1 -Recognition players`. Dit voert werkelijk getrainde aanvullende rol- en teamherkenning uit. Supporters en kleine officials blijven zwak. De op de 4050 gecontroleerde algemene persoonsherkenning van persoon 2 blijft de standaard voor zijn veldproef. [Echte rolmetingen en beperkingen](docs/Resultaten_Rollen_en_Teams.md).
+
+De bestaande tweeklassen-P004-detector blijft de basis. Zijn historische speler-validatie is AP@50 74,50% en AP@50:95 26,55%; dit is geen score voor de volledige nieuwe rolpipeline. [Oorspronkelijke detectorresultaten](docs/Resultaten_Spelermodel.md).
 
 **Veldherkenning blijft een beperking:** drie nieuwe trainingsopzetten zijn vergeleken. De beste validatiekandidaat presteerde slechter op de eigen ontwikkelclip en is afgewezen; de bestaande veldgewichten blijven actief. De definitieve combinatie met het nieuwe spelermodel is echt verwerkt en gecontroleerd. [Metingen en modelbeslissing](reports/course-improvement/README.md).
 
@@ -10,7 +28,7 @@ De lokale combinatie van spelerherkenning en veldprojectie wordt beschreven in
 [Spelerintegratie op de 4050](docs/Spelerintegratie_4050.md), inclusief de GPU-controle
 en een herhaalbare integratiecheck op een volledige clip.
 
-**Spelertelling en veldherkenning:** alleen voorspelde spelers met hun voetpunt binnen het geldige veld tellen mee. Officials en eventuele andere herkende rollen blijven afzonderlijk zichtbaar. Bij ontbrekende veldherkenning is het aantal onbekend. De huidige gewichten herkennen nog geen afzonderlijke stewards of supporters. [Telregels, interface en beperkingen](docs/Spelertelling_en_Rollen.md).
+**Spelertelling en veldherkenning:** alleen voorspelde spelers met hun voetpunt binnen het geldige veld tellen mee. Andere rollen blijven afzonderlijk zichtbaar. Bij ontbrekende veldherkenning is het aantal onbekend. De aanvullende rolclassifier is echt getraind, maar kan nog verkeerde rollen geven. [Telregels en beperkingen](docs/Spelertelling_en_Rollen.md).
 
 **Onderdeel 2, betrouwbaarheid (26 oktober 2026):** er is een afzonderlijk kandidaatprofiel met zichtbare veldgrenzen en controle van directe herkenning tegen camerabeweging. De volledige vergelijking op broadcast en PANORIS is uitgevoerd. De kandidaat blijft experimenteel en wordt niet standaard geactiveerd: menselijke referenties ontbreken en PANORIS levert nog onvoldoende veldpunten. [Werking, metingen en overdracht](docs/Veldherkenning_Betrouwbaarheid.md).
 

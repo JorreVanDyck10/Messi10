@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "pixel_identical_native_tiles": 239,
+  "splits": {
+    "val": 80,
+    "train": 159
+  },
+  "tile_ball_instances": {
+    "train": 236,
+    "val": 131
+  },
+  "unique_original_ball_labels_covered": {
+    "val": 110,
+    "train": 208
+  },
+  "negative_tiles": {
+    "train": 36
+  },
+  "source_coordinates_agree": true,
+  "source_groups_preserved": true,
+  "human_review_completed": false,
+  "script_sha256": "6182d6433af33e261eb08d7adb22199a6e8ce17a7505f1f3f60f7d8064b87088"
+}

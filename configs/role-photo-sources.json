@@ -1,0 +1,61 @@
+{
+  "dataset": "roles-teams-v1",
+  "purpose": "Additional licensed role-classification crops; not complete detector annotations or independent project test data",
+  "sources": [
+    {
+      "id": "steward-nec",
+      "title": "File:Steward NEC.jpg",
+      "split": "train"
+    },
+    {
+      "id": "steward-torino",
+      "title": "File:Steward (3095108553).jpg",
+      "split": "train"
+    },
+    {
+      "id": "steward-cardiff",
+      "title": "File:Steward do the Ayatollah! (3638636491).jpg",
+      "split": "train"
+    },
+    {
+      "id": "london-control",
+      "title": "File:London Stadium crowd control.jpg",
+      "split": "val"
+    },
+    {
+      "id": "liverpool-steward",
+      "title": "File:Liverpool FC's Might Red liver bird mascot at Anfield giving thumbs up with steward in the background.png",
+      "split": "val"
+    },
+    {
+      "id": "local-fans",
+      "title": "File:Local football fans.jpg",
+      "split": "train"
+    },
+    {
+      "id": "chennai-fan",
+      "title": "File:A Chennaiyin FC Fan.jpg",
+      "split": "train"
+    },
+    {
+      "id": "cardiff-fans",
+      "title": "File:Cardiff Fans do the Ayatollah (6935239821).jpg",
+      "split": "train"
+    },
+    {
+      "id": "uganda-fan",
+      "title": "File:Uganda Cranes Football Fan.jpg",
+      "split": "val"
+    },
+    {
+      "id": "troyes-fans",
+      "title": "File:Supporters Troyens, en déplacement à Lens (2018).jpg",
+      "split": "val"
+    },
+    {
+      "id": "mkdons-stewards",
+      "title": "File:MK Dons 0 Brighton & Hove Albion 0 - geograph.org.uk - 1846056.jpg",
+      "split": "train"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "selected_alpha": 0.25,
+  "all_scores_and_predictions_identical": true,
+  "checkpoint_bytes_identical": true,
+  "source_sha256": "24382f86b0e82ccb0f940b6d41b6b61e8c3fa6bbda51168f1e41737ff5c41e75",
+  "second_preregistration": {
+    "recorded_at": "2026-10-26T08:29:48.612549+00:00",
+    "alpha_grid": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "base_sha256": "adad67b0e3b60803d11a179c11c24d5c6cf2a31cbe9804a93c5da43b2bc008f2",
+    "candidate_sha256": "16cf4e1ffb87ecb1be7b9b5c6f06725b5e238ab69aa76a2ea636588297f98010",
+    "dataset_sha256": "e5a9dc823411e86b615134b1a29011012546350d640154ac40acc94883d7b6b0",
+    "script_sha256": "24382f86b0e82ccb0f940b6d41b6b61e8c3fa6bbda51168f1e41737ff5c41e75",
+    "selection": "Highest all-val six-class macro F1 at .65; ties prefer retained-val F1, then less change from base.",
+    "hypothesis": "Averaging compatible linear heads may retain previous steward decisions while keeping useful new spectator decisions. No incompatible backbone, normalization or colour scale may be averaged.",
+    "human_review_completed": false,
+    "independent_final_test": false
+  }
+}

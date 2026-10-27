@@ -1,0 +1,2262 @@
+{
+  "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+  "mAP50": 0.6137260340002372,
+  "mAP50_95": 0.3106212500653004,
+  "workpoint": {
+    "confidence": 0.25,
+    "matching_iou": 0.5
+  },
+  "per_class": [
+    {
+      "class_id": 0,
+      "name": "player",
+      "objects": 264,
+      "AP50": 0.7293561045579763,
+      "AP50_95": 0.25848908193163805,
+      "TP": 199,
+      "FP": 65,
+      "FN": 65,
+      "precision": 0.7537878787878788,
+      "recall": 0.7537878787878788
+    },
+    {
+      "class_id": 1,
+      "name": "official",
+      "objects": 24,
+      "AP50": 0.49809596344249807,
+      "AP50_95": 0.36275341819896273,
+      "TP": 10,
+      "FP": 0,
+      "FN": 14,
+      "precision": 1.0,
+      "recall": 0.4166666666666667
+    }
+  ],
+  "errors": [
+    {
+      "frame_id": "F_20200220_1_0660_0690_000240",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3467.52685546875,
+          536.6047973632812,
+          3491.962646484375,
+          586.9784545898438
+        ],
+        "confidence": 0.9399962425231934
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3442.6279296875,
+          502.0268859863281,
+          3463.68212890625,
+          546.7476806640625
+        ],
+        "confidence": 0.9108717441558838
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3441.712890625,
+          509.21832275390625,
+          3463.589111328125,
+          556.1581420898438
+        ],
+        "confidence": 0.8713847398757935
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3657.501953125,
+          541.1467895507812,
+          3684.064453125,
+          587.4049072265625
+        ],
+        "confidence": 0.8078887462615967
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3418.293212890625,
+          517.3877563476562,
+          3445.094970703125,
+          568.1355590820312
+        ],
+        "confidence": 0.8062846660614014
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3712.79541015625,
+          500.55712890625,
+          3729.2216796875,
+          527.5208129882812
+        ],
+        "confidence": 0.8001928925514221
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3638.118408203125,
+          547.4279174804688,
+          3664.323974609375,
+          590.8312377929688
+        ],
+        "confidence": 0.7260501980781555
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3513.236572265625,
+          539.70703125,
+          3541.576904296875,
+          591.3391723632812
+        ],
+        "confidence": 0.7216206192970276
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3437.43896484375,
+          526.332275390625,
+          3459.958251953125,
+          572.779296875
+        ],
+        "confidence": 0.7191020846366882
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3636.950927734375,
+          522.5518798828125,
+          3660.78857421875,
+          564.4005126953125
+        ],
+        "confidence": 0.718436062335968
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3359.590087890625,
+          547.9397583007812,
+          3380.24560546875,
+          585.5663452148438
+        ],
+        "confidence": 0.716780960559845
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3383.98681640625,
+          581.4122924804688,
+          3425.329345703125,
+          657.1251220703125
+        ],
+        "confidence": 0.6921235918998718
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000240",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3598.6484375,
+          619.1954956054688,
+          3633.12744140625,
+          697.1958618164062
+        ],
+        "confidence": 0.679692804813385
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000120",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3776.345703125,
+          612.2684326171875,
+          3805.83740234375,
+          675.4598388671875
+        ],
+        "confidence": 0.664120078086853
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000180",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3780.388916015625,
+          637.078125,
+          3814.754638671875,
+          701.9097900390625
+        ],
+        "confidence": 0.6325969696044922
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3419.17578125,
+          506.2604064941406,
+          3443.67724609375,
+          559.8748779296875
+        ],
+        "confidence": 0.6017446517944336
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3422.15087890625,
+          511.703125,
+          3445.899169921875,
+          557.4930419921875
+        ],
+        "confidence": 0.583589494228363
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3758.18115234375,
+          592.9863891601562,
+          3783.599853515625,
+          651.26416015625
+        ],
+        "confidence": 0.5597623586654663
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4241.77734375,
+          635.2706298828125,
+          4284.54833984375,
+          694.0120849609375
+        ],
+        "confidence": 0.5471187233924866
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000000",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3153.37353515625,
+          518.9899291992188,
+          3178.02685546875,
+          566.586181640625
+        ],
+        "confidence": 0.539315402507782
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3720.46630859375,
+          649.1170654296875,
+          3752.21630859375,
+          712.1287231445312
+        ],
+        "confidence": 0.5174905061721802
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3342.70849609375,
+          516.2283935546875,
+          3364.814453125,
+          561.2854614257812
+        ],
+        "confidence": 0.4974815845489502
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2850.126953125,
+          505.7972106933594,
+          2874.206787109375,
+          549.1060180664062
+        ],
+        "confidence": 0.49527063965797424
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3432.921630859375,
+          524.8700561523438,
+          3452.3671875,
+          568.4994506835938
+        ],
+        "confidence": 0.49211472272872925
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4407.34130859375,
+          638.1635131835938,
+          4442.40625,
+          698.9962768554688
+        ],
+        "confidence": 0.48786112666130066
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3300.65478515625,
+          534.4403076171875,
+          3323.8544921875,
+          578.3211669921875
+        ],
+        "confidence": 0.47994470596313477
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3430.528564453125,
+          521.1798095703125,
+          3449.116455078125,
+          563.7410888671875
+        ],
+        "confidence": 0.4796481132507324
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4581.7861328125,
+          659.84423828125,
+          4632.564453125,
+          744.8699951171875
+        ],
+        "confidence": 0.4784863293170929
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3847.993896484375,
+          560.7230834960938,
+          3873.1513671875,
+          602.55810546875
+        ],
+        "confidence": 0.4765685796737671
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3803.251953125,
+          549.2388305664062,
+          3828.087158203125,
+          593.6616821289062
+        ],
+        "confidence": 0.4665263295173645
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3477.747802734375,
+          629.7883911132812,
+          3505.128662109375,
+          702.7352905273438
+        ],
+        "confidence": 0.4653937518596649
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000000",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3159.953125,
+          517.4261474609375,
+          3184.450927734375,
+          564.2120361328125
+        ],
+        "confidence": 0.4538843035697937
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3970.388427734375,
+          515.1085815429688,
+          3993.406982421875,
+          556.5103149414062
+        ],
+        "confidence": 0.4339565336704254
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3651.861328125,
+          545.94677734375,
+          3675.1376953125,
+          593.8369140625
+        ],
+        "confidence": 0.4244319200515747
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000180",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3472.081787109375,
+          552.4901123046875,
+          3498.015380859375,
+          604.2030639648438
+        ],
+        "confidence": 0.4022194445133209
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000300",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3347.276611328125,
+          639.927001953125,
+          3382.720703125,
+          704.4065551757812
+        ],
+        "confidence": 0.4003700613975525
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3525.124755859375,
+          581.77294921875,
+          3548.06884765625,
+          622.3754272460938
+        ],
+        "confidence": 0.39872878789901733
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000000",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3630.39794921875,
+          492.18109130859375,
+          3647.692626953125,
+          523.2529907226562
+        ],
+        "confidence": 0.3723973035812378
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3884.18310546875,
+          516.8273315429688,
+          3906.462646484375,
+          551.9052734375
+        ],
+        "confidence": 0.37131503224372864
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000180",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3252.50146484375,
+          534.5685424804688,
+          3272.194091796875,
+          577.4049072265625
+        ],
+        "confidence": 0.3709392249584198
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3425.64013671875,
+          647.2429809570312,
+          3468.447021484375,
+          734.2734375
+        ],
+        "confidence": 0.3684256672859192
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4319.7783203125,
+          563.057861328125,
+          4349.685546875,
+          609.9154663085938
+        ],
+        "confidence": 0.3543441593647003
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3749.66552734375,
+          597.6201171875,
+          3774.001708984375,
+          648.2156372070312
+        ],
+        "confidence": 0.34119534492492676
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3679.923095703125,
+          496.15118408203125,
+          3699.07861328125,
+          522.5726928710938
+        ],
+        "confidence": 0.3358151614665985
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3843.931640625,
+          494.04241943359375,
+          3863.08935546875,
+          520.5296020507812
+        ],
+        "confidence": 0.3343869149684906
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3648.62548828125,
+          534.2330932617188,
+          3672.4267578125,
+          576.4263916015625
+        ],
+        "confidence": 0.332542359828949
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4243.46435546875,
+          557.6322021484375,
+          4273.576171875,
+          608.4564208984375
+        ],
+        "confidence": 0.33148565888404846
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000300",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3347.359375,
+          601.5955200195312,
+          3382.189697265625,
+          700.69384765625
+        ],
+        "confidence": 0.32115438580513
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000060",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3516.62890625,
+          501.25738525390625,
+          3537.28515625,
+          532.2842407226562
+        ],
+        "confidence": 0.32039234042167664
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3407.94189453125,
+          578.65771484375,
+          3438.22216796875,
+          629.7318725585938
+        ],
+        "confidence": 0.3198290169239044
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3631.8896484375,
+          525.711669921875,
+          3648.19287109375,
+          563.0045776367188
+        ],
+        "confidence": 0.31952714920043945
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4353.0185546875,
+          744.4859008789062,
+          4384.84130859375,
+          788.3212890625
+        ],
+        "confidence": 0.31458309292793274
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3588.83056640625,
+          517.812255859375,
+          3610.352294921875,
+          565.5946655273438
+        ],
+        "confidence": 0.31164470314979553
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3522.7646484375,
+          482.25823974609375,
+          3540.17529296875,
+          508.4243469238281
+        ],
+        "confidence": 0.29895955324172974
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3973.314208984375,
+          512.7936401367188,
+          3996.946044921875,
+          555.0615234375
+        ],
+        "confidence": 0.2970467805862427
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000300",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3800.455078125,
+          498.8670959472656,
+          3818.565673828125,
+          525.3431396484375
+        ],
+        "confidence": 0.28861403465270996
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3530.151611328125,
+          642.2506103515625,
+          3572.7041015625,
+          710.4922485351562
+        ],
+        "confidence": 0.28312164545059204
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3793.409912109375,
+          490.54150390625,
+          3811.23779296875,
+          518.2552490234375
+        ],
+        "confidence": 0.27646002173423767
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3418.8486328125,
+          527.0653076171875,
+          3443.916748046875,
+          583.3895874023438
+        ],
+        "confidence": 0.2724170684814453
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3418.076904296875,
+          510.17706298828125,
+          3442.60546875,
+          562.0142211914062
+        ],
+        "confidence": 0.27180591225624084
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3891.90478515625,
+          551.7098999023438,
+          3917.853271484375,
+          600.7294311523438
+        ],
+        "confidence": 0.2695436477661133
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000240",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3270.892822265625,
+          551.6229248046875,
+          3296.863525390625,
+          606.795166015625
+        ],
+        "confidence": 0.2690201997756958
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000000",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3054.2890625,
+          581.1323852539062,
+          3089.004638671875,
+          640.7002563476562
+        ],
+        "confidence": 0.25967755913734436
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3809.149169921875,
+          551.2383422851562,
+          3834.505126953125,
+          598.1964111328125
+        ],
+        "confidence": 0.2541844844818115
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000000",
+      "type": "FP",
+      "class_id": 0,
+      "prediction": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3593.741455078125,
+          574.6181640625,
+          3621.3486328125,
+          623.5401611328125
+        ],
+        "confidence": 0.2527160048484802
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000000",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3734.0,
+          506.0,
+          3750.0,
+          535.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000000",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3460.0,
+          512.0,
+          3476.0,
+          549.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000000",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2698.0,
+          522.0,
+          2723.0,
+          565.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000000",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3242.0,
+          504.0,
+          3262.0,
+          535.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000000",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3627.0,
+          499.0,
+          3642.0,
+          528.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000060",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3694.0,
+          525.0,
+          3716.0,
+          557.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000060",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3270.0,
+          496.0,
+          3286.0,
+          523.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000060",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2476.0,
+          733.0,
+          2546.0,
+          842.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000060",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3513.0,
+          505.0,
+          3531.0,
+          535.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000120",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3355.0,
+          488.0,
+          3370.0,
+          516.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000120",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2613.0,
+          742.0,
+          2668.0,
+          844.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000120",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3264.0,
+          505.0,
+          3280.0,
+          539.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000120",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3458.0,
+          510.0,
+          3474.0,
+          543.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000180",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3261.0,
+          546.0,
+          3283.0,
+          592.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000180",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3444.0,
+          484.0,
+          3456.0,
+          511.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000240",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3780.0,
+          502.0,
+          3796.0,
+          531.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000240",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3479.0,
+          485.0,
+          3494.0,
+          510.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000240",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3352.0,
+          554.0,
+          3371.0,
+          603.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000240",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3472.0,
+          532.0,
+          3487.0,
+          570.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000240",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3325.0,
+          536.0,
+          3350.0,
+          576.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000300",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3464.0,
+          509.0,
+          3485.0,
+          545.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000300",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3809.0,
+          497.0,
+          3825.0,
+          526.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000300",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3529.0,
+          483.0,
+          3544.0,
+          507.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000300",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3470.0,
+          533.0,
+          3488.0,
+          575.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000300",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3342.0,
+          584.0,
+          3374.0,
+          642.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000300",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3413.0,
+          525.0,
+          3429.0,
+          561.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3409.0,
+          532.0,
+          3423.0,
+          573.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3602.0,
+          504.0,
+          3619.0,
+          535.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3538.0,
+          483.0,
+          3553.0,
+          506.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3403.0,
+          597.0,
+          3428.0,
+          657.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3581.0,
+          519.0,
+          3599.0,
+          552.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2843.0,
+          517.0,
+          2873.0,
+          559.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3919.0,
+          530.0,
+          3937.0,
+          564.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3678.0,
+          501.0,
+          3691.0,
+          528.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3432.0,
+          515.0,
+          3446.0,
+          551.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3622.0,
+          502.0,
+          3639.0,
+          532.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3519.0,
+          484.0,
+          3532.0,
+          507.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3703.0,
+          526.0,
+          3722.0,
+          565.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3711.0,
+          505.0,
+          3724.0,
+          533.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3431.0,
+          521.0,
+          3445.0,
+          557.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4468.0,
+          573.0,
+          4494.0,
+          620.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3506.0,
+          550.0,
+          3534.0,
+          594.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3607.0,
+          505.0,
+          3626.0,
+          536.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3840.0,
+          494.0,
+          3854.0,
+          522.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3517.0,
+          485.0,
+          3530.0,
+          510.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3445.0,
+          505.0,
+          3459.0,
+          536.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3442.0,
+          526.0,
+          3459.0,
+          564.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3521.0,
+          489.0,
+          3535.0,
+          513.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4570.0,
+          663.0,
+          4612.0,
+          738.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3654.0,
+          552.0,
+          3671.0,
+          595.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3422.0,
+          510.0,
+          3438.0,
+          544.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3673.0,
+          515.0,
+          3688.0,
+          543.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3426.0,
+          532.0,
+          3444.0,
+          572.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3791.0,
+          493.0,
+          3805.0,
+          521.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3639.0,
+          564.0,
+          3665.0,
+          604.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3424.0,
+          516.0,
+          3440.0,
+          548.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3640.0,
+          519.0,
+          3656.0,
+          549.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3889.0,
+          522.0,
+          3911.0,
+          560.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3460.0,
+          492.0,
+          3473.0,
+          517.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3507.0,
+          598.0,
+          3542.0,
+          648.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3681.0,
+          537.0,
+          3706.0,
+          580.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3535.0,
+          577.0,
+          3566.0,
+          626.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3524.0,
+          555.0,
+          3550.0,
+          598.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3349.0,
+          519.0,
+          3368.0,
+          553.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FN",
+      "class_id": 0,
+      "annotation": {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3446.0,
+          567.0,
+          3477.0,
+          608.0
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000000",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          3599,
+          573,
+          3620,
+          620
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000060",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          3523,
+          574,
+          3541,
+          623
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000120",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          3494,
+          562,
+          3509,
+          603
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000180",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          3477,
+          556,
+          3494,
+          598
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000180",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          4246,
+          818,
+          4288,
+          930
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000240",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          3466,
+          554,
+          3481,
+          594
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000300",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          3510,
+          549,
+          3529,
+          589
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          3604,
+          541,
+          3618,
+          580
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          3649,
+          536,
+          3668,
+          575
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          3656,
+          535,
+          3672,
+          574
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          3670,
+          541,
+          3686,
+          578
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          3641,
+          535,
+          3655,
+          565
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          4574,
+          804,
+          4639,
+          900
+        ]
+      },
+      "cause": "not established"
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "type": "FN",
+      "class_id": 1,
+      "annotation": {
+        "class_id": 1,
+        "bbox_xyxy": [
+          3636,
+          525,
+          3647,
+          560
+        ]
+      },
+      "cause": "not established"
+    }
+  ]
+}

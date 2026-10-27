@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "profile_name": "Development ablation: R015 with jointly trained generic-person proposals",
+  "models": [
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "weights": "../../../artifacts/players-v2/players_best.pt",
+      "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+      "class_mapping": {
+        "0": "player",
+        "1": "referee"
+      },
+      "expected_names": {
+        "0": "player",
+        "1": "referee"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    },
+    {
+      "model_id": "football48-person-proposals-f003",
+      "weights": "../../../artifacts/football48-ball-v2/EXP-F003-best.pt",
+      "weights_sha256": "1aa203d2971ad582da9631ce54ad5cb057aa79667a064d8a0c771805b4ce0fa4",
+      "class_mapping": {
+        "0": "person"
+      },
+      "expected_names": {
+        "0": "person"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    }
+  ],
+  "appearance": {
+    "model_id": "appearance-r015",
+    "weights": "../../../artifacts/appearance-v3/roles_teams_r015.pt",
+    "weights_sha256": "6ab7a9d2e8273153591c5d251a980f399dcda955a9d94af7b30238e8edfcf53c",
+    "role_names": [
+      "player",
+      "referee",
+      "assistant_referee",
+      "steward",
+      "spectator",
+      "person"
+    ],
+    "role_confidence": 0.65,
+    "team_confidence": 0.65,
+    "device": "0"
+  }
+}

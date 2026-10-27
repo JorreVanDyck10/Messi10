@@ -1,0 +1,1041 @@
+{
+  "scope": "Conditional crop classification, not detection AP; development data with AI labels.",
+  "dataset_sha256": "e5a9dc823411e86b615134b1a29011012546350d640154ac40acc94883d7b6b0",
+  "weights_sha256": {
+    "R007": "adad67b0e3b60803d11a179c11c24d5c6cf2a31cbe9804a93c5da43b2bc008f2",
+    "candidate": "6ab7a9d2e8273153591c5d251a980f399dcda955a9d94af7b30238e8edfcf53c"
+  },
+  "role_names": [
+    "player",
+    "referee",
+    "assistant_referee",
+    "steward",
+    "spectator",
+    "person"
+  ],
+  "team_names": [
+    "team_a",
+    "team_b"
+  ],
+  "threshold": 0.65,
+  "subsets": {
+    "all_val": {
+      "R007": {
+        "accuracy": 0.8461538461538461,
+        "macro_f1": 0.74438428881421,
+        "per_class": [
+          {
+            "name": "player",
+            "n": 369,
+            "correct": 335,
+            "precision": 0.9654178674351584,
+            "recall": 0.907859078590786,
+            "f1": 0.9357541899441341
+          },
+          {
+            "name": "referee",
+            "n": 19,
+            "correct": 12,
+            "precision": 0.9230769230769231,
+            "recall": 0.631578947368421,
+            "f1": 0.7499999999999999
+          },
+          {
+            "name": "assistant_referee",
+            "n": 15,
+            "correct": 14,
+            "precision": 1.0,
+            "recall": 0.9333333333333333,
+            "f1": 0.9655172413793104
+          },
+          {
+            "name": "steward",
+            "n": 14,
+            "correct": 9,
+            "precision": 0.5294117647058824,
+            "recall": 0.6428571428571429,
+            "f1": 0.5806451612903226
+          },
+          {
+            "name": "spectator",
+            "n": 41,
+            "correct": 21,
+            "precision": 0.875,
+            "recall": 0.5121951219512195,
+            "f1": 0.6461538461538462
+          },
+          {
+            "name": "person",
+            "n": 10,
+            "correct": 5,
+            "precision": 0.7142857142857143,
+            "recall": 0.5,
+            "f1": 0.588235294117647
+          }
+        ],
+        "confusion": [
+          [
+            335,
+            1,
+            0,
+            2,
+            1,
+            0,
+            30
+          ],
+          [
+            3,
+            12,
+            0,
+            0,
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            0,
+            14,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            9,
+            1,
+            0,
+            4
+          ],
+          [
+            5,
+            0,
+            0,
+            6,
+            21,
+            0,
+            9
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            1,
+            5,
+            0
+          ]
+        ],
+        "confusion_columns": [
+          "player",
+          "referee",
+          "assistant_referee",
+          "steward",
+          "spectator",
+          "person",
+          "unknown"
+        ],
+        "teams": {
+          "labelled_crops": 314,
+          "correct": 301,
+          "wrong": 4,
+          "unknown": 9
+        },
+        "crops": 468
+      },
+      "candidate": {
+        "accuracy": 0.8824786324786325,
+        "macro_f1": 0.764767023700642,
+        "per_class": [
+          {
+            "name": "player",
+            "n": 369,
+            "correct": 349,
+            "precision": 0.9667590027700831,
+            "recall": 0.94579945799458,
+            "f1": 0.9561643835616438
+          },
+          {
+            "name": "referee",
+            "n": 19,
+            "correct": 11,
+            "precision": 0.9166666666666666,
+            "recall": 0.5789473684210527,
+            "f1": 0.7096774193548387
+          },
+          {
+            "name": "assistant_referee",
+            "n": 15,
+            "correct": 14,
+            "precision": 1.0,
+            "recall": 0.9333333333333333,
+            "f1": 0.9655172413793104
+          },
+          {
+            "name": "steward",
+            "n": 14,
+            "correct": 8,
+            "precision": 0.6666666666666666,
+            "recall": 0.5714285714285714,
+            "f1": 0.6153846153846153
+          },
+          {
+            "name": "spectator",
+            "n": 41,
+            "correct": 26,
+            "precision": 0.9285714285714286,
+            "recall": 0.6341463414634146,
+            "f1": 0.7536231884057972
+          },
+          {
+            "name": "person",
+            "n": 10,
+            "correct": 5,
+            "precision": 0.7142857142857143,
+            "recall": 0.5,
+            "f1": 0.588235294117647
+          }
+        ],
+        "confusion": [
+          [
+            349,
+            1,
+            0,
+            2,
+            0,
+            0,
+            17
+          ],
+          [
+            3,
+            11,
+            0,
+            0,
+            0,
+            1,
+            4
+          ],
+          [
+            0,
+            0,
+            14,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            8,
+            1,
+            0,
+            5
+          ],
+          [
+            5,
+            0,
+            0,
+            2,
+            26,
+            0,
+            8
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            1,
+            5,
+            0
+          ]
+        ],
+        "confusion_columns": [
+          "player",
+          "referee",
+          "assistant_referee",
+          "steward",
+          "spectator",
+          "person",
+          "unknown"
+        ],
+        "teams": {
+          "labelled_crops": 314,
+          "correct": 303,
+          "wrong": 4,
+          "unknown": 7
+        },
+        "crops": 468
+      }
+    },
+    "retained_val": {
+      "R007": {
+        "accuracy": 0.9354838709677419,
+        "macro_f1": 0.7934742920884345,
+        "per_class": [
+          {
+            "name": "player",
+            "n": 314,
+            "correct": 307,
+            "precision": 0.9654088050314465,
+            "recall": 0.9777070063694268,
+            "f1": 0.9715189873417721
+          },
+          {
+            "name": "referee",
+            "n": 15,
+            "correct": 12,
+            "precision": 0.9230769230769231,
+            "recall": 0.8,
+            "f1": 0.8571428571428571
+          },
+          {
+            "name": "assistant_referee",
+            "n": 15,
+            "correct": 14,
+            "precision": 1.0,
+            "recall": 0.9333333333333333,
+            "f1": 0.9655172413793104
+          },
+          {
+            "name": "steward",
+            "n": 8,
+            "correct": 6,
+            "precision": 0.8571428571428571,
+            "recall": 0.75,
+            "f1": 0.7999999999999999
+          },
+          {
+            "name": "spectator",
+            "n": 11,
+            "correct": 4,
+            "precision": 0.8,
+            "recall": 0.36363636363636365,
+            "f1": 0.5000000000000001
+          },
+          {
+            "name": "person",
+            "n": 9,
+            "correct": 5,
+            "precision": 0.8333333333333334,
+            "recall": 0.5555555555555556,
+            "f1": 0.6666666666666667
+          }
+        ],
+        "confusion": [
+          [
+            307,
+            1,
+            0,
+            1,
+            0,
+            0,
+            5
+          ],
+          [
+            2,
+            12,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            14,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6,
+            1,
+            0,
+            1
+          ],
+          [
+            5,
+            0,
+            0,
+            0,
+            4,
+            0,
+            2
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0
+          ]
+        ],
+        "confusion_columns": [
+          "player",
+          "referee",
+          "assistant_referee",
+          "steward",
+          "spectator",
+          "person",
+          "unknown"
+        ],
+        "teams": {
+          "labelled_crops": 314,
+          "correct": 301,
+          "wrong": 4,
+          "unknown": 9
+        },
+        "crops": 372
+      },
+      "candidate": {
+        "accuracy": 0.9381720430107527,
+        "macro_f1": 0.7873805230340362,
+        "per_class": [
+          {
+            "name": "player",
+            "n": 314,
+            "correct": 309,
+            "precision": 0.965625,
+            "recall": 0.9840764331210191,
+            "f1": 0.974763406940063
+          },
+          {
+            "name": "referee",
+            "n": 15,
+            "correct": 11,
+            "precision": 0.9166666666666666,
+            "recall": 0.7333333333333333,
+            "f1": 0.8148148148148148
+          },
+          {
+            "name": "assistant_referee",
+            "n": 15,
+            "correct": 14,
+            "precision": 1.0,
+            "recall": 0.9333333333333333,
+            "f1": 0.9655172413793104
+          },
+          {
+            "name": "steward",
+            "n": 8,
+            "correct": 5,
+            "precision": 0.8333333333333334,
+            "recall": 0.625,
+            "f1": 0.7142857142857143
+          },
+          {
+            "name": "spectator",
+            "n": 11,
+            "correct": 5,
+            "precision": 0.8333333333333334,
+            "recall": 0.45454545454545453,
+            "f1": 0.5882352941176471
+          },
+          {
+            "name": "person",
+            "n": 9,
+            "correct": 5,
+            "precision": 0.8333333333333334,
+            "recall": 0.5555555555555556,
+            "f1": 0.6666666666666667
+          }
+        ],
+        "confusion": [
+          [
+            309,
+            1,
+            0,
+            1,
+            0,
+            0,
+            3
+          ],
+          [
+            2,
+            11,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            14,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            1,
+            0,
+            2
+          ],
+          [
+            5,
+            0,
+            0,
+            0,
+            5,
+            0,
+            1
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0
+          ]
+        ],
+        "confusion_columns": [
+          "player",
+          "referee",
+          "assistant_referee",
+          "steward",
+          "spectator",
+          "person",
+          "unknown"
+        ],
+        "teams": {
+          "labelled_crops": 314,
+          "correct": 303,
+          "wrong": 4,
+          "unknown": 7
+        },
+        "crops": 372
+      }
+    },
+    "new_match_val": {
+      "R007": {
+        "accuracy": 0.4745762711864407,
+        "macro_f1": 0.11111111111111112,
+        "per_class": [
+          {
+            "name": "player",
+            "n": 55,
+            "correct": 28,
+            "precision": 0.9655172413793104,
+            "recall": 0.509090909090909,
+            "f1": 0.6666666666666667
+          },
+          {
+            "name": "referee",
+            "n": 4,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0.0,
+            "f1": 0
+          },
+          {
+            "name": "assistant_referee",
+            "n": 0,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0,
+            "f1": 0
+          },
+          {
+            "name": "steward",
+            "n": 0,
+            "correct": 0,
+            "precision": 0.0,
+            "recall": 0,
+            "f1": 0
+          },
+          {
+            "name": "spectator",
+            "n": 0,
+            "correct": 0,
+            "precision": 0.0,
+            "recall": 0,
+            "f1": 0
+          },
+          {
+            "name": "person",
+            "n": 0,
+            "correct": 0,
+            "precision": 0.0,
+            "recall": 0,
+            "f1": 0
+          }
+        ],
+        "confusion": [
+          [
+            28,
+            0,
+            0,
+            1,
+            1,
+            0,
+            25
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "confusion_columns": [
+          "player",
+          "referee",
+          "assistant_referee",
+          "steward",
+          "spectator",
+          "person",
+          "unknown"
+        ],
+        "teams": {
+          "labelled_crops": 0,
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 0
+        },
+        "crops": 59
+      },
+      "candidate": {
+        "accuracy": 0.6779661016949152,
+        "macro_f1": 0.1388888888888889,
+        "per_class": [
+          {
+            "name": "player",
+            "n": 55,
+            "correct": 40,
+            "precision": 0.975609756097561,
+            "recall": 0.7272727272727273,
+            "f1": 0.8333333333333334
+          },
+          {
+            "name": "referee",
+            "n": 4,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0.0,
+            "f1": 0
+          },
+          {
+            "name": "assistant_referee",
+            "n": 0,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0,
+            "f1": 0
+          },
+          {
+            "name": "steward",
+            "n": 0,
+            "correct": 0,
+            "precision": 0.0,
+            "recall": 0,
+            "f1": 0
+          },
+          {
+            "name": "spectator",
+            "n": 0,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0,
+            "f1": 0
+          },
+          {
+            "name": "person",
+            "n": 0,
+            "correct": 0,
+            "precision": 0.0,
+            "recall": 0,
+            "f1": 0
+          }
+        ],
+        "confusion": [
+          [
+            40,
+            0,
+            0,
+            1,
+            0,
+            0,
+            14
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "confusion_columns": [
+          "player",
+          "referee",
+          "assistant_referee",
+          "steward",
+          "spectator",
+          "person",
+          "unknown"
+        ],
+        "teams": {
+          "labelled_crops": 0,
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 0
+        },
+        "crops": 59
+      }
+    },
+    "new_rare_roles_val": {
+      "R007": {
+        "accuracy": 0.5405405405405406,
+        "macro_f1": 0.18472222222222223,
+        "per_class": [
+          {
+            "name": "player",
+            "n": 0,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0,
+            "f1": 0
+          },
+          {
+            "name": "referee",
+            "n": 0,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0,
+            "f1": 0
+          },
+          {
+            "name": "assistant_referee",
+            "n": 0,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0,
+            "f1": 0
+          },
+          {
+            "name": "steward",
+            "n": 6,
+            "correct": 3,
+            "precision": 0.3333333333333333,
+            "recall": 0.5,
+            "f1": 0.4
+          },
+          {
+            "name": "spectator",
+            "n": 30,
+            "correct": 17,
+            "precision": 0.9444444444444444,
+            "recall": 0.5666666666666667,
+            "f1": 0.7083333333333334
+          },
+          {
+            "name": "person",
+            "n": 1,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0.0,
+            "f1": 0
+          }
+        ],
+        "confusion": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            6,
+            17,
+            0,
+            7
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ]
+        ],
+        "confusion_columns": [
+          "player",
+          "referee",
+          "assistant_referee",
+          "steward",
+          "spectator",
+          "person",
+          "unknown"
+        ],
+        "teams": {
+          "labelled_crops": 0,
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 0
+        },
+        "crops": 37
+      },
+      "candidate": {
+        "accuracy": 0.6486486486486487,
+        "macro_f1": 0.22552447552447552,
+        "per_class": [
+          {
+            "name": "player",
+            "n": 0,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0,
+            "f1": 0
+          },
+          {
+            "name": "referee",
+            "n": 0,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0,
+            "f1": 0
+          },
+          {
+            "name": "assistant_referee",
+            "n": 0,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0,
+            "f1": 0
+          },
+          {
+            "name": "steward",
+            "n": 6,
+            "correct": 3,
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454
+          },
+          {
+            "name": "spectator",
+            "n": 30,
+            "correct": 21,
+            "precision": 0.9545454545454546,
+            "recall": 0.7,
+            "f1": 0.8076923076923077
+          },
+          {
+            "name": "person",
+            "n": 1,
+            "correct": 0,
+            "precision": 0,
+            "recall": 0.0,
+            "f1": 0
+          }
+        ],
+        "confusion": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            21,
+            0,
+            7
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ]
+        ],
+        "confusion_columns": [
+          "player",
+          "referee",
+          "assistant_referee",
+          "steward",
+          "spectator",
+          "person",
+          "unknown"
+        ],
+        "teams": {
+          "labelled_crops": 0,
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 0
+        },
+        "crops": 37
+      }
+    }
+  },
+  "human_review_completed": false,
+  "independent_final_test": false
+}

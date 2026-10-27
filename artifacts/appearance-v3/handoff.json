@@ -1,0 +1,255 @@
+{
+  "scope": "Experimental role classifiers and one compatible head-interpolation candidate; R007 remains default. These are NOT six-class YOLO detectors.",
+  "models": [
+    {
+      "run": "EXP-R011",
+      "weights": "roles_teams_r011.pt",
+      "sha256": "0d1e2baabd4d8ed6e268a77bb616bcf974bf1b12b2406105dde837beb488b420",
+      "bytes": 3853678,
+      "role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "team_names": [
+        "team_a",
+        "team_b"
+      ],
+      "role_colour_scale": 8.0,
+      "normalization_dimensions": [
+        608
+      ],
+      "input_crop_size": [
+        128,
+        192
+      ],
+      "known_team_video_hashes": [
+        "678c8070c60a60a5f8c939caf5ea6f3fa36403bf2d136a1920726dc2e9a2933e",
+        "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+        "939eaae38f9d14d4141154f931e00e95bdc2d8d7e24f006551a3e48952a539fb",
+        "caaf63af7750eb56c6f31fbb9bceeb5d51bc06a1654659f110b34f5462ae542d"
+      ],
+      "selected_default": false,
+      "experiment_record": "../../reports/person1-round3/EXP-R011"
+    },
+    {
+      "run": "EXP-R012",
+      "weights": "roles_teams_r012.pt",
+      "sha256": "ad74a6f0eee85ac4cac48b601ee7e6ab2c0fb7990e2b56ad8d09ef508f55813e",
+      "bytes": 3853678,
+      "role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "team_names": [
+        "team_a",
+        "team_b"
+      ],
+      "role_colour_scale": 8.0,
+      "normalization_dimensions": [
+        608
+      ],
+      "input_crop_size": [
+        128,
+        192
+      ],
+      "known_team_video_hashes": [
+        "678c8070c60a60a5f8c939caf5ea6f3fa36403bf2d136a1920726dc2e9a2933e",
+        "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+        "939eaae38f9d14d4141154f931e00e95bdc2d8d7e24f006551a3e48952a539fb",
+        "caaf63af7750eb56c6f31fbb9bceeb5d51bc06a1654659f110b34f5462ae542d"
+      ],
+      "selected_default": false,
+      "experiment_record": "../../reports/person1-round3/EXP-R012"
+    },
+    {
+      "run": "EXP-R013",
+      "weights": "roles_teams_r013.pt",
+      "sha256": "8a0e50f0840bf6f840a089f5d03285c675c39c8f934da90c028323d57fde379a",
+      "bytes": 3853678,
+      "role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "team_names": [
+        "team_a",
+        "team_b"
+      ],
+      "role_colour_scale": 1.0,
+      "normalization_dimensions": [
+        608
+      ],
+      "input_crop_size": [
+        128,
+        192
+      ],
+      "known_team_video_hashes": [
+        "678c8070c60a60a5f8c939caf5ea6f3fa36403bf2d136a1920726dc2e9a2933e",
+        "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+        "939eaae38f9d14d4141154f931e00e95bdc2d8d7e24f006551a3e48952a539fb",
+        "caaf63af7750eb56c6f31fbb9bceeb5d51bc06a1654659f110b34f5462ae542d"
+      ],
+      "selected_default": false,
+      "experiment_record": "../../reports/person1-round3/EXP-R013"
+    },
+    {
+      "run": "EXP-R014",
+      "weights": "roles_teams_r014.pt",
+      "sha256": "16cf4e1ffb87ecb1be7b9b5c6f06725b5e238ab69aa76a2ea636588297f98010",
+      "bytes": 3853678,
+      "role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "team_names": [
+        "team_a",
+        "team_b"
+      ],
+      "role_colour_scale": 8.0,
+      "normalization_dimensions": [
+        608
+      ],
+      "input_crop_size": [
+        128,
+        192
+      ],
+      "known_team_video_hashes": [
+        "678c8070c60a60a5f8c939caf5ea6f3fa36403bf2d136a1920726dc2e9a2933e",
+        "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+        "939eaae38f9d14d4141154f931e00e95bdc2d8d7e24f006551a3e48952a539fb",
+        "caaf63af7750eb56c6f31fbb9bceeb5d51bc06a1654659f110b34f5462ae542d"
+      ],
+      "selected_default": false,
+      "experiment_record": "../../reports/person1-round3/EXP-R014"
+    },
+    {
+      "run": "EXP-R015",
+      "weights": "roles_teams_r015.pt",
+      "sha256": "6ab7a9d2e8273153591c5d251a980f399dcda955a9d94af7b30238e8edfcf53c",
+      "bytes": 3853934,
+      "role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "team_names": [
+        "team_a",
+        "team_b"
+      ],
+      "role_colour_scale": 8.0,
+      "normalization_dimensions": [
+        608
+      ],
+      "input_crop_size": [
+        128,
+        192
+      ],
+      "known_team_video_hashes": [
+        "678c8070c60a60a5f8c939caf5ea6f3fa36403bf2d136a1920726dc2e9a2933e",
+        "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+        "939eaae38f9d14d4141154f931e00e95bdc2d8d7e24f006551a3e48952a539fb",
+        "caaf63af7750eb56c6f31fbb9bceeb5d51bc06a1654659f110b34f5462ae542d"
+      ],
+      "selected_default": false,
+      "experiment_record": "../../reports/person1-round3/EXP-R015"
+    },
+    {
+      "run": "EXP-R016",
+      "weights": "roles_teams_r016.pt",
+      "sha256": "b1706eda279ba5a8cabe896d88bbd8449739013a2fbcbe17aa5c9e014469b91d",
+      "bytes": 3853678,
+      "role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "team_names": [
+        "team_a",
+        "team_b"
+      ],
+      "role_colour_scale": 8.0,
+      "normalization_dimensions": [
+        608
+      ],
+      "input_crop_size": [
+        128,
+        192
+      ],
+      "known_team_video_hashes": [
+        "678c8070c60a60a5f8c939caf5ea6f3fa36403bf2d136a1920726dc2e9a2933e",
+        "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+        "939eaae38f9d14d4141154f931e00e95bdc2d8d7e24f006551a3e48952a539fb",
+        "caaf63af7750eb56c6f31fbb9bceeb5d51bc06a1654659f110b34f5462ae542d"
+      ],
+      "experiment_record": "../../reports/person1-round3/EXP-R016",
+      "selected_default": false
+    }
+  ],
+  "base_detection_weights": "../players-v2/players_best.pt",
+  "base_detector_source_classes": {
+    "0": "player",
+    "1": "referee"
+  },
+  "role_classifier_classes": {
+    "0": "player",
+    "1": "referee",
+    "2": "assistant_referee",
+    "3": "steward",
+    "4": "spectator",
+    "5": "person"
+  },
+  "team_classes": {
+    "0": "team_a",
+    "1": "team_b"
+  },
+  "inference_profile": "../../configs/models-roles-r015.json",
+  "inference": {
+    "role_threshold": 0.65,
+    "team_threshold": 0.65,
+    "detector_imgsz": 1920,
+    "detector_confidence_floor": 0.1,
+    "detector_nms_iou": 0.7
+  },
+  "datasets": {
+    "R011_R012": "../../datasets/roles-teams-v3/manifest-v3.0.json",
+    "R013_R014": "../../datasets/roles-teams-v3/manifest.json",
+    "R015": "R007 base plus 25% R014 role head; backbone/normalization and R007 team head preserved",
+    "R016": "../../datasets/roles-teams-v3/manifest.json; corrected photo augmentation in both feature stages"
+  },
+  "dependencies": {
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "opencv-python": "4.11.0.86",
+    "numpy": "2.2.6",
+    "psutil": "7.2.2",
+    "lap": "0.5.13"
+  },
+  "gpu_actual": "NVIDIA GeForce RTX 3050 Laptop GPU, 4 GiB",
+  "target_gpu": "RTX 4050; not measured in this round",
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "handoff_examples": "../../reports/person1-round3/handoff-examples-final/handoff.json"
+}

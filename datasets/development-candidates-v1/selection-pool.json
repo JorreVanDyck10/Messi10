@@ -1,0 +1,324 @@
+{
+  "candidates": [
+    {
+      "group_id": "phase-0330",
+      "clip_frame_index": 175,
+      "priority": 1,
+      "ambiguous_role_proposals": 1,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "player": 13,
+        "person": 2
+      }
+    },
+    {
+      "group_id": "phase-0330",
+      "clip_frame_index": 250,
+      "priority": 9,
+      "ambiguous_role_proposals": 7,
+      "player_proposals_outside_approximate_region": 1,
+      "predicted_roles": {
+        "player": 21,
+        "person": 6,
+        "assistant_referee": 1
+      }
+    },
+    {
+      "group_id": "phase-0330",
+      "clip_frame_index": 325,
+      "priority": 4,
+      "ambiguous_role_proposals": 4,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "player": 16,
+        "person": 4,
+        "assistant_referee": 1,
+        "steward": 1
+      }
+    },
+    {
+      "group_id": "phase-0330",
+      "clip_frame_index": 400,
+      "priority": 8,
+      "ambiguous_role_proposals": 8,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "player": 15,
+        "person": 5,
+        "steward": 2,
+        "spectator": 1
+      }
+    },
+    {
+      "group_id": "phase-0330",
+      "clip_frame_index": 475,
+      "priority": 4,
+      "ambiguous_role_proposals": 4,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "player": 8,
+        "person": 5,
+        "spectator": 1
+      }
+    },
+    {
+      "group_id": "phase-0750",
+      "clip_frame_index": 250,
+      "priority": 4,
+      "ambiguous_role_proposals": 4,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "person": 5,
+        "player": 11,
+        "assistant_referee": 1,
+        "spectator": 2
+      }
+    },
+    {
+      "group_id": "phase-0750",
+      "clip_frame_index": 325,
+      "priority": 8,
+      "ambiguous_role_proposals": 8,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "player": 9,
+        "person": 7,
+        "spectator": 2
+      }
+    },
+    {
+      "group_id": "phase-0750",
+      "clip_frame_index": 400,
+      "priority": 8,
+      "ambiguous_role_proposals": 8,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "person": 6,
+        "player": 7,
+        "assistant_referee": 1,
+        "referee": 1,
+        "steward": 1
+      }
+    },
+    {
+      "group_id": "phase-0750",
+      "clip_frame_index": 475,
+      "priority": 7,
+      "ambiguous_role_proposals": 7,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "person": 3,
+        "player": 10,
+        "steward": 2,
+        "spectator": 1
+      }
+    },
+    {
+      "group_id": "phase-0960",
+      "clip_frame_index": 250,
+      "priority": 11,
+      "ambiguous_role_proposals": 11,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "player": 15,
+        "person": 7,
+        "steward": 2,
+        "spectator": 1,
+        "assistant_referee": 1
+      }
+    },
+    {
+      "group_id": "phase-0960",
+      "clip_frame_index": 325,
+      "priority": 7,
+      "ambiguous_role_proposals": 7,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "person": 6,
+        "player": 23,
+        "steward": 1
+      }
+    },
+    {
+      "group_id": "phase-0960",
+      "clip_frame_index": 400,
+      "priority": 7,
+      "ambiguous_role_proposals": 7,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "player": 12,
+        "person": 5,
+        "assistant_referee": 1,
+        "steward": 1
+      }
+    },
+    {
+      "group_id": "phase-0960",
+      "clip_frame_index": 475,
+      "priority": 4,
+      "ambiguous_role_proposals": 4,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "player": 13,
+        "assistant_referee": 1,
+        "person": 3
+      }
+    },
+    {
+      "group_id": "phase-1170",
+      "clip_frame_index": 25,
+      "priority": 8,
+      "ambiguous_role_proposals": 6,
+      "player_proposals_outside_approximate_region": 1,
+      "predicted_roles": {
+        "assistant_referee": 1,
+        "person": 6,
+        "player": 12,
+        "spectator": 2
+      }
+    },
+    {
+      "group_id": "phase-1170",
+      "clip_frame_index": 175,
+      "priority": 3,
+      "ambiguous_role_proposals": 1,
+      "player_proposals_outside_approximate_region": 1,
+      "predicted_roles": {
+        "player": 23,
+        "person": 1,
+        "assistant_referee": 1
+      }
+    },
+    {
+      "group_id": "phase-1170",
+      "clip_frame_index": 400,
+      "priority": 9,
+      "ambiguous_role_proposals": 9,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "steward": 1,
+        "person": 9,
+        "player": 13,
+        "spectator": 1,
+        "assistant_referee": 1
+      }
+    },
+    {
+      "group_id": "phase-1170",
+      "clip_frame_index": 475,
+      "priority": 4,
+      "ambiguous_role_proposals": 4,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "player": 21,
+        "person": 4,
+        "steward": 1,
+        "assistant_referee": 1
+      }
+    },
+    {
+      "group_id": "phase-1380",
+      "clip_frame_index": 25,
+      "priority": 13,
+      "ambiguous_role_proposals": 11,
+      "player_proposals_outside_approximate_region": 1,
+      "predicted_roles": {
+        "assistant_referee": 1,
+        "player": 15,
+        "person": 10,
+        "steward": 1,
+        "spectator": 1
+      }
+    },
+    {
+      "group_id": "phase-1380",
+      "clip_frame_index": 175,
+      "priority": 13,
+      "ambiguous_role_proposals": 13,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "spectator": 3,
+        "player": 9,
+        "person": 11,
+        "steward": 2
+      }
+    },
+    {
+      "group_id": "phase-1380",
+      "clip_frame_index": 400,
+      "priority": 4,
+      "ambiguous_role_proposals": 4,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "person": 4,
+        "player": 15,
+        "assistant_referee": 2,
+        "steward": 1
+      }
+    },
+    {
+      "group_id": "phase-1380",
+      "clip_frame_index": 475,
+      "priority": 4,
+      "ambiguous_role_proposals": 4,
+      "player_proposals_outside_approximate_region": 0,
+      "predicted_roles": {
+        "assistant_referee": 2,
+        "player": 16,
+        "person": 4
+      }
+    },
+    {
+      "group_id": "phase-1590",
+      "clip_frame_index": 25,
+      "priority": 7,
+      "ambiguous_role_proposals": 5,
+      "player_proposals_outside_approximate_region": 1,
+      "predicted_roles": {
+        "person": 5,
+        "player": 20,
+        "spectator": 1,
+        "assistant_referee": 1
+      }
+    },
+    {
+      "group_id": "phase-1590",
+      "clip_frame_index": 175,
+      "priority": 10,
+      "ambiguous_role_proposals": 8,
+      "player_proposals_outside_approximate_region": 1,
+      "predicted_roles": {
+        "player": 13,
+        "person": 6,
+        "steward": 1,
+        "spectator": 1
+      }
+    },
+    {
+      "group_id": "phase-1590",
+      "clip_frame_index": 325,
+      "priority": 10,
+      "ambiguous_role_proposals": 8,
+      "player_proposals_outside_approximate_region": 1,
+      "predicted_roles": {
+        "player": 12,
+        "person": 9,
+        "steward": 1,
+        "spectator": 1
+      }
+    },
+    {
+      "group_id": "phase-1590",
+      "clip_frame_index": 475,
+      "priority": 8,
+      "ambiguous_role_proposals": 6,
+      "player_proposals_outside_approximate_region": 1,
+      "predicted_roles": {
+        "player": 16,
+        "person": 6,
+        "spectator": 2,
+        "steward": 1
+      }
+    }
+  ]
+}
