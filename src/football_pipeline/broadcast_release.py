@@ -24,6 +24,7 @@ def build_profile(weights, roles=None, kit=None, *, protected=True):
     profile["profile_name"] = "Broadcast — spelers op het veld en Team A/B"
     profile["models"] = [s for s in profile["models"] if set(s["class_mapping"].values()) != {"ball"}]
     profile["models"][0].update(weights=str(Path(weights).resolve()), weights_sha256=sha256_file(weights))
+    profile["models"][1]["weights"] = str(ROOT / "artifacts/appearance-v1/person_proposals.pt")
     if roles:
         profile["appearance"].update(weights=str(Path(roles).resolve()), weights_sha256=sha256_file(roles),
                                      role_policy="preserve_detector_players" if protected else "classifier")
@@ -40,7 +41,7 @@ def candidate_score(report):
     p, t = report["player_detection_and_roles"]["per_class"][0], report["teams"]
     f1 = 2 * p["precision"] * p["recall"] / max(1e-9, p["precision"] + p["recall"])
     return (bool(report["targets_met"]), t["correct_fraction_all_players"] -
-            2 * t["wrong"] / max(1, t["matched_players"] + t["missed_players"]), f1)
+            2 * (t["wrong"] + t["false_positive_players"]) / max(1, t["matched_players"] + t["missed_players"]), f1)
 
 
 def compare_and_package(dataset, output):
@@ -63,6 +64,12 @@ def compare_and_package(dataset, output):
         "new-detector-classifier": (build_profile(trained, new_roles, kit, protected=False), embedding_settings),
         "new-detector-only": (build_profile(trained, kit=kit), embedding_settings),
     }
+    # Test whether extra source detail recovers small players. The model's actual
+    # class identities and source-pixel boxes remain identical in meaning.
+    for name in ("new-detector-protected", "new-detector-classifier", "new-detector-only"):
+        profile, settings = copy.deepcopy(candidates[name])
+        profile["models"][0]["imgsz"] = 1920
+        candidates[name + "-1920"] = profile, settings
     reports = {}
     for name, (profile, settings) in candidates.items():
         directory = output / "evaluation" / name
@@ -114,7 +121,7 @@ def compare_and_package(dataset, output):
     compact["data"] = {k: source[k] for k in ("source", "source_revision", "selection", "counts", "fingerprint")}
     compact["training"] = {"detector": detector, "roles": read_json(output / "roles/metrics.json"),
                             "teams": kit_report, "features_runtime_s":
-                            float(__import__("torch").load(output / "appearance/features.pt", map_location="cpu", weights_only=True)["runtime_s"])}
+                            read_json(output / "appearance/metrics.json")["runtime_s"]}
     compact["training"]["gpu_stage_wall_seconds"] = (detector["runtime_s"]
         + compact["training"]["roles"]["runtime_s"] + kit_report["runtime_s"] + compact["training"]["features_runtime_s"])
     write_json(report_root / "summary.json", compact)

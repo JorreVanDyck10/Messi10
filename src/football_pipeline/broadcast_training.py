@@ -92,6 +92,8 @@ def features(dataset, output):
     data = {"identity": identity, "rows": rows, "role": role, "kit": kit,
             "backbone": state["backbone"], "runtime_s": time.monotonic() - started}
     torch.save(data, path)
+    write_json(output / "metrics.json", {"identity": identity, "runtime_s": data["runtime_s"],
+               "images": len(grouped), "crops": len(rows), "encoder_sha256": sha256_file(BASE_ROLES)})
     del encoder
     torch.cuda.empty_cache()
     return data
