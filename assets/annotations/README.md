@@ -2,8 +2,12 @@
 
 Deze selecties staan samen met de video's, bronbeelden en labels in de repository. Haal na clonen of bijwerken ook de Git LFS-bestanden op met `git lfs pull`.
 
+De nieuwste uitbreiding [football-fullscene100b](football-fullscene100b/README.md) bevat nog 100 volledige frames met 4.909 boxen en één gecontroleerd speelballabel per beeld (70 train, 30 val). De aparte speelbalexport gebruikt reserveballen als achtergrond. `data-combined346.yaml` combineert de zes volledige-scènesets voor acht klassen: 346 beelden, 245 train en 101 val. Deze uitbreiding bevat naburige tijdstappen van dezelfde acties, soms slechts 0,04 seconde uit elkaar; gebruik ze niet als onafhankelijke test voor een model dat naburige beelden heeft gezien.
+
 | Selectie | Fragment | Gelabelde beelden | Persoonsboxen | Balboxen |
 | --- | --- | ---: | ---: | ---: |
+| [Nog 100 volledige scènes, focus op speelbal](football-fullscene100b/README.md) | 100 nieuwe volledige 4096 × 1080-beelden | 100 | 2.851 | 558, waarvan 100 speelballen |
+| [100 extra volledige scènes, focus op speelbal](football-fullscene100/README.md) | 100 nieuwe volledige 4096 × 1080-beelden | 100 | 2.886 | 550, waarvan 100 speelballen |
 | [60 extra volledige scènes, focus op speelbal](football-fullscene60/README.md) | 60 nieuwe volledige 4096 × 1080-beelden | 60 | 1.749 | 320, waarvan 60 speelballen |
 | [50 extra volledige scènes](football-fullscene50/README.md) | 50 nieuwe volledige 4096 × 1080-beelden | 50 | 1.451 | 250 |
 | [20 extra volledige scènes](football-fullscene20/README.md) | 20 nieuwe volledige 4096 × 1080-beelden | 20 | 579 | 100 |

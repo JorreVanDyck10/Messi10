@@ -1,0 +1,23 @@
+train:
+  - images/train
+  - ../football-fullscene16/images/train
+  - ../football-fullscene20/images/train
+  - ../football-fullscene50/images/train
+  - ../football-fullscene60/images/train
+  - ../football-fullscene100/images/train
+val:
+  - images/val
+  - ../football-fullscene16/images/val
+  - ../football-fullscene20/images/val
+  - ../football-fullscene50/images/val
+  - ../football-fullscene60/images/val
+  - ../football-fullscene100/images/val
+names:
+  0: player
+  1: ball
+  2: referee
+  3: other_person
+  4: crowd
+  5: goal
+  6: corner_flag
+  7: stored_goals
