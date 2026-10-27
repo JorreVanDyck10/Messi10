@@ -36,7 +36,8 @@ class KitEmbedding:
     def update(self, frame, detections):
         import torch
 
-        players = [d for d in detections if d.semantic_class == "player" and d.projection_status == "valid"]
+        players = [d for d in detections if d.semantic_class == "player" and d.projection_status == "valid"
+                   and d.bbox_xyxy[2] - d.bbox_xyxy[0] >= 4 and d.bbox_xyxy[3] - d.bbox_xyxy[1] >= 12]
         for start in range(0, len(players), 32):
             batch = players[start:start + 32]
             pixels = torch.stack([crop_tensor(frame, d.bbox_xyxy) for d in batch]).to(self.device)

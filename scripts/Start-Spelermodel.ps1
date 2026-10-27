@@ -28,6 +28,7 @@ try {
         & $runtimePython -m persoon1 validate --manifest $manifest --output reports/players-validation-local.json
     } elseif ($Mode -eq 'app') {
         $env:FOOTBALL_CALIBRATION_MODE = $FieldMode
+        $env:FOOTBALL_TEAMS = Join-Path $projectRoot $(if ($Recognition -eq 'broadcast') { 'configs/teams-broadcast.json' } else { 'configs/teams.json' })
         foreach ($profileKind in @('persons', 'players', $Recognition) | Select-Object -Unique) {
             $modelProfile = Get-Content -Raw -Encoding UTF8 -LiteralPath "configs/models-$profileKind.json" | ConvertFrom-Json
             foreach ($model in $modelProfile.models) {
@@ -52,7 +53,6 @@ try {
             if ($profileKind -eq $Recognition) {
                 $env:FOOTBALL_MODELS = $localProfile
                 if ($Recognition -ne 'persons') { $env:FOOTBALL_AUTO_MODELS = $localProfile }
-                if ($Recognition -eq 'broadcast') { $env:FOOTBALL_TEAMS = (Join-Path $projectRoot 'configs/teams-broadcast.json') }
             }
             if ($profileKind -eq 'players' -and $Recognition -eq 'persons') { $env:FOOTBALL_AUTO_MODELS = $localProfile }
         }

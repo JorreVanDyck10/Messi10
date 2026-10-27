@@ -6,6 +6,7 @@ import argparse
 import copy
 import time
 from collections import defaultdict
+from inspect import getsource
 from pathlib import Path
 
 import cv2
@@ -39,6 +40,8 @@ def sample_rows(dataset):
                      "broadcast": False, "goalkeeper": p.get("goalkeeper", False)})
     kept = []
     for r in rows:
+        if r["bbox"][2] - r["bbox"][0] < 4 or r["bbox"][3] - r["bbox"][1] < 12:
+            continue
         key = digest_json([r["image_sha256"], [round(float(v), 2) for v in r["bbox"]]])
         if key in seen:
             continue
@@ -54,6 +57,7 @@ def features(dataset, output):
     path = output / "features.pt"
     identity = digest_json(["broadcast-features-v1", sha256_file(Path(dataset) / "manifest.json"),
                             sha256_file(OLD_ROLES), sha256_file(BASE_ROLES),
+                            getsource(sample_rows), getsource(features),
                             sha256_file(ROOT / "src/football_pipeline/appearance.py"),
                             sha256_file(ROOT / "src/football_pipeline/video_teams.py")])
     if path.exists():
@@ -93,7 +97,8 @@ def features(dataset, output):
             "backbone": state["backbone"], "runtime_s": time.monotonic() - started}
     torch.save(data, path)
     write_json(output / "metrics.json", {"identity": identity, "runtime_s": data["runtime_s"],
-               "images": len(grouped), "crops": len(rows), "encoder_sha256": sha256_file(BASE_ROLES)})
+               "images": len(grouped), "crops": len(rows), "encoder_sha256": sha256_file(BASE_ROLES),
+               "crop_selection": "on-pitch provider people plus retained role crops; minimum 4x12 pixels"})
     del encoder
     torch.cuda.empty_cache()
     return data
@@ -218,6 +223,11 @@ def team_metrics(rows, vectors, keeper_probabilities, settings=None):
             "meaning": "reference crops, one A/B mapping per whole clip; not end-to-end detector accuracy"}
 
 
+def team_selection_score(metrics):
+    qualified = metrics["accuracy_assigned"] >= .95 and metrics["coverage"] >= .9
+    return float(qualified) + (metrics["correct"] - 2 * metrics["wrong"]) / max(1, metrics["total"])
+
+
 def train_teams(data, output, minutes):
     output.mkdir(parents=True, exist_ok=True)
     path = output / "kit_embedding.pt"
@@ -283,7 +293,7 @@ def train_teams(data, output, minutes):
                 vectors = torch.nn.functional.normalize(head(x), dim=1).cpu().numpy()
                 probabilities = keeper(x).softmax(1)[:, 1].cpu().numpy()
             metrics = team_metrics(rows, vectors, probabilities)
-            score = (metrics["correct"] - 2 * metrics["wrong"]) / max(1, metrics["total"])
+            score = team_selection_score(metrics)
             curve.append({"step": step, "loss": float(loss.detach()), "score": score,
                           **{k: v for k, v in metrics.items() if k != "per_clip"}})
             if score > best_score:
@@ -313,7 +323,7 @@ def train_teams(data, output, minutes):
                     settings = {"embedding_radius": radius, "embedding_separation": separation,
                                 "embedding_max_distance": maximum, "embedding_margin": margin}
                     metrics = team_metrics(rows, vectors, probabilities, settings)
-                    current = (metrics["correct"] - 2 * metrics["wrong"]) / max(1, metrics["total"])
+                    current = team_selection_score(metrics)
                     if current > score:
                         score, selected, selected_metrics = current, settings, metrics
     torch.save({"format": "broadcast-kit-v1", "backbone": data["backbone"],
@@ -322,6 +332,7 @@ def train_teams(data, output, minutes):
     write_json(output / "metrics.json", {"status": "time_limited" if budget.expired else "complete",
                "runtime_s": previous_time + time.monotonic() - started, "selected_step": best_step,
                "weights_sha256": sha256_file(path), "feature_identity": data["identity"],
+               "selection": "First meet .95 assigned accuracy and .90 coverage on reference crops; then maximize (correct - 2*wrong)/total",
                "settings": selected, "validation": selected_metrics, "curve": curve, "test_accessed": False})
     return path
 

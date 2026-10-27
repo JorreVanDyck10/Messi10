@@ -133,8 +133,12 @@ class AppearanceClassifier:
                         d.semantic_class = "player"
                         d.role_decision = "specialist_player_preserved"
                     elif d.detector_semantic_class == "referee" and d.confidence >= 0.25:
-                        d.semantic_class = "referee"
-                        d.role_decision = "specialist_referee_preserved"
+                        positive_player = int(role.argmax()) == 0 and role.max() >= 0.95
+                        d.semantic_class = "player" if positive_player else "referee"
+                        d.role_decision = (
+                            "strong_player_evidence_refines_specialist_referee" if positive_player
+                            else "specialist_referee_preserved"
+                        )
                     else:
                         d.role_decision = "crop_classifier"
                 d.team_id, d.team_confidence = None, None

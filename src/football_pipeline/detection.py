@@ -117,7 +117,7 @@ def available_roles(manifest):
     return roles
 
 
-def merge_person_proposals(detections, overlap=0.5):
+def merge_person_proposals(detections, overlap=0.5, *, preserve_same_source=False):
     """One human observation per overlapping proposal; keep non-human detections intact."""
     people = sorted(
         (d for d in detections if d.semantic_class in GROUND_ROLES),
@@ -133,6 +133,21 @@ def merge_person_proposals(detections, overlap=0.5):
             intersection = max(0, min(x2, c) - max(x1, a)) * max(0, min(y2, d) - max(y1, b))
             union = (x2 - x1) * (y2 - y1) + (c - a) * (d - b) - intersection
             if union > 0 and intersection / union >= overlap:
+                distinct_same_source = (
+                    preserve_same_source
+                    and candidate.model_id == other.model_id
+                    and candidate.semantic_class == other.semantic_class
+                    and intersection / union < 0.8
+                    and (
+                        abs((x1 + x2) / 2 - (a + c) / 2) > min(x2 - x1, c - a) * 0.15
+                        or abs(y1 - b) > min(y2 - y1, d - b) * 0.08
+                    )
+                )
+                if distinct_same_source:
+                    # The detector already ran same-class NMS at its configured
+                    # threshold. Distinct heads in a crowd must not be erased by
+                    # a second, more aggressive cross-detector proposal merge.
+                    continue
                 duplicate = True
                 break
             # One detector may see the upper body while another sees the same
@@ -300,7 +315,9 @@ class UltralyticsDetector:
                         )
                     )
         if self.appearance or getattr(self, "manifest", {}).get("analysis_scope") == "on_pitch_players":
-            detections = merge_person_proposals(detections)
+            detections = merge_person_proposals(
+                detections, preserve_same_source=getattr(self, "manifest", {}).get("analysis_scope") == "on_pitch_players"
+            )
         if self.appearance and getattr(self, "manifest", {}).get("analysis_scope") != "on_pitch_players":
             self.appearance.classify(frame, detections, self.video_hash)
         return detections

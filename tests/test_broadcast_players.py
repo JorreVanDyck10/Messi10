@@ -10,8 +10,8 @@ from football_pipeline.broadcast_data import labelled_people
 from football_pipeline.broadcast_evaluation import reference_geometry
 from football_pipeline.broadcast_training import team_metrics
 from football_pipeline.contracts import Detection, FrameRecord, PipelineError
-from football_pipeline.detection import UltralyticsDetector, load_model_manifest
-from football_pipeline.kit_embedding import PitchTeamSamples, dominant_teams, embedding_candidate
+from football_pipeline.detection import UltralyticsDetector, load_model_manifest, merge_person_proposals
+from football_pipeline.kit_embedding import KitEmbedding, PitchTeamSamples, dominant_teams, embedding_candidate
 from football_pipeline.render import render_frame
 from football_pipeline.teams import TeamAssigner, load_team_settings, validate_team_model
 
@@ -56,6 +56,13 @@ def test_pitch_policy_protects_real_players_but_does_not_rename_generic_people(t
     actual.semantic_class = "referee"
     classifier.classify(np.zeros((360, 640, 3), np.uint8), [actual], "new-match")
     assert actual.semantic_class == "referee" and actual.team_id is None
+    # Positive learned player evidence can rescue, for example, a keeper whose
+    # uniform was confused with an official by the specialist detector.
+    player_spec = {**fixed_classifier(tmp_path, "player"), "role_policy": "preserve_detector_players"}
+    learned_player = AppearanceClassifier(player_spec)
+    learned_player.classify(np.zeros((360, 640, 3), np.uint8), [actual], "new-match")
+    assert actual.semantic_class == "player"
+    assert actual.role_decision == "strong_player_evidence_refines_specialist_referee"
 
 
 def test_classification_happens_only_for_people_projected_inside_the_current_field():
@@ -159,3 +166,22 @@ def test_team_profile_is_selected_with_the_model_and_respects_explicit_override(
     assert configured_team_path({"kit_embedding": {"weights": "trained.pt"}}).name == "teams-broadcast.json"
     monkeypatch.setenv("FOOTBALL_TEAMS", str(tmp_path / "custom.json"))
     assert configured_team_path({"kit_embedding": {"weights": "trained.pt"}}) == tmp_path / "custom.json"
+
+
+def test_two_overlapping_players_survive_while_duplicate_proposals_still_merge():
+    left, right = player(0), player(1)
+    right.bbox_xyxy = [108, 100, 138, 180]
+    assert len(merge_person_proposals([left, right])) == 1
+    assert len(merge_person_proposals([left, right], preserve_same_source=True)) == 2
+    duplicate = player(2)
+    duplicate.model_id = "generic-proposals"
+    duplicate.semantic_class = "person"
+    assert len(merge_person_proposals([left, right, duplicate], preserve_same_source=True)) == 2
+
+
+def test_unreadable_edge_crop_stays_unknown_instead_of_crashing_team_inference():
+    model = object.__new__(KitEmbedding)
+    tiny = Detection("edge", "specialist", 0, "player", [639.2, 100, 639.9, 180], .9,
+                     field_position=[.9, .5], projection_status="valid")
+    model.update(np.zeros((360, 640, 3), np.uint8), [tiny])
+    assert tiny.team_embedding is None and tiny.team_id is None

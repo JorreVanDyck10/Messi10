@@ -78,13 +78,18 @@ def compare_and_package(dataset, output):
         write_json(directory / "teams.json", settings)
         reports[name] = evaluate_profile(dataset, directory / "profile.json", directory / "teams.json", directory)
     baseline = reports["r007-baseline"]
-    selected = max((name for name in candidates if name != "r007-baseline"), key=lambda name: candidate_score(reports[name]))
+    eligible = [name for name, (profile, _) in candidates.items() if name != "r007-baseline"
+                and (not profile.get("appearance")
+                     or profile["appearance"].get("role_policy") == "preserve_detector_players")]
+    selected = max(eligible, key=lambda name: candidate_score(reports[name]))
     before, after = baseline["player_detection_and_roles"]["per_class"][0], reports[selected]["player_detection_and_roles"]["per_class"][0]
     f1_before = 2 * before["precision"] * before["recall"] / max(1e-9, before["precision"] + before["recall"])
     f1_after = 2 * after["precision"] * after["recall"] / max(1e-9, after["precision"] + after["recall"])
     improved = (f1_after > f1_before and reports[selected]["teams"]["correct_fraction_all_players"]
                 > baseline["teams"]["correct_fraction_all_players"])
     summary = {"selected": selected, "improved_over_baseline": improved,
+               "eligible_candidates": eligible,
+               "selection_rule": "Protect specialist player labels; prefer all targets met, then correct teams with false players penalized",
                "targets_met": reports[selected]["targets_met"], "independent_final_test": False,
                "human_review_completed": False, "candidates": reports,
                "geometry_kind": baseline["geometry_kind"]}
