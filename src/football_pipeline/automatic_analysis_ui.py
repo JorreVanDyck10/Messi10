@@ -9,16 +9,21 @@ from .app_results import show_result
 from .contracts import PipelineError, digest_json, read_json, sha256_file
 from .detection import load_model_manifest, validate_detection_devices
 from .pipeline import code_identity, process_video
+from .teams import configured_team_path
 from .video import ROOT
 
 
 def automatic_analysis(video, upload_name, output_root):
     st.subheader("Automatische analyse")
     st.caption("Veldherkenning · teams · speler-ID’s · telling per team · trajecten op de minimap")
-    model_path = Path(os.environ.get("FOOTBALL_AUTO_MODELS", ROOT / "configs/models-players.json"))
+    default_models = ROOT / "configs/models-broadcast.json"
+    if not default_models.is_file():
+        default_models = ROOT / "configs/models-players.json"
+    model_path = Path(os.environ.get("FOOTBALL_AUTO_MODELS", default_models))
     runtime = Path(os.environ.get("FOOTBALL_FIELD_RUNTIME", ROOT / ".tools/field-runtime.json"))
     try:
         models = load_model_manifest(model_path)
+        team_path = configured_team_path(models)
         validate_detection_devices(models)
         if not any("player" in spec["class_mapping"].values() for spec in models["models"]):
             raise PipelineError("Automatische speleranalyse vereist getrainde player-klassen.")
@@ -36,7 +41,7 @@ def automatic_analysis(video, upload_name, output_root):
                 "field_weights": field_weights,
                 "worker": sha256_file(ROOT / "scripts/field_calibration_worker.py"),
                 "tracker": sha256_file(ROOT / "configs/bytetrack.yaml"),
-                "teams": sha256_file(ROOT / "configs/teams.json"),
+                "teams": sha256_file(team_path),
                 "code": code_identity(),
             }
         )
@@ -85,7 +90,7 @@ def automatic_analysis(video, upload_name, output_root):
                 field_source=f"Gebruikersupload: {upload_name}",
                 field_usage="Lokale analyse van een gebruikersupload; gebruiksrechten niet onafhankelijk gecontroleerd.",
                 tracker_config_path=ROOT / "configs/bytetrack.yaml",
-                team_config_path=ROOT / "configs/teams.json",
+                team_config_path=team_path,
                 progress=player_progress,
                 field_progress=field_progress,
             )

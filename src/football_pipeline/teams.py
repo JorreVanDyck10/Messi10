@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import heapq
+import os
 from collections import defaultdict
 from pathlib import Path
 
@@ -36,9 +37,20 @@ DEFAULT_TEAM_SETTINGS = {
     "confirmation_samples": 3,
     "switch_samples": 5,
     "history_seconds": 1.2,
+    "embedding_radius": 0.32,
+    "embedding_separation": 0.4,
+    "embedding_max_distance": 0.45,
+    "embedding_margin": 0.18,
 }
 TEAM_IDS = ("A", "B")
 UNKNOWN_COLOR = "#aab2bd"
+
+
+def configured_team_path(models):
+    from .video import ROOT
+
+    default = "teams-broadcast.json" if models.get("kit_embedding") else "teams.json"
+    return Path(os.environ.get("FOOTBALL_TEAMS", ROOT / "configs" / default))
 
 
 def load_team_settings(path: str | Path | dict) -> dict:
@@ -46,7 +58,7 @@ def load_team_settings(path: str | Path | dict) -> dict:
     settings = {**DEFAULT_TEAM_SETTINGS, **value}
     if set(value) - set(DEFAULT_TEAM_SETTINGS) or settings["schema_version"] != 1:
         raise PipelineError("Onbekend teamprofiel of onbekende teaminstellingen.")
-    if settings["method"] != DEFAULT_TEAM_SETTINGS["method"]:
+    if settings["method"] not in {DEFAULT_TEAM_SETTINGS["method"], "torso_embedding_dominant_modes_v1"}:
         raise PipelineError("Onbekende methode voor teamherkenning.")
     integers = {
         "max_samples",
@@ -140,11 +152,19 @@ class TeamSamples:
 
     def __init__(self, settings: dict, fps: float):
         self.settings = settings
+        self.embedding_samples = None
+        if settings["method"] == "torso_embedding_dominant_modes_v1":
+            from .kit_embedding import PitchTeamSamples
+
+            self.embedding_samples = PitchTeamSamples(settings, fps)
         self.step = max(1, round(fps / settings["sample_hz"]))
         self.samples = []
         self.sequence = 0
 
     def add(self, detection: Detection, index: int):
+        if self.embedding_samples is not None:
+            self.embedding_samples.add(detection, index)
+            return
         if (
             index % self.step
             or detection.semantic_class != "player"
@@ -164,6 +184,8 @@ class TeamSamples:
             heapq.heapreplace(self.samples, item)
 
     def fit(self) -> dict:
+        if self.embedding_samples is not None:
+            return self.embedding_samples.fit()
         groups = defaultdict(list)
         group_frames = defaultdict(set)
         for _, _, group, color, index in sorted(self.samples, reverse=True):
@@ -239,6 +261,11 @@ def validate_team_model(model: dict) -> None:
         t.get("prototype_lab") is None for t in model["teams"].values()
     ):
         raise PipelineError("Een beschikbaar teammodel vereist twee shirtprototypes.")
+    if model["settings"]["method"] == "torso_embedding_dominant_modes_v1" and model.get("status") == "available":
+        for team in model["teams"].values():
+            vector = np.asarray(team.get("prototype_embedding"), float)
+            if vector.shape != (32,) or not np.isfinite(vector).all() or not np.isclose(np.linalg.norm(vector), 1):
+                raise PipelineError("Ongeldig teamprototype van het geleerde uiterlijkmodel.")
     for team in model["teams"].values():
         if not isinstance(team.get("name"), str) or not 1 <= len(team["name"].strip()) <= 40:
             raise PipelineError("Een teamnaam moet 1 tot 40 tekens bevatten.")
@@ -292,13 +319,22 @@ class TeamAssigner:
             d.team_status = "not_player" if d.semantic_class != "player" else "unknown"
             if d.semantic_class != "player":
                 continue
+            embedding_method = self.settings["method"] == "torso_embedding_dominant_modes_v1"
+            if (embedding_method or self.model.get("analysis_scope") == "on_pitch_players") and d.projection_status != "valid":
+                continue
             key = str(d.track_id) if d.track_id is not None else None
             if key in self.overrides:
                 d.team_id, d.team_source = self.overrides[key], "manual"
                 d.team_status = "assigned" if d.team_id is not None else "unknown"
                 continue
+            if embedding_method and d.player_kind == "goalkeeper":
+                continue
             candidate = None
-            if d.shirt_color_lab is not None and self.model["status"] == "available":
+            if embedding_method:
+                from .kit_embedding import embedding_candidate
+
+                candidate, d.team_match_score = embedding_candidate(d, self.model)
+            elif d.shirt_color_lab is not None and self.model["status"] == "available":
                 distances = [
                     np.linalg.norm(np.array(d.shirt_color_lab) - t["prototype_lab"])
                     for t in self.model["teams"].values()
@@ -334,7 +370,7 @@ class TeamAssigner:
                 )
             if d.team_id is not None:
                 d.team_status = "assigned"
-                if d.shirt_color_lab is not None:
+                if d.shirt_color_lab is not None and not embedding_method:
                     distance = np.linalg.norm(
                         np.array(d.shirt_color_lab) - self.model["teams"][d.team_id]["prototype_lab"]
                     )

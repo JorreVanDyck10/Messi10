@@ -32,9 +32,12 @@ def show_result(result):
         st.metric("Proces-RAM (bemonsterd)", f"{metrics['peak_process_ram_bytes_sampled'] / 2**20:.0f} MiB")
     if result.manifest.get("calibration_mode") == "automatic":
         st.metric("Frames met bruikbare veldkalibratie", f"{metrics['calibration_usable_fraction']:.1%}")
-        st.caption(
-            "Bij onbekende veldherkenning blijven beeld-ID’s zichtbaar; de minimap onderbreekt de trajecten."
-        )
+        if result.manifest.get("models", {}).get("analysis_scope") == "on_pitch_players":
+            st.caption("Alleen spelers binnen het herkende veld worden getoond. Bij veldverlies blijft de telling onbekend.")
+        else:
+            st.caption(
+                "Bij onbekende veldherkenning blijven beeld-ID’s zichtbaar; de minimap onderbreekt de trajecten."
+            )
         from .field_review_ui import visual_review
 
         if st.checkbox("Beeld en veld per frame bekijken", key="automatic_frame_review"):

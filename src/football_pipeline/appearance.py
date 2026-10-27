@@ -91,6 +91,7 @@ class AppearanceClassifier:
         self.model_id = spec["model_id"]
         self.threshold = float(spec.get("role_confidence", 0.65))
         self.team_threshold = float(spec.get("team_confidence", 0.65))
+        self.role_policy = spec.get("role_policy", "classifier")
         from .teams import VideoTeams
 
         self.video_teams = VideoTeams()
@@ -125,6 +126,17 @@ class AppearanceClassifier:
                 d.semantic_class = (
                     ROLE_NAMES[int(role.argmax())] if role.max() >= self.threshold else "person"
                 )
+                if self.role_policy == "preserve_detector_players":
+                    # A specialist's actual player class is direct role evidence.
+                    # A generic person still needs a learned positive player label.
+                    if d.detector_semantic_class == "player" and d.confidence >= 0.25:
+                        d.semantic_class = "player"
+                        d.role_decision = "specialist_player_preserved"
+                    elif d.detector_semantic_class == "referee" and d.confidence >= 0.25:
+                        d.semantic_class = "referee"
+                        d.role_decision = "specialist_referee_preserved"
+                    else:
+                        d.role_decision = "crop_classifier"
                 d.team_id, d.team_confidence = None, None
                 d.team_method = None
                 d.team_class_id = None
@@ -134,5 +146,5 @@ class AppearanceClassifier:
                     if team.max() >= self.team_threshold:
                         d.team_id = TEAM_NAMES[int(team.argmax())]
                         d.team_method = "supervised_match"
-        if video_hash not in self.team_video_hashes:
+        if video_hash not in self.team_video_hashes and self.role_policy == "classifier":
             self.video_teams.update(frame, detections)

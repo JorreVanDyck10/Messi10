@@ -12,6 +12,8 @@ def load_model_manifest(path: str | Path) -> dict:
     path = Path(path).resolve()
     manifest = read_json(path)
     models = manifest.get("models", [])
+    if manifest.get("analysis_scope", "all_participants") not in {"all_participants", "on_pitch_players"}:
+        raise PipelineError("Onbekend analysebereik.")
     if manifest.get("schema_version") != 1 or not models:
         raise PipelineError("Modelmanifest vereist schema_version 1 en minstens één model.")
     owners, identifiers = {}, set()
@@ -86,6 +88,8 @@ def load_model_manifest(path: str | Path) -> dict:
         from .appearance import ROLE_NAMES
 
         spec = manifest["appearance"]
+        if spec.get("role_policy", "classifier") not in {"classifier", "preserve_detector_players"}:
+            raise PipelineError("Onbekend beleid voor rolherkenning.")
         weights = (path.parent / spec["weights"]).resolve()
         if not weights.is_file() or sha256_file(weights) != spec.get("weights_sha256"):
             raise PipelineError("Rol-/teamgewichten ontbreken of hun hash wijkt af.")
@@ -95,6 +99,14 @@ def load_model_manifest(path: str | Path) -> dict:
             value = spec.get(key)
             if not isinstance(value, (float, int)) or not math.isfinite(value) or not 0 < value <= 1:
                 raise PipelineError(f"Ongeldige classifierdrempel: {key}.")
+        spec["weights"] = str(weights)
+    if manifest.get("kit_embedding"):
+        spec = manifest["kit_embedding"]
+        weights = (path.parent / spec["weights"]).resolve()
+        if not weights.is_file() or sha256_file(weights) != spec.get("weights_sha256"):
+            raise PipelineError("Teamgewichten ontbreken of hun hash wijkt af.")
+        if manifest.get("analysis_scope") != "on_pitch_players":
+            raise PipelineError("Het teammodel vereist spelersanalyse binnen het veld.")
         spec["weights"] = str(weights)
     return manifest
 
@@ -156,7 +168,7 @@ def validate_detection_devices(manifest: dict) -> None:
     """Fail before expensive field inference when a requested CUDA device is unavailable."""
     import torch
 
-    for spec in [*manifest["models"], *([manifest["appearance"]] if manifest.get("appearance") else [])]:
+    for spec in [*manifest["models"], *(manifest[k] for k in ("appearance", "kit_embedding") if manifest.get(k))]:
         device = str(spec.get("device", "cpu")).lower().strip()
         if device == "cuda":
             device = "0"
@@ -189,6 +201,7 @@ class UltralyticsDetector:
         self.models = []
         self.video_hash = ""
         self.appearance = None
+        self.kit_embedding = None
         for spec in manifest["models"]:
             model = YOLO(spec["weights"])
             if model.task != "detect":
@@ -203,6 +216,10 @@ class UltralyticsDetector:
             from .appearance import AppearanceClassifier
 
             self.appearance = AppearanceClassifier(manifest["appearance"])
+        if manifest.get("kit_embedding"):
+            from .kit_embedding import KitEmbedding
+
+            self.kit_embedding = KitEmbedding(manifest["kit_embedding"])
 
     def set_video_identity(self, video_hash):
         if video_hash != self.video_hash and self.appearance:
@@ -282,7 +299,20 @@ class UltralyticsDetector:
                             float(confidence),
                         )
                     )
-        if self.appearance:
+        if self.appearance or getattr(self, "manifest", {}).get("analysis_scope") == "on_pitch_players":
             detections = merge_person_proposals(detections)
+        if self.appearance and getattr(self, "manifest", {}).get("analysis_scope") != "on_pitch_players":
             self.appearance.classify(frame, detections, self.video_hash)
         return detections
+
+    def classify_on_pitch(self, frame, detections):
+        """Refine only geometrically eligible people, after current-frame projection."""
+        from .participants import field_exclusion_reason
+
+        size = (frame.shape[1], frame.shape[0])
+        people = [d for d in detections if d.semantic_class in GROUND_ROLES
+                  and field_exclusion_reason(d, size) is None]
+        if self.appearance:
+            self.appearance.classify(frame, people, self.video_hash)
+        if self.kit_embedding:
+            self.kit_embedding.update(frame, people)

@@ -101,6 +101,9 @@ class Detection:
     team_method: str | None = None
     team_class_id: int | None = None
     appearance_team: dict | None = None
+    role_decision: str | None = None
+    team_embedding: list[float] | None = None
+    player_kind: str | None = None
 
     @classmethod
     def from_dict(cls, value: dict) -> Detection:
@@ -119,6 +122,7 @@ class FrameRecord:
     player_model_available: bool = True
     tracking: dict | None = None
     team_context: dict | None = None
+    analysis_scope: str = "all_participants"
 
     @classmethod
     def from_dict(cls, value: dict) -> FrameRecord:
@@ -131,6 +135,7 @@ class FrameRecord:
             player_model_available=value.get("player_model_available", True),
             tracking=value.get("tracking"),
             team_context=value.get("team_context"),
+            analysis_scope=value.get("analysis_scope", "all_participants"),
         )
 
     def to_dict(self) -> dict:

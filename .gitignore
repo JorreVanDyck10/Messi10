@@ -12,6 +12,7 @@ artifacts/*
 !artifacts/ball-ai-v1/
 !artifacts/players-v2/
 !artifacts/players-v3/
+!artifacts/broadcast-players-v1/
 
 !artifacts/appearance-v1/
 !artifacts/appearance-v2/

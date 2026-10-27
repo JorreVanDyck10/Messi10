@@ -11,6 +11,7 @@ datasets/teamtrack-players-v2/** -text whitespace=cr-at-eol
 datasets/teamtrack-players-v2/images/**/*.jpg filter=lfs diff=lfs merge=lfs -text
 artifacts/players-v2/*.pt filter=lfs diff=lfs merge=lfs -text
 artifacts/players-v3/*.pt filter=lfs diff=lfs merge=lfs -text
+artifacts/broadcast-players-v1/*.pt filter=lfs diff=lfs merge=lfs -text
 reports/players-experiments/** -text whitespace=cr-at-eol
 reports/players-experiments/training/*/*.log -whitespace
 artifacts/appearance-v1/*.pt filter=lfs diff=lfs merge=lfs -text

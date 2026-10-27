@@ -1,7 +1,7 @@
 param(
     [ValidateSet('app','evaluate','annotate','validate','train')][string]$Mode = 'app',
     [string]$Device = '0',
-    [ValidateSet('persons','players','roles-r007','roles-r009','roles-r010','roles-r015')][string]$Recognition = 'players',
+    [ValidateSet('persons','players','broadcast','roles-r007','roles-r009','roles-r010','roles-r015')][string]$Recognition = 'players',
     [ValidateSet('manual','automatic')][string]$FieldMode = 'automatic',
     [string]$RunName = '',
     [string]$Weights = 'artifacts/players-v2/players_best.pt',
@@ -34,9 +34,11 @@ try {
                 $model.device = $Device
                 $model.weights = [IO.Path]::GetFullPath((Join-Path "$projectRoot\configs" $model.weights))
             }
-            if ($modelProfile.appearance) {
-                $modelProfile.appearance.device = $Device
-                $modelProfile.appearance.weights = [IO.Path]::GetFullPath((Join-Path "$projectRoot\configs" $modelProfile.appearance.weights))
+            foreach ($head in @('appearance', 'kit_embedding')) {
+                if ($modelProfile.PSObject.Properties[$head]) {
+                    $modelProfile.$head.device = $Device
+                    $modelProfile.$head.weights = [IO.Path]::GetFullPath((Join-Path "$projectRoot\configs" $modelProfile.$head.weights))
+                }
             }
             if ($modelProfile.handoff) {
                 foreach ($recordName in @('evaluation_record', 'broadcast_validation_record', 'detector_evaluation_record')) {
@@ -50,6 +52,7 @@ try {
             if ($profileKind -eq $Recognition) {
                 $env:FOOTBALL_MODELS = $localProfile
                 if ($Recognition -ne 'persons') { $env:FOOTBALL_AUTO_MODELS = $localProfile }
+                if ($Recognition -eq 'broadcast') { $env:FOOTBALL_TEAMS = (Join-Path $projectRoot 'configs/teams-broadcast.json') }
             }
             if ($profileKind -eq 'players' -and $Recognition -eq 'persons') { $env:FOOTBALL_AUTO_MODELS = $localProfile }
         }

@@ -73,6 +73,12 @@ def render_frame(
     recognized_points: bool = True,
     tracked_points: bool = True,
 ) -> np.ndarray:
+    if record.analysis_scope == "on_pitch_players":
+        from dataclasses import replace
+
+        from .participants import counted_as_player
+
+        record = replace(record, detections=[d for d in record.detections if counted_as_player(record, d)])
     canvas = np.full((720, 1920, 3), (22, 35, 29), dtype=np.uint8)
     h, w = frame.shape[:2]
     scale = min(1280 / w, 720 / h)

@@ -280,7 +280,7 @@ def process_video(
             {
                 "camera_compensation": "background_affine_ransac" if automatic else None,
                 "reset_on_cut_or_unreliable_motion": automatic,
-                "field_required_for_image_ids": not automatic,
+                "field_required_for_image_ids": not automatic or models.get("analysis_scope") == "on_pitch_players",
                 "human_accuracy_validated": False,
                 "status": "experimental" if automatic else "mvp_reviewed",
             }
@@ -394,7 +394,8 @@ def process_video(
                 detector.set_video_identity(video.sha256)
             if replay_run:
                 replay_stream = (Path(replay_run) / "framegegevens.jsonl").open(encoding="utf-8")
-            tracker = ByteTrackAdapter(config, video.fps, camera_motion=automatic) if config else None
+            tracker = ByteTrackAdapter(config, video.fps, camera_motion=automatic,
+                                       require_field=models.get("analysis_scope") == "on_pitch_players") if config else None
             histories = Trajectories(video.fps) if tracker else None
             if tracker:
                 manifest["tracker_effective"] = tracker.info
@@ -440,6 +441,9 @@ def process_video(
                             detection.field_position = None
                             detection.projection_status = "not_ground_projected"
                         rejected[detection.projection_status] += 1
+                    if models.get("analysis_scope") == "on_pitch_players" and not replay_stream:
+                        if hasattr(detector, "classify_on_pitch"):
+                            detector.classify_on_pitch(frame, detections)
                     # Project before tracking: an off-field prediction must never start a player ID.
                     if tracker:
                         tick = time.perf_counter()
@@ -455,6 +459,7 @@ def process_video(
                         frame_calibration,
                         player_model_available=player_model_available,
                         tracking=dict(tracker.motion.state) if tracker and tracker.motion else None,
+                        analysis_scope=models.get("analysis_scope", "all_participants"),
                     )
                     if team_settings is not None:
                         for detection in detections:

@@ -370,6 +370,9 @@ def test_upload_automatically_runs_field_players_tracking_and_does_not_repeat(
     monkeypatch.setattr(automatic_analysis_ui, "process_video", process)
     monkeypatch.setenv("FOOTBALL_AUTO_MODELS", str(demo_fixture["models"]))
     monkeypatch.setenv("FOOTBALL_RUNS", str(tmp_path / "runs"))
+    custom_teams = tmp_path / "configured-teams.json"
+    custom_teams.write_bytes((ROOT / "configs/teams.json").read_bytes())
+    monkeypatch.setenv("FOOTBALL_TEAMS", str(custom_teams))
     identity = tmp_path / "identity"
     identity.write_text("synthetic model identity")
     runtime = tmp_path / "runtime.json"
@@ -383,6 +386,7 @@ def test_upload_automatically_runs_field_players_tracking_and_does_not_repeat(
     assert not app.exception
     assert not app.error
     assert process.call_count == prepare.call_count == 1
+    assert process.call_args.kwargs["team_config_path"] == custom_teams
     result = app.session_state["result"]
     assert result.manifest["tracker_config"] is not None
     assert result.manifest["mvp_acceptance"] is None

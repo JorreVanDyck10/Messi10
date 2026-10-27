@@ -5,12 +5,14 @@ from __future__ import annotations
 import io
 import re
 from collections import OrderedDict
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 
 class RangeArchive(io.RawIOBase):
     def __init__(self, url, *, budget_bytes=512 * 1024**2, block_size=256 * 1024):
         self.url, self.budget, self.block_size = url, budget_bytes, block_size
+        self._effective_url = url
         self.position = self.downloaded = 0
         self.cache = OrderedDict()
         self.size = None
@@ -20,7 +22,15 @@ class RangeArchive(io.RawIOBase):
         expected = end - start + 1
         if self.downloaded + expected > self.budget:
             raise ValueError("Selective archive download exceeds the declared byte budget")
-        with urlopen(Request(self.url, headers={"Range": f"bytes={start}-{end}"}), timeout=60) as response:
+        request = Request(self._effective_url, headers={"Range": f"bytes={start}-{end}"})
+        try:
+            response = urlopen(request, timeout=60)
+        except HTTPError as exc:
+            if exc.code not in {401, 403} or self._effective_url == self.url:
+                raise
+            # Signed download redirects can expire during a large selective run.
+            response = urlopen(Request(self.url, headers={"Range": f"bytes={start}-{end}"}), timeout=60)
+        with response:
             match = re.fullmatch(r"bytes (\d+)-(\d+)/(\d+)", response.headers.get("Content-Range", ""))
             if response.status != 206 or not match:
                 raise ValueError("Archive server did not honor the requested HTTP range")
@@ -32,6 +42,8 @@ class RangeArchive(io.RawIOBase):
             if len(body) != expected:
                 raise ValueError("Truncated or oversized archive range")
             self.size = size
+            if hasattr(response, "geturl"):
+                self._effective_url = response.geturl()
             return body
 
     def readable(self):

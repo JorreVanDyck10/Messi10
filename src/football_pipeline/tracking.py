@@ -33,7 +33,7 @@ def load_tracker_config(path: str | Path) -> dict:
 
 
 class ByteTrackAdapter:
-    def __init__(self, config: dict, fps: float, *, camera_motion: bool = False):
+    def __init__(self, config: dict, fps: float, *, camera_motion: bool = False, require_field: bool = False):
         from ultralytics.trackers.byte_tracker import BYTETracker
 
         class SourceIndexedTracker(BYTETracker):
@@ -59,6 +59,7 @@ class ByteTrackAdapter:
             self.motion = BackgroundMotion()
             self.tracker.gmc = self.motion
         self.fps = fps
+        self.require_field = require_field
         self.last_frame = -1
         # Guard the pinned API rather than silently assuming historical FPS scaling.
         effective = getattr(self.tracker, "max_frames_lost", None)
@@ -72,7 +73,7 @@ class ByteTrackAdapter:
             "fps_scaling": "one_update_per_source_frame",
             "index_compatibility": "8.3.221_source_indices" if self.legacy_partition_indices else "native",
             "camera_compensation": "background_affine_ransac" if camera_motion else None,
-            "field_required_for_image_ids": not camera_motion,
+            "field_required_for_image_ids": not camera_motion or require_field,
         }
 
     def update(
@@ -100,7 +101,7 @@ class ByteTrackAdapter:
                 and valid_box(d, image_size)
                 and (
                     player_exclusion_reason(d, image_size) is None
-                    or d.projection_status == "calibration_unavailable"
+                    or (d.projection_status == "calibration_unavailable" and not self.require_field)
                 )
             ]
         else:

@@ -27,6 +27,7 @@ from football_pipeline.model_handoff import available_model_profiles
 from football_pipeline.pipeline import process_video, validate_completed
 from football_pipeline.point_picker import apply_point_click, point_picker
 from football_pipeline.render import LABELS, calibration_preview
+from football_pipeline.teams import configured_team_path
 from football_pipeline.training_status_ui import show_training_status
 from football_pipeline.video import ROOT, inspect_video, read_frame
 
@@ -602,6 +603,7 @@ teams_enabled = (
     )
     and "player" in semantic_classes
 )
+team_config_path = configured_team_path(models)
 if automatic_mode:
     st.caption(
         "Speler-ID’s gebruiken cameracompensatie en worden bij camerawissels vernieuwd. "
@@ -625,7 +627,7 @@ request_signature = digest_json(
         "field_usage": field_usage,
         "models": models,
         "tracking": tracking,
-        "teams": sha256_file(ROOT / "configs/teams.json") if teams_enabled else None,
+        "teams": sha256_file(team_config_path) if teams_enabled else None,
         "acceptance": hashlib.sha256(acceptance_upload.getvalue()).hexdigest() if acceptance_upload else None,
     }
 )
@@ -666,7 +668,7 @@ if st.button(
             selected_model_path,
             OUTPUT_ROOT,
             tracker_config_path=ROOT / "configs/bytetrack.yaml" if tracking else None,
-            team_config_path=ROOT / "configs/teams.json" if teams_enabled else None,
+            team_config_path=team_config_path if teams_enabled else None,
             mvp_acceptance_path=acceptance_path,
             progress=show_progress,
             field_progress=show_field_progress if automatic_mode else None,

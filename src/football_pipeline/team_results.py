@@ -89,6 +89,8 @@ def render_team_file(
                 ok, frame = capture.read()
                 if not ok or frame.shape[:2] != (video["height"], video["width"]):
                     raise PipelineError(f"Decodeerfout bij teamweergave op frame {index}.")
+                if record.tracking and record.tracking.get("reset_tracks"):
+                    assigner.history.clear()
                 assigner.update(record.detections, index)
                 record.team_context = team_context(model)
                 histories.update(record.detections, index)
@@ -207,6 +209,9 @@ def validate_corrections(
         updated["teams"][key].update(edit)
         if "shirt_color" in edit:
             updated["teams"][key]["prototype_lab"] = rgb_to_lab(hex_rgb(edit["shirt_color"]))
+            # An explicit shirt-colour correction uses the supplied colour
+            # prototypes, rather than silently retaining a different embedding.
+            updated["settings"]["method"] = "torso_lab_dominant_modes_v1"
     validate_team_model(updated)
     prototypes = [team["prototype_lab"] for team in updated["teams"].values()]
     if all(p is not None for p in prototypes):
