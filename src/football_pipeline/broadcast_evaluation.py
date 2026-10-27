@@ -16,7 +16,7 @@ import torch
 from persoon1.metrics import evaluate, iou
 
 from .automatic_calibration import project_automatic
-from .contracts import digest_json, read_json, sha256_file, write_json
+from .contracts import Detection, digest_json, read_json, sha256_file, write_json
 from .detection import UltralyticsDetector, load_model_manifest
 from .teams import TeamAssigner, TeamSamples, load_team_settings
 
@@ -45,13 +45,29 @@ def reference_geometry(annotations, width, height):
     return {"status": "valid", "homography": matrix.tolist(), "reference_correspondences": len(xy)}
 
 
-def evaluate_profile(dataset, profile, team_settings, output):
+def evaluate_profile(dataset, profile, team_settings, output, *, replay=None):
     dataset, output = Path(dataset), Path(output)
     output.mkdir(parents=True, exist_ok=True)
     manifest = read_json(dataset / "manifest.json")
     models, settings = load_model_manifest(profile), load_team_settings(team_settings)
     rows = [r for r in manifest["frames"] if r["split"] == "val"]
-    identity = digest_json([manifest["fingerprint"], models, settings, sha256_file(__file__),
+    replay_frames = None
+    replay_identity = None
+    if replay:
+        replay = Path(replay)
+        previous = read_json(replay / "metrics.json")
+        def inference_spec(value):
+            if isinstance(value, dict):
+                return {k: inference_spec(v) for k, v in value.items() if k != "device"}
+            return [inference_spec(v) for v in value] if isinstance(value, list) else value
+        if (previous["dataset_fingerprint"] != manifest["fingerprint"]
+                or inference_spec(previous["profile"]) != inference_spec(models)):
+            raise ValueError("Replay must use the same detector, roles, kit weights, boxes and dataset")
+        replay_identity = {"metrics_sha256": sha256_file(replay / "metrics.json"),
+                           "detections_sha256": sha256_file(replay / "detections.json")}
+        replay_frames = {r["frame_id"]: [Detection(**d) for d in r["detections"]]
+                         for r in read_json(replay / "detections.json")["frames"]}
+    identity = digest_json([manifest["fingerprint"], models, settings, replay_identity, sha256_file(__file__),
                             {p.name: sha256_file(p) for p in Path(__file__).parent.glob("*.py")}])
     if (output / "metrics.json").exists():
         saved = read_json(output / "metrics.json")
@@ -59,14 +75,19 @@ def evaluate_profile(dataset, profile, team_settings, output):
             raise ValueError("Evaluation inputs changed; use a new output")
         return saved
     torch.set_num_threads(4)
-    detector = UltralyticsDetector(models)
+    detector = UltralyticsDetector(models) if replay_frames is None else None
+    if replay_frames is not None:
+        from .kit_embedding import KitEmbedding
+
+        kit = KitEmbedding(models["kit_embedding"])
     truths, predictions, detections, references, frame_rows = {}, {}, {}, {}, {}
     geometry_missing, raw_counts, final_counts, transitions = 0, Counter(), Counter(), Counter()
     grouped = defaultdict(list)
     for row in rows:
         grouped[row["clip"]].append(row)
     for clip, clip_rows in grouped.items():
-        detector.set_video_identity(clip)
+        if detector:
+            detector.set_video_identity(clip)
         annotations = json.loads(gzip.decompress((dataset / "provider-labels" / (clip + ".json.gz")).read_bytes()))
         by_image = defaultdict(list)
         for a in annotations["annotations"]:
@@ -82,12 +103,14 @@ def evaluate_profile(dataset, profile, team_settings, output):
             if reference["status"] != "valid":
                 geometry_missing += 1
                 continue
-            found = detector.detect(frame, row["frame_index"])
+            found = detector.detect(frame, row["frame_index"]) if detector else replay_frames[fid]
             raw_counts.update(d.semantic_class for d in found)
             for d in found:
                 project_automatic(d, reference, (row["width"], row["height"]))
-            if models.get("analysis_scope") == "on_pitch_players":
+            if detector and models.get("analysis_scope") == "on_pitch_players":
                 detector.classify_on_pitch(frame, found)
+            elif not detector:
+                kit.update(frame, found)
             from .teams import shirt_color
 
             for d in found:
@@ -103,9 +126,6 @@ def evaluate_profile(dataset, profile, team_settings, output):
         print(f"Evaluated {clip}: {len(detections)}/{len(rows)} frames", flush=True)
     if not truths:
         raise ValueError("No evaluable reference geometry")
-    metrics = evaluate(truths, predictions, ["player"])
-    errors = metrics.pop("errors")
-    write_json(output / "player-errors.json", {"errors": errors})
     team_total = team_correct = team_wrong = team_unknown = missed = false_positive = keepers = keeper_hit = 0
     per_clip, all_serialized = [], []
     for clip, clip_rows in grouped.items():
@@ -122,6 +142,10 @@ def evaluate_profile(dataset, profile, team_settings, output):
                 continue
             found = detections[fid]
             assigner.update(found, row["frame_index"])
+            # Team context may refine a proposal's role. Measure the final output,
+            # including those recoveries/rejections, against the same truth.
+            predictions[fid] = [{"class_id": 0, "bbox_xyxy": d.bbox_xyxy, "confidence": d.confidence}
+                                for d in found if d.semantic_class == "player" and d.projection_status == "valid"]
             candidates = sorted([d for d in found if d.semantic_class == "player" and d.projection_status == "valid"
                                  and d.confidence >= .25], key=lambda d: -d.confidence)
             used = set()
@@ -154,6 +178,9 @@ def evaluate_profile(dataset, profile, team_settings, output):
                          "correct": correct, "wrong": assigned - correct, "unknown": len(labelled) - assigned,
                          "missed_players": unmatched, "single_fixed_swap": swapped > direct})
     write_json(output / "detections.json", {"frames": all_serialized})
+    metrics = evaluate(truths, predictions, ["player"])
+    errors = metrics.pop("errors")
+    write_json(output / "player-errors.json", {"errors": errors})
     player = metrics["per_class"][0]
     result = {"identity": identity, "frames": len(truths), "reference_geometry_unavailable": geometry_missing,
               "dataset_fingerprint": manifest["fingerprint"], "profile": models,
@@ -166,7 +193,7 @@ def evaluate_profile(dataset, profile, team_settings, output):
                         "goalkeepers_total": sum(p.get("goalkeeper", False) for v in references.values() for p in v),
                         "goalkeepers_matched": keepers, "goalkeepers_correct_team": keeper_hit, "per_clip": per_clip},
               "raw_roles": dict(raw_counts), "final_roles": dict(final_counts), "transitions": dict(transitions),
-              "test_accessed": False, "independent_final_test": False,
+              "test_accessed": False, "independent_final_test": False, "inference_replay": replay_identity,
               "geometry_kind": "conditional provider object correspondences; not automatic-field accuracy"}
     result["targets_met"] = (player["precision"] >= .95 and player["recall"] >= .9
                               and result["teams"]["accuracy_assigned"] >= .95
@@ -181,8 +208,9 @@ if __name__ == "__main__":
     parser.add_argument("--profile", type=Path, required=True)
     parser.add_argument("--teams", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--replay", type=Path)
     args = parser.parse_args()
-    report = evaluate_profile(args.dataset, args.profile, args.teams, args.output)
+    report = evaluate_profile(args.dataset, args.profile, args.teams, args.output, replay=args.replay)
     print({"frames": report["frames"], "targets_met": report["targets_met"],
            "players": report["player_detection_and_roles"]["per_class"][0],
            "team_accuracy": report["teams"]["accuracy_assigned"]})

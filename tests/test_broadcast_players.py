@@ -5,13 +5,24 @@ import numpy as np
 import pytest
 from test_appearance import fixed_classifier
 
-from football_pipeline.appearance import AppearanceClassifier
+from football_pipeline.appearance import PITCH_ROLE_NAMES, AppearanceClassifier
 from football_pipeline.broadcast_data import labelled_people
 from football_pipeline.broadcast_evaluation import reference_geometry
 from football_pipeline.broadcast_training import team_metrics
 from football_pipeline.contracts import Detection, FrameRecord, PipelineError
-from football_pipeline.detection import UltralyticsDetector, load_model_manifest, merge_person_proposals
-from football_pipeline.kit_embedding import KitEmbedding, PitchTeamSamples, dominant_teams, embedding_candidate
+from football_pipeline.detection import (
+    UltralyticsDetector,
+    load_model_manifest,
+    merge_person_proposals,
+    player_detection_sources,
+    prefer_person_geometry,
+)
+from football_pipeline.kit_embedding import (
+    KitEmbedding,
+    PitchTeamSamples,
+    dominant_teams,
+    embedding_candidate,
+)
 from football_pipeline.render import render_frame
 from football_pipeline.teams import TeamAssigner, load_team_settings, validate_team_model
 
@@ -75,8 +86,23 @@ def test_classification_happens_only_for_people_projected_inside_the_current_fie
     outside.projection_status = "outside_field"
     unavailable.projection_status = "calibration_unavailable"
     generic.semantic_class = "person"
+    generic.bbox_xyxy = [250, 100, 280, 180]
     detector.classify_on_pitch(np.zeros((360, 640, 3), np.uint8), [inside, outside, unavailable, generic])
     assert received == [inside, generic]
+
+
+def test_outside_proposal_cannot_suppress_an_inside_player_at_the_touchline():
+    received = []
+    detector = object.__new__(UltralyticsDetector)
+    detector.video_hash = "match"
+    detector.appearance = SimpleNamespace(classify=lambda frame, detections, identity: received.extend(detections))
+    detector.kit_embedding = None
+    outside, inside = player(0), player(1)
+    outside.model_id, outside.projection_status = "specialist", "outside_field"
+    inside.model_id, inside.semantic_class = "generic-proposals", "person"
+    raw = [outside, inside]
+    detector.classify_on_pitch(np.zeros((360, 640, 3), np.uint8), raw)
+    assert received == [inside] and outside in raw and inside in raw
 
 
 def test_embedding_groups_survive_short_tracks_and_exclude_people_outside_the_field():
@@ -113,6 +139,24 @@ def test_bad_embedding_models_are_rejected():
     model["teams"]["A"]["prototype_embedding"] = [float("nan")] * 32
     with pytest.raises(PipelineError, match="teamprototype"):
         validate_team_model(model)
+
+
+def test_kit_context_requires_trained_roles_valid_field_and_strong_player_prototypes():
+    sample = PitchTeamSamples({**settings(), "kit_player_recovery": True}, 10)
+    for frame in range(6):
+        for i in range(6):
+            sample.add(player(frame * 6 + i, i // 3), frame)
+    assigner = TeamAssigner(sample.fit(), 10)
+    recovered, outlier, outside, untrained, specialist_referee = [player(i) for i in range(5)]
+    for d in (recovered, outlier, outside, untrained, specialist_referee):
+        d.semantic_class, d.detector_semantic_class, d.role_model_id = "person", "person", "trained-roles"
+    outlier.team_embedding = np.eye(32)[4].tolist()
+    outside.projection_status = "outside_field"
+    untrained.role_model_id = None
+    specialist_referee.role_evidence = {"semantic_class": "referee", "confidence": .9}
+    assigner.update([recovered, outlier, outside, untrained, specialist_referee], 0)
+    assert recovered.semantic_class == "player" and recovered.team_id
+    assert all(d.semantic_class == "person" for d in (outlier, outside, untrained, specialist_referee))
 
 
 def test_pitch_render_hides_external_people_without_mutating_saved_detections():
@@ -179,9 +223,91 @@ def test_two_overlapping_players_survive_while_duplicate_proposals_still_merge()
     assert len(merge_person_proposals([left, right, duplicate], preserve_same_source=True)) == 2
 
 
+def test_nested_partial_box_at_same_feet_does_not_count_a_second_player():
+    complete, partial = player(0), player(1)
+    partial.bbox_xyxy = [101, 125, 129, 180]
+    complete.confidence, partial.confidence = .7, .8
+    assert merge_person_proposals([partial, complete], preserve_same_source=True) == [complete]
+
+
 def test_unreadable_edge_crop_stays_unknown_instead_of_crashing_team_inference():
     model = object.__new__(KitEmbedding)
     tiny = Detection("edge", "specialist", 0, "player", [639.2, 100, 639.9, 180], .9,
                      field_position=[.9, .5], projection_status="valid")
     model.update(np.zeros((360, 640, 3), np.uint8), [tiny])
     assert tiny.team_embedding is None and tiny.team_id is None
+
+
+def test_renaming_teams_does_not_replace_a_valid_embedding_model_with_color_rejection():
+    from football_pipeline.team_results import validate_corrections
+
+    samples = PitchTeamSamples(settings(), 10)
+    for frame in range(6):
+        for i in range(4):
+            d = player(frame * 4 + i, i // 2)
+            d.shirt_color_lab = [50., 0., 0.]  # Similar mean colors, distinct learned kits.
+            samples.add(d, frame)
+    model = samples.fit()
+    assert model["status"] == "available"
+    origin = {"cache_key": "source", "video": {"sha256": "video"}}
+    correction = {"schema_version": 1, "source_run_key": "source", "video_sha256": "video",
+                  "teams": {"A": {"name": "Thuis"}}, "track_overrides": {}}
+    updated, _ = validate_corrections(correction, origin, model, set())
+    assert updated["status"] == "available" and updated["teams"]["A"]["name"] == "Thuis"
+
+
+def test_role_training_refuses_same_image_in_two_splits_even_if_the_crop_is_duplicate(tmp_path, monkeypatch):
+    from football_pipeline import broadcast_training
+    from football_pipeline.contracts import write_json
+
+    old = tmp_path / "legacy.json"
+    write_json(old, {"samples": [{"image": "frame.jpg", "image_sha256": "same-pixels", "split": "val",
+                                 "bbox": [0, 0, 20, 60], "role": "player"}]})
+    monkeypatch.setattr(broadcast_training, "OLD_ROLES", old)
+    write_json(tmp_path / "manifest.json", {"frames": [
+        {"frame_id": "frame", "image": "frame.jpg", "image_sha256": "same-pixels", "split": "train",
+         "game_id": "1", "clip": "clip", "frame_index": 0,
+         "people": [{"bbox": [0, 0, 20, 60], "role": "player", "on_pitch": True,
+                     "provider_annotation_id": "person"}]}]})
+    with pytest.raises(ValueError, match="crosses splits"):
+        broadcast_training.sample_rows(tmp_path)
+    write_json(old, {"samples": [{"split": "test", "image": "never-open.jpg"}]})
+    with pytest.raises(ValueError, match="Reserved"):
+        broadcast_training.sample_rows(tmp_path)
+
+
+def test_three_class_field_checkpoint_uses_its_actual_class_names(tmp_path):
+    import torch
+
+    from football_pipeline.contracts import sha256_file
+
+    spec = fixed_classifier(tmp_path, "person")
+    state = torch.load(spec["weights"], weights_only=True)
+    state["role_names"] = PITCH_ROLE_NAMES
+    state["role_head"] = {key: value[[0, 1, 5]] for key, value in state["role_head"].items()}
+    torch.save(state, spec["weights"])
+    spec.update(role_names=PITCH_ROLE_NAMES, weights_sha256=sha256_file(spec["weights"]))
+    model = AppearanceClassifier(spec)
+    d = player()
+    d.semantic_class = "person"
+    model.classify(np.zeros((360, 640, 3), np.uint8), [d], "new-match")
+    assert d.semantic_class == "person" and d.role_class_id == 2
+    sources = {"models": [{"class_mapping": {"0": "person"}}]}
+    assert not player_detection_sources(sources)
+    sources["appearance"] = {"role_names": PITCH_ROLE_NAMES}
+    assert player_detection_sources(sources) == sources["models"]
+
+
+def test_person_geometry_retains_real_source_and_requires_trained_role_evidence(tmp_path):
+    specialist = player()
+    generic = Detection("person-box", "coco", 0, "person", [102, 101, 132, 181], .8,
+                        field_position=[.5, .5], projection_status="valid")
+    merged = prefer_person_geometry([specialist, generic])
+    assert merged == [generic]
+    assert generic.model_id == "coco" and generic.semantic_class == "person"
+    assert generic.role_evidence["model_id"] == "specialist"
+    spec = {**fixed_classifier(tmp_path, "assistant_referee"), "role_policy": "preserve_detector_players"}
+    model = AppearanceClassifier(spec)
+    model.classify(np.zeros((360, 640, 3), np.uint8), merged, "new-match")
+    assert generic.semantic_class == "player" and generic.detector_semantic_class == "person"
+    assert generic.role_decision == "matched_specialist_player"

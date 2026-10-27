@@ -9,6 +9,9 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
+if (-not $PSBoundParameters.ContainsKey('Recognition') -and (Test-Path -LiteralPath (Join-Path $projectRoot 'configs/models-broadcast.json'))) {
+    $Recognition = 'broadcast'
+}
 Push-Location $projectRoot
 try {
     $runtimePython = Join-Path $projectRoot '.venv\Scripts\python.exe'

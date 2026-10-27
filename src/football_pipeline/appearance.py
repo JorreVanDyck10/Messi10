@@ -9,6 +9,7 @@ from .contracts import PipelineError, sha256_file
 from .geometry import valid_box
 
 ROLE_NAMES = ["player", "referee", "assistant_referee", "steward", "spectator", "person"]
+PITCH_ROLE_NAMES = ["player", "referee", "person"]
 TEAM_NAMES = ["team_a", "team_b"]
 INPUT_SIZE = (128, 192)  # width, height; retain the complete person rather than a central square crop
 
@@ -76,11 +77,14 @@ class AppearanceClassifier:
         if self.device.isdigit():
             self.device = "cuda:" + self.device
         state = torch.load(path, map_location="cpu", weights_only=True)
-        if state["role_names"] != ROLE_NAMES or state["team_names"] != TEAM_NAMES:
+        if state["role_names"] not in (ROLE_NAMES, PITCH_ROLE_NAMES) or state["team_names"] != TEAM_NAMES:
             raise PipelineError("Onverwachte uitvoerklassen van de rol-/teamclassifier.")
+        self.role_names = state["role_names"]
+        if spec.get("role_names", self.role_names) != self.role_names:
+            raise PipelineError("Rolklassen in profiel en checkpoint verschillen.")
         self.backbone = backbone().to(self.device).eval()
         self.backbone.load_state_dict(state["backbone"])
-        self.role_head = torch.nn.Linear(608, len(ROLE_NAMES)).to(self.device).eval()
+        self.role_head = torch.nn.Linear(608, len(self.role_names)).to(self.device).eval()
         self.team_head = torch.nn.Linear(608, 2).to(self.device).eval()
         self.role_head.load_state_dict(state["role_head"])
         self.team_head.load_state_dict(state["team_head"])
@@ -124,15 +128,19 @@ class AppearanceClassifier:
                 d.role_confidence = float(role.max())
                 d.role_class_id = int(role.argmax())
                 d.semantic_class = (
-                    ROLE_NAMES[int(role.argmax())] if role.max() >= self.threshold else "person"
+                    self.role_names[int(role.argmax())] if role.max() >= self.threshold else "person"
                 )
                 if self.role_policy == "preserve_detector_players":
+                    source_role, source_confidence = d.detector_semantic_class, d.confidence
+                    if d.role_evidence and d.role_evidence["confidence"] >= .5:
+                        source_role = d.role_evidence["semantic_class"]
+                        source_confidence = d.role_evidence["confidence"]
                     # A specialist's actual player class is direct role evidence.
                     # A generic person still needs a learned positive player label.
-                    if d.detector_semantic_class == "player" and d.confidence >= 0.25:
+                    if source_role == "player" and source_confidence >= 0.25:
                         d.semantic_class = "player"
-                        d.role_decision = "specialist_player_preserved"
-                    elif d.detector_semantic_class == "referee" and d.confidence >= 0.25:
+                        d.role_decision = "matched_specialist_player" if d.role_evidence else "specialist_player_preserved"
+                    elif source_role == "referee" and source_confidence >= 0.25:
                         positive_player = int(role.argmax()) == 0 and role.max() >= 0.95
                         d.semantic_class = "player" if positive_player else "referee"
                         d.role_decision = (

@@ -1,10 +1,13 @@
 param(
     [string]$Device = '0',
-    [ValidateSet('players','roles-r007','roles-r009','roles-r010','roles-r015')][string]$Recognition = 'roles-r007',
+    [ValidateSet('broadcast','players','roles-r007','roles-r009','roles-r010','roles-r015')][string]$Recognition = 'roles-r007',
     [string]$FieldRuntime = ''
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
+if (-not $PSBoundParameters.ContainsKey('Recognition') -and (Test-Path -LiteralPath (Join-Path $projectRoot 'configs/models-broadcast.json'))) {
+    $Recognition = 'broadcast'
+}
 if ($FieldRuntime) {
     $env:FOOTBALL_FIELD_RUNTIME = [IO.Path]::GetFullPath($FieldRuntime)
 } elseif (-not $env:FOOTBALL_FIELD_RUNTIME) {

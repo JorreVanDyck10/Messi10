@@ -7,7 +7,7 @@ import streamlit as st
 
 from .app_results import show_result
 from .contracts import PipelineError, digest_json, read_json, sha256_file
-from .detection import load_model_manifest, validate_detection_devices
+from .detection import load_model_manifest, player_detection_sources, validate_detection_devices
 from .pipeline import code_identity, process_video
 from .teams import configured_team_path
 from .video import ROOT
@@ -25,7 +25,7 @@ def automatic_analysis(video, upload_name, output_root):
         models = load_model_manifest(model_path)
         team_path = configured_team_path(models)
         validate_detection_devices(models)
-        if not any("player" in spec["class_mapping"].values() for spec in models["models"]):
+        if not player_detection_sources(models):
             raise PipelineError("Automatische speleranalyse vereist getrainde player-klassen.")
         field = read_json(runtime)
         field_weights = {

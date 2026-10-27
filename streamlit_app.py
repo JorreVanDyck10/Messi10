@@ -16,7 +16,12 @@ from football_pipeline.app_results import show_result
 from football_pipeline.calibration_input import panoris_point_suggestion, point_label
 from football_pipeline.contracts import PipelineError, RunResult, digest_json, read_json, sha256_file
 from football_pipeline.demo import default_points
-from football_pipeline.detection import available_roles, load_model_manifest, validate_detection_devices
+from football_pipeline.detection import (
+    available_roles,
+    load_model_manifest,
+    player_detection_sources,
+    validate_detection_devices,
+)
 from football_pipeline.geometry import (
     Calibration,
     CalibrationControlError,
@@ -591,7 +596,7 @@ except PipelineError as exc:
 
 tracking = st.checkbox(
     "Spelertracking en trajecten toevoegen",
-    disabled=not any("player" in spec["class_mapping"].values() for spec in models["models"]),
+    disabled=not player_detection_sources(models),
     key="tracking",
 )
 teams_enabled = (

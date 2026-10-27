@@ -28,6 +28,8 @@ OLD_ROLES = ROOT / "data/joint-local-20261027-v2/roles/manifest.json"
 def sample_rows(dataset):
     rows, seen, splits = [], set(), {}
     for f in read_json(Path(dataset) / "manifest.json")["frames"]:
+        if f["split"] not in {"train", "val"}:
+            raise ValueError("Reserved appearance images must not be opened")
         for p in f["people"]:
             if not p["on_pitch"]:
                 continue
@@ -36,18 +38,20 @@ def sample_rows(dataset):
                          "frame_index": f["frame_index"], "broadcast": True,
                          "id": f["frame_id"] + ":" + p["provider_annotation_id"]})
     for p in read_json(OLD_ROLES)["samples"]:
+        if p["split"] not in {"train", "val"}:
+            raise ValueError("Reserved appearance images must not be opened")
         rows.append({**p, "image": str((OLD_ROLES.parent / p["image"]).resolve()),
                      "broadcast": False, "goalkeeper": p.get("goalkeeper", False)})
     kept = []
     for r in rows:
         if r["bbox"][2] - r["bbox"][0] < 4 or r["bbox"][3] - r["bbox"][1] < 12:
             continue
+        if splits.setdefault(r["image_sha256"], r["split"]) != r["split"]:
+            raise ValueError("Appearance image crosses splits")
         key = digest_json([r["image_sha256"], [round(float(v), 2) for v in r["bbox"]]])
         if key in seen:
             continue
         seen.add(key)
-        if splits.setdefault(r["image_sha256"], r["split"]) != r["split"]:
-            raise ValueError("Appearance image crosses splits")
         kept.append(r)
     return kept
 
@@ -337,7 +341,7 @@ def train_teams(data, output, minutes):
     return path
 
 
-def run(dataset, output, stage):
+def run(dataset, output, stage, minutes=None):
     output.mkdir(parents=True, exist_ok=True)
     torch.set_num_threads(4)
     if not torch.cuda.is_available():
@@ -367,7 +371,7 @@ def run(dataset, output, stage):
                 raise ValueError("Detector checkpoint has no resumable optimizer")
             progress = output / "detector/progress.json"
             elapsed = max(status.get("runtime_s", 0), read_json(progress).get("elapsed_s", 0) if progress.exists() else 0)
-            remaining = 120 - elapsed / 60
+            remaining = (minutes or 120) - elapsed / 60
             if remaining <= 0:
                 raise ValueError("Detector training budget already consumed")
             pause = {"resume_checkpoint": str(last), "sha256": sha256_file(last),
@@ -377,13 +381,20 @@ def run(dataset, output, stage):
             print("Resuming detector", resume_yolo(dataset, output / "detector", pause), flush=True)
             return
         trained = train_candidate(dataset, output / "detector", augment=True, epochs=40,
-                                  weights=BASE_PLAYERS, max_minutes=120)
+                                  weights=BASE_PLAYERS, max_minutes=minutes or 120)
         print("Detector checkpoint", trained, flush=True)
     elif stage == "appearance":
         started = time.monotonic()
         data = features(dataset, output / "appearance")
-        train_roles(data, output / "roles", max(.1, 60 - (time.monotonic() - started) / 60))
-        train_teams(data, output / "teams", 60)
+        cap = minutes or 120
+        remaining = cap - (time.monotonic() - started) / 60
+        if remaining <= 0:
+            raise ValueError("Appearance budget exhausted after feature extraction")
+        train_roles(data, output / "roles", min(60, remaining / 2))
+        remaining = cap - (time.monotonic() - started) / 60
+        if remaining <= 0:
+            raise ValueError("Appearance budget exhausted after role training")
+        train_teams(data, output / "teams", remaining)
     else:
         raise ValueError("Unknown training stage")
 
@@ -393,5 +404,6 @@ if __name__ == "__main__":
     parser.add_argument("stage", choices=("detector", "appearance"))
     parser.add_argument("--dataset", type=Path, default=ROOT / "data/broadcast-pitch-v1")
     parser.add_argument("--output", type=Path, default=ROOT / "artifacts/broadcast-pitch-v1")
+    parser.add_argument("--minutes", type=float)
     args = parser.parse_args()
-    run(args.dataset.resolve(), args.output.resolve(), args.stage)
+    run(args.dataset.resolve(), args.output.resolve(), args.stage, args.minutes)

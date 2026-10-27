@@ -19,7 +19,13 @@ import psutil
 
 from .automatic_calibration import AutomaticCalibration, prepare_automatic_calibration, project_automatic
 from .contracts import FrameRecord, PipelineError, RunResult, digest_json, read_json, sha256_file, write_json
-from .detection import UltralyticsDetector, available_roles, load_model_manifest, validate_detection_devices
+from .detection import (
+    UltralyticsDetector,
+    available_roles,
+    load_model_manifest,
+    player_detection_sources,
+    validate_detection_devices,
+)
 from .geometry import Calibration, project_detection, valid_box
 from .participants import GROUND_ROLES, PLAYER_POLICY
 from .render import render_frame
@@ -259,7 +265,7 @@ def process_video(
         config = load_tracker_config(tracker_config_path) if tracker_config_path else None
         acceptance = None
         if config:
-            player_models = [s for s in models["models"] if "player" in s["class_mapping"].values()]
+            player_models = player_detection_sources(models)
             if not player_models:
                 raise PipelineError("Spelertracking vereist expliciete player-klassen; person volstaat niet.")
             if any(s["confidence"] > min(0.10, config["track_low_thresh"]) for s in player_models):

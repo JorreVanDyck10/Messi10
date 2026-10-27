@@ -104,6 +104,7 @@ class Detection:
     role_decision: str | None = None
     team_embedding: list[float] | None = None
     player_kind: str | None = None
+    role_evidence: dict | None = None
 
     @classmethod
     def from_dict(cls, value: dict) -> Detection:

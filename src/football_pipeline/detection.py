@@ -14,6 +14,9 @@ def load_model_manifest(path: str | Path) -> dict:
     models = manifest.get("models", [])
     if manifest.get("analysis_scope", "all_participants") not in {"all_participants", "on_pitch_players"}:
         raise PipelineError("Onbekend analysebereik.")
+    if "person_geometry" in manifest and (type(manifest["person_geometry"]) is not bool
+            or manifest.get("analysis_scope") != "on_pitch_players"):
+        raise PipelineError("Persoonsgeometrie vereist een expliciet veldgericht profiel.")
     if manifest.get("schema_version") != 1 or not models:
         raise PipelineError("Modelmanifest vereist schema_version 1 en minstens één model.")
     owners, identifiers = {}, set()
@@ -85,7 +88,7 @@ def load_model_manifest(path: str | Path) -> dict:
                 raise
             raise PipelineError(f"Ongeldig modelmanifest: {exc}") from exc
     if manifest.get("appearance"):
-        from .appearance import ROLE_NAMES
+        from .appearance import PITCH_ROLE_NAMES, ROLE_NAMES
 
         spec = manifest["appearance"]
         if spec.get("role_policy", "classifier") not in {"classifier", "preserve_detector_players"}:
@@ -93,8 +96,10 @@ def load_model_manifest(path: str | Path) -> dict:
         weights = (path.parent / spec["weights"]).resolve()
         if not weights.is_file() or sha256_file(weights) != spec.get("weights_sha256"):
             raise PipelineError("Rol-/teamgewichten ontbreken of hun hash wijkt af.")
-        if spec.get("role_names") != ROLE_NAMES or not spec.get("model_id"):
+        if spec.get("role_names") not in (ROLE_NAMES, PITCH_ROLE_NAMES) or not spec.get("model_id"):
             raise PipelineError("Rolclassifier vereist de werkelijk getrainde klassen en een model-ID.")
+        if spec["role_names"] == PITCH_ROLE_NAMES and manifest.get("analysis_scope") != "on_pitch_players":
+            raise PipelineError("De veldgerichte rolclassifier vereist spelersanalyse binnen het veld.")
         for key in ("role_confidence", "team_confidence"):
             value = spec.get(key)
             if not isinstance(value, (float, int)) or not math.isfinite(value) or not 0 < value <= 1:
@@ -117,6 +122,17 @@ def available_roles(manifest):
     return roles
 
 
+def player_detection_sources(manifest):
+    actual = [s for s in manifest["models"] if "player" in s["class_mapping"].values()]
+    if actual:
+        return actual
+    if "player" in manifest.get("appearance", {}).get("role_names", []):
+        # Person remains the detector's real source class. The verified trained
+        # crop classifier must emit a positive player label before counting.
+        return [s for s in manifest["models"] if "person" in s["class_mapping"].values()]
+    return []
+
+
 def merge_person_proposals(detections, overlap=0.5, *, preserve_same_source=False):
     """One human observation per overlapping proposal; keep non-human detections intact."""
     people = sorted(
@@ -133,6 +149,23 @@ def merge_person_proposals(detections, overlap=0.5, *, preserve_same_source=Fals
             intersection = max(0, min(x2, c) - max(x1, a)) * max(0, min(y2, d) - max(y1, b))
             union = (x2 - x1) * (y2 - y1) + (c - a) * (d - b) - intersection
             if union > 0 and intersection / union >= overlap:
+                smaller = min((x2 - x1) * (y2 - y1), (c - a) * (d - b))
+                aligned_partial = (
+                    preserve_same_source and candidate.model_id == other.model_id
+                    and candidate.semantic_class == other.semantic_class and smaller > 0
+                    and intersection / smaller >= .95
+                    and min(y2 - y1, d - b) < .85 * max(y2 - y1, d - b)
+                    and abs((x1 + x2) / 2 - (a + c) / 2) <= min(x2 - x1, c - a) * .1
+                    and abs(y2 - d) <= max(y2 - y1, d - b) * .08
+                )
+                if aligned_partial:
+                    # Two boxes share the same feet/axis, with one nearly inside
+                    # the other. Prefer the complete original source box. This
+                    # also removes partial duplicates at an image boundary.
+                    if y2 - y1 > d - b and candidate.confidence >= .25:
+                        kept[index] = candidate
+                    duplicate = True
+                    break
                 distinct_same_source = (
                     preserve_same_source
                     and candidate.model_id == other.model_id
@@ -177,6 +210,41 @@ def merge_person_proposals(detections, overlap=0.5, *, preserve_same_source=Fals
         if not duplicate:
             kept.append(candidate)
     return kept + [d for d in detections if d.semantic_class not in GROUND_ROLES]
+
+
+def prefer_person_geometry(people):
+    """One-to-one specialist role evidence on a general detector's person box.
+
+    Preserve the person model's real source identity and coordinates. A positive
+    specialist class is separate evidence, never a person->player class mapping.
+    """
+    import numpy as np
+    from scipy.optimize import linear_sum_assignment
+
+    persons = merge_person_proposals([d for d in people if d.semantic_class == "person"], preserve_same_source=True)
+    specialists = [d for d in people if d.semantic_class in {"player", "referee"}]
+    if not persons:
+        return [d for d in specialists if d.semantic_class == "player" and d.confidence >= .75]
+    if not specialists:
+        return persons
+    a = np.asarray([d.bbox_xyxy for d in persons], float)
+    b = np.asarray([d.bbox_xyxy for d in specialists], float)
+    intersection = np.maximum(0, np.minimum(a[:, None, 2:], b[None, :, 2:])
+                              - np.maximum(a[:, None, :2], b[None, :, :2])).prod(2)
+    union = (a[:, 2:] - a[:, :2]).prod(1)[:, None] + (b[:, 2:] - b[:, :2]).prod(1) - intersection
+    scores = np.divide(intersection, union, out=np.zeros_like(intersection), where=union > 0)
+    used = set()
+    for a, b in zip(*linear_sum_assignment(-scores)):
+        if scores[a, b] < .35:
+            continue
+        source = specialists[b]
+        persons[a].role_evidence = {"model_id": source.model_id, "source_class_id": source.source_class_id,
+                                   "semantic_class": source.semantic_class, "confidence": source.confidence,
+                                   "bbox_xyxy": list(source.bbox_xyxy), "overlap": float(scores[a, b])}
+        used.add(b)
+    fallback = [d for i, d in enumerate(specialists) if i not in used and d.semantic_class == "player"
+                and d.confidence >= .75 and scores[:, i].max() < .2]
+    return persons + fallback
 
 
 def validate_detection_devices(manifest: dict) -> None:
@@ -314,10 +382,8 @@ class UltralyticsDetector:
                             float(confidence),
                         )
                     )
-        if self.appearance or getattr(self, "manifest", {}).get("analysis_scope") == "on_pitch_players":
-            detections = merge_person_proposals(
-                detections, preserve_same_source=getattr(self, "manifest", {}).get("analysis_scope") == "on_pitch_players"
-            )
+        if self.appearance and getattr(self, "manifest", {}).get("analysis_scope") != "on_pitch_players":
+            detections = merge_person_proposals(detections)
         if self.appearance and getattr(self, "manifest", {}).get("analysis_scope") != "on_pitch_players":
             self.appearance.classify(frame, detections, self.video_hash)
         return detections
@@ -329,6 +395,13 @@ class UltralyticsDetector:
         size = (frame.shape[1], frame.shape[0])
         people = [d for d in detections if d.semantic_class in GROUND_ROLES
                   and field_exclusion_reason(d, size) is None]
+        merged = (prefer_person_geometry(people) if getattr(self, "manifest", {}).get("person_geometry")
+                  else merge_person_proposals(people, preserve_same_source=True))
+        eligible_ids = {id(d) for d in people}
+        # An outside-field proposal cannot suppress an inside-field athlete.
+        # Keep excluded raw observations for audit, without role/team inference.
+        detections[:] = merged + [d for d in detections if id(d) not in eligible_ids]
+        people = merged
         if self.appearance:
             self.appearance.classify(frame, people, self.video_hash)
         if self.kit_embedding:

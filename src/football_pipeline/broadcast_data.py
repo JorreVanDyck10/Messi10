@@ -54,6 +54,8 @@ def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25,
     output, source = Path(output).resolve(), Path(source).resolve()
     output.mkdir(parents=True, exist_ok=True)
     selection = read_json(source / "selection.json")
+    if selection["revision"] != REVISION:
+        raise ValueError("Prepared source dataset uses a different provider revision")
     games = selection["games"]
     if set(games["train"]) & set(games["val"]):
         raise ValueError("Broadcast match split overlaps")
@@ -65,6 +67,8 @@ def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25,
     write_json(output / "selection.json", frozen)
     if (output / "manifest.json").exists():
         saved = read_json(output / "manifest.json")
+        if any(row["split"] not in {"train", "val"} for row in saved["frames"]):
+            raise ValueError("Reserved images must not be opened during broadcast preparation")
         for row in saved["frames"]:
             if sha256_file(row["image"]) != row["image_sha256"] or sha256_file(row["label"]) != row["label_sha256"]:
                 raise ValueError("Prepared broadcast data changed")

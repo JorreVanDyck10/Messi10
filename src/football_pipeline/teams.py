@@ -1,4 +1,4 @@
-"""Conservative shirt-colour grouping; roles and geometric eligibility are immutable inputs."""
+"""Match-relative shirt grouping with explicit optional trained-player context."""
 
 from __future__ import annotations
 
@@ -41,6 +41,7 @@ DEFAULT_TEAM_SETTINGS = {
     "embedding_separation": 0.4,
     "embedding_max_distance": 0.45,
     "embedding_margin": 0.18,
+    "kit_player_recovery": False,
 }
 TEAM_IDS = ("A", "B")
 UNKNOWN_COLOR = "#aab2bd"
@@ -72,6 +73,10 @@ def load_team_settings(path: str | Path | dict) -> dict:
     }
     for key, number in settings.items():
         if key in {"method", "schema_version"}:
+            continue
+        if key == "kit_player_recovery":
+            if type(number) is not bool:
+                raise PipelineError(f"Ongeldig teambeleid: {key}.")
             continue
         if (
             isinstance(number, bool)
@@ -305,6 +310,21 @@ class TeamAssigner:
         cutoff = index - max(1, round(self.fps * self.settings["history_seconds"]))
         self.history = {key: state for key, state in self.history.items() if state["last"] >= cutoff}
         for d in detections:
+            embedding_method = self.settings["method"] == "torso_embedding_dominant_modes_v1"
+            if (embedding_method and self.settings.get("kit_player_recovery")
+                    and d.semantic_class in {"person", "referee"} and d.detector_semantic_class == "person"
+                    and d.role_model_id and d.confidence >= .25
+                    and not (d.role_evidence and d.role_evidence["semantic_class"] == "referee"
+                             and d.role_evidence["confidence"] >= .5)):
+                from .kit_embedding import embedding_candidate
+
+                strict = {**self.model, "settings": {**self.settings,
+                          "embedding_max_distance": min(.15, self.settings["embedding_max_distance"]),
+                          "embedding_margin": max(.15, self.settings["embedding_margin"])}}
+                recovered, _ = embedding_candidate(d, strict)
+                if recovered:
+                    d.semantic_class = "player"
+                    d.role_decision = "strong_kit_context_from_trained_player_prototypes"
             # The optional appearance model's match-specific labels are separate
             # evidence from this run's colour clusters and manual corrections.
             if d.team_method is not None:
@@ -319,7 +339,6 @@ class TeamAssigner:
             d.team_status = "not_player" if d.semantic_class != "player" else "unknown"
             if d.semantic_class != "player":
                 continue
-            embedding_method = self.settings["method"] == "torso_embedding_dominant_modes_v1"
             if (embedding_method or self.model.get("analysis_scope") == "on_pitch_players") and d.projection_status != "valid":
                 continue
             key = str(d.track_id) if d.track_id is not None else None

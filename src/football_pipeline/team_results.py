@@ -214,7 +214,7 @@ def validate_corrections(
             updated["settings"]["method"] = "torso_lab_dominant_modes_v1"
     validate_team_model(updated)
     prototypes = [team["prototype_lab"] for team in updated["teams"].values()]
-    if all(p is not None for p in prototypes):
+    if updated["settings"]["method"] == "torso_lab_dominant_modes_v1" and all(p is not None for p in prototypes):
         import numpy as np
 
         separation = np.linalg.norm(np.array(prototypes[0]) - prototypes[1])

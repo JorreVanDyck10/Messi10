@@ -23,6 +23,13 @@ class KitEmbedding:
         if self.device.isdigit():
             self.device = "cuda:" + self.device
         state = torch.load(spec["weights"], map_location="cpu", weights_only=True)
+        self.metric_weights = None
+        if state.get("format") == "broadcast-kit-hist-v2":
+            weights = state["metric_weights"].numpy()
+            if weights.shape != (32,) or not np.isfinite(weights).all() or (weights <= 0).any():
+                raise PipelineError("Ongeldige gewichten voor het shirtmodel.")
+            self.metric_weights = weights
+            return
         if state.get("format") != "broadcast-kit-v1":
             raise PipelineError("Onbekend teammodel.")
         self.encoder = backbone().to(self.device).eval()
@@ -36,8 +43,17 @@ class KitEmbedding:
     def update(self, frame, detections):
         import torch
 
-        players = [d for d in detections if d.semantic_class == "player" and d.projection_status == "valid"
+        eligible = {"player", "referee", "person"} if getattr(self, "metric_weights", None) is not None else {"player"}
+        players = [d for d in detections if d.semantic_class in eligible and d.projection_status == "valid"
                    and d.bbox_xyxy[2] - d.bbox_xyxy[0] >= 4 and d.bbox_xyxy[3] - d.bbox_xyxy[1] >= 12]
+        if getattr(self, "metric_weights", None) is not None:
+            for d in players:
+                vector = kit_feature(frame, d.bbox_xyxy) * self.metric_weights
+                d.team_embedding = (vector / max(1e-9, np.linalg.norm(vector))).tolist()
+                # A keeper-color guess must not erase an entire unseen kit.
+                # Distinct rare kits remain unknown through the distance gate.
+                d.player_kind = None
+            return
         for start in range(0, len(players), 32):
             batch = players[start:start + 32]
             pixels = torch.stack([crop_tensor(frame, d.bbox_xyxy) for d in batch]).to(self.device)
