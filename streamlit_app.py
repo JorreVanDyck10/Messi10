@@ -12,8 +12,9 @@ import cv2
 import pandas as pd
 import streamlit as st
 
+from football_pipeline.app_results import show_result
 from football_pipeline.calibration_input import panoris_point_suggestion, point_label
-from football_pipeline.contracts import PipelineError, digest_json, read_json, sha256_file
+from football_pipeline.contracts import PipelineError, RunResult, digest_json, read_json, sha256_file
 from football_pipeline.demo import default_points
 from football_pipeline.detection import load_model_manifest, validate_detection_devices
 from football_pipeline.geometry import (
@@ -23,20 +24,50 @@ from football_pipeline.geometry import (
     point_coordinate_issues,
 )
 from football_pipeline.model_handoff import available_model_profiles
-from football_pipeline.pipeline import process_video
+from football_pipeline.pipeline import process_video, validate_completed
 from football_pipeline.point_picker import apply_point_click, point_picker
 from football_pipeline.render import LABELS, calibration_preview
 from football_pipeline.video import ROOT, inspect_video, read_frame
 
 st.set_page_config(page_title="Voetbal · tactical map", page_icon=":material/sports_soccer:", layout="wide")
 st.title("Van voetbalbeeld naar veldpositie")
-st.caption("Handmatige of automatische veldkalibratie · gesynchroniseerde video en minimap")
-st.info(
-    "Gebruik een MP4 met constante framerate. Pan en zoom zijn een experimentele uitbreiding; controleer de veld-overlay zelf."
-)
+st.caption("Upload je voetbalvideo: veldherkenning, speler-ID’s en minimap worden automatisch verwerkt.")
 
 MODEL_PATH = Path(os.environ.get("FOOTBALL_MODELS", ROOT / "configs/models.json"))
 OUTPUT_ROOT = Path(os.environ.get("FOOTBALL_RUNS", ROOT / "runs"))
+
+if st.checkbox("Een opgeslagen teamanalyse openen", key="open_team_result"):
+    team_runs = []
+    for run_path in OUTPUT_ROOT.glob("*/runmanifest.json"):
+        try:
+            saved = read_json(run_path)
+            if saved.get("status") == "completed" and saved.get("team_settings") is not None:
+                team_runs.append((run_path.parent, saved))
+        except PipelineError:
+            continue
+    team_runs.sort(key=lambda item: item[1].get("completed_at", ""), reverse=True)
+    if team_runs:
+        chosen = st.selectbox(
+            "Opgeslagen teamanalyse",
+            range(len(team_runs)),
+            format_func=lambda i: (
+                f"{team_runs[i][1].get('completed_at', '')[:19]} · {team_runs[i][0].name[:12]}"
+            ),
+            key="saved_team_run",
+        )
+        directory, saved = team_runs[chosen]
+        try:
+            active = st.session_state.get("result")
+            if active is None or st.session_state.get("saved_team_selection") != str(directory):
+                active = RunResult(directory, validate_completed(directory), reused=True)
+                st.session_state.result = active
+                st.session_state.saved_team_selection = str(directory)
+            show_result(active)
+        except (PipelineError, OSError) as exc:
+            st.error(str(exc))
+    else:
+        st.caption("Nog geen voltooide teamanalyse beschikbaar.")
+    st.stop()
 
 # Saved results can be inspected immediately, without uploading or processing again.
 if st.checkbox("Een opgeslagen veldtest visueel openen", key="open_field_review"):
@@ -83,6 +114,12 @@ def cached_frame(video, index):
 
 
 st.subheader("1. Video kiezen")
+automatic_analysis_enabled = st.toggle(
+    "Alles automatisch analyseren na upload",
+    value=True,
+    key="automatic_analysis",
+    help="Schakel uit om de kalibratie en het model zelf in te stellen.",
+)
 upload = st.file_uploader("Voetbalvideo (.mp4)", type=["mp4"], key="video_upload")
 if upload is None:
     st.caption("Kies een ontwikkelfragment van ongeveer 30–60 seconden om te beginnen.")
@@ -107,6 +144,7 @@ try:
             "draft_calibration",
             "draft_signature",
             "result",
+            "automatic_last_attempt",
         ):
             st.session_state.pop(name, None)
     with st.spinner("Videotijdlijn controleren…"):
@@ -118,6 +156,12 @@ try:
         st.metric("Frames", video.frame_count)
 except (PipelineError, OSError) as exc:
     st.error(str(exc))
+    st.stop()
+
+if automatic_analysis_enabled:
+    from football_pipeline.automatic_analysis_ui import automatic_analysis
+
+    automatic_analysis(video, getattr(upload, "name", "upload.mp4"), OUTPUT_ROOT)
     st.stop()
 
 st.subheader("2. Veld kalibreren")
@@ -519,16 +563,25 @@ except PipelineError as exc:
 
 tracking = st.checkbox(
     "Spelertracking en trajecten toevoegen",
-    disabled=automatic_mode or "player" not in semantic_classes,
+    disabled="player" not in semantic_classes,
     key="tracking",
+)
+teams_enabled = (
+    st.checkbox(
+        "Teams op shirtkleur herkennen",
+        value=True,
+        disabled="player" not in semantic_classes,
+        key="teams_enabled",
+    )
+    and "player" in semantic_classes
 )
 if automatic_mode:
     st.caption(
-        "Spelertracking bij bewegende camera’s volgt na validatie van cameracompensatie. "
-        "Deze modus toont detecties en actuele veldposities."
+        "Speler-ID’s gebruiken cameracompensatie en worden bij camerawissels vernieuwd. "
+        "Trajecten bevatten alleen actuele, geldige veldposities."
     )
 acceptance_upload = None
-if tracking:
+if tracking and not automatic_mode:
     acceptance_upload = st.file_uploader(
         "Gecontroleerde MVP-acceptatie (.json)", type=["json"], key="mvp_acceptance"
     )
@@ -545,6 +598,7 @@ request_signature = digest_json(
         "field_usage": field_usage,
         "models": models,
         "tracking": tracking,
+        "teams": sha256_file(ROOT / "configs/teams.json") if teams_enabled else None,
         "acceptance": hashlib.sha256(acceptance_upload.getvalue()).hexdigest() if acceptance_upload else None,
     }
 )
@@ -555,7 +609,7 @@ if st.button(
     "Verwerken",
     type="primary",
     key="process",
-    disabled=not field_ready or (tracking and acceptance_upload is None),
+    disabled=not field_ready or (tracking and not automatic_mode and acceptance_upload is None),
 ):
     progress_bar = st.progress(0.0, text="Verwerking voorbereiden…")
     acceptance_path = None
@@ -585,6 +639,7 @@ if st.button(
             selected_model_path,
             OUTPUT_ROOT,
             tracker_config_path=ROOT / "configs/bytetrack.yaml" if tracking else None,
+            team_config_path=ROOT / "configs/teams.json" if teams_enabled else None,
             mvp_acceptance_path=acceptance_path,
             progress=show_progress,
             field_progress=show_field_progress if automatic_mode else None,
@@ -600,27 +655,4 @@ if st.button(
 
 result = st.session_state.get("result")
 if result is not None:
-    st.subheader("4. Resultaat")
-    st.success("Eerder voltooid resultaat hergebruikt." if result.reused else "Video volledig verwerkt.")
-    st.caption(f"Uitvoermap: {result.directory}")
-    st.video(str(result.video_path))
-    metrics = result.manifest["measurements"]
-    with st.container(horizontal=True):
-        st.metric("Verwerkingstijd", f"{metrics['runtime_s']:.1f} s")
-        st.metric("Verwerkingssnelheid", f"{metrics['processing_fps']:.2f} fps")
-        st.metric("Proces-RAM (bemonsterd)", f"{metrics['peak_process_ram_bytes_sampled'] / 2**20:.0f} MiB")
-    if result.manifest.get("calibration_mode") == "automatic":
-        st.metric("Frames met bruikbare veldkalibratie", f"{metrics['calibration_usable_fraction']:.1%}")
-        st.caption(
-            "Bruikbaarheid is een interne geometriecontrole, geen gemeten nauwkeurigheid tegen menselijke labels."
-        )
-        from football_pipeline.field_review_ui import visual_review
-
-        visual_review(result.directory)
-    for name, description, mime in (
-        ("samengestelde_video.mp4", "Video downloaden", "video/mp4"),
-        ("framegegevens.jsonl", "Framegegevens downloaden", "application/x-ndjson"),
-        ("runmanifest.json", "Runmanifest downloaden", "application/json"),
-    ):
-        with (result.directory / name).open("rb") as stream:
-            st.download_button(description, stream, file_name=name, mime=mime, key=f"download_{name}")
+    show_result(result)

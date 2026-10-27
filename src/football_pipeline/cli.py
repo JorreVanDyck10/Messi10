@@ -60,6 +60,7 @@ def main(argv=None) -> int:
     process.add_argument("--models", type=Path, default=ROOT / "configs/models.json")
     process.add_argument("--output", type=Path, default=ROOT / "runs")
     process.add_argument("--tracker", type=Path)
+    process.add_argument("--teams", type=Path, help="Versieerbaar profiel voor automatische teamherkenning")
     process.add_argument("--mvp-acceptance", type=Path)
     process.add_argument("--replay-run", type=Path)
     process.add_argument(
@@ -167,6 +168,7 @@ def main(argv=None) -> int:
                 args.models,
                 args.output,
                 tracker_config_path=args.tracker,
+                team_config_path=args.teams,
                 mvp_acceptance_path=args.mvp_acceptance,
                 replay_run=args.replay_run,
                 technical_pilot=args.technical_pilot,

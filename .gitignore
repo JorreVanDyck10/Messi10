@@ -11,6 +11,7 @@ runs/
 artifacts/*
 !artifacts/ball-ai-v1/
 !artifacts/players-v2/
+!artifacts/players-v3/
 datasets/teamtrack-players-v1/
 requirements.lock.tmp
 .cache/

@@ -1,0 +1,59 @@
+{
+  "activated_new_weights": false,
+  "decision": "Retain existing pinned release: the validation candidate regressed on the real development-video integration check.",
+  "active_runtime_sha256": "0086dfadf0cda1487ac3349ea4ab23517a3df51daecfa2870c19a288be9bb60d",
+  "baseline_runtime_sha256": "0086dfadf0cda1487ac3349ea4ab23517a3df51daecfa2870c19a288be9bb60d",
+  "validation_baseline": {
+    "correct": 12,
+    "wrong": 2,
+    "unavailable": 6,
+    "frames": 20
+  },
+  "secondary_candidate": {
+    "correct": 12,
+    "wrong": 1,
+    "unavailable": 7,
+    "frames": 20
+  },
+  "development_clip_internal_usable_frames": {
+    "baseline": 6,
+    "candidate": 0,
+    "frames": 40
+  },
+  "candidate_run": "C:\\Messi10\\.cache\\course-v3-integration\\bce18a4faf1b37f4e4aaf4f7dc201fc240f0ad90b5bee40902780bfab4a783c7",
+  "active_run": "C:\\Messi10\\.cache\\course-v3-integration\\73be183cc00e2b3eabf5a17ebd3c463c09230364c3e2283a4bb10d8d438f10cf",
+  "candidate_weights": {
+    "keypoints": {
+      "kind": "finetuned",
+      "name": "local-keypoints-48d90686caca",
+      "path": "C:\\Messi10\\artifacts\\course-improvement-20261019\\field-head-last-candidate\\keypoints-last-trained.pt",
+      "sha256": "b69dd68b55b89fe395f47f2be7ad3bdedd60a6e863a957ee6f8f6274d2930037",
+      "base_model": {
+        "name": "SV_kp",
+        "sha256": "7ea78fa76aaf94976a8eca428d6e3c59697a93430cba1a4603e20284b61f5113"
+      },
+      "dataset_fingerprint": "bae967693dd09af90bf7f1dc9adcbae8a4d1d58414a87e1100f8fed89f2e9d74",
+      "dataset_version": "course-multimatch-v1",
+      "training_report": "C:\\Messi10\\artifacts\\course-improvement-20261019\\field-head-last-candidate\\training-report.json",
+      "training_report_sha256": "9ca1e29cca52d8619aa882514064da47bafde60435dd2a26fcf87f488e814f14",
+      "is_smoke_test": false
+    },
+    "lines": {
+      "kind": "finetuned",
+      "name": "local-lines-48d90686caca",
+      "path": "C:\\Messi10\\artifacts\\course-improvement-20261019\\field-head-last-candidate\\lines-last-trained.pt",
+      "sha256": "fb7ef572fa89134d37330193ebbab9ec4ae48914a781e57d590e4c5ce457f310",
+      "base_model": {
+        "name": "SV_lines",
+        "sha256": "d72f4ed71734a2e3df9fa084f666e9b8adaef21bf69bac8952d6d3f970ff7455"
+      },
+      "dataset_fingerprint": "bae967693dd09af90bf7f1dc9adcbae8a4d1d58414a87e1100f8fed89f2e9d74",
+      "dataset_version": "course-multimatch-v1",
+      "training_report": "C:\\Messi10\\artifacts\\course-improvement-20261019\\field-head-last-candidate\\training-report.json",
+      "training_report_sha256": "9ca1e29cca52d8619aa882514064da47bafde60435dd2a26fcf87f488e814f14",
+      "is_smoke_test": false
+    }
+  },
+  "project_human_review_completed": false,
+  "independent_final_test_completed": false
+}

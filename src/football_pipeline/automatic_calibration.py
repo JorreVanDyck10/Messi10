@@ -181,6 +181,10 @@ class AutomaticCalibration:
                 name: sha256_file(Path(__file__).with_name(name))
                 for name in ("automatic_calibration.py", "field_motion.py")
             }
+            if self.settings["version"] == 3:
+                identity["implementation_sha256"]["field_bounds.py"] = sha256_file(
+                    Path(__file__).with_name("field_bounds.py")
+                )
         return digest_json(identity)
 
     def validate_for(self, video: VideoMetadata, approved=True):
@@ -276,7 +280,18 @@ class AutomaticCalibration:
 def load_automatic_calibration(path):
     path = Path(path).resolve()
     manifest = read_json(path)
-    return AutomaticCalibration(manifest, str(path.with_name("observations.jsonl")))
+    profile = None
+    # A saved processing run records its derived policy separately from the raw
+    # observations. Restore that policy rather than silently replaying the default.
+    run_path = path.with_name("runmanifest.json")
+    if path.name == "calibration.json" and run_path.is_file():
+        run = read_json(run_path)
+        if run.get("calibration_mode") != "automatic" or run.get("video", {}).get("sha256") != manifest.get(
+            "video", {}
+        ).get("sha256"):
+            raise PipelineError("Opgeslagen veldinstellingen horen bij een andere kalibratie.")
+        profile = run.get("field_settings")
+    return AutomaticCalibration(manifest, str(path.with_name("observations.jsonl")), profile)
 
 
 def project_automatic(detection: Detection, state: dict, image_size):
@@ -292,8 +307,14 @@ def project_automatic(detection: Detection, state: dict, image_size):
         return
     x1, _, x2, y2 = detection.bbox_xyxy
     try:
+        if "visible_field_polygon_xy" in state:
+            from .field_bounds import contains_footpoint
+
+            if not contains_footpoint(state["visible_field_polygon_xy"], ((x1 + x2) / 2, y2)):
+                detection.projection_status = "outside_field"
+                return
         uv = transform([[(x1 + x2) / 2, y2]], np.asarray(state["homography"]))[0]
-    except (ValueError, np.linalg.LinAlgError):
+    except (ValueError, TypeError, np.linalg.LinAlgError):
         detection.projection_status = "invalid_transform"
         return
     if (uv < 0).any() or (uv > 1).any():

@@ -9,6 +9,7 @@ import numpy as np
 import yaml
 
 from .contracts import Detection, PipelineError
+from .geometry import valid_box
 from .participants import player_exclusion_reason
 
 
@@ -32,7 +33,7 @@ def load_tracker_config(path: str | Path) -> dict:
 
 
 class ByteTrackAdapter:
-    def __init__(self, config: dict, fps: float):
+    def __init__(self, config: dict, fps: float, *, camera_motion: bool = False):
         from ultralytics.trackers.byte_tracker import BYTETracker
 
         class SourceIndexedTracker(BYTETracker):
@@ -50,6 +51,13 @@ class ByteTrackAdapter:
         self.legacy_partition_indices = version("ultralytics") == "8.3.221"
         tracker_class = SourceIndexedTracker if self.legacy_partition_indices else BYTETracker
         self.tracker = tracker_class(SimpleNamespace(**config))
+        self.motion = None
+        self.id_offset = self.maximum_id = 0
+        if camera_motion:
+            from .tracking_motion import BackgroundMotion
+
+            self.motion = BackgroundMotion()
+            self.tracker.gmc = self.motion
         self.fps = fps
         self.last_frame = -1
         # Guard the pinned API rather than silently assuming historical FPS scaling.
@@ -63,9 +71,13 @@ class ByteTrackAdapter:
             "effective_buffer_seconds": effective / fps,
             "fps_scaling": "one_update_per_source_frame",
             "index_compatibility": "8.3.221_source_indices" if self.legacy_partition_indices else "native",
+            "camera_compensation": "background_affine_ransac" if camera_motion else None,
+            "field_required_for_image_ids": not camera_motion,
         }
 
-    def update(self, detections: list[Detection], frame_index: int, image_size: tuple[int, int]) -> None:
+    def update(
+        self, detections: list[Detection], frame_index: int, image_size: tuple[int, int], *, frame=None
+    ) -> None:
         from ultralytics.engine.results import Boxes
 
         if frame_index != self.last_frame + 1:
@@ -73,11 +85,33 @@ class ByteTrackAdapter:
         self.last_frame = frame_index
         for detection in detections:
             detection.track_id = None
-        players = [d for d in detections if player_exclusion_reason(d, image_size) is None]
+        if self.motion is not None:
+            if frame is None or frame.shape[:2] != (image_size[1], image_size[0]):
+                raise PipelineError("Cameracompensatie vereist het actuele bronframe.")
+            state = self.motion.measure(frame, detections)
+            if state["reset_tracks"]:
+                self.id_offset = self.maximum_id
+                self.tracker.reset()
+            # Unknown field geometry does not invalidate a current image observation.
+            players = [
+                d
+                for d in detections
+                if d.semantic_class == "player"
+                and valid_box(d, image_size)
+                and (
+                    player_exclusion_reason(d, image_size) is None
+                    or d.projection_status == "calibration_unavailable"
+                )
+            ]
+        else:
+            players = [d for d in detections if player_exclusion_reason(d, image_size) is None]
         # A single tracker class prevents goalkeeper/player subclass switching.
         raw = np.array([[*d.bbox_xyxy, d.confidence, 0] for d in players], dtype=np.float32).reshape(-1, 6)
         boxes = Boxes(raw, (image_size[1], image_size[0]))
-        tracks = self.tracker.update(_IndexedBoxes(boxes) if self.legacy_partition_indices else boxes)
+        tracks = self.tracker.update(
+            _IndexedBoxes(boxes) if self.legacy_partition_indices else boxes,
+            **({"img": frame} if self.motion is not None else {}),
+        )
         seen = set()
         for row in tracks:
             if len(row) != 8:
@@ -86,7 +120,8 @@ class ByteTrackAdapter:
             if row[7] != index or not 0 <= index < len(players) or index in seen:
                 raise PipelineError("ByteTrack gaf geen unieke actuele detectie-index terug.")
             seen.add(index)
-            players[index].track_id = int(row[4])
+            players[index].track_id = int(row[4]) + self.id_offset
+            self.maximum_id = max(self.maximum_id, players[index].track_id)
 
 
 class _IndexedBoxes:

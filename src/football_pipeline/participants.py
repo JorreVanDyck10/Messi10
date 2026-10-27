@@ -87,6 +87,16 @@ def player_summary(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
         if available
         else "field_unavailable",
         "on_field": sum(counted_as_player(record, d, confidence) for d in players) if available else None,
+        "by_team": {
+            team: sum(
+                counted_as_player(record, d, confidence)
+                and (d.team_id if d.team_id in {"A", "B"} else "unknown") == team
+                for d in players
+            )
+            if available
+            else None
+            for team in ("A", "B", "unknown")
+        },
         "visible_player_candidates": len(players),
         "outside_field": reasons["outside_field"] if available else None,
         "unlocated": sum(n for reason, n in reasons.items() if reason not in {None, "outside_field"})

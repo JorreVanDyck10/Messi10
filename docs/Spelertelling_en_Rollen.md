@@ -42,7 +42,7 @@ De detector bewaart kandidaten vanaf confidence 0,10. De normale weergave en tel
 1. Lever per frame de actuele veldstatus en homography via de bestaande automatische kalibratie. Bij onbetrouwbare herkenning levert de veldmodule een andere status dan `valid`.
 2. De pipeline projecteert **vóór** ByteTrack. Alleen `player` met geldige projectie gaat naar de spelertracker. Uitgesloten detecties blijven in het framerecord; hun index wordt correct teruggekoppeld na filtering.
 3. Stewards, supporters en officials kunnen als afzonderlijke rol op beeld en minimap verschijnen wanneer het geladen model die echte klasse levert. Een generieke `person` mag via een manifest niet stilzwijgend worden hernoemd naar een van deze rollen.
-4. De automatische cameramodus houdt haar bestaande trackingblokkade totdat cameracompensatie is gevalideerd. Deze wijziging heft de menselijke MVP-acceptatie en andere bestaande controles niet op.
+4. De automatische cameramodus gebruikt inmiddels cameragecompenseerde tracking met tijdelijke ID’s en resets bij camerawissels. De handmatige modus behoudt haar menselijke MVP-acceptatie. Onderdeel 3 voegt [teamindeling en telling per team](Teams_Tracking_en_Telling.md) toe zonder deze telregels te veranderen.
 5. De veldherkenningscode, bronnen, beeldafmetingen, datasetlabels en gewichten zijn voor deze wijziging niet aangepast. Een andere video behoudt haar eigen kalibratievereiste.
 
 ## Uitvoer voor telling en controle

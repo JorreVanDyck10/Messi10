@@ -9,6 +9,7 @@ from .field_layout import LINES_UV
 from .field_motion import status_label
 from .geometry import valid_box
 from .participants import DISPLAY_CONFIDENCE, player_summary, visible_detection
+from .teams import UNKNOWN_COLOR, hex_rgb
 from .tracking import Trajectories
 
 COLORS = {
@@ -41,6 +42,20 @@ def field_pixel(position):
     return round(40 + 560 * position[0]), round(170 + 360 * position[1])
 
 
+def detection_color(detection, record):
+    if detection.semantic_class == "player" and record.team_context:
+        team = record.team_context["teams"].get(detection.team_id)
+        return tuple(reversed(hex_rgb(team["display_color"] if team else UNKNOWN_COLOR)))
+    return COLORS.get(detection.semantic_class, (190, 190, 190))
+
+
+def detection_label(detection, record):
+    if detection.semantic_class == "player" and record.team_context:
+        team = record.team_context["teams"].get(detection.team_id)
+        return team["name"][:24] if team else "team onbekend"
+    return LABELS.get(detection.semantic_class, detection.semantic_class)
+
+
 def render_frame(
     frame: np.ndarray,
     record: FrameRecord,
@@ -70,9 +85,9 @@ def render_frame(
         if not visible_detection(detection, display_confidence):
             continue
         x1, y1, x2, y2 = [round(x * scale) for x in detection.bbox_xyxy]
-        color = COLORS.get(detection.semantic_class, (190, 190, 190))
+        color = detection_color(detection, record)
         cv2.rectangle(left, (x1, y1), (x2, y2), color, 2)
-        text = LABELS.get(detection.semantic_class, detection.semantic_class)
+        text = detection_label(detection, record)
         if detection.track_id is not None:
             text += f" #{detection.track_id}"
         label(left, f"{text} {detection.confidence:.2f}", (x1, max(18, y1 - 5)), color, 0.45)
@@ -93,6 +108,14 @@ def render_frame(
         count_label = "Personen op veld: onbekend" if persons is None else f"Personen op veld: {persons}"
         count_label += " (rollen onbekend)"
     label(pitch, count_label, (40, 120), scale=0.6)
+    if record.team_context:
+        values = summary["by_team"]
+        parts = [
+            f"{team['name'][:14]}: {values[key] if values[key] is not None else '?'}"
+            for key, team in record.team_context["teams"].items()
+        ]
+        parts.append(f"Onbekend: {values['unknown'] if values['unknown'] is not None else '?'}")
+        label(pitch, " | ".join(parts), (40, 145), scale=0.44)
     cv2.rectangle(pitch, (40, 170), (600, 530), (40, 85, 52), -1)
     cv2.rectangle(pitch, (40, 170), (600, 530), (205, 225, 210), 2)
     cv2.line(pitch, (320, 170), (320, 530), (205, 225, 210), 2)
@@ -103,19 +126,23 @@ def render_frame(
         label(
             pitch,
             status_label(record.calibration),
-            (40, 150),
+            (40, 578) if record.team_context else (40, 150),
             (100, 220, 180) if known else (80, 180, 245),
             scale=0.6,
         )
         state = record.calibration
-        label(
-            pitch,
-            f"Punten: {len(state.get('points', []))} | {state.get('recognition_status', state['status'])}",
-            (40, 578),
-            scale=0.43,
-        )
         age = state.get("age_s")
-        if age is not None:
+        if record.team_context:
+            age_text = f" | leeftijd {age:.2f} s" if age is not None else ""
+            label(pitch, f"Veldpunten: {len(state.get('points', []))}{age_text}", (40, 598), scale=0.43)
+        else:
+            label(
+                pitch,
+                f"Punten: {len(state.get('points', []))} | {state.get('recognition_status', state['status'])}",
+                (40, 578),
+                scale=0.43,
+            )
+        if age is not None and not record.team_context:
             label(
                 pitch,
                 f"Sinds herkenning: {age:.2f} s | referentie {state.get('reference_frame')}",
@@ -127,7 +154,7 @@ def render_frame(
             continue
         if not visible_detection(detection, display_confidence):
             continue
-        color = COLORS.get(detection.semantic_class, (190, 190, 190))
+        color = detection_color(detection, record)
         if histories is not None and detection.track_id is not None:
             for a, b in histories.segments(detection.track_id):
                 cv2.line(pitch, field_pixel(a[1:]), field_pixel(b[1:]), color, 2, cv2.LINE_AA)
@@ -141,11 +168,21 @@ def render_frame(
         for role in COLORS
         if role in present_roles or (role == "player" and record.player_model_available)
     ]
-    for index, semantic in enumerate(legend):
-        color = COLORS[semantic]
-        x, y = 40 + (index % 2) * 280, 610 + (index // 2) * 23
+    entries = [(COLORS[role], LABELS[role]) for role in legend if role != "player" or not record.team_context]
+    if record.team_context:
+        entries = (
+            [
+                (tuple(reversed(hex_rgb(t["display_color"]))), t["name"][:22])
+                for t in record.team_context["teams"].values()
+            ]
+            + [(tuple(reversed(hex_rgb(UNKNOWN_COLOR))), "team onbekend")]
+            + entries
+        )
+    for index, (color, text) in enumerate(entries):
+        columns = 3 if record.team_context else 2
+        x, y = 40 + (index % columns) * (185 if record.team_context else 280), 618 + (index // columns) * 22
         cv2.circle(pitch, (x, y - 5), 5, color, -1)
-        label(pitch, LABELS[semantic], (x + 15, y), scale=0.5)
+        label(pitch, text, (x + 12, y), scale=0.38 if record.team_context else 0.5)
     label(
         pitch,
         "Menselijke review: nog open" if technical_pilot else "Alleen actuele waarnemingen",
@@ -161,6 +198,9 @@ def automatic_preview(
     """Draw only visible portions; virtual offscreen corners are never fabricated observations."""
     preview = frame.copy()
     height, width = frame.shape[:2]
+    polygon = state.get("visible_field_polygon_xy")
+    if state["status"] == "valid" and polygon is not None:
+        cv2.polylines(preview, [np.rint(polygon).astype(np.int32)], True, (240, 220, 70), 2, cv2.LINE_AA)
     if state.get("homography") is not None and state["status"] == "valid":
         inverse = np.linalg.inv(np.asarray(state["homography"]))
         for points in LINES_UV.values():

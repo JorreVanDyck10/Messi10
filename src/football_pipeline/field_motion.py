@@ -33,9 +33,17 @@ DEFAULT_SETTINGS = {
     "holdout_rule": "two_semantic_tertiles_no_refit",
 }
 
+# Candidate only: DEFAULT_SETTINGS and the installed runtime keep their v2 policy
+# until the reviewed comparison passes the release gate.
+RELIABLE_SETTINGS = {**DEFAULT_SETTINGS, "version": 3}
+
 
 def validate_settings(settings):
-    if set(settings) != set(DEFAULT_SETTINGS) or settings["version"] != 2:
+    if (
+        set(settings) != set(DEFAULT_SETTINGS)
+        or type(settings["version"]) is not int
+        or settings["version"] not in (2, 3)
+    ):
         raise PipelineError("Onbekende instellingen voor automatische kalibratie.")
     if type(settings["motion"]) is not bool or settings["holdout_rule"] != DEFAULT_SETTINGS["holdout_rule"]:
         raise PipelineError("Ongeldig kalibratieprofiel.")
@@ -80,14 +88,20 @@ def checked_matrix(inverse, xy, uv):
 def line_checks(lines, inverse):
     errors, identifiers = [], []
     for line in lines:
-        projected = transform(LINES_UV[line["id"]], inverse)
-        vector = projected[1] - projected[0]
-        length = np.linalg.norm(vector)
+        # Validate the observed line in homogeneous coordinates. Its virtual full-pitch
+        # endpoints can straddle the horizon while the visible segment is perfectly valid.
+        field = np.column_stack((np.asarray(LINES_UV[line["id"]]), np.ones(2)))
+        projected = field @ np.asarray(inverse).T
+        coefficients = np.cross(projected[0], projected[1])
+        length = np.hypot(*coefficients[:2])
         coordinates = np.asarray(line["xy"])
-        if length < 1 or np.linalg.norm(coordinates[1] - coordinates[0]) < 5:
+        if (
+            not np.isfinite(coefficients).all()
+            or length < 1e-10
+            or np.linalg.norm(coordinates[1] - coordinates[0]) < 5
+        ):
             continue
-        delta = coordinates - projected[0]
-        errors.extend((np.abs(vector[0] * delta[:, 1] - vector[1] * delta[:, 0]) / length).tolist())
+        errors.extend((np.abs(np.column_stack((coordinates, np.ones(2))) @ coefficients) / length).tolist())
         identifiers.append(line["id"])
     return errors, identifiers
 
@@ -107,6 +121,8 @@ def estimate_checked(observation, image_size, settings=None):
         "motion_quality": {},
         "tracked_points": [],
     }
+    if settings["version"] == 3:
+        result.update(schema_version=3, visible_field_polygon_xy=None)
     try:
         width, height = image_size
         for kind, canonical in (("points", POINTS_UV), ("lines", LINES_UV)):
@@ -207,10 +223,15 @@ def estimate_checked(observation, image_size, settings=None):
             homography=None,
             source="unavailable",
         )
+    if settings["version"] == 3:
+        from .field_bounds import attach_visible_field
+
+        result = attach_visible_field(result, image_size)
+        result["schema_version"] = 3
     return result
 
 
-class CameraCalibration:
+class LegacyCameraCalibration:
     """One sequential stream; reference age is never refreshed by a propagated result."""
 
     def __init__(self, fps, settings=None):
@@ -388,6 +409,124 @@ class CameraCalibration:
         else:
             self.state = result
         self.previous = (small, gray)
+        return result
+
+
+class CameraCalibration(LegacyCameraCalibration):
+    """V3 checks direct recognition against measured motion; v2 retains its policy."""
+
+    def _reset(self):
+        self.state = self.anchor = self.last_recognition = self.previous = None
+
+    def update(self, frame, direct, index):
+        if self.settings["version"] == 2:
+            return super().update(frame, direct, index)
+
+        from .field_bounds import attach_visible_field
+
+        height, width = frame.shape[:2]
+        s = self.settings
+        temporal = {"status": "no_previous_calibration", "camera_reset": False}
+        consecutive = self.last_index is None or index == self.last_index + 1
+        if not consecutive:
+            self._reset()
+            temporal.update(status="frame_gap", camera_reset=True)
+        elif self.previous is not None:
+            scale = min(1.0, s["tracking_width"] / width)
+            small = cv2.resize(frame, (round(width * scale), round(height * scale)))
+            old, old_gray = self.previous
+            gray = cv2.cvtColor(small, cv2.COLOR_BGR2GRAY)
+            difference = float(np.mean(cv2.absdiff(old_gray, gray)))
+            histograms = [
+                cv2.normalize(cv2.calcHist([im], [0, 1], None, [24, 16], [0, 180, 0, 256]), None).flatten()
+                for im in (cv2.cvtColor(old, cv2.COLOR_BGR2HSV), cv2.cvtColor(small, cv2.COLOR_BGR2HSV))
+            ]
+            distance = float(cv2.compareHist(histograms[0], histograms[1], cv2.HISTCMP_BHATTACHARYYA))
+            temporal.update(mean_difference=difference, histogram_distance=distance)
+            if difference > s["cut_mean_difference"] or distance > s["cut_histogram_distance"]:
+                self._reset()
+                temporal.update(status="camera_cut", camera_reset=True)
+
+        if direct["status"] == "valid":
+            previous_state = self.state
+            if previous_state is not None and s["motion"]:
+                # Ask the preserved motion implementation for a prediction WITHOUT
+                # allowing the new semantic observations to influence its motion fit.
+                probe = dict(direct, status="insufficient_points", points=[], lines=[])
+                predicted = super().update(frame, probe, index)
+                if predicted["status"] == "valid":
+                    support = np.asarray(predicted["tracked_points"])
+                    try:
+                        uv = transform(support, np.asarray(predicted["homography"]))
+                        pixels = transform(uv, np.linalg.inv(np.asarray(direct["homography"])))
+                        errors = np.linalg.norm(pixels - support, axis=1)
+                        median, maximum = float(np.median(errors)), float(max(errors))
+                        temporal.update(
+                            status="consistent",
+                            median_error_px=median,
+                            maximum_error_px=maximum,
+                            support_points=len(support),
+                            motion_quality=predicted["motion_quality"],
+                        )
+                        if (
+                            median > np.hypot(width, height) * s["median_diagonal_fraction"]
+                            or maximum > np.hypot(width, height) * s["maximum_diagonal_fraction"]
+                        ):
+                            raise ValueError("temporal_disagreement")
+                    except (ValueError, np.linalg.LinAlgError):
+                        self._reset()
+                        temporal.update(status="temporal_disagreement", camera_reset=True)
+                        direct = dict(
+                            direct, status="temporal_disagreement", homography=None, source="unavailable"
+                        )
+                else:
+                    temporal.update(
+                        status="motion_unavailable",
+                        reason=predicted["status"],
+                        motion_quality=predicted.get("motion_quality", {}),
+                    )
+                # The probe already consumed this image. A fresh direct recognition
+                # is an anchor, never run a second flow update on the same frame.
+                if direct["status"] == "valid":
+                    result = dict(
+                        direct,
+                        frame_index=index,
+                        reference_frame=index,
+                        age_s=0.0,
+                        source="detected",
+                        tracked_points=[],
+                        motion_quality={},
+                    )
+                    self.anchor = self.last_recognition = index
+                else:
+                    result = dict(
+                        direct,
+                        frame_index=index,
+                        reference_frame=None,
+                        age_s=None,
+                        tracked_points=[],
+                        motion_quality={},
+                    )
+            else:
+                result = super().update(frame, direct, index)
+                if previous_state is not None:
+                    temporal["status"] = "motion_disabled"
+        else:
+            result = super().update(frame, direct, index)
+            if temporal["status"] not in {"camera_cut", "frame_gap"}:
+                temporal.update(
+                    status="propagated" if result["status"] == "valid" else "unavailable",
+                    reason=result["status"],
+                )
+
+        result = attach_visible_field(result, (width, height))
+        result.update(schema_version=3, temporal_quality=temporal)
+        if result["status"] != "valid":
+            self._reset()
+            result.update(reference_frame=None, age_s=None, homography=None, source="unavailable")
+        else:
+            self.state = result
+        self.last_index = index
         return result
 
 

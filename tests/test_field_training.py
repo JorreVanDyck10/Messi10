@@ -1,5 +1,7 @@
 import io
 import json
+import sys
+import types
 import zipfile
 from pathlib import Path
 
@@ -20,12 +22,35 @@ from football_pipeline.field_data import (
 )
 from football_pipeline.field_learning import (
     atomic_torch_save,
+    clip_provider_lines,
     dataset_index,
     masked_heatmap_loss,
     publish_epoch_checkpoint,
+    reprojection_metrics,
+    run_epoch,
     validate_labels,
 )
 from football_pipeline.field_model_spec import RELEASE_WEIGHTS, validate_runtime_models
+
+
+def test_reference_error_includes_visible_lines_when_virtual_endpoints_cross_horizon(monkeypatch):
+    from football_pipeline.automatic_calibration import transform
+
+    module = types.ModuleType("sn_calibration.src.soccerpitch")
+    module.SoccerPitch = lambda: types.SimpleNamespace(
+        line_extremities={"Side line top": np.array([[-52.5, -34, 0], [52.5, -34, 0]])}
+    )
+    monkeypatch.setitem(sys.modules, "sn_calibration.src.soccerpitch", module)
+    inverse = np.array([[1000, 0, -600], [0, 200, 30], [1, 0, -0.5]], float)
+    xy = transform([[0.7, 0], [0.9, 0]], inverse)
+    labels = {"Side line top": [{"x": x / 1000, "y": y / 500} for x, y in xy]}
+    state = {"status": "valid", "homography": np.linalg.inv(inverse).tolist()}
+    result = reprojection_metrics({"image_size": [1000, 500]}, labels, {}, state=state)
+    assert len(result["errors_px"]) == 2
+    assert max(result["errors_px"]) < 1e-8
+    labels["Side line top"][0]["y"] += 0.1
+    changed = reprojection_metrics({"image_size": [1000, 500]}, labels, {}, state=state)
+    assert max(changed["errors_px"]) > 40
 
 
 class Response(io.BytesIO):
@@ -161,6 +186,57 @@ def test_label_roundoff_is_clamped_without_changing_raw_labels():
     assert normalized["Middle line"] == [{"x": 1.0, "y": 0.0}]
     assert original["Middle line"][0]["x"] > 1
     assert original["Middle line"][0]["y"] < 0
+
+
+def test_provider_border_clipping_preserves_line_geometry_without_changing_raw_labels():
+    source = {"Middle line": [{"x": 0.4, "y": 0.0}, {"x": 0.6, "y": 1.002}]}
+    clipped = clip_provider_lines(source)
+    assert clipped["Middle line"][-1]["y"] == 1.0
+    assert clipped["Middle line"][-1]["x"] == pytest.approx(0.4 + 0.2 / 1.002)
+    assert source["Middle line"][-1]["y"] == 1.002
+    with pytest.raises(ValueError, match="bounded"):
+        clip_provider_lines({"Middle line": [{"x": 0.4, "y": 0.0}, {"x": 0.6, "y": 1.1}]})
+
+
+def test_head_only_training_keeps_pretrained_normalization_statistics_frozen():
+    class TinyNetwork(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.features = torch.nn.Sequential(torch.nn.Conv2d(3, 4, 1), torch.nn.BatchNorm2d(4))
+            self.head = torch.nn.Sequential(
+                torch.nn.Sequential(
+                    torch.nn.Conv2d(4, 4, 1),
+                    torch.nn.BatchNorm2d(4),
+                    torch.nn.ReLU(),
+                    torch.nn.Conv2d(4, 2, 1),
+                    torch.nn.Softmax(dim=1),
+                )
+            )
+
+        def forward(self, image):
+            return self.head(self.features(image))
+
+    model = TinyNetwork()
+    for parameter in model.parameters():
+        parameter.requires_grad_(False)
+    for parameter in model.head[0][3].parameters():
+        parameter.requires_grad_(True)
+    before = model.features[1].running_mean.clone()
+    last = model.head[0][3].weight.detach().clone()
+    optimizer = torch.optim.Adam(model.head[0][3].parameters(), lr=0.01)
+    scaler = torch.amp.GradScaler("cpu", enabled=False)
+    target = torch.zeros(1, 2, 4, 4)
+    target[:, 0] = 1
+    run_epoch(
+        model,
+        [(torch.ones(1, 3, 4, 4), target, torch.ones(1, 2))],
+        torch.device("cpu"),
+        optimizer,
+        scaler,
+        frozen_features=True,
+    )
+    assert torch.equal(model.features[1].running_mean, before)
+    assert not torch.equal(model.head[0][3].weight, last)
 
 
 def test_duplicate_and_compilation_selection():

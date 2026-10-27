@@ -1,17 +1,34 @@
 {
   "schema_version": 1,
-  "profile_name": "Personen op GPU — algemene herkenning, rollen onbekend",
+  "profile_name": "Spelers en officials — meerdere wedstrijden, v3 (voorlopig)",
   "models": [
     {
-      "model_id": "coco-persons-1920",
-      "weights": "../models/yolo11n.pt",
-      "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
-      "class_mapping": {"0": "person"},
-      "expected_names": {"0": "person"},
-      "imgsz": 1920,
+      "model_id": "exp-p006-gsr-multimatch-v3",
+      "weights": "../artifacts/players-v3/players_best.pt",
+      "weights_sha256": "beecb2439ca3329816df75e28c247236dfd7b283e66db72168139a1d28891aee",
+      "class_mapping": {
+        "0": "player",
+        "1": "referee"
+      },
+      "expected_names": {
+        "0": "player",
+        "1": "referee"
+      },
+      "imgsz": 1280,
       "confidence": 0.1,
       "iou": 0.7,
       "device": "0"
     }
-  ]
+  ],
+  "handoff": {
+    "evaluation_record": "../reports/course-improvement/players-selected-metrics.json",
+    "evaluation_sha256": "62d44fd55c7d6713a9e3395757dcd4a16eb68904aaa24726f7c625a94f51f7de",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "dataset_fingerprint": "02d3531ae28aff7aeab5e4fc016cb15b4e863bc6a255df2c14bd686fb0c6ef71",
+    "source": "SN-GSR-2024 v1.3 provider labels; three training and three held-out validation games",
+    "selected_experiment": "EXP-P006",
+    "ball_promoted": false,
+    "referee_coverage": "Published provider roles; referee recall still limited on held-out validation."
+  }
 }

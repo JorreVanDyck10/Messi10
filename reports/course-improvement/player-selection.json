@@ -1,0 +1,11 @@
+{
+  "selected_experiment": "EXP-P006",
+  "selection_metric": "mean player/referee AP50:95; player recall guard",
+  "selected_score": 0.377131024278504,
+  "incumbent_score": 5.782876864237135e-06,
+  "dataset_fingerprint": "02d3531ae28aff7aeab5e4fc016cb15b4e863bc6a255df2c14bd686fb0c6ef71",
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "ball_promoted": false,
+  "ball_reason": "No validation AP gain; source ball class remains excluded from application mapping."
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "method": "torso_lab_dominant_modes_v1",
+  "sample_hz": 5.0,
+  "max_samples": 2048,
+  "min_track_samples": 3,
+  "min_cluster_members": 2,
+  "min_cluster_frames": 3,
+  "min_box_width": 10,
+  "min_box_height": 24,
+  "background_distance": 8.0,
+  "min_foreground_fraction": 0.3,
+  "max_color_spread": 24.0,
+  "cluster_radius": 14.0,
+  "min_separation": 28.0,
+  "max_match_distance": 24.0,
+  "min_distance_margin": 8.0,
+  "confirmation_samples": 3,
+  "switch_samples": 5,
+  "history_seconds": 1.2
+}

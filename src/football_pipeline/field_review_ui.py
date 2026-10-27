@@ -110,6 +110,7 @@ def visual_review(directory):
             "player_model_available",
             any("player" in spec["class_mapping"].values() for spec in manifest["models"]["models"]),
         ),
+        team_context=row.get("team_context"),
     )
     st.image(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), caption="Oorspronkelijk beeld — zonder modeloverlay")
     st.image(

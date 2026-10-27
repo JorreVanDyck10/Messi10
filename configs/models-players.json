@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "profile_name": "Spelermodel TeamTrack v2.1 — voorlopig, officials nog zwak",
+  "profile_name": "Spelers en officials — meerdere wedstrijden, v3 (voorlopig)",
   "models": [
     {
-      "model_id": "exp-p004-teamtrack-v2_1",
-      "weights": "../artifacts/players-v2/players_best.pt",
-      "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+      "model_id": "exp-p006-gsr-multimatch-v3",
+      "weights": "../artifacts/players-v3/players_best.pt",
+      "weights_sha256": "beecb2439ca3329816df75e28c247236dfd7b283e66db72168139a1d28891aee",
       "class_mapping": {
         "0": "player",
         "1": "referee"
@@ -14,19 +14,21 @@
         "0": "player",
         "1": "referee"
       },
-      "imgsz": 1920,
+      "imgsz": 1280,
       "confidence": 0.1,
       "iou": 0.7,
       "device": "0"
     }
   ],
   "handoff": {
-    "broadcast_transfer_adequate": false,
-    "broadcast_validation_record": "../reports/player-pipeline-4050.json",
-    "evaluation_record": "../reports/players-experiments/EXP-P004/validation-metrics/metrics.json",
-    "evaluation_sha256": "2b725cbb140f22297f5e397e5277ad51f17c957ac109f55ebdee56c3f1f7c240",
+    "evaluation_record": "../reports/course-improvement/players-selected-metrics.json",
+    "evaluation_sha256": "62d44fd55c7d6713a9e3395757dcd4a16eb68904aaa24726f7c625a94f51f7de",
     "human_review_completed": false,
     "independent_final_test_completed": false,
-    "referee_coverage": "central and near assistant; far roles unresolved"
+    "dataset_fingerprint": "02d3531ae28aff7aeab5e4fc016cb15b4e863bc6a255df2c14bd686fb0c6ef71",
+    "source": "SN-GSR-2024 v1.3 provider labels; three training and three held-out validation games",
+    "selected_experiment": "EXP-P006",
+    "ball_promoted": false,
+    "referee_coverage": "Published provider roles; referee recall still limited on held-out validation."
   }
 }

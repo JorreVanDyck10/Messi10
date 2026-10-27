@@ -1,0 +1,314 @@
+{
+  "status": "complete",
+  "dataset_fingerprint": "02d3531ae28aff7aeab5e4fc016cb15b4e863bc6a255df2c14bd686fb0c6ef71",
+  "models": {
+    "incumbent": {
+      "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+      "mAP50": 0.005472759685779374,
+      "mAP50_95": 0.0007523759961124421,
+      "workpoint": {
+        "confidence": 0.25,
+        "matching_iou": 0.5
+      },
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "player",
+          "objects": 292,
+          "AP50": 0.016093246554087795,
+          "AP50_95": 0.0022196242379622887,
+          "TP": 5,
+          "FP": 100,
+          "FN": 287,
+          "precision": 0.047619047619047616,
+          "recall": 0.017123287671232876
+        },
+        {
+          "class_id": 1,
+          "name": "referee",
+          "objects": 26,
+          "AP50": 0.000325032503250325,
+          "AP50_95": 3.75037503750375e-05,
+          "TP": 0,
+          "FP": 1,
+          "FN": 26,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        {
+          "class_id": 2,
+          "name": "ball",
+          "objects": 20,
+          "AP50": 0.0,
+          "AP50_95": 0.0,
+          "TP": 0,
+          "FP": 0,
+          "FN": 20,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        {
+          "class_id": 3,
+          "name": "person",
+          "objects": 0,
+          "AP50": null,
+          "AP50_95": null,
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "precision": 0.0,
+          "recall": null
+        }
+      ],
+      "inference_config": {
+        "evaluator_sha256": "12ab5f7f7e89a2e72bad3147799cbf80984ea0f012b5d67fb26d5798cad18f8a",
+        "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+        "dataset_fingerprint": "02d3531ae28aff7aeab5e4fc016cb15b4e863bc6a255df2c14bd686fb0c6ef71",
+        "imgsz": 1280,
+        "confidence": 0.001,
+        "iou": 0.7,
+        "device": "0",
+        "max_det": 300
+      },
+      "recorded_at": "2026-10-19T07:18:31.737320+00:00",
+      "split": "val",
+      "frames": 20,
+      "match_count": 3,
+      "test_accessed": false,
+      "annotation_source": "SN-GSR-2024 v1.3 provider labels; project human review still open",
+      "runtime_s": 37.796999999991385
+    },
+    "incumbent-production-1920": {
+      "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+      "mAP50": 2.1303400757498617e-05,
+      "mAP50_95": 3.855251242824757e-06,
+      "workpoint": {
+        "confidence": 0.25,
+        "matching_iou": 0.5
+      },
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "player",
+          "objects": 292,
+          "AP50": 6.391020227249585e-05,
+          "AP50_95": 1.156575372847427e-05,
+          "TP": 0,
+          "FP": 23,
+          "FN": 292,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        {
+          "class_id": 1,
+          "name": "referee",
+          "objects": 26,
+          "AP50": 0.0,
+          "AP50_95": 0.0,
+          "TP": 0,
+          "FP": 0,
+          "FN": 26,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        {
+          "class_id": 2,
+          "name": "ball",
+          "objects": 20,
+          "AP50": 0.0,
+          "AP50_95": 0.0,
+          "TP": 0,
+          "FP": 0,
+          "FN": 20,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        {
+          "class_id": 3,
+          "name": "person",
+          "objects": 0,
+          "AP50": null,
+          "AP50_95": null,
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "precision": 0.0,
+          "recall": null
+        }
+      ],
+      "inference_config": {
+        "evaluator_sha256": "12ab5f7f7e89a2e72bad3147799cbf80984ea0f012b5d67fb26d5798cad18f8a",
+        "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+        "dataset_fingerprint": "02d3531ae28aff7aeab5e4fc016cb15b4e863bc6a255df2c14bd686fb0c6ef71",
+        "imgsz": 1920,
+        "confidence": 0.001,
+        "iou": 0.7,
+        "device": "0",
+        "max_det": 300
+      },
+      "recorded_at": "2026-10-19T07:19:48.721782+00:00",
+      "split": "val",
+      "frames": 20,
+      "match_count": 3,
+      "test_accessed": false,
+      "annotation_source": "SN-GSR-2024 v1.3 provider labels; project human review still open",
+      "runtime_s": 76.84299999999348
+    },
+    "EXP-P005": {
+      "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+      "mAP50": 0.3945261127511442,
+      "mAP50_95": 0.23182652679050428,
+      "workpoint": {
+        "confidence": 0.25,
+        "matching_iou": 0.5
+      },
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "player",
+          "objects": 292,
+          "AP50": 0.8907059746194923,
+          "AP50_95": 0.5526291695795085,
+          "TP": 252,
+          "FP": 52,
+          "FN": 40,
+          "precision": 0.8289473684210527,
+          "recall": 0.863013698630137
+        },
+        {
+          "class_id": 1,
+          "name": "referee",
+          "objects": 26,
+          "AP50": 0.2928723636339404,
+          "AP50_95": 0.14285041079200433,
+          "TP": 12,
+          "FP": 23,
+          "FN": 14,
+          "precision": 0.34285714285714286,
+          "recall": 0.46153846153846156
+        },
+        {
+          "class_id": 2,
+          "name": "ball",
+          "objects": 20,
+          "AP50": 0.0,
+          "AP50_95": 0.0,
+          "TP": 0,
+          "FP": 0,
+          "FN": 20,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        {
+          "class_id": 3,
+          "name": "person",
+          "objects": 0,
+          "AP50": null,
+          "AP50_95": null,
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "precision": 0.0,
+          "recall": null
+        }
+      ],
+      "inference_config": {
+        "evaluator_sha256": "12ab5f7f7e89a2e72bad3147799cbf80984ea0f012b5d67fb26d5798cad18f8a",
+        "weights_sha256": "f44cf32085827c23a20aeddbec389cc41a85f3fe95f6203632dbec1756304a42",
+        "dataset_fingerprint": "02d3531ae28aff7aeab5e4fc016cb15b4e863bc6a255df2c14bd686fb0c6ef71",
+        "imgsz": 1280,
+        "confidence": 0.001,
+        "iou": 0.7,
+        "device": "0",
+        "max_det": 300
+      },
+      "recorded_at": "2026-10-19T07:24:50.970424+00:00",
+      "split": "val",
+      "frames": 20,
+      "match_count": 3,
+      "test_accessed": false,
+      "annotation_source": "SN-GSR-2024 v1.3 provider labels; project human review still open",
+      "runtime_s": 1.5,
+      "weights": "C:\\Messi10\\artifacts\\course-improvement-20261019\\players\\EXP-P005\\batch-4\\weights\\best.pt"
+    },
+    "EXP-P006": {
+      "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+      "mAP50": 0.4170181078447146,
+      "mAP50_95": 0.251420682852336,
+      "workpoint": {
+        "confidence": 0.25,
+        "matching_iou": 0.5
+      },
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "player",
+          "objects": 292,
+          "AP50": 0.9317208946063974,
+          "AP50_95": 0.5898173069540884,
+          "TP": 268,
+          "FP": 65,
+          "FN": 24,
+          "precision": 0.8048048048048048,
+          "recall": 0.9178082191780822
+        },
+        {
+          "class_id": 1,
+          "name": "referee",
+          "objects": 26,
+          "AP50": 0.3193334289277464,
+          "AP50_95": 0.16444474160291958,
+          "TP": 10,
+          "FP": 16,
+          "FN": 16,
+          "precision": 0.38461538461538464,
+          "recall": 0.38461538461538464
+        },
+        {
+          "class_id": 2,
+          "name": "ball",
+          "objects": 20,
+          "AP50": 0.0,
+          "AP50_95": 0.0,
+          "TP": 0,
+          "FP": 0,
+          "FN": 20,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        {
+          "class_id": 3,
+          "name": "person",
+          "objects": 0,
+          "AP50": null,
+          "AP50_95": null,
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "precision": 0.0,
+          "recall": null
+        }
+      ],
+      "inference_config": {
+        "evaluator_sha256": "12ab5f7f7e89a2e72bad3147799cbf80984ea0f012b5d67fb26d5798cad18f8a",
+        "weights_sha256": "beecb2439ca3329816df75e28c247236dfd7b283e66db72168139a1d28891aee",
+        "dataset_fingerprint": "02d3531ae28aff7aeab5e4fc016cb15b4e863bc6a255df2c14bd686fb0c6ef71",
+        "imgsz": 1280,
+        "confidence": 0.001,
+        "iou": 0.7,
+        "device": "0",
+        "max_det": 300
+      },
+      "recorded_at": "2026-10-19T07:31:35.416150+00:00",
+      "split": "val",
+      "frames": 20,
+      "match_count": 3,
+      "test_accessed": false,
+      "annotation_source": "SN-GSR-2024 v1.3 provider labels; project human review still open",
+      "runtime_s": 1.7810000000172295,
+      "weights": "C:\\Messi10\\artifacts\\course-improvement-20261019\\players\\EXP-P006\\batch-4\\weights\\best.pt"
+    }
+  },
+  "human_review_completed": false,
+  "independent_final_test_completed": false
+}

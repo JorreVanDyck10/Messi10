@@ -8,7 +8,9 @@ from football_pipeline.video import ROOT
 
 
 def test_app_initial_screen_and_rerun():
-    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20).run()
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20)
+    app.session_state["automatic_analysis"] = False
+    app.run()
     assert not app.exception
     assert app.title[0].value == "Van voetbalbeeld naar veldpositie"
     app.run()
@@ -53,7 +55,9 @@ def test_preloaded_calibration_processes_once_on_explicit_click(demo_fixture, tm
         return {"video_upload": video_upload, "calibration_upload": calibration_upload}.get(kwargs["key"])
 
     monkeypatch.setattr(st, "file_uploader", upload)
-    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30).run()
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
+    app.session_state["automatic_analysis"] = False
+    app.run()
     assert not app.exception
     assert calls.call_count == 0
     app.button(key="process").click().run()
@@ -90,7 +94,9 @@ def test_point_table_calculation_review_and_invalidation(demo_fixture, monkeypat
     monkeypatch.setattr(st, "file_uploader", lambda *a, **kw: upload if kw["key"] == "video_upload" else None)
     points = deepcopy(demo_fixture["calibration"].points)
     monkeypatch.setattr(st, "data_editor", lambda *a, **kw: pd.DataFrame(points))
-    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20).run()
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20)
+    app.session_state["automatic_analysis"] = False
+    app.run()
     assert not app.exception
     app.button(key="calculate").click().run()
     assert not app.exception
@@ -133,7 +139,9 @@ def test_image_click_workflow_advances_persists_and_invalidates_draft(demo_fixtu
         st.button("Simulated image click", key="browser_click", on_click=click)
 
     monkeypatch.setattr(picker_module, "point_picker", simulate_browser)
-    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20).run()
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20)
+    app.session_state["automatic_analysis"] = False
+    app.run()
     assert not app.exception
     assert app.button(key="calculate").disabled
     assert not app.error
@@ -170,7 +178,9 @@ def test_failed_calibration_shows_named_errors_and_persists_until_correction(dem
     points = deepcopy(demo_fixture["calibration"].points)
     points[4]["y"] += 20
     monkeypatch.setattr(st, "data_editor", lambda *a, **kw: pd.DataFrame(points))
-    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20).run()
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20)
+    app.session_state["automatic_analysis"] = False
+    app.run()
     app.button(key="calculate").click().run()
     assert not app.exception
     assert "Onafhankelijke controle faalt" in app.error[0].value

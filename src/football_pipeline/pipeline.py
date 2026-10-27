@@ -23,6 +23,7 @@ from .detection import UltralyticsDetector, load_model_manifest, validate_detect
 from .geometry import Calibration, project_detection, valid_box
 from .participants import GROUND_ROLES, PLAYER_POLICY
 from .render import render_frame
+from .teams import load_team_settings, shirt_color
 from .tracking import ByteTrackAdapter, Trajectories, load_tracker_config
 from .video import ROOT, VideoWriter, inspect_video, tool_versions
 
@@ -41,7 +42,17 @@ def code_identity() -> dict:
 
 
 def dependencies() -> dict:
-    names = ("streamlit", "ultralytics", "torch", "torchvision", "opencv-python", "numpy", "psutil", "lap")
+    names = (
+        "streamlit",
+        "ultralytics",
+        "torch",
+        "torchvision",
+        "opencv-python",
+        "numpy",
+        "psutil",
+        "lap",
+        "scipy",
+    )
     return {name: importlib.metadata.version(name) for name in names}
 
 
@@ -92,6 +103,8 @@ def validate_completed(directory: Path) -> dict:
     required = {"samengestelde_video.mp4", "framegegevens.jsonl", "calibration.json"}
     if manifest.get("calibration_mode") == "automatic":
         required.add("observations.jsonl")
+    if manifest.get("team_settings") is not None:
+        required.update({"teaminstellingen.json", "teamcorrecties.json", "teamtelling.csv"})
     artifacts = manifest.get("artifacts", {})
     if not required.issubset(artifacts):
         raise PipelineError("Runmanifest mist verplichte uitvoerbestanden.")
@@ -106,7 +119,12 @@ def validate_completed(directory: Path) -> dict:
 
 def accept_mvp(directory: Path, reviewer: str, confirmed: bool) -> Path:
     manifest = validate_completed(directory)
-    if not confirmed or not reviewer.strip() or manifest.get("tracker_config") is not None:
+    if (
+        not confirmed
+        or not reviewer.strip()
+        or manifest.get("tracker_config") is not None
+        or manifest.get("derivation")
+    ):
         raise PipelineError(
             "Accepteer een MVP zonder tracking met reviewer en expliciete controlebevestiging."
         )
@@ -146,6 +164,7 @@ def check_mvp_acceptance(
     manifest = validate_completed(Path(acceptance["run_directory"]))
     if (
         manifest.get("tracker_config") is not None
+        or manifest.get("derivation") is not None
         or manifest.get("evidence_kind") != "ultralytics"
         or manifest.get("cache_key") != acceptance.get("cache_key")
         or manifest["video"]["sha256"] != video_hash
@@ -178,22 +197,24 @@ def process_video(
     field_usage: str = "",
     field_settings: dict | None = None,
     recalibrate_replay: bool = False,
+    team_config_path: str | Path | None = None,
 ) -> RunResult:
     """Process sequentially; injected detectors are explicitly marked as non-model evidence."""
     output_root = Path(output_root).resolve()
     with processing_lock(output_root):
         video = inspect_video(video_path)
         models = load_model_manifest(model_manifest_path)
+        team_settings = load_team_settings(team_config_path) if team_config_path is not None else None
         if detector is None and not replay_run:
             validate_detection_devices(models)
         preparation_started = time.perf_counter()
         if calibration is None:
             if field_runtime_path is None:
                 raise PipelineError("Kies handmatige kalibratie of configureer het automatische veldmodel.")
-            if tracker_config_path or technical_pilot:
-                raise PipelineError(
-                    "Automatische kalibratie ondersteunt geen tracking of statische technische pilot."
-                )
+            if technical_pilot:
+                raise PipelineError("Automatische kalibratie ondersteunt geen statische technische pilot.")
+            if field_settings is None:
+                field_settings = read_json(field_runtime_path).get("calibration_settings")
             calibration = prepare_automatic_calibration(
                 video_path,
                 field_runtime_path,
@@ -215,10 +236,8 @@ def process_video(
             )
         if recalibrate_replay and (not replay_run or not automatic):
             raise PipelineError("Herkalibratie vereist een detectiereplay en automatische kalibratie.")
-        if automatic and (tracker_config_path or technical_pilot):
-            raise PipelineError(
-                "Automatische kalibratie ondersteunt geen tracking of statische technische pilot."
-            )
+        if automatic and technical_pilot:
+            raise PipelineError("Automatische kalibratie ondersteunt geen statische technische pilot.")
         preparation_s = time.perf_counter() - preparation_started
         if technical_pilot and (tracker_config_path or replay_run):
             raise PipelineError("Een technische pilot gebruikt nieuwe detecties zonder tracking of replay.")
@@ -245,14 +264,29 @@ def process_video(
                 raise PipelineError("Spelertracking vereist expliciete player-klassen; person volstaat niet.")
             if any(s["confidence"] > min(0.10, config["track_low_thresh"]) for s in player_models):
                 raise PipelineError("Detectorconfidence verwijdert lage kandidaten vóór ByteTrack.")
-            acceptance = check_mvp_acceptance(
-                Path(mvp_acceptance_path) if mvp_acceptance_path else None,
-                video.sha256,
-                calibration,
-                models,
-                code,
-                versions,
+            acceptance = (
+                check_mvp_acceptance(
+                    Path(mvp_acceptance_path) if mvp_acceptance_path else None,
+                    video.sha256,
+                    calibration,
+                    models,
+                    code,
+                    versions,
+                )
+                if not automatic
+                else None
             )
+        tracking_policy = (
+            {
+                "camera_compensation": "background_affine_ransac" if automatic else None,
+                "reset_on_cut_or_unreliable_motion": automatic,
+                "field_required_for_image_ids": not automatic,
+                "human_accuracy_validated": False,
+                "status": "experimental" if automatic else "mvp_reviewed",
+            }
+            if config
+            else None
+        )
         replay_manifest = None
         if replay_run:
             replay_manifest = validate_completed(Path(replay_run))
@@ -279,6 +313,7 @@ def process_video(
             "calibration_id": calibration.identity,
             "models": models,
             "tracker_config": config,
+            "tracking_policy": tracking_policy,
             "code": code,
             "dependencies": versions,
             "tools": tools,
@@ -292,6 +327,7 @@ def process_video(
             "replay_hash": (replay_manifest or {}).get("artifacts", {}).get("framegegevens.jsonl"),
             "recalibrate_replay": recalibrate_replay,
             "player_policy": PLAYER_POLICY,
+            "team_settings": team_settings,
         }
         key = digest_json(identity)
         for candidate in sorted(output_root.glob(key + "*")):
@@ -314,6 +350,7 @@ def process_video(
             "recalibrate_replay": recalibrate_replay,
             "calibration_mode": "automatic" if automatic else "manual",
             "player_policy": PLAYER_POLICY,
+            "team_settings": team_settings,
             "cache_key": key,
             "status": "running",
             "started_at": datetime.now(UTC).isoformat(),
@@ -324,6 +361,7 @@ def process_video(
             "dependencies": versions,
             "tools": tools,
             "tracker_config": config,
+            "tracking_policy": tracking_policy,
             "mvp_acceptance": acceptance,
             "evidence_kind": evidence,
             "technical_pilot": technical_pilot,
@@ -344,6 +382,7 @@ def process_video(
         process = psutil.Process()
         peak_ram = process.memory_info().rss
         gpu_peak = None
+        team_measurements = None
         try:
             import torch
 
@@ -353,11 +392,12 @@ def process_video(
                 detector = UltralyticsDetector(models)
             if replay_run:
                 replay_stream = (Path(replay_run) / "framegegevens.jsonl").open(encoding="utf-8")
-            tracker = ByteTrackAdapter(config, video.fps) if config else None
+            tracker = ByteTrackAdapter(config, video.fps, camera_motion=automatic) if config else None
             histories = Trajectories(video.fps) if tracker else None
             if tracker:
                 manifest["tracker_effective"] = tracker.info
-            writer = VideoWriter(directory / "video.partial.mp4", 1920, 720, video.fps_num, video.fps_den)
+            if team_settings is None:
+                writer = VideoWriter(directory / "video.partial.mp4", 1920, 720, video.fps_num, video.fps_den)
             capture = cv2.VideoCapture(video.path)
             frame_calibrations = calibration.frames(video) if automatic else None
             from .field_motion import CameraCalibration
@@ -401,7 +441,9 @@ def process_video(
                     # Project before tracking: an off-field prediction must never start a player ID.
                     if tracker:
                         tick = time.perf_counter()
-                        tracker.update(detections, index, video.size)
+                        tracker.update(
+                            detections, index, video.size, **({"frame": frame} if automatic else {})
+                        )
                         tracking_time += time.perf_counter() - tick
                     record = FrameRecord(
                         index,
@@ -410,20 +452,29 @@ def process_video(
                         detections,
                         frame_calibration,
                         player_model_available=player_model_available,
+                        tracking=dict(tracker.motion.state) if tracker and tracker.motion else None,
                     )
-                    if histories:
-                        histories.update(detections, index)
-                    rendered = render_frame(frame, record, histories, technical_pilot=technical_pilot)
-                    writer.write(rendered)
+                    if team_settings is not None:
+                        for detection in detections:
+                            detection.shirt_color_lab = shirt_color(frame, detection, team_settings)
+                    else:
+                        if histories:
+                            histories.update(detections, index)
+                        rendered = render_frame(frame, record, histories, technical_pilot=technical_pilot)
+                        writer.write(rendered)
                     records.write(json.dumps(record.to_dict(), allow_nan=False) + "\n")
-                    if index in {0, video.frame_count // 2, video.frame_count - 1}:
+                    if team_settings is None and index in {0, video.frame_count // 2, video.frame_count - 1}:
                         target = directory / "controlebeelden" / f"frame_{index:06d}.jpg"
                         if not cv2.imwrite(str(target), rendered):
                             raise PipelineError("Controlebeeld kan niet worden opgeslagen.")
                     count += 1
                     peak_ram = max(peak_ram, process.memory_info().rss)
                     if progress and (index % max(1, round(video.fps / 4)) == 0 or count == video.frame_count):
-                        progress(count, video.frame_count, time.perf_counter() - started + preparation_s)
+                        progress(
+                            count,
+                            video.frame_count * (2 if team_settings else 1),
+                            time.perf_counter() - started + preparation_s,
+                        )
                 if capture.read()[0]:
                     raise PipelineError("Decoder leverde meer frames dan de gecontroleerde tijdlijn.")
                 if replay_stream and replay_stream.readline():
@@ -432,16 +483,36 @@ def process_video(
                     # Exhaust the generator so trailing calibration records cannot pass validation.
                     if next(frame_calibrations, None) is not None:
                         raise PipelineError("Automatische kalibratie bevat extra frames.")
-            writer.close()
-            encoded = inspect_video(directory / "video.partial.mp4")
-            if (
-                encoded.frame_count != video.frame_count
-                or encoded.size != (1920, 720)
-                or encoded.codec != "h264"
-                or abs(encoded.fps - video.fps) > 1e-8
-            ):
-                raise PipelineError("Uitvoer voldoet niet aan frameaantal, resolutie, codec of framerate.")
-            (directory / "video.partial.mp4").replace(directory / "samengestelde_video.mp4")
+            if team_settings is not None:
+                from .team_results import finish_teams
+
+                team_measurements = finish_teams(
+                    directory,
+                    manifest,
+                    progress=(
+                        lambda n, total, elapsed: progress(
+                            video.frame_count + n,
+                            video.frame_count * 2,
+                            time.perf_counter() - started + preparation_s,
+                        )
+                    )
+                    if progress
+                    else None,
+                )
+                peak_ram = max(peak_ram, team_measurements["peak_process_ram_bytes_sampled"])
+            else:
+                writer.close()
+                encoded = inspect_video(directory / "video.partial.mp4")
+                if (
+                    encoded.frame_count != video.frame_count
+                    or encoded.size != (1920, 720)
+                    or encoded.codec != "h264"
+                    or abs(encoded.fps - video.fps) > 1e-8
+                ):
+                    raise PipelineError(
+                        "Uitvoer voldoet niet aan frameaantal, resolutie, codec of framerate."
+                    )
+                (directory / "video.partial.mp4").replace(directory / "samengestelde_video.mp4")
             if torch.cuda.is_available():
                 gpu_peak = torch.cuda.max_memory_allocated()
             artifacts = [p for p in directory.rglob("*") if p.is_file() and p.name != "runmanifest.json"]
@@ -471,6 +542,7 @@ def process_video(
                 "processing_fps": count / (elapsed + preparation_s) if elapsed + preparation_s else 0,
                 "inference_or_replay_s": inference_time,
                 "tracking_s": tracking_time,
+                "teams": team_measurements,
                 "peak_process_ram_bytes_sampled": peak_ram,
                 "peak_gpu_allocated_bytes": gpu_peak,
                 "projection_counts": dict(rejected),

@@ -25,7 +25,8 @@ started = time.perf_counter()
 detections = detector.detect(frame, 0)
 elapsed = time.perf_counter() - started
 assert all(valid_box(d, (frame.shape[1], frame.shape[0])) for d in detections)
-assert all(d.semantic_class != "player" for d in detections)
+allowed_classes = {str(c) for model in models["models"] for c in model["class_mapping"].values()}
+assert all(d.semantic_class in allowed_classes for d in detections)
 args.output.parent.mkdir(parents=True, exist_ok=True)
 write_json(
     args.output,

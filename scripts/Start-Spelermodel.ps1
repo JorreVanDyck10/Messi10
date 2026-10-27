@@ -1,7 +1,7 @@
 param(
     [ValidateSet('app','evaluate','annotate','validate','train')][string]$Mode = 'app',
     [string]$Device = '0',
-    [ValidateSet('persons','players')][string]$Recognition = 'persons',
+    [ValidateSet('persons','players')][string]$Recognition = 'players',
     [string]$RunName = '',
     [string]$Weights = 'artifacts/players-v2/players_best.pt',
     [string]$TrainingConfig = 'configs/train-players-unfrozen.json'
@@ -26,17 +26,24 @@ try {
     } elseif ($Mode -eq 'validate') {
         & $runtimePython -m persoon1 validate --manifest $manifest --output reports/players-validation-local.json
     } elseif ($Mode -eq 'app') {
-        $modelProfile = Get-Content -Raw -LiteralPath "configs/models-$Recognition.json" | ConvertFrom-Json
-        foreach ($model in $modelProfile.models) {
-            $model.device = $Device
-            $model.weights = [IO.Path]::GetFullPath((Join-Path "$projectRoot\configs" $model.weights))
+        foreach ($profileKind in @('persons', 'players')) {
+            $modelProfile = Get-Content -Raw -Encoding UTF8 -LiteralPath "configs/models-$profileKind.json" | ConvertFrom-Json
+            foreach ($model in $modelProfile.models) {
+                $model.device = $Device
+                $model.weights = [IO.Path]::GetFullPath((Join-Path "$projectRoot\configs" $model.weights))
+            }
+            if ($modelProfile.handoff) {
+                foreach ($recordName in @('evaluation_record', 'broadcast_validation_record')) {
+                    if ($modelProfile.handoff.PSObject.Properties[$recordName]) {
+                        $modelProfile.handoff.$recordName = [IO.Path]::GetFullPath((Join-Path "$projectRoot\configs" $modelProfile.handoff.$recordName))
+                    }
+                }
+            }
+            $localProfile = Join-Path $projectRoot ".cache\models-$profileKind-local.json"
+            $modelProfile | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath $localProfile -Encoding utf8
+            if ($profileKind -eq $Recognition) { $env:FOOTBALL_MODELS = $localProfile }
+            if ($profileKind -eq 'players') { $env:FOOTBALL_AUTO_MODELS = $localProfile }
         }
-        if ($modelProfile.handoff) {
-            $modelProfile.handoff.evaluation_record = [IO.Path]::GetFullPath((Join-Path "$projectRoot\configs" $modelProfile.handoff.evaluation_record))
-        }
-        $localProfile = Join-Path $projectRoot ".cache\models-$Recognition-local.json"
-        $modelProfile | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath $localProfile -Encoding utf8
-        $env:FOOTBALL_MODELS = $localProfile
         & $runtimePython -m streamlit run streamlit_app.py
     } else {
         if (-not $RunName) { $RunName = 'players-' + (Get-Date -Format 'yyyyMMdd-HHmmss') }

@@ -8,11 +8,13 @@ from __future__ import annotations
 import argparse
 import copy
 import importlib.metadata
+import io
 import json
 import math
 import random
 import sys
 import time
+from collections import OrderedDict
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -49,9 +51,56 @@ def validate_labels(data):
     return normalized
 
 
+def clip_provider_lines(data):
+    """Clip subpixel/interpolated border overshoots without bending the annotated line."""
+    clipped = {}
+    for name, points in data.items():
+        xy = np.asarray([[p["x"], p["y"]] for p in points], float)
+        if not len(xy):
+            continue
+        if not np.isfinite(xy).all() or (xy < -0.005).any() or (xy > 1.005).any():
+            raise ValueError("Provider line exceeds the bounded image-border preprocessing policy")
+        visible = []
+        for a, b in zip(xy, xy[1:]):
+            delta = b - a
+            lower, upper = 0.0, 1.0
+            for p, q in zip((-delta[0], delta[0], -delta[1], delta[1]), (a[0], 1 - a[0], a[1], 1 - a[1])):
+                if abs(p) < 1e-15:
+                    if q < 0:
+                        upper = -1
+                        break
+                elif p < 0:
+                    lower = max(lower, q / p)
+                else:
+                    upper = min(upper, q / p)
+            if lower <= upper:
+                for point in (a + lower * delta, a + upper * delta):
+                    if not visible or np.linalg.norm(point - visible[-1]) > 1e-12:
+                        visible.append(point)
+        if visible:
+            clipped[name] = [
+                {"x": float(np.clip(p[0], 0, 1)), "y": float(np.clip(p[1], 0, 1))} for p in visible
+            ]
+    return validate_labels(clipped)
+
+
+def labels_for_row(row):
+    data = read_json(row["label"])
+    return (
+        clip_provider_lines(data)
+        if row.get("label_policy") == "provider_visible_polylines_v1"
+        else validate_labels(data)
+    )
+
+
 def dataset_index(root, limits=None, splits=("train", "valid")):
     """Explicit index bypasses upstream Windows basename and missing match_info bugs."""
     root = Path(root).resolve()
+    metadata = root.parent / "manifest.json"
+    provider_policy = (
+        metadata.is_file()
+        and read_json(metadata).get("source") == "https://huggingface.co/datasets/SoccerNet/SN-GSR-2024"
+    )
     rows, excluded, image_splits, match_splits = [], [], {}, {}
     for split in splits:
         candidates = list(root.rglob(split + "/match_info.json"))
@@ -74,7 +123,7 @@ def dataset_index(root, limits=None, splits=("train", "valid")):
             label = image.with_suffix(".json")
             try:
                 original = read_json(label)
-                normalized = validate_labels(original)
+                normalized = clip_provider_lines(original) if provider_policy else validate_labels(original)
             except (ValueError, KeyError, TypeError) as exc:
                 excluded.append({"image": str(image), "reason": str(exc)})
                 continue
@@ -99,12 +148,20 @@ def dataset_index(root, limits=None, splits=("train", "valid")):
                     "label_sha256": sha256_file(label),
                     "match_info": info,
                     "match_id": match_id,
+                    "label_policy": "provider_visible_polylines_v1" if provider_policy else "strict",
                     "boundary_roundoff_corrections": sum(
                         original[name][i][k] != point[k]
                         for name, points in normalized.items()
                         for i, point in enumerate(points)
                         for k in ("x", "y")
-                    ),
+                    )
+                    if not provider_policy
+                    else 0,
+                    "provider_boundary_points": sum(
+                        not 0 <= p[k] <= 1 for pts in original.values() for p in pts for k in ("x", "y")
+                    )
+                    if provider_policy
+                    else 0,
                 }
             )
     identity = digest_json(rows)
@@ -172,6 +229,7 @@ def masked_heatmap_loss(output, target, mask):
 class FieldDataset:
     def __init__(self, rows, role, augment=False):
         self.rows, self.role, self.augment = rows, role, augment
+        self.target_cache = OrderedDict()
 
     def __len__(self):
         return len(self.rows)
@@ -185,22 +243,39 @@ class FieldDataset:
         from utils.utils_lines import LineKeypointsDB
 
         row = self.rows[index]
-        data = copy.deepcopy(validate_labels(read_json(row["label"])))
+        data = copy.deepcopy(labels_for_row(row))
         if "Goal left post left" in data:
             data["Goal left post left "] = data.pop("Goal left post left")
         with Image.open(row["image"]) as source:
-            image = tf.to_tensor(source.convert("RGB").resize((960, 540), Image.Resampling.BILINEAR))
+            image = tf.resize(tf.to_tensor(source.convert("RGB")), [540, 960], antialias=True)
         if self.augment:
             sample = RandomHorizontalFlip(0.5)({"image": image, "data": data})
             image, data = sample["image"], sample["data"]
             image = tf.adjust_brightness(image, random.uniform(0.95, 1.05))
-        if self.role == "keypoints":
-            target, mask = KeypointsDB(data, image).get_tensor_w_mask()
-            mask = torch.from_numpy(mask).float()
-        else:
-            target = LineKeypointsDB(data, image).get_tensor()
-            mask = torch.ones(target.shape[0])
-        return image, torch.from_numpy(target).float(), mask
+        key = digest_json({"role": self.role, "labels": data, "shape": list(image.shape[-2:])})
+        if key not in self.target_cache:
+            # The upstream four-point ellipse interpolation draws random noise. Fix
+            # it per geometry, including validation, without consuming augmentation RNG.
+            numpy_state = np.random.get_state()
+            np.random.seed(int(key[:8], 16))
+            try:
+                if self.role == "keypoints":
+                    target, mask = KeypointsDB(data, image).get_tensor_w_mask()
+                else:
+                    target = LineKeypointsDB(data, image).get_tensor()
+                    mask = np.ones(target.shape[0])
+            finally:
+                np.random.set_state(numpy_state)
+            compressed = io.BytesIO()
+            np.savez_compressed(
+                compressed, target=np.asarray(target, np.float32), mask=np.asarray(mask, np.float32)
+            )
+            self.target_cache[key] = compressed.getvalue()
+            if len(self.target_cache) > 128:
+                self.target_cache.popitem(last=False)
+        self.target_cache.move_to_end(key)
+        with np.load(io.BytesIO(self.target_cache[key]), allow_pickle=False) as values:
+            return image, torch.from_numpy(values["target"]), torch.from_numpy(values["mask"])
 
 
 def atomic_torch_save(value, path):
@@ -226,11 +301,13 @@ def publish_epoch_checkpoint(report_path, report, role, record, state, checkpoin
     return committed
 
 
-def run_epoch(model, loader, device, optimizer=None, scaler=None, max_steps=None):
+def run_epoch(model, loader, device, optimizer=None, scaler=None, max_steps=None, *, frozen_features=False):
     import torch
 
     training = optimizer is not None
-    model.train(training)
+    model.train(training and not frozen_features)
+    if training and frozen_features:
+        model.head[0][3].train()
     total, samples, tick = 0.0, 0, time.monotonic()
     with torch.set_grad_enabled(training):
         for step, (image, target, mask) in enumerate(loader):
@@ -288,9 +365,14 @@ def _train(args):
     config = {
         "epochs": args.epochs,
         "batch": 1,
-        "lr": 0.0001,
+        "lr": args.lr,
         "optimizer": "Adam",
-        "patience": 8,
+        "patience": args.patience,
+        "weight_decay": args.weight_decay,
+        "scheduler": "ReduceLROnPlateau_factor_0.5_patience_1",
+        "best_checkpoint_includes_unmodified_baseline": True,
+        "head_only": args.head_only,
+        "target_generation": "geometry_seeded_interpolation; exact_float32_compressed_cache",
         "seed": 42,
         "amp": True,
         "image_size": [960, 540],
@@ -318,7 +400,9 @@ def _train(args):
             "identity": identity,
             "started_at": timestamp(),
             "dataset_fingerprint": index["fingerprint"],
-            "dataset_version": "SN-Calibration-2023",
+            "dataset_version": read_json(args.dataset.parent / "manifest.json")["dataset_version"]
+            if (args.dataset.parent / "manifest.json").is_file()
+            else "SN-Calibration-2023",
             "config": config,
             "models": {},
             "status": "running",
@@ -353,7 +437,16 @@ def _train(args):
             torch.manual_seed(42)
             torch.cuda.manual_seed_all(42)
             model = load_model(runtime, role, device)
-            optimizer = torch.optim.Adam(model.parameters(), lr=0.0001)
+            output_ids = {id(p) for p in model.head[0][3].parameters()}
+            for parameter in model.parameters():
+                parameter.requires_grad_(not args.head_only or id(parameter) in output_ids)
+            trainable = [p for p in model.parameters() if p.requires_grad]
+            if not trainable:
+                raise ValueError("No trainable field output layer")
+            optimizer = torch.optim.Adam(trainable, lr=args.lr, weight_decay=args.weight_decay)
+            scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+                optimizer, factor=0.5, patience=1, min_lr=args.lr * 0.01
+            )
             scaler = torch.cuda.amp.GradScaler()
             best, stale, start = float("inf"), 0, 0
             last = Path(saved.get("last_path", args.output / (role + "-last.pt")))
@@ -368,6 +461,7 @@ def _train(args):
                 model.load_state_dict(state["model"])
                 optimizer.load_state_dict(state["optimizer"])
                 scaler.load_state_dict(state["scaler"])
+                scheduler.load_state_dict(state["scheduler"])
                 best, stale, start = state["best"], state["stale"], state["epoch"] + 1
                 random.setstate(state["random"])
                 np.random.set_state(state["numpy"])
@@ -387,16 +481,31 @@ def _train(args):
                 num_workers=0,
             )
             valid_loader = DataLoader(FieldDataset(valid_rows, role), batch_size=1, num_workers=0)
+            baseline_loss = saved.get("baseline_valid_loss")
+            if baseline_loss is None:
+                baseline_loss = run_epoch(model, valid_loader, device, max_steps=1 if args.smoke else None)
+                best = baseline_loss
+                best_path = (args.output / f"{role}-best-000.pt").resolve()
+                atomic_torch_save(model.state_dict(), best_path)
+                print(json.dumps({"role": role, "baseline_valid_loss": baseline_loss}), flush=True)
             torch.cuda.reset_peak_memory_stats()
             print(f"Training {role}: {len(train_rows)} train, {len(valid_rows)} valid", flush=True)
             for epoch in range(start, 1 if args.smoke else args.epochs):
-                if stale >= 8:
+                if stale >= args.patience:
                     break
                 tick = time.monotonic()
                 training_loss = run_epoch(
-                    model, train_loader, device, optimizer, scaler, 1 if args.smoke else None
+                    model,
+                    train_loader,
+                    device,
+                    optimizer,
+                    scaler,
+                    1 if args.smoke else None,
+                    frozen_features=args.head_only,
                 )
                 validation_loss = run_epoch(model, valid_loader, device, max_steps=1 if args.smoke else None)
+                used_lr = optimizer.param_groups[0]["lr"]
+                scheduler.step(validation_loss)
                 improved = validation_loss < best
                 previous_best = best_path
                 if improved:
@@ -416,6 +525,7 @@ def _train(args):
                         "epoch": epoch + 1,
                         "train_loss": training_loss,
                         "valid_loss": validation_loss,
+                        "learning_rate": used_lr,
                         "runtime_s": time.monotonic() - tick,
                         "peak_gpu_bytes": torch.cuda.max_memory_allocated(),
                     }
@@ -427,6 +537,7 @@ def _train(args):
                     "model": model.state_dict(),
                     "optimizer": optimizer.state_dict(),
                     "scaler": scaler.state_dict(),
+                    "scheduler": scheduler.state_dict(),
                     "best": best,
                     "stale": stale,
                     "random": random.getstate(),
@@ -441,6 +552,10 @@ def _train(args):
                     "history": history,
                     "base_model": RELEASE_WEIGHTS[role],
                     "best_valid_loss": best,
+                    "baseline_valid_loss": baseline_loss,
+                    "selected_epoch": int(best_path.stem.rsplit("-", 1)[-1]),
+                    "improved_over_baseline_loss": best < baseline_loss,
+                    "trainable_parameters": sum(p.numel() for p in trainable),
                     "train_frames": len(train_rows),
                     "valid_frames": len(valid_rows),
                 }
@@ -455,7 +570,7 @@ def _train(args):
                         previous.unlink()
                 last = checkpoint
                 print(json.dumps({"role": role, **history[-1]}), flush=True)
-                if stale >= 8:
+                if stale >= args.patience:
                     break
             report["models"][role]["status"] = "complete"
             report["training_performed"] = True
@@ -491,6 +606,9 @@ def make_runtime(base_path, output):
         raise ValueError("Both networks must finish before model registration")
     for role, key in (("keypoints", "weights_keypoints"), ("lines", "weights_lines")):
         model = report["models"][role]
+        if model.get("selected_epoch") == 0:
+            # Training ran, but this network did not beat its unmodified baseline.
+            continue
         runtime[key] = model["path"]
         runtime["models"][role] = {
             "kind": "finetuned",
@@ -613,13 +731,13 @@ def propose(args):
         _propose(args)
 
 
-def reprojection_metrics(observation, labels, settings):
+def reprojection_metrics(observation, labels, settings, *, state=None):
     from sn_calibration.src.soccerpitch import SoccerPitch
 
-    from .automatic_calibration import transform
     from .field_motion import estimate_checked
 
-    state = estimate_checked(observation, observation["image_size"], settings)
+    if state is None:
+        state = estimate_checked(observation, observation["image_size"], settings)
     if state["status"] != "valid":
         return {"valid": False, "errors_px": [], "wrong": False}
     inverse = np.linalg.inv(np.asarray(state["homography"]))
@@ -631,17 +749,14 @@ def reprojection_metrics(observation, labels, settings):
             continue
         ends = np.asarray(pitch.line_extremities[name])
         uv = (ends[:, :2] + [52.5, 34]) / [105, 68]
-        try:
-            projected = transform(uv, inverse)
-        except ValueError:
-            continue
-        vector = projected[1] - projected[0]
-        length = np.linalg.norm(vector)
+        projected = np.column_stack((uv, np.ones(2))) @ inverse.T
+        coefficients = np.cross(projected[0], projected[1])
+        length = np.hypot(*coefficients[:2])
         if length < 1e-6:
             continue
         for point in points:
-            delta = np.array([point["x"] * width, point["y"] * height]) - projected[0]
-            errors.append(float(abs(vector[0] * delta[1] - vector[1] * delta[0]) / length))
+            xy = [point["x"] * width, point["y"] * height, 1]
+            errors.append(float(abs(np.dot(xy, coefficients)) / length))
     return {
         "valid": True,
         "errors_px": errors,
@@ -685,7 +800,7 @@ def _compare(args):
         metrics = []
         for row in rows:
             observation = image_observation(models, cv2.imread(row["image"]), "cuda:0")
-            metrics.append(reprojection_metrics(observation, read_json(row["label"]), DEFAULT_SETTINGS))
+            metrics.append(reprojection_metrics(observation, labels_for_row(row), DEFAULT_SETTINGS))
         errors = [e for m in metrics for e in m["errors_px"]]
         result["models"][name] = {
             "models": runtime["models"],
@@ -790,10 +905,28 @@ def main():
     parser.add_argument("--candidate", type=Path)
     parser.add_argument("--video", type=Path)
     parser.add_argument("--epochs", type=int, default=30)
+    parser.add_argument("--lr", type=float, default=0.0001)
+    parser.add_argument("--patience", type=int, default=8)
+    parser.add_argument("--weight-decay", type=float, default=0.0001)
+    parser.add_argument(
+        "--head-only",
+        action="store_true",
+        help="Freeze pretrained features and their normalization statistics",
+    )
     parser.add_argument("--limit-train", type=int)
     parser.add_argument("--limit-valid", type=int)
     parser.add_argument("--smoke", action="store_true")
     args = parser.parse_args()
+    if (
+        not math.isfinite(args.lr)
+        or args.lr <= 0
+        or args.patience < 1
+        or not math.isfinite(args.weight_decay)
+        or args.weight_decay < 0
+    ):
+        parser.error(
+            "Learning rate and patience must be positive; weight decay must be finite and nonnegative"
+        )
     if args.epochs < 1 or any(
         value is not None and value < 1 for value in (args.limit_train, args.limit_valid)
     ):

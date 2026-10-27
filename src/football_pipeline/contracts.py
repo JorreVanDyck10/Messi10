@@ -72,6 +72,11 @@ class Detection:
     track_id: int | None = None
     field_position: list[float] | None = None
     projection_status: str = "not_projected"
+    shirt_color_lab: list[float] | None = None
+    team_id: str | None = None
+    team_status: str = "unknown"
+    team_match_score: float | None = None
+    team_source: str | None = None
 
     @classmethod
     def from_dict(cls, value: dict) -> Detection:
@@ -88,6 +93,21 @@ class FrameRecord:
     detections: list[Detection] = field(default_factory=list)
     calibration: dict | None = None
     player_model_available: bool = True
+    tracking: dict | None = None
+    team_context: dict | None = None
+
+    @classmethod
+    def from_dict(cls, value: dict) -> FrameRecord:
+        return cls(
+            frame_index=value["frame_index"],
+            timestamp_s=value["timestamp_s"],
+            image_size=tuple(value["image_size"]),
+            detections=[Detection.from_dict(d) for d in value["detections"]],
+            calibration=value.get("calibration"),
+            player_model_available=value.get("player_model_available", True),
+            tracking=value.get("tracking"),
+            team_context=value.get("team_context"),
+        )
 
     def to_dict(self) -> dict:
         from .participants import count_exclusion_reason, counted_as_player, player_summary
@@ -95,6 +115,10 @@ class FrameRecord:
         result = asdict(self)
         if self.calibration is None:
             result.pop("calibration")
+        if self.tracking is None:
+            result.pop("tracking")
+        if self.team_context is None:
+            result.pop("team_context")
         result["player_summary"] = player_summary(self)
         for detection, serialized in zip(self.detections, result["detections"]):
             serialized["counted_as_player"] = counted_as_player(self, detection)

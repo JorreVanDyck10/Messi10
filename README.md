@@ -1,6 +1,10 @@
-> **Persoonsherkenning op de 4050 (16 oktober 2026):** het standaardprofiel gebruikt algemene personenherkenning op GPU. Het geleverde `player`/`referee`-model blijft beschikbaar via `configs/models-players.json`, maar mist veel personen op de Broadcast-ontwikkelclip. Zijn eerdere panorama-validatie blijft afzonderlijk: AP@50 74,50%, AP@50:95 26,55%. [Lokale integratie en beperkingen](docs/Spelerintegratie_4050.md), [oorspronkelijke modelmetingen](docs/Resultaten_Spelermodel.md).
+> **Spelermodel v3 (19 oktober 2026):** het nieuwe standaardmodel is getraind op drie wedstrijden en geselecteerd op twintig beelden uit drie andere wedstrijden. Spelers: AP@50 **93,17%**, AP@50:95 **58,98%**, recall **91,78%**, precision **80,48%** bij confidence 0,25. Officials blijven zwak; balherkenning wordt niet aangeboden. Dit is een kleine ontwikkelvalidatie met providerlabels, geen onafhankelijke eindtest. [Werkwijze volgens de cursus](docs/Modelverbetering_Volgens_Cursus.md), [modelkaart en exacte beperkingen](artifacts/players-v3/README.md). Het oude model is bewaard als `configs/models-players-v2.json`; algemene persoonsherkenning staat in `configs/models-persons.json`.
 
-Start de persoonsherkenning met `scripts/Start-Spelermodel.ps1`. Het rolmodel kies je in de app of met `-Recognition players`. Voor CPU gebruik je expliciet `-Device cpu`; de rechtstreekse Streamlit-start hieronder gebruikt GPU-device 0.
+**Veldherkenning blijft een beperking:** drie nieuwe trainingsopzetten zijn vergeleken. De beste validatiekandidaat presteerde slechter op de eigen ontwikkelclip en is afgewezen; de bestaande veldgewichten blijven actief. De definitieve combinatie met het nieuwe spelermodel is echt verwerkt en gecontroleerd. [Metingen en modelbeslissing](reports/course-improvement/README.md).
+
+**Automatische uploadanalyse (19 oktober 2026):** start met `scripts/Start-Spelermodel.ps1` en upload een MP4. De app start zelf veldherkenning, het echte `player`/`referee`-model, ByteTrack met cameracompensatie en de gesynchroniseerde minimap met trajecten. Er zijn geen handmatige kalibratiepunten of acceptatiebestanden nodig. ID’s blijven bij ontbrekende veldherkenning op het beeld beschikbaar; veldposities en trajecten worden dan onderbroken. Camerawissels of onbetrouwbare bewegingsmetingen starten nieuwe ID’s. Deze technische ondersteuning is geen bewijs van onafhankelijke trackingnauwkeurigheid; de bekende detector- en veldbeperkingen blijven gelden.
+
+Schakel **Alles automatisch analyseren na upload** uit voor de bestaande handmatige instellingen. Het standaardprofiel gebruikt nu het nieuwe speler-/officialmodel. Algemene persoonsherkenning blijft selecteerbaar. Voor CPU gebruik je expliciet `-Device cpu`; dit geldt ook voor het automatische spelersmodel. Het afzonderlijke veldmodel heeft zijn eigen runtimeconfiguratie.
 
 De lokale combinatie van spelerherkenning en veldprojectie wordt beschreven in
 [Spelerintegratie op de 4050](docs/Spelerintegratie_4050.md), inclusief de GPU-controle
@@ -8,7 +12,18 @@ en een herhaalbare integratiecheck op een volledige clip.
 
 **Spelertelling en veldherkenning:** alleen voorspelde spelers met hun voetpunt binnen het geldige veld tellen mee. Officials en eventuele andere herkende rollen blijven afzonderlijk zichtbaar. Bij ontbrekende veldherkenning is het aantal onbekend. De huidige gewichten herkennen nog geen afzonderlijke stewards of supporters. [Telregels, interface en beperkingen](docs/Spelertelling_en_Rollen.md).
 
+**Onderdeel 2, betrouwbaarheid (26 oktober 2026):** er is een afzonderlijk kandidaatprofiel met zichtbare veldgrenzen en controle van directe herkenning tegen camerabeweging. De volledige vergelijking op broadcast en PANORIS is uitgevoerd. De kandidaat blijft experimenteel en wordt niet standaard geactiveerd: menselijke referenties ontbreken en PANORIS levert nog onvoldoende veldpunten. [Werking, metingen en overdracht](docs/Veldherkenning_Betrouwbaarheid.md).
+
 # Sports Vision — data, modellen en tactical map
+
+**Onderdeel 3, teams en toepassing (26 oktober 2026):** de automatische uploadanalyse
+stelt nu twee teams op shirtkleur voor. De video en tactical map tonen dezelfde
+teamkleuren en actuele telling per team, inclusief onbekend. Na analyse kun je
+teamnamen, shirtprototypes en tijdelijke speler-ID’s corrigeren; dat maakt een
+nieuwe uitvoer zonder nieuwe detectie, veldprojectie of tracking. Zie
+[Teams, tracking en telling](docs/Teams_Tracking_en_Telling.md) voor gebruik,
+CLI, bestanden en beperkingen. Dit is kleurindeling met technische tests;
+menselijke team- en trackingnauwkeurigheid zijn nog niet gemeten.
 
 Deze repository bevat beide werkpakketten: persoon 1 beheert data, annotaties, training en detectie-evaluatie; persoon 2 beheert kalibratie, videopipeline, minimap en tracking.
 
@@ -36,7 +51,7 @@ Voer vanuit de projectmap uit:
 .\.venv\Scripts\python.exe -m streamlit run streamlit_app.py
 ```
 
-FFmpeg/ffprobe en de modelbestanden zijn lokaal voorbereid. Open de lokale URL die Streamlit toont. Het standaardprofiel toont personen op GPU-device 0, met onbekende rollen. Het afzonderlijke profiel `models-players.json` gebruikt het getrainde `player`/`referee`-model. Een personendetector ondersteunt geen spelertelling of spelertracking op basis van rol; de minimap kan wel personen met een geldige veldpositie tonen en tellen.
+FFmpeg/ffprobe en de modelbestanden zijn lokaal voorbereid. Open de lokale URL die Streamlit toont. Het standaardprofiel gebruikt het geselecteerde `player`/`referee`-model v3 op GPU-device 0. Het afzonderlijke profiel `models-persons.json` toont algemene personen met onbekende rollen. Alleen echte spelerklassen ondersteunen spelertelling en spelertracking op basis van rol.
 
 ### Installeren op een tweede Windows-laptop
 
@@ -71,7 +86,7 @@ Een kalibratie kan alleen worden geladen voor exact dezelfde cliphash en beeldaf
 
 ### Automatische veldkalibratie bij pan en zoom
 
-Naast de handmatige modus is er **Automatische veldkalibratie**. Een afzonderlijke PnLCalib-omgeving herkent veldpunten en lijnen per frame; de minimap gebruikt de kalibratie van datzelfde frame. De vier buitenhoeken hoeven niet allemaal zichtbaar te zijn. Bij te weinig betrouwbare markeringen blijft de veldpositie onbekend. Spelertracking bij bewegende camera’s staat voorlopig uit.
+Naast de handmatige modus is er **Automatische veldkalibratie**. Een afzonderlijke PnLCalib-omgeving herkent veldpunten en lijnen per frame; de minimap gebruikt de kalibratie van datzelfde frame. De vier buitenhoeken hoeven niet allemaal zichtbaar te zijn. Bij te weinig betrouwbare markeringen blijft de veldpositie onbekend. Spelertracking gebruikt nu gemeten achtergrondbeweging voor cameracompensatie. Camerawissels en onbetrouwbare bewegingsmetingen starten nieuwe ID’s; onafhankelijke trackingnauwkeurigheid is nog niet bewezen.
 
 Eenmalig met Python 3.11: `python scripts/setup_field_model.py`. Kies vervolgens de automatische modus na het uploaden van een MP4, vul videobron en toegelaten gebruik in en klik op **Verwerken**. Dit gebruikt een aparte omgeving en verandert de trainingsomgeving van persoon 1 niet. De bestaande spelersmodeloverdracht blijft gelden.
 
@@ -212,7 +227,7 @@ Voor een lokale YOLO-inferenceproef op een eigen afbeelding: `python scripts/smo
 
 ### Beperkingen en gezamenlijk vervolg
 
-De handmatige modus veronderstelt een vaste camera. De automatische modus herkalibreert per frame bij pan en zoom; lenscorrectie, teamherkenning, namen, baltracking en metrische snelheid vallen buiten deze pipeline. Het veld en zijn cirkel zijn schematisch; er worden geen echte veldafmetingen aangenomen. Het onderste boxmidden blijft bij overlap en springen een benadering.
+De handmatige modus veronderstelt een vaste camera. De automatische modus herkalibreert per frame bij pan en zoom; namen, baltracking en metrische snelheid vallen buiten deze pipeline. Teamindeling gebruikt shirtkleuren en biedt handmatige correcties; persoonlijke identiteit over camerawissels blijft onbekend. Het veld en zijn cirkel zijn schematisch; er worden geen echte veldafmetingen aangenomen. Het onderste boxmidden blijft bij overlap en springen een benadering.
 
 Er zijn nu 60 gelabelde TeamTrack-beelden, getrainde gewichten en echte validatie-AP. Het team moet de eerste echte pilot gezamenlijk reviewen, de labels onafhankelijk menselijk beoordelen, een nieuwe onafhankelijke testgroep reserveren en trackingreferenties opstellen. De huidige officiallabels hebben beperkte dekking. Zie `docs/acceptance.md`, `docs/data_contract.md` en de logboeken voor de verdere overdracht en verdediging.
 

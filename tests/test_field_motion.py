@@ -10,10 +10,23 @@ from test_automatic_calibration import bundle_for, observation
 from football_pipeline.automatic_calibration import AutomaticCalibration, transform
 from football_pipeline.contracts import PipelineError, read_json, sha256_file
 from football_pipeline.field_layout import LINES_UV, POINTS_UV
-from football_pipeline.field_motion import DEFAULT_SETTINGS, CameraCalibration, estimate_checked
+from football_pipeline.field_motion import DEFAULT_SETTINGS, CameraCalibration, estimate_checked, line_checks
 from football_pipeline.field_review import failure_intervals, finalize_review, save_review
 from football_pipeline.pipeline import process_video, validate_completed
 from football_pipeline.video import ROOT, inspect_video
+
+
+def test_visible_field_line_can_be_checked_when_virtual_endpoints_straddle_horizon():
+    identifier, endpoints = next(
+        (i, p) for i, p in LINES_UV.items() if p[0][1] == p[1][1] and {p[0][0], p[1][0]} == {0, 1}
+    )
+    inverse = np.array([[1000, 0, -600], [0, 200, 30], [1, 0, -0.5]], float)
+    with pytest.raises(ValueError, match="horizon"):
+        transform(endpoints, inverse)
+    observed = transform([[0.7, endpoints[0][1]], [0.9, endpoints[0][1]]], inverse)
+    errors, checked = line_checks([{"id": identifier, "xy": observed.tolist()}], inverse)
+    assert checked == [identifier]
+    assert max(errors) < 1e-8
 
 
 def test_points_are_checked_without_mandatory_lines_and_controls_are_not_refitted():
@@ -249,14 +262,16 @@ def test_recalibration_reuses_detections_but_recomputes_current_geometry(demo_fi
     assert (replayed.directory / "framegegevens.jsonl").read_bytes() == (
         result.directory / "framegegevens.jsonl"
     ).read_bytes()
-    with pytest.raises(PipelineError, match="tracking"):
-        process_video(
-            video.path,
-            candidate,
-            demo_fixture["models"],
-            tmp_path / "bad",
-            tracker_config_path=ROOT / "configs/bytetrack.yaml",
-        )
+    tracked = process_video(
+        video.path,
+        candidate,
+        demo_fixture["models"],
+        tmp_path / "tracked",
+        tracker_config_path=ROOT / "configs/bytetrack.yaml",
+        replay_run=result.directory,
+    )
+    assert tracked.manifest["tracking_policy"]["camera_compensation"] == "background_affine_ransac"
+    assert tracked.manifest["mvp_acceptance"] is None
 
 
 def test_human_references_require_explicit_input_and_completion_is_separate(tmp_path):
@@ -310,7 +325,9 @@ def test_new_ui_saved_run_uses_same_frame_and_point_toggles(demo_fixture, tmp_pa
         video.path, candidate, demo_fixture["models"], tmp_path / "runs", detector=SyntheticDetector()
     )
     monkeypatch.setenv("FOOTBALL_RUNS", str(tmp_path / "runs"))
-    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30).run()
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
+    app.session_state["automatic_analysis"] = False
+    app.run()
     app.checkbox(key="open_field_review").check().run()
     assert not app.exception
 
@@ -350,7 +367,9 @@ def test_ui_human_reference_is_only_saved_after_explicit_input(demo_fixture, tmp
     )
     monkeypatch.setattr(field_review_ui, "ROOT", tmp_path)
     monkeypatch.setenv("FOOTBALL_RUNS", str(tmp_path / "runs"))
-    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30).run()
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
+    app.session_state["automatic_analysis"] = False
+    app.run()
     app.checkbox(key="open_field_review").check().run()
     assert not app.exception
     token = result.manifest["cache_key"][:12]

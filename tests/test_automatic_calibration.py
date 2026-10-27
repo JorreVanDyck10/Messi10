@@ -181,14 +181,17 @@ def test_full_pipeline_loss_recovery_artifacts_cache_and_frame_identity(demo_fix
         video.path, portable, demo_fixture["models"], tmp_path / "runs", detector=SyntheticDetector()
     )
     assert repeated.reused
-    with pytest.raises(PipelineError, match="geen tracking"):
-        process_video(
-            video.path,
-            bundle,
-            demo_fixture["models"],
-            tmp_path / "other",
-            tracker_config_path=ROOT / "configs/bytetrack.yaml",
-        )
+    tracked = process_video(
+        video.path,
+        bundle,
+        demo_fixture["models"],
+        tmp_path / "other",
+        tracker_config_path=ROOT / "configs/bytetrack.yaml",
+        detector=SyntheticDetector(),
+    )
+    assert tracked.manifest["tracking_policy"]["camera_compensation"] == "background_affine_ransac"
+    assert tracked.manifest["mvp_acceptance"] is None
+    assert tracked.manifest["tracking_policy"]["human_accuracy_validated"] is False
 
 
 def test_bundle_rejects_different_video_and_corrupt_observations(demo_fixture, tmp_path):
@@ -276,10 +279,12 @@ def test_automatic_ui_processes_only_on_click_and_invalidates_when_switching(
     content = demo_fixture["video"].read_bytes()
     upload = SimpleNamespace(file_id="automatic-ui-fixture", getbuffer=lambda: content)
     monkeypatch.setattr(st, "file_uploader", lambda *a, **kw: upload if kw["key"] == "video_upload" else None)
-    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30).run()
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
+    app.session_state["automatic_analysis"] = False
+    app.run()
     app.segmented_control(key="calibration_mode").set_value("Automatische veldkalibratie").run()
     assert not app.exception
-    assert app.checkbox(key="tracking").disabled
+    assert not app.checkbox(key="tracking").disabled
     assert app.button(key="process").disabled
     app.text_input(key="field_source").set_value("generated test")
     app.text_input(key="field_usage").set_value("synthetic engineering fixture").run()
@@ -345,3 +350,106 @@ def test_independent_evaluation_reports_coverage_and_rejects_unreviewed_labels(t
     write_json(path, reference)
     with pytest.raises(PipelineError, match="menselijke review"):
         calibration_evaluation.evaluate_calibration(directory, path)
+
+
+def test_upload_automatically_runs_field_players_tracking_and_does_not_repeat(
+    demo_fixture, tmp_path, monkeypatch
+):
+    from unittest.mock import Mock
+
+    from streamlit.testing.v1 import AppTest
+
+    from football_pipeline import automatic_analysis_ui, pipeline
+
+    video = inspect_video(demo_fixture["video"])
+    bundle = bundle_for(video, tmp_path / "bundle")
+    prepare = Mock(return_value=bundle)
+    monkeypatch.setattr(pipeline, "prepare_automatic_calibration", prepare)
+    actual_process = pipeline.process_video
+    process = Mock(side_effect=lambda *a, **kw: actual_process(*a, **kw, detector=SyntheticDetector()))
+    monkeypatch.setattr(automatic_analysis_ui, "process_video", process)
+    monkeypatch.setenv("FOOTBALL_AUTO_MODELS", str(demo_fixture["models"]))
+    monkeypatch.setenv("FOOTBALL_RUNS", str(tmp_path / "runs"))
+    identity = tmp_path / "identity"
+    identity.write_text("synthetic model identity")
+    runtime = tmp_path / "runtime.json"
+    write_json(runtime, {"weights_keypoints": str(identity), "weights_lines": str(identity)})
+    monkeypatch.setenv("FOOTBALL_FIELD_RUNTIME", str(runtime))
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=40).run()
+    assert app.toggle(key="automatic_analysis").value
+    app.file_uploader(key="video_upload").set_value(
+        ("match.mp4", demo_fixture["video"].read_bytes(), "video/mp4")
+    ).run()
+    assert not app.exception
+    assert not app.error
+    assert process.call_count == prepare.call_count == 1
+    result = app.session_state["result"]
+    assert result.manifest["tracker_config"] is not None
+    assert result.manifest["mvp_acceptance"] is None
+    assert result.manifest["evidence_kind"] == "synthetic"
+    records = [json.loads(row) for row in (result.directory / "framegegevens.jsonl").read_text().splitlines()]
+    assert records[0]["detections"][0]["track_id"] == 1
+    assert "tracking" in records[0]
+    # Automatic uploads still require no model/calibration inputs. Team correction
+    # controls are offered only after the analysis has completed.
+    assert all(widget.key.startswith("team_") for widget in app.selectbox)
+    assert all(widget.key.startswith("team_name_") for widget in app.text_input)
+    assert result.manifest["team_settings"] is not None
+    app.run()
+    assert not app.exception
+    assert process.call_count == prepare.call_count == 1
+
+
+def test_automatic_analysis_failure_requires_explicit_retry_and_survives_repeated_failure(
+    demo_fixture, tmp_path, monkeypatch
+):
+    from unittest.mock import Mock
+
+    from streamlit.testing.v1 import AppTest
+
+    from football_pipeline import automatic_analysis_ui
+
+    process = Mock(side_effect=PipelineError("synthetic failure"))
+    monkeypatch.setattr(automatic_analysis_ui, "process_video", process)
+    monkeypatch.setenv("FOOTBALL_AUTO_MODELS", str(demo_fixture["models"]))
+    identity = tmp_path / "identity"
+    identity.write_text("fixture")
+    runtime = tmp_path / "runtime.json"
+    write_json(runtime, {"weights_keypoints": str(identity), "weights_lines": str(identity)})
+    monkeypatch.setenv("FOOTBALL_FIELD_RUNTIME", str(runtime))
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30).run()
+    app.file_uploader(key="video_upload").set_value(
+        ("failed.mp4", demo_fixture["video"].read_bytes(), "video/mp4")
+    ).run()
+    assert not app.exception
+    assert process.call_count == 1
+    app.run()
+    assert not app.exception
+    assert process.call_count == 1
+    app.button(key="automatic_retry").click().run()
+    assert not app.exception
+    assert process.call_count == 2
+    assert any("synthetic failure" in error.value for error in app.error)
+
+
+def test_runtime_geometry_policy_is_used_and_explicit_policy_takes_precedence(
+    demo_fixture, tmp_path, monkeypatch
+):
+    from football_pipeline import pipeline
+
+    video = inspect_video(demo_fixture["video"])
+    bundle = bundle_for(video, tmp_path / "bundle")
+    monkeypatch.setattr(pipeline, "prepare_automatic_calibration", lambda *a, **kw: bundle)
+    runtime = tmp_path / "runtime.json"
+    write_json(runtime, {"calibration_settings": {"motion": False}})
+    for i, override in enumerate((None, {"motion": True})):
+        result = process_video(
+            video.path,
+            None,
+            demo_fixture["models"],
+            tmp_path / f"run-{i}",
+            field_runtime_path=runtime,
+            field_settings=override,
+            detector=SyntheticDetector(),
+        )
+        assert result.manifest["field_settings"]["motion"] == (override is not None)

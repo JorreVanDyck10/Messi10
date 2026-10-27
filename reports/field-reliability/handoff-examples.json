@@ -1,0 +1,451 @@
+{
+  "human_reviewed": false,
+  "evidence": "Actual model/calibration output, not human truth",
+  "examples": {
+    "valid": {
+      "frame_index": 18,
+      "timestamp_s": 0.72,
+      "image_size": [
+        1920,
+        1080
+      ],
+      "calibration": {
+        "schema_version": 3,
+        "status": "valid",
+        "homography": [
+          [
+            0.0011743759568134274,
+            0.003576754192509604,
+            0.1972559471717255
+          ],
+          [
+            0.000975541953857641,
+            0.00839567829650062,
+            -0.8858412041566325
+          ],
+          [
+            0.0012514260758432012,
+            0.0074276361090233394,
+            0.41980126852204475
+          ]
+        ],
+        "source": "detected",
+        "quality": {
+          "ground_points": 8,
+          "fit_ids": [
+            2,
+            22,
+            35,
+            39,
+            51,
+            52
+          ],
+          "control_ids": [
+            32,
+            43
+          ],
+          "independent_human_controls": false,
+          "inliers": 5,
+          "ground_lines": 0,
+          "control_errors_px": [
+            1.118715336002584,
+            18.305609815256766
+          ],
+          "line_errors_px": [],
+          "control_median_px": 9.712162575629675,
+          "control_maximum_px": 18.305609815256766
+        },
+        "points": [
+          {
+            "id": 2,
+            "x": 48.0,
+            "y": 100.0,
+            "confidence": 0.3586134612560272,
+            "raw_score": 0.3586134612560272
+          },
+          {
+            "id": 22,
+            "x": 1732.0,
+            "y": 220.0,
+            "confidence": 0.6142599582672119,
+            "raw_score": 0.6142599582672119
+          },
+          {
+            "id": 32,
+            "x": 68.0,
+            "y": 176.0,
+            "confidence": 0.5882884860038757,
+            "raw_score": 0.5882884860038757
+          },
+          {
+            "id": 35,
+            "x": 100.0,
+            "y": 308.0,
+            "confidence": 0.6677495837211609,
+            "raw_score": 0.6677495837211609
+          },
+          {
+            "id": 39,
+            "x": 424.0,
+            "y": 184.0,
+            "confidence": 0.4679356813430786,
+            "raw_score": 0.4679356813430786
+          },
+          {
+            "id": 43,
+            "x": 464.0,
+            "y": 220.0,
+            "confidence": 0.6121699213981628,
+            "raw_score": 0.6121699213981628
+          },
+          {
+            "id": 51,
+            "x": 80.0,
+            "y": 228.0,
+            "confidence": 0.4873276650905609,
+            "raw_score": 0.4873276650905609
+          },
+          {
+            "id": 52,
+            "x": 460.0,
+            "y": 200.0,
+            "confidence": 0.38253694772720337,
+            "raw_score": 0.38253694772720337
+          }
+        ],
+        "lines": [],
+        "reference_frame": 18,
+        "age_s": 0.0,
+        "motion_quality": {},
+        "tracked_points": [],
+        "visible_field_polygon_xy": [
+          [
+            908.0503413038264,
+            0.0
+          ],
+          [
+            1919.0,
+            0.0
+          ],
+          [
+            1919.0,
+            1079.0
+          ],
+          [
+            0.0,
+            1079.0
+          ],
+          [
+            0.0,
+            105.51157070011334
+          ]
+        ],
+        "frame_index": 18,
+        "model_identity": "434f8fe34268b3afc586499b042ea09fca3e68873a12724174cf4189f7c4fa20",
+        "temporal_quality": {
+          "status": "no_previous_calibration",
+          "camera_reset": false
+        }
+      },
+      "detections": [
+        {
+          "detection_id": "18:0",
+          "model_id": "coco_baseline",
+          "source_class_id": 0,
+          "semantic_class": "person",
+          "bbox_xyxy": [
+            1054.2159423828125,
+            469.34710693359375,
+            1125.24072265625,
+            615.3695068359375
+          ],
+          "confidence": 0.8008546233177185,
+          "track_id": null,
+          "field_position": [
+            0.5788296664367487,
+            0.8409605317038439
+          ],
+          "projection_status": "valid"
+        },
+        {
+          "detection_id": "18:1",
+          "model_id": "coco_baseline",
+          "source_class_id": 0,
+          "semantic_class": "person",
+          "bbox_xyxy": [
+            1508.708984375,
+            389.4195556640625,
+            1559.930419921875,
+            517.1478881835938
+          ],
+          "confidence": 0.7730268239974976,
+          "track_id": null,
+          "field_position": [
+            0.6226804913414777,
+            0.8012779511827146
+          ],
+          "projection_status": "valid"
+        }
+      ]
+    },
+    "unavailable": {
+      "frame_index": 0,
+      "timestamp_s": 0.0,
+      "image_size": [
+        1920,
+        1080
+      ],
+      "calibration": {
+        "schema_version": 3,
+        "status": "insufficient_points",
+        "homography": null,
+        "source": "unavailable",
+        "quality": {
+          "ground_points": 1
+        },
+        "points": [
+          {
+            "id": 22,
+            "x": 1676.0,
+            "y": 204.0,
+            "confidence": 0.5784640312194824,
+            "raw_score": 0.5784640312194824
+          }
+        ],
+        "lines": [],
+        "reference_frame": null,
+        "age_s": null,
+        "motion_quality": {},
+        "tracked_points": [],
+        "visible_field_polygon_xy": null,
+        "frame_index": 0,
+        "model_identity": "434f8fe34268b3afc586499b042ea09fca3e68873a12724174cf4189f7c4fa20",
+        "temporal_quality": {
+          "status": "unavailable",
+          "camera_reset": false,
+          "reason": "insufficient_points"
+        }
+      },
+      "detections": [
+        {
+          "detection_id": "0:0",
+          "model_id": "coco_baseline",
+          "source_class_id": 0,
+          "semantic_class": "person",
+          "bbox_xyxy": [
+            103.09101104736328,
+            407.9991149902344,
+            183.98873901367188,
+            541.2490844726562
+          ],
+          "confidence": 0.7990366816520691,
+          "track_id": null,
+          "field_position": null,
+          "projection_status": "calibration_unavailable"
+        },
+        {
+          "detection_id": "0:1",
+          "model_id": "coco_baseline",
+          "source_class_id": 0,
+          "semantic_class": "person",
+          "bbox_xyxy": [
+            897.4960327148438,
+            505.0436096191406,
+            971.7086791992188,
+            654.767822265625
+          ],
+          "confidence": 0.767865777015686,
+          "track_id": null,
+          "field_position": null,
+          "projection_status": "calibration_unavailable"
+        }
+      ]
+    },
+    "recovered": {
+      "frame_index": 18,
+      "timestamp_s": 0.72,
+      "image_size": [
+        1920,
+        1080
+      ],
+      "calibration": {
+        "schema_version": 3,
+        "status": "valid",
+        "homography": [
+          [
+            0.0011743759568134274,
+            0.003576754192509604,
+            0.1972559471717255
+          ],
+          [
+            0.000975541953857641,
+            0.00839567829650062,
+            -0.8858412041566325
+          ],
+          [
+            0.0012514260758432012,
+            0.0074276361090233394,
+            0.41980126852204475
+          ]
+        ],
+        "source": "detected",
+        "quality": {
+          "ground_points": 8,
+          "fit_ids": [
+            2,
+            22,
+            35,
+            39,
+            51,
+            52
+          ],
+          "control_ids": [
+            32,
+            43
+          ],
+          "independent_human_controls": false,
+          "inliers": 5,
+          "ground_lines": 0,
+          "control_errors_px": [
+            1.118715336002584,
+            18.305609815256766
+          ],
+          "line_errors_px": [],
+          "control_median_px": 9.712162575629675,
+          "control_maximum_px": 18.305609815256766
+        },
+        "points": [
+          {
+            "id": 2,
+            "x": 48.0,
+            "y": 100.0,
+            "confidence": 0.3586134612560272,
+            "raw_score": 0.3586134612560272
+          },
+          {
+            "id": 22,
+            "x": 1732.0,
+            "y": 220.0,
+            "confidence": 0.6142599582672119,
+            "raw_score": 0.6142599582672119
+          },
+          {
+            "id": 32,
+            "x": 68.0,
+            "y": 176.0,
+            "confidence": 0.5882884860038757,
+            "raw_score": 0.5882884860038757
+          },
+          {
+            "id": 35,
+            "x": 100.0,
+            "y": 308.0,
+            "confidence": 0.6677495837211609,
+            "raw_score": 0.6677495837211609
+          },
+          {
+            "id": 39,
+            "x": 424.0,
+            "y": 184.0,
+            "confidence": 0.4679356813430786,
+            "raw_score": 0.4679356813430786
+          },
+          {
+            "id": 43,
+            "x": 464.0,
+            "y": 220.0,
+            "confidence": 0.6121699213981628,
+            "raw_score": 0.6121699213981628
+          },
+          {
+            "id": 51,
+            "x": 80.0,
+            "y": 228.0,
+            "confidence": 0.4873276650905609,
+            "raw_score": 0.4873276650905609
+          },
+          {
+            "id": 52,
+            "x": 460.0,
+            "y": 200.0,
+            "confidence": 0.38253694772720337,
+            "raw_score": 0.38253694772720337
+          }
+        ],
+        "lines": [],
+        "reference_frame": 18,
+        "age_s": 0.0,
+        "motion_quality": {},
+        "tracked_points": [],
+        "visible_field_polygon_xy": [
+          [
+            908.0503413038264,
+            0.0
+          ],
+          [
+            1919.0,
+            0.0
+          ],
+          [
+            1919.0,
+            1079.0
+          ],
+          [
+            0.0,
+            1079.0
+          ],
+          [
+            0.0,
+            105.51157070011334
+          ]
+        ],
+        "frame_index": 18,
+        "model_identity": "434f8fe34268b3afc586499b042ea09fca3e68873a12724174cf4189f7c4fa20",
+        "temporal_quality": {
+          "status": "no_previous_calibration",
+          "camera_reset": false
+        }
+      },
+      "detections": [
+        {
+          "detection_id": "18:0",
+          "model_id": "coco_baseline",
+          "source_class_id": 0,
+          "semantic_class": "person",
+          "bbox_xyxy": [
+            1054.2159423828125,
+            469.34710693359375,
+            1125.24072265625,
+            615.3695068359375
+          ],
+          "confidence": 0.8008546233177185,
+          "track_id": null,
+          "field_position": [
+            0.5788296664367487,
+            0.8409605317038439
+          ],
+          "projection_status": "valid"
+        },
+        {
+          "detection_id": "18:1",
+          "model_id": "coco_baseline",
+          "source_class_id": 0,
+          "semantic_class": "person",
+          "bbox_xyxy": [
+            1508.708984375,
+            389.4195556640625,
+            1559.930419921875,
+            517.1478881835938
+          ],
+          "confidence": 0.7730268239974976,
+          "track_id": null,
+          "field_position": [
+            0.6226804913414777,
+            0.8012779511827146
+          ],
+          "projection_status": "valid"
+        }
+      ]
+    }
+  }
+}

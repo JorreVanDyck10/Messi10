@@ -4,12 +4,13 @@ import os
 import tempfile
 from pathlib import Path
 
-from .contracts import PipelineError, read_json, sha256_file, write_json
+from .contracts import PipelineError, digest_json, read_json, sha256_file, write_json
 from .detection import load_model_manifest
 
 
 def available_model_profiles(default: Path, directory: Path) -> dict[Path, str]:
     profiles = {}
+    seen = set()
     for path in dict.fromkeys(
         [default.resolve(), *(p.resolve() for p in sorted(directory.glob("models*.json")))]
     ):
@@ -17,6 +18,16 @@ def available_model_profiles(default: Path, directory: Path) -> dict[Path, str]:
             manifest = read_json(path)
             if manifest.get("schema_version") != 1 or not manifest.get("models"):
                 continue
+            normalized = []
+            for model in manifest["models"]:
+                spec = dict(model)
+                if "weights" in spec:
+                    spec["weights"] = str((path.parent / spec["weights"]).resolve())
+                normalized.append(spec)
+            identity = digest_json(normalized)
+            if identity in seen:
+                continue
+            seen.add(identity)
             profiles[path] = str(manifest.get("profile_name", path.stem))
         except PipelineError:
             if path == default.resolve():

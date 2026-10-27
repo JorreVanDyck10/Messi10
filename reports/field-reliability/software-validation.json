@@ -1,0 +1,78 @@
+{
+  "pytest_command": ".venv/Scripts/python.exe -m pytest -q --junitxml=artifacts/field-reliability-20261026/software-tests.xml",
+  "pytest_console_result": "244 passed, 4 subtests passed in 97.56s",
+  "junit_suites": [
+    {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "248",
+      "time": "97.546",
+      "timestamp": "2026-10-26T09:24:51.182256+01:00",
+      "hostname": "LaptopSchool"
+    }
+  ],
+  "junit_sha256": "2b70330fdee0f30220f1b60bfff9a01b972ff4539a6317b85a26db27dc4d4e46",
+  "ruff_changed_python_files": "passed, 8 files",
+  "ruff_format_changed_python_files": "passed, 8 files",
+  "git_diff_check": "passed",
+  "media_validation": {
+    "broadcast": {
+      "comparison_video_frames": 1239,
+      "fps_num": 25,
+      "fps_den": 1,
+      "original_review_images": 30,
+      "width": 1280,
+      "height": 720,
+      "video_sha256": "9423c05dad911f57450ba9d5a148cc112be33869828c9e201ae89514f5d94bf2"
+    },
+    "fixed": {
+      "comparison_video_frames": 150,
+      "fps_num": 25,
+      "fps_den": 1,
+      "original_review_images": 30,
+      "width": 1280,
+      "height": 720,
+      "video_sha256": "ce3e02f05d7d615f5585625ea8d8af60feddb4e54f282c3fe333b0452f76300c"
+    }
+  },
+  "provenance": {
+    "legacy_camera_ast_unchanged_since_snapshot": true,
+    "snapshot": "C:\\Messi10\\artifacts\\field-reliability-baseline-20261026",
+    "active_field_weights_sha256": {
+      "keypoints": "7ea78fa76aaf94976a8eca428d6e3c59697a93430cba1a4603e20284b61f5113",
+      "lines": "d72f4ed71734a2e3df9fa084f666e9b8adaef21bf69bac8952d6d3f970ff7455"
+    },
+    "runtime_unchanged": true,
+    "comparison_script_sha256": "2c71ff6c4a09209020906ae4f212c91b1dffb3ad47b6c9dc1036c6d9ba8d9eb6",
+    "preexisting_other_tracked_changes_preserved": {
+      ".gitattributes": true,
+      ".gitignore": true,
+      "configs/models-players.json": true,
+      "configs/models.json": true,
+      "scripts/Start-Spelermodel.ps1": true,
+      "scripts/smoke_model.py": true,
+      "src/football_pipeline/contracts.py": true,
+      "src/football_pipeline/field_learning.py": true,
+      "src/football_pipeline/model_handoff.py": true,
+      "src/football_pipeline/pipeline.py": true,
+      "src/football_pipeline/tracking.py": true,
+      "streamlit_app.py": true,
+      "tests/test_app.py": true,
+      "tests/test_app_player_runtime.py": true,
+      "tests/test_automatic_calibration.py": true,
+      "tests/test_field_motion.py": true,
+      "tests/test_field_training.py": true,
+      "tests/test_model_handoff.py": true
+    }
+  },
+  "candidate_config_matches_frozen_profile": true,
+  "human_review_completed": false,
+  "production_activation": false,
+  "remaining_required_work": [
+    "Human field landmark and calibratability review on both selected sets",
+    "Human check of scenario representation",
+    "Demonstrate comparative improvement before activating the candidate"
+  ]
+}

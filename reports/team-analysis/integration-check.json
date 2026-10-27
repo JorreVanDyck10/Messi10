@@ -1,0 +1,116 @@
+{
+  "status": "passed",
+  "kind": "real_video_engineering_check_not_accuracy_evaluation",
+  "run_directory": "C:\\Messi10\\runs\\6db4a4f9aadae6a8746ea41b762bdcac1d1ea932b899b124ad1abe5384d0001c",
+  "video_sha256": "60f5837995ff1e4e5a9a67385cf1b4ec0c9e0f795b2a4e0f6a32a0ca1b31f7a7",
+  "frames": 40,
+  "output_image_size": [
+    1920,
+    720
+  ],
+  "fps": 25.0,
+  "model_evidence": "ultralytics",
+  "team_model_status": "available",
+  "frames_with_count": 6,
+  "first_count_frame": 18,
+  "player_observations_by_team": {
+    "unknown": 413,
+    "A": 262,
+    "B": 96
+  },
+  "distinct_temporary_ids": 142,
+  "measurements": {
+    "processed_frames": 40,
+    "runtime_s": 7.669005999981891,
+    "processing_fps": 5.215799805097877,
+    "inference_or_replay_s": 2.0394411995075643,
+    "tracking_s": 2.007126500015147,
+    "teams": {
+      "runtime_s": 2.1691586999804713,
+      "observations": {
+        "assigned": 358,
+        "unknown": 413
+      },
+      "peak_process_ram_bytes_sampled": 1579909120,
+      "model_status": "available"
+    },
+    "peak_process_ram_bytes_sampled": 1579909120,
+    "peak_gpu_allocated_bytes": 138713600,
+    "projection_counts": {
+      "calibration_unavailable": 685,
+      "valid": 121
+    },
+    "calibration_preparation_s": 1.0999501682817936e-06,
+    "calibration_status_counts": {
+      "insufficient_points": 7,
+      "insufficient_controls": 2,
+      "inconsistent_controls": 17,
+      "invalid_observation": 1,
+      "inconsistent_points": 1,
+      "orientation_unknown": 1,
+      "valid": 6,
+      "motion_semantic_disagreement": 4,
+      "degenerate_geometry": 1
+    },
+    "calibration_usable_fraction": 0.15
+  },
+  "code": {
+    "git_commit": "48445672fe8c4b00dbc10b7e3240f37c45bea6a5",
+    "source_sha256": "a9ae38a13e7ef6b7af34da73e047662154a8fefcfa22d029419a574d036a5634",
+    "files": {
+      "src\\football_pipeline\\__init__.py": "b130f200a792b9d0af46123ab875d28ededf9f741aec8dfef41abbc55653862e",
+      "src\\football_pipeline\\__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "src\\football_pipeline\\app_results.py": "65f88aed5c7fbdb8e860f7756ac0ec0b061c8549809ad6987f726740cc8a1303",
+      "src\\football_pipeline\\automatic_analysis_ui.py": "8a12a1c968633793e2a22e165218e61fdc9ef5513a17ed1961afbe7f8a17b55e",
+      "src\\football_pipeline\\automatic_calibration.py": "7daf65514c8b4138ae4e4617aabda424ece825091f6b4daa5e7526732c76ed95",
+      "src\\football_pipeline\\calibration_evaluation.py": "c31e48bc86740fc79d3232e216732f7eadeeb3e008ce707518613d797331bced",
+      "src\\football_pipeline\\calibration_input.py": "93ffbceec0e7ff83f9138bf1a1c3d221d99f0a8e6c5efd911561fd19a919d83f",
+      "src\\football_pipeline\\cli.py": "1f6a72dfec21f1edc443f9fca7abbb2513b44163cb0c400db3afc620ec72e92c",
+      "src\\football_pipeline\\contracts.py": "8f117a1e4c03b3e87f9f3721b117945e1d00b202478c1557a3fb81346e8f3a2c",
+      "src\\football_pipeline\\course_dataset.py": "2f77c3e968f56f8c94a3752c51450f4f46d7413e338914ed02fd45c06b6c33e5",
+      "src\\football_pipeline\\course_experiments.py": "12ab5f7f7e89a2e72bad3147799cbf80984ea0f012b5d67fb26d5798cad18f8a",
+      "src\\football_pipeline\\course_field_evaluation.py": "a321d9a76e80b2e4e1e552bf5872b662e2d767fbc9d579c4ef3971206841dfdc",
+      "src\\football_pipeline\\demo.py": "f26e522703651485498d55ab2418fa34e9e3ba9443dc4407389b78ab5e6f2e92",
+      "src\\football_pipeline\\detection.py": "94f3c541f884e981ceef22c65bad4193ae933b2d71cf89ba62143f86414ed4e6",
+      "src\\football_pipeline\\evaluation.py": "bda4c6d973ea0cbf26504eb631d927571dcbb7aa4363df785fffc81800ced8a3",
+      "src\\football_pipeline\\field_bounds.py": "5d29a6680d3fad2ac1c759f29a128aff4b192d8035086c6c01db7cfb17942111",
+      "src\\football_pipeline\\field_comparison.py": "5c97909526eaccb0e9dcab348043787f0c2e0f66a0dc363de2529788d0d4eb38",
+      "src\\football_pipeline\\field_data.py": "67f59f40703498630532aff2ee19bc36adb39ae507f6d01448e219884fb7ce79",
+      "src\\football_pipeline\\field_layout.py": "99f33d3b4a137bd17feaaad421630e03ef4c68151e91623f821c8afe8c3cbf1f",
+      "src\\football_pipeline\\field_learning.py": "242974e1addc7b99dd2c7a3f5601ad98e485493c8ae5f5d60a5c1b22071d9b35",
+      "src\\football_pipeline\\field_lens.py": "c5983fca1adc35036e4b358d577975bf23c57492898cfdf41514a450e61805ac",
+      "src\\football_pipeline\\field_line_experiment.py": "cf593807d9bf4d2a8091f11ccbdc2d6458c93643da4d57352774e89b76923574",
+      "src\\football_pipeline\\field_line_geometry.py": "2b1ab7703cb0eef9134ab5fa6b0a94789b7e882c1438414afd7f0742129e0690",
+      "src\\football_pipeline\\field_model_spec.py": "baaa7548f0d5f4ae2dab18adf1b36b4f6dbb16032ba020124f10d0595b32a7bb",
+      "src\\football_pipeline\\field_motion.py": "6f543f33f8fc0b036a6646a4e196aa9fcf01163ce7935050d7a30c6bb3fb3657",
+      "src\\football_pipeline\\field_pose.py": "c1c7fdf35907c97e80d91d3e965fbac37e12a6f7fd18c98493f55cb9d9395d88",
+      "src\\football_pipeline\\field_pose_dataset.py": "f6346c72607dd190147967cc988c5e827f0f3ec94d0d55924ce7d995c1d62998",
+      "src\\football_pipeline\\field_pose_training.py": "7a62344df316cbe693d93e935f63d9d9f1fbb40df32fa397821bf84c922ad483",
+      "src\\football_pipeline\\field_review.py": "17a26fd1efb01b8bc93ec8b6dbe6aab3b41bcf585b0441bf92ea37acc67d0363",
+      "src\\football_pipeline\\field_review_ui.py": "edcf8771919ac1fb5a1162fe9b8e37173e8a63b78ecf86b833455626703ab91f",
+      "src\\football_pipeline\\geometry.py": "be472de24606f58b7ba88e3d3c5e735db9831f7af1c75aeb2f38013d3a61fbe5",
+      "src\\football_pipeline\\model_handoff.py": "54cf510bdd8312939b32a7ddb177834a9084a05ad8479338dd2a403008a1eed9",
+      "src\\football_pipeline\\participants.py": "d1e3faf20f0e1a7cbdbf9ca3e5a816afa2e7c2b2cf472353f79db0075ace95b4",
+      "src\\football_pipeline\\pipeline.py": "275e04bc4e3314fa437957fc74e20776d7255b3a67afdb6c403ed67003b38760",
+      "src\\football_pipeline\\point_picker.py": "4c690ee2e1b7f88a63ce125a673a07ff22ff3b244f21adaf0dc6e75d42344ca8",
+      "src\\football_pipeline\\render.py": "dd743eab834693e69b979e3bc95fa7975b29ef58d6ccad06f5953181f5343d3d",
+      "src\\football_pipeline\\replay.py": "4ad66e8ce3ddf56ea2fb9f7333b061a8b908cf8ba9b37e2ee56a852f5494f69e",
+      "src\\football_pipeline\\research_archive.py": "fb089506833ac422ea089d55c35d60df146c36f6686b6af2c643ba988944c709",
+      "src\\football_pipeline\\team_results.py": "8e5ecb370e0face59bfd844617c91675dbf2d8040304308bdca427258fef34c5",
+      "src\\football_pipeline\\team_ui.py": "5e170e01c2ab0b3734006105d96f1bdc12c0efef8bd573866ade2e74c1e27cd3",
+      "src\\football_pipeline\\teams.py": "2d372d498fff4ee9fa873c4a1c51d3ceedf7a151ce59a6d58406a41ee9c01326",
+      "src\\football_pipeline\\tracking.py": "22c690968385acef03378678fcd5dfed5e1e2bf5bf8f06a8b25f61aed92b862d",
+      "src\\football_pipeline\\tracking_motion.py": "3627aef7294e8961e560d04d70cb204d2f65bc4a6caeb4eef22dfd9bde1e311b",
+      "src\\football_pipeline\\video.py": "62a459da4b90fb26654903ec44b34a20d6f0df4adc38d33c585cfc0326f5765d",
+      "streamlit_app.py": "df7118990561d93406d0eb761f47abd5a87e1858f4d288dd3570b871a131289b",
+      "pyproject.toml": "84b294023e07584324ee385b581fab9c226e3cefb50a6c4e5f3fb5852a784942"
+    }
+  },
+  "team_accuracy_measured": false,
+  "tracking_accuracy_measured": false,
+  "limitations": [
+    "Existing development clip and existing field observations; no independent test.",
+    "Counts are observations, not a verified roster or unique-person count.",
+    "Colour grouping, detector errors and identity fragmentation require human review."
+  ]
+}

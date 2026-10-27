@@ -85,3 +85,19 @@ def test_profile_discovery_adds_registered_model_without_restarting(handoff):
     assert list(profiles)[0] == default.resolve()
     assert output.resolve() in profiles
     assert read_json(output)["profile_name"] == profiles[output.resolve()]
+
+
+def test_equivalent_model_profiles_are_shown_once_despite_relative_paths(tmp_path):
+    weights = tmp_path / "weights.pt"
+    weights.write_bytes(b"identity")
+    default = tmp_path / "models.json"
+    alias = tmp_path / "models-alias.json"
+    manifest = {
+        "schema_version": 1,
+        "profile_name": "Personen op GPU — herkenning",
+        "models": [{"model_id": "persons", "weights": "weights.pt", "device": "0"}],
+    }
+    write_json(default, manifest)
+    manifest["models"][0]["weights"] = str(weights)
+    write_json(alias, manifest)
+    assert available_model_profiles(default, tmp_path) == {default.resolve(): "Personen op GPU — herkenning"}
