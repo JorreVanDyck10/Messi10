@@ -217,11 +217,18 @@ def test_head_only_training_keeps_pretrained_normalization_statistics_frozen():
             return self.head(self.features(image))
 
     model = TinyNetwork()
+    # Guarantee a live ReLU path: random frozen features can all be negative,
+    # in which case only the output bias receives a gradient.
+    with torch.no_grad():
+        for layer in (model.features[0], model.head[0][0], model.head[0][3]):
+            layer.weight.fill_(0.1)
+            layer.bias.fill_(0.1)
     for parameter in model.parameters():
         parameter.requires_grad_(False)
     for parameter in model.head[0][3].parameters():
         parameter.requires_grad_(True)
     before = model.features[1].running_mean.clone()
+    before_head = model.head[0][1].running_mean.clone()
     last = model.head[0][3].weight.detach().clone()
     optimizer = torch.optim.Adam(model.head[0][3].parameters(), lr=0.01)
     scaler = torch.amp.GradScaler("cpu", enabled=False)
@@ -236,6 +243,7 @@ def test_head_only_training_keeps_pretrained_normalization_statistics_frozen():
         frozen_features=True,
     )
     assert torch.equal(model.features[1].running_mean, before)
+    assert torch.equal(model.head[0][1].running_mean, before_head)
     assert not torch.equal(model.head[0][3].weight, last)
 
 

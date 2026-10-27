@@ -3,9 +3,27 @@
 import streamlit as st
 
 
+def linked_result(root, identifier):
+    """Resolve only a completed, direct child of the configured results root."""
+    import re
+    from pathlib import Path
+
+    from .contracts import PipelineError, RunResult
+    from .pipeline import validate_completed
+
+    if not re.fullmatch(r"[0-9a-f]{64}", identifier):
+        raise PipelineError("Ongeldige analyselink.")
+    root = Path(root).resolve()
+    directory = (root / identifier).resolve()
+    if directory.parent != root:
+        raise PipelineError("Analyse ligt buiten de uitvoermap.")
+    return RunResult(directory, validate_completed(directory), reused=True)
+
+
 def show_result(result):
     st.subheader("Resultaat")
     st.success("Eerder voltooid resultaat hergebruikt." if result.reused else "Video volledig verwerkt.")
+    st.link_button("Directe link naar deze analyse", f"?run={result.directory.name}")
     st.video(str(result.video_path))
     metrics = result.manifest["measurements"]
     with st.container(horizontal=True):

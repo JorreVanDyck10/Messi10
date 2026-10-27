@@ -141,14 +141,30 @@ def main():
     parser.add_argument("--run", type=Path, required=True)
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--device", default="0")
+    parser.add_argument("--dataset", type=Path, help="Existing audited tile dataset with data.yaml")
+    parser.add_argument("--weights", type=Path)
+    parser.add_argument("--max-minutes", type=float)
     args = parser.parse_args()
+    if args.dataset:
+        from football_pipeline.training_budget import train_yolo
+
+        train_yolo(
+            args.weights or ROOT / "artifacts/fullscene-ball-v1/fullscene_ball_f005.pt",
+            args.dataset,
+            args.run.resolve(),
+            read_json(args.config),
+            args.max_minutes if args.max_minutes is not None else 60,
+        )
+        return
+    if args.max_minutes is not None:
+        parser.error("--max-minutes requires an audited --dataset")
     run = args.run.resolve()
     if run.exists():
         raise ValueError("Choose a new training directory")
     run.mkdir(parents=True)
     source = ROOT / "assets/annotations/football-fullscene60"
     config = read_json(args.config)
-    weights = ROOT / "artifacts/appearance-v1/person_proposals.pt"
+    weights = args.weights or ROOT / "artifacts/appearance-v1/person_proposals.pt"
     initial = yolo(weights)
     write_json(
         run / "preregistration.json",

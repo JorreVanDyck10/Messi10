@@ -20,7 +20,7 @@ from pathlib import Path
 
 import numpy as np
 
-from .contracts import digest_json, read_json, sha256_file, write_json
+from .contracts import atomic_replace, digest_json, read_json, sha256_file, write_json
 from .field_layout import LINES_UV, POINTS_UV
 from .field_model_spec import RELEASE_WEIGHTS, UPSTREAM_REVISION, validate_runtime_models
 
@@ -283,7 +283,7 @@ def atomic_torch_save(value, path):
 
     temporary = path.with_suffix(path.suffix + ".partial")
     torch.save(value, temporary)
-    temporary.replace(path)
+    atomic_replace(temporary, path)
 
 
 def publish_epoch_checkpoint(report_path, report, role, record, state, checkpoint):
@@ -301,7 +301,19 @@ def publish_epoch_checkpoint(report_path, report, role, record, state, checkpoin
     return committed
 
 
-def run_epoch(model, loader, device, optimizer=None, scaler=None, max_steps=None, *, frozen_features=False):
+def run_epoch(
+    model,
+    loader,
+    device,
+    optimizer=None,
+    scaler=None,
+    max_steps=None,
+    *,
+    frozen_features=False,
+    deadline=None,
+    progress=None,
+    progress_callback=None,
+):
     import torch
 
     training = optimizer is not None
@@ -311,6 +323,8 @@ def run_epoch(model, loader, device, optimizer=None, scaler=None, max_steps=None
     total, samples, tick = 0.0, 0, time.monotonic()
     with torch.set_grad_enabled(training):
         for step, (image, target, mask) in enumerate(loader):
+            if deadline is not None and time.monotonic() >= deadline:
+                break
             if max_steps and step >= max_steps:
                 break
             image, target, mask = image.to(device), target.to(device), mask.to(device)
@@ -331,7 +345,11 @@ def run_epoch(model, loader, device, optimizer=None, scaler=None, max_steps=None
                 scaler.update()
             total += float(loss.detach()) * image.shape[0]
             samples += image.shape[0]
+            if progress is not None:
+                progress["samples"] = samples
             if step == 0 or (step + 1) % 50 == 0:
+                if progress_callback is not None:
+                    progress_callback(samples)
                 print(
                     json.dumps(
                         {
@@ -345,6 +363,8 @@ def run_epoch(model, loader, device, optimizer=None, scaler=None, max_steps=None
                     flush=True,
                 )
     if not samples:
+        if deadline is not None:
+            raise TimeoutError("Field training budget expired before an optimizer step")
         raise ValueError("Empty dataset")
     return total / samples
 

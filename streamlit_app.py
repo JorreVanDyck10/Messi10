@@ -27,6 +27,7 @@ from football_pipeline.model_handoff import available_model_profiles
 from football_pipeline.pipeline import process_video, validate_completed
 from football_pipeline.point_picker import apply_point_click, point_picker
 from football_pipeline.render import LABELS, calibration_preview
+from football_pipeline.training_status_ui import show_training_status
 from football_pipeline.video import ROOT, inspect_video, read_frame
 
 st.set_page_config(page_title="Voetbal · tactical map", page_icon=":material/sports_soccer:", layout="wide")
@@ -35,6 +36,20 @@ st.caption("Upload je voetbalvideo: veldherkenning, speler-ID’s en minimap wor
 
 MODEL_PATH = Path(os.environ.get("FOOTBALL_MODELS", ROOT / "configs/models.json"))
 OUTPUT_ROOT = Path(os.environ.get("FOOTBALL_RUNS", ROOT / "runs"))
+
+show_training_status(ROOT / "artifacts/joint-retrain-20261027-v2")
+
+if linked_run := st.query_params.get("run"):
+    from football_pipeline.app_results import linked_result
+
+    try:
+        if st.session_state.get("linked_run") != linked_run:
+            st.session_state.result = linked_result(OUTPUT_ROOT, linked_run)
+            st.session_state.linked_run = linked_run
+        show_result(st.session_state.result)
+    except (PipelineError, OSError) as exc:
+        st.error(str(exc))
+    st.stop()
 
 if st.checkbox("Een opgeslagen teamanalyse openen", key="open_team_result"):
     team_runs = []

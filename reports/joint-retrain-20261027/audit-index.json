@@ -1,0 +1,15 @@
+{
+  "dataset_version": "joint-local-v2.1-role-pixels",
+  "dataset_root": "C:\\Messi10\\data\\joint-local-20261027-v2",
+  "files": {
+    "inventory.json": "15c1100f81aa8e218e591e475ec95adf1634fedfb60bfa9610f0eb9c4f16ca38",
+    "inventory-final.json": "040d254d2883a9f408b4bc751fdcc8c076ee312b44585e91a1606c9e2cbe926c",
+    "roles-pixel-v1/manifest.json": "9beb2d25b3090f55bfcd6bc4836479cac8348d2057f51b810775afdddaf70c33",
+    "players/manifest.json": "a0dc0351e1228461e343dfee56ec17429c0d268efc95b0907b5255a367acc4ac",
+    "roles/manifest.json": "112b0d1fffd5ecccb7d2e36d6087482c4999612218f54a91db36e5e0e7e7e014",
+    "ball/manifest.json": "75df5fb07c4a9167f3f2537a38fcd7c6e5bbf4a124253bde5d1498ad02198c7c",
+    "field/index.json": "d71345e9fb2bf534c9cc28a46b1957c597b0904b32a8c943843d7d7a69a9e436"
+  },
+  "human_review_completed": false,
+  "test_images_accessed": false
+}

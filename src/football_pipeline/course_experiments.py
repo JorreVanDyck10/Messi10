@@ -81,7 +81,7 @@ def evaluate_model(weights, dataset, output, *, imgsz=1280):
         recorded_at=timestamp(),
         split="val",
         frames=len(rows),
-        match_count=len({r["game_id"] for r in rows}),
+        match_count=len({r.get("game_id", r.get("group")) for r in rows}),
         test_accessed=False,
         annotation_source="SN-GSR-2024 v1.3 provider labels; project human review still open",
         runtime_s=time.monotonic() - start,
@@ -95,10 +95,9 @@ def evaluate_model(weights, dataset, output, *, imgsz=1280):
     return measured
 
 
-def train_candidate(dataset, output, *, augment, epochs):
+def train_candidate(dataset, output, *, augment, epochs, weights=None, max_minutes=None):
     from ultralytics import YOLO
 
-    output.mkdir(parents=True, exist_ok=True)
     config = {
         "imgsz": 1280,
         "epochs": epochs,
@@ -137,6 +136,11 @@ def train_candidate(dataset, output, *, augment, epochs):
         "val": True,
         "save": True,
     }
+    if max_minutes is not None:
+        from .training_budget import train_yolo
+
+        return train_yolo(weights or ROOT / "models/yolo11n.pt", dataset, output, config, max_minutes)
+    output.mkdir(parents=True, exist_ok=True)
     dataset_manifest = read_json(dataset / "manifest.json")
     identity = digest_json(
         {

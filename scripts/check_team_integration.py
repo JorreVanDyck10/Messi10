@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
 from collections import Counter
 from pathlib import Path
 
@@ -18,9 +19,15 @@ def check_result(result) -> dict:
     manifest = validate_completed(result.directory)
     encoded = inspect_video(result.video_path)
     video = manifest["video"]
-    if encoded.frame_count != video["frame_count"] or encoded.size != (1920, 720):
+    fps = video["fps_num"] / video["fps_den"]
+    if (
+        encoded.frame_count != video["frame_count"]
+        or encoded.size != (1920, 720)
+        or not math.isclose(encoded.fps, fps, rel_tol=1e-6)
+    ):
         raise PipelineError("Afwijkende teamvideo.")
     available, assignment, ids = [], Counter(), set()
+    closed_ids, reset_frames, unknown_field_frames = set(), [], 0
     with (
         (result.directory / "framegegevens.jsonl").open(encoding="utf-8") as stream,
         (result.directory / "teamtelling.csv").open(encoding="utf-8-sig", newline="") as csv_stream,
@@ -32,6 +39,19 @@ def check_result(result) -> dict:
             exported = next(table, None)
             if exported is None or int(exported["frame_index"]) != index or row["frame_index"] != index:
                 raise PipelineError("Framevolgorde van exports verschilt.")
+            if not all(
+                math.isclose(float(value), index / fps, abs_tol=1e-6)
+                for value in (row["timestamp_s"], exported["timestamp_s"])
+            ):
+                raise PipelineError("Tijdstempels van video en exports verschillen.")
+            if row.get("tracking", {}).get("reset_tracks"):
+                closed_ids.update(ids)
+                reset_frames.append(index)
+            field_unknown = row.get("calibration", {}).get("status") not in {None, "valid"}
+            if field_unknown:
+                unknown_field_frames += 1
+                if any(d["field_position"] is not None for d in row["detections"]):
+                    raise PipelineError("Veldverlies bevat toch bekende veldposities.")
             summary = row["player_summary"]
             values = summary["by_team"]
             if summary["on_field"] is None:
@@ -55,6 +75,8 @@ def check_result(result) -> dict:
                 if d["semantic_class"] == "player":
                     assignment[d["team_id"] or "unknown"] += 1
                     if d["track_id"] is not None:
+                        if d["track_id"] in closed_ids:
+                            raise PipelineError("Speler-ID is hergebruikt na een camerawissel.")
                         ids.add(d["track_id"])
             frames += 1
         if frames != video["frame_count"] or next(table, None) is not None:
@@ -73,6 +95,9 @@ def check_result(result) -> dict:
         "first_count_frame": available[0] if available else None,
         "player_observations_by_team": dict(assignment),
         "distinct_temporary_ids": len(ids),
+        "camera_reset_frames": reset_frames,
+        "unknown_field_frames": unknown_field_frames,
+        "timestamp_and_fps_checks": "passed",
         "measurements": manifest["measurements"],
         "code": manifest["code"],
         "team_accuracy_measured": False,

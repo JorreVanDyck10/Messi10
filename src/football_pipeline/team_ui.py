@@ -216,6 +216,9 @@ def show_teams(result):
                 with st.spinner("Teamlabels, telling en video bijwerken…"):
                     corrected = apply_team_corrections(directory, request, directory.parent)
                 st.session_state.result = corrected
+                if st.query_params.get("run") == directory.name:
+                    st.query_params["run"] = corrected.directory.name
+                    st.session_state.linked_run = corrected.directory.name
                 st.rerun()
             except (OSError, PipelineError) as exc:
                 st.error(str(exc))

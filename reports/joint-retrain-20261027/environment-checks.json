@@ -1,0 +1,15 @@
+{
+  "app": {
+    "exit_code": 0,
+    "output": "No broken requirements found.\n"
+  },
+  "field_training": {
+    "exit_code": 1,
+    "output": "football-minimap 0.1.0 requires lap, which is not installed.\nfootball-minimap 0.1.0 requires pandas, which is not installed.\nfootball-minimap 0.1.0 requires streamlit, which is not installed.\nfootball-minimap 0.1.0 requires ultralytics, which is not installed.\nfootball-minimap 0.1.0 has requirement torch<3,>=2.4, but you have torch 2.3.1+cu121.\nfootball-minimap 0.1.0 has requirement torchvision<1,>=0.19, but you have torchvision 0.18.1+cu121.\n",
+    "scope_note": "Dedicated upstream-compatible training environment. The editable app package declares general app requirements that are intentionally absent; no general app runs in this environment. Actual field imports, pinned sources/weights and CUDA preflight passed; runtime training is monitored separately."
+  },
+  "field_runtime": {
+    "exit_code": 0,
+    "output": "No broken requirements found.\n"
+  }
+}

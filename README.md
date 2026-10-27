@@ -34,6 +34,14 @@ en een herhaalbare integratiecheck op een volledige clip.
 
 # Sports Vision — data, modellen en tactical map
 
+## Gezamenlijke trainingsronde van 27 oktober
+
+`scripts/Run-GezamenlijkeTraining.ps1` inventariseert de lokale gegevens per taak en voert de begrensde trainingen achter elkaar uit. Voltooide modelvergelijkingen worden bij hervatten hergebruikt. De ronde gebruikt maximaal vier uur GPU-training; gereserveerde testbeelden blijven buiten training en selectie.
+
+Na de modelselectie start `scripts/Start-Gezamenlijk.ps1` het gezamenlijke profiel voor spelers, rollen, bal, teams, tracking en automatische veldherkenning. Een opgeslagen resultaat kun je rechtstreeks openen met `http://127.0.0.1:8501/?run=RUN_ID`, waarbij `RUN_ID` de volledige naam van een voltooide uitvoermap onder `runs` is.
+
+De gegevensinventaris staat in `data/joint-local-20261027-v2/inventory.json`; configuraties, checkpoints, logs en vergelijkingen staan in `artifacts/joint-retrain-20261027-v2`. Het [vergelijkingsrapport](docs/Gezamenlijke_Training_20261027.md) wordt na de echte broadcast- en panoramademonstraties geschreven. Alleen kandidaten die aan hun vooraf vastgelegde validatiecriteria voldoen worden gekozen. Voorlopige AI-labels, menselijke review en onafhankelijke nauwkeurigheidsmetingen worden afzonderlijk gerapporteerd.
+
 **Onderdeel 3, teams en toepassing (26 oktober 2026):** de automatische uploadanalyse
 stelt nu twee teams op shirtkleur voor. De video en tactical map tonen dezelfde
 teamkleuren en actuele telling per team, inclusief onbekend. Na analyse kun je

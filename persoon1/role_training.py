@@ -165,7 +165,7 @@ def load_training_manifest(path):
             or data.get("review_policy") != "provisional_ai_visual"
             or data.get("role_names") != ROLE_NAMES or data.get("team_names") != TEAM_NAMES):
         raise ValueError("Extension manifest must disclose provisional AI labels and actual class names")
-    groups, images, image_hash_splits, identifiers, dimensions = {}, {}, {}, set(), {}
+    groups, images, image_hash_splits, identifiers, dimensions, checksums = {}, {}, {}, set(), {}, {}
     for row in data["samples"]:
         if row["split"] not in {"train", "val"}:
             raise ValueError("Role development training must never open reserved test images")
@@ -177,7 +177,11 @@ def load_training_manifest(path):
         if groups.setdefault(row["group"], row["split"]) != row["split"]:
             raise ValueError("Source group crosses training/validation")
         image = (path.parent / row["image"]).resolve()
-        if not image.is_relative_to(ROOT) or sha256_file(image) != row["image_sha256"]:
+        if not image.is_relative_to(ROOT):
+            raise ValueError("Source image points outside the project")
+        if str(image) not in checksums:
+            checksums[str(image)] = sha256_file(image)
+        if checksums[str(image)] != row["image_sha256"]:
             raise ValueError("Source image identity changed or points outside the project")
         if images.setdefault(str(image), row["split"]) != row["split"]:
             raise ValueError("Source image crosses training/validation")
@@ -217,7 +221,10 @@ def augment_role_tensor(tensor, augmentation):
 
 
 def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, fine_tune_blocks=3,
-          role_colour_scale=8.0):
+          role_colour_scale=8.0, max_minutes=None):
+    from football_pipeline.training_budget import TrainingBudget
+
+    budget = TrainingBudget(max_minutes)
     if not np.isfinite(role_colour_scale) or role_colour_scale <= 0:
         raise ValueError("Role colour scale must be positive and finite")
     torch.manual_seed(42)
@@ -240,6 +247,7 @@ def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, 
         "head_refit_epochs": 400, "head_refit_lr": .005, "role_threshold": .65,
         "selection": "Validation macro F1 at role confidence .65", "human_review_completed": False,
         "training_source_sha256": sha256_file(__file__),
+        "max_minutes": max_minutes,
         "photo_augmentation_applied_in_both_feature_stages": True,
         "photo_augmentation": {"0":"original", "1":"horizontal mirror", "2":"32x24 then restore", "3":"mirror and 32x24 then restore", "4":"64x48 then restore", "5":"mirror and 64x48 then restore"},
         "colour_histogram_source": "Original torso histogram, retained across crop-only visual transforms",
@@ -327,11 +335,15 @@ def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, 
             raw_pixels.append(tensor)
             raw_colours.append(jersey_feature(im, r["bbox"]))
         pixels = torch.stack(raw_pixels)
+        del raw_pixels
+        images.clear()
         colours = torch.from_numpy(np.stack(raw_colours)).to(device)
         class_indices = [torch.where(train_mask & (role_y == i))[0] for i in range(len(ROLE_NAMES))]
         best = -1
         fine_curve = []
         for epoch in range(1, 21):
+            if budget.expired and epoch > 1:
+                break
             encoder.eval()
             head.train()
             for step in range(10):
@@ -372,6 +384,14 @@ def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, 
                 fine_role_score = report["macro_f1"]
                 fine_role_epoch = epoch
             print("fine", epoch, report["macro_f1"], flush=True)
+            if encoder_checkpoint:
+                partial = torch.load(encoder_checkpoint, map_location="cpu", weights_only=True)
+                partial.update(backbone={k:v.cpu() for k,v in best_encoder.items()},
+                               role_head={k:v.cpu() for k,v in fine_role_head.items()},
+                               role_colour_scale=float(role_colour_scale))
+                torch.save(partial, output / "roles_partial.pt")
+            save(output / "progress.json", {"phase":"fine_tune", "epoch":epoch,
+                 "elapsed_s":budget.clock()-budget.started, "time_limited":budget.expired})
         encoder.load_state_dict(best_encoder)
         with torch.inference_mode():
             raw = torch.cat(
@@ -403,6 +423,8 @@ def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, 
         best = None
         curve = []
         for epoch in range(1, 401):
+            if budget.expired and epoch > 5:
+                break
             head.train()
             opt.zero_grad()
             loss = criterion(head(task_x[tr]), y[tr])
@@ -472,6 +494,8 @@ def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, 
             "device": device,
             "gpu": torch.cuda.get_device_name() if device != "cpu" else None,
             "runtime_s": time.perf_counter() - started,
+            "status": "time_limited" if budget.expired else "complete",
+            "max_minutes": max_minutes,
             "weights_sha256": sha256_file(path),
             "roles": reports["role"],
             "teams": reports["team"],
@@ -491,6 +515,7 @@ if __name__ == "__main__":
     parser.add_argument("--manifest", help="Separate reviewed AI development manifest; preserves the base dataset")
     parser.add_argument("--fine-tune-blocks", type=int, choices=(0, 1, 3), default=3)
     parser.add_argument("--role-colour-scale", type=float, default=8.0)
+    parser.add_argument("--max-minutes", type=float)
     args = parser.parse_args()
     train(args.output, args.fine_tune, args.encoder_checkpoint, args.manifest, args.fine_tune_blocks,
-          args.role_colour_scale)
+          args.role_colour_scale, args.max_minutes)

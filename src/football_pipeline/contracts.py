@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import time
+import uuid
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
@@ -35,9 +37,23 @@ def read_json(path: str | Path) -> dict:
 
 def write_json(path: str | Path, value: Any) -> None:
     path = Path(path)
-    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary = path.with_name(path.name + "." + uuid.uuid4().hex + ".tmp")
     temporary.write_text(json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False), encoding="utf-8")
-    temporary.replace(path)
+    atomic_replace(temporary, path)
+
+
+def atomic_replace(temporary: Path, path: Path) -> None:
+    """Publish a completed file while tolerating short Windows reader locks."""
+    for attempt in range(12):
+        try:
+            temporary.replace(path)
+            return
+        except PermissionError:
+            if attempt == 11:
+                raise
+            # Windows readers/antivirus can briefly deny replacement even after
+            # the writer has closed. Keep the old complete JSON until success.
+            time.sleep(0.05 * (attempt + 1))
 
 
 @dataclass
