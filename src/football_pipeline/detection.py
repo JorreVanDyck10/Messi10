@@ -17,6 +17,11 @@ def load_model_manifest(path: str | Path) -> dict:
     if "person_geometry" in manifest and (type(manifest["person_geometry"]) is not bool
             or manifest.get("analysis_scope") != "on_pitch_players"):
         raise PipelineError("Persoonsgeometrie vereist een expliciet veldgericht profiel.")
+    if "person_box_fusion_weight" in manifest:
+        weight = manifest["person_box_fusion_weight"]
+        if (type(weight) not in {float, int} or not math.isfinite(weight) or not 0 <= weight <= 1
+                or not manifest.get("person_geometry")):
+            raise PipelineError("Boxcombinatie vereist persoonsgeometrie en een gewicht tussen nul en één.")
     if manifest.get("schema_version") != 1 or not models:
         raise PipelineError("Modelmanifest vereist schema_version 1 en minstens één model.")
     owners, identifiers = {}, set()
@@ -112,6 +117,21 @@ def load_model_manifest(path: str | Path) -> dict:
             raise PipelineError("Teamgewichten ontbreken of hun hash wijkt af.")
         if manifest.get("analysis_scope") != "on_pitch_players":
             raise PipelineError("Het teammodel vereist spelersanalyse binnen het veld.")
+        spec["weights"] = str(weights)
+    if manifest.get("role_context"):
+        spec = manifest["role_context"]
+        weights = (path.parent / spec["weights"]).resolve()
+        if (manifest.get("analysis_scope") != "on_pitch_players" or not manifest.get("kit_embedding")
+                or manifest.get("appearance", {}).get("role_names") != ["player", "referee", "person"]):
+            raise PipelineError("Veldrolcontext vereist de veldgerichte rol- en shirtmodellen.")
+        if not weights.is_file() or sha256_file(weights) != spec.get("weights_sha256") or not spec.get("model_id"):
+            raise PipelineError("Gewichten of model-ID voor veldrolcontext ontbreken of wijken af.")
+        for key in ("player_threshold", "nonplayer_threshold"):
+            if type(spec.get(key)) not in {float, int} or not .5 < spec[key] < 1:
+                raise PipelineError("Veldrolcontext vereist conservatieve roldrempels.")
+        end = spec.get("protect_end_fraction", .08)
+        if type(end) not in {float, int} or not 0 <= end < .25:
+            raise PipelineError("Ongeldige doelgebiedbescherming voor veldrolcontext.")
         spec["weights"] = str(weights)
     return manifest
 
@@ -212,7 +232,7 @@ def merge_person_proposals(detections, overlap=0.5, *, preserve_same_source=Fals
     return kept + [d for d in detections if d.semantic_class not in GROUND_ROLES]
 
 
-def prefer_person_geometry(people):
+def prefer_person_geometry(people, fusion_weight=0):
     """One-to-one specialist role evidence on a general detector's person box.
 
     Preserve the person model's real source identity and coordinates. A positive
@@ -241,6 +261,16 @@ def prefer_person_geometry(people):
         persons[a].role_evidence = {"model_id": source.model_id, "source_class_id": source.source_class_id,
                                    "semantic_class": source.semantic_class, "confidence": source.confidence,
                                    "bbox_xyxy": list(source.bbox_xyxy), "overlap": float(scores[a, b])}
+        if fusion_weight and scores[a, b] >= .5 and source.confidence >= .25:
+            person = persons[a]
+            original = list(person.bbox_xyxy)
+            person.box_geometry_evidence = {
+                "method": "weighted_person_specialist", "person_model_id": person.model_id,
+                "person_source_bbox": original, "specialist_model_id": source.model_id,
+                "specialist_source_bbox": list(source.bbox_xyxy), "specialist_weight": fusion_weight,
+            }
+            person.bbox_xyxy = ((1 - fusion_weight) * np.asarray(original)
+                               + fusion_weight * np.asarray(source.bbox_xyxy)).tolist()
         used.add(b)
     fallback = [d for i, d in enumerate(specialists) if i not in used and d.semantic_class == "player"
                 and d.confidence >= .75 and scores[:, i].max() < .2]
@@ -303,6 +333,14 @@ class UltralyticsDetector:
             from .kit_embedding import KitEmbedding
 
             self.kit_embedding = KitEmbedding(manifest["kit_embedding"])
+        self.role_context = None
+        if manifest.get("role_context"):
+            from .role_context import RoleContext
+
+            self.role_context = RoleContext(manifest["role_context"], manifest["appearance"]["weights_sha256"],
+                                            manifest["kit_embedding"]["weights_sha256"])
+            self.appearance.context_projection = (self.role_context.cnn_center.to(self.appearance.device),
+                                                   self.role_context.cnn_projection.to(self.appearance.device))
 
     def set_video_identity(self, video_hash):
         if video_hash != self.video_hash and self.appearance:
@@ -380,6 +418,8 @@ class UltralyticsDetector:
                             spec["class_mapping"][str(class_id)],
                             box.tolist(),
                             float(confidence),
+                            player_kind="goalkeeper" if str(spec.get("expected_names", {}).get(str(class_id), "")).lower() == "goalkeeper" else None,
+                            player_kind_source="detector" if str(spec.get("expected_names", {}).get(str(class_id), "")).lower() == "goalkeeper" else None,
                         )
                     )
         if self.appearance and getattr(self, "manifest", {}).get("analysis_scope") != "on_pitch_players":
@@ -388,21 +428,28 @@ class UltralyticsDetector:
             self.appearance.classify(frame, detections, self.video_hash)
         return detections
 
-    def classify_on_pitch(self, frame, detections):
+    def classify_on_pitch(self, frame, detections, *, projector=None):
         """Refine only geometrically eligible people, after current-frame projection."""
         from .participants import field_exclusion_reason
 
         size = (frame.shape[1], frame.shape[0])
         people = [d for d in detections if d.semantic_class in GROUND_ROLES
                   and field_exclusion_reason(d, size) is None]
-        merged = (prefer_person_geometry(people) if getattr(self, "manifest", {}).get("person_geometry")
+        merged = (prefer_person_geometry(people, getattr(self, "manifest", {}).get("person_box_fusion_weight", 0))
+                  if getattr(self, "manifest", {}).get("person_geometry")
                   else merge_person_proposals(people, preserve_same_source=True))
         eligible_ids = {id(d) for d in people}
         # An outside-field proposal cannot suppress an inside-field athlete.
         # Keep excluded raw observations for audit, without role/team inference.
         detections[:] = merged + [d for d in detections if id(d) not in eligible_ids]
-        people = merged
+        if projector is not None:
+            for d in merged:
+                if d.box_geometry_evidence:
+                    projector(d)
+        people = [d for d in merged if field_exclusion_reason(d, size) is None]
         if self.appearance:
             self.appearance.classify(frame, people, self.video_hash)
         if self.kit_embedding:
             self.kit_embedding.update(frame, people)
+        if getattr(self, "role_context", None):
+            self.role_context.update(people, size)

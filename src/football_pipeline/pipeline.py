@@ -449,7 +449,16 @@ def process_video(
                         rejected[detection.projection_status] += 1
                     if models.get("analysis_scope") == "on_pitch_players" and not replay_stream:
                         if hasattr(detector, "classify_on_pitch"):
-                            detector.classify_on_pitch(frame, detections)
+                            if models.get("person_box_fusion_weight"):
+                                def refined_projection(d):
+                                    if automatic:
+                                        project_automatic(d, frame_calibration, video.size)
+                                    else:
+                                        project_detection(d, calibration)
+
+                                detector.classify_on_pitch(frame, detections, projector=refined_projection)
+                            else:
+                                detector.classify_on_pitch(frame, detections)
                     # Project before tracking: an off-field prediction must never start a player ID.
                     if tracker:
                         tick = time.perf_counter()

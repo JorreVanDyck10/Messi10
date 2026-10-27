@@ -52,7 +52,8 @@ class KitEmbedding:
                 d.team_embedding = (vector / max(1e-9, np.linalg.norm(vector))).tolist()
                 # A keeper-color guess must not erase an entire unseen kit.
                 # Distinct rare kits remain unknown through the distance gate.
-                d.player_kind = None
+                if d.player_kind_source != "detector":
+                    d.player_kind, d.player_kind_source = None, None
             return
         for start in range(0, len(players), 32):
             batch = players[start:start + 32]
@@ -66,6 +67,7 @@ class KitEmbedding:
             for d, embedding, keeper in zip(batch, embeddings, keepers):
                 d.team_embedding = embedding.tolist()
                 d.player_kind = "goalkeeper" if keeper >= 0.8 else "outfield"
+                d.player_kind_source = "appearance_keeper_head"
 
 
 def dominant_teams(vectors, *, radius=0.32, separation=0.4):

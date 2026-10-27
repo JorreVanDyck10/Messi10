@@ -37,7 +37,7 @@ def train_yolo(weights, dataset, output, config, minutes):
     output.mkdir(parents=True, exist_ok=False)
     budget = TrainingBudget(minutes)
     config = dict(config)
-    config.pop("workers", None)
+    workers = config.pop("workers", 0)
     requested_batch = config.pop("batch", 4)
     maximum_epochs = config["epochs"]
     record = {
@@ -76,9 +76,9 @@ def train_yolo(weights, dataset, output, config, minutes):
                 project=str(output),
                 name=f"batch-{batch}",
                 device=0,
-                workers=0,
+                workers=workers,
                 batch=batch,
-                time=max(0.0001, (budget.deadline - budget.clock()) / 3600),
+                time=max(0.0001, (budget.deadline - budget.clock()) / 3600) if math.isfinite(budget.deadline) else None,
                 **config,
             )
             best = output / f"batch-{batch}/weights/best.pt"

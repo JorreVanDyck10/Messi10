@@ -312,6 +312,7 @@ class TeamAssigner:
         for d in detections:
             embedding_method = self.settings["method"] == "torso_embedding_dominant_modes_v1"
             if (embedding_method and self.settings.get("kit_player_recovery")
+                    and d.role_decision != "pitch_context_nonplayer"
                     and d.semantic_class in {"person", "referee"} and d.detector_semantic_class == "person"
                     and d.role_model_id and d.confidence >= .25
                     and not (d.role_evidence and d.role_evidence["semantic_class"] == "referee"

@@ -38,9 +38,9 @@ try {
                 $model.device = $Device
                 $model.weights = [IO.Path]::GetFullPath((Join-Path "$projectRoot\configs" $model.weights))
             }
-            foreach ($head in @('appearance', 'kit_embedding')) {
+            foreach ($head in @('appearance', 'kit_embedding', 'role_context')) {
                 if ($modelProfile.PSObject.Properties[$head]) {
-                    $modelProfile.$head.device = $Device
+                    if ($head -ne 'role_context') { $modelProfile.$head.device = $Device }
                     $modelProfile.$head.weights = [IO.Path]::GetFullPath((Join-Path "$projectRoot\configs" $modelProfile.$head.weights))
                 }
             }

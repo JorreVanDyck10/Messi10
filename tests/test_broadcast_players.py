@@ -230,6 +230,49 @@ def test_nested_partial_box_at_same_feet_does_not_count_a_second_player():
     assert merge_person_proposals([partial, complete], preserve_same_source=True) == [complete]
 
 
+def test_optional_box_fusion_retains_both_actual_sources_and_uses_the_refined_feet():
+    actual, person = player(0), player(1)
+    actual.bbox_xyxy = [100, 100, 140, 180]
+    person.bbox_xyxy = [104, 102, 142, 184]
+    person.model_id, person.semantic_class = "generic", "person"
+    found = prefer_person_geometry([actual, person], .5)
+    assert found == [person] and person.bbox_xyxy == [102, 101, 141, 182]
+    assert person.box_geometry_evidence["person_source_bbox"] == [104, 102, 142, 184]
+    assert person.role_evidence["bbox_xyxy"] == actual.bbox_xyxy == [100, 100, 140, 180]
+    from football_pipeline.automatic_calibration import project_automatic
+
+    project_automatic(person, {"status": "valid", "homography": [[.001, 0, 0], [0, .001, 0], [0, 0, 1]]}, (640, 360))
+    assert person.field_position == pytest.approx([.1215, .182])
+
+
+def test_fused_boxes_are_reprojected_before_crop_and_context_classification():
+    actual, person = player(0), player(1)
+    actual.bbox_xyxy, person.bbox_xyxy = [100, 100, 140, 180], [104, 102, 142, 184]
+    person.model_id, person.semantic_class = "generic", "person"
+    detector = object.__new__(UltralyticsDetector)
+    detector.manifest = {"person_geometry": True, "person_box_fusion_weight": .5}
+    detector.video_hash, detector.kit_embedding = "clip", None
+    seen = []
+    detector.appearance = SimpleNamespace(classify=lambda frame, people, video: seen.extend(people))
+
+    def projector(d):
+        d.field_position = [.1215, .182]
+
+    detector.classify_on_pitch(np.zeros((360, 640, 3), np.uint8), [actual, person], projector=projector)
+    assert seen == [person] and person.field_position == [.1215, .182]
+
+
+def test_box_fusion_profile_rejects_unbounded_weights_or_missing_person_geometry(model_manifest):
+    from football_pipeline.contracts import write_json
+
+    path, source = model_manifest
+    for value in [float("inf"), -1, 1.1, True, .5]:
+        changed = {**source, "person_box_fusion_weight": value}
+        write_json(path, changed) if np.isfinite(value) else path.write_text(json.dumps(changed))
+        with pytest.raises(PipelineError, match="Boxcombinatie"):
+            load_model_manifest(path)
+
+
 def test_unreadable_edge_crop_stays_unknown_instead_of_crashing_team_inference():
     model = object.__new__(KitEmbedding)
     tiny = Detection("edge", "specialist", 0, "player", [639.2, 100, 639.9, 180], .9,

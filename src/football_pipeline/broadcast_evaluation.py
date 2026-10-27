@@ -108,7 +108,11 @@ def evaluate_profile(dataset, profile, team_settings, output, *, replay=None):
             for d in found:
                 project_automatic(d, reference, (row["width"], row["height"]))
             if detector and models.get("analysis_scope") == "on_pitch_players":
-                detector.classify_on_pitch(frame, found)
+                if models.get("person_box_fusion_weight"):
+                    detector.classify_on_pitch(frame, found, projector=lambda d: project_automatic(
+                        d, reference, (row["width"], row["height"])))
+                else:
+                    detector.classify_on_pitch(frame, found)
             elif not detector:
                 kit.update(frame, found)
             from .teams import shirt_color

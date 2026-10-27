@@ -117,12 +117,19 @@ class AppearanceClassifier:
             )
             with torch.inference_mode():
                 features = torch.cat([self.backbone(pixels), colours], 1)
+                context = None
+                if getattr(self, "context_projection", None) is not None:
+                    mean, projection = self.context_projection
+                    context = torch.nn.functional.normalize((features[:, :576] - mean) @ projection, dim=1).cpu().numpy()
                 features = (features - self.mean) / self.std
                 role_features = features.clone()
                 role_features[:, 576:] *= self.colour_scale
                 roles = self.role_head(role_features).softmax(1).cpu().numpy()
                 teams = self.team_head(features).softmax(1).cpu().numpy()
-            for d, role, team in zip(batch, roles, teams):
+            for position, (d, role, team) in enumerate(zip(batch, roles, teams)):
+                d.role_probabilities = role.tolist()
+                if context is not None:
+                    d.context_embedding = context[position].tolist()
                 d.detector_semantic_class = d.semantic_class
                 d.role_model_id = self.model_id
                 d.role_confidence = float(role.max())

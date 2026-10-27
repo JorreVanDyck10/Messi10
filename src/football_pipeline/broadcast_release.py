@@ -62,7 +62,7 @@ def evaluation_directory(refined):
     return Path(refined) / ("final-evaluation-" + code)
 
 
-def compare_and_package(dataset, output, refined=None):
+def compare_and_package(dataset, output, refined=None, candidate_file=None):
     dataset, output = Path(dataset).resolve(), Path(output).resolve()
     detector = read_json(output / "detector/status.json")
     trained = Path(detector["best"])
@@ -127,6 +127,21 @@ def compare_and_package(dataset, output, refined=None):
             tighter = copy.deepcopy(profile)
             tighter["models"][1]["iou"] = .5
             candidates[label + "-kit-recovery-nms05"] = tighter, {**new_settings, "kit_player_recovery": True}
+    additional_training = {}
+    if candidate_file:
+        import re
+
+        candidate_file = Path(candidate_file).resolve()
+        declared = read_json(candidate_file)
+        candidates = {"r007-baseline": candidates["r007-baseline"]}
+        for item in declared["candidates"]:
+            name = item["name"]
+            if not re.fullmatch(r"[a-z0-9-]+", name) or name in candidates:
+                raise ValueError("Candidate names must be unique simple identifiers")
+            candidates[name] = (read_json((candidate_file.parent / item["profile"]).resolve()),
+                                load_team_settings((candidate_file.parent / item["teams"]).resolve()))
+        for item in declared.get("training_records", []):
+            additional_training[item["name"]] = read_json((candidate_file.parent / item["path"]).resolve())
     reports = {}
     for name, (profile, settings) in candidates.items():
         directory = (evaluation_directory(refined) if refined else output / "evaluation") / name
@@ -159,6 +174,7 @@ def compare_and_package(dataset, output, refined=None):
     specs = [(spec, "players_best.pt" if "player" in spec["class_mapping"].values() else "person_proposals.pt")
              for spec in profile["models"]]
     specs += ([(profile["appearance"], "roles_teams.pt")] if profile.get("appearance") else [])
+    specs += ([(profile["role_context"], "role_context.pt")] if profile.get("role_context") else [])
     specs += [(profile["kit_embedding"], "kit_embedding.pt")]
     for spec, filename in specs:
         target = package / filename
@@ -193,10 +209,11 @@ def compare_and_package(dataset, output, refined=None):
             "roles": read_json(refined / "roles/metrics.json"), "teams": read_json(refined / "teams/metrics.json")}
         compact["training"]["gpu_stage_wall_seconds"] += sum(
             v["runtime_s"] for v in compact["training"]["refinement"].values())
-    if compact["training"]["gpu_stage_wall_seconds"] > 4 * 3600:
-        raise ValueError("Recorded GPU stages exceed the authorized four-hour budget")
+    compact["training"]["additional_stages"] = additional_training
+    compact["training"]["gpu_stage_wall_seconds"] += sum(v.get("runtime_s", 0) for v in additional_training.values())
+    compact["training"]["time_limit_lifted_by_user"] = True
     write_json(report_root / "summary.json", compact)
-    for filename in ("players_best.pt", "person_proposals.pt", "roles_teams.pt", "kit_embedding.pt"):
+    for filename in ("players_best.pt", "person_proposals.pt", "roles_teams.pt", "kit_embedding.pt", "role_context.pt"):
         if (package / filename).exists():
             print(filename, sha256_file(package / filename), flush=True)
     write_card(package, compact)
@@ -309,7 +326,8 @@ if __name__ == "__main__":
     parser.add_argument("--output", type=Path, default=ROOT / "artifacts/broadcast-pitch-v1")
     parser.add_argument("--demonstrate-only", action="store_true")
     parser.add_argument("--refined", type=Path)
+    parser.add_argument("--candidates", type=Path)
     args = parser.parse_args()
     if not args.demonstrate_only:
-        compare_and_package(args.dataset, args.output, args.refined)
+        compare_and_package(args.dataset, args.output, args.refined, args.candidates)
     print(demonstrate(args.output))

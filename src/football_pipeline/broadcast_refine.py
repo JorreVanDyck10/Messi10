@@ -62,7 +62,7 @@ def crop_cache(data, output):
     return pixels
 
 
-def roles(data, output, minutes=30, epochs=20):
+def roles(data, output, minutes=30, epochs=20, color_invariant=False):
     from persoon1.role_training import scores
 
     output.mkdir(parents=True, exist_ok=True)
@@ -82,18 +82,25 @@ def roles(data, output, minutes=30, epochs=20):
     # and frozen running normalization statistics across different matches.
     for parameter in encoder.parameters():
         parameter.requires_grad = False
-    for block in list(encoder[0].children())[-3:]:
+    for block in list(encoder[0].children())[-6 if color_invariant else -3:]:
         for parameter in block.parameters():
             parameter.requires_grad = True
     raw = data["role"].cuda()
     mean, std = raw[tr].mean(0), raw[tr].std(0).clamp_min(.1)
     colours = raw[:, 576:].clone()
+    if color_invariant:
+        colours.zero_()
+        from torchvision.transforms import ColorJitter, RandomGrayscale
+
+        augmentation = torch.nn.Sequential(ColorJitter(.4, .4, .6, .5), RandomGrayscale(.2))
     del raw
     rgb_mean = torch.tensor([.485, .456, .406], device="cuda")[None, :, None, None]
     rgb_std = torch.tensor([.229, .224, .225], device="cuda")[None, :, None, None]
     optimizer = torch.optim.AdamW([{"params": [p for p in encoder.parameters() if p.requires_grad], "lr": .0001},
                                   {"params": head.parameters(), "lr": .001}], weight_decay=.001)
     weight = torch.bincount(labels[tr], minlength=3).float().clamp_min(1).rsqrt()
+    if color_invariant:
+        weight = weight.clamp_max(weight[0] * 2)
     scaler = torch.amp.GradScaler("cuda")
     curve, best, best_score, best_epoch = [], None, -1., 0
     for epoch in range(1, epochs + 1):
@@ -101,7 +108,10 @@ def roles(data, output, minutes=30, epochs=20):
         losses = []
         for start in range(0, len(order), 96):
             ids = order[start:start + 96]
-            x = (pixels[ids].cuda().float() / 255 - rgb_mean) / rgb_std
+            x = pixels[ids].cuda().float() / 255
+            if color_invariant:
+                x = augmentation(x)
+            x = (x - rgb_mean) / rgb_std
             if torch.rand(()) < .5:
                 x = x.flip(-1)
             if torch.rand(()) < .25:
@@ -111,7 +121,8 @@ def roles(data, output, minutes=30, epochs=20):
             optimizer.zero_grad(set_to_none=True)
             with torch.autocast("cuda", dtype=torch.float16):
                 features = (torch.cat([encoder(x), colours[ids]], 1) - mean) / std
-                loss = torch.nn.functional.cross_entropy(head(features), labels[ids], weight=weight)
+                loss = torch.nn.functional.cross_entropy(head(features), labels[ids], weight=weight,
+                                                         label_smoothing=.03 if color_invariant else 0.)
             scaler.scale(loss).backward()
             scaler.unscale_(optimizer)
             torch.nn.utils.clip_grad_norm_([p for group in optimizer.param_groups for p in group["params"]], 5.)
@@ -128,23 +139,36 @@ def roles(data, output, minutes=30, epochs=20):
                 feature = (torch.cat([encoder(x), colours[ids]], 1) - mean) / std
                 predictions.append(head(feature).softmax(1).cpu())
             prob = torch.cat(predictions).numpy()
-        report = scores(labels[va].cpu().numpy(), np.where(prob.max(1) >= .65, prob.argmax(1), -1), PITCH_ROLE_NAMES)
+        threshold = .5 if color_invariant else .65
+        report = scores(labels[va].cpu().numpy(), np.where(prob.max(1) >= threshold, prob.argmax(1), -1), PITCH_ROLE_NAMES)
         player, referee = report["per_class"][:2]
         score = player["f1"] + .1 * referee["recall"]
+        if color_invariant:
+            score += float(player["precision"] >= .98 and player["recall"] >= .95)
         curve.append({"epoch": epoch, "loss": float(np.mean(losses)), "player": player, "referee": referee})
         if score > best_score:
             best_score, best_epoch = score, epoch
             best = (copy.deepcopy(encoder.state_dict()), copy.deepcopy(head.state_dict()))
             best_report = report
+            np.savez_compressed(output / "validation-probabilities.npz", probabilities=prob,
+                                row_indices=va.numpy(), truth=labels[va].cpu().numpy())
+        exported_head = {k: v.cpu().clone() for k, v in best[1].items()}
+        if color_invariant:
+            # Training's raw colour input is constant zero. Fold its normalized
+            # constant into the bias so inference's zero colour block is exact.
+            exported_head["bias"] += exported_head["weight"][:, 576:] @ (-mean[576:].cpu() / std[576:].cpu())
+            exported_head["weight"][:, 576:] = 0
         snapshot = {**state, "backbone": {k: v.cpu() for k, v in best[0].items()},
-                    "role_head": {k: v.cpu() for k, v in best[1].items()}, "mean": mean.cpu(), "std": std.cpu(),
-                    "role_colour_scale": 1., "role_names": PITCH_ROLE_NAMES, "team_video_hashes": []}
+                    "role_head": exported_head, "mean": mean.cpu(), "std": std.cpu(),
+                    "role_colour_scale": 0. if color_invariant else 1., "role_names": PITCH_ROLE_NAMES, "team_video_hashes": []}
         torch.save(snapshot, output / "roles_teams.pt")
         torch.save({"backbone": encoder.state_dict(), "head": head.state_dict(), "optimizer": optimizer.state_dict(),
                     "scaler": scaler.state_dict(), "epoch": epoch, "feature_identity": data["identity"]}, output / "resume.pt")
         write_json(output / "metrics.json", {"runtime_s": time.monotonic() - started, "feature_identity": data["identity"],
                    "selected_epoch": best_epoch, "weights_sha256": sha256_file(output / "roles_teams.pt"),
                    "broadcast_validation": best_report, "curve": curve, "test_accessed": False,
+                   "color_invariant": color_invariant, "validation_role_threshold": threshold,
+                   "constant_colour_folded": color_invariant,
                    "scope": "player including goalkeeper; referee including assistant; other person"})
         print(f"Fine roles {epoch}: P {player['precision']:.4f}, R {player['recall']:.4f}, referee R {referee['recall']:.4f}", flush=True)
         if epoch - best_epoch >= 5 or time.monotonic() - started >= minutes * 60:
@@ -259,6 +283,7 @@ if __name__ == "__main__":
     parser.add_argument("--base-output", type=Path, default=ROOT / "artifacts/broadcast-pitch-v1")
     parser.add_argument("--dataset", type=Path, default=ROOT / "data/broadcast-pitch-v1")
     parser.add_argument("--minutes", type=float)
+    parser.add_argument("--color-invariant", action="store_true")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     torch.set_num_threads(4)
@@ -285,6 +310,7 @@ if __name__ == "__main__":
         print(detector(args.output.resolve(), args.minutes or 90, args.dataset), flush=True)
     else:
         if args.stage == "roles":
-            roles(data, args.output / "roles", minutes=args.minutes or 30)
+            roles(data, args.output / "roles", minutes=args.minutes or 30, epochs=40 if args.color_invariant else 20,
+                  color_invariant=args.color_invariant)
         else:
             teams(data, args.output / "teams", minutes=args.minutes or 15)
