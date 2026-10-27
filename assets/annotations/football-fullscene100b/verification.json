@@ -1,0 +1,78 @@
+{
+  "status": "passed",
+  "images": 100,
+  "new_unique_source_frames": 100,
+  "native_size": [
+    4096,
+    1080
+  ],
+  "full_frames_pixel_identical_to_decoded_source": 100,
+  "source_video_checksum_checked": true,
+  "prior_sets_checked_for_duplicate_source_frames": [
+    "football48",
+    "football-fullframe40",
+    "football-fullscene16",
+    "football-fullscene20",
+    "football-fullscene50",
+    "football-fullscene60",
+    "football-fullscene100"
+  ],
+  "existing_time_group_splits_preserved": true,
+  "splits": {
+    "train": 70,
+    "val": 30
+  },
+  "time_groups": 6,
+  "minimum_cross_split_gap_s": 199.68,
+  "classes": {
+    "referee": 200,
+    "player": 2145,
+    "other_person": 506,
+    "ball": 558,
+    "goal": 600,
+    "stored_goals": 200,
+    "corner_flag": 400,
+    "crowd": 300
+  },
+  "annotation_instances": 4909,
+  "kinds": {
+    "individual_person": 2851,
+    "in_play_ball": 100,
+    "reserve_ball": 458,
+    "match_goal": 200,
+    "stored_single_goal": 400,
+    "overlapping_stored_goals": 200,
+    "corner_flag": 400,
+    "seated_group": 100,
+    "dugout_group": 100,
+    "dugout_and_steps_group": 100
+  },
+  "coco_yolo_source_box_agreement": true,
+  "ultralytics_loader": {
+    "train": {
+      "images": 70,
+      "objects": 3404,
+      "corrupt_or_missing_images": 0
+    },
+    "val": {
+      "images": 30,
+      "objects": 1505,
+      "corrupt_or_missing_images": 0
+    }
+  },
+  "combined346_ultralytics_loader": {
+    "train": {
+      "images": 245,
+      "objects": 11944,
+      "corrupt_or_missing_images": 0
+    },
+    "val": {
+      "images": 101,
+      "objects": 5079,
+      "corrupt_or_missing_images": 0
+    }
+  },
+  "independent_human_review_complete": false,
+  "model_training_performed": false,
+  "scope": "Technical consistency and source identity; not an accuracy metric, guaranteed semantic completeness or independent human review. Group boxes do not assert member counts."
+}

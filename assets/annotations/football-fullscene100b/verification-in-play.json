@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "images": 100,
+  "in_play_ball_boxes": 100,
+  "reserve_ball_positive_boxes": 0,
+  "reserve_balls_are_intentional_background": true,
+  "images_identical_to_full_scene_pngs": 100,
+  "boxes_agree_with_source_annotations": true,
+  "ultralytics_loader": {
+    "train": {
+      "images": 70,
+      "in_play_ball_boxes": 70
+    },
+    "val": {
+      "images": 30,
+      "in_play_ball_boxes": 30
+    }
+  },
+  "independent_human_review_complete": false,
+  "model_training_performed": false
+}

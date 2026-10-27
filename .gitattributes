@@ -43,3 +43,4 @@ reports/course-improvement/** -text whitespace=cr-at-eol
 reports/field-reliability/** -text whitespace=cr-at-eol
 reports/team-analysis/** -text whitespace=cr-at-eol
 artifacts/fullscene-ball-v1/*.pt filter=lfs diff=lfs merge=lfs -text
+assets/annotations/football-fullscene100b/images/**/*.png filter=lfs diff=lfs merge=lfs -text
