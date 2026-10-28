@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "cross_format_box_consistency": true,
+  "task_class_remapping": true,
+  "training_loader": "Ultralytics 8.4.23",
+  "loader_images": {
+    "all": {
+      "train": 74,
+      "val": 20
+    },
+    "players": {
+      "train": 80,
+      "val": 20
+    },
+    "in-play-ball": {
+      "train": 74,
+      "val": 20
+    }
+  },
+  "corrupt_images": 0,
+  "fresh_rebuild_frames": 100,
+  "rebuild_metadata_and_labels_equal": 307,
+  "independent_human_review": false
+}
