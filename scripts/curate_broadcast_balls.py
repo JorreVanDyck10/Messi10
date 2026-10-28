@@ -43,15 +43,33 @@ def prepare(root, destination):
         box = next(b["bbox_xyxy"] for b in row["boxes"] if b["class_id"] == 2)
         cx, cy = (box[0] + box[2]) / 2, (box[1] + box[3]) / 2
         left, top = math.floor(cx) - 40, math.floor(cy) - 40
-        records.append({"candidate_id": index, "frame_id": row["frame_id"], "split": row["split"],
-                        "game_id": row["game_id"], "clip": row["clip"], "image": row["image"],
-                        "image_sha256": row["image_sha256"], "source_label_sha256": row["label_sha256"],
-                        "width": row["width"], "height": row["height"], "bbox_xyxy": box,
-                        "crop_origin": [left, top], "crop_size": 80, "display_scale": 3,
-                        "page": index // 24 + 1, "tile": index % 24})
-    manifest = {"source_fingerprint": source["fingerprint"], "source": source["source"],
-                "selection": "known flagged frames, then two evenly distributed positive frames per clip",
-                "reviewer_type": "AI visual review; no human approval", "candidates": records}
+        records.append(
+            {
+                "candidate_id": index,
+                "frame_id": row["frame_id"],
+                "split": row["split"],
+                "game_id": row["game_id"],
+                "clip": row["clip"],
+                "image": row["image"],
+                "image_sha256": row["image_sha256"],
+                "source_label_sha256": row["label_sha256"],
+                "width": row["width"],
+                "height": row["height"],
+                "bbox_xyxy": box,
+                "crop_origin": [left, top],
+                "crop_size": 80,
+                "display_scale": 3,
+                "page": index // 24 + 1,
+                "tile": index % 24,
+            }
+        )
+    manifest = {
+        "source_fingerprint": source["fingerprint"],
+        "source": source["source"],
+        "selection": "known flagged frames, then two evenly distributed positive frames per clip",
+        "reviewer_type": "AI visual review; no human approval",
+        "candidates": records,
+    }
     manifest["fingerprint"] = digest_json(manifest)
     write_json(destination / "candidates.json", manifest)
     return manifest
@@ -65,12 +83,19 @@ def render(root, destination, manifest):
             with Image.open(root / candidate["image"]) as original:
                 crop = original.crop((left, top, left + 80, top + 80)).resize((240, 240))
             box = candidate["bbox_xyxy"]
-            ImageDraw.Draw(crop).rectangle(((box[0] - left) * 3, (box[1] - top) * 3,
-                                           (box[2] - left) * 3, (box[3] - top) * 3), outline="#ff4565", width=1)
+            ImageDraw.Draw(crop).rectangle(
+                ((box[0] - left) * 3, (box[1] - top) * 3, (box[2] - left) * 3, (box[3] - top) * 3),
+                outline="#ff4565",
+                width=1,
+            )
             x, y = candidate["tile"] % 6 * 240, candidate["tile"] // 6 * 270
             canvas.paste(crop, (x, y + 30))
-            ImageDraw.Draw(canvas).text((x + 4, y + 5),
-                f"{candidate['candidate_id']:03d} {candidate['frame_id']}", fill="white", font=font(15))
+            ImageDraw.Draw(canvas).text(
+                (x + 4, y + 5),
+                f"{candidate['candidate_id']:03d} {candidate['frame_id']}",
+                fill="white",
+                font=font(15),
+            )
         canvas.save(destination / f"review-{page:02d}.jpg", quality=97)
 
 
@@ -96,9 +121,13 @@ def export(root, destination, manifest, decisions_path):
             continue
         row = by_id[index]
         box = decision.get("corrected_bbox_xyxy") if decision["status"] == "correct" else row["bbox_xyxy"]
-        if (not isinstance(box, list) or len(box) != 4 or not all(math.isfinite(v) for v in box)
-                or not 0 <= box[0] < box[2] <= row["width"]
-                or not 0 <= box[1] < box[3] <= row["height"]):
+        if (
+            not isinstance(box, list)
+            or len(box) != 4
+            or not all(math.isfinite(v) for v in box)
+            or not 0 <= box[0] < box[2] <= row["width"]
+            or not 0 <= box[1] < box[3] <= row["height"]
+        ):
             raise ValueError("Invalid reviewed ball box")
         image = output / "images" / row["split"] / (row["frame_id"] + ".jpg")
         label = output / "labels" / row["split"] / (row["frame_id"] + ".txt")
@@ -108,29 +137,52 @@ def export(root, destination, manifest, decisions_path):
             raise ValueError("Candidate image changed since review")
         if not image.exists():
             image.hardlink_to(root / row["image"])
-        text = (f"0 {(box[0]+box[2])/2/row['width']:.9f} {(box[1]+box[3])/2/row['height']:.9f} "
-                f"{(box[2]-box[0])/row['width']:.9f} {(box[3]-box[1])/row['height']:.9f}\n")
+        text = (
+            f"0 {(box[0] + box[2]) / 2 / row['width']:.9f} {(box[1] + box[3]) / 2 / row['height']:.9f} "
+            f"{(box[2] - box[0]) / row['width']:.9f} {(box[3] - box[1]) / row['height']:.9f}\n"
+        )
         if label.exists() and label.read_text(encoding="utf-8") != text:
             raise ValueError("Preserve existing curated edits; choose a new curation version")
         label.write_text(text, encoding="utf-8")
-        frames.append({**row, "bbox_xyxy": box, "label": label.relative_to(output).as_posix(),
-                       "image": image.relative_to(output).as_posix(), "label_sha256": sha256_file(label),
-                       "decision": decision, "project_human_review_completed": False})
+        frames.append(
+            {
+                **row,
+                "bbox_xyxy": box,
+                "label": label.relative_to(output).as_posix(),
+                "image": image.relative_to(output).as_posix(),
+                "label_sha256": sha256_file(label),
+                "decision": decision,
+                "project_human_review_completed": False,
+            }
+        )
     if reviewed != set(by_id):
         raise ValueError("Every candidate must be reviewed before publishing the curated set")
     games = {s: {r["game_id"] for r in frames if r["split"] == s} for s in ("train", "val")}
     if games["train"] & games["val"] or not all(games.values()):
         raise ValueError("Need disjoint nonempty match splits")
-    result = {"dataset_version": "broadcast-balls-ai-curated-v1", "source_fingerprint": manifest["source_fingerprint"],
-              "candidate_fingerprint": manifest["fingerprint"], "decisions_sha256": sha256_file(decisions_path),
-              "frames": frames, "names": {0: "ball"}, "counts": {s: sum(r["split"] == s for r in frames) for s in games},
-              "match_ids": {s: sorted(v) for s, v in games.items()}, "reviewer": "Codex (AI)",
-              "project_human_review_completed": False, "negative_frames": 0,
-              "limitations": "AI-reviewed positive sample; not an independent test or full ball benchmark"}
+    result = {
+        "dataset_version": "broadcast-balls-ai-curated-v1",
+        "source_fingerprint": manifest["source_fingerprint"],
+        "candidate_fingerprint": manifest["fingerprint"],
+        "decisions_sha256": sha256_file(decisions_path),
+        "frames": frames,
+        "names": {0: "ball"},
+        "counts": {s: sum(r["split"] == s for r in frames) for s in games},
+        "match_ids": {s: sorted(v) for s, v in games.items()},
+        "reviewer": "Codex (AI)",
+        "project_human_review_completed": False,
+        "negative_frames": 0,
+        "limitations": "AI-reviewed positive sample; not an independent test or full ball benchmark",
+    }
     result["fingerprint"] = digest_json(result)
     write_json(output / "manifest.json", result)
-    (output / "data.yaml").write_text(yaml.safe_dump({"path": str(output), "train": "images/train",
-         "val": "images/val", "names": {0: "ball"}}, sort_keys=False), encoding="utf-8")
+    (output / "data.yaml").write_text(
+        yaml.safe_dump(
+            {"path": str(output), "train": "images/train", "val": "images/val", "names": {0: "ball"}},
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
     return result
 
 

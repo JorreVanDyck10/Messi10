@@ -25,8 +25,13 @@ def test_negative_candidates_require_complete_review_before_a_training_config_is
     prep["fingerprint"] = digest_json(prep)
     write_json(tmp_path / "preparation.json", prep)
     decisions = tmp_path / "review.json"
-    write_json(decisions, {"preparation_fingerprint": prep["fingerprint"],
-                          "decisions": [{"candidate_id": 0, "status": "accept", "reason": "No ball visible"}]})
+    write_json(
+        decisions,
+        {
+            "preparation_fingerprint": prep["fingerprint"],
+            "decisions": [{"candidate_id": 0, "status": "accept", "reason": "No ball visible"}],
+        },
+    )
     with pytest.raises(ValueError, match="Every negative candidate"):
         finalize(tmp_path, tmp_path, decisions)
     assert not (tmp_path / "balls/data.yaml").exists()
@@ -42,19 +47,40 @@ def test_finalization_preserves_native_pixels_and_deduplicates_clamped_windows(t
         pixels = np.stack(((x + i * 17) % 251, (y + i * 29) % 249, (x + y + i) % 253), axis=2).astype("uint8")
         path = source / f"parent-{i}.png"
         Image.fromarray(pixels).save(path)
-        row = {"frame_id": f"parent-{i}", "game_id": str(i), "split": split, "clip": str(i),
-               "image": path.name, "image_sha256": sha256_file(path)}
-        positives.append(tile(source, output / "ball-positives", row, [0, 0, 640, 640], "positive", "-p", [20, 20, 30, 30]))
-        neg = tile(source, output / "negative-candidates", row, [160, 160, 800, 800], "unreviewed_negative", "-n")
+        row = {
+            "frame_id": f"parent-{i}",
+            "game_id": str(i),
+            "split": split,
+            "clip": str(i),
+            "image": path.name,
+            "image_sha256": sha256_file(path),
+        }
+        positives.append(
+            tile(source, output / "ball-positives", row, [0, 0, 640, 640], "positive", "-p", [20, 20, 30, 30])
+        )
+        neg = tile(
+            source, output / "negative-candidates", row, [160, 160, 800, 800], "unreviewed_negative", "-n"
+        )
         negatives.append({**neg, "candidate_id": i})
     positives.append({**positives[0], "frame_id": "duplicate-window"})
     prep = {"positive_frames": positives, "negative_candidates": negatives}
     prep["fingerprint"] = digest_json(prep)
     write_json(output / "preparation.json", prep)
     review = tmp_path / "decisions.json"
-    write_json(review, {"preparation_fingerprint": prep["fingerprint"], "decisions": [
-        {"candidate_id": i, "status": "accept", "reason": "Full native crop inspected; no ball visible"}
-        for i in range(2)]})
+    write_json(
+        review,
+        {
+            "preparation_fingerprint": prep["fingerprint"],
+            "decisions": [
+                {
+                    "candidate_id": i,
+                    "status": "accept",
+                    "reason": "Full native crop inspected; no ball visible",
+                }
+                for i in range(2)
+            ],
+        },
+    )
     (output / "players").mkdir()
     write_json(output / "players/manifest.json", {"frames": []})
     write_json(source / "manifest.json", {"frames": []})
@@ -72,14 +98,28 @@ def test_player_selection_thins_training_only_and_keeps_all_validation_frames(tm
     source = tmp_path / "source"
     source.mkdir()
     rows = []
-    for i, (split, frame, refs) in enumerate((("train", 0, 0), ("train", 5, 2), ("train", 30, 1), ("val", 5, 0))):
+    for i, (split, frame, refs) in enumerate(
+        (("train", 0, 0), ("train", 5, 2), ("train", 30, 1), ("val", 5, 0))
+    ):
         image, label = f"image-{i}.png", f"label-{i}.txt"
         Image.new("RGB", (640, 640), (i * 20, 100, 70)).save(source / image)
         (source / label).write_text("0 0.5 0.5 0.2 0.2\n2 0.7 0.7 0.01 0.01\n", encoding="utf-8")
-        rows.append({"frame_id": str(i), "split": split, "clip": "clip", "game_id": split,
-                     "source_frame_index": frame, "width": 640, "height": 640, "image": image, "label": label,
-                     "image_sha256": sha256_file(source / image), "label_sha256": sha256_file(source / label),
-                     "boxes": [{"class_id": 1, "bbox_xyxy": [10, 10, 30, 40]}] * refs})
+        rows.append(
+            {
+                "frame_id": str(i),
+                "split": split,
+                "clip": "clip",
+                "game_id": split,
+                "source_frame_index": frame,
+                "width": 640,
+                "height": 640,
+                "image": image,
+                "label": label,
+                "image_sha256": sha256_file(source / image),
+                "label_sha256": sha256_file(source / label),
+                "boxes": [{"class_id": 1, "bbox_xyxy": [10, 10, 30, 40]}] * refs,
+            }
+        )
     result = player_selection(source, {"frames": rows, "fingerprint": "source"}, tmp_path / "players")
     assert {r["frame_id"] for r in result["frames"] if r["split"] == "train"} == {"1", "2"}
     assert {r["frame_id"] for r in result["frames"] if r["split"] == "val"} == {"3"}

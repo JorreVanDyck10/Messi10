@@ -43,9 +43,19 @@ class KitEmbedding:
     def update(self, frame, detections):
         import torch
 
-        eligible = {"player", "referee", "person"} if getattr(self, "metric_weights", None) is not None else {"player"}
-        players = [d for d in detections if d.semantic_class in eligible and d.projection_status == "valid"
-                   and d.bbox_xyxy[2] - d.bbox_xyxy[0] >= 4 and d.bbox_xyxy[3] - d.bbox_xyxy[1] >= 12]
+        eligible = (
+            {"player", "referee", "person"}
+            if getattr(self, "metric_weights", None) is not None
+            else {"player"}
+        )
+        players = [
+            d
+            for d in detections
+            if d.semantic_class in eligible
+            and d.projection_status == "valid"
+            and d.bbox_xyxy[2] - d.bbox_xyxy[0] >= 4
+            and d.bbox_xyxy[3] - d.bbox_xyxy[1] >= 12
+        ]
         if getattr(self, "metric_weights", None) is not None:
             for d in players:
                 vector = kit_feature(frame, d.bbox_xyxy) * self.metric_weights
@@ -56,9 +66,11 @@ class KitEmbedding:
                     d.player_kind, d.player_kind_source = None, None
             return
         for start in range(0, len(players), 32):
-            batch = players[start:start + 32]
+            batch = players[start : start + 32]
             pixels = torch.stack([crop_tensor(frame, d.bbox_xyxy) for d in batch]).to(self.device)
-            colours = torch.from_numpy(np.stack([kit_feature(frame, d.bbox_xyxy) for d in batch])).to(self.device)
+            colours = torch.from_numpy(np.stack([kit_feature(frame, d.bbox_xyxy) for d in batch])).to(
+                self.device
+            )
             with torch.inference_mode():
                 raw = torch.cat([self.encoder(pixels), colours], 1)
                 features = (raw - self.mean) / self.std
@@ -111,28 +123,49 @@ class PitchTeamSamples:
         from .contracts import digest_json
 
         d = detection
-        if (d.semantic_class != "player" or d.projection_status != "valid" or d.confidence < 0.25
-                or d.team_embedding is None or d.player_kind == "goalkeeper"
-                or index % max(1, round(self.fps / self.settings["sample_hz"]))):
+        if (
+            d.semantic_class != "player"
+            or d.projection_status != "valid"
+            or d.confidence < 0.25
+            or d.team_embedding is None
+            or d.player_kind == "goalkeeper"
+            or index % max(1, round(self.fps / self.settings["sample_hz"]))
+        ):
             return
         priority = digest_json([index, d.detection_id])
         self.samples.append((priority, index, d.team_embedding, d.shirt_color_lab))
         if len(self.samples) > self.settings["max_samples"] * 2:
-            self.samples = sorted(self.samples)[:self.settings["max_samples"]]
+            self.samples = sorted(self.samples)[: self.settings["max_samples"]]
 
     def fit(self):
         from .teams import lab_to_hex
 
-        samples = sorted(self.samples)[:self.settings["max_samples"]]
-        teams = {k: {"name": f"Team {k}", "shirt_color": None, "display_color": color,
-                     "prototype_lab": None, "prototype_embedding": None}
-                 for k, color in zip(("A", "B"), ("#ef6262", "#5a9fee"))}
-        result = {"schema_version": 1, "status": "insufficient_groups", "settings": self.settings,
-                  "analysis_scope": "on_pitch_players",
-                  "teams": teams, "sample_count": len(samples), "representatives": len(samples),
-                  "score_definition": "1 minus cosine distance; separation margin; not a probability"}
-        fitted = dominant_teams([s[2] for s in samples], radius=self.settings["embedding_radius"],
-                                separation=self.settings["embedding_separation"])
+        samples = sorted(self.samples)[: self.settings["max_samples"]]
+        teams = {
+            k: {
+                "name": f"Team {k}",
+                "shirt_color": None,
+                "display_color": color,
+                "prototype_lab": None,
+                "prototype_embedding": None,
+            }
+            for k, color in zip(("A", "B"), ("#ef6262", "#5a9fee"))
+        }
+        result = {
+            "schema_version": 1,
+            "status": "insufficient_groups",
+            "settings": self.settings,
+            "analysis_scope": "on_pitch_players",
+            "teams": teams,
+            "sample_count": len(samples),
+            "representatives": len(samples),
+            "score_definition": "1 minus cosine distance; separation margin; not a probability",
+        }
+        fitted = dominant_teams(
+            [s[2] for s in samples],
+            radius=self.settings["embedding_radius"],
+            separation=self.settings["embedding_separation"],
+        )
         if fitted is None:
             return result
         centers, groups = fitted
@@ -141,26 +174,33 @@ class PitchTeamSamples:
                 result["status"] = "insufficient_frames"
                 return result
             labs = [samples[i][3] for i in members if samples[i][3] is not None]
-            lab = np.median(labs, axis=0).tolist() if labs else [50., 0., 0.]
+            lab = np.median(labs, axis=0).tolist() if labs else [50.0, 0.0, 0.0]
             team.update(prototype_lab=lab, prototype_embedding=center.tolist(), shirt_color=lab_to_hex(lab))
         result["status"] = "available"
         return result
 
 
 def embedding_candidate(detection, model):
-    if (detection.team_embedding is None or detection.player_kind == "goalkeeper"
-            or detection.projection_status != "valid" or model["status"] != "available"):
+    if (
+        detection.team_embedding is None
+        or detection.player_kind == "goalkeeper"
+        or detection.projection_status != "valid"
+        or model["status"] != "available"
+    ):
         return None, None
     points = np.asarray(detection.team_embedding, float)
     if points.shape != (32,) or not np.isfinite(points).all() or np.linalg.norm(points) < 1e-9:
         return None, None
     points /= np.linalg.norm(points)
-    distances = [float(np.clip(1 - np.dot(points, t["prototype_embedding"]), 0, 2))
-                 for t in model["teams"].values()]
+    distances = [
+        float(np.clip(1 - np.dot(points, t["prototype_embedding"]), 0, 2)) for t in model["teams"].values()
+    ]
     first, second = np.argsort(distances)
     settings = model["settings"]
-    score = max(0., 1 - distances[first])
-    if (distances[first] <= settings["embedding_max_distance"]
-            and distances[second] - distances[first] >= settings["embedding_margin"]):
+    score = max(0.0, 1 - distances[first])
+    if (
+        distances[first] <= settings["embedding_max_distance"]
+        and distances[second] - distances[first] >= settings["embedding_margin"]
+    ):
         return list(model["teams"])[first], score
     return None, score

@@ -36,13 +36,15 @@ def available_model_profiles(default: Path, directory: Path) -> dict[Path, str]:
                 for spec in [*normalized, *heads.values()]
             ):
                 continue
-            identity = digest_json({
-                "models": normalized,
-                "heads": heads,
-                "analysis_scope": manifest.get("analysis_scope", "all_participants"),
-                "person_geometry": manifest.get("person_geometry", False),
-                "person_box_fusion_weight": manifest.get("person_box_fusion_weight"),
-            })
+            identity = digest_json(
+                {
+                    "models": normalized,
+                    "heads": heads,
+                    "analysis_scope": manifest.get("analysis_scope", "all_participants"),
+                    "person_geometry": manifest.get("person_geometry", False),
+                    "person_box_fusion_weight": manifest.get("person_box_fusion_weight"),
+                }
+            )
             if identity in seen:
                 continue
             seen.add(identity)

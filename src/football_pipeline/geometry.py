@@ -149,9 +149,14 @@ def create_calibration(video: VideoMetadata, points: list[dict], reference_frame
         # The clicked region must stay on one visible side of the perspective horizon.
         # Unseen parts of a panned-to field can legitimately lie behind the camera.
         denominators = (matrix @ np.column_stack([src, np.ones(4)]).T)[2]
-        if (not np.isfinite(denominators).all() or np.min(np.abs(denominators)) < 1e-9
-                or np.min(denominators) * np.max(denominators) <= 0):
-            raise PipelineError("De fitpunten lopen over de perspectiefhorizon. Kies beter verspreide veldpunten.")
+        if (
+            not np.isfinite(denominators).all()
+            or np.min(np.abs(denominators)) < 1e-9
+            or np.min(denominators) * np.max(denominators) <= 0
+        ):
+            raise PipelineError(
+                "De fitpunten lopen over de perspectiefhorizon. Kies beter verspreide veldpunten."
+            )
         check_uv = np.array([[p["u"], p["v"]] for p in check], dtype=np.float64)
         check_xy = np.array([[p["x"], p["y"]] for p in check], dtype=np.float64)
         projected = cv2.perspectiveTransform(check_uv.reshape(-1, 1, 2), inverse).reshape(-1, 2)

@@ -34,15 +34,24 @@ def audit_field_labels(root, source):
             valid["train" if row["split"] == "train" else "valid"] += 1
         except (ValueError, TypeError, KeyError) as exc:
             excluded.append({"label": row["field_label"], "reason": str(exc)})
-    write_json(path, {"dataset_fingerprint": source["fingerprint"], "valid_field_labels": valid,
-                     "excluded": excluded, "policy": "provider_visible_polylines_v1"})
+    write_json(
+        path,
+        {
+            "dataset_fingerprint": source["fingerprint"],
+            "valid_field_labels": valid,
+            "excluded": excluded,
+            "policy": "provider_visible_polylines_v1",
+        },
+    )
     return path
 
 
 def export_participants(root, source):
     """Export explicit participant-only tasks so questionable ball boxes cannot supervise them."""
-    profiles = (("players", "label", {0: "player", 1: "referee"}),
-                ("participants", "role_label", {0: "player", 1: "goalkeeper", 2: "referee"}))
+    profiles = (
+        ("players", "label", {0: "player", 1: "referee"}),
+        ("participants", "role_label", {0: "player", 1: "goalkeeper", 2: "referee"}),
+    )
     outputs = []
     for profile, source_key, names in profiles:
         base = root / profile
@@ -67,12 +76,25 @@ def export_participants(root, source):
             if not label.exists():
                 label.write_text(expected, encoding="utf-8")
             frames.append({"frame_id": fid, "split": split, "label_sha256": sha256_file(label)})
-        write_json(base / "manifest.json", {"source_dataset_fingerprint": source["fingerprint"],
-                   "names": names, "frames": frames, "object_counts": {s: dict(v) for s, v in counts.items()},
-                   "task": "participants only; ball is outside this task", "human_review_completed": False})
+        write_json(
+            base / "manifest.json",
+            {
+                "source_dataset_fingerprint": source["fingerprint"],
+                "names": names,
+                "frames": frames,
+                "object_counts": {s: dict(v) for s, v in counts.items()},
+                "task": "participants only; ball is outside this task",
+                "human_review_completed": False,
+            },
+        )
         config = root / f"data-{profile}.yaml"
-        config.write_text(yaml.safe_dump({"path": str(base), "train": "images/train", "val": "images/val",
-                                          "names": names}, sort_keys=False), encoding="utf-8")
+        config.write_text(
+            yaml.safe_dump(
+                {"path": str(base), "train": "images/train", "val": "images/val", "names": names},
+                sort_keys=False,
+            ),
+            encoding="utf-8",
+        )
         outputs.append(str(config))
     return outputs
 
@@ -92,16 +114,38 @@ def prepare_review(root, source):
             (destination / image).hardlink_to(root / row["image"])
         if not (destination / label).exists():
             shutil.copy2(root / row["label"], destination / label)
-        frames.append({"frame_id": row["frame_id"], "video_id": digest_json([source["source"], row["clip"]]),
-                       "video_id_basis": "provider clip identifier", "frame_index": row["source_frame_index"],
-                       "timestamp_s": row["source_frame_index"] / 25, "width": row["width"], "height": row["height"],
-                       "group_id": row["game_id"], "split": row["split"], "image": image, "label": label,
-                       "label_status": "positive" if row["boxes"] else "negative", "annotator": "", "reviewer": "",
-                       "review_status": "open", "annotation_source": "published SN-GSR-2024 v1.3, copied for correction",
-                       "frozen_source_fingerprint": source["fingerprint"]})
-    write_json(manifest_path, {"schema_version": "1.0", "dataset_version": source["dataset_version"] + "-review",
-               "names": list(source["names"].values()), "frames": frames, "human_review_completed": False,
-               "purpose": "Editable label copies; original corpus and existing measurements remain frozen"})
+        frames.append(
+            {
+                "frame_id": row["frame_id"],
+                "video_id": digest_json([source["source"], row["clip"]]),
+                "video_id_basis": "provider clip identifier",
+                "frame_index": row["source_frame_index"],
+                "timestamp_s": row["source_frame_index"] / 25,
+                "width": row["width"],
+                "height": row["height"],
+                "group_id": row["game_id"],
+                "split": row["split"],
+                "image": image,
+                "label": label,
+                "label_status": "positive" if row["boxes"] else "negative",
+                "annotator": "",
+                "reviewer": "",
+                "review_status": "open",
+                "annotation_source": "published SN-GSR-2024 v1.3, copied for correction",
+                "frozen_source_fingerprint": source["fingerprint"],
+            }
+        )
+    write_json(
+        manifest_path,
+        {
+            "schema_version": "1.0",
+            "dataset_version": source["dataset_version"] + "-review",
+            "names": list(source["names"].values()),
+            "frames": frames,
+            "human_review_completed": False,
+            "purpose": "Editable label copies; original corpus and existing measurements remain frozen",
+        },
+    )
     return manifest_path
 
 
@@ -135,15 +179,29 @@ def preview(root, source):
                 cls = box["class_id"]
                 draw.rectangle(coordinates, outline=COLORS[cls], width=2)
                 if cls != 0:
-                    draw.text((coordinates[0], max(0, coordinates[1] - 16)), source["names"][str(cls)],
-                              fill=COLORS[cls], font=font(15), stroke_width=1, stroke_fill="black")
+                    draw.text(
+                        (coordinates[0], max(0, coordinates[1] - 16)),
+                        source["names"][str(cls)],
+                        fill=COLORS[cls],
+                        font=font(15),
+                        stroke_width=1,
+                        stroke_fill="black",
+                    )
             x, y = (position % 2) * 960, (position // 2) * 590
             canvas.paste(image, (x, y + 40))
-            ImageDraw.Draw(canvas).text((x + 12, y + 8),
+            ImageDraw.Draw(canvas).text(
+                (x + 12, y + 8),
                 f"{row['frame_id']} | game {row['game_id']} | {row['split']} | {len(row['boxes'])} boxes",
-                fill="white", font=font(22))
-            sample.append({"frame_id": row["frame_id"], "image_sha256": row["image_sha256"],
-                           "page": f"contact-{page + 1:02d}.jpg"})
+                fill="white",
+                font=font(22),
+            )
+            sample.append(
+                {
+                    "frame_id": row["frame_id"],
+                    "image_sha256": row["image_sha256"],
+                    "page": f"contact-{page + 1:02d}.jpg",
+                }
+            )
         canvas.save(output / f"contact-{page + 1:02d}.jpg", quality=92)
     # Ball boxes receive native-resolution crops because they are tiny in full-frame sheets.
     balls = Image.new("RGB", (6 * 220, 4 * 250), "#111827")
@@ -156,14 +214,23 @@ def preview(root, source):
         with Image.open(root / row["image"]) as original:
             crop = original.crop((cx - 55, cy - 55, cx + 55, cy + 55)).resize((220, 220))
         draw = ImageDraw.Draw(crop)
-        draw.rectangle(((x1 - cx + 55) * 2, (y1 - cy + 55) * 2,
-                        (x2 - cx + 55) * 2, (y2 - cy + 55) * 2), outline=COLORS[2], width=2)
+        draw.rectangle(
+            ((x1 - cx + 55) * 2, (y1 - cy + 55) * 2, (x2 - cx + 55) * 2, (y2 - cy + 55) * 2),
+            outline=COLORS[2],
+            width=2,
+        )
         x, y = (i % 6) * 220, (i // 6) * 250
         balls.paste(crop, (x, y + 25))
         ImageDraw.Draw(balls).text((x + 5, y + 3), row["frame_id"], fill="white", font=font(13))
     balls.save(output / "ball-crops.jpg", quality=94)
-    write_json(output / "sample.json", {"selection": "four evenly distributed clips per match, temporal midpoint",
-               "frames": sample, "human_review_completed": False})
+    write_json(
+        output / "sample.json",
+        {
+            "selection": "four evenly distributed clips per match, temporal midpoint",
+            "frames": sample,
+            "human_review_completed": False,
+        },
+    )
     return output
 
 

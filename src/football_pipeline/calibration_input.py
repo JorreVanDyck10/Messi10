@@ -23,8 +23,9 @@ def penalty_area_points(side: str, *, length=105.0, width=68.0) -> list[dict]:
         ("Doelgebied boven, hoek op 5,5 m van de doellijn", "check", check_u, small_top),
         ("Doelgebied onder, hoek op 5,5 m van de doellijn", "check", check_u, small_bottom),
     ]
-    return [{"name": name, "role": role, "u": u, "v": v, "x": None, "y": None}
-            for name, role, u, v in definitions]
+    return [
+        {"name": name, "role": role, "u": u, "v": v, "x": None, "y": None} for name, role, u, v in definitions
+    ]
 
 
 def point_label(point: dict) -> str:

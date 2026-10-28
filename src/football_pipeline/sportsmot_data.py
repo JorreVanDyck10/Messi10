@@ -52,11 +52,19 @@ def athlete_boxes(text, width, height):
             raise ValueError("Incomplete athlete annotations cannot silently become negatives")
         # Follow the provider's MOT-to-COCO convention; no frame or bbox offset
         # is fitted to model predictions. Only the image boundary is clipped.
-        box = [max(0., x), max(0., y), min(float(width), x + w), min(float(height), y + h)]
+        box = [max(0.0, x), max(0.0, y), min(float(width), x + w), min(float(height), y + h)]
         if box[2] > box[0] and box[3] > box[1]:
-            result[int(frame)].append({"bbox": box, "track_id": int(track), "role": "player",
-                                       "team": None, "goalkeeper": None, "on_pitch": None,
-                                       "provider_scope": "players_on_playground"})
+            result[int(frame)].append(
+                {
+                    "bbox": box,
+                    "track_id": int(track),
+                    "role": "player",
+                    "team": None,
+                    "goalkeeper": None,
+                    "on_pitch": None,
+                    "provider_scope": "players_on_playground",
+                }
+            )
     return result
 
 
@@ -66,9 +74,16 @@ def prepare_football(archive, output, step=5):
     if sha256_file(archive) != ARCHIVE_SHA256:
         raise ValueError("SportsMOT training archive checksum changed")
     selected, lists = football_selection()
-    frozen = {"source": SOURCE, "revision": REVISION, "archive_sha256": ARCHIVE_SHA256,
-              "split": "train", "sequences": selected, "source_lists": lists,
-              "frame_step": step, "test_accessed": False}
+    frozen = {
+        "source": SOURCE,
+        "revision": REVISION,
+        "archive_sha256": ARCHIVE_SHA256,
+        "split": "train",
+        "sequences": selected,
+        "source_lists": lists,
+        "frame_step": step,
+        "test_accessed": False,
+    }
     selection = output / "selection.json"
     if selection.exists() and read_json(selection) != frozen:
         raise ValueError("SportsMOT selection changed; choose a new output")
@@ -90,12 +105,17 @@ def prepare_football(archive, output, step=5):
                 continue
             sequence = matches[0]
             at = parts.index(sequence)
-            if (at == 0 or parts[at - 1] != "train" or ".." in parts or "\\" in member.name
-                    or not member.isfile()):
+            if (
+                at == 0
+                or parts[at - 1] != "train"
+                or ".." in parts
+                or "\\" in member.name
+                or not member.isfile()
+            ):
                 if member.isdir():
                     continue
                 raise ValueError("Unsafe or unverified SportsMOT member")
-            suffix = "/".join(parts[at + 1:])
+            suffix = "/".join(parts[at + 1 :])
             if suffix in {"seqinfo.ini", "gt/gt.txt"} or (
                 re.fullmatch(r"img1/\d{6}\.jpg", suffix) and (int(Path(suffix).stem) - 1) % step == 0
             ):
@@ -125,13 +145,30 @@ def prepare_football(archive, output, step=5):
                     raise ValueError("SportsMOT image dimensions disagree with the source")
                 if not people.get(frame):
                     raise ValueError("Unlabelled athlete frame cannot be treated as background")
-                frames.append({"frame_id": fid, "image": str(image), "image_sha256": sha256_file(image),
-                               "width": width, "height": height, "split": "train", "clip": sequence,
-                               "game_id": "sportsmot:" + sequence.rsplit("_c", 1)[0], "frame_index": frame - 1,
-                               "people": people[frame], "provider_sha256": sha256_file(label_copy)})
+                frames.append(
+                    {
+                        "frame_id": fid,
+                        "image": str(image),
+                        "image_sha256": sha256_file(image),
+                        "width": width,
+                        "height": height,
+                        "split": "train",
+                        "clip": sequence,
+                        "game_id": "sportsmot:" + sequence.rsplit("_c", 1)[0],
+                        "frame_index": frame - 1,
+                        "people": people[frame],
+                        "provider_sha256": sha256_file(label_copy),
+                    }
+                )
             print("Prepared SportsMOT", sequence, len(frames), "training frames", flush=True)
-    result = {"source": SOURCE, "selection": frozen, "frames": frames, "test_accessed": False,
-              "license": "CC-BY-NC-4.0", "human_review_completed": False}
+    result = {
+        "source": SOURCE,
+        "selection": frozen,
+        "frames": frames,
+        "test_accessed": False,
+        "license": "CC-BY-NC-4.0",
+        "human_review_completed": False,
+    }
     result["fingerprint"] = digest_json(result)
     write_json(output / "manifest.json", result)
     return result
@@ -168,19 +205,39 @@ def mixed_player_dataset(sports, output, base=ROOT / "data/broadcast-pitch-v1"):
                 if person["role"] != "player":
                     continue
                 x1, y1, x2, y2 = person["bbox"]
-                lines.append(f"0 {(x1+x2)/2/width:.9f} {(y1+y2)/2/height:.9f} {(x2-x1)/width:.9f} {(y2-y1)/height:.9f}")
+                lines.append(
+                    f"0 {(x1 + x2) / 2 / width:.9f} {(y1 + y2) / 2 / height:.9f} {(x2 - x1) / width:.9f} {(y2 - y1) / height:.9f}"
+                )
             label.write_text("\n".join(lines) + "\n", encoding="utf-8")
-            rows.append({**row, "provider": provider, "image": str(image), "label": str(label),
-                         "label_sha256": sha256_file(label), "original_image": row["image"]})
-    result = {"schema_version": 1, "names": {0: "player"}, "frames": rows,
-              "source_fingerprints": {"soccernet": original["fingerprint"], "sportsmot": sports["fingerprint"]},
-              "selection": sports["selection"], "counts": dict(Counter((r["provider"] + ":" + r["split"]) for r in rows)),
-              "test_accessed": False, "referees": "Known non-target humans, not relabelled as players",
-              "split_rule": "Original SoccerNet validation matches; SportsMOT official football train only",
-              "ordering": "Seed-42 hashed aliases mix matches before aspect sorting"}
+            rows.append(
+                {
+                    **row,
+                    "provider": provider,
+                    "image": str(image),
+                    "label": str(label),
+                    "label_sha256": sha256_file(label),
+                    "original_image": row["image"],
+                }
+            )
+    result = {
+        "schema_version": 1,
+        "names": {0: "player"},
+        "frames": rows,
+        "source_fingerprints": {"soccernet": original["fingerprint"], "sportsmot": sports["fingerprint"]},
+        "selection": sports["selection"],
+        "counts": dict(Counter((r["provider"] + ":" + r["split"]) for r in rows)),
+        "test_accessed": False,
+        "referees": "Known non-target humans, not relabelled as players",
+        "split_rule": "Original SoccerNet validation matches; SportsMOT official football train only",
+        "ordering": "Seed-42 hashed aliases mix matches before aspect sorting",
+    }
     result["fingerprint"] = digest_json(result)
-    (output / "data.yaml").write_text(yaml.safe_dump({"path": output.as_posix(), "train": "images/train",
-        "val": "images/val", "names": {0: "player"}}), encoding="utf-8")
+    (output / "data.yaml").write_text(
+        yaml.safe_dump(
+            {"path": output.as_posix(), "train": "images/train", "val": "images/val", "names": {0: "player"}}
+        ),
+        encoding="utf-8",
+    )
     write_json(output / "manifest.json", result)
     return result
 

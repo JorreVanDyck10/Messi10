@@ -35,12 +35,17 @@ def initialize_two_roles(source, output):
     model.names = {0: "player", 1: "referee"}
     path = output / "initialization_only.pt"
     torch.save({"model": model.half(), "train_args": {"task": "detect"}, "optimizer": None}, path)
-    write_json(output / "initialization.json", {
-        "source_sha256": sha256_file(source), "initialization_sha256": sha256_file(path),
-        "source_names": original.names, "target_names": model.names,
-        "application_use_allowed": False,
-        "meaning": "Untrained role rows; supervised training on player/referee labels is mandatory",
-    })
+    write_json(
+        output / "initialization.json",
+        {
+            "source_sha256": sha256_file(source),
+            "initialization_sha256": sha256_file(path),
+            "source_names": original.names,
+            "target_names": model.names,
+            "application_use_allowed": False,
+            "meaning": "Untrained role rows; supervised training on player/referee labels is mandatory",
+        },
+    )
     return path
 
 
@@ -50,24 +55,60 @@ def train(dataset, output, epochs=40, resolution=1920, minutes=None):
     if any(r["split"] not in {"train", "val"} for r in manifest["frames"]):
         raise ValueError("Reserved images must not enter detector training")
     for row in manifest["frames"]:
-        if sha256_file(row["image"]) != row["image_sha256"] or sha256_file(row["label"]) != row["label_sha256"]:
+        if (
+            sha256_file(row["image"]) != row["image_sha256"]
+            or sha256_file(row["label"]) != row["label_sha256"]
+        ):
             raise ValueError("Broadcast training bytes changed")
     output.mkdir(parents=True, exist_ok=False)
     source = ROOT / "models/yolo11m.pt"
     if sha256_file(source) != "d5ffc1a674953a08e11a8d21e022781b1b23a19b730afc309290bd9fb5305b95":
         raise ValueError("COCO medium initialization changed")
     initial = initialize_two_roles(source, output)
-    write_json(output / "inputs.json", {"dataset_fingerprint": manifest["fingerprint"],
-               "source": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11m.pt",
-               "source_sha256": sha256_file(source), "test_accessed": False,
-               "target_names": {0: "player", 1: "referee"}, "field_models_changed": False})
-    config = {"imgsz": resolution, "epochs": epochs, "patience": 8, "batch": 1, "workers": 4,
-              "optimizer": "AdamW", "lr0": .0003, "lrf": .1, "cos_lr": True,
-              "warmup_epochs": 3., "warmup_bias_lr": 0., "weight_decay": .0005,
-              "freeze": 0, "amp": True, "seed": 42, "deterministic": True,
-              "rect": True, "fliplr": .5, "flipud": 0., "degrees": 2., "translate": .05, "scale": .15,
-              "hsv_h": .05, "hsv_s": .5, "hsv_v": .35, "mosaic": 0., "close_mosaic": 0,
-              "mixup": 0., "plots": True, "val": True, "save": True}
+    write_json(
+        output / "inputs.json",
+        {
+            "dataset_fingerprint": manifest["fingerprint"],
+            "source": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11m.pt",
+            "source_sha256": sha256_file(source),
+            "test_accessed": False,
+            "target_names": {0: "player", 1: "referee"},
+            "field_models_changed": False,
+        },
+    )
+    config = {
+        "imgsz": resolution,
+        "epochs": epochs,
+        "patience": 8,
+        "batch": 1,
+        "workers": 4,
+        "optimizer": "AdamW",
+        "lr0": 0.0003,
+        "lrf": 0.1,
+        "cos_lr": True,
+        "warmup_epochs": 3.0,
+        "warmup_bias_lr": 0.0,
+        "weight_decay": 0.0005,
+        "freeze": 0,
+        "amp": True,
+        "seed": 42,
+        "deterministic": True,
+        "rect": True,
+        "fliplr": 0.5,
+        "flipud": 0.0,
+        "degrees": 2.0,
+        "translate": 0.05,
+        "scale": 0.15,
+        "hsv_h": 0.05,
+        "hsv_s": 0.5,
+        "hsv_v": 0.35,
+        "mosaic": 0.0,
+        "close_mosaic": 0,
+        "mixup": 0.0,
+        "plots": True,
+        "val": True,
+        "save": True,
+    }
     return train_yolo(initial, dataset, output / "training", config, minutes)
 
 

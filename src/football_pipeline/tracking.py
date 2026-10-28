@@ -57,7 +57,9 @@ class ByteTrackAdapter:
                     from .tracking_motion import warp_xyah
 
                     warp_xyah(tracks, self.background_motion.matrix)
-                    warp_xyah([t for t in self.tracked_stracks if not t.is_activated], self.background_motion.matrix)
+                    warp_xyah(
+                        [t for t in self.tracked_stracks if not t.is_activated], self.background_motion.matrix
+                    )
 
         self.legacy_partition_indices = legacy_partition_indices
         self.tracker = SourceIndexedTracker(SimpleNamespace(**config))

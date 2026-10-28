@@ -304,16 +304,25 @@ def calibration_target_preview(points: list[dict], selected: int, *, length=105.
         cv2.polylines(canvas, [quad], True, (160, 190, 165), 1)
         check_u = anchors[4]["u"]
         goal_u = 0 if side == "left" else 1
-        cv2.rectangle(canvas, pixel(goal_u, anchors[4]["v"]), pixel(check_u, anchors[5]["v"]),
-                      (160, 190, 165), 1)
+        cv2.rectangle(
+            canvas, pixel(goal_u, anchors[4]["v"]), pixel(check_u, anchors[5]["v"]), (160, 190, 165), 1
+        )
     for index, point in enumerate(points):
         xy = pixel(point["u"], point["v"])
         color = (255, 210, 0) if point["role"] == "fit" else (45, 210, 255)
         if index == selected:
             cv2.circle(canvas, xy, 12, (255, 255, 255), 2)
         cv2.circle(canvas, xy, 6, color, -1)
-        cv2.putText(canvas, str(index + 1), (xy[0] + 13, xy[1] - 8), cv2.FONT_HERSHEY_SIMPLEX,
-                    0.65, (255, 255, 255), 2, cv2.LINE_AA)
+        cv2.putText(
+            canvas,
+            str(index + 1),
+            (xy[0] + 13, xy[1] - 8),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.65,
+            (255, 255, 255),
+            2,
+            cv2.LINE_AA,
+        )
     return canvas
 
 

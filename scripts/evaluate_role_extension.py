@@ -51,8 +51,12 @@ def infer(weights, root, rows):
 def summarize(rows, predictions):
     truth = np.array([ROLE_NAMES.index(r["role"]) for r in rows])
     chosen = np.array(
-        [ROLE_NAMES.index(predictions[r["id"]]["runtime_role"])
-         if predictions[r["id"]]["confidence"] >= 0.65 else -1 for r in rows]
+        [
+            ROLE_NAMES.index(predictions[r["id"]]["runtime_role"])
+            if predictions[r["id"]]["confidence"] >= 0.65
+            else -1
+            for r in rows
+        ]
     )
     result = scores(truth, chosen, ROLE_NAMES)
     teams = [r for r in rows if r.get("team")]

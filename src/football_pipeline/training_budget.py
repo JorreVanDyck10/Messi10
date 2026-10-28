@@ -62,12 +62,18 @@ def train_yolo(weights, dataset, output, config, minutes):
         model.add_callback("on_fit_epoch_end", limit_epochs)
 
         def save_progress(trainer):
-            write_json(output / "progress.json", {
-                "epoch": trainer.epoch + 1, "maximum_epochs": maximum_epochs,
-                "elapsed_s": budget.clock() - budget.started, "batch_size": batch,
-                "loss": [float(v) for v in trainer.tloss.detach().cpu().flatten()]
-                if getattr(trainer, "tloss", None) is not None else None,
-            })
+            write_json(
+                output / "progress.json",
+                {
+                    "epoch": trainer.epoch + 1,
+                    "maximum_epochs": maximum_epochs,
+                    "elapsed_s": budget.clock() - budget.started,
+                    "batch_size": batch,
+                    "loss": [float(v) for v in trainer.tloss.detach().cpu().flatten()]
+                    if getattr(trainer, "tloss", None) is not None
+                    else None,
+                },
+            )
 
         model.add_callback("on_train_epoch_end", save_progress)
         try:
@@ -78,7 +84,9 @@ def train_yolo(weights, dataset, output, config, minutes):
                 device=0,
                 workers=workers,
                 batch=batch,
-                time=max(0.0001, (budget.deadline - budget.clock()) / 3600) if math.isfinite(budget.deadline) else None,
+                time=max(0.0001, (budget.deadline - budget.clock()) / 3600)
+                if math.isfinite(budget.deadline)
+                else None,
                 **config,
             )
             best = output / f"batch-{batch}/weights/best.pt"

@@ -14,13 +14,18 @@ def load_model_manifest(path: str | Path) -> dict:
     models = manifest.get("models", [])
     if manifest.get("analysis_scope", "all_participants") not in {"all_participants", "on_pitch_players"}:
         raise PipelineError("Onbekend analysebereik.")
-    if "person_geometry" in manifest and (type(manifest["person_geometry"]) is not bool
-            or manifest.get("analysis_scope") != "on_pitch_players"):
+    if "person_geometry" in manifest and (
+        type(manifest["person_geometry"]) is not bool or manifest.get("analysis_scope") != "on_pitch_players"
+    ):
         raise PipelineError("Persoonsgeometrie vereist een expliciet veldgericht profiel.")
     if "person_box_fusion_weight" in manifest:
         weight = manifest["person_box_fusion_weight"]
-        if (type(weight) not in {float, int} or not math.isfinite(weight) or not 0 <= weight <= 1
-                or not manifest.get("person_geometry")):
+        if (
+            type(weight) not in {float, int}
+            or not math.isfinite(weight)
+            or not 0 <= weight <= 1
+            or not manifest.get("person_geometry")
+        ):
             raise PipelineError("Boxcombinatie vereist persoonsgeometrie en een gewicht tussen nul en één.")
     if manifest.get("schema_version") != 1 or not models:
         raise PipelineError("Modelmanifest vereist schema_version 1 en minstens één model.")
@@ -121,16 +126,23 @@ def load_model_manifest(path: str | Path) -> dict:
     if manifest.get("role_context"):
         spec = manifest["role_context"]
         weights = (path.parent / spec["weights"]).resolve()
-        if (manifest.get("analysis_scope") != "on_pitch_players" or not manifest.get("kit_embedding")
-                or manifest.get("appearance", {}).get("role_names") != ["player", "referee", "person"]):
+        if (
+            manifest.get("analysis_scope") != "on_pitch_players"
+            or not manifest.get("kit_embedding")
+            or manifest.get("appearance", {}).get("role_names") != ["player", "referee", "person"]
+        ):
             raise PipelineError("Veldrolcontext vereist de veldgerichte rol- en shirtmodellen.")
-        if not weights.is_file() or sha256_file(weights) != spec.get("weights_sha256") or not spec.get("model_id"):
+        if (
+            not weights.is_file()
+            or sha256_file(weights) != spec.get("weights_sha256")
+            or not spec.get("model_id")
+        ):
             raise PipelineError("Gewichten of model-ID voor veldrolcontext ontbreken of wijken af.")
         for key in ("player_threshold", "nonplayer_threshold"):
-            if type(spec.get(key)) not in {float, int} or not .5 < spec[key] < 1:
+            if type(spec.get(key)) not in {float, int} or not 0.5 < spec[key] < 1:
                 raise PipelineError("Veldrolcontext vereist conservatieve roldrempels.")
-        end = spec.get("protect_end_fraction", .08)
-        if type(end) not in {float, int} or not 0 <= end < .25:
+        end = spec.get("protect_end_fraction", 0.08)
+        if type(end) not in {float, int} or not 0 <= end < 0.25:
             raise PipelineError("Ongeldige doelgebiedbescherming voor veldrolcontext.")
         spec["weights"] = str(weights)
     return manifest
@@ -171,18 +183,20 @@ def merge_person_proposals(detections, overlap=0.5, *, preserve_same_source=Fals
             if union > 0 and intersection / union >= overlap:
                 smaller = min((x2 - x1) * (y2 - y1), (c - a) * (d - b))
                 aligned_partial = (
-                    preserve_same_source and candidate.model_id == other.model_id
-                    and candidate.semantic_class == other.semantic_class and smaller > 0
-                    and intersection / smaller >= .95
-                    and min(y2 - y1, d - b) < .85 * max(y2 - y1, d - b)
-                    and abs((x1 + x2) / 2 - (a + c) / 2) <= min(x2 - x1, c - a) * .1
-                    and abs(y2 - d) <= max(y2 - y1, d - b) * .08
+                    preserve_same_source
+                    and candidate.model_id == other.model_id
+                    and candidate.semantic_class == other.semantic_class
+                    and smaller > 0
+                    and intersection / smaller >= 0.95
+                    and min(y2 - y1, d - b) < 0.85 * max(y2 - y1, d - b)
+                    and abs((x1 + x2) / 2 - (a + c) / 2) <= min(x2 - x1, c - a) * 0.1
+                    and abs(y2 - d) <= max(y2 - y1, d - b) * 0.08
                 )
                 if aligned_partial:
                     # Two boxes share the same feet/axis, with one nearly inside
                     # the other. Prefer the complete original source box. This
                     # also removes partial duplicates at an image boundary.
-                    if y2 - y1 > d - b and candidate.confidence >= .25:
+                    if y2 - y1 > d - b and candidate.confidence >= 0.25:
                         kept[index] = candidate
                     duplicate = True
                     break
@@ -241,39 +255,57 @@ def prefer_person_geometry(people, fusion_weight=0):
     import numpy as np
     from scipy.optimize import linear_sum_assignment
 
-    persons = merge_person_proposals([d for d in people if d.semantic_class == "person"], preserve_same_source=True)
+    persons = merge_person_proposals(
+        [d for d in people if d.semantic_class == "person"], preserve_same_source=True
+    )
     specialists = [d for d in people if d.semantic_class in {"player", "referee"}]
     if not persons:
-        return [d for d in specialists if d.semantic_class == "player" and d.confidence >= .75]
+        return [d for d in specialists if d.semantic_class == "player" and d.confidence >= 0.75]
     if not specialists:
         return persons
     a = np.asarray([d.bbox_xyxy for d in persons], float)
     b = np.asarray([d.bbox_xyxy for d in specialists], float)
-    intersection = np.maximum(0, np.minimum(a[:, None, 2:], b[None, :, 2:])
-                              - np.maximum(a[:, None, :2], b[None, :, :2])).prod(2)
+    intersection = np.maximum(
+        0, np.minimum(a[:, None, 2:], b[None, :, 2:]) - np.maximum(a[:, None, :2], b[None, :, :2])
+    ).prod(2)
     union = (a[:, 2:] - a[:, :2]).prod(1)[:, None] + (b[:, 2:] - b[:, :2]).prod(1) - intersection
     scores = np.divide(intersection, union, out=np.zeros_like(intersection), where=union > 0)
     used = set()
     for a, b in zip(*linear_sum_assignment(-scores)):
-        if scores[a, b] < .35:
+        if scores[a, b] < 0.35:
             continue
         source = specialists[b]
-        persons[a].role_evidence = {"model_id": source.model_id, "source_class_id": source.source_class_id,
-                                   "semantic_class": source.semantic_class, "confidence": source.confidence,
-                                   "bbox_xyxy": list(source.bbox_xyxy), "overlap": float(scores[a, b])}
-        if fusion_weight and scores[a, b] >= .5 and source.confidence >= .25:
+        persons[a].role_evidence = {
+            "model_id": source.model_id,
+            "source_class_id": source.source_class_id,
+            "semantic_class": source.semantic_class,
+            "confidence": source.confidence,
+            "bbox_xyxy": list(source.bbox_xyxy),
+            "overlap": float(scores[a, b]),
+        }
+        if fusion_weight and scores[a, b] >= 0.5 and source.confidence >= 0.25:
             person = persons[a]
             original = list(person.bbox_xyxy)
             person.box_geometry_evidence = {
-                "method": "weighted_person_specialist", "person_model_id": person.model_id,
-                "person_source_bbox": original, "specialist_model_id": source.model_id,
-                "specialist_source_bbox": list(source.bbox_xyxy), "specialist_weight": fusion_weight,
+                "method": "weighted_person_specialist",
+                "person_model_id": person.model_id,
+                "person_source_bbox": original,
+                "specialist_model_id": source.model_id,
+                "specialist_source_bbox": list(source.bbox_xyxy),
+                "specialist_weight": fusion_weight,
             }
-            person.bbox_xyxy = ((1 - fusion_weight) * np.asarray(original)
-                               + fusion_weight * np.asarray(source.bbox_xyxy)).tolist()
+            person.bbox_xyxy = (
+                (1 - fusion_weight) * np.asarray(original) + fusion_weight * np.asarray(source.bbox_xyxy)
+            ).tolist()
         used.add(b)
-    fallback = [d for i, d in enumerate(specialists) if i not in used and d.semantic_class == "player"
-                and d.confidence >= .75 and scores[:, i].max() < .2]
+    fallback = [
+        d
+        for i, d in enumerate(specialists)
+        if i not in used
+        and d.semantic_class == "player"
+        and d.confidence >= 0.75
+        and scores[:, i].max() < 0.2
+    ]
     return persons + fallback
 
 
@@ -281,7 +313,10 @@ def validate_detection_devices(manifest: dict) -> None:
     """Fail before expensive field inference when a requested CUDA device is unavailable."""
     import torch
 
-    for spec in [*manifest["models"], *(manifest[k] for k in ("appearance", "kit_embedding") if manifest.get(k))]:
+    for spec in [
+        *manifest["models"],
+        *(manifest[k] for k in ("appearance", "kit_embedding") if manifest.get(k)),
+    ]:
         device = str(spec.get("device", "cpu")).lower().strip()
         if device == "cuda":
             device = "0"
@@ -337,10 +372,15 @@ class UltralyticsDetector:
         if manifest.get("role_context"):
             from .role_context import RoleContext
 
-            self.role_context = RoleContext(manifest["role_context"], manifest["appearance"]["weights_sha256"],
-                                            manifest["kit_embedding"]["weights_sha256"])
-            self.appearance.context_projection = (self.role_context.cnn_center.to(self.appearance.device),
-                                                   self.role_context.cnn_projection.to(self.appearance.device))
+            self.role_context = RoleContext(
+                manifest["role_context"],
+                manifest["appearance"]["weights_sha256"],
+                manifest["kit_embedding"]["weights_sha256"],
+            )
+            self.appearance.context_projection = (
+                self.role_context.cnn_center.to(self.appearance.device),
+                self.role_context.cnn_projection.to(self.appearance.device),
+            )
 
     def set_video_identity(self, video_hash):
         if video_hash != self.video_hash and self.appearance:
@@ -418,8 +458,14 @@ class UltralyticsDetector:
                             spec["class_mapping"][str(class_id)],
                             box.tolist(),
                             float(confidence),
-                            player_kind="goalkeeper" if str(spec.get("expected_names", {}).get(str(class_id), "")).lower() == "goalkeeper" else None,
-                            player_kind_source="detector" if str(spec.get("expected_names", {}).get(str(class_id), "")).lower() == "goalkeeper" else None,
+                            player_kind="goalkeeper"
+                            if str(spec.get("expected_names", {}).get(str(class_id), "")).lower()
+                            == "goalkeeper"
+                            else None,
+                            player_kind_source="detector"
+                            if str(spec.get("expected_names", {}).get(str(class_id), "")).lower()
+                            == "goalkeeper"
+                            else None,
                         )
                     )
         if self.appearance and getattr(self, "manifest", {}).get("analysis_scope") != "on_pitch_players":
@@ -433,11 +479,16 @@ class UltralyticsDetector:
         from .participants import field_exclusion_reason
 
         size = (frame.shape[1], frame.shape[0])
-        people = [d for d in detections if d.semantic_class in GROUND_ROLES
-                  and field_exclusion_reason(d, size) is None]
-        merged = (prefer_person_geometry(people, getattr(self, "manifest", {}).get("person_box_fusion_weight", 0))
-                  if getattr(self, "manifest", {}).get("person_geometry")
-                  else merge_person_proposals(people, preserve_same_source=True))
+        people = [
+            d
+            for d in detections
+            if d.semantic_class in GROUND_ROLES and field_exclusion_reason(d, size) is None
+        ]
+        merged = (
+            prefer_person_geometry(people, getattr(self, "manifest", {}).get("person_box_fusion_weight", 0))
+            if getattr(self, "manifest", {}).get("person_geometry")
+            else merge_person_proposals(people, preserve_same_source=True)
+        )
         eligible_ids = {id(d) for d in people}
         # An outside-field proposal cannot suppress an inside-field athlete.
         # Keep excluded raw observations for audit, without role/team inference.

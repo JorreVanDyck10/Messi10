@@ -28,13 +28,27 @@ def test_remote_zip_member_requires_matching_name_size_and_crc():
 
 
 def clip(name, game, archive="train", count=31):
-    images = [{"image_id": str(i), "file_name": f"{i + 1:06d}.jpg", "is_labeled": True,
-               "has_labeled_person": True, "has_labeled_pitch": True,
-               "ignore_regions_x": [], "ignore_regions_y": []} for i in range(count)]
-    annotations = [{"image_id": str(i), "supercategory": "pitch", "lines": {"Middle line": []}}
-                   for i in range(count)]
-    return {"info": {"name": name}, "game_id": game, "archive_split": archive,
-            "data": {"images": images, "annotations": annotations}}
+    images = [
+        {
+            "image_id": str(i),
+            "file_name": f"{i + 1:06d}.jpg",
+            "is_labeled": True,
+            "has_labeled_person": True,
+            "has_labeled_pitch": True,
+            "ignore_regions_x": [],
+            "ignore_regions_y": [],
+        }
+        for i in range(count)
+    ]
+    annotations = [
+        {"image_id": str(i), "supercategory": "pitch", "lines": {"Middle line": []}} for i in range(count)
+    ]
+    return {
+        "info": {"name": name},
+        "game_id": game,
+        "archive_split": archive,
+        "data": {"images": images, "annotations": annotations},
+    }
 
 
 def test_sampling_requires_annotations_and_excludes_ignored_images():
@@ -48,8 +62,12 @@ def test_sampling_requires_annotations_and_excludes_ignored_images():
 
 
 def test_selection_keeps_validation_games_out_of_training_and_samples_all_clips():
-    clips = [clip("SNGS-001", "1"), clip("SNGS-002", "1"), clip("SNGS-003", "2"),
-             clip("SNGS-004", "2", "valid")]
+    clips = [
+        clip("SNGS-001", "1"),
+        clip("SNGS-002", "1"),
+        clip("SNGS-003", "2"),
+        clip("SNGS-004", "2", "valid"),
+    ]
     games = {"train": ["1"], "val": ["2"]}
     train = module.choose_frames(clips, games, "train", 10)
     valid = module.choose_frames(clips, games, "val", 4)
@@ -101,22 +119,41 @@ def test_real_image_export_preserves_roles_and_attributes_and_audit_detects_tamp
             assert name == member
             return pixels
 
-    for folder in ("images/train", "labels/train", "roles/images/train", "roles/labels/train",
-                   "field/train", "attributes/train", "provider-labels"):
+    for folder in (
+        "images/train",
+        "labels/train",
+        "roles/images/train",
+        "roles/labels/train",
+        "field/train",
+        "attributes/train",
+        "provider-labels",
+    ):
         (tmp_path / folder).mkdir(parents=True, exist_ok=True)
     original = tmp_path / "provider-labels/SNGS-001.json.gz"
     original.write_bytes(b"immutable provider evidence")
     annotations = [
-        {"supercategory": "object", "category_id": 2, "bbox_image": {"x": -5, "y": 10, "w": 15, "h": 40},
-         "attributes": {"role": "goalkeeper", "team": "left", "jersey": "1"}, "track_id": 13},
+        {
+            "supercategory": "object",
+            "category_id": 2,
+            "bbox_image": {"x": -5, "y": 10, "w": 15, "h": 40},
+            "attributes": {"role": "goalkeeper", "team": "left", "jersey": "1"},
+            "track_id": 13,
+        },
         {"supercategory": "object", "category_id": 4, "bbox_image": {"x": 60, "y": 60, "w": 4, "h": 4}},
         {"supercategory": "object", "category_id": 7, "bbox_image": {"x": 120, "y": 10, "w": 10, "h": 20}},
         {"supercategory": "pitch", "lines": {"Middle line": [{"x": 0.5, "y": 0}, {"x": 0.5, "y": 1}]}},
     ]
-    selected = {"clip": {"info": {"name": "SNGS-001"}, "archive_split": "train", "game_id": "4",
-                          "annotation_sha256": sha256_file(original)},
-                "image": {"file_name": "000001.jpg", "image_id": "1", "width": 100, "height": 100},
-                "annotations": annotations, "split": "train"}
+    selected = {
+        "clip": {
+            "info": {"name": "SNGS-001"},
+            "archive_split": "train",
+            "game_id": "4",
+            "annotation_sha256": sha256_file(original),
+        },
+        "image": {"file_name": "000001.jpg", "image_id": "1", "width": 100, "height": 100},
+        "annotations": annotations,
+        "split": "train",
+    }
     row = module.prepare_frame(tmp_path, {"train": Archive()}, selected)
     assert row["clipped_boxes"] == row["dropped_boxes"] == 1
     assert [box["class_id"] for box in row["boxes"]] == [0, 2]
@@ -126,7 +163,9 @@ def test_real_image_export_preserves_roles_and_attributes_and_audit_detects_tamp
     assert report["fully_decoded_images"] == 1
     assert report["role_counts"]["train"] == {"goalkeeper": 1, "ball": 1}
     export_participants(tmp_path, {"frames": [row], "fingerprint": "verified-source"})
-    assert (tmp_path / "players/labels/train/SNGS-001_000001.txt").read_text().splitlines()[0].startswith("0 ")
+    assert (
+        (tmp_path / "players/labels/train/SNGS-001_000001.txt").read_text().splitlines()[0].startswith("0 ")
+    )
     participant_labels = (tmp_path / "participants/labels/train/SNGS-001_000001.txt").read_text().splitlines()
     assert len(participant_labels) == 1
     assert participant_labels[0].startswith("1 ")  # Keep the goalkeeper role; exclude the ball task.

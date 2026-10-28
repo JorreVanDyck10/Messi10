@@ -81,8 +81,9 @@ class MemberArchive:
             self.local.session = requests.Session()
         for attempt in range(5):
             try:
-                with self.local.session.get(self.download_url, headers={"Range": f"bytes={start}-{end}"}, timeout=60,
-                                            stream=True) as response:
+                with self.local.session.get(
+                    self.download_url, headers={"Range": f"bytes={start}-{end}"}, timeout=60, stream=True
+                ) as response:
                     response.raise_for_status()
                     expected = f"bytes {start}-{end}/{self.size}"
                     if response.status_code != 206 or response.headers.get("Content-Range") != expected:
@@ -117,9 +118,14 @@ def load_clip(root, archive, source, member):
     categories = {c["id"]: c["name"] for c in data["categories"] if c["supercategory"] == "object"}
     if categories != {1: "player", 2: "goalkeeper", 3: "referee", 4: "ball", 7: "other"}:
         raise ValueError("Provider class mapping changed")
-    return {"member": member, "archive_split": source, "info": info,
-            "game_id": str(info["game_id"]), "annotation_path": str(destination),
-            "annotation_sha256": sha256_file(destination)}
+    return {
+        "member": member,
+        "archive_split": source,
+        "info": info,
+        "game_id": str(info["game_id"]),
+        "annotation_path": str(destination),
+        "annotation_sha256": sha256_file(destination),
+    }
 
 
 def eligible_images(data, min_gap=5):
@@ -133,10 +139,15 @@ def eligible_images(data, min_gap=5):
             raise ValueError("Unsafe provider image name")
         index = int(Path(im["file_name"]).stem) - 1
         objects = annotations[str(im["image_id"])]
-        if (im.get("is_labeled") and im.get("has_labeled_person") and im.get("has_labeled_pitch")
-                and not im.get("ignore_regions_x") and not im.get("ignore_regions_y")
-                and any(a["supercategory"] == "pitch" and a.get("lines") for a in objects)
-                and index - last >= min_gap):
+        if (
+            im.get("is_labeled")
+            and im.get("has_labeled_person")
+            and im.get("has_labeled_pitch")
+            and not im.get("ignore_regions_x")
+            and not im.get("ignore_regions_y")
+            and any(a["supercategory"] == "pitch" and a.get("lines") for a in objects)
+            and index - last >= min_gap
+        ):
             candidates.append((im, objects))
             last = index
     return candidates
@@ -164,8 +175,9 @@ def choose_frames(clips, games, split, wanted):
         raise ValueError(f"Not enough fully annotated {split} images at a five-frame minimum gap")
     quotas = [0] * len(pools)
     for _ in range(wanted):
-        chosen = min((i for i, (_, pool) in enumerate(pools) if quotas[i] < len(pool)),
-                     key=lambda i: (quotas[i], i))
+        chosen = min(
+            (i for i, (_, pool) in enumerate(pools) if quotas[i] < len(pool)), key=lambda i: (quotas[i], i)
+        )
         quotas[chosen] += 1
     result = []
     for (clip, pool), quota in zip(pools, quotas):
@@ -178,9 +190,13 @@ def choose_frames(clips, games, split, wanted):
 def prepare_frame(root, archives, selected):
     clip, im, annotations, split = (selected[k] for k in ("clip", "image", "annotations", "split"))
     fid = clip["info"]["name"] + "_" + Path(im["file_name"]).stem
-    paths = {"image": f"images/{split}/{fid}.jpg", "label": f"labels/{split}/{fid}.txt",
-             "role_label": f"roles/labels/{split}/{fid}.txt", "field_label": f"field/{'train' if split == 'train' else 'valid'}/{fid}.json",
-             "attributes": f"attributes/{split}/{fid}.json"}
+    paths = {
+        "image": f"images/{split}/{fid}.jpg",
+        "label": f"labels/{split}/{fid}.txt",
+        "role_label": f"roles/labels/{split}/{fid}.txt",
+        "field_label": f"field/{'train' if split == 'train' else 'valid'}/{fid}.json",
+        "attributes": f"attributes/{split}/{fid}.json",
+    }
     image = root / paths["image"]
     member = f"{clip['info']['name']}/img1/{im['file_name']}"
     expected = archives[clip["archive_split"]].members[member]
@@ -210,25 +226,43 @@ def prepare_frame(root, archives, selected):
             continue
         roles.append(str(ROLE_MAP[annotation["category_id"]]) + " " + converted[0].split(" ", 1)[1])
         b = annotation["bbox_image"]
-        clipped += int(b["x"] < 0 or b["y"] < 0 or b["x"] + b["w"] > im["width"]
-                       or b["y"] + b["h"] > im["height"])
+        clipped += int(
+            b["x"] < 0 or b["y"] < 0 or b["x"] + b["w"] > im["width"] or b["y"] + b["h"] > im["height"]
+        )
     (root / paths["role_label"]).write_text("\n".join(roles) + ("\n" if roles else ""), encoding="utf-8")
     pitch = next(a["lines"] for a in annotations if a["supercategory"] == "pitch" and a.get("lines"))
     # Preserve provider lines exactly; downstream field preprocessing handles boundary clipping.
     write_json(root / paths["field_label"], pitch)
-    write_json(root / paths["attributes"], {"image": im, "annotations": annotations,
-               "source_annotation_sha256": clip["annotation_sha256"],
-               "team_semantics": "provider left/right within clip; not a universal team identity"})
+    write_json(
+        root / paths["attributes"],
+        {
+            "image": im,
+            "annotations": annotations,
+            "source_annotation_sha256": clip["annotation_sha256"],
+            "team_semantics": "provider left/right within clip; not a universal team identity",
+        },
+    )
     for target in (root / "roles" / paths["image"], (root / paths["field_label"]).with_suffix(".jpg")):
         if not target.exists():
             target.hardlink_to(image)
-    row = {"frame_id": fid, "split": split, "game_id": clip["game_id"],
-           "clip": clip["info"]["name"], "source_archive": clip["archive_split"],
-           "provider_image_id": str(im["image_id"]), "width": im["width"], "height": im["height"],
-           "source_frame_index": int(Path(im["file_name"]).stem) - 1, "boxes": boxes,
-           "annotation_provenance": "published SN-GSR-2024 v1.3; no model-generated labels",
-           "project_human_review_completed": False, "clipped_boxes": clipped, "dropped_boxes": dropped,
-           "provider_annotation_sha256": clip["annotation_sha256"], **paths}
+    row = {
+        "frame_id": fid,
+        "split": split,
+        "game_id": clip["game_id"],
+        "clip": clip["info"]["name"],
+        "source_archive": clip["archive_split"],
+        "provider_image_id": str(im["image_id"]),
+        "width": im["width"],
+        "height": im["height"],
+        "source_frame_index": int(Path(im["file_name"]).stem) - 1,
+        "boxes": boxes,
+        "annotation_provenance": "published SN-GSR-2024 v1.3; no model-generated labels",
+        "project_human_review_completed": False,
+        "clipped_boxes": clipped,
+        "dropped_boxes": dropped,
+        "provider_annotation_sha256": clip["annotation_sha256"],
+        **paths,
+    }
     row.update({k + "_sha256": sha256_file(root / p) for k, p in paths.items()})
     return row
 
@@ -238,7 +272,10 @@ def audit(root, manifest):
     from persoon1.core import label_pixels, read_labels
 
     counts, role_counts = defaultdict(Counter), defaultdict(Counter)
-    if "fingerprint" in manifest and digest_json({k: v for k, v in manifest.items() if k != "fingerprint"}) != manifest["fingerprint"]:
+    if (
+        "fingerprint" in manifest
+        and digest_json({k: v for k, v in manifest.items() if k != "fingerprint"}) != manifest["fingerprint"]
+    ):
         raise ValueError("Dataset manifest fingerprint changed")
     hashes, ids, match_splits = {}, set(), defaultdict(set)
     source_hashes = {}
@@ -265,7 +302,8 @@ def audit(root, manifest):
             raise ValueError("YOLO box count mismatch")
         for exported, original in zip(parsed, row["boxes"]):
             if exported["class_id"] != original["class_id"] or not np.allclose(
-                    label_pixels(exported, row["width"], row["height"]), original["bbox_xyxy"], atol=0.00001):
+                label_pixels(exported, row["width"], row["height"]), original["bbox_xyxy"], atol=0.00001
+            ):
                 raise ValueError("YOLO conversion differs from source pixel box")
             counts[row["split"]][NAMES[exported["class_id"]]] += 1
         for label in read_labels(root / row["role_label"], len(ROLE_NAMES)):
@@ -276,15 +314,24 @@ def audit(root, manifest):
             image.load()
     if any(len(splits) != 1 for splits in match_splits.values()):
         raise ValueError("A match occurs in multiple splits")
-    result = {"status": "passed", "frames": len(ids), "counts": dict(Counter(r["split"] for r in manifest["frames"])),
-              "object_counts": {s: dict(c) for s, c in counts.items()},
-              "role_counts": {s: dict(c) for s, c in role_counts.items()},
-              "match_ids": {s: sorted(g for g, splits in match_splits.items() if s in splits) for s in ("train", "val")},
-              "duplicate_images": 0, "match_split_overlap": 0,
-              "clip_count": len(source_hashes), "fully_decoded_images": len(ids),
-              "clipped_boxes": sum(r["clipped_boxes"] for r in manifest["frames"]),
-              "dropped_boxes": sum(r["dropped_boxes"] for r in manifest["frames"]),
-              "project_human_review_completed": False, "test_accessed": False}
+    result = {
+        "status": "passed",
+        "frames": len(ids),
+        "counts": dict(Counter(r["split"] for r in manifest["frames"])),
+        "object_counts": {s: dict(c) for s, c in counts.items()},
+        "role_counts": {s: dict(c) for s, c in role_counts.items()},
+        "match_ids": {
+            s: sorted(g for g, splits in match_splits.items() if s in splits) for s in ("train", "val")
+        },
+        "duplicate_images": 0,
+        "match_split_overlap": 0,
+        "clip_count": len(source_hashes),
+        "fully_decoded_images": len(ids),
+        "clipped_boxes": sum(r["clipped_boxes"] for r in manifest["frames"]),
+        "dropped_boxes": sum(r["dropped_boxes"] for r in manifest["frames"]),
+        "project_human_review_completed": False,
+        "test_accessed": False,
+    }
     write_json(root / "quality-report.json", result)
     return result
 
@@ -306,8 +353,13 @@ def prepare(root, train_count=6000, valid_count=2000, workers=8):
 
 
 def _prepare(root, train_count, valid_count, workers):
-    settings = {"revision": REVISION, "train_count": train_count, "valid_count": valid_count,
-                "minimum_frame_gap": 5, "source": DATASET_URL}
+    settings = {
+        "revision": REVISION,
+        "train_count": train_count,
+        "valid_count": valid_count,
+        "minimum_frame_gap": 5,
+        "source": DATASET_URL,
+    }
     settings_path = root / "settings.json"
     if settings_path.exists() and read_json(settings_path) != settings:
         raise ValueError("Settings changed; choose a new output directory")
@@ -317,29 +369,53 @@ def _prepare(root, train_count, valid_count, workers):
         return audit(root, read_json(existing))
     (root / "provider-labels").mkdir(exist_ok=True)
     archives = {s: MemberArchive(s) for s in ("train", "valid")}
-    tasks = [(s, member) for s, a in archives.items() for member in sorted(a.members)
-             if member.endswith("/Labels-GameState.json")]
+    tasks = [
+        (s, member)
+        for s, a in archives.items()
+        for member in sorted(a.members)
+        if member.endswith("/Labels-GameState.json")
+    ]
     clips = []
     with ThreadPoolExecutor(max_workers=workers) as pool:
         for clip in pool.map(lambda t: load_clip(root, archives[t[0]], *t), tasks):
             clips.append(clip)
-            print(f"Labels {len(clips)}/{len(tasks)}: {clip['info']['name']} game {clip['game_id']}", flush=True)
+            print(
+                f"Labels {len(clips)}/{len(tasks)}: {clip['info']['name']} game {clip['game_id']}", flush=True
+            )
     catalogs = {s: [c for c in clips if c["archive_split"] == s] for s in archives}
     games, strategy = select_games(catalogs)
     if not strategy.startswith("official_valid"):
         raise ValueError("Need official validation matches excluded from training for this corpus")
-    selected = choose_frames(clips, games, "train", train_count) + choose_frames(clips, games, "val", valid_count)
-    selection = {**settings, "games": games, "strategy": strategy,
-                 "rule": "round-robin clips, fixed evenly spaced fully labeled frames before model inference",
-                 "frames": [{"frame_id": s["clip"]["info"]["name"] + "_" + Path(s["image"]["file_name"]).stem,
-                             "split": s["split"], "game_id": s["clip"]["game_id"]} for s in selected]}
+    selected = choose_frames(clips, games, "train", train_count) + choose_frames(
+        clips, games, "val", valid_count
+    )
+    selection = {
+        **settings,
+        "games": games,
+        "strategy": strategy,
+        "rule": "round-robin clips, fixed evenly spaced fully labeled frames before model inference",
+        "frames": [
+            {
+                "frame_id": s["clip"]["info"]["name"] + "_" + Path(s["image"]["file_name"]).stem,
+                "split": s["split"],
+                "game_id": s["clip"]["game_id"],
+            }
+            for s in selected
+        ],
+    }
     selection_path = root / "selection.json"
     if selection_path.exists() and read_json(selection_path) != selection:
         raise ValueError("Frozen frame selection changed")
     write_json(selection_path, selection)
     for split in ("train", "val"):
-        for directory in (f"images/{split}", f"labels/{split}", f"roles/images/{split}", f"roles/labels/{split}",
-                          f"field/{'train' if split == 'train' else 'valid'}", f"attributes/{split}"):
+        for directory in (
+            f"images/{split}",
+            f"labels/{split}",
+            f"roles/images/{split}",
+            f"roles/labels/{split}",
+            f"field/{'train' if split == 'train' else 'valid'}",
+            f"attributes/{split}",
+        ):
             (root / directory).mkdir(parents=True, exist_ok=True)
     frames = []
     with ThreadPoolExecutor(max_workers=workers) as pool:
@@ -354,20 +430,42 @@ def _prepare(root, train_count, valid_count, workers):
         for row in frames:
             if row["split"] == split:
                 moment = int(clip_info[row["clip"]]["clip_start"]) + row["source_frame_index"] * 40
-                match_info[Path(row["image"]).name] = {"league": "SN-GSR-2024", "season": "v1.3",
-                    "date": "provider", "match": "game-" + row["game_id"], "ms_time": moment, "replay_time": moment}
+                match_info[Path(row["image"]).name] = {
+                    "league": "SN-GSR-2024",
+                    "season": "v1.3",
+                    "date": "provider",
+                    "match": "game-" + row["game_id"],
+                    "ms_time": moment,
+                    "replay_time": moment,
+                }
         write_json(root / "field" / field_split / "match_info.json", match_info)
-    for filename, base, names in (("data.yaml", root, NAMES), ("data-roles.yaml", root / "roles", ROLE_NAMES)):
-        (root / filename).write_text(yaml.safe_dump({"path": str(base), "train": "images/train",
-            "val": "images/val", "names": names}, sort_keys=False), encoding="utf-8")
-    manifest = {"schema_version": 1, "dataset_version": root.name, "source": DATASET_URL,
-                "source_revision": REVISION, "license_metadata": "GPL-3.0 on provider repository; no independent broadcast rights claim",
-                "selection": {k: v for k, v in selection.items() if k != "frames"},
-                "names": NAMES, "role_names": ROLE_NAMES, "frames": frames,
-                "counts": dict(Counter(r["split"] for r in frames)),
-                "match_counts": {s: len({r["game_id"] for r in frames if r["split"] == s}) for s in ("train", "val")},
-                "project_human_review_completed": False, "test_accessed": False,
-                "pretraining_overlap_with_field_model": "not excluded"}
+    for filename, base, names in (
+        ("data.yaml", root, NAMES),
+        ("data-roles.yaml", root / "roles", ROLE_NAMES),
+    ):
+        (root / filename).write_text(
+            yaml.safe_dump(
+                {"path": str(base), "train": "images/train", "val": "images/val", "names": names},
+                sort_keys=False,
+            ),
+            encoding="utf-8",
+        )
+    manifest = {
+        "schema_version": 1,
+        "dataset_version": root.name,
+        "source": DATASET_URL,
+        "source_revision": REVISION,
+        "license_metadata": "GPL-3.0 on provider repository; no independent broadcast rights claim",
+        "selection": {k: v for k, v in selection.items() if k != "frames"},
+        "names": NAMES,
+        "role_names": ROLE_NAMES,
+        "frames": frames,
+        "counts": dict(Counter(r["split"] for r in frames)),
+        "match_counts": {s: len({r["game_id"] for r in frames if r["split"] == s}) for s in ("train", "val")},
+        "project_human_review_completed": False,
+        "test_accessed": False,
+        "pretraining_overlap_with_field_model": "not excluded",
+    }
     manifest["fingerprint"] = digest_json(manifest)
     result = audit(root, manifest)
     write_json(existing, manifest)

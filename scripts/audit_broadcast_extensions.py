@@ -51,11 +51,16 @@ def audit(root, semantic, *, decode=True):
     hashes = {r["image_sha256"] for r in manifest["frames"]}
     if len(hashes) != len(manifest["frames"]):
         raise ValueError("Duplicate images in curated corpus")
-    return manifest, {"status": "passed", "frames": len(hashes), "boxes": boxes,
-                       "counts": dict(Counter(r["split"] for r in manifest["frames"])),
-                       "duplicate_images": 0, "split_group_overlap": 0,
-                       "image_decode": "full" if decode else "header; underlying source fully decoded",
-                       "fingerprint": manifest["fingerprint"]}
+    return manifest, {
+        "status": "passed",
+        "frames": len(hashes),
+        "boxes": boxes,
+        "counts": dict(Counter(r["split"] for r in manifest["frames"])),
+        "duplicate_images": 0,
+        "split_group_overlap": 0,
+        "image_decode": "full" if decode else "header; underlying source fully decoded",
+        "fingerprint": manifest["fingerprint"],
+    }
 
 
 def main():
@@ -77,24 +82,38 @@ def main():
     software = {k: int(suite.attrib[k]) for k in ("tests", "failures", "errors", "skipped")}
     if software["failures"] or software["errors"]:
         raise ValueError("Software checks did not pass")
-    result = {"recorded_at": datetime.now(UTC).isoformat(), "ball_dataset": ball_report,
-              "ball_review": dict(Counter(r["status"] for r in decisions["decisions"])),
-              "raw_referee_dataset": raw_report, "curated_referee_dataset": ref_report,
-              "referee_quarantine_count": len(refs["quarantine"]),
-              "referee_negative_frames": refs["visibility_counts"]["not_visible"],
-              "referee_match_independence_verified": False,
-              "collected_unique_source_images": len(base_hashes | ref_hashes),
-              "recommended_unique_source_images": len(base_hashes | {r["image_sha256"] for r in refs["frames"]}),
-              "ball_examples_are_subset_of_main_corpus": True,
-              "training_configs": {"players": "data/broadcast-sngsr-v1/data-players.yaml",
-                                   "balls": "data/broadcast-ball-review-v1/curated/data.yaml",
-                                   "referees": "data/referee-broadcast-v1/curated/data.yaml"},
-              "software_tests": software, "project_human_review_completed": False,
-              "model_training_started": False, "active_models_changed": False,
-              "source_sha256": {p: sha256_file(p) for p in (
-                  "src/football_pipeline/referee_dataset.py", "scripts/curate_broadcast_balls.py",
-                  "scripts/curate_referee_data.py", "scripts/audit_broadcast_extensions.py",
-                  "tests/test_broadcast_curation.py")}}
+    result = {
+        "recorded_at": datetime.now(UTC).isoformat(),
+        "ball_dataset": ball_report,
+        "ball_review": dict(Counter(r["status"] for r in decisions["decisions"])),
+        "raw_referee_dataset": raw_report,
+        "curated_referee_dataset": ref_report,
+        "referee_quarantine_count": len(refs["quarantine"]),
+        "referee_negative_frames": refs["visibility_counts"]["not_visible"],
+        "referee_match_independence_verified": False,
+        "collected_unique_source_images": len(base_hashes | ref_hashes),
+        "recommended_unique_source_images": len(base_hashes | {r["image_sha256"] for r in refs["frames"]}),
+        "ball_examples_are_subset_of_main_corpus": True,
+        "training_configs": {
+            "players": "data/broadcast-sngsr-v1/data-players.yaml",
+            "balls": "data/broadcast-ball-review-v1/curated/data.yaml",
+            "referees": "data/referee-broadcast-v1/curated/data.yaml",
+        },
+        "software_tests": software,
+        "project_human_review_completed": False,
+        "model_training_started": False,
+        "active_models_changed": False,
+        "source_sha256": {
+            p: sha256_file(p)
+            for p in (
+                "src/football_pipeline/referee_dataset.py",
+                "scripts/curate_broadcast_balls.py",
+                "scripts/curate_referee_data.py",
+                "scripts/audit_broadcast_extensions.py",
+                "tests/test_broadcast_curation.py",
+            )
+        },
+    }
     write_json(report_root / "follow-up-summary.json", result)
     initial = read_json(report_root / "summary.json")
     initial["software_tests"] = software

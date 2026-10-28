@@ -46,20 +46,33 @@ def export(root, decisions_path):
     split_clips = {s: {r["source_clip_id"] for r in frames if r["split"] == s} for s in ("train", "val")}
     if not all(split_clips.values()) or split_clips["train"] & split_clips["val"]:
         raise ValueError("Need nonempty disjoint clip groups")
-    result = {"source": source["source"], "source_revision": source["source_revision"],
-              "source_fingerprint": source["fingerprint"], "decisions_sha256": sha256_file(decisions_path),
-              "names": {0: "referee"}, "frames": frames, "quarantine": quarantine,
-              "counts": dict(Counter(r["split"] for r in frames)),
-              "visibility_counts": dict(Counter(r["visibility"] for r in frames)),
-              "box_count": sum(r["box_count"] for r in frames),
-              "source_clip_counts": {s: len(v) for s, v in split_clips.items()},
-              "match_independence_verified": False, "project_human_review_completed": False,
-              "review_scope": "AI inspected three frames per source clip; full human review still open",
-              "license": source["license"], "credit": source["credit"]}
+    result = {
+        "source": source["source"],
+        "source_revision": source["source_revision"],
+        "source_fingerprint": source["fingerprint"],
+        "decisions_sha256": sha256_file(decisions_path),
+        "names": {0: "referee"},
+        "frames": frames,
+        "quarantine": quarantine,
+        "counts": dict(Counter(r["split"] for r in frames)),
+        "visibility_counts": dict(Counter(r["visibility"] for r in frames)),
+        "box_count": sum(r["box_count"] for r in frames),
+        "source_clip_counts": {s: len(v) for s, v in split_clips.items()},
+        "match_independence_verified": False,
+        "project_human_review_completed": False,
+        "review_scope": "AI inspected three frames per source clip; full human review still open",
+        "license": source["license"],
+        "credit": source["credit"],
+    }
     result["fingerprint"] = digest_json(result)
     write_json(output / "manifest.json", result)
-    (output / "data.yaml").write_text(yaml.safe_dump({"path": str(output), "train": "images/train",
-             "val": "images/val", "names": {0: "referee"}}, sort_keys=False), encoding="utf-8")
+    (output / "data.yaml").write_text(
+        yaml.safe_dump(
+            {"path": str(output), "train": "images/train", "val": "images/val", "names": {0: "referee"}},
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
     return result
 
 

@@ -267,10 +267,17 @@ def validate_team_model(model: dict) -> None:
         t.get("prototype_lab") is None for t in model["teams"].values()
     ):
         raise PipelineError("Een beschikbaar teammodel vereist twee shirtprototypes.")
-    if model["settings"]["method"] == "torso_embedding_dominant_modes_v1" and model.get("status") == "available":
+    if (
+        model["settings"]["method"] == "torso_embedding_dominant_modes_v1"
+        and model.get("status") == "available"
+    ):
         for team in model["teams"].values():
             vector = np.asarray(team.get("prototype_embedding"), float)
-            if vector.shape != (32,) or not np.isfinite(vector).all() or not np.isclose(np.linalg.norm(vector), 1):
+            if (
+                vector.shape != (32,)
+                or not np.isfinite(vector).all()
+                or not np.isclose(np.linalg.norm(vector), 1)
+            ):
                 raise PipelineError("Ongeldig teamprototype van het geleerde uiterlijkmodel.")
     for team in model["teams"].values():
         if not isinstance(team.get("name"), str) or not 1 <= len(team["name"].strip()) <= 40:
@@ -311,26 +318,43 @@ def refine_referee_consensus(detection, model):
     from .kit_embedding import embedding_candidate
 
     d = detection
-    if (d.semantic_class != "player" or d.projection_status != "valid" or d.confidence < .25
-            or d.player_kind == "goalkeeper" or not d.role_context_model_id
-            or d.role_context_player_score is None or d.role_context_player_score > .25
-            or not d.role_probabilities or len(d.role_probabilities) != 3 or d.role_probabilities[1] < .85
-            or not d.field_position or not .2 < d.field_position[0] < .8):
+    if (
+        d.semantic_class != "player"
+        or d.projection_status != "valid"
+        or d.confidence < 0.25
+        or d.player_kind == "goalkeeper"
+        or not d.role_context_model_id
+        or d.role_context_player_score is None
+        or d.role_context_player_score > 0.25
+        or not d.role_probabilities
+        or len(d.role_probabilities) != 3
+        or d.role_probabilities[1] < 0.85
+        or not d.field_position
+        or not 0.2 < d.field_position[0] < 0.8
+    ):
         return
     _, score = embedding_candidate(d, model)
-    if score is None or score > .6:
+    if score is None or score > 0.6:
         return
     d.semantic_class, d.track_id = "referee", None
     d.role_decision = "pitch_referee_consensus"
     vector = np.asarray(d.team_embedding, float)
     vector /= np.linalg.norm(vector)
-    distance = min(float(np.clip(1 - vector @ t["prototype_embedding"], 0, 2)) for t in model["teams"].values())
-    d.role_consensus_evidence = {"rule": "referee_crop_context_kit_v1",
-                               "crop_referee_probability": d.role_probabilities[1],
-                               "context_nonplayer_probability": 1 - d.role_context_player_score,
-                               "nearest_team_cosine_distance": distance,
-                               "thresholds": {"crop_referee": .85, "context_nonplayer": .75,
-                                              "kit_distance": .4, "protect_end_fraction": .2}}
+    distance = min(
+        float(np.clip(1 - vector @ t["prototype_embedding"], 0, 2)) for t in model["teams"].values()
+    )
+    d.role_consensus_evidence = {
+        "rule": "referee_crop_context_kit_v1",
+        "crop_referee_probability": d.role_probabilities[1],
+        "context_nonplayer_probability": 1 - d.role_context_player_score,
+        "nearest_team_cosine_distance": distance,
+        "thresholds": {
+            "crop_referee": 0.85,
+            "context_nonplayer": 0.75,
+            "kit_distance": 0.4,
+            "protect_end_fraction": 0.2,
+        },
+    }
 
 
 class TeamAssigner:
@@ -346,17 +370,30 @@ class TeamAssigner:
         self.history = {key: state for key, state in self.history.items() if state["last"] >= cutoff}
         for d in detections:
             embedding_method = self.settings["method"] == "torso_embedding_dominant_modes_v1"
-            if (embedding_method and self.settings.get("kit_player_recovery")
-                    and d.role_decision not in {"pitch_context_nonplayer", "pitch_referee_consensus"}
-                    and d.semantic_class in {"person", "referee"} and d.detector_semantic_class == "person"
-                    and d.role_model_id and d.confidence >= .25
-                    and not (d.role_evidence and d.role_evidence["semantic_class"] == "referee"
-                             and d.role_evidence["confidence"] >= .5)):
+            if (
+                embedding_method
+                and self.settings.get("kit_player_recovery")
+                and d.role_decision not in {"pitch_context_nonplayer", "pitch_referee_consensus"}
+                and d.semantic_class in {"person", "referee"}
+                and d.detector_semantic_class == "person"
+                and d.role_model_id
+                and d.confidence >= 0.25
+                and not (
+                    d.role_evidence
+                    and d.role_evidence["semantic_class"] == "referee"
+                    and d.role_evidence["confidence"] >= 0.5
+                )
+            ):
                 from .kit_embedding import embedding_candidate
 
-                strict = {**self.model, "settings": {**self.settings,
-                          "embedding_max_distance": min(.15, self.settings["embedding_max_distance"]),
-                          "embedding_margin": max(.15, self.settings["embedding_margin"])}}
+                strict = {
+                    **self.model,
+                    "settings": {
+                        **self.settings,
+                        "embedding_max_distance": min(0.15, self.settings["embedding_max_distance"]),
+                        "embedding_margin": max(0.15, self.settings["embedding_margin"]),
+                    },
+                }
                 recovered, _ = embedding_candidate(d, strict)
                 if recovered:
                     d.semantic_class = "player"
@@ -377,7 +414,9 @@ class TeamAssigner:
             d.team_status = "not_player" if d.semantic_class != "player" else "unknown"
             if d.semantic_class != "player":
                 continue
-            if (embedding_method or self.model.get("analysis_scope") == "on_pitch_players") and d.projection_status != "valid":
+            if (
+                embedding_method or self.model.get("analysis_scope") == "on_pitch_players"
+            ) and d.projection_status != "valid":
                 continue
             key = str(d.track_id) if d.track_id is not None else None
             if key in self.overrides:

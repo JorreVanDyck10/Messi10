@@ -120,7 +120,11 @@ class AppearanceClassifier:
                 context = None
                 if getattr(self, "context_projection", None) is not None:
                     mean, projection = self.context_projection
-                    context = torch.nn.functional.normalize((features[:, :576] - mean) @ projection, dim=1).cpu().numpy()
+                    context = (
+                        torch.nn.functional.normalize((features[:, :576] - mean) @ projection, dim=1)
+                        .cpu()
+                        .numpy()
+                    )
                 features = (features - self.mean) / self.std
                 role_features = features.clone()
                 role_features[:, 576:] *= self.colour_scale
@@ -139,19 +143,22 @@ class AppearanceClassifier:
                 )
                 if self.role_policy == "preserve_detector_players":
                     source_role, source_confidence = d.detector_semantic_class, d.confidence
-                    if d.role_evidence and d.role_evidence["confidence"] >= .5:
+                    if d.role_evidence and d.role_evidence["confidence"] >= 0.5:
                         source_role = d.role_evidence["semantic_class"]
                         source_confidence = d.role_evidence["confidence"]
                     # A specialist's actual player class is direct role evidence.
                     # A generic person still needs a learned positive player label.
                     if source_role == "player" and source_confidence >= 0.25:
                         d.semantic_class = "player"
-                        d.role_decision = "matched_specialist_player" if d.role_evidence else "specialist_player_preserved"
+                        d.role_decision = (
+                            "matched_specialist_player" if d.role_evidence else "specialist_player_preserved"
+                        )
                     elif source_role == "referee" and source_confidence >= 0.25:
                         positive_player = int(role.argmax()) == 0 and role.max() >= 0.95
                         d.semantic_class = "player" if positive_player else "referee"
                         d.role_decision = (
-                            "strong_player_evidence_refines_specialist_referee" if positive_player
+                            "strong_player_evidence_refines_specialist_referee"
+                            if positive_player
                             else "specialist_referee_preserved"
                         )
                     else:

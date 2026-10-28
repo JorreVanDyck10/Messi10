@@ -39,8 +39,10 @@ def test_school_run_uses_manual_calibration_without_tracking_or_teams(demo_fixtu
     assert not app.exception
     assert process.call_count == 0
     assert not dashboard.called
-    assert not any(item.key in {"tracking", "teams_enabled", "open_team_result", "open_field_review"}
-                   for item in app.checkbox)
+    assert not any(
+        item.key in {"tracking", "teams_enabled", "open_team_result", "open_field_review"}
+        for item in app.checkbox
+    )
     assert len(app.selectbox(key="model_profile").options) == 1
     app.button(key="process").click().run()
     assert not app.exception
@@ -61,10 +63,15 @@ def test_switching_the_visible_field_region_discards_the_previous_calibration(de
     monkeypatch.setenv("FOOTBALL_SCHOOL_MODE", "1")
     monkeypatch.setenv("FOOTBALL_MODELS", str(demo_fixture["models"]))
     video_bytes = demo_fixture["video"].read_bytes()
-    monkeypatch.setattr(st, "file_uploader", lambda *a, **kw: (
-        SimpleNamespace(file_id="partial-field", getbuffer=lambda: video_bytes)
-        if kw["key"] == "video_upload" else None
-    ))
+    monkeypatch.setattr(
+        st,
+        "file_uploader",
+        lambda *a, **kw: (
+            SimpleNamespace(file_id="partial-field", getbuffer=lambda: video_bytes)
+            if kw["key"] == "video_upload"
+            else None
+        ),
+    )
 
     def populate_points(frame, **kwargs):
         return frame.assign(x=40 + frame.u * 560, y=40 + frame.v * 280)

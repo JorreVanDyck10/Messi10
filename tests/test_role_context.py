@@ -11,22 +11,48 @@ def model(tmp_path, nonplayer):
     for parameter in head.parameters():
         parameter.data.zero_()
     head[-1].bias.data.fill_(float(torch.logit(torch.tensor(nonplayer))))
-    state = {"format": "pitch-role-context-v1", "input_dimension": 46, "teacher_sha256": "teacher",
-             "kit_weights_sha256": "kit", "mean": torch.zeros(46), "std": torch.ones(46),
-             "cnn_center": torch.zeros(576), "cnn_projection": torch.zeros(576, 32),
-             "state_dict": head.state_dict()}
+    state = {
+        "format": "pitch-role-context-v1",
+        "input_dimension": 46,
+        "teacher_sha256": "teacher",
+        "kit_weights_sha256": "kit",
+        "mean": torch.zeros(46),
+        "std": torch.ones(46),
+        "cnn_center": torch.zeros(576),
+        "cnn_projection": torch.zeros(576, 32),
+        "state_dict": head.state_dict(),
+    }
     path = tmp_path / "context.pt"
     torch.save(state, path)
-    return RoleContext({"weights": str(path), "model_id": "trained-context", "player_threshold": .95,
-                        "nonplayer_threshold": .99, "protect_end_fraction": .08}, "teacher", "kit")
+    return RoleContext(
+        {
+            "weights": str(path),
+            "model_id": "trained-context",
+            "player_threshold": 0.95,
+            "nonplayer_threshold": 0.99,
+            "protect_end_fraction": 0.08,
+        },
+        "teacher",
+        "kit",
+    )
 
 
 def person(index=0):
-    return Detection(str(index), "generic", 0, "person", [100., 100., 140., 200.], .9,
-                     projection_status="valid", field_position=[.5, .5], role_model_id="teacher",
-                     detector_semantic_class="person", role_probabilities=[.02, .97, .01],
-                     team_embedding=np.eye(32)[index % 2].tolist(),
-                     context_embedding=np.eye(32)[index % 2].tolist())
+    return Detection(
+        str(index),
+        "generic",
+        0,
+        "person",
+        [100.0, 100.0, 140.0, 200.0],
+        0.9,
+        projection_status="valid",
+        field_position=[0.5, 0.5],
+        role_model_id="teacher",
+        detector_semantic_class="person",
+        role_probabilities=[0.02, 0.97, 0.01],
+        team_embedding=np.eye(32)[index % 2].tolist(),
+        context_embedding=np.eye(32)[index % 2].tolist(),
+    )
 
 
 def test_context_features_are_permutation_equivariant_and_use_original_image_size():
@@ -36,22 +62,25 @@ def test_context_features_are_permutation_equivariant_and_use_original_image_siz
     boxes = np.array([[50 + 40 * i, 100, 80 + 40 * i, 180] for i in range(8)])
     features = context_features(probability, kits, embeddings, positions, boxes, (1920, 1080))
     order = rng.permutation(8)
-    reordered = context_features(probability[order], kits[order], embeddings[order], positions[order],
-                                 boxes[order], (1920, 1080))
+    reordered = context_features(
+        probability[order], kits[order], embeddings[order], positions[order], boxes[order], (1920, 1080)
+    )
     assert features.shape == (8, 46)
     assert np.allclose(features[order], reordered)
-    assert np.allclose(features, context_features(probability, kits, embeddings, positions, boxes / 3, (640, 360)))
+    assert np.allclose(
+        features, context_features(probability, kits, embeddings, positions, boxes / 3, (640, 360))
+    )
 
 
 def test_negative_refinement_protects_source_players_near_goals_and_ignores_outside_people(tmp_path):
-    classifier = model(tmp_path, .999)
+    classifier = model(tmp_path, 0.999)
     group = [person(i) for i in range(6)]
     for d in group[:5]:
         d.semantic_class = "player"
-    group[3].field_position = [.03, .5]
+    group[3].field_position = [0.03, 0.5]
     group[4].projection_status = "outside_field"
     # A person near a goal must never become a player just because of position.
-    group[5].field_position = [.03, .5]
+    group[5].field_position = [0.03, 0.5]
     classifier.update(group, (1920, 1080))
     assert all(d.semantic_class == "referee" for d in group[:3])
     assert group[3].semantic_class == group[4].semantic_class == "player"
@@ -61,9 +90,9 @@ def test_negative_refinement_protects_source_players_near_goals_and_ignores_outs
 
 
 def test_positive_refinement_requires_trained_crop_features_and_respects_specialist_referee(tmp_path):
-    classifier = model(tmp_path, .001)
+    classifier = model(tmp_path, 0.001)
     group = [person(i) for i in range(7)]
-    group[4].role_evidence = {"semantic_class": "referee", "confidence": .9}
+    group[4].role_evidence = {"semantic_class": "referee", "confidence": 0.9}
     group[5].role_model_id = None
     group[6].projection_status = "calibration_unavailable"
     classifier.update(group, (1920, 1080))
@@ -73,7 +102,7 @@ def test_positive_refinement_requires_trained_crop_features_and_respects_special
 
 
 def test_short_context_and_mismatched_teachers_do_not_change_roles(tmp_path):
-    classifier = model(tmp_path, .001)
+    classifier = model(tmp_path, 0.001)
     group = [person(i) for i in range(3)]
     classifier.update(group, (1920, 1080))
     assert all(d.semantic_class == "person" for d in group)
@@ -82,7 +111,7 @@ def test_short_context_and_mismatched_teachers_do_not_change_roles(tmp_path):
 
 
 def test_a_trained_goalkeeper_class_is_preserved_even_away_from_the_goal(tmp_path):
-    classifier = model(tmp_path, .999)
+    classifier = model(tmp_path, 0.999)
     group = [person(i) for i in range(4)]
     keeper = group[0]
     keeper.semantic_class, keeper.player_kind, keeper.player_kind_source = "player", "goalkeeper", "detector"
@@ -94,7 +123,9 @@ def test_context_training_rejects_reserved_splits_before_opening_images(tmp_path
     from football_pipeline import broadcast_context_training
 
     monkeypatch.setattr(torch, "load", lambda *a, **kw: {"rows": [{"split": "test"}]})
-    monkeypatch.setattr(broadcast_context_training, "sha256_file", lambda *a: pytest.fail("reserved image was opened"))
+    monkeypatch.setattr(
+        broadcast_context_training, "sha256_file", lambda *a: pytest.fail("reserved image was opened")
+    )
     with pytest.raises(ValueError, match="Reserved split"):
         broadcast_context_training.train(tmp_path)
 
@@ -103,8 +134,13 @@ def test_color_recovery_cannot_undo_a_learned_negative_context_decision():
     from football_pipeline.kit_embedding import PitchTeamSamples
     from football_pipeline.teams import TeamAssigner, load_team_settings
 
-    settings = load_team_settings({"method": "torso_embedding_dominant_modes_v1", "confirmation_samples": 1,
-                                   "kit_player_recovery": True})
+    settings = load_team_settings(
+        {
+            "method": "torso_embedding_dominant_modes_v1",
+            "confirmation_samples": 1,
+            "kit_player_recovery": True,
+        }
+    )
     samples = PitchTeamSamples(settings, 25)
     for frame in range(0, 25, 5):
         for i in range(4):
@@ -123,8 +159,10 @@ def test_observed_training_uses_unique_provider_matches_and_ignores_unlabelled_b
     detections = [person(i) for i in range(4)]
     detections[2].bbox_xyxy = [300, 100, 340, 200]
     detections[3].bbox_xyxy = [450, 100, 490, 200]
-    people = [{"bbox": detections[0].bbox_xyxy, "role": "player", "team": "left", "goalkeeper": True},
-              {"bbox": detections[2].bbox_xyxy, "role": "referee", "team": None}]
+    people = [
+        {"bbox": detections[0].bbox_xyxy, "role": "player", "team": "left", "goalkeeper": True},
+        {"bbox": detections[2].bbox_xyxy, "role": "referee", "team": None},
+    ]
     targets, teams = matched_targets(detections, people)
     assert sorted(targets.tolist()) == [-1, -1, 0, 1]
     assert targets[2] == 1 and targets[3] == -1
@@ -135,8 +173,14 @@ def test_referee_consensus_requires_all_cues_and_protects_common_kits_and_keeper
     from football_pipeline.kit_embedding import PitchTeamSamples
     from football_pipeline.teams import TeamAssigner, load_team_settings
 
-    settings = load_team_settings({"method": "torso_embedding_dominant_modes_v1", "confirmation_samples": 1,
-                                   "kit_player_recovery": True, "referee_kit_consensus": True})
+    settings = load_team_settings(
+        {
+            "method": "torso_embedding_dominant_modes_v1",
+            "confirmation_samples": 1,
+            "kit_player_recovery": True,
+            "referee_kit_consensus": True,
+        }
+    )
     samples = PitchTeamSamples(settings, 25)
     for frame in range(0, 25, 5):
         for i in range(4):
@@ -146,18 +190,18 @@ def test_referee_consensus_requires_all_cues_and_protects_common_kits_and_keeper
     detections = [person(i) for i in range(7)]
     for d in detections:
         d.semantic_class = "player"
-        d.role_context_model_id, d.role_context_player_score = "trained-context", .2
+        d.role_context_model_id, d.role_context_player_score = "trained-context", 0.2
         d.team_embedding = np.eye(32)[3].tolist()  # Neither of the two supported team kits.
     detections[1].team_embedding = np.eye(32)[0].tolist()  # Crop wrongly calls an entire kit referee.
-    detections[2].role_context_player_score = .9
-    detections[3].role_probabilities = [.9, .09, .01]
+    detections[2].role_context_player_score = 0.9
+    detections[3].role_probabilities = [0.9, 0.09, 0.01]
     detections[4].player_kind = "goalkeeper"
-    detections[5].field_position = [.86, .5]  # Untyped keeper near the penalty area remains protected.
+    detections[5].field_position = [0.86, 0.5]  # Untyped keeper near the penalty area remains protected.
     detections[6].projection_status = "outside_field"
     assigner = TeamAssigner(samples.fit(), 25)
     assigner.update(detections, 0)
     assert detections[0].semantic_class == "referee" and detections[0].team_id is None
-    assert detections[0].role_consensus_evidence["nearest_team_cosine_distance"] == pytest.approx(1.)
+    assert detections[0].role_consensus_evidence["nearest_team_cosine_distance"] == pytest.approx(1.0)
     assert all(d.semantic_class == "player" for d in detections[1:])
     assigner.update(detections, 1)
     assert detections[0].semantic_class == "referee"  # Kit recovery cannot undo the decision.

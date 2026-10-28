@@ -12,21 +12,46 @@ def dataset(tmp_path, monkeypatch):
     image, label = root / "image.jpg", root / "label.txt"
     image.write_bytes(b"frozen fixture")
     label.write_text("0 0.5 0.5 0.1 0.2\n")
-    row = {"frame_id": "validation", "split": "val", "provider": "soccernet", "game_id": "2",
-           "image": str(image), "image_sha256": sha256_file(image),
-           "label": str(label), "label_sha256": sha256_file(label)}
+    row = {
+        "frame_id": "validation",
+        "split": "val",
+        "provider": "soccernet",
+        "game_id": "2",
+        "image": str(image),
+        "image_sha256": sha256_file(image),
+        "label": str(label),
+        "label_sha256": sha256_file(label),
+    }
     original = tmp_path / "data/broadcast-pitch-v1"
     original.mkdir(parents=True)
     write_json(original / "manifest.json", {"fingerprint": "frozen", "frames": [row]})
     sport_image = root / "sports.jpg"
     sport_image.write_bytes(b"separate official training image")
-    manifest = {"names": {0: "player"}, "test_accessed": False,
-                "selection": {"revision": REVISION, "archive_sha256": ARCHIVE_SHA256,
-                              "split": "train", "test_accessed": False, "sequences": ["football"]},
-                "source_fingerprints": {"soccernet": "frozen"}, "frames": [row,
-                    {**row, "frame_id": "sports", "provider": "sportsmot", "split": "train",
-                     "clip": "football", "game_id": "sportsmot:new-game", "image": str(sport_image),
-                     "image_sha256": sha256_file(sport_image)}]}
+    manifest = {
+        "names": {0: "player"},
+        "test_accessed": False,
+        "selection": {
+            "revision": REVISION,
+            "archive_sha256": ARCHIVE_SHA256,
+            "split": "train",
+            "test_accessed": False,
+            "sequences": ["football"],
+        },
+        "source_fingerprints": {"soccernet": "frozen"},
+        "frames": [
+            row,
+            {
+                **row,
+                "frame_id": "sports",
+                "provider": "sportsmot",
+                "split": "train",
+                "clip": "football",
+                "game_id": "sportsmot:new-game",
+                "image": str(sport_image),
+                "image_sha256": sha256_file(sport_image),
+            },
+        ],
+    }
     write_json(root / "manifest.json", manifest)
     return root, manifest
 

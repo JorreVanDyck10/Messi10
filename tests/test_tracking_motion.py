@@ -91,16 +91,16 @@ def test_unmeasured_motion_resets_and_never_tracks_nonplayers_or_offfield_player
 
 
 def test_zoom_preserves_aspect_and_rotation_uses_a_box_envelope():
-    mean = np.array([320., 180., .25, 120., 3., -2., .01, 1.])
+    mean = np.array([320.0, 180.0, 0.25, 120.0, 3.0, -2.0, 0.01, 1.0])
     track = SimpleNamespace(mean=mean.copy(), covariance=np.eye(8))
-    warp_xyah([track], np.array([[1.1, 0., 12.], [0., 1.1, -4.]]))
-    assert track.mean[2] == pytest.approx(.25)
-    assert track.mean[3] == pytest.approx(132.)
-    assert track.mean[6] == pytest.approx(.01)
-    matrix = cv2.getRotationMatrix2D((320, 180), .17, 1.005)
+    warp_xyah([track], np.array([[1.1, 0.0, 12.0], [0.0, 1.1, -4.0]]))
+    assert track.mean[2] == pytest.approx(0.25)
+    assert track.mean[3] == pytest.approx(132.0)
+    assert track.mean[6] == pytest.approx(0.01)
+    matrix = cv2.getRotationMatrix2D((320, 180), 0.17, 1.005)
     track = SimpleNamespace(mean=mean.copy(), covariance=np.eye(8))
     warp_xyah([track], matrix)
-    corners = np.array([[305., 120.], [335., 120.], [335., 240.], [305., 240.]])
+    corners = np.array([[305.0, 120.0], [335.0, 120.0], [335.0, 240.0], [305.0, 240.0]])
     transformed = corners @ matrix[:, :2].T + matrix[:, 2]
     extent = np.ptp(transformed, axis=0)
     assert track.mean[2:4] == pytest.approx([extent[0] / extent[1], extent[1]])
@@ -116,19 +116,20 @@ def test_zoom_preserves_aspect_and_rotation_uses_a_box_envelope():
     assert np.allclose(track.covariance, numerical @ numerical.T, atol=1e-6)
 
 
-@pytest.mark.parametrize("angle", [-.17, .17])
+@pytest.mark.parametrize("angle", [-0.17, 0.17])
 def test_player_id_survives_small_camera_rotation_and_zoom(angle):
     tracker = ByteTrackAdapter(load_tracker_config(ROOT / "configs/bytetrack.yaml"), 25, camera_motion=True)
     source = background()
-    corners = np.array([[230., 120.], [260., 120.], [260., 200.], [230., 200.]])
+    corners = np.array([[230.0, 120.0], [260.0, 120.0], [260.0, 200.0], [230.0, 200.0]])
     for index in range(8):
         matrix = cv2.getRotationMatrix2D((320, 180), angle * index, 1.005**index)
         matrix[:, 2] += [8 * index, 0]
         frame = cv2.warpAffine(source, matrix, (640, 360), borderMode=cv2.BORDER_REFLECT)
         transformed = corners @ matrix[:, :2].T + matrix[:, 2]
         box = [*transformed.min(0), *transformed.max(0)]
-        detection = Detection(str(index), "fixture", 0, "player", box, .9,
-                              field_position=[.4, .5], projection_status="valid")
+        detection = Detection(
+            str(index), "fixture", 0, "player", box, 0.9, field_position=[0.4, 0.5], projection_status="valid"
+        )
         tracker.update([detection], index, (640, 360), frame=frame)
         assert detection.track_id == 1
-        assert tracker.tracker.tracked_stracks[0].mean[2] > .3
+        assert tracker.tracker.tracked_stracks[0].mean[2] > 0.3

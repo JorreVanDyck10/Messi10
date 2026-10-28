@@ -40,13 +40,17 @@ def labelled_people(annotations, width, height):
         position = annotation.get("bbox_pitch") or {}
         x, y = position.get("x_bottom_middle"), position.get("y_bottom_middle")
         on_pitch = x is not None and y is not None and -52.5 <= x <= 52.5 and -34 <= y <= 34
-        people.append({
-            "bbox": boxes[0]["bbox_xyxy"], "role": role,
-            "goalkeeper": annotation["category_id"] == 2,
-            "team": attributes.get("team") if role == "player" else None,
-            "track_id": annotation.get("track_id"), "on_pitch": bool(on_pitch),
-            "provider_annotation_id": str(annotation["id"]),
-        })
+        people.append(
+            {
+                "bbox": boxes[0]["bbox_xyxy"],
+                "role": role,
+                "goalkeeper": annotation["category_id"] == 2,
+                "team": attributes.get("team") if role == "player" else None,
+                "track_id": annotation.get("track_id"),
+                "on_pitch": bool(on_pitch),
+                "provider_annotation_id": str(annotation["id"]),
+            }
+        )
     return people
 
 
@@ -59,9 +63,14 @@ def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25,
     games = selection["games"]
     if set(games["train"]) & set(games["val"]):
         raise ValueError("Broadcast match split overlaps")
-    frozen = {"revision": REVISION, "games": games, "train_step": train_step, "val_step": val_step,
-              "rule": "provider frame number 1 modulo step; complete person labels; no ignore regions",
-              "test_accessed": False}
+    frozen = {
+        "revision": REVISION,
+        "games": games,
+        "train_step": train_step,
+        "val_step": val_step,
+        "rule": "provider frame number 1 modulo step; complete person labels; no ignore regions",
+        "test_accessed": False,
+    }
     if (output / "selection.json").exists() and read_json(output / "selection.json") != frozen:
         raise ValueError("Selection changed; use a new dataset directory")
     write_json(output / "selection.json", frozen)
@@ -70,14 +79,20 @@ def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25,
         if any(row["split"] not in {"train", "val"} for row in saved["frames"]):
             raise ValueError("Reserved images must not be opened during broadcast preparation")
         for row in saved["frames"]:
-            if sha256_file(row["image"]) != row["image_sha256"] or sha256_file(row["label"]) != row["label_sha256"]:
+            if (
+                sha256_file(row["image"]) != row["image_sha256"]
+                or sha256_file(row["label"]) != row["label_sha256"]
+            ):
                 raise ValueError("Prepared broadcast data changed")
         return saved
     existing = {r["frame_id"]: source / r["image"] for r in read_json(source / "manifest.json")["frames"]}
     frames, excluded, hashes = [], [], {}
     for split, archive_split, step in (("train", "train", train_step), ("val", "valid", val_step)):
-        clips = [c for c in read_json(source / f"catalog-{archive_split}.json")["clips"]
-                 if c["game_id"] in games[split]]
+        clips = [
+            c
+            for c in read_json(source / f"catalog-{archive_split}.json")["clips"]
+            if c["game_id"] in games[split]
+        ]
         remote = archive = None
         thread_state, worker_archives = threading.local(), []
         pool = ThreadPoolExecutor(max_workers=8)
@@ -97,7 +112,9 @@ def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25,
                 os.link(existing[fid], image)
                 return
             if not hasattr(thread_state, "archive"):
-                worker_remote = RangeArchive(archive_url(archive_split), budget_bytes=512 * 1024**2, block_size=65536)
+                worker_remote = RangeArchive(
+                    archive_url(archive_split), budget_bytes=512 * 1024**2, block_size=65536
+                )
                 thread_state.archive = zipfile.ZipFile(worker_remote)
                 worker_archives.append((thread_state.archive, worker_remote))
             for attempt in range(3):
@@ -117,8 +134,11 @@ def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25,
                 previous = source / "provider-labels" / cached.name
                 cached.parent.mkdir(exist_ok=True)
                 if not cached.exists():
-                    raw = previous.read_bytes() if previous.exists() else gzip.compress(
-                        open_archive().read(clip["member"]), mtime=0)
+                    raw = (
+                        previous.read_bytes()
+                        if previous.exists()
+                        else gzip.compress(open_archive().read(clip["member"]), mtime=0)
+                    )
                     cached.write_bytes(raw)
                 data = json.loads(gzip.decompress(cached.read_bytes()))
                 if float(data["info"]["version"]) < 1.3 or str(data["info"]["game_id"]) != clip["game_id"]:
@@ -128,8 +148,12 @@ def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25,
                     by_image[str(annotation["image_id"])].append(annotation)
                 tasks = []
                 for im in data["images"]:
-                    if ((int(Path(im["file_name"]).stem) - 1) % step or not im.get("has_labeled_person")
-                            or im.get("ignore_regions_x") or im.get("ignore_regions_y")):
+                    if (
+                        (int(Path(im["file_name"]).stem) - 1) % step
+                        or not im.get("has_labeled_person")
+                        or im.get("ignore_regions_x")
+                        or im.get("ignore_regions_y")
+                    ):
                         continue
                     if Path(im["file_name"]).name != im["file_name"] or not im["file_name"].endswith(".jpg"):
                         raise ValueError("Unsafe provider image name")
@@ -141,8 +165,14 @@ def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25,
                 for im in data["images"]:
                     if (int(Path(im["file_name"]).stem) - 1) % step:
                         continue
-                    if not im.get("has_labeled_person") or im.get("ignore_regions_x") or im.get("ignore_regions_y"):
-                        excluded.append({"clip": name, "image": im["image_id"], "reason": "incomplete or ignored labels"})
+                    if (
+                        not im.get("has_labeled_person")
+                        or im.get("ignore_regions_x")
+                        or im.get("ignore_regions_y")
+                    ):
+                        excluded.append(
+                            {"clip": name, "image": im["image_id"], "reason": "incomplete or ignored labels"}
+                        )
                         continue
                     fid = name + "_" + Path(im["file_name"]).stem
                     if Path(im["file_name"]).name != im["file_name"] or not im["file_name"].endswith(".jpg"):
@@ -179,18 +209,39 @@ def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25,
                     # remain documented negatives; team/role crops are never full labels.
                     label = output / "labels" / split / (fid + ".txt")
                     label.parent.mkdir(parents=True, exist_ok=True)
-                    label.write_text("\n".join(s for s in labels if s.startswith(("0 ", "1 "))) + "\n", encoding="utf-8")
-                    frames.append({"frame_id": fid, "image": str(image), "image_sha256": digest,
-                                   "label": str(label), "label_sha256": sha256_file(label),
-                                   "width": im["width"], "height": im["height"], "split": split,
-                                   "game_id": clip["game_id"], "clip": name,
-                                   "frame_index": int(Path(im["file_name"]).stem) - 1,
-                                   "boxes": [b for b in boxes if b["class_id"] in {0, 1}],
-                                   "people": people, "provider_sha256": sha256_file(cached)})
-                write_json(output / "progress.json", {"stage": "prepare", "split": split,
-                           "clips": clip_index + 1, "total_clips": len(clips), "frames": len(frames),
-                           "downloaded_bytes": (remote.downloaded if remote else 0)
-                           + sum(r.downloaded for _, r in worker_archives)})
+                    label.write_text(
+                        "\n".join(s for s in labels if s.startswith(("0 ", "1 "))) + "\n", encoding="utf-8"
+                    )
+                    frames.append(
+                        {
+                            "frame_id": fid,
+                            "image": str(image),
+                            "image_sha256": digest,
+                            "label": str(label),
+                            "label_sha256": sha256_file(label),
+                            "width": im["width"],
+                            "height": im["height"],
+                            "split": split,
+                            "game_id": clip["game_id"],
+                            "clip": name,
+                            "frame_index": int(Path(im["file_name"]).stem) - 1,
+                            "boxes": [b for b in boxes if b["class_id"] in {0, 1}],
+                            "people": people,
+                            "provider_sha256": sha256_file(cached),
+                        }
+                    )
+                write_json(
+                    output / "progress.json",
+                    {
+                        "stage": "prepare",
+                        "split": split,
+                        "clips": clip_index + 1,
+                        "total_clips": len(clips),
+                        "frames": len(frames),
+                        "downloaded_bytes": (remote.downloaded if remote else 0)
+                        + sum(r.downloaded for _, r in worker_archives),
+                    },
+                )
                 print(f"{split}: clip {clip_index + 1}/{len(clips)}, {len(frames)} frames", flush=True)
         finally:
             pool.shutdown(wait=True)
@@ -201,14 +252,32 @@ def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25,
                 archive.close()
             if remote:
                 remote.close()
-    result = {"schema_version": 1, "dataset_version": "broadcast-pitch-v1", "source": DATASET_URL,
-              "source_revision": REVISION, "selection": frozen, "frames": frames,
-              "counts": dict(Counter(r["split"] for r in frames)), "excluded": excluded,
-              "names": {0: "player", 1: "referee"}, "test_accessed": False,
-              "human_review_completed": False, "annotation_provenance": "SN-GSR v1.3 provider labels"}
+    result = {
+        "schema_version": 1,
+        "dataset_version": "broadcast-pitch-v1",
+        "source": DATASET_URL,
+        "source_revision": REVISION,
+        "selection": frozen,
+        "frames": frames,
+        "counts": dict(Counter(r["split"] for r in frames)),
+        "excluded": excluded,
+        "names": {0: "player", 1: "referee"},
+        "test_accessed": False,
+        "human_review_completed": False,
+        "annotation_provenance": "SN-GSR v1.3 provider labels",
+    }
     result["fingerprint"] = digest_json(result)
-    (output / "data.yaml").write_text(yaml.safe_dump({"path": output.as_posix(), "train": "images/train",
-        "val": "images/val", "names": result["names"]}), encoding="utf-8")
+    (output / "data.yaml").write_text(
+        yaml.safe_dump(
+            {
+                "path": output.as_posix(),
+                "train": "images/train",
+                "val": "images/val",
+                "names": result["names"],
+            }
+        ),
+        encoding="utf-8",
+    )
     write_json(output / "manifest.json", result)
     return result
 
