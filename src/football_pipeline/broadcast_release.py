@@ -247,7 +247,7 @@ def demonstrate(output):
     summary = {"engineering": engineering, "field_calibrations_identical": identical,
                "on_pitch_roles": dict(roles), "original_run": str(OLD_RUN),
                "on_pitch_player_teams": dict(teams),
-               "new_run": str(result.directory), "human_review_completed": False,
+               "new_run": str(result.directory), "run_id": result.directory.name, "human_review_completed": False,
                "demonstration_is_accuracy_test": False}
     write_json(Path(output) / "demonstration.json", summary)
     report_root = ROOT / "reports/broadcast-pitch-v1"

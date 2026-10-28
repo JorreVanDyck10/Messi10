@@ -6,7 +6,21 @@ from .contracts import PipelineError, read_json
 
 
 @st.fragment(run_every="30s")
-def show_training_status(directory):
+def show_training_status(directory, latest_demo=None):
+    if latest_demo is not None and latest_demo.is_file():
+        import re
+        from pathlib import Path
+
+        try:
+            demo = read_json(latest_demo)
+            identifier = demo.get("run_id", Path(demo.get("new_run", "")).name)
+            st.caption("Spelers en teams bijgewerkt · analyse binnen het herkende veld.")
+            if (re.fullmatch(r"[0-9a-f]{64}", identifier)
+                    and (directory.parent.parent / "runs" / identifier / "runmanifest.json").is_file()):
+                st.link_button("Nieuwe broadcastanalyse", f"?run={identifier}")
+            return
+        except (PipelineError, OSError):
+            pass
     if not directory.is_dir():
         return
     if (directory / "finished.json").exists():

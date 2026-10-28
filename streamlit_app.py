@@ -43,7 +43,8 @@ st.caption("Upload je voetbalvideo: veldherkenning, speler-ID’s en minimap wor
 MODEL_PATH = Path(os.environ.get("FOOTBALL_MODELS", ROOT / "configs/models.json"))
 OUTPUT_ROOT = Path(os.environ.get("FOOTBALL_RUNS", ROOT / "runs"))
 
-show_training_status(ROOT / "artifacts/joint-retrain-20261027-v2")
+show_training_status(ROOT / "artifacts/joint-retrain-20261027-v2",
+                     latest_demo=ROOT / "reports/broadcast-pitch-v1/demonstration.json")
 
 if linked_run := st.query_params.get("run"):
     from football_pipeline.app_results import linked_result
