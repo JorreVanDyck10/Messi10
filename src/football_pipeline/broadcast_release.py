@@ -129,6 +129,7 @@ def compare_and_package(dataset, output, refined=None, candidate_file=None):
             tighter["models"][1]["iou"] = .5
             candidates[label + "-kit-recovery-nms05"] = tighter, {**new_settings, "kit_player_recovery": True}
     additional_training = {}
+    release_candidates, exclusion_reasons = None, {}
     if candidate_file:
         import re
 
@@ -143,6 +144,10 @@ def compare_and_package(dataset, output, refined=None, candidate_file=None):
                                 load_team_settings((candidate_file.parent / item["teams"]).resolve()))
         for item in declared.get("training_records", []):
             additional_training[item["name"]] = read_json((candidate_file.parent / item["path"]).resolve())
+        release_candidates = declared.get("release_candidates")
+        exclusion_reasons = declared.get("exclusion_reasons", {})
+        if release_candidates is not None and (not release_candidates or set(release_candidates) - set(candidates)):
+            raise ValueError("Release candidates must be a nonempty subset of measured candidates")
     reports = {}
     for name, (profile, settings) in candidates.items():
         directory = (evaluation_directory(refined) if refined else output / "evaluation") / name
@@ -154,6 +159,10 @@ def compare_and_package(dataset, output, refined=None, candidate_file=None):
     eligible = [name for name, (profile, _) in candidates.items() if name != "r007-baseline"
                 and (not profile.get("appearance")
                      or profile["appearance"].get("role_policy") == "preserve_detector_players")]
+    if release_candidates is not None:
+        eligible = [name for name in eligible if name in release_candidates]
+    if not eligible:
+        raise ValueError("No eligible model remains after the declared release exclusions")
     selected = max(eligible, key=lambda name: candidate_score(reports[name]))
     before, after = baseline["player_detection_and_roles"]["per_class"][0], reports[selected]["player_detection_and_roles"]["per_class"][0]
     f1_before = 2 * before["precision"] * before["recall"] / max(1e-9, before["precision"] + before["recall"])
@@ -162,6 +171,7 @@ def compare_and_package(dataset, output, refined=None, candidate_file=None):
                 > baseline["teams"]["correct_fraction_all_players"])
     summary = {"selected": selected, "improved_over_baseline": improved,
                "eligible_candidates": eligible,
+               "exclusion_reasons": exclusion_reasons,
                "selection_rule": "Protect specialist player labels; prefer all targets met, then correct teams with false players penalized",
                "targets_met": reports[selected]["targets_met"], "independent_final_test": False,
                "human_review_completed": False, "candidates": reports,

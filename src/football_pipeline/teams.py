@@ -303,8 +303,9 @@ def refine_referee_consensus(detection, model):
     """Three independent learned/relative cues can reject a specialist false player.
 
     A crop alone cannot erase a whole unfamiliar team. Require referee crop
-    probability >= .95, nonplayer context >= .75 and a kit cosine distance of
-    at least .4 from both supported team prototypes. Keep goalkeepers protected.
+    probability >= .85, nonplayer context >= .75 and a kit cosine distance of
+    at least .4 from both supported team prototypes. Restrict this additional
+    rejection to the central 60% of the pitch to protect untyped goalkeepers.
     These fixed development thresholds are recorded in each decision's evidence.
     """
     from .kit_embedding import embedding_candidate
@@ -313,8 +314,8 @@ def refine_referee_consensus(detection, model):
     if (d.semantic_class != "player" or d.projection_status != "valid" or d.confidence < .25
             or d.player_kind == "goalkeeper" or not d.role_context_model_id
             or d.role_context_player_score is None or d.role_context_player_score > .25
-            or not d.role_probabilities or len(d.role_probabilities) != 3 or d.role_probabilities[1] < .95
-            or not d.field_position or not .08 < d.field_position[0] < .92):
+            or not d.role_probabilities or len(d.role_probabilities) != 3 or d.role_probabilities[1] < .85
+            or not d.field_position or not .2 < d.field_position[0] < .8):
         return
     _, score = embedding_candidate(d, model)
     if score is None or score > .6:
@@ -328,7 +329,8 @@ def refine_referee_consensus(detection, model):
                                "crop_referee_probability": d.role_probabilities[1],
                                "context_nonplayer_probability": 1 - d.role_context_player_score,
                                "nearest_team_cosine_distance": distance,
-                               "thresholds": {"crop_referee": .95, "context_nonplayer": .75, "kit_distance": .4}}
+                               "thresholds": {"crop_referee": .85, "context_nonplayer": .75,
+                                              "kit_distance": .4, "protect_end_fraction": .2}}
 
 
 class TeamAssigner:

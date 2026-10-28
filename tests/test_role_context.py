@@ -152,7 +152,7 @@ def test_referee_consensus_requires_all_cues_and_protects_common_kits_and_keeper
     detections[2].role_context_player_score = .9
     detections[3].role_probabilities = [.9, .09, .01]
     detections[4].player_kind = "goalkeeper"
-    detections[5].field_position = [.03, .5]
+    detections[5].field_position = [.86, .5]  # Untyped keeper near the penalty area remains protected.
     detections[6].projection_status = "outside_field"
     assigner = TeamAssigner(samples.fit(), 25)
     assigner.update(detections, 0)
