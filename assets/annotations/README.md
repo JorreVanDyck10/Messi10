@@ -1,6 +1,8 @@
 # Gedeelde gelabelde fragmenten
 
-Deze selecties staan samen met de video's, bronbeelden en labels in de repository. Haal na clonen of bijwerken ook de Git LFS-bestanden op met `git lfs pull`.
+Nieuwe broadcastbronnen: [broadcast-new100](broadcast-new100/README.md) bevat 100 volledige 1920 × 1080-frames uit vijf DFL/Roboflow-voorbeeldclips, 3.338 boxen en 94 speelballabels. De labels en een reproduceerbaar downloadscript staan in Git; deze externe wedstrijdbeelden worden lokaal opgebouwd. Gebruik de eigen configuraties: 94 beelden voor de speelbaltaak, alle 100 voor spelers. Menselijke review staat open.
+
+De bestaande panorama-selecties hieronder staan samen met de video's, bronbeelden en labels in de repository. Haal daarvoor na clonen of bijwerken ook de Git LFS-bestanden op met `git lfs pull`. De externe broadcastbeelden hierboven worden met hun eigen ophaalscript opgebouwd.
 
 De nieuwste uitbreiding [football-fullscene100b](football-fullscene100b/README.md) bevat nog 100 volledige frames met 4.909 boxen en één gecontroleerd speelballabel per beeld (70 train, 30 val). De aparte speelbalexport gebruikt reserveballen als achtergrond. `data-combined346.yaml` combineert de zes volledige-scènesets voor acht klassen: 346 beelden, 245 train en 101 val. Deze uitbreiding bevat naburige tijdstappen van dezelfde acties, soms slechts 0,04 seconde uit elkaar; gebruik ze niet als onafhankelijke test voor een model dat naburige beelden heeft gezien.
 

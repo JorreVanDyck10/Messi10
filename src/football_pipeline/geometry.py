@@ -7,8 +7,6 @@ import numpy as np
 
 from .contracts import Detection, PipelineError, VideoMetadata, digest_json
 
-FIELD_CORNERS = np.array([[0, 0], [1, 0], [1, 1], [0, 1]], dtype=np.float64)
-
 
 class CalibrationControlError(PipelineError):
     """Rejected calibration with independent checks available for visual diagnosis."""
@@ -68,6 +66,7 @@ class Calibration:
 
     @property
     def polygon(self) -> np.ndarray:
+        """The four clicked fit points; a partial view need not cover the whole field."""
         return np.array([[p["x"], p["y"]] for p in self.points if p["role"] == "fit"], np.float32)
 
     def validate_for(self, video: VideoMetadata, approved: bool = True) -> None:
@@ -129,14 +128,15 @@ def create_calibration(video: VideoMetadata, points: list[dict], reference_frame
         all_uv = np.array([[p["u"], p["v"]] for p in points], dtype=np.float64)
         if not np.isfinite(all_xy).all() or not np.isfinite(all_uv).all():
             raise PipelineError("Kalibratiepunten moeten eindige getallen bevatten.")
-        if not np.array_equal(dst, FIELD_CORNERS):
-            raise PipelineError("Fitvolgorde vereist: (0,0), (1,0), (1,1), (0,1).")
         if len(np.unique(all_xy, axis=0)) != len(points) or len(np.unique(all_uv, axis=0)) != len(points):
             raise PipelineError("Fit- en controlepunten moeten onderling verschillend en onafhankelijk zijn.")
         if (all_xy < 0).any() or (all_xy[:, 0] >= video.width).any() or (all_xy[:, 1] >= video.height).any():
             raise PipelineError("Kalibratiepunten liggen buiten het oorspronkelijke beeld.")
         if (all_uv < 0).any() or (all_uv > 1).any():
             raise PipelineError("Veldcoördinaten moeten tussen 0 en 1 liggen.")
+        target_polygon = dst.astype(np.float32)
+        if not cv2.isContourConvex(target_polygon) or cv2.contourArea(target_polygon) < 0.001:
+            raise PipelineError("Kies vier verspreide veldpunten in een niet-gekruiste volgorde.")
         polygon = src.astype(np.float32)
         if not cv2.isContourConvex(polygon) or cv2.contourArea(polygon) < video.width * video.height * 0.001:
             raise PipelineError(
@@ -146,6 +146,12 @@ def create_calibration(video: VideoMetadata, points: list[dict], reference_frame
         if matrix is None or not np.isfinite(matrix).all() or np.linalg.matrix_rank(matrix) != 3:
             raise PipelineError("Geen geldige homography berekend.")
         inverse = np.linalg.inv(matrix)
+        # The clicked region must stay on one visible side of the perspective horizon.
+        # Unseen parts of a panned-to field can legitimately lie behind the camera.
+        denominators = (matrix @ np.column_stack([src, np.ones(4)]).T)[2]
+        if (not np.isfinite(denominators).all() or np.min(np.abs(denominators)) < 1e-9
+                or np.min(denominators) * np.max(denominators) <= 0):
+            raise PipelineError("De fitpunten lopen over de perspectiefhorizon. Kies beter verspreide veldpunten.")
         check_uv = np.array([[p["u"], p["v"]] for p in check], dtype=np.float64)
         check_xy = np.array([[p["x"], p["y"]] for p in check], dtype=np.float64)
         projected = cv2.perspectiveTransform(check_uv.reshape(-1, 1, 2), inverse).reshape(-1, 2)
@@ -190,12 +196,15 @@ def project_detection(detection: Detection, calibration: Calibration) -> None:
     point = ((x1 + x2) / 2, y2)
     if y2 >= calibration.image_size[1] - 1:
         detection.projection_status = "truncated_bottom"
-    elif cv2.pointPolygonTest(calibration.polygon, point, False) < 0:
-        detection.projection_status = "outside_field"
     else:
         transformed = np.asarray(calibration.homography) @ [*point, 1]
         if not np.isfinite(transformed).all() or abs(transformed[2]) < 1e-12:
             detection.projection_status = "invalid_transform"
+            return
+        anchor = next(p for p in calibration.points if p["role"] == "fit")
+        reference = np.asarray(calibration.homography)[2] @ [anchor["x"], anchor["y"], 1]
+        if transformed[2] * reference <= 0:
+            detection.projection_status = "outside_field"
             return
         uv = transformed[:2] / transformed[2]
         if not np.isfinite(uv).all():

@@ -13,7 +13,7 @@ import pandas as pd
 import streamlit as st
 
 from football_pipeline.app_results import show_result
-from football_pipeline.calibration_input import panoris_point_suggestion, point_label
+from football_pipeline.calibration_input import panoris_point_suggestion, penalty_area_points, point_label
 from football_pipeline.contracts import PipelineError, RunResult, digest_json, read_json, sha256_file
 from football_pipeline.demo import default_points
 from football_pipeline.detection import (
@@ -31,20 +31,28 @@ from football_pipeline.geometry import (
 from football_pipeline.model_handoff import available_model_profiles
 from football_pipeline.pipeline import process_video, validate_completed
 from football_pipeline.point_picker import apply_point_click, point_picker
-from football_pipeline.render import LABELS, calibration_preview
+from football_pipeline.render import LABELS, calibrated_field_preview, calibration_target_preview
 from football_pipeline.teams import configured_team_path
 from football_pipeline.training_status_ui import show_training_status
 from football_pipeline.video import ROOT, inspect_video, read_frame
 
 st.set_page_config(page_title="Voetbal · tactical map", page_icon=":material/sports_soccer:", layout="wide")
 st.title("Van voetbalbeeld naar veldpositie")
-st.caption("Upload je voetbalvideo: veldherkenning, speler-ID’s en minimap worden automatisch verwerkt.")
+SCHOOL_MODE = os.environ.get("FOOTBALL_SCHOOL_MODE") == "1"
+st.caption(
+    "Schoolversie: video kiezen → veldpunten aanduiden → YOLO-detecties en minimap."
+    if SCHOOL_MODE else
+    "Upload je voetbalvideo: veldherkenning, speler-ID’s en minimap worden automatisch verwerkt."
+)
 
-MODEL_PATH = Path(os.environ.get("FOOTBALL_MODELS", ROOT / "configs/models.json"))
+MODEL_PATH = Path(os.environ.get(
+    "FOOTBALL_MODELS", ROOT / ("configs/models-school.json" if SCHOOL_MODE else "configs/models.json")
+))
 OUTPUT_ROOT = Path(os.environ.get("FOOTBALL_RUNS", ROOT / "runs"))
 
-show_training_status(ROOT / "artifacts/joint-retrain-20261027-v2",
-                     latest_demo=ROOT / "reports/broadcast-pitch-v1/demonstration.json")
+if not SCHOOL_MODE:
+    show_training_status(ROOT / "artifacts/joint-retrain-20261027-v2",
+                         latest_demo=ROOT / "reports/broadcast-pitch-v1/demonstration.json")
 
 if linked_run := st.query_params.get("run"):
     from football_pipeline.app_results import linked_result
@@ -58,7 +66,7 @@ if linked_run := st.query_params.get("run"):
         st.error(str(exc))
     st.stop()
 
-if st.checkbox("Een opgeslagen teamanalyse openen", key="open_team_result"):
+if not SCHOOL_MODE and st.checkbox("Een opgeslagen teamanalyse openen", key="open_team_result"):
     team_runs = []
     for run_path in OUTPUT_ROOT.glob("*/runmanifest.json"):
         try:
@@ -92,7 +100,7 @@ if st.checkbox("Een opgeslagen teamanalyse openen", key="open_team_result"):
     st.stop()
 
 # Saved results can be inspected immediately, without uploading or processing again.
-if st.checkbox("Een opgeslagen veldtest visueel openen", key="open_field_review"):
+if not SCHOOL_MODE and st.checkbox("Een opgeslagen veldtest visueel openen", key="open_field_review"):
     from football_pipeline.field_review_ui import visual_review
 
     saved_runs = []
@@ -136,7 +144,7 @@ def cached_frame(video, index):
 
 
 st.subheader("1. Video kiezen")
-automatic_analysis_enabled = st.toggle(
+automatic_analysis_enabled = False if SCHOOL_MODE else st.toggle(
     "Alles automatisch analyseren na upload",
     value=True,
     key="automatic_analysis",
@@ -187,7 +195,7 @@ if automatic_analysis_enabled:
     st.stop()
 
 st.subheader("2. Veld kalibreren")
-mode = st.segmented_control(
+mode = "Handmatig" if SCHOOL_MODE else st.segmented_control(
     "Kalibratiemethode",
     ["Handmatig", "Automatische veldkalibratie"],
     default="Automatische veldkalibratie"
@@ -284,9 +292,39 @@ else:
         latest_key = f"point_latest_{video.sha256}"
         selected_key = f"selected_point_{video.sha256}"
         picker_key = f"picker_{video.sha256}"
-        st.session_state.setdefault(seed_key, default_points(video.width, video.height))
         st.session_state.setdefault(revision_key, 0)
-        suggested_points = panoris_point_suggestion(video)
+        layout = st.radio(
+            "Welke veldlijnen zijn zichtbaar?",
+            ["Volledig veld", "Strafschopgebied links", "Strafschopgebied rechts"],
+            horizontal=True,
+            key=f"point_layout_{video.sha256}",
+        )
+        length, width = 105.0, 68.0
+        if layout != "Volledig veld":
+            st.caption(
+                "Klik de vier hoeken van het strafschopgebied en twee hoeken van het kleine doelgebied. "
+                "Links en rechts volgen het bovenaanzicht; de gekozen punten moeten alle zes zichtbaar zijn."
+            )
+            with st.expander("Veldafmetingen controleren", expanded=True):
+                length = st.number_input("Veldlengte (m)", 60.0, 150.0, 105.0, key=f"pitch_length_{video.sha256}")
+                width = st.number_input("Veldbreedte (m)", 45.0, 100.0, 68.0, key=f"pitch_width_{video.sha256}")
+                st.caption(
+                    "105 × 68 m is een aanname. Gebruik de werkelijke afmetingen. "
+                    "Buiten het aangeklikte gebied is de projectie gevoeliger voor klikfouten; controleer daar ook de veldlijnen."
+                )
+        layout_signature = digest_json([layout, length, width])
+        layout_key = f"point_layout_signature_{video.sha256}"
+        if seed_key not in st.session_state or st.session_state.get(layout_key) != layout_signature:
+            st.session_state[seed_key] = (
+                default_points(video.width, video.height) if layout == "Volledig veld"
+                else penalty_area_points("left" if layout.endswith("links") else "right", length=length, width=width)
+            )
+            st.session_state[layout_key] = layout_signature
+            st.session_state[revision_key] += 1
+            st.session_state[selected_key] = 0
+            for name in ("calibration", "calibration_signature", "draft_calibration", "draft_signature", "result"):
+                st.session_state.pop(name, None)
+        suggested_points = panoris_point_suggestion(video) if layout == "Volledig veld" else None
         if suggested_points is not None:
             st.info(
                 "Deze PANORIS-video wordt herkend. Je kunt de bestaande pilotpunten invullen en daarna zelf controleren."
@@ -316,6 +354,13 @@ else:
             format_func=lambda i: point_labels[i],
             key=selected_key,
         )
+        with st.expander("Waar ligt dit punt op het veld?", expanded=layout != "Volledig veld"):
+            st.image(
+                cv2.cvtColor(calibration_target_preview(st.session_state[seed_key], selected, length=length, width=width),
+                             cv2.COLOR_BGR2RGB),
+                caption="Bovenaanzicht: wit omcirkeld = huidig punt; blauw = fit; geel = controle.",
+                width=560,
+            )
         picker_container = st.container()
         points_df = pd.DataFrame(st.session_state[seed_key])
         points_df.insert(0, "plek", [point_label(point) for point in st.session_state[seed_key]])
@@ -409,7 +454,7 @@ else:
                 diagnostics=failure.get("diagnostics") if failure else None,
             )
             st.caption(
-                "Blauw = veldhoek · geel = onafhankelijk controlepunt · nummers volgen de keuzelijst. "
+                "Blauw = fitpunt · geel = onafhankelijk controlepunt · nummers volgen de keuzelijst. "
                 "Gebruik zoom en de schuifbalken voor preciezer klikken. Kies een bestaand punt om het te verplaatsen."
             )
         issues = point_coordinate_issues(points)
@@ -452,7 +497,7 @@ else:
                     f"grootste fout: {failure['maximum_px']:.2f} px (maximaal {failure['maximum_limit_px']:.2f})."
                 )
                 st.warning(
-                    "Controleer de vier veldhoeken én de twee middenlijnpunten. De onderlinge afwijking "
+                    "Controleer de vier fitpunten én de twee aparte controlepunten. De onderlinge afwijking "
                     "kan door een verkeerde klik, perspectief of panoramavervorming ontstaan. "
                     "Zoom in en klik op de echte snijpunten van de witte lijnen."
                 )
@@ -475,10 +520,11 @@ else:
                 columns = st.columns(3)
                 temporal = [0, video.frame_count // 2, video.frame_count - 1]
                 for column, index in zip(columns, temporal):
-                    temporal_frame = calibration_preview(cached_frame(video, index), points, grid=False)
+                    temporal_frame = calibrated_field_preview(cached_frame(video, index), draft)
                     column.image(cv2.cvtColor(temporal_frame, cv2.COLOR_BGR2RGB), caption=f"Frame {index}")
                 st.caption(
-                    "Controleer dat lijnen en hoeken op alle drie beelden onder dezelfde markeringen blijven."
+                    "Groen = geschatte veldgrenzen en middenlijn. Controleer die op alle drie beelden, "
+                    "ook buiten de vier fitpunten. De markeringen moeten op de echte veldlijnen blijven liggen."
                 )
             with st.form("approve_calibration"):
                 reviewer = st.text_input("Naam reviewer")
@@ -519,7 +565,10 @@ else:
     )
 
 st.subheader("3. Verwerken")
-profiles = available_model_profiles(MODEL_PATH, ROOT / "configs")
+profiles = (
+    {MODEL_PATH.resolve(): "Schoolversie · spelers, scheidsrechters en bal"}
+    if SCHOOL_MODE else available_model_profiles(MODEL_PATH, ROOT / "configs")
+)
 if not profiles:
     st.error("Er is geen modelprofiel beschikbaar.")
     st.stop()
@@ -583,6 +632,8 @@ try:
             "De minimap toont personen met een geldige veldpositie. Spelerrollen en individuele identiteit "
             "zijn onbekend."
         )
+    elif SCHOOL_MODE:
+        st.info("Duid de veldpunten aan en controleer de projectie. Daarna kun je de video verwerken.")
     elif not automatic_mode:
         st.info(
             "Spelermodel geselecteerd. Controleer eerst een run zonder tracking en leg de MVP-review vast; "
@@ -595,12 +646,12 @@ except PipelineError as exc:
     st.caption("Eenmalige voorbereiding: python -m football_pipeline download-baseline")
     st.stop()
 
-tracking = st.checkbox(
+tracking = False if SCHOOL_MODE else st.checkbox(
     "Spelertracking en trajecten toevoegen",
     disabled=not player_detection_sources(models),
     key="tracking",
 )
-teams_enabled = (
+teams_enabled = False if SCHOOL_MODE else (
     st.checkbox(
         "Teams op shirtkleur herkennen",
         value=True,

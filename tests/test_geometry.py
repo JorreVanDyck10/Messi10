@@ -113,3 +113,41 @@ def test_malformed_review_is_an_actionable_error(video_metadata, calibration):
     calibration.review = None
     with pytest.raises(PipelineError, match="reviewrecord"):
         calibration.validate_for(video_metadata)
+
+
+@pytest.mark.parametrize("side", ["left", "right"])
+def test_partial_field_calibration_projects_players_outside_the_fit_region(video_metadata, side):
+    from football_pipeline.calibration_input import penalty_area_points
+
+    field_to_image = np.array([[420, 80, 60], [20, 250, 40], [0.1, 0.2, 1]])
+    points = penalty_area_points(side)
+    for point in points:
+        xy = field_to_image @ [point["u"], point["v"], 1]
+        point["x"], point["y"] = (xy[:2] / xy[2]).tolist()
+    calibration = create_calibration(video_metadata, points)
+    for u, expected in ((0.5, "valid"), (1.1, "outside_field")):
+        xy = field_to_image @ [u, 0.5, 1]
+        x, y = xy[:2] / xy[2]
+        player = detection([x - 5, y - 20, x + 5, y])
+        project_detection(player, calibration)
+        assert player.projection_status == expected
+        if expected == "valid":
+            assert player.field_position == pytest.approx([0.5, 0.5], abs=1e-6)
+    assert max(calibration.check_errors_px) < 0.001
+
+
+def test_a_partial_view_does_not_accept_points_behind_the_camera(video_metadata):
+    from football_pipeline.calibration_input import penalty_area_points
+
+    field_to_image = np.array([[100, 0, -60], [150, 60, -80], [1, 0, -0.5]])
+    points = penalty_area_points("left")
+    for point in points:
+        xy = field_to_image @ [point["u"], point["v"], 1]
+        point["x"], point["y"] = (xy[:2] / xy[2]).tolist()
+    calibration = create_calibration(video_metadata, points)
+    for u, expected in ((0.1, "valid"), (0.8, "outside_field")):
+        xy = field_to_image @ [u, 0.5, 1]
+        x, y = xy[:2] / xy[2]
+        player = detection([x - 5, y - 20, x + 5, y])
+        project_detection(player, calibration)
+        assert player.projection_status == expected

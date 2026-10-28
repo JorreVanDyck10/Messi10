@@ -7,6 +7,26 @@ from .contracts import PipelineError, VideoMetadata, read_json
 from .video import ROOT
 
 
+def penalty_area_points(side: str, *, length=105.0, width=68.0) -> list[dict]:
+    """Four penalty-area corners and two separate goal-area checks, without guessed clicks."""
+    if side not in {"left", "right"} or not 60 <= length <= 150 or not 45 <= width <= 100:
+        raise PipelineError("Kies links of rechts en geldige, bekende veldafmetingen.")
+    big_top, big_bottom = (width / 2 - 20.16) / width, (width / 2 + 20.16) / width
+    small_top, small_bottom = (width / 2 - 9.16) / width, (width / 2 + 9.16) / width
+    near, far = (0, 16.5 / length) if side == "left" else (1 - 16.5 / length, 1)
+    check_u = 5.5 / length if side == "left" else 1 - 5.5 / length
+    definitions = [
+        ("Strafschopgebied boven, linkerkant", "fit", near, big_top),
+        ("Strafschopgebied boven, rechterkant", "fit", far, big_top),
+        ("Strafschopgebied onder, rechterkant", "fit", far, big_bottom),
+        ("Strafschopgebied onder, linkerkant", "fit", near, big_bottom),
+        ("Doelgebied boven, hoek op 5,5 m van de doellijn", "check", check_u, small_top),
+        ("Doelgebied onder, hoek op 5,5 m van de doellijn", "check", check_u, small_bottom),
+    ]
+    return [{"name": name, "role": role, "u": u, "v": v, "x": None, "y": None}
+            for name, role, u, v in definitions]
+
+
 def point_label(point: dict) -> str:
     """Friendly labels for the orientation used by the manual selection workflow."""
     labels = {

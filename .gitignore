@@ -27,3 +27,13 @@ models/
 output/
 !docs/**
 /reports/*.png
+/reports/broadcast-collection*.log
+/reports/partial-calibration-v*/SNGS-*.jpg
+!artifacts/broadcast-ball-v2/
+artifacts/broadcast-ball-v2/*
+!artifacts/broadcast-ball-v2/broadcast_ball_v2.pt
+!artifacts/broadcast-ball-v2/README.md
+!artifacts/broadcast-ball-v3/
+artifacts/broadcast-ball-v3/*
+!artifacts/broadcast-ball-v3/broadcast_ball_v3.pt
+!artifacts/broadcast-ball-v3/README.md

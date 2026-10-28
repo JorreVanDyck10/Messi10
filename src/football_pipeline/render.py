@@ -285,3 +285,63 @@ def calibration_preview(frame: np.ndarray, points: list[dict], grid: bool = True
         except (ValueError, TypeError, KeyError, OverflowError):
             continue
     return preview
+
+
+def calibration_target_preview(points: list[dict], selected: int, *, length=105.0, width=68.0) -> np.ndarray:
+    """Show which real field landmark the next image click must identify."""
+    from .calibration_input import penalty_area_points
+
+    canvas = np.full((480, 720, 3), (35, 70, 45), dtype=np.uint8)
+
+    def pixel(u, v):
+        return round(40 + 640 * u), round(35 + 410 * v)
+
+    cv2.rectangle(canvas, pixel(0, 0), pixel(1, 1), (220, 235, 220), 2)
+    cv2.line(canvas, pixel(0.5, 0), pixel(0.5, 1), (220, 235, 220), 2)
+    for side in ("left", "right"):
+        anchors = penalty_area_points(side, length=length, width=width)
+        quad = np.array([pixel(p["u"], p["v"]) for p in anchors[:4]], np.int32)
+        cv2.polylines(canvas, [quad], True, (160, 190, 165), 1)
+        check_u = anchors[4]["u"]
+        goal_u = 0 if side == "left" else 1
+        cv2.rectangle(canvas, pixel(goal_u, anchors[4]["v"]), pixel(check_u, anchors[5]["v"]),
+                      (160, 190, 165), 1)
+    for index, point in enumerate(points):
+        xy = pixel(point["u"], point["v"])
+        color = (255, 210, 0) if point["role"] == "fit" else (45, 210, 255)
+        if index == selected:
+            cv2.circle(canvas, xy, 12, (255, 255, 255), 2)
+        cv2.circle(canvas, xy, 6, color, -1)
+        cv2.putText(canvas, str(index + 1), (xy[0] + 13, xy[1] - 8), cv2.FONT_HERSHEY_SIMPLEX,
+                    0.65, (255, 255, 255), 2, cv2.LINE_AA)
+    return canvas
+
+
+def calibrated_field_preview(frame: np.ndarray, calibration) -> np.ndarray:
+    """Overlay the estimated boundaries, including areas outside the four fit points."""
+    preview = frame.copy()
+    height, width = frame.shape[:2]
+    inverse = np.linalg.inv(np.asarray(calibration.homography))
+    anchor = next(p for p in calibration.points if p["role"] == "fit")
+    reference = inverse[2] @ [anchor["u"], anchor["v"], 1]
+    corners = [(0, 0), (1, 0), (1, 1), (0, 1), (0, 0)]
+    segments = list(zip(corners, corners[1:])) + [((0.5, 0), (0.5, 1))]
+    for segment in segments:
+        source = np.column_stack([segment, np.ones(2)])
+        denominators = source @ inverse[2] * np.sign(reference)
+        if (denominators <= 0).all():
+            continue
+        # Clip an edge to the camera-facing side before drawing its projection.
+        if (denominators <= 0).any():
+            epsilon = max(abs(denominators)) * 1e-4
+            fraction = (epsilon - denominators[0]) / (denominators[1] - denominators[0])
+            index = 0 if denominators[0] <= 0 else 1
+            source[index] = source[0] + fraction * (source[1] - source[0])
+        xy = transform(source[:, :2], inverse)
+        if not np.isfinite(xy).all() or np.abs(xy).max() > 1e7:
+            continue
+        a, b = [tuple(round(float(v)) for v in point) for point in xy]
+        visible, a, b = cv2.clipLine((0, 0, width, height), a, b)
+        if visible:
+            cv2.line(preview, a, b, (70, 220, 120), 2, cv2.LINE_AA)
+    return calibration_preview(preview, calibration.points, grid=False)
