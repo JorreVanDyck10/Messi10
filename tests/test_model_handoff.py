@@ -101,3 +101,35 @@ def test_equivalent_model_profiles_are_shown_once_despite_relative_paths(tmp_pat
     manifest["models"][0]["weights"] = str(weights)
     write_json(alias, manifest)
     assert available_model_profiles(default, tmp_path) == {default.resolve(): "Personen op GPU — herkenning"}
+
+
+@pytest.mark.parametrize("missing", ["detector", "appearance", "kit_embedding", "role_context"])
+def test_unavailable_optional_profiles_are_hidden_but_default_reports_its_error(tmp_path, missing):
+    weights = tmp_path / "local.pt"
+    weights.write_bytes(b"profile discovery only")
+    default = tmp_path / "models.json"
+    candidate = tmp_path / "models-other-computer.json"
+    manifest = {"schema_version": 1, "models": [{"weights": str(weights)}]}
+    write_json(default, manifest)
+    if missing == "detector":
+        manifest["models"][0]["weights"] = "missing-on-this-computer.pt"
+    else:
+        manifest[missing] = {"weights": "missing-on-this-computer.pt"}
+    write_json(candidate, manifest)
+    assert list(available_model_profiles(default, tmp_path)) == [default.resolve()]
+    # Explicitly selecting an unavailable profile keeps the actionable loader error.
+    assert candidate.resolve() in available_model_profiles(candidate, tmp_path)
+    with pytest.raises(PipelineError):
+        load_model_manifest(candidate)
+
+
+def test_profiles_with_the_same_detector_and_different_heads_remain_selectable(tmp_path):
+    weights = tmp_path / "local.pt"
+    weights.write_bytes(b"profile discovery only")
+    default = tmp_path / "models.json"
+    candidate = tmp_path / "models-with-roles.json"
+    manifest = {"schema_version": 1, "models": [{"weights": str(weights)}]}
+    write_json(default, manifest)
+    manifest["appearance"] = {"weights": str(weights), "role_confidence": 0.65}
+    write_json(candidate, manifest)
+    assert list(available_model_profiles(default, tmp_path)) == [default.resolve(), candidate.resolve()]

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "profile_name": "Broadcastbal v2 — native tegels, experimenteel",
+  "models": [
+    {
+      "model_id": "broadcast-ball-native-v2",
+      "weights": "../artifacts/broadcast-ball-v2/broadcast_ball_v2.pt",
+      "weights_sha256": "0bfd52b880a6994b646c78374fb00156ba211b3a464f8c8a273873f9b5d2bb52",
+      "class_mapping": {
+        "32": "ball"
+      },
+      "expected_names": {
+        "32": "sports ball"
+      },
+      "imgsz": 640,
+      "confidence": 0.25,
+      "iou": 0.7,
+      "device": "0",
+      "ball_tiles": {
+        "sizes": [
+          640
+        ],
+        "imgsz": 640,
+        "overlap": 0.2,
+        "merge_iou": 0.5
+      }
+    }
+  ],
+  "handoff": {
+    "evaluation_record": "../reports/broadcast-data/v2-experiment.json",
+    "evaluation_sha256": "2267100279fb1e0af0362980c723d77f8988afec6a394f2aac6454a8b1d9caa1",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "default_promoted": false,
+    "dataset_fingerprint": "afa5bbce1eff649d9967e927d0d54f36671dcea3c855620b7919d0a926870d2e",
+    "scope": "73 AI-curated development frames, fixed 640-pixel tiling; not independent final accuracy"
+  }
+}

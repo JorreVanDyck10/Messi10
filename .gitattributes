@@ -41,6 +41,10 @@ reports/person1-round3/**/*.log -whitespace
 reports/person1-round4/** -text whitespace=cr-at-eol
 reports/person1-round4/**/*.log -whitespace
 reports/course-improvement/** -text whitespace=cr-at-eol
+reports/broadcast-data/** -text whitespace=cr-at-eol
+reports/partial-calibration-v*/** -text whitespace=cr-at-eol
+artifacts/broadcast-ball-v2/*.pt filter=lfs diff=lfs merge=lfs -text
+artifacts/broadcast-ball-v3/*.pt filter=lfs diff=lfs merge=lfs -text
 reports/field-reliability/** -text whitespace=cr-at-eol
 reports/team-analysis/** -text whitespace=cr-at-eol
 artifacts/fullscene-ball-v1/*.pt filter=lfs diff=lfs merge=lfs -text

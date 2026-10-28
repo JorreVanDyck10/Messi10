@@ -24,12 +24,30 @@ def available_model_profiles(default: Path, directory: Path) -> dict[Path, str]:
                 if "weights" in spec:
                     spec["weights"] = str((path.parent / spec["weights"]).resolve())
                 normalized.append(spec)
-            identity = digest_json(normalized)
+            heads = {}
+            for name in ("appearance", "kit_embedding", "role_context"):
+                if manifest.get(name):
+                    heads[name] = dict(manifest[name])
+                    heads[name]["weights"] = str((path.parent / heads[name]["weights"]).resolve())
+            # A checkout may contain profiles made on a different computer.
+            # Keep an explicitly requested default so its loader can explain errors.
+            if path != default.resolve() and any(
+                not spec.get("weights") or not Path(spec["weights"]).is_file()
+                for spec in [*normalized, *heads.values()]
+            ):
+                continue
+            identity = digest_json({
+                "models": normalized,
+                "heads": heads,
+                "analysis_scope": manifest.get("analysis_scope", "all_participants"),
+                "person_geometry": manifest.get("person_geometry", False),
+                "person_box_fusion_weight": manifest.get("person_box_fusion_weight"),
+            })
             if identity in seen:
                 continue
             seen.add(identity)
             profiles[path] = str(manifest.get("profile_name", path.stem))
-        except PipelineError:
+        except (PipelineError, KeyError, TypeError, ValueError):
             if path == default.resolve():
                 profiles[path] = path.stem
     return profiles
