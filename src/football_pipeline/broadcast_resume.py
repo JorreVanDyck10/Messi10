@@ -22,12 +22,15 @@ ARCHIVE_BYTES = 6703191552
 def status():
     paused = read_json(STAGE / "paused/checkpoint.json")
     part = CACHE / "train.tar.part"
+    final = CACHE / "train.tar"
+    current = ROOT / "artifacts/broadcast-multisource-v7/detector/status.json"
     return {"training": read_json(STAGE / "training/status.json")["status"],
             "completed_checkpoint_epoch": paused["last_completed_epoch"],
             "checkpoint_verified": sha256_file(paused["resume_checkpoint"]) == paused["sha256"],
-            "download_bytes": part.stat().st_size if part.exists() else 0,
+            "download_bytes": final.stat().st_size if final.exists() else part.stat().st_size if part.exists() else 0,
             "download_total_bytes": ARCHIVE_BYTES,
-            "archive_complete": (CACHE / "train.tar").exists(),
+            "archive_complete": final.exists(),
+            "multisource_training": read_json(current) if current.exists() else None,
             "handover": str(ROOT / "docs/Broadcast_Hervatten.md")}
 
 

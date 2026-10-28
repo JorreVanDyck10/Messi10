@@ -1,0 +1,36 @@
+{
+  "status": "running",
+  "resumed_at_utc": "2026-10-28T07:30:23.049630+00:00",
+  "goal_complete": false,
+  "default_model_changed": false,
+  "archive_sha256_verified": true,
+  "data": {
+    "dataset_fingerprint": "27d8c4b5a9ab85fdd3a5774c53e93bbcdca7da0e62e337ac4460ddd27bdc8344",
+    "base_sha256": "e36cf616da81d07a900a74c90580565f5e8b89e6bffb5668979bf1f9355cf0da",
+    "source_fingerprints": {
+      "soccernet": "26e5c8a12d9f009b118fdc47f9cbe9a7a0f7d3117818fd7f1b7874d9273f89d9",
+      "sportsmot": "f7e9de4ea354e8224dfec2f57eb0af28f5151937d91d05c3dd30b7e314c9c020"
+    },
+    "training_games": {
+      "4": 540,
+      "6": 570,
+      "9": 600,
+      "sportsmot:v_1yHWGw8DH4A": 811,
+      "sportsmot:v_HdiyOtliFiw": 744,
+      "sportsmot:v_gQNyhv8y0QY": 580,
+      "sportsmot:v_iIxMOsCGH58": 91
+    },
+    "target_names": {
+      "0": "player"
+    },
+    "test_accessed": false,
+    "field_models_changed": false,
+    "selection": "Fixed original validation; extra official football training matches only",
+    "training_source_sha256": "6d37b071e834e99276b8ac19ea91e434ab01cf17777bf39a2d8411ab7447b983"
+  },
+  "jobs": {
+    "detector": "artifacts/broadcast-multisource-v7/detector/status.json",
+    "observed_context": "artifacts/broadcast-observed-v8/cache/inputs.json"
+  },
+  "previous_progress": "reports/broadcast-pitch-v1/progress-20261027.json"
+}

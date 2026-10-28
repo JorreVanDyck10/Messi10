@@ -1,6 +1,10 @@
 # Broadcastanalyse morgen hervatten
 
-Status: **tijdelijk gepauzeerd op verzoek van de gebruiker**, 27 oktober 2026. Het werk is nog niet af. De gebruiker wil spelers binnen het bestaande veld per team herkennen; personen buiten het veld zijn voor later. De veldmodellen en instellingen blijven behouden. De eerdere grens van vier uur is later expliciet opgeheven met “blijf maar door werken, kijk nie naar tijd”.
+Status: **hervat op 28 oktober 2026**, na “ga door”. Het werk is nog niet af. De gebruiker wil spelers binnen het bestaande veld per team herkennen; personen buiten het veld zijn voor later. De veldmodellen en instellingen blijven behouden. De eerdere grens van vier uur is later expliciet opgeheven met “blijf maar door werken, kijk nie naar tijd”.
+
+Nieuwste voortgang: `reports/broadcast-pitch-v1/progress-20261028.json`. De SportsMOT-download is volledig en de bronhash gecontroleerd. `data/broadcast-multisource-v1` bevat 3.936 trainingsbeelden uit zeven wedstrijden en dezelfde 348 SoccerNet-validatiebeelden. De nieuwe trainingsronde staat onder `artifacts/broadcast-multisource-v7/`, gestart met `python -m football_pipeline.broadcast_multisource_training`. De oudere M-ronde hieronder blijft bewaard en gepauzeerd: de eerste acht epochs waren niet beter.
+
+Daarnaast verzamelt `python -m football_pipeline.broadcast_observed_context collect` echte detectoruitsneden voor aanvullende rolcontext. Alleen één-op-één bronboxmatches met IoU >= 0,5 leveren labels; ongematchte voorspellingen worden geen verzonnen negatieven. Deze cache staat onder `artifacts/broadcast-observed-v8/cache/`; een volledig verzamelrecord is vereist voordat `... train` kan starten. Het standaardprofiel is nog niet veranderd. Onderstaande pauzedetails beschrijven de bewaarde toestand van 27 oktober.
 
 Branch: `codex/broadcast-spelers-teams`. De oorspronkelijke push/pull is uitgevoerd, inclusief het samenvoegen van `origin/main`. Er zijn geen subagents gebruikt. Vraag morgen niet opnieuw toestemming om deze opdracht te hervatten.
 

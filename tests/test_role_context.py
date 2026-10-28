@@ -115,3 +115,17 @@ def test_color_recovery_cannot_undo_a_learned_negative_context_decision():
     target.semantic_class, target.role_decision = "referee", "pitch_context_nonplayer"
     TeamAssigner(samples.fit(), 25).update([target], 0)
     assert target.semantic_class == "referee" and target.team_id is None
+
+
+def test_observed_training_uses_unique_provider_matches_and_ignores_unlabelled_boxes():
+    from football_pipeline.broadcast_observed_context import matched_targets
+
+    detections = [person(i) for i in range(4)]
+    detections[2].bbox_xyxy = [300, 100, 340, 200]
+    detections[3].bbox_xyxy = [450, 100, 490, 200]
+    people = [{"bbox": detections[0].bbox_xyxy, "role": "player", "team": "left", "goalkeeper": True},
+              {"bbox": detections[2].bbox_xyxy, "role": "referee", "team": None}]
+    targets, teams = matched_targets(detections, people)
+    assert sorted(targets.tolist()) == [-1, -1, 0, 1]
+    assert targets[2] == 1 and targets[3] == -1
+    assert not teams.any()  # A keeper does not simulate an entire outfield kit.
