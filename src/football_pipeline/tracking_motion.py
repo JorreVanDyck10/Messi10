@@ -6,6 +6,38 @@ import numpy as np
 from .geometry import valid_box
 
 
+def warp_xyah(tracks, matrix):
+    """Transform XYAH Kalman states without rotating aspect into pixel height.
+
+    ByteTrack's generic GMC uses four XY pairs, but its state is actually
+    x/y/aspect/height and their velocities. Use the transformed box envelope
+    and its Jacobian; pure zoom must leave aspect unchanged.
+    """
+    rotation, translation = np.asarray(matrix, float)[:, :2], np.asarray(matrix, float)[:, 2]
+    u, v = np.abs(rotation[0])
+    r, s = np.abs(rotation[1])
+    determinant = u * s - v * r
+    for track in tracks:
+        mean = track.mean.copy()
+        aspect, height, aspect_velocity, height_velocity = mean[[2, 3, 6, 7]]
+        factor = r * aspect + s
+        derivative = determinant / factor**2
+        jacobian = np.zeros((8, 8))
+        jacobian[:2, :2] = jacobian[4:6, 4:6] = rotation
+        jacobian[2, 2] = derivative
+        jacobian[3, 2], jacobian[3, 3] = height * r, factor
+        jacobian[6, 2], jacobian[6, 6] = -2 * r * determinant / factor**3 * aspect_velocity, derivative
+        jacobian[7, 2], jacobian[7, 3] = r * height_velocity, r * aspect_velocity
+        jacobian[7, 6], jacobian[7, 7] = r * height, factor
+        mean[:2] = rotation @ mean[:2] + translation
+        mean[4:6] = rotation @ mean[4:6]
+        mean[2], mean[3] = (u * aspect + v) / factor, height * factor
+        mean[6] = derivative * aspect_velocity
+        mean[7] = factor * height_velocity + height * r * aspect_velocity
+        track.mean = mean
+        track.covariance = jacobian @ track.covariance @ jacobian.T
+
+
 class BackgroundMotion:
     def __init__(self):
         self.previous = None

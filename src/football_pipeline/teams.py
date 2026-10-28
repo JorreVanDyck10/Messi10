@@ -42,6 +42,7 @@ DEFAULT_TEAM_SETTINGS = {
     "embedding_max_distance": 0.45,
     "embedding_margin": 0.18,
     "kit_player_recovery": False,
+    "referee_kit_consensus": False,
 }
 TEAM_IDS = ("A", "B")
 UNKNOWN_COLOR = "#aab2bd"
@@ -74,7 +75,7 @@ def load_team_settings(path: str | Path | dict) -> dict:
     for key, number in settings.items():
         if key in {"method", "schema_version"}:
             continue
-        if key == "kit_player_recovery":
+        if key in {"kit_player_recovery", "referee_kit_consensus"}:
             if type(number) is not bool:
                 raise PipelineError(f"Ongeldig teambeleid: {key}.")
             continue
@@ -298,6 +299,38 @@ def team_context(model: dict) -> dict:
     }
 
 
+def refine_referee_consensus(detection, model):
+    """Three independent learned/relative cues can reject a specialist false player.
+
+    A crop alone cannot erase a whole unfamiliar team. Require referee crop
+    probability >= .95, nonplayer context >= .75 and a kit cosine distance of
+    at least .4 from both supported team prototypes. Keep goalkeepers protected.
+    These fixed development thresholds are recorded in each decision's evidence.
+    """
+    from .kit_embedding import embedding_candidate
+
+    d = detection
+    if (d.semantic_class != "player" or d.projection_status != "valid" or d.confidence < .25
+            or d.player_kind == "goalkeeper" or not d.role_context_model_id
+            or d.role_context_player_score is None or d.role_context_player_score > .25
+            or not d.role_probabilities or len(d.role_probabilities) != 3 or d.role_probabilities[1] < .95
+            or not d.field_position or not .08 < d.field_position[0] < .92):
+        return
+    _, score = embedding_candidate(d, model)
+    if score is None or score > .6:
+        return
+    d.semantic_class, d.track_id = "referee", None
+    d.role_decision = "pitch_referee_consensus"
+    vector = np.asarray(d.team_embedding, float)
+    vector /= np.linalg.norm(vector)
+    distance = min(float(np.clip(1 - vector @ t["prototype_embedding"], 0, 2)) for t in model["teams"].values())
+    d.role_consensus_evidence = {"rule": "referee_crop_context_kit_v1",
+                               "crop_referee_probability": d.role_probabilities[1],
+                               "context_nonplayer_probability": 1 - d.role_context_player_score,
+                               "nearest_team_cosine_distance": distance,
+                               "thresholds": {"crop_referee": .95, "context_nonplayer": .75, "kit_distance": .4}}
+
+
 class TeamAssigner:
     def __init__(self, model: dict, fps: float, overrides: dict | None = None):
         validate_team_model(model)
@@ -312,7 +345,7 @@ class TeamAssigner:
         for d in detections:
             embedding_method = self.settings["method"] == "torso_embedding_dominant_modes_v1"
             if (embedding_method and self.settings.get("kit_player_recovery")
-                    and d.role_decision != "pitch_context_nonplayer"
+                    and d.role_decision not in {"pitch_context_nonplayer", "pitch_referee_consensus"}
                     and d.semantic_class in {"person", "referee"} and d.detector_semantic_class == "person"
                     and d.role_model_id and d.confidence >= .25
                     and not (d.role_evidence and d.role_evidence["semantic_class"] == "referee"
@@ -326,6 +359,8 @@ class TeamAssigner:
                 if recovered:
                     d.semantic_class = "player"
                     d.role_decision = "strong_kit_context_from_trained_player_prototypes"
+            if embedding_method and self.settings.get("referee_kit_consensus"):
+                refine_referee_consensus(d, self.model)
             # The optional appearance model's match-specific labels are separate
             # evidence from this run's colour clusters and manual corrections.
             if d.team_method is not None:

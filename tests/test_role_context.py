@@ -129,3 +129,35 @@ def test_observed_training_uses_unique_provider_matches_and_ignores_unlabelled_b
     assert sorted(targets.tolist()) == [-1, -1, 0, 1]
     assert targets[2] == 1 and targets[3] == -1
     assert not teams.any()  # A keeper does not simulate an entire outfield kit.
+
+
+def test_referee_consensus_requires_all_cues_and_protects_common_kits_and_keepers():
+    from football_pipeline.kit_embedding import PitchTeamSamples
+    from football_pipeline.teams import TeamAssigner, load_team_settings
+
+    settings = load_team_settings({"method": "torso_embedding_dominant_modes_v1", "confirmation_samples": 1,
+                                   "kit_player_recovery": True, "referee_kit_consensus": True})
+    samples = PitchTeamSamples(settings, 25)
+    for frame in range(0, 25, 5):
+        for i in range(4):
+            d = person(i)
+            d.semantic_class = "player"
+            samples.add(d, frame)
+    detections = [person(i) for i in range(7)]
+    for d in detections:
+        d.semantic_class = "player"
+        d.role_context_model_id, d.role_context_player_score = "trained-context", .2
+        d.team_embedding = np.eye(32)[3].tolist()  # Neither of the two supported team kits.
+    detections[1].team_embedding = np.eye(32)[0].tolist()  # Crop wrongly calls an entire kit referee.
+    detections[2].role_context_player_score = .9
+    detections[3].role_probabilities = [.9, .09, .01]
+    detections[4].player_kind = "goalkeeper"
+    detections[5].field_position = [.03, .5]
+    detections[6].projection_status = "outside_field"
+    assigner = TeamAssigner(samples.fit(), 25)
+    assigner.update(detections, 0)
+    assert detections[0].semantic_class == "referee" and detections[0].team_id is None
+    assert detections[0].role_consensus_evidence["nearest_team_cosine_distance"] == pytest.approx(1.)
+    assert all(d.semantic_class == "player" for d in detections[1:])
+    assigner.update(detections, 1)
+    assert detections[0].semantic_class == "referee"  # Kit recovery cannot undo the decision.

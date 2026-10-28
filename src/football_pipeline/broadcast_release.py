@@ -7,6 +7,7 @@ import copy
 import json
 import shutil
 from collections import Counter
+from datetime import UTC, datetime
 from pathlib import Path
 
 from .broadcast_evaluation import evaluate_profile
@@ -211,7 +212,9 @@ def compare_and_package(dataset, output, refined=None, candidate_file=None):
             v["runtime_s"] for v in compact["training"]["refinement"].values())
     compact["training"]["additional_stages"] = additional_training
     compact["training"]["gpu_stage_wall_seconds"] += sum(v.get("runtime_s", 0) for v in additional_training.values())
+    compact["training"]["stage_runtime_meaning"] = "Sum of recorded phase wall times; phases may overlap; not measured GPU compute time"
     compact["training"]["time_limit_lifted_by_user"] = True
+    compact["recorded_at_utc"] = datetime.now(UTC).isoformat()
     write_json(report_root / "summary.json", compact)
     for filename in ("players_best.pt", "person_proposals.pt", "roles_teams.pt", "kit_embedding.pt", "role_context.pt"):
         if (package / filename).exists():
@@ -276,12 +279,15 @@ def write_card(package, summary):
         "en drempelselectie; deze cijfers zijn geen onafhankelijke generalisatietest.\n\n"
         "Bronnen: [SoccerNet-GSR](https://www.soccer-net.org/tasks/game-state-reconstruction), "
         "[SN-GSR-2024](https://huggingface.co/datasets/SoccerNet/SN-GSR-2024), "
+        "[SportsMOT](https://huggingface.co/datasets/MCG-NJU/SportsMOT) "
+        "(officiële voetbal-trainselectie, CC-BY-NC-4.0; zie trainingsrecords voor het gekozen model), "
         "[Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/). "
         "De oorspronkelijke gebruiksvoorwaarden blijven van toepassing.\n", encoding="utf-8")
 
 
 def write_report(summary, demo):
-    lines = ["# Broadcastspelers en teams — 27 oktober 2026", "",
+    date = summary.get("recorded_at_utc", "2026-10-28")[:10]
+    lines = [f"# Broadcastspelers en teams — {date}", "",
              "Spelers worden binnen het bestaande veld geselecteerd. De rolclassifier kan betrouwbare "
              "spelerlabels beschermen; officials blijven afzonderlijke rollen. Buitenveldse personen zijn uitgesteld.", "",
              "## Vergelijking", "",
@@ -297,7 +303,8 @@ def write_report(summary, demo):
     lines += ["", f"Geselecteerd: **{summary['selected']}**. Alle streefgrenzen gehaald: **{summary['targets_met']}**.", "",
               "## Data en training", "",
               f"Broadcastbeelden: {summary['data']['counts']}. Wedstrijden: {summary['data']['selection']['games']}.",
-              f"Werkelijke GPU-fasetijd inclusief feature-extractie: {summary['training']['gpu_stage_wall_seconds'] / 60:.2f} minuten.",
+              f"Som van geregistreerde faselooptijden: {summary['training']['gpu_stage_wall_seconds'] / 60:.2f} minuten. "
+              "Fasen kunnen overlappen; dit is geen gemeten GPU-rekentijd en geen complete som van alle verkennende proeven.",
               "Oorspronkelijke team-, keeper- en tracklabels blijven bewaard. Geen officiële test- of challengebeelden gebruikt.", "",
               "De validatieset is herhaald gebruikt om checkpoints, drempels en combinaties te kiezen. "
               "Daarom zijn deze ontwikkelcijfers geen onafhankelijke eindtest. De aangeleerde shirtprojectie "
@@ -316,7 +323,17 @@ def write_report(summary, demo):
               f"van {summary['candidates'][summary['selected']]['teams']['goalkeepers_total']} keepers gematcht; "
               f"{summary['candidates'][summary['selected']]['teams']['goalkeepers_correct_team']} krijgen het correcte team. "
               "Dit onderdeel blijft dus een beperking.", "",
-              "Reproduceren: `scripts/Run-BroadcastSpelersTraining.ps1`. Starten: `scripts/Start-Gezamenlijk.ps1`."]
+              "Reproduceren en verdere trainingsrondes: zie `docs/Broadcast_Hervatten.md` en de brongebonden trainingsrecords "
+              "in `reports/broadcast-pitch-v1/summary.json`. Starten: `scripts/Start-Gezamenlijk.ps1`."]
+    extra = summary["training"].get("additional_stages", {})
+    if "multisource-data" in extra:
+        data = extra["multisource-data"]
+        lines += ["", "## Extra voetbaltrainingsdata", "",
+                  f"De aanvullende detectorronde gebruikt zeven trainingswedstrijden: {data['training_games']}. "
+                  "De SportsMOT-selectie bevat uitsluitend officiële voetbal-trainclips. "
+                  "De oorspronkelijke SoccerNet-validatiewedstrijden zijn behouden. "
+                  "Beelden en labels zijn op hash gecontroleerd; bronfingerprints staan in het verslag. "
+                  "SportsMOT is gepubliceerd onder CC-BY-NC-4.0."]
     (ROOT / "docs/Broadcast_Spelers_en_Teams.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 

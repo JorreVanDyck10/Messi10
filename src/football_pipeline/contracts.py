@@ -111,6 +111,7 @@ class Detection:
     context_embedding: list[float] | None = None
     role_context_model_id: str | None = None
     role_context_player_score: float | None = None
+    role_consensus_evidence: dict | None = None
 
     @classmethod
     def from_dict(cls, value: dict) -> Detection:

@@ -36,28 +36,40 @@ class ByteTrackAdapter:
     def __init__(self, config: dict, fps: float, *, camera_motion: bool = False, require_field: bool = False):
         from ultralytics.trackers.byte_tracker import BYTETracker
 
+        legacy_partition_indices = version("ultralytics") == "8.3.221"
+
         class SourceIndexedTracker(BYTETracker):
             def init_track(self, results, features=None):
                 tracks = super().init_track(results, features)
                 # 8.3.221 numbers each confidence partition from zero. Preserve
                 # the input detection index through both association stages.
-                indices = results.source_indices
-                if len(tracks) != len(indices):
-                    raise PipelineError("ByteTrack initialisatie verloor detectie-indices.")
-                for track, index in zip(tracks, indices):
-                    track.idx = int(index)
+                if legacy_partition_indices:
+                    indices = results.source_indices
+                    if len(tracks) != len(indices):
+                        raise PipelineError("ByteTrack initialisatie verloor detectie-indices.")
+                    for track, index in zip(tracks, indices):
+                        track.idx = int(index)
                 return tracks
 
-        self.legacy_partition_indices = version("ultralytics") == "8.3.221"
-        tracker_class = SourceIndexedTracker if self.legacy_partition_indices else BYTETracker
-        self.tracker = tracker_class(SimpleNamespace(**config))
+            def multi_predict(self, tracks):
+                super().multi_predict(tracks)
+                if getattr(self, "background_motion", None) is not None:
+                    from .tracking_motion import warp_xyah
+
+                    warp_xyah(tracks, self.background_motion.matrix)
+                    warp_xyah([t for t in self.tracked_stracks if not t.is_activated], self.background_motion.matrix)
+
+        self.legacy_partition_indices = legacy_partition_indices
+        self.tracker = SourceIndexedTracker(SimpleNamespace(**config))
         self.motion = None
         self.id_offset = self.maximum_id = 0
         if camera_motion:
             from .tracking_motion import BackgroundMotion
 
             self.motion = BackgroundMotion()
-            self.tracker.gmc = self.motion
+            # Apply the measured affine after Kalman prediction using XYAH
+            # geometry. The library's generic GMC would mix aspect and height.
+            self.tracker.background_motion = self.motion
         self.fps = fps
         self.require_field = require_field
         self.last_frame = -1
@@ -73,6 +85,7 @@ class ByteTrackAdapter:
             "fps_scaling": "one_update_per_source_frame",
             "index_compatibility": "8.3.221_source_indices" if self.legacy_partition_indices else "native",
             "camera_compensation": "background_affine_ransac" if camera_motion else None,
+            "motion_state_transform": "xyah_box_envelope_jacobian" if camera_motion else None,
             "field_required_for_image_ids": not camera_motion or require_field,
         }
 
