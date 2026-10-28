@@ -2,7 +2,19 @@
 maxUploadSize = 1024
 
 [theme]
-primaryColor = "#16745B"
-backgroundColor = "#F8FAF9"
-secondaryBackgroundColor = "#EAF0ED"
-textColor = "#182D27"
+base = "dark"
+primaryColor = "#15956D"
+backgroundColor = "#0B1220"
+secondaryBackgroundColor = "#142033"
+textColor = "#E6EDF6"
+borderColor = "#29374B"
+linkColor = "#6EE7B7"
+baseRadius = "12px"
+buttonRadius = "8px"
+showWidgetBorder = true
+headingFontSizes = ["40px", "28px", "22px", "18px", "16px", "14px"]
+chartCategoricalColors = ["#5BB8FF", "#FFB45B", "#93A4BA", "#6EE7B7"]
+
+[theme.sidebar]
+backgroundColor = "#101B2D"
+secondaryBackgroundColor = "#1A2940"

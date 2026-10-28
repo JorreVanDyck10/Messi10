@@ -397,6 +397,7 @@ def test_app_result_link_opens_without_upload_and_rejects_bad_link(team_run, mon
     monkeypatch.setenv("FOOTBALL_RUNS", str(result.directory.parent))
     app = AppTest.from_file(Path(__file__).resolve().parents[1] / "streamlit_app.py", default_timeout=30)
     app.query_params["run"] = result.directory.name
+    app.session_state["result_view"] = "Teams"
     app.run()
     assert not app.exception
     assert app.session_state["result"].directory == result.directory
@@ -415,6 +416,10 @@ def test_app_result_link_opens_without_upload_and_rejects_bad_link(team_run, mon
     app.query_params["run"] = "../outside"
     app.run()
     assert not app.exception and app.error
+    app.radio(key="workspace_view").set_value("Nieuwe analyse").run()
+    assert not app.exception and not app.error
+    assert "run" not in app.query_params
+    assert app.file_uploader(key="video_upload")
 
 
 def test_joint_export_check_rejects_mismatched_timestamps(team_run, monkeypatch):

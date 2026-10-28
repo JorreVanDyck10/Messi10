@@ -17,6 +17,7 @@ def result_app(result):
         default_timeout=30,
     )
     app.session_state["result"] = result
+    app.session_state["result_view"] = "Teams"
     return app.run()
 
 
@@ -41,6 +42,7 @@ def test_frame_counts_and_corrections_only_apply_on_submit(team_run):
     app.selectbox(key=f"team_override_{token}").select("A")
     next(button for button in app.button if button.label == "Correcties toepassen").click().run()
     assert not app.exception
+    assert not app.error, [e.value for e in app.error]
     corrected = app.session_state["result"]
     assert corrected.directory != result.directory
     assert read_json(corrected.directory / "teaminstellingen.json")["teams"]["A"]["name"] == "Thuis"
@@ -54,13 +56,16 @@ def test_app_can_open_saved_result_without_upload_and_keeps_original_visible(tea
     result, _ = team_run
     monkeypatch.setenv("FOOTBALL_RUNS", str(result.directory.parent))
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30).run()
-    app.checkbox(key="open_team_result").check().run()
+    app.radio(key="workspace_view").set_value("Opgeslagen analyses").run()
+    app.session_state["result_view"] = "Teams"
+    app.run()
     assert not app.exception
     assert app.session_state["result"].directory == result.directory
     token = result.manifest["cache_key"][:16]
     app.text_input(key=f"team_name_A_{token}").set_value("Nieuwe naam")
     next(button for button in app.button if button.label == "Correcties toepassen").click().run()
     assert not app.exception
+    assert not app.error, [e.value for e in app.error]
     corrected = app.session_state["result"]
     assert corrected.directory != result.directory
     # The saved-run selection can explicitly reopen its original even though the

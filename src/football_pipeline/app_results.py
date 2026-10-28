@@ -21,31 +21,75 @@ def linked_result(root, identifier):
 
 
 def show_result(result):
-    st.subheader("Resultaat")
-    st.success("Eerder voltooid resultaat hergebruikt." if result.reused else "Video volledig verwerkt.")
-    st.link_button("Directe link naar deze analyse", f"?run={result.directory.name}")
-    st.video(str(result.video_path))
     metrics = result.manifest["measurements"]
-    with st.container(horizontal=True):
-        st.metric("Verwerkingstijd", f"{metrics['runtime_s']:.1f} s")
-        st.metric("Verwerkingssnelheid", f"{metrics['processing_fps']:.2f} fps")
-        st.metric("Proces-RAM (bemonsterd)", f"{metrics['peak_process_ram_bytes_sampled'] / 2**20:.0f} MiB")
-    if result.manifest.get("calibration_mode") == "automatic":
-        st.metric("Frames met bruikbare veldkalibratie", f"{metrics['calibration_usable_fraction']:.1%}")
-        if result.manifest.get("models", {}).get("analysis_scope") == "on_pitch_players":
-            st.caption("Alleen spelers binnen het herkende veld worden getoond. Bij veldverlies blijft de telling onbekend.")
-        else:
+    st.subheader("Wedstrijdanalyse")
+    with st.container(horizontal=True, vertical_alignment="center"):
+        st.badge("Analyse voltooid", icon=":material/check_circle:", color="green")
+        st.link_button(
+            "Directe link naar deze analyse", f"?run={result.directory.name}", icon=":material/link:"
+        )
+    overview, players, teams, details = st.tabs(
+        ["Overzicht", "Spelers en afstanden", "Teams", "Details en downloads"],
+        key="result_view",
+        default=st.session_state.get("active_result_view", "Overzicht"),
+        on_change="rerun",
+    )
+    # Preserve the selected view when widgets are cleaned up while navigating away.
+    st.session_state.active_result_view = st.session_state.result_view
+    if overview.open:
+        with overview:
+            video = result.manifest["video"]
+            with st.container(horizontal=True):
+                st.metric("Clipduur", f"{video['duration_s']:.1f} s", border=True)
+                if result.manifest.get("calibration_mode") == "automatic":
+                    st.metric(
+                        "Bruikbare veldkalibratie",
+                        f"{metrics['calibration_usable_fraction']:.1%}",
+                        border=True,
+                    )
+                st.metric("Bronbeeld", f"{video['width']} × {video['height']}", border=True)
+            with st.container(border=True):
+                st.video(str(result.video_path))
+                st.caption(
+                    "Video en tactical map delen dezelfde tijdlijn. Afspelen, pauzeren en zoeken blijven gesynchroniseerd."
+                )
             st.caption(
-                "Bij onbekende veldherkenning blijven beeld-ID’s zichtbaar; de minimap onderbreekt de trajecten."
+                "Bij ontbrekende veldherkenning worden trajecten en afstandsmetingen onderbroken. Speler-ID’s zijn tijdelijk."
             )
-        from .field_review_ui import visual_review
+            if result.manifest.get("calibration_mode") == "automatic":
+                from .field_review_ui import visual_review
 
-        if st.checkbox("Beeld en veld per frame bekijken", key="automatic_frame_review"):
-            visual_review(result.directory)
-    if result.manifest.get("team_settings") is not None:
-        from .team_ui import show_teams
+                if st.checkbox("Beeld en veld per frame bekijken", key="automatic_frame_review"):
+                    visual_review(result.directory)
+    if players.open:
+        with players:
+            from .distance_ui import distance_panel
 
-        show_teams(result)
+            distance_panel(result)
+    if teams.open:
+        with teams:
+            if result.manifest.get("team_settings") is not None:
+                from .team_ui import show_teams
+
+                show_teams(result)
+            else:
+                st.info("Deze analyse bevat geen teamindeling. Kies een analyse met teamherkenning.")
+    if details.open:
+        with details:
+            show_details(result)
+
+
+def show_details(result):
+    metrics = result.manifest["measurements"]
+    st.caption("Eerder voltooid resultaat hergebruikt." if result.reused else "Video volledig verwerkt.")
+    with st.container(horizontal=True):
+        st.metric("Verwerkingstijd", f"{metrics['runtime_s']:.1f} s", border=True)
+        st.metric("Verwerkingssnelheid", f"{metrics['processing_fps']:.2f} fps", border=True)
+        st.metric(
+            "Proces-RAM (bemonsterd)",
+            f"{metrics['peak_process_ram_bytes_sampled'] / 2**20:.0f} MiB",
+            border=True,
+        )
     if metrics.get("runtime_kind") == "team_render_only":
         st.caption(
             "De verwerkingstijd betreft deze teamcorrectie; detectie, veldposities en speler-ID’s zijn hergebruikt."

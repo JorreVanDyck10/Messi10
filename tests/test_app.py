@@ -12,7 +12,7 @@ def test_app_initial_screen_and_rerun():
     app.session_state["automatic_analysis"] = False
     app.run()
     assert not app.exception
-    assert app.title[0].value == "Van voetbalbeeld naar veldpositie"
+    assert app.title[0].value == "Elke beweging in beeld"
     app.run()
     assert not app.exception
     assert "result" not in app.session_state

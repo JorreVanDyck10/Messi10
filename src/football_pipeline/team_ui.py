@@ -216,6 +216,8 @@ def show_teams(result):
                 with st.spinner("Teamlabels, telling en video bijwerken…"):
                     corrected = apply_team_corrections(directory, request, directory.parent)
                 st.session_state.result = corrected
+                if st.session_state.get("workspace_view") == "Opgeslagen analyses":
+                    st.session_state.pending_saved_run = str(corrected.directory)
                 if st.query_params.get("run") == directory.name:
                     st.query_params["run"] = corrected.directory.name
                     st.session_state.linked_run = corrected.directory.name

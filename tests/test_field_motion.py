@@ -328,7 +328,7 @@ def test_new_ui_saved_run_uses_same_frame_and_point_toggles(demo_fixture, tmp_pa
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
     app.session_state["automatic_analysis"] = False
     app.run()
-    app.checkbox(key="open_field_review").check().run()
+    app.radio(key="workspace_view").set_value("Veldcontrole").run()
     assert not app.exception
 
     token = result.manifest["cache_key"][:12]
@@ -370,7 +370,7 @@ def test_ui_human_reference_is_only_saved_after_explicit_input(demo_fixture, tmp
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
     app.session_state["automatic_analysis"] = False
     app.run()
-    app.checkbox(key="open_field_review").check().run()
+    app.radio(key="workspace_view").set_value("Veldcontrole").run()
     assert not app.exception
     token = result.manifest["cache_key"][:12]
     assert not (tmp_path / "data/field-reviews").exists()

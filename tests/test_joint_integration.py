@@ -208,7 +208,7 @@ def test_joint_app_runs_automatic_field_and_preserves_roles_teams_on_review(
     assert not read_json(result.directory / "calibration.json").get("human_reviewed")
     app.run()
     assert len(calls) == 1  # Rerendering does not silently run either model again.
-    app.checkbox(key="open_field_review").check().run()
+    app.radio(key="workspace_view").set_value("Veldcontrole").run()
     assert not app.exception
     token = result.manifest["cache_key"][:12]
     app.slider(key=f"review_frame_{token}").set_value(8).run()

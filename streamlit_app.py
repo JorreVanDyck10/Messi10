@@ -36,23 +36,53 @@ from football_pipeline.teams import configured_team_path
 from football_pipeline.training_status_ui import show_training_status
 from football_pipeline.video import ROOT, inspect_video, read_frame
 
-st.set_page_config(page_title="Voetbal · tactical map", page_icon=":material/sports_soccer:", layout="wide")
-st.title("Van voetbalbeeld naar veldpositie")
-SCHOOL_MODE = os.environ.get("FOOTBALL_SCHOOL_MODE") == "1"
-st.caption(
-    "Schoolversie: video kiezen → veldpunten aanduiden → YOLO-detecties en minimap."
-    if SCHOOL_MODE else
-    "Upload je voetbalvideo: veldherkenning, speler-ID’s en minimap worden automatisch verwerkt."
+st.set_page_config(
+    page_title="Sports Vision · voetbalanalyse", page_icon=":material/sports_soccer:", layout="wide"
 )
-
-MODEL_PATH = Path(os.environ.get(
-    "FOOTBALL_MODELS", ROOT / ("configs/models-school.json" if SCHOOL_MODE else "configs/models.json")
-))
+SCHOOL_MODE = os.environ.get("FOOTBALL_SCHOOL_MODE") == "1"
+MODEL_PATH = Path(
+    os.environ.get(
+        "FOOTBALL_MODELS", ROOT / ("configs/models-school.json" if SCHOOL_MODE else "configs/models.json")
+    )
+)
 OUTPUT_ROOT = Path(os.environ.get("FOOTBALL_RUNS", ROOT / "runs"))
 
-if not SCHOOL_MODE:
-    show_training_status(ROOT / "artifacts/joint-retrain-20261027-v2",
-                         latest_demo=ROOT / "reports/broadcast-pitch-v1/demonstration.json")
+
+def navigate():
+    st.query_params.pop("run", None)
+    st.session_state.pop("linked_run", None)
+    st.session_state.pop("navigation_link", None)
+
+
+if link := st.query_params.get("run"):
+    if st.session_state.get("navigation_link") != link:
+        st.session_state.workspace_view = "Opgeslagen analyses"
+        st.session_state.navigation_link = link
+
+with st.sidebar:
+    st.title(":material/sports_soccer: Sports Vision")
+    st.caption("Van wedstrijdbeeld naar inzicht")
+    navigation = st.radio(
+        "Werkruimte",
+        ["Nieuwe analyse", "Opgeslagen analyses", "Veldcontrole"],
+        key="workspace_view",
+        on_change=navigate,
+    )
+    st.badge("Schoolversie" if SCHOOL_MODE else "Voetbalanalyse", icon=":material/sports:", color="green")
+    st.caption("Video · tactical map · teams · afstanden")
+    if not SCHOOL_MODE:
+        with st.expander("Technische status"):
+            show_training_status(
+                ROOT / "artifacts/joint-retrain-20261027-v2",
+                latest_demo=ROOT / "reports/broadcast-pitch-v1/demonstration.json",
+            )
+
+st.title("Elke beweging in beeld")
+st.caption(
+    "Schoolversie: video kiezen → veldpunten aanduiden → YOLO-detecties en minimap."
+    if SCHOOL_MODE
+    else "Analyseer je voetbalvideo. Bekijk spelers, teams en gemeten bewegingen op één plek."
+)
 
 if linked_run := st.query_params.get("run"):
     from football_pipeline.app_results import linked_result
@@ -66,26 +96,32 @@ if linked_run := st.query_params.get("run"):
         st.error(str(exc))
     st.stop()
 
-if not SCHOOL_MODE and st.checkbox("Een opgeslagen teamanalyse openen", key="open_team_result"):
+if navigation == "Opgeslagen analyses":
+    st.subheader("Je opgeslagen analyses")
     team_runs = []
     for run_path in OUTPUT_ROOT.glob("*/runmanifest.json"):
         try:
             saved = read_json(run_path)
-            if saved.get("status") == "completed" and saved.get("team_settings") is not None:
+            if saved.get("status") == "completed":
                 team_runs.append((run_path.parent, saved))
         except PipelineError:
             continue
     team_runs.sort(key=lambda item: item[1].get("completed_at", ""), reverse=True)
     if team_runs:
+        run_manifests = {str(path): manifest for path, manifest in team_runs}
+        pending = st.session_state.pop("pending_saved_run", None)
+        if pending in run_manifests:
+            st.session_state.saved_team_run = pending
         chosen = st.selectbox(
-            "Opgeslagen teamanalyse",
-            range(len(team_runs)),
-            format_func=lambda i: (
-                f"{team_runs[i][1].get('completed_at', '')[:19]} · {team_runs[i][0].name[:12]}"
+            "Opgeslagen analyse",
+            list(run_manifests),
+            format_func=lambda path: (
+                f"{Path(run_manifests[path]['video']['path']).name} · "
+                f"{run_manifests[path].get('completed_at', '')[:19]} · {Path(path).name[:8]}"
             ),
             key="saved_team_run",
         )
-        directory, saved = team_runs[chosen]
+        directory = Path(chosen)
         try:
             active = st.session_state.get("result")
             if active is None or st.session_state.get("saved_team_selection") != str(directory):
@@ -96,11 +132,12 @@ if not SCHOOL_MODE and st.checkbox("Een opgeslagen teamanalyse openen", key="ope
         except (PipelineError, OSError) as exc:
             st.error(str(exc))
     else:
-        st.caption("Nog geen voltooide teamanalyse beschikbaar.")
+        st.info("Nog geen voltooide analyse beschikbaar. Begin bij Nieuwe analyse met een voetbalvideo.")
     st.stop()
 
 # Saved results can be inspected immediately, without uploading or processing again.
-if not SCHOOL_MODE and st.checkbox("Een opgeslagen veldtest visueel openen", key="open_field_review"):
+if navigation == "Veldcontrole":
+    st.subheader("Controleer de veldprojectie")
     from football_pipeline.field_review_ui import visual_review
 
     saved_runs = []
@@ -143,14 +180,33 @@ def cached_frame(video, index):
     return read_frame(video, index)
 
 
-st.subheader("1. Video kiezen")
-automatic_analysis_enabled = False if SCHOOL_MODE else st.toggle(
-    "Alles automatisch analyseren na upload",
-    value=True,
-    key="automatic_analysis",
-    help="Schakel uit om de kalibratie en het model zelf in te stellen.",
+st.subheader("Begin met je wedstrijdclip")
+with st.container(horizontal=True):
+    for label, caption in (
+        (":material/upload: 1. Video kiezen", "Upload een MP4 van je wedstrijd."),
+        (":material/analytics: 2. Analyseren", "Herken het veld, spelers en teams."),
+        (":material/route: 3. Inzicht krijgen", "Bekijk de minimap en geschatte afstanden."),
+    ):
+        with st.container(border=True, width=300):
+            st.markdown(f"**{label}**")
+            st.caption(caption)
+automatic_analysis_enabled = (
+    False
+    if SCHOOL_MODE
+    else st.toggle(
+        "Alles automatisch analyseren na upload",
+        value=True,
+        key="automatic_analysis",
+        help="Schakel uit om de kalibratie en het model zelf in te stellen.",
+    )
 )
-upload = st.file_uploader("Voetbalvideo (.mp4)", type=["mp4"], key="video_upload")
+with st.container(border=True):
+    upload = st.file_uploader(
+        "Voetbalvideo (.mp4)",
+        type=["mp4"],
+        key="video_upload",
+        help="Begin met een fragment van 30–60 seconden. Maximaal 1 GB.",
+    )
 if upload is None:
     st.caption("Kies een ontwikkelfragment van ongeveer 30–60 seconden om te beginnen.")
     st.stop()
@@ -195,15 +251,19 @@ if automatic_analysis_enabled:
     st.stop()
 
 st.subheader("2. Veld kalibreren")
-mode = "Handmatig" if SCHOOL_MODE else st.segmented_control(
-    "Kalibratiemethode",
-    ["Handmatig", "Automatische veldkalibratie"],
-    default="Automatische veldkalibratie"
-    if os.environ.get("FOOTBALL_CALIBRATION_MODE") == "automatic"
-    else "Handmatig",
-    selection_mode="single",
-    required=True,
-    key="calibration_mode",
+mode = (
+    "Handmatig"
+    if SCHOOL_MODE
+    else st.segmented_control(
+        "Kalibratiemethode",
+        ["Handmatig", "Automatische veldkalibratie"],
+        default="Automatische veldkalibratie"
+        if os.environ.get("FOOTBALL_CALIBRATION_MODE") == "automatic"
+        else "Handmatig",
+        selection_mode="single",
+        required=True,
+        key="calibration_mode",
+    )
 )
 automatic_mode = mode == "Automatische veldkalibratie"
 if st.session_state.get("active_calibration_mode") != mode:
@@ -306,8 +366,12 @@ else:
                 "Links en rechts volgen het bovenaanzicht; de gekozen punten moeten alle zes zichtbaar zijn."
             )
             with st.expander("Veldafmetingen controleren", expanded=True):
-                length = st.number_input("Veldlengte (m)", 60.0, 150.0, 105.0, key=f"pitch_length_{video.sha256}")
-                width = st.number_input("Veldbreedte (m)", 45.0, 100.0, 68.0, key=f"pitch_width_{video.sha256}")
+                length = st.number_input(
+                    "Veldlengte (m)", 60.0, 150.0, 105.0, key=f"pitch_length_{video.sha256}"
+                )
+                width = st.number_input(
+                    "Veldbreedte (m)", 45.0, 100.0, 68.0, key=f"pitch_width_{video.sha256}"
+                )
                 st.caption(
                     "105 × 68 m is een aanname. Gebruik de werkelijke afmetingen. "
                     "Buiten het aangeklikte gebied is de projectie gevoeliger voor klikfouten; controleer daar ook de veldlijnen."
@@ -316,13 +380,22 @@ else:
         layout_key = f"point_layout_signature_{video.sha256}"
         if seed_key not in st.session_state or st.session_state.get(layout_key) != layout_signature:
             st.session_state[seed_key] = (
-                default_points(video.width, video.height) if layout == "Volledig veld"
-                else penalty_area_points("left" if layout.endswith("links") else "right", length=length, width=width)
+                default_points(video.width, video.height)
+                if layout == "Volledig veld"
+                else penalty_area_points(
+                    "left" if layout.endswith("links") else "right", length=length, width=width
+                )
             )
             st.session_state[layout_key] = layout_signature
             st.session_state[revision_key] += 1
             st.session_state[selected_key] = 0
-            for name in ("calibration", "calibration_signature", "draft_calibration", "draft_signature", "result"):
+            for name in (
+                "calibration",
+                "calibration_signature",
+                "draft_calibration",
+                "draft_signature",
+                "result",
+            ):
                 st.session_state.pop(name, None)
         suggested_points = panoris_point_suggestion(video) if layout == "Volledig veld" else None
         if suggested_points is not None:
@@ -356,8 +429,12 @@ else:
         )
         with st.expander("Waar ligt dit punt op het veld?", expanded=layout != "Volledig veld"):
             st.image(
-                cv2.cvtColor(calibration_target_preview(st.session_state[seed_key], selected, length=length, width=width),
-                             cv2.COLOR_BGR2RGB),
+                cv2.cvtColor(
+                    calibration_target_preview(
+                        st.session_state[seed_key], selected, length=length, width=width
+                    ),
+                    cv2.COLOR_BGR2RGB,
+                ),
                 caption="Bovenaanzicht: wit omcirkeld = huidig punt; blauw = fit; geel = controle.",
                 width=560,
             )
@@ -544,6 +621,7 @@ else:
                         "usage": usage,
                         "static_camera_confirmed": static,
                         "temporal_frames": temporal,
+                        "field_dimensions_m": {"length": length, "width": width},
                     }
                     draft.validate_for(video)
                     st.session_state.calibration = draft
@@ -567,99 +645,109 @@ else:
 st.subheader("3. Verwerken")
 profiles = (
     {MODEL_PATH.resolve(): "Schoolversie · spelers, scheidsrechters en bal"}
-    if SCHOOL_MODE else available_model_profiles(MODEL_PATH, ROOT / "configs")
+    if SCHOOL_MODE
+    else available_model_profiles(MODEL_PATH, ROOT / "configs")
 )
 if not profiles:
     st.error("Er is geen modelprofiel beschikbaar.")
     st.stop()
-selected_model_path = st.selectbox(
-    "Modelprofiel",
-    list(profiles),
-    format_func=lambda path: profiles[path],
-    key="model_profile",
-)
-try:
-    models = load_model_manifest(selected_model_path)
-    validate_detection_devices(models)
-    profile_identity = digest_json(models)
-    if st.session_state.get("active_model_profile") != profile_identity:
-        st.session_state.active_model_profile = profile_identity
-        st.session_state.tracking = False
-        st.session_state.pop("result", None)
-    semantic_classes = available_roles(models)
-    st.caption(
-        "Dit model onderscheidt: "
-        + ", ".join(
-            "scheidsrechter" if role == "referee" and models.get("appearance") else LABELS.get(role, role)
-            for role in sorted(semantic_classes)
-        )
-        + (
-            ". Alleen gedetecteerde spelers met hun voetpunt binnen het geldige veld tellen mee. "
-            if "player" in semantic_classes
-            else ". Personen blijven als persoon aangeduid; hun rol is onbekend. "
-        )
-        + "Zonder geldige veldherkenning is het aantal op het veld onbekend."
+with st.expander("Geavanceerde model- en trackinginstellingen", expanded=SCHOOL_MODE):
+    selected_model_path = st.selectbox(
+        "Modelprofiel",
+        list(profiles),
+        format_func=lambda path: profiles[path],
+        key="model_profile",
     )
-    if models.get("appearance"):
+    try:
+        models = load_model_manifest(selected_model_path)
+        validate_detection_devices(models)
+        profile_identity = digest_json(models)
+        if st.session_state.get("active_model_profile") != profile_identity:
+            st.session_state.active_model_profile = profile_identity
+            st.session_state.tracking = False
+            st.session_state.pop("result", None)
+        semantic_classes = available_roles(models)
         st.caption(
-            "Spelers krijgen Team A, Team B of team onbekend. Bekende wedstrijdclips gebruiken de getrainde "
-            "teamindeling; nieuwe video's verzamelen eerst shirtkleuren. A/B zijn geen clubnamen. "
-            "Bij twijfel blijft de rol persoon of het team onbekend."
+            "Dit model onderscheidt: "
+            + ", ".join(
+                "scheidsrechter" if role == "referee" and models.get("appearance") else LABELS.get(role, role)
+                for role in sorted(semantic_classes)
+            )
+            + (
+                ". Alleen gedetecteerde spelers met hun voetpunt binnen het geldige veld tellen mee. "
+                if "player" in semantic_classes
+                else ". Personen blijven als persoon aangeduid; hun rol is onbekend. "
+            )
+            + "Zonder geldige veldherkenning is het aantal op het veld onbekend."
         )
-    if "player" in semantic_classes and (
-        "steward" not in semantic_classes or "spectator" not in semantic_classes
-    ):
-        st.warning(
-            "Dit model heeft nog geen aparte herkenning voor stewards en supporters. "
-            "Als het iemand verkeerd als speler classificeert, kan die binnen het veld toch meetellen."
-        )
-    if models.get("handoff", {}).get("human_review_completed") is False:
-        st.caption(
-            "Dit model is voorlopig. De menselijke labelreview staat nog open. "
-            "Controleer gemiste personen, verkeerde rollen en onbekende teamindelingen."
-        )
-    if models.get("handoff", {}).get("broadcast_transfer_adequate") is False:
-        st.warning(
-            "De P004-basisdetector miste veel personen in de Broadcast-ontwikkelclip. "
-            "De aanvullende rolclassifier is op die clip nog niet gevalideerd. "
-            "Het profiel ‘Personen op GPU’ blijft beschikbaar voor algemene herkenning."
-        )
-    if "player" not in semantic_classes:
-        st.warning(
-            "Dit profiel detecteert personen. Spelertracking vereist een model met expliciete spelerklassen."
-        )
-        st.caption(
-            "De minimap toont personen met een geldige veldpositie. Spelerrollen en individuele identiteit "
-            "zijn onbekend."
-        )
-    elif SCHOOL_MODE:
-        st.info("Duid de veldpunten aan en controleer de projectie. Daarna kun je de video verwerken.")
-    elif not automatic_mode:
-        st.info(
-            "Spelermodel geselecteerd. Controleer eerst een run zonder tracking en leg de MVP-review vast; "
-            "daarna kun je ID's en trajecten toevoegen."
-        )
-    else:
-        st.info("Spelermodel geselecteerd. Het veldmodel plaatst de actuele detecties op de minimap.")
-except PipelineError as exc:
-    st.error(str(exc))
-    st.caption("Eenmalige voorbereiding: python -m football_pipeline download-baseline")
-    st.stop()
+        if models.get("appearance"):
+            st.caption(
+                "Spelers krijgen Team A, Team B of team onbekend. Bekende wedstrijdclips gebruiken de getrainde "
+                "teamindeling; nieuwe video's verzamelen eerst shirtkleuren. A/B zijn geen clubnamen. "
+                "Bij twijfel blijft de rol persoon of het team onbekend."
+            )
+        if "player" in semantic_classes and (
+            "steward" not in semantic_classes or "spectator" not in semantic_classes
+        ):
+            st.warning(
+                "Dit model heeft nog geen aparte herkenning voor stewards en supporters. "
+                "Als het iemand verkeerd als speler classificeert, kan die binnen het veld toch meetellen."
+            )
+        if models.get("handoff", {}).get("human_review_completed") is False:
+            st.caption(
+                "Dit model is voorlopig. De menselijke labelreview staat nog open. "
+                "Controleer gemiste personen, verkeerde rollen en onbekende teamindelingen."
+            )
+        if models.get("handoff", {}).get("broadcast_transfer_adequate") is False:
+            st.warning(
+                "De P004-basisdetector miste veel personen in de Broadcast-ontwikkelclip. "
+                "De aanvullende rolclassifier is op die clip nog niet gevalideerd. "
+                "Het profiel ‘Personen op GPU’ blijft beschikbaar voor algemene herkenning."
+            )
+        if "player" not in semantic_classes:
+            st.warning(
+                "Dit profiel detecteert personen. Spelertracking vereist een model met expliciete spelerklassen."
+            )
+            st.caption(
+                "De minimap toont personen met een geldige veldpositie. Spelerrollen en individuele identiteit "
+                "zijn onbekend."
+            )
+        elif SCHOOL_MODE:
+            st.info("Duid de veldpunten aan en controleer de projectie. Daarna kun je de video verwerken.")
+        elif not automatic_mode:
+            st.info(
+                "Spelermodel geselecteerd. Controleer eerst een run zonder tracking en leg de MVP-review vast; "
+                "daarna kun je ID's en trajecten toevoegen."
+            )
+        else:
+            st.info("Spelermodel geselecteerd. Het veldmodel plaatst de actuele detecties op de minimap.")
+    except PipelineError as exc:
+        st.error(str(exc))
+        st.caption("Eenmalige voorbereiding: python -m football_pipeline download-baseline")
+        st.stop()
 
-tracking = False if SCHOOL_MODE else st.checkbox(
-    "Spelertracking en trajecten toevoegen",
-    disabled=not player_detection_sources(models),
-    key="tracking",
-)
-teams_enabled = False if SCHOOL_MODE else (
-    st.checkbox(
-        "Teams op shirtkleur herkennen",
-        value=True,
-        disabled="player" not in semantic_classes,
-        key="teams_enabled",
+    tracking = (
+        False
+        if SCHOOL_MODE
+        else st.checkbox(
+            "Spelertracking en trajecten toevoegen",
+            disabled=not player_detection_sources(models),
+            key="tracking",
+        )
     )
-    and "player" in semantic_classes
-)
+    teams_enabled = (
+        False
+        if SCHOOL_MODE
+        else (
+            st.checkbox(
+                "Teams op shirtkleur herkennen",
+                value=True,
+                disabled="player" not in semantic_classes,
+                key="teams_enabled",
+            )
+            and "player" in semantic_classes
+        )
+    )
 team_config_path = configured_team_path(models)
 if automatic_mode:
     st.caption(
