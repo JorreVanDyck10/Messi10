@@ -22,6 +22,9 @@ from scripts.evaluate_role_extension import cohorts
 
 
 def blend_role_states(base, candidate, alpha):
+    """Meng alleen gelijkvormige rolkopgewichten van compatibele bevroren encoders met het opgegeven
+    alfagewicht.
+    """
     if not np.isfinite(alpha) or not 0 <= alpha <= 1:
         raise ValueError("Interpolation weight must be in [0,1]")
     for key, expected in (("role_names", ROLE_NAMES), ("team_names", TEAM_NAMES)):
@@ -46,6 +49,9 @@ def blend_role_states(base, candidate, alpha):
 
 
 def main():
+    """Interpoleer alleen compatibele lineaire rolkoppen, meet de toegestane menggewichten en bewaar de
+    ontwikkelkeuze.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base", type=Path, required=True)
     parser.add_argument("--candidate", type=Path, required=True)

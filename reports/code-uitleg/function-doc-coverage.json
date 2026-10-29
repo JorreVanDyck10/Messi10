@@ -1,0 +1,16 @@
+{
+  "files": 168,
+  "functions": 618,
+  "by_group": {
+    "assets": 56,
+    "persoon1": 53,
+    "scripts": 109,
+    "src": 394,
+    "streamlit_app.py": 6
+  },
+  "missing": [],
+  "excluded": [
+    "tests",
+    "reports historical source snapshots"
+  ]
+}

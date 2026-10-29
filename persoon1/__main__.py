@@ -9,6 +9,9 @@ from .core import canonical_hash, environment, now, read_json, require_approval,
 
 
 def parser():
+    """Bouw de commandoregelparser met afzonderlijke subcommando's en argumenten voor data, annotatie,
+    training en evaluatie.
+    """
     root = argparse.ArgumentParser(description="Persoon 1: data, annotation, training and evaluation")
     sub = root.add_subparsers(dest="command", required=True)
     p = sub.add_parser("doctor", help="Record actual hardware and installed software")
@@ -71,6 +74,9 @@ def parser():
 
 
 def execute(args):
+    """Vertaal het geparsete subcommando naar de bijbehorende datastap en controleer bij vergelijkingen
+    dat meetmethoden en bronidentiteiten aansluiten.
+    """
     if args.command == "doctor":
         result = environment()
         write_json(args.output, result)
@@ -136,6 +142,9 @@ def execute(args):
 
 
 def main():
+    """Parse de opdracht, voer de gekozen werkstap uit en vertaal bekende invoerfouten naar een leesbare
+    melding en procesexitcode.
+    """
     try:
         result = execute(parser().parse_args())
         if result is not None:

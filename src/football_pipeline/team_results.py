@@ -32,6 +32,9 @@ from .video import VideoWriter, inspect_video
 
 
 def fit_team_file(path: Path, settings: dict, fps: float) -> dict:
+    """Lees opgeslagen shirtwaarnemingen en pas het gekozen teammodel aan deze video aan zonder de
+    detector opnieuw uit te voeren.
+    """
     samples = TeamSamples(settings, fps)
     with path.open(encoding="utf-8") as stream:
         for line in stream:
@@ -147,6 +150,9 @@ def render_team_file(
 
 
 def finish_teams(directory: Path, manifest: dict, progress=None) -> dict:
+    """Bereken teams voor de voltooide framereeks, schrijf teamtellingen en render de teamgekleurde
+    uitvoer met voortgangsmeldingen.
+    """
     started = time.perf_counter()
     settings = load_team_settings(manifest["team_settings"])
     source = directory / "framegegevens.jsonl"
@@ -171,6 +177,7 @@ def finish_teams(directory: Path, manifest: dict, progress=None) -> dict:
 
 
 def correction_origin(run_directory: Path) -> tuple[Path, dict]:
+    """Leg vast van welke oorspronkelijke analyse en bestanden een nieuwe teamcorrectie wordt afgeleid."""
     from .pipeline import validate_completed
 
     current = validate_completed(run_directory)
@@ -190,6 +197,9 @@ def correction_origin(run_directory: Path) -> tuple[Path, dict]:
 def validate_corrections(
     corrections: dict, origin: dict, model: dict, track_ids: set[str]
 ) -> tuple[dict, dict]:
+    """Controleer teams, kleuren, namen en tijdelijke IDs tegen de oorspronkelijke run voordat correcties
+    worden toegepast.
+    """
     if (
         corrections.get("schema_version") != 1
         or corrections.get("source_run_key") != origin["cache_key"]
@@ -229,6 +239,9 @@ def validate_corrections(
 def apply_team_corrections(
     run_directory: Path, corrections: dict, output_root: Path, progress=None
 ) -> RunResult:
+    """Maak een afgeleide analyse met expliciete teamcorrecties en behoud de oorspronkelijke detecties,
+    veldgeometrie en trackingwaarnemingen.
+    """
     from .pipeline import code_identity, dependencies, processing_lock, validate_completed
 
     output_root = Path(output_root).resolve()

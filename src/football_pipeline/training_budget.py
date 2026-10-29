@@ -6,6 +6,9 @@ import time
 
 class TrainingBudget:
     def __init__(self, minutes=None, *, clock=time.monotonic):
+        """Controleer het optionele minutenbudget en maak een deadline met een monotone klok die niet
+        door systeemtijdwijzigingen verschuift.
+        """
         if minutes is not None and (not math.isfinite(minutes) or minutes <= 0):
             raise ValueError("Training minutes must be positive and finite")
         self.clock = clock
@@ -14,6 +17,7 @@ class TrainingBudget:
 
     @property
     def expired(self):
+        """Geef aan of de huidige monotone tijd de trainingsdeadline heeft bereikt."""
         return self.clock() >= self.deadline
 
     def stop_trainer(self, trainer):
@@ -56,12 +60,18 @@ def train_yolo(weights, dataset, output, config, minutes):
         model = YOLO(str(weights))
 
         def limit_epochs(trainer):
+            """Stop de trainer na het afgesproken aantal epochs, ook als er nog tijd binnen het totale
+            budget over is.
+            """
             if trainer.epoch + 1 >= maximum_epochs:
                 trainer.stop = True
 
         model.add_callback("on_fit_epoch_end", limit_epochs)
 
         def save_progress(trainer):
+            """Schrijf epoch, batchgrootte, verstreken tijd en beschikbare losswaarden naar het
+            voortgangsbestand.
+            """
             write_json(
                 output / "progress.json",
                 {
@@ -150,12 +160,16 @@ def resume_yolo(dataset, output, pause):
 
     def remaining_time(trainer):
         # Native check_resume restores old arguments and ignores time overrides.
+        """Vertaal het resterende gezamenlijke budget naar de tijdslimiet van de hervatte trainer."""
         trainer.args.time = max(0.0001, (budget.deadline - budget.clock()) / 3600)
         trainer.args.epochs = trainer.epochs = maximum
 
     def fixed_epoch_ceiling(trainer):
         # Timed native training recalculates epochs without adding start_epoch.
         # Restore the original ceiling and scheduler after every timed update.
+        """Stop de hervatte trainer wanneer het oorspronkelijk vastgelegde maximale epochaantal is
+        bereikt.
+        """
         trainer.args.epochs = trainer.epochs = maximum
         trainer._setup_scheduler()
         trainer.scheduler.last_epoch = trainer.epoch

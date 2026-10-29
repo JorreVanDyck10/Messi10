@@ -9,6 +9,9 @@ from .core import dataset_path, load_manifest, read_labels
 
 
 def create_sheets(manifest, output):
+    """Maak reproduceerbare volledige-frame- en boxdetailoverzichten uit het manifest zonder de
+    onderliggende labels te wijzigen.
+    """
     data, root = load_manifest(manifest)
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)

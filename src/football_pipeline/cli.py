@@ -16,6 +16,9 @@ from .video import ROOT, inspect_video, tool_versions
 
 
 def main(argv=None) -> int:
+    """Lees het gevraagde CLI-commando, controleer zijn argumenten en start de passende inspectie-,
+    verwerkings-, evaluatie- of demofunctie.
+    """
     parser = argparse.ArgumentParser(description="Voetbalvideo, gekalibreerde minimap en ByteTrack")
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("doctor", help="Controleer FFmpeg, ffprobe en Python-dependencies")

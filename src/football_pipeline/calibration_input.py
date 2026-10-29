@@ -45,6 +45,9 @@ def point_label(point: dict) -> str:
 
 
 def panoris_point_suggestion(video: VideoMetadata, root: Path = ROOT) -> list[dict] | None:
+    """Lever vooraf vastgelegde puntvoorstellen alleen wanneer de videohash overeenkomt met de bekende
+    PANORIS-bron of pilotclip.
+    """
     try:
         config = read_json(root / "configs/panoris-pilot-points.json")
         if list(video.size) != config["image_size"]:

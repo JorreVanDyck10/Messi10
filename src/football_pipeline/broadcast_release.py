@@ -20,6 +20,9 @@ OLD_RUN = ROOT / "runs/63d6a606d9cda9ade4c1719aecc03e50f573ec97469e7d5b3904a0d1f
 
 
 def build_profile(weights, roles=None, kit=None, *, protected=True, proposal_only=False):
+    """Maak een runtimeprofiel dat detector-, rol- en shirtgewichten met expliciete mappings en hashes
+    aan elkaar koppelt.
+    """
     from ultralytics import YOLO
 
     profile = copy.deepcopy(read_json(ROOT / "configs/models-integrated-20261027.json"))
@@ -65,6 +68,9 @@ def build_profile(weights, roles=None, kit=None, *, protected=True, proposal_onl
 
 
 def candidate_score(report):
+    """Rangschik een meetrapport volgens de vooraf vastgelegde team- en spelerscriteria; bestraf foutieve
+    team- en spelersbeslissingen.
+    """
     p, t = report["player_detection_and_roles"]["per_class"][0], report["teams"]
     f1 = 2 * p["precision"] * p["recall"] / max(1e-9, p["precision"] + p["recall"])
     return (
@@ -76,11 +82,17 @@ def candidate_score(report):
 
 
 def evaluation_directory(refined):
+    """Bepaal een uitvoermap met code-identiteit zodat meetresultaten van verschillende implementaties
+    gescheiden blijven.
+    """
     code = digest_json({p.name: sha256_file(p) for p in Path(__file__).parent.glob("*.py")})[:12]
     return Path(refined) / ("final-evaluation-" + code)
 
 
 def compare_and_package(dataset, output, refined=None, candidate_file=None):
+    """Meet de toegestane kandidaten op dezelfde ontwikkelset, selecteer volgens de criteria en verpak de
+    gewichten met een draagbaar profiel en meetbewijs.
+    """
     dataset, output = Path(dataset).resolve(), Path(output).resolve()
     detector = read_json(output / "detector/status.json")
     trained = Path(detector["best"])
@@ -331,6 +343,9 @@ def compare_and_package(dataset, output, refined=None, candidate_file=None):
 
 
 def demonstrate(output):
+    """Verwerk echte ontwikkelclips met het gekozen pakket en vat de geproduceerde runs en velddekking
+    samen.
+    """
     from scripts.check_team_integration import check_result
 
     from .automatic_calibration import load_automatic_calibration
@@ -387,6 +402,9 @@ def demonstrate(output):
 
 
 def write_card(package, summary):
+    """Schrijf de modelkaart uit de werkelijk geselecteerde kandidaat, met datasetherkomst,
+    ontwikkelmetingen en bekende beperkingen.
+    """
     name = summary["selected"]
     report = summary["candidates"][name]
     player, team = report["player_detection_and_roles"]["per_class"][0], report["teams"]
@@ -415,6 +433,9 @@ def write_card(package, summary):
 
 
 def write_report(summary, demo):
+    """Schrijf het Nederlandstalige broadcastverslag uit de opgeslagen vergelijking en
+    demonstratieresultaten.
+    """
     date = summary.get("recorded_at_utc", "2026-10-28")[:10]
     lines = [
         f"# Broadcastspelers en teams — {date}",

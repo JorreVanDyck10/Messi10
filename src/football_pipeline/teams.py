@@ -49,6 +49,9 @@ UNKNOWN_COLOR = "#aab2bd"
 
 
 def configured_team_path(models):
+    """Kies het ingestelde teamconfiguratiepad of het standaardprofiel dat bij het gebruikte shirtmodel
+    past.
+    """
     from .video import ROOT
 
     default = "teams-broadcast.json" if models.get("kit_embedding") else "teams.json"
@@ -56,6 +59,9 @@ def configured_team_path(models):
 
 
 def load_team_settings(path: str | Path | dict) -> dict:
+    """Vul expliciete teaminstellingen aan met defaults en controleer onbekende velden, methoden en
+    numerieke grenzen.
+    """
     value = read_json(path) if not isinstance(path, dict) else path
     settings = {**DEFAULT_TEAM_SETTINGS, **value}
     if set(value) - set(DEFAULT_TEAM_SETTINGS) or settings["schema_version"] != 1:
@@ -98,10 +104,12 @@ def load_team_settings(path: str | Path | dict) -> dict:
 
 
 def rgb_to_lab(rgb) -> list[float]:
+    """Zet een RGB-kleur met OpenCV om naar de Lab-kenmerkruimte voor kleurafstandvergelijking."""
     return cv2.cvtColor(np.array([[rgb]], np.float32) / 255, cv2.COLOR_RGB2LAB)[0, 0].tolist()
 
 
 def hex_rgb(value: str) -> list[int]:
+    """Parse een geldige hexkleur naar drie RGB-componenten en weiger ongeldige invoer."""
     if not isinstance(value, str) or len(value) != 7 or not value.startswith("#"):
         raise PipelineError("Gebruik een kleur in formaat #RRGGBB.")
     try:
@@ -111,11 +119,15 @@ def hex_rgb(value: str) -> list[int]:
 
 
 def lab_to_hex(lab) -> str:
+    """Zet een Lab-prototype om naar een RGB-hexkleur voor consistente weergave in de interface."""
     rgb = cv2.cvtColor(np.array([[lab]], np.float32), cv2.COLOR_LAB2RGB)[0, 0]
     return "#" + "".join(f"{v:02x}" for v in np.rint(np.clip(rgb, 0, 1) * 255).astype(int))
 
 
 def shirt_color(frame: np.ndarray, detection: Detection, settings: dict) -> list[float] | None:
+    """Neem een geschikte torsocrop, beperk gras- en achtergrondinvloed en retourneer een bruikbaar Lab-
+    shirtkenmerk of None.
+    """
     height, width = frame.shape[:2]
     if detection.semantic_class != "player" or not valid_box(detection, (width, height)):
         return None
@@ -157,6 +169,9 @@ class TeamSamples:
     """Bounded deterministic reservoir across the entire clip, then one median per track."""
 
     def __init__(self, settings: dict, fps: float):
+        """Initialiseer de begrensde verzameling shirtwaarnemingen met framerate en tijdgebonden
+        samplevoorwaarden.
+        """
         self.settings = settings
         self.embedding_samples = None
         if settings["method"] == "torso_embedding_dominant_modes_v1":
@@ -168,6 +183,9 @@ class TeamSamples:
         self.sequence = 0
 
     def add(self, detection: Detection, index: int):
+        """Voeg een geschikte shirtkleur met frame- en trackcontext toe als de samplevoorwaarden en
+        limieten dit toestaan.
+        """
         if self.embedding_samples is not None:
             self.embedding_samples.add(detection, index)
             return
@@ -190,6 +208,9 @@ class TeamSamples:
             heapq.heapreplace(self.samples, item)
 
     def fit(self) -> dict:
+        """Zoek twee voldoende gesteunde en gescheiden shirtgroepen en retourneer een model met
+        prototypes en expliciete onbekendstatus bij onvoldoende bewijs.
+        """
         if self.embedding_samples is not None:
             return self.embedding_samples.fit()
         groups = defaultdict(list)
@@ -260,6 +281,9 @@ class TeamSamples:
 
 
 def validate_team_model(model: dict) -> None:
+    """Controleer de opgeslagen teamprototypes, methode en instellingen voordat toekenningen op detecties
+    worden toegepast.
+    """
     if model.get("schema_version") != 1 or set(model.get("teams", {})) != set(TEAM_IDS):
         raise PipelineError("Ongeldig teammodel.")
     load_team_settings(model["settings"])
@@ -297,6 +321,9 @@ def validate_team_model(model: dict) -> None:
 
 
 def team_context(model: dict) -> dict:
+    """Maak de gedeelde teamnamen, kleuren, methode en status uit het opgeslagen teammodel beschikbaar
+    voor uitvoerrecords.
+    """
     return {
         "status": model["status"],
         "teams": {
@@ -359,6 +386,9 @@ def refine_referee_consensus(detection, model):
 
 class TeamAssigner:
     def __init__(self, model: dict, fps: float, overrides: dict | None = None):
+        """Bewaar het gecontroleerde teammodel, eventuele handmatige overrides en de historie voor
+        stabiele toekenning.
+        """
         validate_team_model(model)
         self.model, self.settings = model, model["settings"]
         self.overrides = overrides or {}
@@ -366,6 +396,9 @@ class TeamAssigner:
         self.fps = fps
 
     def update(self, detections: list[Detection], index: int):
+        """Ken actuele detecties een team toe op basis van kleur of embedding, pas overrides toe en
+        gebruik herhaalde waarnemingen om wisselingen te begrenzen.
+        """
         cutoff = index - max(1, round(self.fps * self.settings["history_seconds"]))
         self.history = {key: state for key, state in self.history.items() if state["last"] >= cutoff}
         for d in detections:

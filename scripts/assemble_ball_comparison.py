@@ -11,6 +11,9 @@ from scripts.summarize_ball_resolution import summarize
 
 
 def main():
+    """Voeg de onveranderde per-frame-balmetingen samen tot één vergelijking op dezelfde
+    referentiepopulatie.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sources", type=Path, nargs="+", required=True)
     parser.add_argument("--output", type=Path, required=True)

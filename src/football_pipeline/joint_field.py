@@ -15,6 +15,9 @@ from .training_budget import TrainingBudget
 
 
 def train(dataset, runtime_path, output, minutes=90):
+    """Train de toegestane veldmodeluitvoerlagen binnen het tijdsbudget en schrijf de bijgehouden
+    checkpoints en runtimeconfiguratie.
+    """
     import torch
     from torch.utils.data import DataLoader
 
@@ -234,6 +237,9 @@ def compare_trained_checkpoints(dataset, runtime_path, training):
 
 
 def compare(index, baseline, candidate, output):
+    """Bereken de baseline- en kandidaatveldwaarnemingen op dezelfde index en schrijf de
+    ontwikkelvergelijking voor selectie.
+    """
     import cv2
     import torch
 

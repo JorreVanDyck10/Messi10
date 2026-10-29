@@ -40,6 +40,9 @@ RELIABLE_SETTINGS = {**DEFAULT_SETTINGS, "version": 3}
 
 
 def validate_settings(settings):
+    """Controleer verplichte instellingen, toegestane veldmethoden en numerieke grenzen voordat
+    framekalibratie wordt gebruikt.
+    """
     if (
         set(settings) != set(DEFAULT_SETTINGS)
         or type(settings["version"]) is not int
@@ -69,6 +72,9 @@ def validate_settings(settings):
 
 
 def _spread(xy, size, minimum):
+    """Toets of de herkende punten voldoende over het beeld verspreid zijn om een geometrische fit te
+    ondersteunen.
+    """
     return cv2.contourArea(cv2.convexHull(np.asarray(xy, np.float32))) >= np.prod(size) * minimum
 
 
@@ -87,6 +93,9 @@ def checked_matrix(inverse, xy, uv):
 
 
 def line_checks(lines, inverse):
+    """Vergelijk zichtbare semantische veldlijnen met de teruggeprojecteerde veldgeometrie en verzamel
+    onafhankelijke lijnfouten.
+    """
     errors, identifiers = [], []
     for line in lines:
         # Validate the observed line in homogeneous coordinates. Its virtual full-pitch
@@ -108,6 +117,9 @@ def line_checks(lines, inverse):
 
 
 def estimate_checked(observation, image_size, settings=None):
+    """Schat een veldmatrix uit de huidige waarneming en toets spreiding, geometrie en controles volgens
+    het geselecteerde profiel.
+    """
     settings = validate_settings(settings or DEFAULT_SETTINGS)
     result = {
         "schema_version": 2,
@@ -236,6 +248,9 @@ class LegacyCameraCalibration:
     """One sequential stream; reference age is never refreshed by a propagated result."""
 
     def __init__(self, fps, settings=None):
+        """Bewaar framerate en gecontroleerde instellingen en begin zonder voorgaand frame of geldige
+        veldtoestand.
+        """
         self.settings = validate_settings(settings or DEFAULT_SETTINGS)
         self.fps = fps
         self.previous = None
@@ -245,6 +260,9 @@ class LegacyCameraCalibration:
         self.last_index = None
 
     def update(self, frame, direct, index):
+        """Verwerk één bronframe met zijn directe veldherkenning; accepteer een gecontroleerde matrix of
+        probeer een begrensde overbrugging met gemeten camerabeweging.
+        """
         s = self.settings
         height, width = frame.shape[:2]
         scale = min(1.0, s["tracking_width"] / width)
@@ -417,9 +435,15 @@ class CameraCalibration(LegacyCameraCalibration):
     """V3 checks direct recognition against measured motion; v2 retains its policy."""
 
     def _reset(self):
+        """Wis de bijgehouden camera- en kalibratiehistorie zodat een nieuwe beeldreeks geen oude
+        veldmatrix erft.
+        """
         self.state = self.anchor = self.last_recognition = self.previous = None
 
     def update(self, frame, direct, index):
+        """Verwerk één bronframe met zijn directe veldherkenning; accepteer een gecontroleerde matrix of
+        probeer een begrensde overbrugging met gemeten camerabeweging.
+        """
         if self.settings["version"] == 2:
             return super().update(frame, direct, index)
 
@@ -532,6 +556,7 @@ class CameraCalibration(LegacyCameraCalibration):
 
 
 def status_label(state):
+    """Vertaal de interne kalibratiestatus naar een leesbare melding voor de interface."""
     if state.get("status") != "valid":
         return "Veldpositie onbekend"
     return "Gevolgd met camerabeweging" if state.get("source") == "tracked" else "Opnieuw herkend"

@@ -18,6 +18,7 @@ VERSION = "joint-local-v2"
 
 
 def names_of(data):
+    """Normaliseer een lijst of dictionary met klassenamen naar een mapping van numerieke IDs op namen."""
     names = data.get("names", {})
     return dict(enumerate(names)) if isinstance(names, list) else {int(k): v for k, v in names.items()}
 
@@ -46,6 +47,9 @@ def unique_rows(rows):
 
 
 def load_boxes(image, label, names):
+    """Lees YOLO-labels bij het bronbeeld en zet ze om naar gevalideerde boxen met hun expliciete
+    klassebetekenis.
+    """
     pixels = cv2.imread(str(image))
     if pixels is None:
         raise ValueError(f"Unreadable image {image}")
@@ -74,6 +78,9 @@ def load_boxes(image, label, names):
 
 
 def gather_frames(root):
+    """Inventariseer lokaal beschikbare bronframes met labels en herkomst voor de gezamenlijke
+    trainingsselectie.
+    """
     paths = sorted((root / "assets/annotations").glob("*/manifest.json"), reverse=True)
     paths += [
         root / "datasets/teamtrack-players-v2/manifest.json",
@@ -133,6 +140,9 @@ def gather_frames(root):
 
 
 def link_file(source, destination):
+    """Hergebruik bronpixels via een hardlink wanneer dat kan en val anders terug op een gewone
+    bestandskopie.
+    """
     import shutil
 
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -143,6 +153,9 @@ def link_file(source, destination):
 
 
 def detector_dataset(rows, output):
+    """Bouw de gezamenlijke detectorweergave met speler-/officiallabels en behoud de oorspronkelijke
+    bronsplits.
+    """
     names = {0: "player", 1: "referee"}
     kept = []
     for row in rows:
@@ -194,6 +207,9 @@ def detector_dataset(rows, output):
 
 
 def write_yaml(output, names):
+    """Schrijf de relatieve trainings- en validatiepaden en klassenamen in een Ultralytics-
+    datasetconfiguratie.
+    """
     output.mkdir(parents=True, exist_ok=True)
     (output / "data.yaml").write_text(
         yaml.safe_dump(
@@ -204,6 +220,9 @@ def write_yaml(output, names):
 
 
 def ball_dataset(rows, output, names):
+    """Bouw de gezamenlijke balweergave met de passende klassemapping en gecontroleerde afgeleide
+    beelden.
+    """
     from .ball_tiles import tile_windows
 
     records, skipped = [], []
@@ -214,6 +233,9 @@ def ball_dataset(rows, output, names):
             x, y, r, b = window
 
             def intersects(q):
+                """Bepaal of de kandidaatbox het huidige tegelgebied werkelijk overlapt voordat het
+                object in de tegelweergave wordt meegenomen.
+                """
                 return min(q[2], r) > max(q[0], x) and min(q[3], b) > max(q[1], y)
 
             partial = any(
@@ -271,6 +293,9 @@ def ball_dataset(rows, output, names):
 
 
 def role_dataset(root, frames, output):
+    """Verzamel persoonscrops en rollen uit de beschikbare bronmanifesten voor de gezamenlijke
+    roltraining.
+    """
     from .appearance import ROLE_NAMES, TEAM_NAMES
 
     rows, excluded, seen = [], [], {}
@@ -412,6 +437,7 @@ def prepare_role_pixel_overlay(dataset):
 
 
 def check_split_leakage(frames, roles):
+    """Vergelijk bronidentiteiten van frames en rolcrops over splits en weiger geconstateerde overlap."""
     images, sources = {}, {}
     for row in [*frames, *roles]:
         for mapping, key in [(images, row["image_sha256"]), (sources, row.get("source_frame_rgb_sha256"))]:
@@ -420,6 +446,9 @@ def check_split_leakage(frames, roles):
 
 
 def field_dataset(root, output):
+    """Verzamel de gecontroleerde lokale veldtrainingsvoorbeelden en schrijf hun gezamenlijke index met
+    behouden herkomst.
+    """
     from .field_learning import dataset_index
 
     output.mkdir(parents=True, exist_ok=True)
@@ -458,6 +487,9 @@ def field_dataset(root, output):
 
 
 def prepare(output, root=ROOT, field_index=None):
+    """Maak de taakgebonden gezamenlijke datasets, controleer splitoverlap en schrijf de complete lokale
+    gegevensinventaris.
+    """
     output = Path(output).resolve()
     output.mkdir(parents=True, exist_ok=False)
     frames, sources, excluded = gather_frames(root)

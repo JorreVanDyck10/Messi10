@@ -46,6 +46,9 @@ def reference_geometry(annotations, width, height):
 
 
 def evaluate_profile(dataset, profile, team_settings, output, *, replay=None):
+    """Voer het modelprofiel op de vastgelegde referentiebeelden uit en meet detectie, rollen en
+    teamtoekenning met expliciete geometrieherkomst.
+    """
     dataset, output = Path(dataset), Path(output)
     output.mkdir(parents=True, exist_ok=True)
     manifest = read_json(dataset / "manifest.json")
@@ -58,6 +61,11 @@ def evaluate_profile(dataset, profile, team_settings, output, *, replay=None):
         previous = read_json(replay / "metrics.json")
 
         def inference_spec(value):
+            """Verwijder recursief alleen devicevelden uit een modelprofiel voor de replayvergelijking.
+
+            Dezelfde gewichten mogen op een ander device worden gelezen; alle overige profielvelden
+            blijven onderdeel van de gelijkheidscontrole.
+            """
             if isinstance(value, dict):
                 return {k: inference_spec(v) for k, v in value.items() if k != "device"}
             return [inference_spec(v) for v in value] if isinstance(value, list) else value

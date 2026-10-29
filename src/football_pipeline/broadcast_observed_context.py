@@ -47,6 +47,9 @@ def matched_targets(detections, people, minimum_iou=0.5):
 
 
 def scene_features(detections, size):
+    """Maak contextvectoren uit actuele detecties met hun rolkansen, embeddings, veldposities en
+    boxafmetingen.
+    """
     return context_features(
         [d.role_probabilities for d in detections],
         [d.team_embedding for d in detections],
@@ -58,6 +61,9 @@ def scene_features(detections, size):
 
 
 def collect(dataset, profile, output):
+    """Voer echte detectorcrops uit, koppel ze aan providerrollen en bewaar de kenmerken die later de
+    contextclassifier trainen.
+    """
     torch.set_num_threads(4)
     # Leave room for the independent detector fine-tuning process on this GPU.
     torch.cuda.set_per_process_memory_fraction(0.45)
@@ -129,6 +135,9 @@ def collect(dataset, profile, output):
             found = detector.detect(image, row["frame_index"])
 
             def project(d):
+                """Vul de veldpositie van deze detectie in met de huidige geometrie en de afmetingen van
+                het geselecteerde bronbeeld.
+                """
                 project_automatic(d, geometry, (row["width"], row["height"]))
 
             for d in found:
@@ -195,6 +204,9 @@ def collect(dataset, profile, output):
 
 
 def train(cache, output, epochs=50):
+    """Train en valideer de contextkop op de opgeslagen detectorkenmerken en schrijf het geselecteerde
+    rolcontextcheckpoint.
+    """
     torch.set_num_threads(4)
     torch.manual_seed(42)
     cache, output = Path(cache).resolve(), Path(output).resolve()

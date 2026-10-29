@@ -12,6 +12,9 @@ from .field_layout import POINTS_UV
 
 
 def failure_intervals(records):
+    """Groepeer opeenvolgende frames zonder geldige veldkalibratie tot afzonderlijke uitvalintervallen
+    voor review.
+    """
     intervals = []
     start = None
     for index, row in enumerate(records):
@@ -87,6 +90,9 @@ def save_review(path, template, *, index, points, calibratable, reviewer, confir
 
 
 def finalize_review(path, *, confirmed=False):
+    """Controleer het ingevulde menselijke reviewdocument en sluit het alleen af wanneer de vereiste
+    referenties en reviewerinformatie aanwezig zijn.
+    """
     document = read_json(path)
     if (
         not confirmed

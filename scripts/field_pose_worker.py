@@ -17,6 +17,9 @@ from football_pipeline.field_pose import FieldPoseEstimator, validate_pose_runti
 
 
 def run(args):
+    """Verwerk een complete lokale video met het veldpuntmodel en schrijf framewaarnemingen en
+    gecontroleerde runtime-/bronmetadata.
+    """
     runtime = read_json(args.runtime)
     validate_pose_runtime(runtime)
     torch.set_num_threads(4)

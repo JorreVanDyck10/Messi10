@@ -21,6 +21,9 @@ IDS = sorted(POINTS_UV)
 
 
 def flip_indices():
+    """Bepaal welke veldpunt-ID bij horizontaal spiegelen bij elk origineel ID hoort en controleer dat
+    tweemaal spiegelen de oorspronkelijke indeling oplevert.
+    """
     uv = np.array([POINTS_UV[i] for i in IDS])
     reflected = uv * [-1, 1] + [1, 0]
     distances = np.linalg.norm(reflected[:, None] - uv[None], axis=2)
@@ -34,6 +37,9 @@ def flip_indices():
 
 
 def worker_initialize(runtime):
+    """Initialiseer de externe veldruntime en begrens CPU-threads per datasetworker om overbelasting door
+    parallelle workers te vermijden.
+    """
     os.environ["OMP_NUM_THREADS"] = "1"
     os.environ["MKL_NUM_THREADS"] = "1"
     upstream_runtime(Path(runtime))
@@ -44,6 +50,9 @@ def worker_initialize(runtime):
 
 
 def targets(row):
+    """Zet de semantische providerlijnen van één datasetrij om naar de veldpunttrainingsdoelen van de
+    upstream-runtime.
+    """
     import torch
     from utils.utils_keypoints import KeypointsDB
 
@@ -90,6 +99,7 @@ def targets(row):
 
 
 def match_key(info):
+    """Maak de consistente wedstrijdsleutel waarmee bronclips bij dezelfde wedstrijd worden gegroepeerd."""
     values = [str(info.get(k, "")).strip() for k in ("league", "season", "date", "match")]
     if not all(values):
         raise ValueError("A verified provider match identity is required")
@@ -97,6 +107,9 @@ def match_key(info):
 
 
 def prepare(root, output, runtime, counts, workers=2):
+    """Bouw de veldpuntdataset met bronbeelden, pose-labels en wedstrijdgescheiden splits en bewaar de
+    selectieherkomst.
+    """
     if (output / "manifest.json").exists():
         manifest = read_json(output / "manifest.json")
         for row in manifest["frames"]:

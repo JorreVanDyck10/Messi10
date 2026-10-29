@@ -31,6 +31,9 @@ SOURCE = "https://huggingface.co/datasets/MCG-NJU/SportsMOT"
 
 
 def football_selection():
+    """Lees de vastgelegde selectie van voetbalclips uit SportsMOT en sluit andere sporten of niet-
+    toegestane subsets uit.
+    """
     base = SOURCE + "/resolve/" + REVISION + "/splits_txt/"
     lists = {}
     for name in ("train", "football"):
@@ -41,6 +44,9 @@ def football_selection():
 
 
 def athlete_boxes(text, width, height):
+    """Parse de MOT-regels en zet geldige sportersboxen om naar bronpixelcoördinaten binnen het opgegeven
+    beeldformaat.
+    """
     result = defaultdict(list)
     for row in csv.reader(io.StringIO(text)):
         if not row:
@@ -70,6 +76,9 @@ def athlete_boxes(text, width, height):
 
 
 def prepare_football(archive, output, step=5):
+    """Extraheer de geselecteerde voetbalframes en sporterslabels uit het archief met behoud van
+    clipherkomst en sampleafstand.
+    """
     archive, output = Path(archive).resolve(), Path(output).resolve()
     output.mkdir(parents=True, exist_ok=True)
     if sha256_file(archive) != ARCHIVE_SHA256:
@@ -176,6 +185,9 @@ def prepare_football(archive, output, step=5):
 
 
 def mixed_player_dataset(sports, output, base=ROOT / "data/broadcast-pitch-v1"):
+    """Combineer de SportsMOT-voetbalvoorbeelden met de basisspelerset zonder de bestaande
+    klassedefinities en splits stilzwijgend te wijzigen.
+    """
     output, base = Path(output).resolve(), Path(base).resolve()
     original = read_json(base / "manifest.json")
     output.mkdir(parents=True, exist_ok=True)

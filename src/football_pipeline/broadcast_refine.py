@@ -39,6 +39,9 @@ def pretrained_person_weights():
 
 
 def crop_cache(data, output):
+    """Lees of bouw de beeldcropcache voor de vastgelegde dataset, zodat trainingsrondes dezelfde
+    invoerpixels hergebruiken.
+    """
     path, record = output / "crops.npy", output / "crops.json"
     if record.exists():
         saved = read_json(record)
@@ -74,6 +77,9 @@ def crop_cache(data, output):
 
 
 def roles(data, output, minutes=30, epochs=20, color_invariant=False):
+    """Train de rolclassifier op persoonscrops en bewaar encoder, classificatiekoppen en normalisatie in
+    het rol-/teamcheckpoint.
+    """
     from persoon1.role_training import scores
 
     output.mkdir(parents=True, exist_ok=True)
@@ -242,6 +248,9 @@ def roles(data, output, minutes=30, epochs=20, color_invariant=False):
 
 
 def teams(data, output, minutes=15):
+    """Leer de shirtmetriek uit dezelfde- en andere-teamvoorbeelden en schrijf de gewichten met hun
+    trainingsherkomst weg.
+    """
     output.mkdir(parents=True, exist_ok=True)
     started = time.monotonic()
     torch.manual_seed(42)
@@ -348,6 +357,9 @@ def teams(data, output, minutes=15):
 
 
 def detector(output, minutes=90, dataset_path=None):
+    """Start de tijdbegrensde detector-fine-tuning vanaf bestaande persoonsgewichten op de gekozen
+    broadcastdataset.
+    """
     import os
 
     import yaml

@@ -28,6 +28,9 @@ LOCAL = threading.local()
 
 
 def source_bytes(path, files):
+    """Lees de oorspronkelijke beeldbytes uit de vastgelegde externe bronstructuur voor de
+    scheidsrechterdataset.
+    """
     entry = files[path]
     if not isinstance(path, str) or path.startswith("/") or ".." in Path(path).parts:
         raise ValueError("Provider paths must be safe relative strings")
@@ -58,6 +61,9 @@ def source_bytes(path, files):
 
 
 def clip_split(rows):
+    """Verdeel volledige bronclips deterministisch over de toegestane splits en behoud de brongebonden
+    labelafspraken.
+    """
     groups = defaultdict(Counter)
     for row in rows:
         groups[row["video_source"]][row["visibility"]] += 1
@@ -78,6 +84,9 @@ def clip_split(rows):
 
 
 def download_row(root, files, row, split, forbidden_hashes):
+    """Download één geselecteerd voorbeeld, controleer verboden overlap via hashes en schrijf beeld plus
+    officiallabel naar de juiste split.
+    """
     from persoon1.core import read_labels
 
     path = row["file_path"]
@@ -156,6 +165,9 @@ def download_row(root, files, row, split, forbidden_hashes):
 
 
 def prepare(root, workers=8):
+    """Verzamel de aanvullende officialvoorbeelden parallel en bouw de dataset met gecontroleerde
+    herkomst en negatieve voorbeelden.
+    """
     root = root.resolve()
     root.mkdir(parents=True, exist_ok=True)
     response = requests.get(

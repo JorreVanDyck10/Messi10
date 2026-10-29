@@ -12,6 +12,9 @@ from .field_review import failure_intervals
 
 
 def summarize_field_records(records, fps):
+    """Tel interne kalibratiestatussen en dekking en vat uitvalperiodes samen zonder interne geldigheid
+    als menselijke nauwkeurigheid te presenteren.
+    """
     states = [row["calibration"] for row in records]
     intervals = failure_intervals(records)
     valid = sum(s["status"] == "valid" for s in states)

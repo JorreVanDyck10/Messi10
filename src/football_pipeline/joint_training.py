@@ -16,6 +16,9 @@ from .video import ROOT
 
 
 def choose_player(baseline, candidate):
+    """Pas de expliciete selectieregels toe op baseline- en kandidaatspelersmetingen en retourneer de
+    modelkeuze.
+    """
     b = {r["name"]: r for r in baseline["per_class"]}
     c = {r["name"]: r for r in candidate["per_class"]}
     return (
@@ -26,12 +29,16 @@ def choose_player(baseline, candidate):
 
 
 def choose_roles(baseline, candidate):
+    """Vergelijk rolmetingen volgens de vastgelegde criteria en kies alleen een ondersteunde verbetering."""
     b = {r["name"]: r for r in baseline["per_class"]}
     c = {r["name"]: r for r in candidate["per_class"]}
     return candidate["macro_f1"] > baseline["macro_f1"] and all(c[n]["recall"] >= b[n]["recall"] for n in b)
 
 
 def choose_ball(baseline, candidate):
+    """Vergelijk de balmetrieken en foutaantallen van baseline en kandidaat onder dezelfde
+    evaluatieopzet.
+    """
     b, c = baseline["per_class"][0], candidate["per_class"][0]
     return (
         c["AP50_95"] > b["AP50_95"] and c["recall"] >= b["recall"] and c["precision"] >= b["precision"] - 0.05
@@ -39,6 +46,9 @@ def choose_ball(baseline, candidate):
 
 
 def choose_field(baseline, candidate):
+    """Kies tussen veldbaseline en kandidaat op basis van de beschikbare geometrie- en
+    dekkingsvoorwaarden.
+    """
     return (
         candidate["valid_frames"]
         - candidate["wrong_calibrations"]
@@ -53,6 +63,9 @@ def choose_field(baseline, candidate):
 
 
 def players(dataset, output):
+    """Voer de gezamenlijke spelertraining en bijbehorende baseline-/kandidaatmeting uit en bewaar de
+    selectie.
+    """
     from .course_experiments import evaluate_model, train_candidate
 
     baseline = ROOT / "artifacts/players-v3/players_best.pt"
@@ -108,6 +121,9 @@ def players(dataset, output):
 
 
 def roles(dataset, output, *, manifest=None, training_name="training", minutes=26):
+    """Train en vergelijk de gezamenlijke rolclassifier met de opgeslagen roldataset en het toegewezen
+    tijdsbudget.
+    """
     from persoon1.role_training import load_training_manifest, train
     from scripts.evaluate_role_extension import infer, summarize
 
@@ -150,6 +166,9 @@ def roles(dataset, output, *, manifest=None, training_name="training", minutes=2
 
 
 def refit_role_pixels(dataset, output):
+    """Bereid de roltrainingspixels voor en train de toegestane encoder-/kopvariant op die expliciete
+    invoer.
+    """
     import shutil
 
     from .joint_data import prepare_role_pixel_overlay
@@ -210,6 +229,9 @@ def refit_role_pixels(dataset, output):
 
 
 def evaluate_ball(weights, dataset, output):
+    """Meet één balcheckpoint op de vastgelegde gezamenlijke referenties en bewaar de inferentie-
+    identiteit bij de scores.
+    """
     import cv2
 
     from persoon1.metrics import evaluate
@@ -259,6 +281,9 @@ def evaluate_ball(weights, dataset, output):
 
 
 def ball(dataset, output):
+    """Train de gezamenlijke balkandidaat, vergelijk haar met de baseline en bewaar de uiteindelijke
+    modelkeuze.
+    """
     from .training_budget import resume_yolo, train_yolo
 
     baseline = ROOT / "artifacts/fullscene-ball-v1/fullscene_ball_f005.pt"
@@ -289,6 +314,7 @@ def ball(dataset, output):
 
 
 def field(dataset, output):
+    """Start de veldtrainingsfase en vergelijk de getrainde runtime met de vastgelegde veldbaseline."""
     field_python = ROOT / ".tools/field-training-env/Scripts/python.exe"
     baseline = ROOT / ".tools/field-runtime.json"
     subprocess.run(
@@ -319,6 +345,9 @@ def field(dataset, output):
 
 
 def stage(name, dataset, output, resume=False):
+    """Voer één deeltraining uit of hergebruik een aantoonbaar voltooide fase; bewaar voortgang en fouten
+    voor hervatten.
+    """
     import shutil
 
     import torch
@@ -372,6 +401,9 @@ def stage(name, dataset, output, resume=False):
 
 
 def make_profile(output):
+    """Maak een gecombineerd runtimeprofiel uit de werkelijk geselecteerde checkpoints van de
+    deeltrainingen.
+    """
     from .detection import load_model_manifest
 
     reports = {n: read_json(output / n / "comparison.json") for n in ("players", "roles", "ball", "field")}
@@ -414,6 +446,9 @@ def make_profile(output):
 
 
 def demonstrate(output, dataset=None):
+    """Verwerk de geselecteerde echte clips met het gezamenlijke profiel en registreer de resulterende
+    demonstratieruns.
+    """
     from scripts.check_team_integration import check_result
 
     from .pipeline import process_video
@@ -489,6 +524,9 @@ def demonstrate(output, dataset=None):
 
 
 def field_coverage(video_path, runtime_path, output):
+    """Voer veldherkenning uit voor de opgegeven video en vat samen op hoeveel frames bruikbare
+    veldkalibratie beschikbaar is.
+    """
     import cv2
 
     from .automatic_calibration import prepare_automatic_calibration
@@ -527,6 +565,9 @@ def field_coverage(video_path, runtime_path, output):
 
 
 def run(dataset, output):
+    """Orkestreer de gezamenlijke trainingsfasen, vergelijkingen, profielbouw en demonstratie met behoud
+    van eerdere resultaten.
+    """
     output.mkdir(parents=True, exist_ok=True)
     identity = digest_json(
         {

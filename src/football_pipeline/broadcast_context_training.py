@@ -23,10 +23,16 @@ from football_pipeline.video import ROOT
 
 
 def features(prob, kit, cnn, positions, boxes):
+    """Zet rolkansen, shirt- en beeldkenmerken, veldposities en boxen om naar de contextvectoren voor het
+    vaste broadcastbeeldformaat.
+    """
     return context_features(prob, kit, cnn, positions, boxes, (1920, 1080))
 
 
 def train(output):
+    """Verzamel bevroren broadcastkenmerken, train het kleine rolcontextnetwerk en selecteer een
+    checkpoint met de vastgelegde ontwikkelvergelijking.
+    """
     torch.set_num_threads(4)
     torch.manual_seed(42)
     started = time.monotonic()

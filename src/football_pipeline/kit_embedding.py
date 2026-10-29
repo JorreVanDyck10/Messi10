@@ -10,6 +10,9 @@ from .video_teams import kit_feature
 
 
 def projection_head():
+    """Bouw de trainbare projectiekop die 608 crop-/kleurkenmerken via 128 waarden naar een
+    32-dimensionale shirtembedding omzet.
+    """
     import torch
 
     return torch.nn.Sequential(torch.nn.Linear(608, 128), torch.nn.ReLU(), torch.nn.Linear(128, 32))
@@ -17,6 +20,9 @@ def projection_head():
 
 class KitEmbedding:
     def __init__(self, spec):
+        """Lees het checkpointformaat en laad óf de positieve kleurmetriekgewichten óf de CNN-encoder,
+        projectiekop en doelmankop.
+        """
         import torch
 
         self.device = str(spec.get("device", "cpu"))
@@ -41,6 +47,9 @@ class KitEmbedding:
         self.mean, self.std = state["mean"].to(self.device), state["std"].to(self.device)
 
     def update(self, frame, detections):
+        """Bereken de checkpointafhankelijke shirtkenmerken voor geschikte persoonsdetecties en schrijf
+        embeddings en ondersteunende voorspellingen terug.
+        """
         import torch
 
         eligible = (
@@ -117,9 +126,15 @@ class PitchTeamSamples:
     """Sample eligible players directly; short tracking IDs do not discard a kit."""
 
     def __init__(self, settings, fps):
+        """Initialiseer de sampleverzameling voor veldgerichte teamindeling met de gekozen instellingen
+        en videosnelheid.
+        """
         self.settings, self.fps, self.samples = settings, fps, []
 
     def add(self, detection, index):
+        """Verzamel een bruikbare shirtwaarneming met haar frame- en trackcontext binnen de ingestelde
+        samplelimieten.
+        """
         from .contracts import digest_json
 
         d = detection
@@ -138,6 +153,9 @@ class PitchTeamSamples:
             self.samples = sorted(self.samples)[: self.settings["max_samples"]]
 
     def fit(self):
+        """Zoek de dominante teams in de verzamelde shirtkenmerken en geef prototypes en bijbehorende
+        betrouwbaarheidseisen terug.
+        """
         from .teams import lab_to_hex
 
         samples = sorted(self.samples)[: self.settings["max_samples"]]
@@ -181,6 +199,9 @@ class PitchTeamSamples:
 
 
 def embedding_candidate(detection, model):
+    """Bepaal uit de detectie en het teammodel of haar shirtkenmerken voldoende steun geven voor een
+    teamkandidaat.
+    """
     if (
         detection.team_embedding is None
         or detection.player_kind == "goalkeeper"

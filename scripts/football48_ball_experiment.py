@@ -78,6 +78,9 @@ def create_coco_view(source, output, manifest, names):
 
 
 def truth_and_identity(source):
+    """Lees de vastgelegde balreferenties en bereken hun bronfingerprint, groepsverdeling en
+    objectgrootteverdeling.
+    """
     manifest = read_json(source / "manifest.json")
     truth = {"train": {}, "val": {}}
     files, groups, sizes = {}, {}, []
@@ -134,6 +137,9 @@ def truth_and_identity(source):
 
 
 def measure(weights, source_class, manifest, truth, source, output, imgsz, device):
+    """Voer inferentie met de opgegeven bronklasse uit en evalueer de voorspelde boxen tegen dezelfde
+    balreferenties.
+    """
     output.mkdir()
     model = yolo(weights)
     ids = [i for i, name in model.names.items() if name == source_class]
@@ -201,6 +207,9 @@ def measure(weights, source_class, manifest, truth, source, output, imgsz, devic
 
 
 def main():
+    """Train de voorlopige balkandidaat op de vastgelegde crops en vergelijk de echte baseline- en
+    kandidaatmetingen.
+    """
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--run", type=Path, required=True)
     p.add_argument("--config", type=Path, required=True)

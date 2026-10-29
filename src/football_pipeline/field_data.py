@@ -31,30 +31,42 @@ CHANNELS = [
 
 class CorpusBudget:
     def __init__(self, root, limit=20 * GIB):
+        """Bewaar corpusmap en bytebudget; activeer de optionele teller voor snelle bijhouding pas
+        wanneer de verzameling begint.
+        """
         self.root, self.limit = Path(root).resolve(), limit
         self.root.mkdir(parents=True, exist_ok=True)
         self._cached_used = None
 
     def used(self):
+        """Tel de huidige bestandsgroottes op, of gebruik de bijgehouden teller wanneer die actief is."""
         if self._cached_used is not None:
             return self._cached_used
         return sum(p.stat().st_size for p in self.root.rglob("*") if p.is_file())
 
     def start_tracking(self):
+        """Initialiseer de snelle budgetteller met het werkelijk gebruikte aantal bytes in de corpusmap."""
         self._cached_used = None
         self._cached_used = self.used()
 
     def account(self, change):
+        """Verwerk de opgegeven toename of afname in de actieve opslagbudgetteller."""
         if self._cached_used is not None:
             self._cached_used += change
 
     def require(self, additional):
+        """Controleer of de gevraagde extra bytes binnen het corpusbudget en de vrije schijfruimte met
+        reserve passen.
+        """
         if additional < 0 or self.used() + additional > self.limit:
             raise ValueError("Corpus storage budget exceeded; reduce the selection or increase --limit-gib")
         if shutil.disk_usage(self.root).free < additional + GIB:
             raise ValueError("Insufficient free disk space (1 GiB reserve required)")
 
     def write_json(self, path, value):
+        """Schrijf corpusmetadata en verwerk het verschil tussen de oude en nieuwe bestandsgrootte in de
+        budgetteller.
+        """
         if not Path(path).resolve().is_relative_to(self.root):
             raise ValueError("Corpus metadata must remain inside its root")
         content = json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False)
@@ -180,6 +192,9 @@ def extract_archive(archive, output, budget):
 
 
 def collect_dataset(root, budget, splits=("train", "valid")):
+    """Download en inventariseer de gevraagde providerarchieven binnen het corpusbudget en bewaar hun
+    controleerbare status.
+    """
     listing = json.load(
         urllib.request.urlopen(
             "https://huggingface.co/api/datasets/SoccerNet/SN-Calibration-2023/tree/main", timeout=60
@@ -218,6 +233,9 @@ def collect_dataset(root, budget, splits=("train", "valid")):
 
 
 def match_split(match_id):
+    """Koppel een wedstrijd-ID deterministisch aan train, validatie of test zodat dezelfde wedstrijd
+    nooit door willekeurig opnieuw splitsen verschuift.
+    """
     bucket = int(hashlib.sha256(match_id.encode()).hexdigest()[:8], 16) % 10
     return "train" if bucket < 7 else "valid" if bucket < 9 else "test"
 
@@ -233,6 +251,9 @@ def identify_match(title):
 
 
 def discover_highlights(root, per_channel=25, budget=None):
+    """Zoek begrensd naar highlightbronnen van de ingestelde kanalen en sla de broninventaris op zonder
+    videobeelden als labels te behandelen.
+    """
     import yt_dlp
 
     destination = root / "highlight-inventory.json"
@@ -290,6 +311,9 @@ def discover_highlights(root, per_channel=25, budget=None):
 
 
 def collect_highlights(root, budget, ffmpeg, count=30):
+    """Download geselecteerde highlightvideo's binnen opslag- en bestandsgroottelimieten en registreer
+    succes of uitval per bron.
+    """
     import yt_dlp
 
     path = root / "highlight-inventory.json"
@@ -319,6 +343,9 @@ def collect_highlights(root, budget, ffmpeg, count=30):
             continue
 
         def hook(progress):
+            """Bewaak tijdens downloaden de maximale grootte van één mediastream en onderbreek zodra die
+            grens wordt overschreden.
+            """
             if progress["status"] == "downloading":
                 if progress.get("downloaded_bytes", 0) > 192 * 1024**2:
                     raise ValueError("Media stream exceeds the per-file storage reservation")
@@ -378,6 +405,9 @@ def collect_highlights(root, budget, ffmpeg, count=30):
 
 
 def frame_signature(image):
+    """Maak een compacte verschilhash uit een verkleind grijsbeeld voor het vinden van sterk gelijkende
+    frames.
+    """
     import cv2
 
     small = cv2.resize(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), (9, 8))
@@ -385,6 +415,9 @@ def frame_signature(image):
 
 
 def near_duplicate(signature, previous, maximum=5):
+    """Controleer of de nieuwe beeldsignatuur op hoogstens het toegestane aantal bits van een eerder
+    geselecteerd beeld verschilt.
+    """
     import numpy as np
 
     return any(np.count_nonzero(signature != other) <= maximum for other in previous)
@@ -450,6 +483,9 @@ def sampled_frames(video, fps, size, ffmpeg):
 
 
 def prepare_frames(root, budget, maximum_per_video=180, ffmpeg=None):
+    """Extraheer en inventariseer geselecteerde ontwikkelframes uit voltooide video's, met bronherkomst
+    en duplicaatbeperking.
+    """
     import cv2
     import numpy as np
 
@@ -560,6 +596,9 @@ def prepare_frames(root, budget, maximum_per_video=180, ffmpeg=None):
 
 
 def main():
+    """Lees de aangevraagde corpusactie en opslaglimiet, verzamel of prepareer de veldbronnen en
+    rapporteer het werkelijke budgetgebruik.
+    """
     from filelock import FileLock
 
     parser = argparse.ArgumentParser(description=__doc__)

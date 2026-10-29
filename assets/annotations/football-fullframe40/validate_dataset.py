@@ -9,6 +9,9 @@ from build_dataset import read,write,digest
 
 
 def validate(root,source=None,scan=False,ball_views=None):
+    """Controleer beeldidentiteit, labelboxen, overeenkomst tussen YOLO en COCO en de vastgelegde bron-
+    en splitvoorwaarden van deze datasetversie.
+    """
     root=Path(root).resolve();spec=read(root/'source-annotations.json');manifest=read(root/'manifest.json');coco=read(root/'annotations.coco.json')
     frames=manifest['frames'];assert len(frames)==40
     assert len({f['frame_index'] for f in frames})==40

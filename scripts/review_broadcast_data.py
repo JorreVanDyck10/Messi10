@@ -17,6 +17,9 @@ COLORS = {0: "#33ed83", 1: "#ff9f43", 2: "#ff4565", 3: "#52baff"}
 
 
 def font(size):
+    """Laad het gekozen Arial-letterformaat voor reviewbeelden en gebruik een standaardlettertype als dat
+    bestand ontbreekt.
+    """
     try:
         return ImageFont.truetype("C:/Windows/Fonts/arial.ttf", size)
     except OSError:
@@ -24,6 +27,9 @@ def font(size):
 
 
 def audit_field_labels(root, source):
+    """Controleer de providerlijnlabels van de broadcastbeelden met de bestaande veldgeometrievalidator
+    en bewaar de auditindex.
+    """
     path = root / "field-quality-report.json"
     if path.exists() and read_json(path).get("dataset_fingerprint") == source["fingerprint"]:
         return path
@@ -100,6 +106,9 @@ def export_participants(root, source):
 
 
 def prepare_review(root, source):
+    """Maak een afzonderlijke bewerkbare labelkopie met bronmetadata voor onafhankelijke review van de
+    broadcastselectie.
+    """
     destination = root / "review-workspace"
     manifest_path = destination / "manifest.json"
     if manifest_path.exists():
@@ -150,6 +159,9 @@ def prepare_review(root, source):
 
 
 def preview(root, source):
+    """Teken een deterministische selectie van bronbeelden met labels voor visuele inspectie van het
+    corpus.
+    """
     output = root / "visual-review"
     output.mkdir(exist_ok=True)
     grouped = defaultdict(list)

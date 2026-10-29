@@ -15,20 +15,28 @@ from pathlib import Path
 
 
 def now():
+    """Geef het huidige tijdstip als ISO-string in UTC terug voor dataset- en experimentmetadata."""
     return datetime.now(timezone.utc).isoformat()
 
 
 def read_json(path):
+    """Lees JSON met ondersteuning voor een eventuele UTF-8-bytevolgordemarkering aan het begin van het
+    bestand.
+    """
     return json.loads(Path(path).read_text(encoding="utf-8-sig"))
 
 
 def write_json(path, value):
+    """Maak de uitvoermap indien nodig en schrijf leesbare UTF-8-JSON zonder NaN of oneindige getallen."""
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False) + "\n", encoding="utf-8")
 
 
 def sha256(path):
+    """Bereken de SHA-256 van een bestand in blokken zodat bronvideo's en grote gewichten niet volledig
+    in het geheugen hoeven.
+    """
     h = hashlib.sha256()
     with Path(path).open("rb") as stream:
         for block in iter(lambda: stream.read(1024 * 1024), b""):
@@ -37,10 +45,16 @@ def sha256(path):
 
 
 def canonical_hash(value):
+    """Hash een stabiele JSON-representatie met gesorteerde sleutels voor het vergelijken van dataset- of
+    configuratie-identiteiten.
+    """
     return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()).hexdigest()
 
 
 def environment():
+    """Registreer Python, packages, broncodehashes, Git-identiteit en beschikbare GPU-informatie voor
+    reproduceerbare experimenten.
+    """
     result = {"recorded_at": now(), "python": sys.version, "platform": platform.platform(), "packages": {}}
     code_root = Path(__file__).resolve().parent
     result["source_code_sha256"] = {str(p.relative_to(code_root)): sha256(p) for p in sorted(code_root.glob("*.py"))}
@@ -75,6 +89,9 @@ def environment():
 
 
 def load_manifest(path):
+    """Controleer manifestversie, unieke klassenamen en framerecords en geef de gegevens plus hun
+    relatieve basismap terug.
+    """
     path = Path(path).resolve()
     data = read_json(path)
     if data.get("schema_version") != "1.0":
@@ -94,6 +111,7 @@ def load_manifest(path):
 
 
 def dataset_path(root, relative):
+    """Los een relatief datasetpad op en weiger paden die buiten de opgegeven datasetmap terechtkomen."""
     if not isinstance(relative, str) or not relative:
         raise ValueError("Missing dataset-relative path")
     path = (root / relative).resolve()
@@ -103,6 +121,7 @@ def dataset_path(root, relative):
 
 
 def read_labels(path, class_count):
+    """Parse YOLO-TXT en controleer klasse-ID's en genormaliseerde boxwaarden vóór verdere verwerking."""
     labels = []
     for number, line in enumerate(Path(path).read_text(encoding="utf-8-sig").splitlines(), 1):
         if not line.strip():
@@ -124,6 +143,9 @@ def read_labels(path, class_count):
 
 
 def label_pixels(label, width, height):
+    """Reken een genormaliseerde YOLO-centrumbox om naar linker-, boven-, rechter- en onderrand in
+    bronpixels.
+    """
     x, y, w, h = label["xywh"]
     return [(x - w / 2) * width, (y - h / 2) * height, (x + w / 2) * width, (y + h / 2) * height]
 
@@ -224,6 +246,9 @@ def validate_dataset(manifest_path, require_review=False, min_frames=40, max_fra
 
 
 def require_approval(manifest_path, approval_path):
+    """Controleer dat dataset en onafhankelijke reviewgoedkeuring bij elkaar horen voordat de strengere
+    trainings- of evaluatieroute verdergaat.
+    """
     report = validate_dataset(manifest_path, require_review=True)
     if report["errors"]:
         raise ValueError("Dataset not ready: " + "; ".join(report["errors"][:8]))

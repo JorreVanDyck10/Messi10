@@ -11,6 +11,9 @@ from .modeling import fresh_output, yolo
 
 
 def compare(manifest, attestation, baseline_weights, candidate_predictions, output, device="0"):
+    """Meet lokalisatie van de geannoteerde deelnemers met baseline en kandidaat zonder de algemene COCO-
+    personklasse achteraf een voetbalrol te geven.
+    """
     require_experiment_data(manifest, attestation, True)
     data, root = load_manifest(manifest)
     candidate_predictions = Path(candidate_predictions)

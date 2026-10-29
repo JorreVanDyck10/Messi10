@@ -1,5 +1,31 @@
 # Controle van de uitlegbranch
 
+## Aanvulling: uitleg bij iedere functie
+
+De aanvulling vanaf commit `0773fbc` is eveneens op 29 oktober 2026 gecontroleerd:
+
+- **618 van 618 benoemde Python-functies** hebben een niet-lege docstring, verdeeld
+  over 168 actuele bronbestanden. Daarvan zijn 516 ontbrekende functiebeschrijvingen
+  toegevoegd; 102 aanwezige beschrijvingen zijn behouden, inclusief de vier functies
+  van de nieuwe controletool.
+- De scope omvat `src`, `persoon1`, `scripts`, de datasethelpers onder
+  `assets/annotations` en `streamlit_app.py`, inclusief methoden en geneste callbacks.
+  Tests en historische bronkopieën vallen buiten deze productiedekking.
+- De enige benoemde PowerShell-functie heeft ook comment-based help gekregen.
+- **158 gewijzigde bestaande Python-bestanden** hebben exact dezelfde AST zodra
+  docstrings worden weggelaten. Deze aanvulling wijzigt geen uitvoerbare Python.
+- De volledige testreeks slaagt opnieuw: **422 tests en 4 subtests**, 49,78 seconden.
+  Dezelfde 48 bestaande Pillow-deprecationwaarschuwingen blijven zichtbaar.
+- Ruff-checks slagen; 163 bestanden vallen binnen de bestaande formatteringsscope.
+  De codekaart bevat nu 296 codebestanden en is actueel.
+
+Reproduceren: `python scripts/check_function_docs.py`. Optioneel schrijft
+`--report pad/naar/rapport.json` dezelfde dekking als JSON weg. De CI controleert
+de aanwezigheid voortaan bij iedere run. Aanwezigheidscontrole vervangt geen
+inhoudelijke review van de uitleg of beheersing van de code door de studenten.
+
+## Eerste controle van de leesgids
+
 Uitgevoerd op 29 oktober 2026, vanaf basiscommit
 `4a3f9e5` op branch `codex/code-uitleg-verdediging`.
 

@@ -19,6 +19,9 @@ from .geometry import valid_box
 
 
 def transform(points, matrix):
+    """Vermenigvuldig beeldpunten in homogene vorm met de matrix en deel door de derde component om
+    tweedimensionale punten terug te krijgen.
+    """
     homogeneous = np.column_stack((np.asarray(points, dtype=float), np.ones(len(points)))) @ matrix.T
     denominator = homogeneous[:, 2]
     if (
@@ -159,6 +162,9 @@ class AutomaticCalibration:
 
     @property
     def settings(self):
+        """Lever het gecontroleerde instellingenprofiel voor de framekalibratie, met de juiste
+        standaardwaarden voor deze manifestversie.
+        """
         from .field_motion import DEFAULT_SETTINGS, validate_settings
 
         if self.profile is None and self.manifest.get("schema_version") == 1:
@@ -174,6 +180,9 @@ class AutomaticCalibration:
 
     @property
     def identity(self):
+        """Hash de kalibratieherkomst en instellingen zodat verschillende veldanalyses geen identieke
+        cache-identiteit krijgen.
+        """
         identity = {"manifest": self.manifest, "policy": POLICY}
         if self.settings is not None:
             identity["settings"] = self.settings
@@ -188,6 +197,9 @@ class AutomaticCalibration:
         return digest_json(identity)
 
     def validate_for(self, video: VideoMetadata, approved=True):
+        """Controleer of video, waarnemingen, modelherkomst en runtimegegevens bij deze kalibratie horen;
+        weiger ontbrekende of afwijkende gegevens.
+        """
         m = self.manifest
         upstream = m.get("upstream")
         if (
@@ -234,6 +246,9 @@ class AutomaticCalibration:
             raise PipelineError("Automatische kalibratie mist software-identiteit.")
 
     def frames(self, video):
+        """Lees precies één opgeslagen veldwaarneming per bronframe, controleer de volgorde en lever de
+        bijbehorende kalibratietoestanden als iterator.
+        """
         with Path(self.observations_path).open(encoding="utf-8") as stream:
             for index in range(video.frame_count):
                 try:
@@ -278,6 +293,9 @@ class AutomaticCalibration:
 
 
 def load_automatic_calibration(path):
+    """Lees het kalibratiemanifest en het bijbehorende waarnemingenbestand en maak de automatische
+    kalibratieadapter.
+    """
     path = Path(path).resolve()
     manifest = read_json(path)
     profile = None
@@ -295,6 +313,9 @@ def load_automatic_calibration(path):
 
 
 def project_automatic(detection: Detection, state: dict, image_size):
+    """Projecteer het voetpunt van een detectie met de actuele veldtoestand. Schrijf een veldpositie of
+    expliciete afwijsstatus terug in dezelfde detectie.
+    """
     detection.field_position = None
     if not valid_box(detection, image_size):
         detection.projection_status = "invalid_box"

@@ -25,12 +25,16 @@ CATEGORY_MAP = {1: 0, 2: 0, 3: 1, 4: 2, 7: 3}
 
 
 def archive_url(split):
+    """Bouw de download-URL van de gekozen providerarchiefsplit op de vastgelegde datasetrevisie."""
     if split not in {"train", "valid"}:
         raise ValueError("Only public train and validation archives may be opened for development")
     return f"{DATASET_URL}/resolve/{REVISION}/{split}.zip"
 
 
 def catalog(archive):
+    """Lees de archiefleden en maak een catalogus van clips en hun wedstrijdherkomst zonder alle beelden
+    uit te pakken.
+    """
     clips = []
     for member in sorted(n for n in archive.namelist() if n.endswith("/Labels-GameState.json")):
         with archive.open(member) as stream:
@@ -46,6 +50,9 @@ def catalog(archive):
 
 
 def select_games(catalogs):
+    """Leg trainings- en validatiewedstrijden apart vast; gebruik de beschreven holdoutstrategie wanneer
+    de providerindeling moet worden aangepast.
+    """
     train = {r["game_id"] for r in catalogs["train"]}
     valid = {r["game_id"] for r in catalogs["valid"]}
     # Retain the official validation games and remove all overlapping games from training.
@@ -61,6 +68,7 @@ def select_games(catalogs):
 
 
 def selected_clips(catalogs, games, strategy, split):
+    """Filter de catalogi tot clips die bij de gekozen wedstrijden, selectiestrategie en datasplit horen."""
     source = "valid" if split == "val" and strategy.startswith("official_valid") else "train"
     pool = [dict(row, archive_split=source) for row in catalogs[source] if row["game_id"] in games[split]]
     # Round-robin matches before selecting more clips of one match.
@@ -76,6 +84,9 @@ def selected_clips(catalogs, games, strategy, split):
 
 
 def object_labels(annotations, width, height):
+    """Zet providerboxen en rollen om naar genormaliseerde YOLO-labels en bronpixelboxen met dezelfde
+    objectbetekenis.
+    """
     labels, boxes = [], []
     for annotation in annotations:
         if annotation["supercategory"] != "object":
@@ -102,6 +113,9 @@ def object_labels(annotations, width, height):
 
 
 def prepare(root, train_count=60, valid_count=20):
+    """Download de geselecteerde frames en exporteer persoons- en veldgegevens met wedstrijdgescheiden
+    splits en controleerbare bronmetadata.
+    """
     root = Path(root).resolve()
     if train_count < 1 or valid_count < 1 or train_count + valid_count > 80:
         raise ValueError("This curated experiment uses at most 80 source frames")

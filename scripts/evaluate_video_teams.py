@@ -20,6 +20,9 @@ from football_pipeline.video import ROOT
 
 
 def run(output, implementation=None):
+    """Meet de gekozen kleurclustering op vaste, visueel beoordeelde videospecifieke shirtcrops en
+    schrijf voorspellingen en ontwikkelscores.
+    """
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
     implementation = Path(implementation) if implementation else ROOT / "src/football_pipeline/teams.py"

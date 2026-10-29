@@ -31,6 +31,9 @@ from football_pipeline.field_model_spec import validate_runtime_models  # noqa: 
 
 
 def main():
+    """Laad PnLCalib in zijn eigen omgeving, verwerk de bronframes en schrijf herleidbare punten- en
+    lijnwaarnemingen.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--video", type=Path, required=True)
     parser.add_argument("--runtime", type=Path, required=True)

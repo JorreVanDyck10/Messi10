@@ -21,6 +21,9 @@ from football_pipeline.video import ROOT, inspect_video
 
 
 def verify_records(directory: Path, manifest: dict) -> dict:
+    """Controleer de volledige framereeks op geldige boxen, rollen, projectiestatus, telling en
+    uitvoeridentiteit en retourneer de controleaantallen.
+    """
     roles, displayed_roles, projections = Counter(), Counter(), Counter()
     counted_teams, team_methods = Counter(), Counter()
     role_classified, team_assigned = 0, 0
@@ -169,6 +172,9 @@ def verify_records(directory: Path, manifest: dict) -> dict:
 
 
 def main() -> None:
+    """Voer de echte spelerpipeline uit en controleer framerecords, broncoördinaten, veldprojectie en
+    video-uitvoer.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("video", type=Path)
     field = parser.add_mutually_exclusive_group(required=True)

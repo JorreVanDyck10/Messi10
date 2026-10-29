@@ -40,6 +40,9 @@ def warp_xyah(tracks, matrix):
 
 class BackgroundMotion:
     def __init__(self):
+        """Begin zonder voorgaand frame en met een identiteitsmatrix voor de eerste
+        achtergrondbewegingsmeting.
+        """
         self.previous = None
         self.mask = None
         self.histogram = None
@@ -48,12 +51,21 @@ class BackgroundMotion:
 
     def apply(self, image, detections=None):
         # ByteTrack calls this between Kalman prediction and association.
+        """Geef de al gemeten achtergrondmatrix terug aan de tracker; deze adapter voert hier geen tweede
+        bewegingsmeting uit.
+        """
         return self.matrix
 
     def reset_params(self):
+        """Laat de eigen framehistorie ongemoeid bij een bibliotheekreset; measure beheert die historie
+        expliciet.
+        """
         pass  # Our frame history is managed by measure(), not ByteTrack.reset().
 
     def measure(self, frame, detections):
+        """Masker persoonsboxen, meet achtergrondverplaatsing tussen frames en bepaal of compensatie
+        betrouwbaar is of tracks moeten worden gereset.
+        """
         height, width = frame.shape[:2]
         scale = min(1.0, 960 / width)
         size = (round(width * scale), round(height * scale))

@@ -10,6 +10,9 @@ from .field_motion import DEFAULT_SETTINGS
 
 
 def compare(index_path, baseline, cache, inference_sha, output, validation=False):
+    """Meet de lijngebaseerde homography tegenover de baseline op bevroren waarnemingen en kies
+    instellingen op de trainingssubset.
+    """
     index = read_json(index_path)
     rows = index["frames"]
     for row in rows:
@@ -38,6 +41,9 @@ def compare(index_path, baseline, cache, inference_sha, output, validation=False
         raise ValueError("Match overlap")
 
     def measure(ids, settings, fallback):
+        """Bereken de geometriescores voor de gekozen frame-indices met deze instellingen en de
+        expliciete terugvalstrategie.
+        """
         return score([observations[i] for i in ids], [rows[i] for i in ids], settings, line_fallback=fallback)
 
     base_train = measure(train, DEFAULT_SETTINGS, False)

@@ -21,10 +21,16 @@ from football_pipeline.video import ROOT
 
 
 def plain(value):
+    """Verwijder HTML-tags en decodeer entiteiten zodat bronattributie als leesbare gewone tekst kan
+    worden opgeslagen.
+    """
     return html.unescape(re.sub(r"<[^>]+>", "", value or "")).strip()
 
 
 def main():
+    """Haal uitsluitend de vastgelegde extra rolbeelden op en schrijf bronmetadata en naamsvermelding
+    voor de dataset.
+    """
     config_path = ROOT / "configs/role-sources-v3.json"
     output = ROOT / "datasets/roles-teams-v3"
     (output / "sources").mkdir(parents=True, exist_ok=True)

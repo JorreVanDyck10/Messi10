@@ -8,6 +8,9 @@ from .contracts import Detection, PipelineError, VideoMetadata
 
 
 def replay_detections(stream, frame_index: int, video: VideoMetadata) -> list[Detection]:
+    """Lees de opgeslagen waarnemingen voor het verwachte bronframe en controleer tijdstip, bronformaat
+    en volgorde vóór hergebruik.
+    """
     try:
         record = json.loads(stream.readline())
         if (

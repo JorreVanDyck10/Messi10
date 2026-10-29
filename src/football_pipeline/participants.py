@@ -28,12 +28,18 @@ PLAYER_POLICY = {
 
 
 def player_exclusion_reason(detection: Detection, image_size: tuple[int, int]) -> str | None:
+    """Geef de reden waarom een detectie niet als geldige spelerwaarneming kan worden gebruikt, of None
+    wanneer zij voldoet.
+    """
     if detection.semantic_class != "player":
         return "not_player"
     return field_exclusion_reason(detection, image_size)
 
 
 def field_exclusion_reason(detection: Detection, image_size: tuple[int, int]) -> str | None:
+    """Toets box, onderrand en projectiestatus los van de voorspelde persoonsrol voor veldgerichte
+    verwerking.
+    """
     if not valid_box(detection, image_size):
         return "invalid_box"
     if detection.projection_status != "valid":
@@ -47,17 +53,22 @@ def field_exclusion_reason(detection: Detection, image_size: tuple[int, int]) ->
 
 
 def visible_detection(detection: Detection, confidence: float = DISPLAY_CONFIDENCE) -> bool:
+    """Bepaal of de detectie de zichtbaarheid-/confidencegrens voor weergave haalt."""
     return detection.confidence >= confidence or detection.track_id is not None
 
 
 def field_available(record: FrameRecord) -> bool:
     # Manual records are produced only after validating the fixed calibration.
+    """Bepaal uit het framerecord of er op dit tijdstip bruikbare veldkalibratie bestaat."""
     return record.calibration is None or record.calibration.get("status") == "valid"
 
 
 def count_exclusion_reason(
     record: FrameRecord, detection: Detection, confidence=DISPLAY_CONFIDENCE
 ) -> str | None:
+    """Pas de rol-, confidence- en veldvoorwaarden voor spelertelling toe en retourneer een expliciete
+    uitsluitreden.
+    """
     reason = player_exclusion_reason(detection, record.image_size)
     if reason is not None:
         return reason
@@ -76,6 +87,7 @@ def counted_as_player(record: FrameRecord, detection: Detection, confidence=DISP
 
 
 def normalized_team_id(team_id: str | None) -> str:
+    """Zet bekende varianten van team-ID's om naar de gedeelde A/B/unknown-indeling."""
     return {"A": "A", "B": "B", "team_a": "A", "team_b": "B"}.get(team_id, "unknown")
 
 

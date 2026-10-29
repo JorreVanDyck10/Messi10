@@ -16,6 +16,9 @@ from football_pipeline.video import ROOT, inspect_video
 
 
 def check_result(result) -> dict:
+    """Inspecteer een voltooide echte-videorun op uitvoerhashes en consistente frame-, rol-, team- en
+    geometriegegevens.
+    """
     manifest = validate_completed(result.directory)
     encoded = inspect_video(result.video_path)
     video = manifest["video"]
@@ -111,6 +114,9 @@ def check_result(result) -> dict:
 
 
 def main():
+    """Verwerk een echte video en controleer samenhang van boxen, projecties, teams en uitvoer als
+    technische integratieproef.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("video", type=Path)
     parser.add_argument("calibration", type=Path, help="Bestaande automatische calibration.json")

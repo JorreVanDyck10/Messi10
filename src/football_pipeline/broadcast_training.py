@@ -26,6 +26,9 @@ OLD_ROLES = ROOT / "data/joint-local-20261027-v2/roles/manifest.json"
 
 
 def sample_rows(dataset):
+    """Selecteer bruikbare gelabelde persoonsvoorbeelden met de bron- en splitvoorwaarden van dit
+    experiment.
+    """
     rows, seen, splits = [], set(), {}
     for f in read_json(Path(dataset) / "manifest.json")["frames"]:
         if f["split"] not in {"train", "val"}:
@@ -71,6 +74,9 @@ def sample_rows(dataset):
 
 
 def features(dataset, output):
+    """Bereken of laad crop- en shirtkenmerken voor de vastgelegde dataset en bewaar ze voor de volgende
+    trainingsstappen.
+    """
     output.mkdir(parents=True, exist_ok=True)
     path = output / "features.pt"
     identity = digest_json(
@@ -151,6 +157,9 @@ def features(dataset, output):
 
 
 def train_roles(data, output, minutes):
+    """Train de rolkop op de opgeslagen kenmerken, beoordeel de ontwikkelvalidatie en schrijf de gekozen
+    rolgewichten.
+    """
     from persoon1.role_training import scores
 
     output.mkdir(parents=True, exist_ok=True)
@@ -261,6 +270,9 @@ def train_roles(data, output, minutes):
 
 
 def team_metrics(rows, vectors, keeper_probabilities, settings=None):
+    """Koppel teamtoekenningen aan de bronreferenties en tel correct, fout en onbekend, inclusief dekking
+    en nauwkeurigheid onder toegewezen spelers.
+    """
     from .contracts import Detection
     from .kit_embedding import embedding_candidate
 
@@ -349,11 +361,17 @@ def team_metrics(rows, vectors, keeper_probabilities, settings=None):
 
 
 def team_selection_score(metrics):
+    """Bereken het vooraf gekozen selectiecijfer dat voldoende teamdekking beloont en verkeerde
+    toekenningen zwaarder bestraft.
+    """
     qualified = metrics["accuracy_assigned"] >= 0.95 and metrics["coverage"] >= 0.9
     return float(qualified) + (metrics["correct"] - 2 * metrics["wrong"]) / max(1, metrics["total"])
 
 
 def train_teams(data, output, minutes):
+    """Train en selecteer het shirtmodel op de bevroren teamvoorbeelden en schrijf de gekozen
+    checkpointgegevens.
+    """
     output.mkdir(parents=True, exist_ok=True)
     path = output / "kit_embedding.pt"
     if path.exists():
@@ -519,6 +537,9 @@ def train_teams(data, output, minutes):
 
 
 def run(dataset, output, stage, minutes=None):
+    """Voer alleen de aangevraagde detector-, rol- of teamfase uit en hergebruik uitsluitend resultaten
+    met passende bronidentiteit.
+    """
     output.mkdir(parents=True, exist_ok=True)
     torch.set_num_threads(4)
     if not torch.cuda.is_available():

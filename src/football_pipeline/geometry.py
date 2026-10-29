@@ -14,6 +14,9 @@ class CalibrationControlError(PipelineError):
     """Rejected calibration with independent checks available for visual diagnosis."""
 
     def __init__(self, checks, projected, errors, diagonal):
+        """Bewaar gemeten en verwachte controlepunten, hun pixelafwijkingen en de gebruikte foutgrenzen
+        in een diagnostische kalibratiefout.
+        """
         super().__init__(f"Onafhankelijke controle faalt: fouten {errors.round(2).tolist()} pixels.")
         self.diagnostics = [
             {
@@ -64,6 +67,9 @@ class Calibration:
 
     @property
     def identity(self) -> str:
+        """Geef de hash van de volledige kalibratiegegevens terug voor koppeling aan deze exacte
+        kalibratieversie.
+        """
         return digest_json(asdict(self))
 
     @property
@@ -72,6 +78,9 @@ class Calibration:
         return np.array([[p["x"], p["y"]] for p in self.points if p["role"] == "fit"], np.float32)
 
     def validate_for(self, video: VideoMetadata, approved: bool = True) -> None:
+        """Controleer videohash en formaat en herbereken matrix en controlefouten uit de opgeslagen
+        puntparen voordat een kalibratie wordt vertrouwd.
+        """
         if not isinstance(self.review, dict) or not isinstance(self.points, list):
             raise PipelineError("Kalibratie vereist een puntentabel en een reviewrecord.")
         if not isinstance(self.image_size, (list, tuple)) or len(self.image_size) != 2:

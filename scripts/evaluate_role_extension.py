@@ -16,6 +16,9 @@ from persoon1.role_training import load_training_manifest, scores
 
 
 def infer(weights, root, rows):
+    """Voer de opgegeven rolclassifier uit op precies de geselecteerde persoonscrops en geef de
+    voorspelde klassen terug.
+    """
     classifier = AppearanceClassifier(
         {
             "weights": str(weights),
@@ -49,6 +52,9 @@ def infer(weights, root, rows):
 
 
 def summarize(rows, predictions):
+    """Bereken klasse- en subsetmetingen voor de rolvoorspellingen en houd de verschillende broncohorten
+    herkenbaar.
+    """
     truth = np.array([ROLE_NAMES.index(r["role"]) for r in rows])
     chosen = np.array(
         [
@@ -85,6 +91,9 @@ def cohorts(rows):
 
 
 def main():
+    """Vergelijk twee echte rolclassifiers op dezelfde persoonscrops en rapporteer hun klassefouten
+    zonder dit detectie-AP te noemen.
+    """
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--manifest", type=Path, default=ROOT / "datasets/roles-teams-v2/manifest.json")
     p.add_argument("--baseline", type=Path, default=ROOT / "artifacts/appearance-v1/roles_teams.pt")

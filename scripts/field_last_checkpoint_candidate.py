@@ -12,6 +12,9 @@ from football_pipeline.field_learning import atomic_torch_save, make_runtime
 
 
 def extract(training, baseline_runtime, output):
+    """Verpak het werkelijk opgeslagen laatste veldcheckpoint als traceerbare kandidaat-runtime zonder
+    het historische beste-losscheckpoint te vervangen.
+    """
     source_path = training / "training-report.json"
     original = read_json(source_path)
     if original["status"] != "complete":

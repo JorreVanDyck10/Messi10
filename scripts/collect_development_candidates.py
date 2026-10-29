@@ -16,6 +16,9 @@ from football_pipeline.video import ROOT
 
 
 def main():
+    """Selecteer ongelabelde modelondersteunde ontwikkelkandidaten uitsluitend uit de toegestane
+    trainingsgroepen.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "datasets/development-candidates-v1")
     parser.add_argument("--models", type=Path, default=ROOT / "configs/models-players.json")

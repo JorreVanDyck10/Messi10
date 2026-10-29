@@ -60,6 +60,9 @@ class MemberArchive:
     """Independent bounded range requests allow concurrent reads of immutable ZIPs."""
 
     def __init__(self, split):
+        """Bewaar de gekozen archiefsplit en maak threadlokale opslag voor onafhankelijke HTTP-sessies
+        tijdens parallel downloaden.
+        """
         self.url = archive_url(split)
         # Resolve once without a Range header: this grants a full-object CDN URL.
         # Resolving every image separately exhausts Hugging Face's resolver quota.
@@ -73,6 +76,9 @@ class MemberArchive:
         self.local = threading.local()
 
     def read(self, member):
+        """Lees het exacte bereik van een gecomprimeerd archieflid via HTTP en probeer tijdelijke
+        netwerkfouten opnieuw voordat het bronlid wordt teruggegeven.
+        """
         info = self.members[member]
         # ZIP extra fields have a maximum length of 65535 bytes.
         start = info.header_offset
@@ -99,6 +105,9 @@ class MemberArchive:
 
 
 def load_clip(root, archive, source, member):
+    """Pak één annotatielid uit, lees de clipinformatie en retourneer bronmetadata met het opgeslagen
+    annotatiepad en de hash.
+    """
     clip = member.split("/")[0]
     if not re.fullmatch(r"SNGS-\d+", clip):
         raise ValueError("Unsafe provider clip name")
@@ -154,6 +163,9 @@ def eligible_images(data, min_gap=5):
 
 
 def choose_frames(clips, games, split, wanted):
+    """Verdeel de gewenste selectie over toegestane clips en wedstrijden zonder de vooraf bepaalde
+    splitgrenzen te veranderen.
+    """
     pools = []
     # Alternate games, then clips; reserve every validation match from training.
     by_game = defaultdict(list)
@@ -188,6 +200,9 @@ def choose_frames(clips, games, split, wanted):
 
 
 def prepare_frame(root, archives, selected):
+    """Download één geselecteerd bronbeeld, zet providerobjecten om naar labels en retourneer het
+    herleidbare framerecord.
+    """
     clip, im, annotations, split = (selected[k] for k in ("clip", "image", "annotations", "split"))
     fid = clip["info"]["name"] + "_" + Path(im["file_name"]).stem
     paths = {
@@ -337,6 +352,9 @@ def audit(root, manifest):
 
 
 def prepare(root, train_count=6000, valid_count=2000, workers=8):
+    """Beveilig datasetbouw met een exclusieve lock en geef die ook bij fouten vrij voordat een andere
+    schrijver verder kan.
+    """
     root = Path(root).resolve()
     if min(train_count, valid_count) < 1 or not 1 <= workers <= 16:
         raise ValueError("Positive split counts and 1-16 workers required")
@@ -353,6 +371,9 @@ def prepare(root, train_count=6000, valid_count=2000, workers=8):
 
 
 def _prepare(root, train_count, valid_count, workers):
+    """Bouw of hervat beelden, labels en metadata voor de aangevraagde broadcasttrainings- en
+    validatieset en controleer de resulterende inventaris.
+    """
     settings = {
         "revision": REVISION,
         "train_count": train_count,
@@ -473,6 +494,9 @@ def _prepare(root, train_count, valid_count, workers):
 
 
 def main():
+    """Lees de datasetbouw- of auditopdracht en voer de gevraagde corpusstap met de gekozen aantallen en
+    workers uit.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path("data/broadcast-sngsr-v1"))
     parser.add_argument("--train", type=int, default=6000)

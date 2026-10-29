@@ -16,6 +16,9 @@ from football_pipeline.contracts import write_json  # noqa: E402
 
 
 def main():
+    """Start de afzonderlijke veldtrainingen en vergelijking als subprocessen en bewaar duurzame status
+    en uitvoerlogs.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--dataset", type=Path, default=ROOT / "data/field-corpus/soccernet")

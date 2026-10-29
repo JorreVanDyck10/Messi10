@@ -12,6 +12,9 @@ from football_pipeline.contracts import digest_json, read_json, sha256_file, wri
 
 
 def export(root, decisions_path):
+    """Exporteer alleen de expliciet beoordeelde bronclips en hun officiallabels zonder het
+    oorspronkelijke providercorpus te wijzigen.
+    """
     source = read_json(root / "manifest.json")
     decisions = read_json(decisions_path)
     if decisions["source_fingerprint"] != source["fingerprint"]:

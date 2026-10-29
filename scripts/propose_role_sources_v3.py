@@ -11,6 +11,9 @@ from persoon1.modeling import yolo
 
 
 def main():
+    """Maak COCO-persoonsvoorstellen voor de vaste rolbronnen en bewaar ze als voorstellen, niet als
+    definitieve rollabels.
+    """
     root = ROOT / "datasets/roles-teams-v3"
     output = ROOT / "reports/person1-round3/proposals"
     output.mkdir(parents=True, exist_ok=True)

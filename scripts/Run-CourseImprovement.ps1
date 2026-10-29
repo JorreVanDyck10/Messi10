@@ -21,6 +21,13 @@ $env:MKL_NUM_THREADS = '4'
 $env:CUBLAS_WORKSPACE_CONFIG = ':4096:8'
 $job = @{ pid=$PID; status='running'; started_at=[DateTime]::UtcNow.ToString('o'); automatic_promotion=$false }
 function Invoke-TrainingPhase([string]$phase, [string]$python, [string[]]$arguments) {
+    <#
+    .SYNOPSIS
+    Voert één cursusproeffase uit met de opgegeven Python-omgeving en argumenten.
+    .DESCRIPTION
+    Bewaart de fasenaam in job.json, wacht op het verborgen subprocess en schrijft
+    stdout en stderr naar afzonderlijke logs. Een mislukte fase stopt de keten.
+    #>
     $job.phase = $phase
     $job.updated_at = [DateTime]::UtcNow.ToString('o')
     $job | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $destination 'job.json') -Encoding utf8

@@ -155,12 +155,18 @@ def load_model_manifest(path: str | Path) -> dict:
 
 
 def available_roles(manifest):
+    """Verzamel de semantische rollen die het geladen detector- en optionele appearanceprofiel
+    daadwerkelijk kunnen leveren.
+    """
     roles = {v for spec in manifest["models"] for v in spec["class_mapping"].values()}
     roles.update(manifest.get("appearance", {}).get("role_names", []))
     return roles
 
 
 def player_detection_sources(manifest):
+    """Vind de modelbronnen die expliciet spelerdetecties leveren, zodat tracking geen algemene personen
+    als spelers behandelt.
+    """
     actual = [s for s in manifest["models"] if "player" in s["class_mapping"].values()]
     if actual:
         return actual
@@ -343,6 +349,9 @@ def validate_detection_devices(manifest: dict) -> None:
 class UltralyticsDetector:
     def __init__(self, manifest: dict):
         # Keep the local app usable without write access to the Windows user profile.
+        """Controleer device en bronklassen, laad de geconfigureerde YOLO-gewichten en initialiseer
+        optionele appearance-, shirt- en contextmodellen.
+        """
         root = Path(__file__).resolve().parents[2]
         os.environ.setdefault("YOLO_CONFIG_DIR", str(root / ".cache/ultralytics"))
         (Path(os.environ["YOLO_CONFIG_DIR"]) / "Ultralytics").mkdir(parents=True, exist_ok=True)
@@ -389,6 +398,7 @@ class UltralyticsDetector:
             )
 
     def set_video_identity(self, video_hash):
+        """Bewaar de videohash en begin bij een nieuwe video met nieuwe videospecifieke teamprototypes."""
         if video_hash != self.video_hash and self.appearance:
             from .teams import VideoTeams
 

@@ -14,6 +14,9 @@ from scripts.experiment_broadcast_v2 import measured
 
 
 def run(output: Path):
+    """Vergelijk de vastgelegde bevroren-backbone- en alle-lagenvarianten op dezelfde baldata en bewaar
+    de optionele ontwikkelkeuze.
+    """
     from ultralytics import YOLO, settings
 
     if output.exists():
@@ -84,6 +87,9 @@ def run(output: Path):
     full_rows = [r for r in full["frames"] if r["split"] == "val"]
 
     def evaluate(path, name):
+        """Meet het checkpoint met dezelfde evaluator op de vooraf vastgelegde crop- en volledige-
+        beeldweergaven.
+        """
         return {
             mode: measured(path, rows, root, output / name / mode, mode=mode)
             for mode, rows, root in (

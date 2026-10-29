@@ -13,6 +13,9 @@ from .contracts import PipelineError
 
 
 def context_features(probabilities, kits, appearances, positions, boxes, image_size):
+    """Combineer rolkansen, veld- en boxgeometrie en relatieve shirt-/cropgelijkenis tussen deelnemers
+    tot contextvectoren.
+    """
     probability = np.asarray(probabilities, np.float32)
     n = len(probability)
     if n < 4:
@@ -54,6 +57,9 @@ def context_features(probabilities, kits, appearances, positions, boxes, image_s
 
 
 def context_head(dimension=46):
+    """Bouw de kleine neuraalnetwerkkop die de contextvector via verborgen lagen naar één
+    rolbeslissingsscore omzet.
+    """
     import torch
 
     return torch.nn.Sequential(
@@ -67,6 +73,9 @@ def context_head(dimension=46):
 
 class RoleContext:
     def __init__(self, spec, teacher_sha256, kit_sha256):
+        """Controleer de koppeling met teacher- en shirtgewichten en laad de genormaliseerde
+        contextfeatures en getrainde contextkop.
+        """
         import torch
 
         state = torch.load(spec["weights"], map_location="cpu", weights_only=True)
@@ -96,6 +105,9 @@ class RoleContext:
         self.spec = spec
 
     def update(self, detections, image_size):
+        """Bereken context van de huidige gekalibreerde persoonsdetecties en verfijn hun rollen alleen
+        binnen de voorwaarden van het profiel.
+        """
         import torch
 
         eligible = [

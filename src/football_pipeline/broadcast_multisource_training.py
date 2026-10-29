@@ -18,6 +18,9 @@ BASE_SHA256 = "e36cf616da81d07a900a74c90580565f5e8b89e6bffb5668979bf1f9355cf0da"
 
 
 def validate_dataset(dataset):
+    """Controleer beelden, labels, klassen en wedstrijdverdeling van de samengestelde set en retourneer
+    manifest en aantallen per wedstrijd.
+    """
     dataset = Path(dataset).resolve()
     manifest = read_json(dataset / "manifest.json")
     selection = manifest["selection"]
@@ -67,6 +70,9 @@ def validate_dataset(dataset):
 
 
 def train(dataset, output, epochs=40, resolution=1536):
+    """Controleer de aanvullende bronnen en train de bestaande spelerdetector verder met de opgegeven
+    epochs en resolutie.
+    """
     from ultralytics import YOLO
 
     dataset, output = Path(dataset).resolve(), Path(output).resolve()

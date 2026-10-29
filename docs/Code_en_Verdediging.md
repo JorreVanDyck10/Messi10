@@ -8,6 +8,14 @@ codebestand**, met functies, lokale afhankelijkheden en een onderscheid tussen
 toepassing, experiment, test en historische bronkopie. Bovenaan de Python-modules
 van beide pakketten staat ook een Nederlandse uitleg.
 
+Iedere benoemde Python-functie in de actuele toepassing, modelcode, scripts en
+datasethelpers heeft een docstring, ook methoden, properties en geneste callbacks.
+Er zijn 618 functies in 168 bronbestanden gecontroleerd. Bestaande inhoudelijke
+Engelse functie-uitleg is behouden; ontbrekende uitleg is in het Nederlands aangevuld.
+Tests en historische bronkopieën onder `reports` vallen buiten deze productiedekking.
+Controleer dit met `python scripts/check_function_docs.py`; de CI voert dezelfde
+controle uit. De controle meet aanwezigheid, geen automatische garantie van juistheid.
+
 De argumenten hieronder zijn technische afwegingen van de bestaande implementatie.
 Ze bewijzen niet dat een alternatief in een eigen vergelijkende proef slechter was.
 Voor zo'n historische claim is een werkelijk experiment nodig. Gebruik daarvoor de

@@ -19,10 +19,14 @@ SIZE = 640
 
 
 def intersect(a, b):
+    """Geef aan of twee xyxy-rechthoeken een positieve overlappende oppervlakte hebben."""
     return min(a[2], b[2]) > max(a[0], b[0]) and min(a[3], b[3]) > max(a[1], b[1])
 
 
 def positive_window(box, width, height, identity, variant):
+    """Kies deterministisch een beeldvenster rond de bal, met de ingestelde variant en begrensd door het
+    bronformaat.
+    """
     if min(width, height) < SIZE:
         raise ValueError("Native crop requires an image at least 640 pixels in both dimensions")
     if box[2] - box[0] >= SIZE or box[3] - box[1] >= SIZE:
@@ -38,6 +42,9 @@ def positive_window(box, width, height, identity, variant):
 
 
 def tile(root, output, row, window, kind, suffix, box=None):
+    """Schrijf één bronpixeltegel en bijbehorende labels en retourneer het framerecord met bronvenster en
+    ouderframe.
+    """
     fid = row["frame_id"] + suffix
     image = output / "images" / row["split"] / f"{fid}.png"
     label = output / "labels" / row["split"] / f"{fid}.txt"
@@ -80,6 +87,9 @@ def tile(root, output, row, window, kind, suffix, box=None):
 
 
 def player_selection(root, source, output):
+    """Selecteer minder redundante spelersbeelden en schrijf hun datasetweergave met behoud van
+    oorspronkelijke splits.
+    """
     groups = defaultdict(list)
     rows, metrics = [], []
     for row in source["frames"]:
@@ -169,6 +179,9 @@ def player_selection(root, source, output):
 
 
 def negatives(root, source, original, output):
+    """Maak kandidaatbeelden zonder gelabelde bal voor afzonderlijke visuele beoordeling voordat ze als
+    negatief mogen meetrainen.
+    """
     original_by_id = {r["frame_id"]: r for r in original["frames"]}
     groups = defaultdict(list)
     for row in source["frames"]:
@@ -215,6 +228,9 @@ def negatives(root, source, original, output):
 
 
 def render_negatives(output, records):
+    """Teken de negatieve kandidaten op controlepagina's met voldoende context voor de visuele
+    beslissing.
+    """
     for page in range(math.ceil(len(records) / 4)):
         canvas = Image.new("RGB", (1280, 1340), "#111827")
         for i, row in enumerate(records[page * 4 : page * 4 + 4]):
@@ -231,6 +247,9 @@ def render_negatives(output, records):
 
 
 def prepare(base, balls, output):
+    """Maak de spelersselectie, positieve balcrops en negatieve reviewkandidaten als afzonderlijke,
+    traceerbare voorbereidingsstappen.
+    """
     if output.exists():
         raise ValueError("Choose a fresh version; existing labels and reviews are preserved")
     output.mkdir(parents=True)
@@ -278,6 +297,9 @@ def prepare(base, balls, output):
 
 
 def finalize(base, output, decisions_path, coco_names=None):
+    """Verwerk de expliciete negatieve beslissingen, schrijf de definitieve balset en leg de gebruikte
+    klassemapping en herkomst vast.
+    """
     from persoon1.core import label_pixels, read_labels
 
     prep = read_json(output / "preparation.json")

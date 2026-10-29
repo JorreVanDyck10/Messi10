@@ -5,6 +5,9 @@ from .video import ROOT
 
 
 def write_report(dataset, output):
+    """Lees de werkelijk voltooide deeltrainingen en demonstraties en schrijf daaruit het gezamenlijke
+    verslag met bronverwijzingen.
+    """
     import json
     import shutil
     import xml.etree.ElementTree as ET

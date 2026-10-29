@@ -17,10 +17,14 @@ from .video import ROOT
 
 
 def timestamp():
+    """Geef het huidige tijdstip terug als ISO-string in UTC voor herleidbare experimentlogs."""
     return datetime.now(UTC).isoformat()
 
 
 def evaluate_model(weights, dataset, output, *, imgsz=1280):
+    """Meet het opgegeven checkpoint op de vastgelegde ontwikkelset en bewaar de inferentie-instellingen
+    bij de scores.
+    """
     from ultralytics import YOLO
 
     from persoon1.metrics import evaluate
@@ -96,6 +100,9 @@ def evaluate_model(weights, dataset, output, *, imgsz=1280):
 
 
 def train_candidate(dataset, output, *, augment, epochs, weights=None, max_minutes=None):
+    """Fine-tune de kandidaat met vastgelegde instellingen en probeer bij GPU-geheugentekort alleen de
+    beschreven kleinere batches.
+    """
     from ultralytics import YOLO
 
     config = {
@@ -210,6 +217,9 @@ def train_candidate(dataset, output, *, augment, epochs, weights=None, max_minut
 
 
 def run(dataset, output, epochs=60):
+    """Meet de baseline, voer de aangevraagde trainingsvergelijking uit en schrijf de kandidaatselectie
+    met haar echte meetresultaten.
+    """
     output.mkdir(parents=True, exist_ok=True)
     manifest = read_json(dataset / "manifest.json")
     prereg = {

@@ -26,6 +26,9 @@ from football_pipeline.video import ROOT, VideoWriter, inspect_video, read_frame
 
 
 def summarize(states, fps, development_indices):
+    """Vat de kalibratietoestanden samen in totale dekking, dekking op de ontwikkelselectie en relevante
+    statusaantallen.
+    """
     valid = [s for s in states if s["status"] == "valid"]
     errors = [e for s in valid for e in s.get("quality", {}).get("control_errors_px", [])]
     intervals = failure_intervals([{"calibration": s} for s in states])
@@ -48,6 +51,9 @@ def summarize(states, fps, development_indices):
 
 
 def main():
+    """Voer de vastgelegde veldablaties op de ontwikkelclip uit en bewaar dekking en geometrie zonder
+    menselijke referenties te verzinnen.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("video", type=Path)
     parser.add_argument("--bundle", type=Path, required=True)

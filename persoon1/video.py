@@ -6,6 +6,9 @@ from .core import now, read_json, sha256, write_json
 
 
 def frames(path, as_image=True):
+    """Decodeer bronframes met PyAV en lever hun echte relatieve presentatietijdstippen, ook wanneer de
+    bron een variabele framerate heeft.
+    """
     import av
     with av.open(str(path)) as container:
         stream = container.streams.video[0]
@@ -26,6 +29,9 @@ def frames(path, as_image=True):
 
 
 def inspect_video(path, output):
+    """Inventariseer de gedecodeerde videotiming en afmetingen en schrijf het bronmetadatarecord naar het
+    opgegeven uitvoerbestand.
+    """
     import av
     path = Path(path).resolve()
     with av.open(str(path)) as container:

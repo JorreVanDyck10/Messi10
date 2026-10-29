@@ -128,6 +128,7 @@ export default function(component) {
 
 def _register_picker():
     # Registration is idempotent, including after a runtime restart or hot reload.
+    """Registreer de inline browsercomponent die beeldklikken en zoomweergave aan Streamlit teruggeeft."""
     return st.components.v2.component(
         "football_field_point_picker",
         html="""
@@ -148,6 +149,9 @@ def _register_picker():
 
 
 def point_picker(frame, points, selected, *, context, key, on_clicked_change, diagnostics=None):
+    """Toon het bronbeeld en de bestaande punten en retourneer een browserklik in oorspronkelijke
+    beeldpixelcoördinaten.
+    """
     ok, encoded = cv2.imencode(".jpg", frame, [cv2.IMWRITE_JPEG_QUALITY, 92])
     if not ok:
         raise PipelineError("Referentiebeeld kon niet worden voorbereid.")

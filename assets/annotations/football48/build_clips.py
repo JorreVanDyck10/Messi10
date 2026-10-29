@@ -9,6 +9,9 @@ from build_dataset import digest,read,write
 
 
 def build(source,output):
+    """Knip de vastgelegde tijdgroepen met FFmpeg uit de exacte bronvideo en behoud hun bronafmetingen en
+    tijdskoppeling.
+    """
     root=Path(__file__).resolve().parent;spec=read(root/'source-annotations.json')
     if digest(source)!=spec['source']['sha256']:raise ValueError('Source checksum mismatch')
     output=Path(output);output.mkdir(parents=True,exist_ok=True)

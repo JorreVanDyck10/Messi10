@@ -29,10 +29,14 @@ LABEL_ROUNDOFF_TOLERANCE = 0.0001
 
 
 def timestamp():
+    """Geef een UTC-tijdstip als ISO-string terug voor trainings- en vergelijkingsadministratie."""
     return datetime.now(UTC).isoformat()
 
 
 def validate_labels(data):
+    """Controleer veldlabelstructuur, semantische namen en coördinaten en retourneer de genormaliseerde
+    labelrepresentatie.
+    """
     if not isinstance(data, dict) or not data:
         raise ValueError("Missing semantic field annotations")
     normalized = copy.deepcopy(data)
@@ -86,6 +90,9 @@ def clip_provider_lines(data):
 
 
 def labels_for_row(row):
+    """Lees de labels van deze datasetrij en pas de juiste validatie of clipping van zichtbare
+    providerlijnen toe.
+    """
     data = read_json(row["label"])
     return (
         clip_provider_lines(data)
@@ -184,6 +191,9 @@ def dataset_index(root, limits=None, splits=("train", "valid")):
 
 
 def upstream_runtime(path):
+    """Controleer de geïsoleerde PnLCalib-runtime en maak zijn vastgelegde broncode beschikbaar voor de
+    veldfuncties.
+    """
     import subprocess
 
     runtime = read_json(path)
@@ -201,6 +211,9 @@ def upstream_runtime(path):
 
 
 def load_model(runtime, role, device):
+    """Bouw het punten- of lijnnetwerk van de runtime, laad de bijbehorende gewichten en verplaats het
+    naar het gevraagde device.
+    """
     import torch
     from model.cls_hrnet import get_cls_net
     from model.cls_hrnet_l import get_cls_net as get_lines
@@ -215,6 +228,7 @@ def load_model(runtime, role, device):
 
 
 def read_yaml(path):
+    """Lees een YAML-configuratie met safe_load, zonder YAML-objectconstructors uit te voeren."""
     import yaml
 
     return yaml.safe_load(Path(path).read_text())
@@ -229,13 +243,20 @@ def masked_heatmap_loss(output, target, mask):
 
 class FieldDataset:
     def __init__(self, rows, role, augment=False):
+        """Bewaar datasetrijen, modeltaak en augmentatiekeuze en maak de begrensde cache voor
+        heatmaptargets.
+        """
         self.rows, self.role, self.augment = rows, role, augment
         self.target_cache = OrderedDict()
 
     def __len__(self):
+        """Geef het aantal trainings- of validatievoorbeelden in deze velddataset terug."""
         return len(self.rows)
 
     def __getitem__(self, index):
+        """Lees één bronbeeld en zijn heatmaptargets, pas de gekozen augmentatie toe en retourneer de
+        tensors en het geldigheidsmasker.
+        """
         import torch
         import torchvision.transforms.functional as tf
         from model.transforms import RandomHorizontalFlip
@@ -280,6 +301,9 @@ class FieldDataset:
 
 
 def atomic_torch_save(value, path):
+    """Sla een PyTorch-toestand eerst tijdelijk op en vervang daarna atomair het definitieve
+    checkpointbestand.
+    """
     import torch
 
     temporary = path.with_suffix(path.suffix + ".partial")
@@ -315,6 +339,9 @@ def run_epoch(
     progress=None,
     progress_callback=None,
 ):
+    """Verwerk batches en bereken de gemiddelde heatmaploss; pas alleen gewichten aan als een optimizer
+    is meegegeven en respecteer de staplimiet.
+    """
     import torch
 
     training = optimizer is not None
@@ -371,6 +398,9 @@ def run_epoch(
 
 
 def _train(args):
+    """Train de gevraagde punten- en lijnmodellen met validatie, checkpoints en voortgang, en behoud
+    voltooide modelstappen bij hervatten.
+    """
     import torch
     from torch.utils.data import DataLoader
 
@@ -612,6 +642,9 @@ def _train(args):
 
 
 def train(args):
+    """Start veldtraining onder een exclusieve bestandslock zodat geen tweede schrijver dezelfde uitvoer
+    kan wijzigen.
+    """
     from filelock import FileLock
 
     args.output.mkdir(parents=True, exist_ok=True)
@@ -620,6 +653,9 @@ def train(args):
 
 
 def make_runtime(base_path, output):
+    """Maak een runtimeprofiel voor de werkelijk getrainde veldgewichten met hun bronmodellen en
+    trainingsrapporthashes.
+    """
     runtime = read_json(base_path)
     report_path = (output / "training-report.json").resolve()
     report = read_json(report_path)
@@ -650,6 +686,9 @@ def make_runtime(base_path, output):
 
 
 def image_observation(models, image, device, *, amp=False):
+    """Voer punten- en lijninferentie uit op één beeld en zet de netwerkcoördinaten terug naar de
+    oorspronkelijke beeldafmetingen.
+    """
     import cv2
     import torch
     import torchvision.transforms.functional as tf
@@ -702,6 +741,9 @@ def image_observation(models, image, device, *, amp=False):
 
 
 def _propose(args):
+    """Bereken veldlabelvoorstellen voor de geselecteerde corpusframes en bewaar die los van gereviewde
+    annotaties.
+    """
     import cv2
     import torch
 
@@ -746,6 +788,7 @@ def _propose(args):
 
 
 def propose(args):
+    """Beveilig het schrijven van nieuwe veldvoorstellen met een exclusieve corpuslock."""
     from filelock import FileLock
 
     with FileLock(str(args.root / ".writer.lock")):
@@ -753,6 +796,9 @@ def propose(args):
 
 
 def reprojection_metrics(observation, labels, settings, *, state=None):
+    """Bereken een kandidaatkalibratie en vergelijk haar projectie met de bekende veldlabels; retourneer
+    geldigheid en pixelafwijkingen.
+    """
     from sn_calibration.src.soccerpitch import SoccerPitch
 
     from .field_motion import estimate_checked
@@ -786,6 +832,9 @@ def reprojection_metrics(observation, labels, settings, *, state=None):
 
 
 def _compare(args):
+    """Meet baseline en kandidaat op dezelfde veldbeelden en schrijf de vergelijking met de herkomst van
+    beide gewichtssets.
+    """
     import cv2
     import torch
 
@@ -909,6 +958,7 @@ def _compare(args):
 
 
 def compare(args):
+    """Voer de veldvergelijking uit onder een eigen lock op de uitvoermap."""
     from filelock import FileLock
 
     args.output.mkdir(parents=True, exist_ok=True)
@@ -917,6 +967,9 @@ def compare(args):
 
 
 def main():
+    """Parse het veldcommando en start de aangevraagde training, datasetindexering, runtimebouw,
+    voorstellen of vergelijking.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=["index", "train", "propose", "compare"])
     parser.add_argument("--runtime", type=Path, default=Path(".tools/field-runtime.json"))

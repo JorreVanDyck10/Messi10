@@ -15,6 +15,7 @@ from .metrics import evaluate
 
 
 def yolo(weights):
+    """Stel lokale configuratie-, model-, dataset- en runmappen in en laad het YOLO-checkpoint."""
     os.environ.setdefault("YOLO_CONFIG_DIR", str(Path(".cache/ultralytics").resolve()))
     (Path(os.environ["YOLO_CONFIG_DIR"]) / "Ultralytics").mkdir(parents=True, exist_ok=True)
     os.environ.setdefault("MPLCONFIGDIR", str(Path(".cache/matplotlib").resolve()))
@@ -26,6 +27,9 @@ def yolo(weights):
 
 
 def fresh_output(path):
+    """Maak een nieuwe uitvoermap en weiger een bestaande map zodat eerdere experimentresultaten niet
+    worden overschreven.
+    """
     path = Path(path).resolve()
     path.mkdir(parents=True, exist_ok=False)
     return path
@@ -46,6 +50,9 @@ def class_mapping(model, path, names):
 
 
 def assert_final_access(manifest, approvals, weights, config, freeze_path):
+    """Controleer bevroren model-, configuratie- en datasetidentiteit en onafhankelijke goedkeuring
+    voordat de gereserveerde eindtest toegankelijk wordt.
+    """
     report = require_approval(manifest, approvals)
     freeze = read_json(freeze_path)
     identity = {"dataset_fingerprint": report["dataset_fingerprint"], "weights_sha256": sha256(weights),
@@ -57,6 +64,9 @@ def assert_final_access(manifest, approvals, weights, config, freeze_path):
 
 def predict_manifest(manifest, weights, mapping_path, out, split="val", imgsz=640, device="0",
                      confidence=0.001, freeze=None, approvals=None):
+    """Voer YOLO uit op de toegestane manifestframes, map bronklassen expliciet en schrijf voorspellingen
+    met bron- en modelhashes als voorstellen weg.
+    """
     data, root = load_manifest(manifest)
     if split not in ("train", "val", "test"):
         raise ValueError("Unknown subset")
@@ -129,6 +139,9 @@ def predict_manifest(manifest, weights, mapping_path, out, split="val", imgsz=64
 
 
 def build_yolo_dataset(manifest, approvals, output, provisional_ai=False):
+    """Maak een Ultralytics-datasetweergave van toegestane beelden en labels met behoud van splits en de
+    gekozen reviewvoorwaarden.
+    """
     require_experiment_data(manifest, approvals, provisional_ai)
     data, root = load_manifest(manifest)
     output = fresh_output(output)
@@ -209,6 +222,9 @@ def train(manifest, approvals, config_path, weights, output, device="0", smoke=F
 
 
 def evaluate_run(manifest, prediction_dir, output, work_conf=0.25, freeze=None, approvals=None, provisional_ai=False):
+    """Controleer voorspelling-, beeld- en labelidentiteit en schrijf de AP-metingen en foutgevallen; de
+    voorlopige AI-route blijft beperkt tot ontwikkeling.
+    """
     prediction_dir = Path(prediction_dir)
     run = read_json(prediction_dir / "run.json")
     data, root = load_manifest(manifest)

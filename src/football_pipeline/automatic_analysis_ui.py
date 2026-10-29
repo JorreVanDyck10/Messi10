@@ -14,6 +14,9 @@ from .video import ROOT
 
 
 def automatic_analysis(video, upload_name, output_root):
+    """Controleer de gekozen modellen en veldruntime, start de automatische verwerking en bewaar het
+    resultaat in de Streamlit-sessie.
+    """
     st.subheader("Automatische analyse")
     st.caption("Veldherkenning · teams · speler-ID’s · telling per team · trajecten op de minimap")
     default_models = ROOT / "configs/models-broadcast.json"
@@ -70,11 +73,17 @@ def automatic_analysis(video, upload_name, output_root):
         bar = st.progress(0.0, text="Analyse voorbereiden…")
 
         def field_progress(count, total, elapsed):
+            """Werk de voortgangsbalk bij voor de veldherkenning in de eerste helft van het totale
+            voortgangsbereik.
+            """
             bar.progress(
                 count / total * 0.5, text=f"Veld herkennen: {count}/{total} frames · {elapsed:.1f} s"
             )
 
         def player_progress(count, total, elapsed):
+            """Werk de tweede helft van de voortgangsbalk bij tijdens detectie, tracking en het tekenen
+            van de minimap.
+            """
             bar.progress(
                 0.5 + count / total * 0.5,
                 text=f"Spelers volgen en minimap maken: {count}/{total} frames · {elapsed:.1f} s",

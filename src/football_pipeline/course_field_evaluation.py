@@ -24,6 +24,9 @@ from .field_motion import DEFAULT_SETTINGS
 
 
 def score(observations, rows, settings, *, line_fallback=False):
+    """Toets framekalibraties aan providerlijnen en tel geldige, foutieve en niet-scoorbare gevallen met
+    hun beeldfouten.
+    """
     measured = []
     for obs, row in zip(observations, rows):
         extra = {}
@@ -62,12 +65,18 @@ def score(observations, rows, settings, *, line_fallback=False):
 
 
 def observations_for(runtime_path, rows, output, inference_source=None):
+    """Laad of bereken de veldwaarnemingen voor precies deze beelden, runtime en inferentiebron en geef
+    ook de runtimeherkomst terug.
+    """
     runtime = upstream_runtime(runtime_path)
     source = Path(__file__).with_name("field_learning.py")
     if inference_source:
         # A metric-only repair must not require running unchanged neural inference again.
         # Reuse is allowed only when every local inference function has an identical AST.
         def functions(path):
+            """Lees functiedefinities als AST en lever hun structuur terug om wijzigingen in de gebruikte
+            inferentiebron te kunnen herkennen.
+            """
             return {
                 node.name: ast.dump(node, include_attributes=False)
                 for node in ast.parse(path.read_text(encoding="utf-8")).body
@@ -118,6 +127,9 @@ def improves_geometry(measured, baseline, *, allow_error_reduction=False):
 def compare(
     dataset, baseline_path, candidate_path, output, inference_source=None, allow_error_reduction=False
 ):
+    """Kies instellingen op trainingswedstrijden, meet baseline en kandidaat op de vastgelegde subsets en
+    sla de geometrievergelijking op.
+    """
     output.mkdir(parents=True, exist_ok=True)
     index = read_json(candidate_path.parent / "dataset-index.json")
     if Path(index["root"]).resolve() != dataset.resolve():
@@ -163,6 +175,7 @@ def compare(
     masks = {s: [i for i, r in enumerate(rows) if r["split"] == s] for s in ("train", "valid")}
 
     def subset_score(obs, settings, split):
+        """Selecteer de waarnemingen en bronrijen van één split voordat dezelfde scorer wordt toegepast."""
         ids = masks[split]
         return score([obs[i] for i in ids], [rows[i] for i in ids], settings)
 

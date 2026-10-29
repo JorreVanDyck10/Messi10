@@ -22,6 +22,9 @@ def validate_runtime_models(runtime):
     from pathlib import Path
 
     def checksum(path):
+        """Bereken de SHA-256 van het echte model- of rapportbestand om de opgegeven runtimeherkomst te
+        verifiëren.
+        """
         with Path(path).open("rb") as stream:
             return hashlib.file_digest(stream, "sha256").hexdigest()
 

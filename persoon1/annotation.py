@@ -102,6 +102,9 @@ def save_annotation(manifest, payload):
 
 
 def serve(manifest, proposals, split, port):
+    """Start de bounding-boxeditor uitsluitend op localhost en houd automatische voorstellen en
+    opgeslagen reviewbeslissingen gescheiden.
+    """
     manifest = Path(manifest).resolve()
     proposals = Path(proposals).resolve() if proposals else None
     token = secrets.token_urlsafe(24)
@@ -109,6 +112,9 @@ def serve(manifest, proposals, split, port):
 
     class Handler(BaseHTTPRequestHandler):
         def respond(self, body, content="application/json", status=200):
+            """Serialiseer de response, schrijf HTTP-status en contentheaders en stuur de inhoud naar de
+            lokale browserclient.
+            """
             if not isinstance(body, bytes):
                 body = json.dumps(body, ensure_ascii=False).encode()
             self.send_response(status)
@@ -119,6 +125,9 @@ def serve(manifest, proposals, split, port):
             self.wfile.write(body)
 
         def do_GET(self):
+            """Lever de editorpagina, geselecteerde framemetadata of bronbeelden voor de toegestane
+            lokale GET-routes.
+            """
             try:
                 data, root = load_manifest(manifest)
                 selected = [f for f in data["frames"] if split == "all" or f["split"] == split]
@@ -145,6 +154,9 @@ def serve(manifest, proposals, split, port):
                 self.respond({"error": str(exc)}, status=400)
 
         def do_POST(self):
+            """Controleer route en reviewtoken, lees de ingediende annotatie en sla alleen een geldige
+            labelcorrectie op.
+            """
             try:
                 if self.path != "/api/save" or self.headers.get("X-Review-Token") != token:
                     return self.respond({"error": "Invalid request"}, status=403)

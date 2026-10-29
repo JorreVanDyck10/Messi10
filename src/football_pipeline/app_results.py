@@ -21,6 +21,9 @@ def linked_result(root, identifier):
 
 
 def show_result(result):
+    """Toon de samengestelde analysevideo en de tabbladen voor afstanden, teams en details van deze
+    opgeslagen run.
+    """
     metrics = result.manifest["measurements"]
     st.subheader("Wedstrijdanalyse")
     with st.container(horizontal=True, vertical_alignment="center"):
@@ -80,6 +83,9 @@ def show_result(result):
 
 
 def show_details(result):
+    """Toon downloadknoppen en technische metadata uit de uitvoermap; voer hiervoor geen nieuwe detectie
+    uit.
+    """
     metrics = result.manifest["measurements"]
     st.caption("Eerder voltooid resultaat hergebruikt." if result.reused else "Video volledig verwerkt.")
     with st.container(horizontal=True):

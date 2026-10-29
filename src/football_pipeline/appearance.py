@@ -15,6 +15,9 @@ INPUT_SIZE = (128, 192)  # width, height; retain the complete person rather than
 
 
 def crop_tensor(frame, box):
+    """Knip de persoonsbox uit het BGR-frame, maak het vaste cropformaat en normaliseer de RGB-tensor met
+    de ImageNet-statistieken.
+    """
     import torch
 
     height, width = frame.shape[:2]
@@ -59,6 +62,9 @@ def jersey_feature(frame, box, *, remove_turf=False):
 
 
 def backbone(pretrained=False):
+    """Bouw de MobileNetV3 Small-kenmerkencoder zonder oorspronkelijke classificatielaag; laad
+    desgevraagd ImageNet-startgewichten.
+    """
     import torch
     from torchvision.models import MobileNet_V3_Small_Weights, mobilenet_v3_small
 
@@ -68,6 +74,9 @@ def backbone(pretrained=False):
 
 class AppearanceClassifier:
     def __init__(self, spec):
+        """Controleer het appearancecheckpoint en laad encoder, rol- en teamkoppen,
+        normalisatiestatistieken en beslisdrempels op het gekozen device.
+        """
         import torch
 
         path = Path(spec["weights"])
@@ -101,6 +110,10 @@ class AppearanceClassifier:
         self.video_teams = VideoTeams()
 
     def classify(self, frame, detections, video_hash):
+        """Bereken beeld- en shirtkenmerken per persoonscrop en schrijf de voorspelde rollen en
+        teaminformatie terug in de detecties. Voor onbekende video's kan de kleurclustering de
+        videospecifieke teamindeling verzorgen.
+        """
         import torch
 
         people = [

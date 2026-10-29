@@ -40,6 +40,9 @@ def field_crop(frame):
 
 
 def validate_pose_runtime(runtime):
+    """Controleer het posemodel, zijn herkomst en de lens-/cropinstellingen voordat veldpuntinferentie
+    wordt gestart.
+    """
     if runtime.get("backend") != "field_pose" or set(runtime.get("models", {})) != {"keypoints"}:
         raise ValueError("Unknown field-pose runtime")
     spec = runtime["models"]["keypoints"]
@@ -60,6 +63,9 @@ def validate_pose_runtime(runtime):
 
 class FieldPoseEstimator:
     def __init__(self, weights, *, device=0, imgsz=960, settings=None):
+        """Laad het YOLO-veldpuntencheckpoint en controleer of de uitvoertaak bij de veldpuntadapter
+        past.
+        """
         from ultralytics import YOLO
 
         self.model = YOLO(str(weights))
@@ -71,6 +77,7 @@ class FieldPoseEstimator:
         self.settings = settings or DEFAULT_SETTINGS
 
     def predict_view(self, frame, roi):
+        """Voer inferentie uit op het opgegeven beeldgebied en reken de veldpunten terug naar bronpixels."""
         x1, y1, x2, y2 = roi
         result = self.model.predict(
             frame[y1:y2, x1:x2],
@@ -113,6 +120,9 @@ class FieldPoseEstimator:
         }
 
     def observe(self, frame, *, lens=None, crop=True):
+        """Combineer de gekozen inferentiebeelden tot één veldwaarneming, met optionele gemeten
+        lenscorrectie en bronherkomst.
+        """
         image = rectify_image(frame, lens)
         h, w = image.shape[:2]
         first = self.predict_view(image, (0, 0, w, h))

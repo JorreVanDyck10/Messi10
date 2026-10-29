@@ -20,6 +20,9 @@ class DistanceSettings:
     step_s: float = 0.2
 
     def __post_init__(self):
+        """Weiger niet-eindige of niet-positieve veldafmetingen, maximale snelheid en meetstap direct na
+        het maken van de instellingen.
+        """
         values = (self.length_m, self.width_m, self.max_speed_m_s, self.step_s)
         if not all(isfinite(x) and x > 0 for x in values):
             raise PipelineError("Afstandsinstellingen moeten positieve, eindige getallen zijn.")
@@ -50,6 +53,9 @@ def estimate_distances(records, duration_s, settings=DistanceSettings()):
     epoch, last_frame, last_time, serial = 0, None, None, 0
 
     def flush(key):
+        """Sluit één aaneengesloten waarnemingssegment af, onderdruk jitter met de mediaanfilter en tel
+        alleen toegestane tijdstappen bij afstand en meetduur op.
+        """
         nonlocal serial
         points = active.pop(key, [])
         if len(points) < 2:

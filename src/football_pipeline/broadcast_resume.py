@@ -20,6 +20,9 @@ ARCHIVE_BYTES = 6703191552
 
 
 def status():
+    """Controleer het gepauzeerde checkpoint en rapporteer de opgeslagen trainingsfase en resterende
+    werkstappen.
+    """
     paused = read_json(STAGE / "paused/checkpoint.json")
     part = CACHE / "train.tar.part"
     final = CACHE / "train.tar"
@@ -41,6 +44,9 @@ def status():
 
 
 def download():
+    """Haal de nog benodigde bronbestanden voor het hervatte broadcastwerk op en bewaar de gecontroleerde
+    downloadinventaris.
+    """
     CACHE.mkdir(parents=True, exist_ok=True)
     final, partial = CACHE / "train.tar", CACHE / "train.tar.part"
     if final.exists():
@@ -107,6 +113,9 @@ def download():
 
 
 def training():
+    """Hervat het geverifieerde YOLO-checkpoint met zijn optimizerstatus en schrijf nieuwe voortgang en
+    definitieve checkpointmetadata.
+    """
     import torch
     from ultralytics import YOLO
 
@@ -144,6 +153,9 @@ def training():
     model = YOLO(path)
 
     def progress(trainer):
+        """Sla het huidige epochnummer en de totale verstreken tijd van de hervatte training op voor de
+        statusweergave.
+        """
         write_json(
             STAGE / "training/progress.json",
             {

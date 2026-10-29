@@ -11,6 +11,9 @@ from urllib.request import Request, urlopen
 
 class RangeArchive(io.RawIOBase):
     def __init__(self, url, *, budget_bytes=512 * 1024**2, block_size=256 * 1024):
+        """Vraag de grootte van het externe ZIP-bestand op en initialiseer positie en leesbuffer voor
+        gecontroleerde HTTP-ranges.
+        """
         self.url, self.budget, self.block_size = url, budget_bytes, block_size
         self._effective_url = url
         self.position = self.downloaded = 0
@@ -19,6 +22,9 @@ class RangeArchive(io.RawIOBase):
         self._fetch(0, 0)
 
     def _fetch(self, start, end):
+        """Haal uitsluitend het gevraagde bytebereik op en controleer de HTTP-range-uitvoer voordat de
+        bytes worden gebruikt.
+        """
         expected = end - start + 1
         if self.downloaded + expected > self.budget:
             raise ValueError("Selective archive download exceeds the declared byte budget")
@@ -47,15 +53,21 @@ class RangeArchive(io.RawIOBase):
             return body
 
     def readable(self):
+        """Meld aan de bestandsinterface dat deze archiefadapter leesbewerkingen ondersteunt."""
         return True
 
     def seekable(self):
+        """Meld dat de ZIP-lezer de positie in het externe archief mag verplaatsen."""
         return True
 
     def tell(self):
+        """Geef de huidige logische bytepositie binnen het externe bestand terug."""
         return self.position
 
     def seek(self, offset, whence=io.SEEK_SET):
+        """Verplaats de logische bytepositie vanaf begin, huidige positie of bestandseinde en geef de
+        nieuwe positie terug.
+        """
         target = (
             offset
             if whence == io.SEEK_SET
@@ -69,6 +81,9 @@ class RangeArchive(io.RawIOBase):
         return target
 
     def read(self, size=-1):
+        """Lever het gevraagde aantal bytes vanaf de huidige positie, gebruik de rangebuffer waar
+        mogelijk en schuif de positie op.
+        """
         count = (
             max(0, self.size - self.position) if size < 0 else min(size, max(0, self.size - self.position))
         )

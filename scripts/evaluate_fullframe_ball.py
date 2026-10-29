@@ -17,6 +17,9 @@ from persoon1.modeling import yolo
 
 
 def validation_truth(source):
+    """Lees alleen de vastgelegde volledige validatiebeelden en vorm de balreferenties met hun
+    bestandsidentiteiten.
+    """
     manifest = read_json(source / "manifest.json")
     names = manifest["names"]
     if names.count("ball") != 1:
@@ -80,6 +83,9 @@ def validation_truth(source):
 
 
 def main():
+    """Meet de bevroren balmodellen op de nieuwe volledige ontwikkelframes met hun voorlopige
+    referentielabels.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--imgsz", type=int, default=1280)

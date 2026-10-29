@@ -7,6 +7,9 @@ from .contracts import PipelineError, read_json
 
 @st.fragment(run_every="30s")
 def show_training_status(directory, latest_demo=None):
+    """Lees de opgeslagen trainingsstatus en laatste demonstratie en toon de voortgang onafhankelijk van
+    de bestaande resultaatspeler.
+    """
     if latest_demo is not None and latest_demo.is_file():
         import re
         from pathlib import Path

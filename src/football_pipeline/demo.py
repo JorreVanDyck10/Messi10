@@ -15,6 +15,9 @@ from .video import VideoWriter, inspect_video
 
 def default_points(width: int, height: int) -> list[dict]:
     # Deliberately empty image coordinates: users must identify their actual field points.
+    """Maak de namen en bekende veldcoördinaten van vier fitpunten en twee controles; de beeldpixelvelden
+    blijven leeg voor invoer.
+    """
     definitions = [
         ("hoek_00", "fit", 0, 0),
         ("hoek_10", "fit", 1, 0),
@@ -33,6 +36,9 @@ class SyntheticDetector:
     provenance = {"fixture": "moving_rectangles_with_empty_frame_v1"}
 
     def detect(self, frame, frame_index):
+        """Geef de voorspelbare bewegende testbox voor dit frame terug; er wordt hier geen neuraal
+        netwerk uitgevoerd.
+        """
         if frame_index == 8:
             return []
         x = 100 + frame_index * 2
@@ -40,6 +46,9 @@ class SyntheticDetector:
 
 
 def generate_demo(directory: Path) -> dict:
+    """Maak een synthetische video, bijpassende kalibratie en een testmodelmanifest voor een
+    reproduceerbare softwareproef.
+    """
     directory.mkdir(parents=True, exist_ok=True)
     video_path = directory / "synthetic.mp4"
     writer = VideoWriter(video_path, 640, 360, 10, 1)

@@ -14,6 +14,9 @@ from scipy.optimize import minimize_scalar
 
 
 def validate_lens(lens, size):
+    """Controleer of het lensmodel, de vervormingsparameter en opgeslagen beeldafmetingen geschikt zijn
+    voor dit frame.
+    """
     if lens is None:
         return None
     if lens.get("model") != "division_radial_v1" or lens.get("image_size") != list(size):
@@ -25,11 +28,13 @@ def validate_lens(lens, size):
 
 
 def lens_scale(lens):
+    """Bereken de schaalfactor waarmee de rectificatie binnen het gekozen beeldkader blijft."""
     w, h = lens["image_size"]
     return min(1.0, 1 + lens["k"] * (0.25 + (h / w / 2) ** 2))
 
 
 def rectify_points(points, lens):
+    """Zet gemeten beeldpunten met het radiale division-model om naar gecorrigeerde pixelcoördinaten."""
     xy = np.asarray(points, float).reshape(-1, 2)
     if lens is None:
         return xy.copy()
@@ -44,6 +49,7 @@ def rectify_points(points, lens):
 
 
 def distort_points(points, lens):
+    """Bereken de inverse lensafbeelding van gecorrigeerde punten naar oorspronkelijke bronpixels."""
     xy = np.asarray(points, float).reshape(-1, 2)
     if lens is None:
         return xy.copy()
@@ -59,6 +65,7 @@ def distort_points(points, lens):
 
 @lru_cache(maxsize=2)
 def _maps(width, height, k):
+    """Maak en cache de broncoördinatenkaarten waarmee OpenCV een volledig beeld kan rectificeren."""
     yy, xx = np.indices((height, width), dtype=np.float32)
     lens = {"model": "division_radial_v1", "image_size": [width, height], "k": k}
     raw = distort_points(np.column_stack((xx.ravel(), yy.ravel())), lens).reshape(height, width, 2)
@@ -66,6 +73,7 @@ def _maps(width, height, k):
 
 
 def rectify_image(frame, lens):
+    """Corrigeer alle beeldpixels met de vooraf berekende lenskaarten en bilineaire interpolatie."""
     if lens is None:
         return frame
     h, w = frame.shape[:2]
@@ -74,6 +82,7 @@ def rectify_image(frame, lens):
 
 
 def thin(mask):
+    """Verdun een binair lijnmasker tot een dunne structuur voor verdere lijnanalyse."""
     z = np.pad(mask.astype(np.uint8), 1)
     for _ in range(100):
         removed = 0
@@ -103,6 +112,9 @@ def thin(mask):
 
 
 def white_chains(frame, width=1280):
+    """Zoek verbonden witte lijnkandidaten op een verkleinde versie van het frame en geef hun meetformaat
+    mee terug.
+    """
     h0, w0 = frame.shape[:2]
     width = min(width, w0)
     h = round(h0 * width / w0)
@@ -128,12 +140,18 @@ def white_chains(frame, width=1280):
 
 
 def line_rmse(xy):
+    """Pas met SVD een rechte lijn aan de punten aan en retourneer de kwadratisch gemiddelde loodrechte
+    afwijking.
+    """
     centered = xy - xy.mean(0)
     _, _, vectors = np.linalg.svd(centered, full_matrices=False)
     return float(np.sqrt(np.mean((centered @ vectors[-1]) ** 2)))
 
 
 def estimate_lens(frame):
+    """Zoek een radiale correctie die een gemeten witte lijn rechter maakt en controleer die keuze op
+    afzonderlijke lijnketens.
+    """
     chains, size = white_chains(frame)
     w, h = size
     # A long lower touchline provides radial curvature; short arcs/circles cannot select k.
@@ -148,6 +166,9 @@ def estimate_lens(frame):
     fit, holdout = anchor[np.arange(len(anchor)) % 4 != 0], anchor[::4]
 
     def adjusted(points, k):
+        """Rectificeer de punten voor deze kandidaatparameter en haal verschuiving en schaal weg voor de
+        onderlinge lijnvergelijking.
+        """
         lens = {"model": "division_radial_v1", "image_size": list(size), "k": float(k)}
         # Remove the canvas scale for an honest pixel-straightness comparison.
         return (rectify_points(points, lens) - np.array(size) / 2) / lens_scale(lens)

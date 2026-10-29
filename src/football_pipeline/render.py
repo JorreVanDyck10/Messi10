@@ -38,14 +38,17 @@ TEAM_COLORS = {"team_a": (235, 235, 235), "team_b": (235, 140, 65)}
 
 
 def label(image, text, point, color=(235, 240, 235), scale=0.6):
+    """Teken leesbare tekst met een contrasterende achtergrond op de opgegeven beeldpositie."""
     cv2.putText(image, text, point, cv2.FONT_HERSHEY_SIMPLEX, scale, color, 1, cv2.LINE_AA)
 
 
 def field_pixel(position):
+    """Zet een genormaliseerd veldpunt om naar een pixelpositie binnen het getekende minimapveld."""
     return round(40 + 560 * position[0]), round(170 + 360 * position[1])
 
 
 def detection_color(detection, record=None):
+    """Kies de weergavekleur uit rol, geldigheid en eventuele teamindeling van de detectie."""
     if detection.semantic_class == "player" and record is not None and record.team_context:
         team = record.team_context["teams"].get(detection.team_id)
         return tuple(reversed(hex_rgb(team["display_color"] if team else UNKNOWN_COLOR)))
@@ -55,6 +58,9 @@ def detection_color(detection, record=None):
 
 
 def detection_label(detection, record):
+    """Bouw de zichtbare tekst voor een detectie uit rol, tijdelijke ID, team en eventuele
+    uitsluitinformatie.
+    """
     if detection.semantic_class == "player" and record.team_context:
         team = record.team_context["teams"].get(detection.team_id)
         return team["name"][:24] if team else "team onbekend"
@@ -75,6 +81,9 @@ def render_frame(
     recognized_points: bool = True,
     tracked_points: bool = True,
 ) -> np.ndarray:
+    """Teken bronbeeld, actuele detecties, kalibratie-informatie en minimap samen op één uitvoerframe met
+    dezelfde tijdlijn.
+    """
     if record.analysis_scope == "on_pitch_players":
         from dataclasses import replace
 
@@ -268,6 +277,9 @@ def automatic_preview(
 
 
 def calibration_preview(frame: np.ndarray, points: list[dict], grid: bool = True) -> np.ndarray:
+    """Teken de aangeklikte punten en eventueel het kalibratieraster als controle-overlay op een kopie
+    van het bronbeeld.
+    """
     preview = frame.copy()
     height, width = frame.shape[:2]
     if grid:
@@ -296,6 +308,7 @@ def calibration_target_preview(points: list[dict], selected: int, *, length=105.
     canvas = np.full((480, 720, 3), (35, 70, 45), dtype=np.uint8)
 
     def pixel(u, v):
+        """Zet een bekend veldpunt terug om naar de beeldpixel van de huidige previewtransformatie."""
         return round(40 + 640 * u), round(35 + 410 * v)
 
     cv2.rectangle(canvas, pixel(0, 0), pixel(1, 1), (220, 235, 220), 2)

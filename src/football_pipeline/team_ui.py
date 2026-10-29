@@ -20,6 +20,7 @@ from .tracking import Trajectories
 
 @st.cache_data(max_entries=4, show_spinner=False)
 def team_tables(directory: str, records_hash: str):
+    """Lees de opgeslagen teamtellingen en maak gecachete tabellen voor de huidige uitvoerhash."""
     counts, tracks = [], {}
     with (Path(directory) / "framegegevens.jsonl").open(encoding="utf-8") as stream:
         for line in stream:
@@ -53,6 +54,9 @@ def team_tables(directory: str, records_hash: str):
 
 @st.cache_data(max_entries=32, show_spinner=False)
 def frame_window(directory: str, records_hash: str, index: int, fps: float):
+    """Lees de framerecords rond het gekozen tijdstip voor teamsgewijze inspectie zonder de hele analyse
+    opnieuw uit te voeren.
+    """
     rows = []
     start = max(0, index - round(5 * fps) + 1)
     with (Path(directory) / "framegegevens.jsonl").open(encoding="utf-8") as stream:
@@ -66,6 +70,7 @@ def frame_window(directory: str, records_hash: str, index: int, fps: float):
 
 def count_chart(table, model):
     # Separate line segments explicitly so field loss never bridges a missing interval.
+    """Maak een teamgekleurde tellinggrafiek met dezelfde A/B/unknown-betekenis als het teammodel."""
     rows, segment = [], 0
     for item in table.to_dict("records"):
         if pd.isna(item["total"]):
@@ -104,6 +109,9 @@ def count_chart(table, model):
 
 
 def show_teams(result):
+    """Toon teamtellingen, voorbeeldframes en invoervelden voor expliciet ingediende correcties van een
+    opgeslagen run.
+    """
     directory, manifest = result.directory, result.manifest
     token = manifest["cache_key"][:16]
     records_hash = manifest["artifacts"]["framegegevens.jsonl"]

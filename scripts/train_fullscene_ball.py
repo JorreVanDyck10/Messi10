@@ -42,6 +42,9 @@ def tile_ball_labels(objects, window):
 
 
 def build_dataset(source, output, names):
+    """Maak de native tegels en terugvertaalde ballabels uit de volledige-scèneset en bewaar
+    bronvensters, splits en beeldidentiteiten.
+    """
     if output.exists():
         raise ValueError("Choose a new derived dataset directory")
     spec = read_json(source / "source-annotations.json")
@@ -137,6 +140,9 @@ def build_dataset(source, output, names):
 
 
 def main():
+    """Bouw de native baltegelset, voer de ingestelde specialisttraining uit en registreer het echte
+    beste checkpoint.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run", type=Path, required=True)
     parser.add_argument("--config", type=Path, required=True)

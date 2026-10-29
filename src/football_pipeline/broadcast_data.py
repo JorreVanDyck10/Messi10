@@ -56,6 +56,9 @@ def labelled_people(annotations, width, height):
 
 
 def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25, val_step=125):
+    """Selecteer broadcastframes, download bronbeelden en exporteer labels met hun oorspronkelijke
+    rollen, teams en tracks naar de ontwikkelset.
+    """
     output, source = Path(output).resolve(), Path(source).resolve()
     output.mkdir(parents=True, exist_ok=True)
     selection = read_json(source / "selection.json")
@@ -99,6 +102,9 @@ def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25,
         pool = ThreadPoolExecutor(max_workers=8)
 
         def open_archive():
+            """Open voor de huidige downloadthread een eigen archiefverbinding en bewaar die threadlokaal
+            voor hergebruik.
+            """
             nonlocal remote, archive
             if archive is None:
                 remote = RangeArchive(archive_url(archive_split), budget_bytes=4 * 1024**3)
@@ -106,6 +112,9 @@ def prepare(output, *, source=ROOT / "data/course-multimatch-v1", train_step=25,
             return archive
 
         def ensure_image(task):
+            """Haal het gevraagde bronbeeld uit het archief als de lokale kopie nog ontbreekt; probeer
+            tijdelijke leesfouten opnieuw.
+            """
             fid, image, member = task
             if image.exists():
                 return

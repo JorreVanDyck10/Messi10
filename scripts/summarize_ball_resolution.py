@@ -12,6 +12,9 @@ from persoon1.metrics import evaluate, iou
 
 
 def summarize(source, output):
+    """Combineer per-frame-referenties over de correcte evaluatiepopulatie en rapporteer volledige-beeld-
+    AP en speelbalrecall als afzonderlijke metingen.
+    """
     if output.exists():
         raise ValueError("Use a fresh summary directory")
     output.mkdir(parents=True)

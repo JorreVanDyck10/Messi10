@@ -65,6 +65,9 @@ def followed_files() -> list[Path]:
 
 
 def first_sentence(text: str) -> str:
+    """Geef de eerste niet-lege documentatieregel terug en escape tabelscheidingstekens voor de Markdown-
+    codekaart.
+    """
     return text.strip().splitlines()[0].replace("|", "\\|") if text.strip() else ""
 
 
@@ -125,6 +128,9 @@ def fallback_purpose(path: Path) -> str:
 
 
 def render() -> str:
+    """Beschrijf alle gevolgde codebestanden, hun functies en lokale imports en voeg de actuele
+    modelprofielen toe aan één Markdown-codekaart.
+    """
     paths = followed_files()
     code = [p for p in paths if p.suffix in SUFFIXES]
     grouped = {name: [] for name in GROUPS}
@@ -190,6 +196,9 @@ def render() -> str:
 
 
 def main() -> None:
+    """Schrijf de codekaart opnieuw of controleer met --check dat de opgeslagen kaart exact overeenkomt
+    met de huidige code-inventaris.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()

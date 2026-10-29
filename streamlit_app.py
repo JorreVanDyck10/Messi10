@@ -49,6 +49,9 @@ OUTPUT_ROOT = Path(os.environ.get("FOOTBALL_RUNS", ROOT / "runs"))
 
 
 def navigate():
+    """Wis de directe runlink en bijbehorende sessiesleutels zodat de gebruiker vanuit een opgeslagen
+    analyse terug kan navigeren.
+    """
     st.query_params.pop("run", None)
     st.session_state.pop("linked_run", None)
     st.session_state.pop("navigation_link", None)
@@ -172,11 +175,15 @@ if navigation == "Veldcontrole":
 @st.cache_data(max_entries=8, show_spinner=False)
 def cached_video_metadata(path: str, file_hash: str):
     # file_hash is an explicit cache input; staged files are content-addressed and immutable.
+    """Cache de video-inspectie op pad en bestandshash zodat een gewijzigd bestand nieuwe metadata
+    krijgt.
+    """
     return inspect_video(path)
 
 
 @st.cache_data(max_entries=12, show_spinner=False)
 def cached_frame(video, index):
+    """Cache het lezen van het gekozen bronframe bij de opgegeven videometadata en frame-index."""
     return read_frame(video, index)
 
 
@@ -478,6 +485,9 @@ else:
         )
 
         def save_clicked_point():
+            """Bewaar de ingediende kalibratieklik en wis daarvan afhankelijke kalibratie- en
+            resultaatcaches die nu verouderd zijn.
+            """
             event = st.session_state[picker_key].clicked
             # Reject delayed browser events after changing frame, selection or table.
             current_points = st.session_state[latest_key]
@@ -797,12 +807,16 @@ if st.button(
     try:
 
         def show_progress(count, total, elapsed):
+            """Werk de detectie-/minimapvoortgang bij, met behoud van de ruimte voor de voorafgaande
+            automatische veldstap.
+            """
             fraction = (0.5 + count / total * 0.5) if automatic_mode else count / total
             progress_bar.progress(
                 fraction, text=f"Detecties en minimap: {count}/{total} frames · {elapsed:.1f} seconden"
             )
 
         def show_field_progress(count, total, elapsed):
+            """Toon de veldherkenning in de eerste helft van de gezamenlijke voortgangsbalk."""
             progress_bar.progress(
                 count / total * 0.5, text=f"Veldherkenning: {count}/{total} frames · {elapsed:.1f} seconden"
             )

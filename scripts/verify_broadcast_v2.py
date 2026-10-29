@@ -17,6 +17,9 @@ from football_pipeline.contracts import digest_json, read_json, sha256_file, wri
 
 
 def gaps(rows):
+    """Bereken tijdsafstanden tussen geselecteerde frames per bron en vat de mediaan en het aandeel zeer
+    nabije buren samen.
+    """
     groups = defaultdict(list)
     for row in rows:
         if row["split"] == "train":
@@ -29,6 +32,9 @@ def gaps(rows):
 
 
 def main():
+    """Controleer brondata, werkelijke v2-metingen en optionele modeloverdracht zonder een
+    standaardprofiel te vervangen.
+    """
     dataset = Path("data/broadcast-training-v2").resolve()
     report_root = Path("reports/broadcast-data")
     artifact = Path("artifacts/broadcast-ball-v2").resolve()

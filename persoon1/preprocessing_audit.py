@@ -8,6 +8,9 @@ from .core import now, read_json, write_json
 
 
 def main():
+    """Voer de geïnstalleerde YOLO-trainingsaugmentaties op echte trainingsbeelden uit en rapporteer
+    hoeveel doelboxen behouden blijven.
+    """
     os.environ.setdefault("YOLO_CONFIG_DIR", str(Path(".cache/ultralytics").resolve()))
     import torch
     from ultralytics.cfg import get_cfg

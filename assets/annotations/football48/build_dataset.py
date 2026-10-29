@@ -15,15 +15,18 @@ from PIL import Image,ImageDraw
 
 
 def read(path):
+    """Lees de opgeslagen dataset- of annotatiegegevens uit UTF-8-JSON."""
     return json.loads(Path(path).read_text(encoding='utf-8'))
 
 
 def write(path,value):
+    """Maak de uitvoermap en schrijf de datasetmetadata als leesbare UTF-8-JSON."""
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(value,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
 
 
 def digest(path):
+    """Bereken de SHA-256 van het bron-, beeld- of labelbestand in blokken voor de identiteitscontrole."""
     h=hashlib.sha256()
     with Path(path).open('rb') as stream:
         for block in iter(lambda:stream.read(1024*1024),b''):h.update(block)
@@ -31,6 +34,9 @@ def digest(path):
 
 
 def make_masked_crop(rgb,record,polygon):
+    """Maak het vastgelegde veldmasker, herstel de geselecteerde zichtbare objecten en knip de opgeslagen
+    native uitsnede zonder de pixels te herschalen.
+    """
     mask=np.zeros(rgb.shape[:2],np.uint8)
     cv2.fillPoly(mask,[np.asarray(polygon,np.int32)],255)
     selected=record['person_boxes_source']
@@ -49,6 +55,9 @@ def make_masked_crop(rgb,record,polygon):
 
 
 def export(source,output,spec):
+    """Reconstrueer de vastgelegde bronframes en schrijf YOLO-labels, COCO-annotaties, voorbeelden en
+    manifest met behouden klassen en splits.
+    """
     source,output=Path(source),Path(output)
     if (output/'images').exists() or (output/'labels').exists():
         raise ValueError('Dataset exists; preserve saved images and labels')

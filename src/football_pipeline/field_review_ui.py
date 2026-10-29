@@ -23,6 +23,9 @@ from .video import ROOT, inspect_video, read_frame
 
 @st.cache_data(max_entries=4, show_spinner=False)
 def review_records(directory, manifest_mtime, records_mtime):
+    """Lees en cache opgeslagen framerecords; wijzigingstijden in de argumentsleutel voorkomen hergebruik
+    na gewijzigde uitvoer.
+    """
     manifest = validate_completed(Path(directory))
     rows = [
         json.loads(line)
@@ -33,6 +36,7 @@ def review_records(directory, manifest_mtime, records_mtime):
 
 @st.cache_data(max_entries=8, show_spinner=False)
 def source_frame(path, video_hash, index):
+    """Lees en cache het exacte bronframe voor deze videohash en frame-index."""
     video = inspect_video(path)
     if video.sha256 != video_hash:
         raise PipelineError("Het oorspronkelijke videobestand is gewijzigd.")
@@ -40,6 +44,9 @@ def source_frame(path, video_hash, index):
 
 
 def visual_review(directory):
+    """Toon een framesynchrone veldinspectie en laat menselijke controlepunten en reviewinformatie apart
+    opslaan.
+    """
     directory = Path(directory)
     manifest, rows = review_records(
         str(directory),
@@ -197,6 +204,9 @@ def visual_review(directory):
     picker_key = f"human_picker_{token}"
 
     def clicked():
+        """Verwerk de aangeklikte reviewpositie en bewaar die bij het geselecteerde referentiepunt van
+        het actuele frame.
+        """
         try:
             st.session_state[key] = apply_point_click(
                 st.session_state[key],

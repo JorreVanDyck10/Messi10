@@ -51,6 +51,9 @@ def code_identity() -> dict:
 
 
 def dependencies() -> dict:
+    """Lees de werkelijk geïnstalleerde versies van de runtimebibliotheken voor het runmanifest en de
+    cache-identiteit.
+    """
     names = (
         "streamlit",
         "ultralytics",
@@ -129,6 +132,9 @@ def validate_completed(directory: Path) -> dict:
 
 
 def accept_mvp(directory: Path, reviewer: str, confirmed: bool) -> Path:
+    """Leg alleen een expliciet gereviewde, voltooide MVP-run met reviewer vast als acceptatierecord voor
+    de passende workflow.
+    """
     manifest = validate_completed(directory)
     if (
         not confirmed
@@ -167,6 +173,9 @@ def check_mvp_acceptance(
     code: dict,
     versions: dict,
 ) -> dict:
+    """Controleer dat de menselijke MVP-acceptatie bij precies dezelfde video, kalibratie, modellen, code
+    en omgeving hoort.
+    """
     if path is None:
         raise PipelineError("Tracking vereist eerst een gecontroleerde MVP-run; zie accept-mvp.")
     acceptance = read_json(path)
@@ -466,6 +475,9 @@ def process_video(
                             if models.get("person_box_fusion_weight"):
 
                                 def refined_projection(d):
+                                    """Projecteer een door de rolstap aangepaste detectie opnieuw met de
+                                    actuele handmatige of automatische kalibratie.
+                                    """
                                     if automatic:
                                         project_automatic(d, frame_calibration, video.size)
                                     else:

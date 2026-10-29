@@ -17,6 +17,9 @@ from football_pipeline.video import ROOT, inspect_video
 
 
 def main():
+    """Verwerk echte video met rollen, teams en baltegels en controleer de terugvertaalde
+    broncoördinaten.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--video", type=Path, required=True)
     parser.add_argument("--models", type=Path, default=ROOT / "configs/models-players-ball-tiles.json")

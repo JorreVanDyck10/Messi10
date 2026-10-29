@@ -14,6 +14,9 @@ from .distances import METHOD_VERSION, DistanceSettings, estimate_distances, rec
 
 @st.cache_data(max_entries=8, show_spinner=False)
 def distance_tables(directory, records_hash, duration_s, settings, method_version=METHOD_VERSION):
+    """Lees de opgeslagen framerecords, bereken afstandssamenvattingen en meetintervallen en retourneer
+    die als gecachete pandas-tabellen.
+    """
     with (Path(directory) / "framegegevens.jsonl").open(encoding="utf-8") as stream:
         summaries, intervals = estimate_distances(
             (json.loads(line) for line in stream if line.strip()), duration_s, DistanceSettings(**settings)
@@ -22,6 +25,9 @@ def distance_tables(directory, records_hash, duration_s, settings, method_versio
 
 
 def show_distances(result):
+    """Toon instelbare veldafmetingen, meetdekking, tijdelijke speler-ID's, grafieken en CSV-downloads
+    voor de opgeslagen run.
+    """
     directory, manifest = result.directory, result.manifest
     token = directory.name[:16]
     st.subheader("Elke gemeten meter in beeld")
@@ -203,6 +209,9 @@ def show_distances(result):
 
 
 def distance_panel(result):
+    """Toon het afstandsdashboard en zet ontbrekende of ongeldige analysegegevens om naar een zichtbare
+    foutmelding.
+    """
     try:
         show_distances(result)
     except (PipelineError, OSError, ValueError, KeyError) as exc:

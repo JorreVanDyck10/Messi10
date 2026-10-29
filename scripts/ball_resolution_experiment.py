@@ -27,6 +27,9 @@ MODES = {
 
 
 def main():
+    """Vergelijk bevroren balgewichten op volledige beelden en native of opgeschaalde tegels met dezelfde
+    bronlabels.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--device", default="0")

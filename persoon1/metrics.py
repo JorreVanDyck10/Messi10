@@ -9,6 +9,9 @@ import math
 
 
 def iou(a, b):
+    """Bereken doorsnede gedeeld door vereniging van twee xyxy-boxen en retourneer nul wanneer de
+    vereniging leeg is.
+    """
     inter = max(0, min(a[2], b[2]) - max(a[0], b[0])) * max(0, min(a[3], b[3]) - max(a[1], b[1]))
     area_a = max(0, a[2] - a[0]) * max(0, a[3] - a[1])
     area_b = max(0, b[2] - b[0]) * max(0, b[3] - b[1])
@@ -17,6 +20,9 @@ def iou(a, b):
 
 
 def match_class(ground_truth, predictions, class_id, threshold):
+    """Sorteer de voorspellingen van één klasse op confidence en koppel elke referentie hoogstens eenmaal
+    boven de opgegeven IoU-grens.
+    """
     gt = {fid: [box for box in boxes if box["class_id"] == class_id] for fid, boxes in ground_truth.items()}
     ordered = sorted(
         [(fid, box) for fid, boxes in predictions.items() for box in boxes if box["class_id"] == class_id],
@@ -34,6 +40,9 @@ def match_class(ground_truth, predictions, class_id, threshold):
 
 
 def ap101(total, flags):
+    """Bereken geïnterpoleerde AP op 101 recallniveaus uit de confidencegesorteerde true-/false-
+    positivevlaggen.
+    """
     if not total:
         return None
     tp = 0
@@ -45,6 +54,9 @@ def ap101(total, flags):
 
 
 def evaluate(ground_truth, predictions, names, confidence=0.25, match_iou=0.5):
+    """Bereken klassegewijze AP over de IoU-drempels, precision/recall op de werkconfidence en expliciete
+    FP/FN-gevallen voor review.
+    """
     if set(predictions) != set(ground_truth):
         raise ValueError("Predictions must cover exactly the evaluated frames, including empty frames")
     for boxes in predictions.values():

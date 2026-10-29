@@ -15,6 +15,9 @@ from persoon1.core import label_pixels, read_labels
 
 
 def audit(root, semantic, *, decode=True):
+    """Controleer bronhashes, beelden, labelboxen en splits van één gecureerde taakexport en retourneer
+    manifest plus auditresultaat.
+    """
     manifest = read_json(root / "manifest.json")
     if digest_json({k: v for k, v in manifest.items() if k != "fingerprint"}) != manifest["fingerprint"]:
         raise ValueError("Manifest fingerprint mismatch")
@@ -22,6 +25,9 @@ def audit(root, semantic, *, decode=True):
         raise ValueError("Training class mapping mismatch")
 
     def check(row):
+        """Controleer één framerecord op bestandshashes en geldige labelcoördinaten en geef het aantal
+        boxen terug.
+        """
         for key in ("image", "label"):
             if sha256_file(root / row[key]) != row[key + "_sha256"]:
                 raise ValueError(f"Changed {key}: {row['frame_id']}")
@@ -64,6 +70,9 @@ def audit(root, semantic, *, decode=True):
 
 
 def main():
+    """Controleer de gecureerde bal- en officialexports en schrijf een compact overdrachtsrapport met
+    dezelfde bronidentiteiten.
+    """
     report_root = Path("reports/broadcast-data")
     base = read_json("data/broadcast-sngsr-v1/manifest.json")
     balls, ball_report = audit(Path("data/broadcast-ball-review-v1/curated"), "ball")

@@ -50,6 +50,9 @@ def initialize_two_roles(source, output):
 
 
 def train(dataset, output, epochs=40, resolution=1920, minutes=None):
+    """Bereid de speler-/officialinitialisatie en de hoge-resolutieconfiguratie voor en start de
+    tijdbegrensde detectortraining; retourneer het geselecteerde checkpointpad.
+    """
     dataset, output = Path(dataset).resolve(), Path(output).resolve()
     manifest = read_json(dataset / "manifest.json")
     if any(r["split"] not in {"train", "val"} for r in manifest["frames"]):

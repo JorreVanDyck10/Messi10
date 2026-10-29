@@ -5,7 +5,7 @@ de rol vast en noemt de daadwerkelijk aanwezige functies/klassen en lokale afhan
 Bij scripts met een oorspronkelijke Engelse moduleuitleg blijft die technische samenvatting zichtbaar.
 Functienamen zijn navigatiehulp; een lijst met namen vervangt het lezen van de implementatie niet.
 
-Dekking: **295 codebestanden**, inclusief tests, datasethelpers en historische bronkopieën.
+Dekking: **296 codebestanden**, inclusief tests, datasethelpers en historische bronkopieën.
 Niet-gevolgde virtuele omgevingen, externe modelrepositories en gegenereerde uitvoer horen hier niet bij.
 Inline JavaScript van de puntenkiezer staat in `point_picker.py` en schaalt klikposities terug naar bronpixels.
 
@@ -768,6 +768,12 @@ Explicit AI visual decisions for rare-role development; preserves all earlier la
 Topniveaufuncties en klassen: `main`.
 
 Lokale koppelingen: `football_pipeline.contracts`, `football_pipeline.video`, `persoon1.role_training`.
+
+### [scripts/check_function_docs.py](../scripts/check_function_docs.py)
+
+Controleer uitleg bij iedere Python-functie in de actuele projectcode.
+
+Topniveaufuncties en klassen: `source_files`, `functions`, `audit`, `main`.
 
 ### [scripts/check_partial_calibration.py](../scripts/check_partial_calibration.py)
 
@@ -2293,4 +2299,4 @@ De loader controleert bestanden en mappings; de run bewaart wat daadwerkelijk is
 | [models-school.json](../configs/models-school.json) | exp-p006-gsr-multimatch-v3, fullscene-ball-f005-multiscale | geen |
 | [models.json](../configs/models.json) | exp-p006-gsr-multimatch-v3 | geen |
 
-Bestandstypen: .ps1: 14, .py: 281.
+Bestandstypen: .ps1: 14, .py: 282.

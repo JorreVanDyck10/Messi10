@@ -27,6 +27,9 @@ def tile_windows(width: int, height: int, size: int, overlap: float = 0.2):
 
 
 def validate_ball_tile_config(config):
+    """Weiger ongeldige tegelgroottes, invoerresolutie, overlap of globale NMS-drempel voordat inferentie
+    begint.
+    """
     sizes = config.get("sizes") if isinstance(config, dict) else None
     if (
         not isinstance(sizes, list)
@@ -47,6 +50,9 @@ def validate_ball_tile_config(config):
 def predict_multiscale_ball(
     model, frame, config, *, confidence=0.25, local_iou=0.7, device="0", source_class=32
 ):
+    """Voer baldetectie uit voor elke geconfigureerde tegelgrootte en voeg alle bronpixelboxen met één
+    globale NMS samen.
+    """
     validate_ball_tile_config(config)
     predictions = []
     for size in config["sizes"]:

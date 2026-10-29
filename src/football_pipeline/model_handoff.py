@@ -9,6 +9,9 @@ from .detection import load_model_manifest
 
 
 def available_model_profiles(default: Path, directory: Path) -> dict[Path, str]:
+    """Zoek de beschikbare modelprofielen en combineer hun metadata voor de modelkeuzelijst zonder
+    inferentie uit te voeren.
+    """
     profiles = {}
     seen = set()
     for path in dict.fromkeys(
@@ -67,6 +70,9 @@ def register_player_model(
     device="cpu",
     evaluation_record: Path | None = None,
 ) -> dict:
+    """Controleer checkpoint en expliciete bronklassemapping en schrijf een draagbaar modelmanifest met
+    herkomst en gewichtshash.
+    """
     from ultralytics import YOLO
 
     weights, output = weights.resolve(), output.resolve()

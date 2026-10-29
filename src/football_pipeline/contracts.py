@@ -30,6 +30,9 @@ def digest_json(value: Any) -> str:
 
 
 def read_json(path: str | Path) -> dict:
+    """Lees een JSON-object met benoemde velden en vertaal bestands- of parsefouten naar een
+    begrijpelijke PipelineError.
+    """
     try:
         value = json.loads(Path(path).read_text(encoding="utf-8-sig"))
         if not isinstance(value, dict):
@@ -75,10 +78,12 @@ class VideoMetadata:
 
     @property
     def fps(self) -> float:
+        """Geef de framerate als deling van de opgeslagen gehele teller en noemer terug."""
         return self.fps_num / self.fps_den
 
     @property
     def size(self) -> tuple[int, int]:
+        """Geef de bronafmetingen als tuple in de volgorde breedte, hoogte terug."""
         return self.width, self.height
 
 
@@ -123,6 +128,9 @@ class Detection:
     @classmethod
     def from_dict(cls, value: dict) -> Detection:
         # These fields are derived for export, never authoritative detection inputs.
+        """Reconstrueer een detectie uit opgeslagen velden en laat afgeleide telvelden buiten de
+        constructor.
+        """
         derived = {"counted_as_player", "player_exclusion_reason"}
         return cls(**{key: item for key, item in value.items() if key not in derived})
 
@@ -143,6 +151,9 @@ class FrameRecord:
 
     @classmethod
     def from_dict(cls, value: dict) -> FrameRecord:
+        """Reconstrueer één framerecord en zijn detecties, met standaardwaarden voor velden die oudere
+        uitvoerversies nog niet bevatten.
+        """
         return cls(
             frame_index=value["frame_index"],
             timestamp_s=value["timestamp_s"],
@@ -156,6 +167,9 @@ class FrameRecord:
         )
 
     def to_dict(self) -> dict:
+        """Zet het framerecord om naar JSON-geschikte gegevens en voeg de gedeelde spelertelling en
+        uitsluitredenen toe.
+        """
         from .participants import count_exclusion_reason, counted_as_player, player_summary
 
         result = asdict(self)
@@ -180,4 +194,5 @@ class RunResult:
 
     @property
     def video_path(self) -> Path:
+        """Geef het pad van de samengestelde analysevideo binnen de uitvoermap terug."""
         return self.directory / "samengestelde_video.mp4"

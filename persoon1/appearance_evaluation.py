@@ -19,6 +19,9 @@ from .role_training import DATA, ROOT, save
 
 
 def run(output, model_manifest_path=None):
+    """Meet de echte detector-plus-appearanceketen op vastgelegde ontwikkelvoorbeelden en houd
+    cropclassificatie en detectieprestaties afzonderlijk in het rapport.
+    """
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
     # Set the repo-local Ultralytics settings before the pipeline imports its detector.

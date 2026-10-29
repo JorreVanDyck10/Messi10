@@ -20,11 +20,15 @@ DATA = ROOT / "datasets/roles-teams-v1"
 
 
 def save(path, value):
+    """Maak de uitvoermap en schrijf de roltrainingsmetadata als leesbare UTF-8-JSON."""
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def build():
+    """Stel de vastgelegde rol- en teamvoorbeelden samen en bewaar de beeldcrops en datasetinventaris
+    voor de aanvullende classifier.
+    """
     existing = DATA / "manifest.json"
     if (DATA / "review-history.jsonl").exists() or (
         existing.is_file() and json.loads(existing.read_text(encoding="utf-8")).get("human_review_completed")
@@ -128,6 +132,9 @@ def build():
 
 
 def scores(target, predicted, names):
+    """Bereken accuracy en klassegewijze precision, recall en F1 uit de doel- en voorspelde rollen en
+    geef ook macro-F1 terug.
+    """
     confusion = np.zeros((len(names), len(names) + 1), int)
     for t, p in zip(target, predicted):
         confusion[t, p if p >= 0 else len(names)] += 1
@@ -203,6 +210,9 @@ def load_training_manifest(path):
 
 def supervised_team_videos(rows, base):
     # Role-only additions never make a new match eligible for a trained team head.
+    """Verzamel de bronvideo-identiteiten waarvoor werkelijk teamlabels bestaan, zodat een aangeleerde
+    teamkop niet als universele clubherkenning wordt gebruikt.
+    """
     return sorted({r["video_id"] for r in base["frames"]}
                   | {r["video_sha256"] for r in rows if r.get("video_sha256") and r.get("team") is not None})
 
@@ -222,6 +232,9 @@ def augment_role_tensor(tensor, augmentation):
 
 def train(output, fine_tune=False, encoder_checkpoint=None, manifest_path=None, fine_tune_blocks=3,
           role_colour_scale=8.0, max_minutes=None):
+    """Bereid beeld- en shirtkenmerken voor, train de rol-/teamkoppen en eventueel vrijgegeven
+    encoderlagen en bewaar de gekozen checkpoints met ontwikkelmetingen.
+    """
     from football_pipeline.training_budget import TrainingBudget
 
     budget = TrainingBudget(max_minutes)
