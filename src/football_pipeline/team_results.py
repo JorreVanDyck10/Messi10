@@ -1,4 +1,4 @@
-"""Team exports and immutable corrected runs, reusing exact observed geometry and IDs."""
+"""Berekent en bewaart teamuitvoer; correcties maken een afgeleide run met dezelfde waargenomen geometrie en IDs."""
 
 from __future__ import annotations
 

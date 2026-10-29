@@ -1,4 +1,4 @@
-"""Decode using actual presentation timestamps, including variable frame rate."""
+"""Leest echte presentatietijdstippen met PyAV en kan daardoor ook variabele-frameratebronnen voor data-extractie verwerken."""
 
 from pathlib import Path
 

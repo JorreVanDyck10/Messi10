@@ -1,3 +1,5 @@
+"""Leest opgeslagen detecties terug om vervolgstappen te herhalen zonder opnieuw YOLO-inferentie te doen."""
+
 from __future__ import annotations
 
 import json

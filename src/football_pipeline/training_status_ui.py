@@ -1,4 +1,4 @@
-"""Small, independently refreshed status alongside the existing result player."""
+"""Toont opgeslagen trainingsstatus naast de analyse-interface."""
 
 import streamlit as st
 

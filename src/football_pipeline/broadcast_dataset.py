@@ -1,4 +1,4 @@
-"""Build a large, resumable broadcast corpus from published SoccerNet v1.3 labels."""
+"""Bouwt en controleert een hervatbare broadcastdataset uit SoccerNet-providerlabels."""
 
 from __future__ import annotations
 

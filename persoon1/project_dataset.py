@@ -1,4 +1,4 @@
-"""Rebuild the disclosed, provisional ball dataset from the exact LFS source video."""
+"""Reconstrueert de voorlopige baldataset uit de exacte bronvideo en expliciete annotaties."""
 
 import argparse
 from pathlib import Path

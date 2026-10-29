@@ -1,4 +1,4 @@
-"""Targeted second round: fine-tune field roles and learn a shirt-color metric."""
+"""Voert aanvullende trainingen voor veldrollen, shirtkenmerken en detectie uit."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Select confidence policies on training matches, then measure held-out match geometry."""
+"""Selecteert veldinstellingen op trainingswedstrijden en vergelijkt geometrie op andere validatiewedstrijden."""
 
 from __future__ import annotations
 

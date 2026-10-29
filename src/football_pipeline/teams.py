@@ -1,4 +1,4 @@
-"""Match-relative shirt grouping with explicit optional trained-player context."""
+"""Verzamelt shirtwaarnemingen, zoekt twee wedstrijdgebonden teams en stabiliseert toekenningen over de tijd. Bij onvoldoende bewijs blijft het team onbekend."""
 
 from __future__ import annotations
 

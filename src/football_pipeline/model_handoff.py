@@ -1,4 +1,4 @@
-"""Register an explicitly mapped player model without changing baseline semantics."""
+"""Registreert modelprofielen met expliciete bronklassen en herkomst voor overdracht naar de toepassing."""
 
 import os
 import tempfile

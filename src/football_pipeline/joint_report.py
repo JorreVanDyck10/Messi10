@@ -1,4 +1,4 @@
-"""Produce a compact, evidence-linked Dutch report after the actual runs finish."""
+"""Schrijft het gezamenlijke rapport uit werkelijk opgeslagen trainings- en demonstratieresultaten."""
 
 from .contracts import read_json, sha256_file, write_json
 from .video import ROOT

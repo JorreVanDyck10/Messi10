@@ -1,4 +1,4 @@
-"""Pinned auxiliary broadcast referee corpus; explicit negatives and clip-level splits."""
+"""Bouwt aanvullende scheidsrechterdata met expliciete negatieve voorbeelden en gescheiden clips."""
 
 from __future__ import annotations
 

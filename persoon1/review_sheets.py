@@ -1,4 +1,4 @@
-"""Reproducible full-frame and individual-box sheets, without altering labels."""
+"""Maakt overzichtsbladen en detailcrops voor visuele labelreview zonder labels te veranderen."""
 
 import argparse
 from pathlib import Path

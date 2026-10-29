@@ -1,4 +1,5 @@
-"""Train match-relative field-role context on the frozen labelled broadcast split.
+"""Traint aanvullende rolcontext op vooraf vastgelegde broadcasttrainingsbeelden.
+
 
 Teacher errors are simulated per kit so the classifier learns to preserve common
 player uniforms even when their individual crop role is wrong. PCA and scaling

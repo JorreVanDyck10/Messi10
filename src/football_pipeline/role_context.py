@@ -1,4 +1,5 @@
-"""Learned field roles from relative kits, crop evidence and current positions.
+"""Combineert geleerde rolkenmerken met relatieve shirt- en positiecontext voor aanvullende classificatie.
+
 
 The model sees relationships between participants, not fixed club colours. It
 can refine a trained crop decision only inside a currently calibrated pitch.

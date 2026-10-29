@@ -1,4 +1,5 @@
-"""Add only officially labelled football training athletes from SportsMOT.
+"""Voegt gelabelde voetbalsporters uit SportsMOT toe en bewaart de betekenis van de bronlabels.
+
 
 Its target definition excludes referees, coaches and spectators. No SportsMOT
 validation/test image is opened. SoccerNet's frozen validation matches stay fixed.

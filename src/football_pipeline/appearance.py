@@ -1,4 +1,4 @@
-"""Supervised crop roles and match-specific team appearance, independent of pitch position."""
+"""Verfijnt persoonsrollen op beeldcrops met een getrainde classifier; veldpositie is een afzonderlijke informatiebron."""
 
 from pathlib import Path
 

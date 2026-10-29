@@ -1,4 +1,4 @@
-"""Reproducible transfer-learning ablation on a frozen, provider-labeled development set."""
+"""Vergelijkt transferlearninginstellingen op dezelfde vastgelegde ontwikkeldata."""
 
 from __future__ import annotations
 

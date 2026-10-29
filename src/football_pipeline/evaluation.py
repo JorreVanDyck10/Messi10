@@ -1,3 +1,5 @@
+"""Koppelt voorspelde boxen aan trackingreferenties en telt projectgebonden fouten; dit is geen officiële MOT-metriekimplementatie."""
+
 from __future__ import annotations
 
 import json

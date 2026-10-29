@@ -1,4 +1,4 @@
-"""Shared result view for automatic and manually configured analyses."""
+"""Toont opgeslagen analysevideo, instellingen en uitvoerbestanden in de interface."""
 
 import streamlit as st
 

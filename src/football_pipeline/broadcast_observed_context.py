@@ -1,4 +1,5 @@
-"""Learn role context from genuine detector crops matched to provider annotations.
+"""Leert rolcontext uit echte detectorcrops die aan providerlabels zijn gekoppeld.
+
 
 Unmatched predictions participate in scene context but never become invented
 role labels. The fixed SoccerNet validation matches remain development-only.

@@ -1,4 +1,5 @@
-"""Single-GPU PnLCalib fine-tuning, proposals and measured comparisons.
+"""Traint en vergelijkt de PnLCalib-punten- en lijnnetwerken; voorstellen blijven onderscheiden van gereviewde labels.
+
 
 Run with .tools/field-training-env/Scripts/python.exe; upstream stays unmodified.
 """

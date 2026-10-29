@@ -1,4 +1,4 @@
-"""Responsive image point selection using Streamlit's inline component API."""
+"""Verwerkt klikken in het bronbeeld via een Streamlit-component en bewaart oorspronkelijke pixelcoördinaten."""
 
 import base64
 import math

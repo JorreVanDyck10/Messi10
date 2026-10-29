@@ -1,4 +1,4 @@
-"""Measure player/role/team stages with explicit reference-geometry provenance."""
+"""Meet afzonderlijke detectie-, rol- en teamstappen en registreert waar de referentiegeometrie vandaan komt."""
 
 from __future__ import annotations
 

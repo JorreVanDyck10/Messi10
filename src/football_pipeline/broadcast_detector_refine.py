@@ -1,4 +1,4 @@
-"""High-detail supervised player/referee training; field models are never used."""
+"""Traint de speler-/scheidsrechterdetector verder met gedetailleerde persoonsvoorbeelden."""
 
 from __future__ import annotations
 

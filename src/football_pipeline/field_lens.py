@@ -1,4 +1,5 @@
-"""Measured division-model lens correction, with held-out white-line checks.
+"""Schat optionele lenscorrectie uit witte lijnen en controleert die op apart gehouden lijnen.
+
 
 This is an image straightness check, not an independent field-accuracy measurement.
 """

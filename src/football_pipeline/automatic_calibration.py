@@ -1,4 +1,4 @@
-"""Content-addressed per-frame calibration; network inference lives in a separate process."""
+"""Leest veldwaarnemingen per frame en berekent bijbehorende projecties. Het neurale veldmodel draait in een apart proces met eigen dependencies."""
 
 from __future__ import annotations
 

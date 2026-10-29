@@ -1,4 +1,4 @@
-"""Small localhost-only box editor with separate automatic suggestions and reviews."""
+"""Lokale bounding-boxeditor voor labelcorrecties met afzonderlijke voorstellen en reviewstatus."""
 
 import json
 import math

@@ -1,4 +1,5 @@
-"""Broadcast development data with provider roles, teams and tracks retained.
+"""Zet broadcastproviderlabels om naar ontwikkeldata en behoudt rollen, teams en brontracks.
+
 
 The frozen match split is inherited from course-multimatch-v1. Neither the
 official test archive nor the project's reserved TeamTrack frames is accessed.

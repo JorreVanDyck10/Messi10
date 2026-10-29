@@ -1,4 +1,4 @@
-"""Run with: python -m streamlit run streamlit_app.py"""
+"""Streamlit-toegangspunt: kiest modelprofiel en workflow, verzamelt invoer en toont resultaten. De rekenstappen staan in football_pipeline zodat ze ook zonder interface bruikbaar zijn."""
 
 from __future__ import annotations
 

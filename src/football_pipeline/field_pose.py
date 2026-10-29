@@ -1,4 +1,4 @@
-"""Field-pose inference with original-pixel provenance and optional measured lens correction."""
+"""Voert veldpuntinferentie uit met herleidbare bronpixelcoördinaten en optionele lenscorrectie."""
 
 from __future__ import annotations
 

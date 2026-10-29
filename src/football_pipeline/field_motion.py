@@ -1,4 +1,5 @@
-"""Checked planar keypoints and bounded, measured camera-motion propagation.
+"""Controleert veldgeometrie en overbrugt korte uitval met gemeten camerabeweging en begrensde geldigheid.
+
 
 Model hold-outs are a self-consistency check, never human accuracy evidence.
 The field network, player detector and manual/static-camera workflow stay separate.

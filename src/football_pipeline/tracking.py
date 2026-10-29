@@ -1,3 +1,5 @@
+"""Koppelt actuele spelerboxen over opeenvolgende frames met ByteTrack. Een tijdelijk track-ID is geen herkende naam of gegarandeerde identiteit."""
+
 from __future__ import annotations
 
 from collections import deque
@@ -33,6 +35,8 @@ def load_tracker_config(path: str | Path) -> dict:
 
 
 class ByteTrackAdapter:
+    """Adapter tussen onze Detection-objecten en de versieafhankelijke ByteTrack-API."""
+
     def __init__(self, config: dict, fps: float, *, camera_motion: bool = False, require_field: bool = False):
         from ultralytics.trackers.byte_tracker import BYTETracker
 
@@ -94,6 +98,10 @@ class ByteTrackAdapter:
     def update(
         self, detections: list[Detection], frame_index: int, image_size: tuple[int, int], *, frame=None
     ) -> None:
+        """Koppel alleen actuele detecties en schrijf tijdelijke track-IDs terug.
+
+        De updatevolgorde moet ieder opeenvolgend bronframe volgen. Interne
+        bewegingsvoorspellingen worden niet als nieuwe zichtbare detecties uitgevoerd."""
         from ultralytics.engine.results import Boxes
 
         if frame_index != self.last_frame + 1:
@@ -158,6 +166,8 @@ class _IndexedBoxes:
 
 
 class Trajectories:
+    """Bewaar een beperkt tijdvenster van daadwerkelijk waargenomen veldposities."""
+
     def __init__(self, fps: float, seconds: float = 5.0):
         self.window = max(1, round(fps * seconds))
         self.points: dict[int, deque] = {}
@@ -176,5 +186,6 @@ class Trajectories:
                 )
 
     def segments(self, track_id: int) -> list[tuple]:
+        """Verbind alleen buurframes; teken geen lijn over ontbrekende waarnemingen."""
         history = list(self.points.get(track_id, []))
         return [(a, b) for a, b in zip(history, history[1:]) if b[0] == a[0] + 1]

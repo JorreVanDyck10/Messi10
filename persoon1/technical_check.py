@@ -1,4 +1,4 @@
-"""One-epoch GPU software check on generated rectangles, never project results."""
+"""Controleert GPU-training met synthetische rechthoeken; resultaten zijn geen voetbalmodelscore."""
 
 import contextlib
 import gc

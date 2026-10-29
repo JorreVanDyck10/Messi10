@@ -1,3 +1,5 @@
+"""Verwerkt commandoregelargumenten en roept inspectie, verwerking en evaluatie aan."""
+
 from __future__ import annotations
 
 import argparse

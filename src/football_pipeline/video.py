@@ -1,3 +1,5 @@
+"""Controleert videometadata met ffprobe, leest frames met OpenCV en schrijft uitvoer met FFmpeg. De pipeline vereist constante frametiming."""
+
 from __future__ import annotations
 
 import json
@@ -49,6 +51,10 @@ def probe_json(path: Path, *, frames: bool = False) -> dict:
 
 
 def inspect_video(path: str | Path) -> VideoMetadata:
+    """Controleer alle frametijdstippen, afmetingen en rotatie vóór de sequentiële pipeline start.
+
+    Variabele timing wordt hier geweigerd: de uitvoer gebruikt dezelfde vaste
+    framerate voor beeld, minimap en trackingupdates."""
     path = Path(path).resolve()
     if path.suffix.lower() != ".mp4" or not path.is_file():
         raise PipelineError("Kies een bestaand .mp4-bestand.")
@@ -98,6 +104,7 @@ def inspect_video(path: str | Path) -> VideoMetadata:
 
 
 def read_frame(video: VideoMetadata, frame_index: int) -> np.ndarray:
+    """Lees een specifiek bronframe en sluit de videolezer ook bij een leesfout."""
     if not 0 <= frame_index < video.frame_count:
         raise PipelineError("Frame-index ligt buiten de clip.")
     cap = cv2.VideoCapture(video.path)

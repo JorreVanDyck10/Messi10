@@ -1,5 +1,9 @@
 # Schoolversie: starten en zelf kunnen uitleggen
 
+Voor de volledige code-uitleg, coördinaten, algoritmekeuzes en alternatieven:
+[Code begrijpen en verdedigen](Code_en_Verdediging.md). De [codekaart](Codekaart.md)
+verbindt ieder codebestand met zijn functies en plaats in het project.
+
 De basis volgt de opdracht: een vaste camera, YOLO-detecties, handmatig
 aangeduide veldpunten, een homography en een gesynchroniseerde minimap.
 De schoolstart gebruikt dezelfde bestaande verwerking als de volledige app.

@@ -1,4 +1,4 @@
-"""Evaluate automatic projection against explicitly reviewed, held-out human landmarks."""
+"""Vergelijkt automatische veldprojecties met afzonderlijk gereviewde menselijke referentiepunten."""
 
 from __future__ import annotations
 

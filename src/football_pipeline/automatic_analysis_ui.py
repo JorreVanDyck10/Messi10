@@ -1,4 +1,4 @@
-"""Upload-to-result workflow; never manufacture reviews or player semantics."""
+"""Verbindt upload, automatische verwerking en resultaatweergave in de Streamlit-app."""
 
 import os
 from pathlib import Path

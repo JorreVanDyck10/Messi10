@@ -1,4 +1,4 @@
-"""Ball-only tiling with original-pixel coordinates and a global NMS pass."""
+"""Detecteert kleine ballen in overlappende beeldtegels. Boxen gaan terug naar bronpixels en globale NMS verwijdert dubbele tegelvoorspellingen."""
 
 from __future__ import annotations
 
@@ -6,6 +6,7 @@ import math
 
 
 def axis_starts(length: int, size: int, overlap: float) -> list[int]:
+    """Bepaal tegelstarts inclusief de laatste beeldrand, ook als de stap daar niet exact uitkomt."""
     if type(length) is not int or type(size) is not int or length <= 0 or size <= 0:
         raise ValueError("Positive integer image/tile dimensions required")
     if not math.isfinite(overlap) or not 0 <= overlap < 0.5:
@@ -17,6 +18,7 @@ def axis_starts(length: int, size: int, overlap: float) -> list[int]:
 
 
 def tile_windows(width: int, height: int, size: int, overlap: float = 0.2):
+    """Maak overlappende rechthoeken in oorspronkelijke pixels, zonder het bronbeeld te wijzigen."""
     return [
         (x, y, min(x + size, width), min(y + size, height))
         for y in axis_starts(height, size, overlap)

@@ -21,3 +21,4 @@ jobs:
       - run: python -m pytest -q
       - run: python -m ruff check src streamlit_app.py scripts tests
       - run: python -m ruff format --check src streamlit_app.py scripts tests
+      - run: python scripts/build_code_guide.py --check

@@ -1,4 +1,4 @@
-"""Bounded, resumable broadcast player/role/team experiments on frozen matches."""
+"""Voert begrensde speler-, rol- en teamtraining uit op vastgelegde wedstrijdsplits."""
 
 from __future__ import annotations
 

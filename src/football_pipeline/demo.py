@@ -1,4 +1,4 @@
-"""Synthetic fixtures are engineering checks, never evidence of football model quality."""
+"""Maakt synthetische beelden voor softwarecontroles. Deze fixtures meten geen herkenningskwaliteit op echte voetbalwedstrijden."""
 
 from __future__ import annotations
 

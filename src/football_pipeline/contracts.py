@@ -1,3 +1,5 @@
+"""Definieert de gedeelde gegevensstructuren voor video, detecties en frames. JSON en hashes maken opgeslagen resultaten controleerbaar."""
+
 from __future__ import annotations
 
 import hashlib
@@ -14,6 +16,7 @@ class PipelineError(ValueError):
 
 
 def sha256_file(path: str | Path) -> str:
+    """Bereken bestandsidentiteit in blokken zodat ook grote video- en modelbestanden passen."""
     digest = hashlib.sha256()
     with Path(path).open("rb") as stream:
         for block in iter(lambda: stream.read(1024 * 1024), b""):
@@ -22,6 +25,7 @@ def sha256_file(path: str | Path) -> str:
 
 
 def digest_json(value: Any) -> str:
+    """Maak een stabiele hash van benoemde instellingen, onafhankelijk van sleutelvolgorde."""
     return hashlib.sha256(json.dumps(value, sort_keys=True, allow_nan=False).encode()).hexdigest()
 
 
@@ -36,6 +40,7 @@ def read_json(path: str | Path) -> dict:
 
 
 def write_json(path: str | Path, value: Any) -> None:
+    """Schrijf eerst een tijdelijk bestand en publiceer daarna de complete JSON atomair."""
     path = Path(path)
     temporary = path.with_name(path.name + "." + uuid.uuid4().hex + ".tmp")
     temporary.write_text(json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False), encoding="utf-8")
@@ -79,6 +84,8 @@ class VideoMetadata:
 
 @dataclass
 class Detection:
+    """Eén modelwaarneming met bronbox en optionele rol-, veld-, track- en teaminformatie."""
+
     detection_id: str
     model_id: str
     source_class_id: int
@@ -122,6 +129,8 @@ class Detection:
 
 @dataclass
 class FrameRecord:
+    """Gedeeld record van één tijdstip voor video-overlay, minimap en latere analyses."""
+
     frame_index: int
     timestamp_s: float
     image_size: tuple[int, int]

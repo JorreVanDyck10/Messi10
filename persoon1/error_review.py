@@ -1,4 +1,4 @@
-"""Produce source-resolution context for selected development FP/FN records."""
+"""Maakt detailbeelden van geselecteerde false positives en false negatives voor foutenanalyse."""
 
 from pathlib import Path
 

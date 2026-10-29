@@ -1,3 +1,5 @@
+"""Start de datacommandos via python -m persoon1 en geeft argumenten aan de juiste werkstap door."""
+
 import argparse
 import json
 import sys

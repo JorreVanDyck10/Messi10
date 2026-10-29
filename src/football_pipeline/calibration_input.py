@@ -1,4 +1,4 @@
-"""Known coordinate suggestions, never an automatic calibration approval."""
+"""Levert bekende veldcoördinaten voor aangeklikte punten, waaronder een gedeeltelijk zichtbaar strafschopgebied."""
 
 from copy import deepcopy
 from pathlib import Path

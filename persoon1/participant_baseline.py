@@ -1,4 +1,4 @@
-"""Compare localization of the annotated participants without inventing COCO roles."""
+"""Vergelijkt lokalisatie van geannoteerde deelnemers zonder COCO-personen achteraf spelersrollen te geven."""
 
 import argparse
 import json

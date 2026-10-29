@@ -1,4 +1,4 @@
-"""Separate human reference documents. These are never read by calibration inference."""
+"""Slaat menselijke veldreferenties afzonderlijk van modelvoorspellingen op."""
 
 from __future__ import annotations
 

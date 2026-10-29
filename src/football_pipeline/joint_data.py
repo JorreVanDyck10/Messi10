@@ -1,4 +1,4 @@
-"""Local, versioned training adapters; preserve source splits and label semantics."""
+"""Past lokale datasets aan voor de gezamenlijke taken, met behoud van labels en bronsplits."""
 
 from __future__ import annotations
 

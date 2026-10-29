@@ -1,4 +1,4 @@
-"""Match-relative team appearance learned from same/different-team pairs."""
+"""Leert shirtkenmerken uit paren van hetzelfde of verschillende teams; teamnamen blijven wedstrijdafhankelijk."""
 
 from __future__ import annotations
 

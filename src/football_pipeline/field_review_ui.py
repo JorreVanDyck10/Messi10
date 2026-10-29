@@ -1,4 +1,4 @@
-"""Frame-synchronous visual inspection shared by fresh processing and saved runs."""
+"""Toont bronframe, veldprojectie en minimap op hetzelfde tijdstip voor visuele review."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Dataset provenance and review gates. Heavy ML dependencies are loaded lazily."""
+"""Controleert datasetmanifesten, labels, bronhashes en reviewvoorwaarden vóór training of evaluatie."""
 
 from __future__ import annotations
 

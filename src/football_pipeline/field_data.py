@@ -1,4 +1,4 @@
-"""Bounded, resumable field-training corpus; downloaded highlights are never ground truth."""
+"""Verzamelt begrensde veldtrainingsdata en bewaart broninformatie, wedstrijdsplits en duplicaatcontroles."""
 
 from __future__ import annotations
 

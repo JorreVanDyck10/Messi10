@@ -1,4 +1,4 @@
-"""Per-video kit-colour clustering; new videos never inherit another match's team identities."""
+"""Groepeert shirtkleuren per video; een nieuwe wedstrijd krijgt eigen teamprototypes."""
 
 import cv2
 import numpy as np

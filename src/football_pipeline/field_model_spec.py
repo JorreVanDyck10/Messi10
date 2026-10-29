@@ -1,4 +1,4 @@
-"""Pinned model provenance; dependency-free so the setup can bootstrap a clean machine."""
+"""Legt veldmodelherkomst en runtimecontroles vast zonder zware ML-imports tijdens installatie."""
 
 UPSTREAM_URL = "https://github.com/mguti97/PnLCalib"
 UPSTREAM_REVISION = "8c87391d6f4ea40c5e4d65e61529916c7a49ce62"

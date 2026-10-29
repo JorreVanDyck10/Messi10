@@ -1,4 +1,4 @@
-"""Shared wall-clock budgets checked between optimizer steps, never mid-write."""
+"""Begrenst gezamenlijke training in tijd en controleert het budget tussen optimalisatiestappen."""
 
 import math
 import time

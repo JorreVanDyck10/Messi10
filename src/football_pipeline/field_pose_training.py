@@ -1,4 +1,4 @@
-"""Actual full-network YOLO field-keypoint transfer learning on frozen provider annotations."""
+"""Traint een YOLO-veldpuntenmodel via transfer learning op vastgelegde providerannotaties."""
 
 from __future__ import annotations
 

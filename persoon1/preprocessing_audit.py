@@ -1,4 +1,4 @@
-"""Count labels surviving the installed YOLO training transforms on real train images."""
+"""Controleert hoeveel echte labels behouden blijven na de geïnstalleerde YOLO-trainingsaugmentaties."""
 
 from collections import Counter
 import os

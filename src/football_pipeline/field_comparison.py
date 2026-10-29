@@ -1,4 +1,4 @@
-"""Field-only comparison and release gate; model controls are never human truth."""
+"""Vergelijkt veldkandidaten en registreert voorwaarden voor ingebruikname."""
 
 from __future__ import annotations
 

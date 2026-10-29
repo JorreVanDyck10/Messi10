@@ -1,4 +1,4 @@
-"""Resume the explicitly paused broadcast work without restarting completed stages."""
+"""Inspecteert of hervat bestaande broadcastwerkstappen zonder voltooide resultaten opnieuw te trainen."""
 
 from __future__ import annotations
 

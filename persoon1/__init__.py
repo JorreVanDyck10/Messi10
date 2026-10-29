@@ -1,3 +1,3 @@
-"""Reproducible data, detection and evaluation tools for Sports Vision."""
+"""Gereedschappen voor herleidbare datasets, modeltraining en detectie-evaluatie."""
 
 __version__ = "0.1.0"

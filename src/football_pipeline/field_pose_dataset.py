@@ -1,4 +1,4 @@
-"""Build a match-separated field-pose dataset from published SoccerNet line annotations."""
+"""Zet providerlijnen om naar veldpunttrainingsdata met gescheiden wedstrijden."""
 
 from __future__ import annotations
 

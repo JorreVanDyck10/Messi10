@@ -1,4 +1,4 @@
-"""Fine-tune the trained player detector with additional official football matches."""
+"""Combineert aanvullende voetbalbronnen voor fine-tuning en controleert de dataset vóór training."""
 
 from __future__ import annotations
 

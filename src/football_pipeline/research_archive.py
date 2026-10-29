@@ -1,4 +1,4 @@
-"""Read selected public ZIP members over checked HTTP ranges without downloading a corpus."""
+"""Leest geselecteerde ZIP-onderdelen met gecontroleerde HTTP-rangeverzoeken om volledige corpusdownloads te vermijden."""
 
 from __future__ import annotations
 

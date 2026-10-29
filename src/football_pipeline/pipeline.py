@@ -1,3 +1,5 @@
+"""Verbindt video-inspectie, detectie, projectie, optionele tracking en uitvoer. Ieder bronframe krijgt één gedeeld gegevensrecord voor beeld en minimap."""
+
 from __future__ import annotations
 
 import contextlib
@@ -35,6 +37,7 @@ from .video import ROOT, VideoWriter, inspect_video, tool_versions
 
 
 def code_identity() -> dict:
+    """Bewaar Git-commit en bronhashes om te kunnen uitleggen welke code een run maakte."""
     paths = sorted((ROOT / "src" / "football_pipeline").glob("*.py"))
     paths += [ROOT / "streamlit_app.py", ROOT / "pyproject.toml"]
     hashes = {str(p.relative_to(ROOT)): sha256_file(p) for p in paths if p.is_file()}
@@ -64,6 +67,7 @@ def dependencies() -> dict:
 
 @contextlib.contextmanager
 def processing_lock(root: Path):
+    """Voorkom dat twee verwerkingen tegelijk dezelfde uitvoermap schrijven; geef de lock altijd vrij."""
     root.mkdir(parents=True, exist_ok=True)
     lock = (root / ".processing.lock").open("a+b")
     locked = False
@@ -103,6 +107,7 @@ def processing_lock(root: Path):
 
 
 def validate_completed(directory: Path) -> dict:
+    """Herbereken uitvoerhashes voordat een opgeslagen analyse wordt vertrouwd of hergebruikt."""
     manifest = read_json(directory / "runmanifest.json")
     if manifest.get("status") != "completed":
         raise PipelineError("Uitvoering is niet volledig geslaagd.")

@@ -1,4 +1,4 @@
-"""Measured background motion for player association, independent of pitch recognition."""
+"""Meet achtergrondbeweging voor cameracompensatie van tracks, onafhankelijk van veldpuntherkenning."""
 
 import cv2
 import numpy as np

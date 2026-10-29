@@ -1,4 +1,4 @@
-"""Inference, training and auditable evaluation. No fake labels or review approvals."""
+"""Voert inferentie, fine-tuning en herleidbare evaluatie uit; testdata en reviewstatus krijgen afzonderlijke controles."""
 
 import contextlib
 import csv

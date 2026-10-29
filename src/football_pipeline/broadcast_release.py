@@ -1,4 +1,4 @@
-"""Compare broadcast candidates, package portable weights and preserve field geometry."""
+"""Vergelijkt broadcastkandidaten en verpakt geselecteerde modelprofielen met meetrapporten."""
 
 from __future__ import annotations
 

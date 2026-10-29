@@ -1,4 +1,4 @@
-"""CPU geometry experiment on frozen network observations, with match-separated selection."""
+"""Vergelijkt een alternatieve veldprojectie uit lijnen op bevroren modelwaarnemingen."""
 
 import argparse
 from pathlib import Path

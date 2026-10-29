@@ -1,4 +1,4 @@
-"""Reproducible supervised appearance heads; no reserved test frames are opened."""
+"""Traint aanvullende rol- en teamkenmerken op gereviewde of expliciet voorlopige ontwikkeldata."""
 
 import argparse
 import copy

@@ -1,4 +1,4 @@
-"""Build explicit player/referee labels from source MOT boxes and reviewed role boxes."""
+"""Zet MOT-persoonsboxen en expliciete rolboxen om naar speler-/scheidsrechterlabels."""
 
 from pathlib import Path
 

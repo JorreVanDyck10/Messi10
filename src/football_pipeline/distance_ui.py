@@ -1,4 +1,4 @@
-"""Distance dashboard derived from immutable, already completed analysis records."""
+"""Toont afstandsschattingen uit opgeslagen waarnemingen zonder detectie opnieuw uit te voeren."""
 
 import json
 from dataclasses import asdict

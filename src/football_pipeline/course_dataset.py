@@ -1,4 +1,4 @@
-"""Provider-supervised multi-match development set; project test images stay unopened."""
+"""Maakt wedstrijdgescheiden ontwikkeldata uit providerannotaties voor de cursusproeven."""
 
 from __future__ import annotations
 

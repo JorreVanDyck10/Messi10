@@ -1,4 +1,4 @@
-"""Evaluate the actual two-stage detector, keeping photo crops distinct from detection AP."""
+"""Meet de echte detector-plus-rolclassifier; cropclassificatie blijft onderscheiden van detectie-AP."""
 
 import copy
 import argparse

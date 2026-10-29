@@ -1,4 +1,4 @@
-"""Real development video inference without pretending a field calibration is available."""
+"""Voert een ontwikkelvideo door de herkenningsmodellen zonder ontbrekende veldkalibratie te verzinnen."""
 
 import argparse
 import json

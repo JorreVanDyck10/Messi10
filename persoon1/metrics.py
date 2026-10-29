@@ -1,4 +1,5 @@
-"""Explicit 101-recall-point AP for fully labelled boxes without ignore/crowd regions.
+"""Berekent boxoverlap, één-op-één klassekoppelingen en AP met 101 recallpunten voor volledig gelabelde beelden.
+
 
 Both reference and fine-tuned predictions use the same implementation. This is not
 advertised as the complete COCO benchmark (area ranges/crowd handling are absent).

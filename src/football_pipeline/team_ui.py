@@ -1,4 +1,4 @@
-"""Native Streamlit inspection and explicitly submitted team corrections."""
+"""Toont teamtellingen en laat expliciete teamcorrecties indienen via Streamlit."""
 
 import copy
 import json

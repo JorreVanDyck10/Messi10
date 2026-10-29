@@ -1,4 +1,4 @@
-"""Train and compare the four local subsystems without replacing historical runs."""
+"""Orkestreert gezamenlijke training, kandidaatselectie en demonstratie van de afzonderlijke deelsystemen."""
 
 from __future__ import annotations
 

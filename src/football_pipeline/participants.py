@@ -1,4 +1,5 @@
-"""Keep model roles separate from geometric field membership.
+"""Houdt modelrollen, veldgeldigheid, zichtbaarheid en spelertelling gescheiden. Een persoon op het veld is niet automatisch een speler.
+
 
 Being on grass never turns a generic person, steward or official into a player.
 These rules filter predictions; they cannot repair an incorrect model class.
@@ -70,6 +71,7 @@ def count_exclusion_reason(
 
 
 def counted_as_player(record: FrameRecord, detection: Detection, confidence=DISPLAY_CONFIDENCE) -> bool:
+    """Pas dezelfde telregels toe voor zowel de interface als opgeslagen analyses."""
     return count_exclusion_reason(record, detection, confidence) is None
 
 
@@ -78,6 +80,7 @@ def normalized_team_id(team_id: str | None) -> str:
 
 
 def player_summary(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
+    """Tel geldige spelers per team en bewaar waarom andere detecties niet meetellen."""
     visible = [
         d for d in record.detections if valid_box(d, record.image_size) and visible_detection(d, confidence)
     ]

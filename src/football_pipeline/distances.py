@@ -1,4 +1,4 @@
-"""Observed distance estimates; never bridge missing observations or camera resets."""
+"""Schat waargenomen afstanden op basis van geldige veldposities. Ontbrekende frames en cameraresets onderbreken een meettraject."""
 
 from collections import Counter
 from dataclasses import dataclass

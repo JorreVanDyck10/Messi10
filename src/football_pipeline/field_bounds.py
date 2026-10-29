@@ -1,4 +1,4 @@
-"""Visible pitch geometry in source pixels, clipped before perspective division."""
+"""Berekent het zichtbare veldgebied in bronpixels en controleert of voetpunten daarin liggen."""
 
 from __future__ import annotations
 

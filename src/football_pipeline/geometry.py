@@ -1,3 +1,5 @@
+"""Berekent een handmatige homography en projecteert boxvoetpunten naar het vlakke veld. Onafhankelijke controlepunten toetsen de aangeklikte koppelingen."""
+
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
@@ -106,6 +108,10 @@ class Calibration:
 
 
 def create_calibration(video: VideoMetadata, points: list[dict], reference_frame: int = 0) -> Calibration:
+    """Koppel vier beeldpunten aan veldpunten en toets andere punten zonder ze mee te fitten.
+
+    De matrix zet bronpixels om naar genormaliseerde (u, v)-veldcoördinaten.
+    Ongeldige puntvolgorde of te grote controlefout leidt tot PipelineError."""
     try:
         if not isinstance(reference_frame, int) or not 0 <= reference_frame < video.frame_count:
             raise PipelineError("Ongeldig kalibratiereferentieframe.")
@@ -142,6 +148,8 @@ def create_calibration(video: VideoMetadata, points: list[dict], reference_frame
             raise PipelineError(
                 "Veldpolygon is te klein, gekruist of degeneratief; controleer de puntvolgorde."
             )
+        # Vier expliciet gekozen koppelingen bepalen de matrix. RANSAC zou bij
+        # precies vier punten geen extra onafhankelijke controle opleveren.
         matrix, _ = cv2.findHomography(src, dst, method=0)
         if matrix is None or not np.isfinite(matrix).all() or np.linalg.matrix_rank(matrix) != 3:
             raise PipelineError("Geen geldige homography berekend.")
@@ -157,6 +165,8 @@ def create_calibration(video: VideoMetadata, points: list[dict], reference_frame
             raise PipelineError(
                 "De fitpunten lopen over de perspectiefhorizon. Kies beter verspreide veldpunten."
             )
+        # Meet in beeldpixels via de inverse matrix. De checkpunten zijn bewust
+        # niet meegenomen in findHomography: fitfout alleen zou misleidend zijn.
         check_uv = np.array([[p["u"], p["v"]] for p in check], dtype=np.float64)
         check_xy = np.array([[p["x"], p["y"]] for p in check], dtype=np.float64)
         projected = cv2.perspectiveTransform(check_uv.reshape(-1, 1, 2), inverse).reshape(-1, 2)
@@ -184,6 +194,7 @@ def create_calibration(video: VideoMetadata, points: list[dict], reference_frame
 
 
 def valid_box(detection: Detection, image_size: tuple[int, int]) -> bool:
+    """Controleer boxvolgorde, beeldgrenzen en eindige confidence vóór projectie of tracking."""
     box = np.asarray(detection.bbox_xyxy, dtype=float)
     if box.shape != (4,) or not np.isfinite(box).all() or not np.isfinite(detection.confidence):
         return False
@@ -193,6 +204,10 @@ def valid_box(detection: Detection, image_size: tuple[int, int]) -> bool:
 
 
 def project_detection(detection: Detection, calibration: Calibration) -> None:
+    """Werk de detectie bij met een veldpositie of een expliciete afwijsreden.
+
+    Het midden van de onderrand benadert een grondcontactpunt. Een afgesneden
+    box of punt buiten het veld krijgt geen verzonnen of afgeknipte veldpositie."""
     detection.field_position = None
     if not valid_box(detection, tuple(calibration.image_size)):
         detection.projection_status = "invalid_box"
@@ -211,6 +226,8 @@ def project_detection(detection: Detection, calibration: Calibration) -> None:
         if transformed[2] * reference <= 0:
             detection.projection_status = "outside_field"
             return
+        # Homogene coördinaten vereisen deling door de derde component. Dit is
+        # de perspectiefstap die een gewone lineaire schaalfactor niet biedt.
         uv = transformed[:2] / transformed[2]
         if not np.isfinite(uv).all():
             detection.projection_status = "invalid_transform"

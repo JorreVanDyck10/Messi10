@@ -1,4 +1,4 @@
-"""Bounded output-layer training over the audited local field corpus."""
+"""Traint een begrensd deel van het veldmodel en vergelijkt de verkregen checkpoints."""
 
 from __future__ import annotations
 
