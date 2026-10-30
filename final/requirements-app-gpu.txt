@@ -1,0 +1,5 @@
+# Install after the CUDA environment from Setup-Persoon1.ps1; retains CUDA torch.
+streamlit==1.64.0
+lap==0.5.13
+pytest==9.1.1
+ruff==0.17.1

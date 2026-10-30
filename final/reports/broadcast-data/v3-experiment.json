@@ -1,0 +1,454 @@
+{
+  "protocol": {
+    "hypothesis": "Updating all layers improves small-ball transfer compared with freezing the first ten.",
+    "single_changed_factor_between_candidates": "freeze: 10 versus 0",
+    "initial_weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\broadcast-ball-v2\\broadcast_ball_v2.pt",
+    "initial_weights_sha256": "0bfd52b880a6994b646c78374fb00156ba211b3a464f8c8a273873f9b5d2bb52",
+    "crop_dataset_fingerprint": "afa5bbce1eff649d9967e927d0d54f36671dcea3c855620b7919d0a926870d2e",
+    "full_dataset_fingerprint": "a4c9724b184ba383e138293ad33b3f9af8435c17b986d1b79ba86d8d364888a0",
+    "script_sha256": "a27058765d50845a14b544a247bd0c61bd6a795f0f6bb98895777fe209725b4e",
+    "training": {
+      "epochs": 16,
+      "imgsz": 640,
+      "batch": 4,
+      "optimizer": "Adam",
+      "lr0": 0.0001,
+      "lrf": 0.1,
+      "cos_lr": true,
+      "warmup_epochs": 1.0,
+      "warmup_bias_lr": 0.0,
+      "weight_decay": 0.0005,
+      "patience": 8,
+      "amp": true,
+      "workers": 0,
+      "seed": 42,
+      "deterministic": true,
+      "cache": false,
+      "mosaic": 0.0,
+      "mixup": 0.0,
+      "copy_paste": 0.0,
+      "degrees": 0.0,
+      "scale": 0.0,
+      "translate": 0.0,
+      "fliplr": 0.5,
+      "flipud": 0.0,
+      "hsv_h": 0.01,
+      "hsv_s": 0.2,
+      "hsv_v": 0.15,
+      "plots": false
+    },
+    "checkpoint_selection": "Ultralytics best checkpoint on the same development crop validation",
+    "candidate_selection": "Tiled AP50:95 improves, TP >= baseline, FP <= baseline, no extra negative-crop detections at 0.25",
+    "human_review_completed": false,
+    "independent_final_test": false,
+    "scope": "Further development on previously used AI-curated validation; not an independent test.",
+    "default_models_changed": false
+  },
+  "baseline": {
+    "crops": {
+      "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+      "mAP50": 0.643786850656241,
+      "mAP50_95": 0.25554284454724446,
+      "workpoint": {
+        "confidence": 0.25,
+        "matching_iou": 0.5
+      },
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "ball",
+          "objects": 73,
+          "AP50": 0.643786850656241,
+          "AP50_95": 0.25554284454724446,
+          "TP": 36,
+          "FP": 2,
+          "FN": 37,
+          "precision": 0.9473684210526315,
+          "recall": 0.4931506849315068
+        }
+      ],
+      "identity": {
+        "weights_sha256": "0bfd52b880a6994b646c78374fb00156ba211b3a464f8c8a273873f9b5d2bb52",
+        "mode": "crops",
+        "frames": "344ade61833eee517591919cc2148b64b356bd4aef333fdf4d7065810102196e",
+        "confidence_floor": 0.001,
+        "work_confidence": 0.25,
+        "nms_iou": 0.7,
+        "merge_iou": 0.5,
+        "evaluator_sha256": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+        "tiling_sha256": "9a723990a9ffd8fab9255e18582a69c2e42fc0f6ba343db5fa90638cf47cfd66",
+        "torch_version": "2.6.0+cu124",
+        "ultralytics_version": "8.3.221",
+        "imgsz": 640
+      },
+      "frames": 85,
+      "elapsed_s": 3.437999999999988,
+      "negative_frames": 12,
+      "unmatched_on_negatives": 0,
+      "project_human_review_completed": false,
+      "scope": "Development AI-reviewed labels; extra physical balls on full frames may be unlabelled"
+    },
+    "full": {
+      "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+      "mAP50": 0.4163668559634949,
+      "mAP50_95": 0.18008868890445887,
+      "workpoint": {
+        "confidence": 0.25,
+        "matching_iou": 0.5
+      },
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "ball",
+          "objects": 73,
+          "AP50": 0.4163668559634949,
+          "AP50_95": 0.18008868890445887,
+          "TP": 22,
+          "FP": 10,
+          "FN": 51,
+          "precision": 0.6875,
+          "recall": 0.3013698630136986
+        }
+      ],
+      "identity": {
+        "weights_sha256": "0bfd52b880a6994b646c78374fb00156ba211b3a464f8c8a273873f9b5d2bb52",
+        "mode": "full",
+        "frames": "67b20d45c24471f99aa572b855a642c627020789e631e0958b17ac5dcc783819",
+        "confidence_floor": 0.001,
+        "work_confidence": 0.25,
+        "nms_iou": 0.7,
+        "merge_iou": 0.5,
+        "evaluator_sha256": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+        "tiling_sha256": "9a723990a9ffd8fab9255e18582a69c2e42fc0f6ba343db5fa90638cf47cfd66",
+        "torch_version": "2.6.0+cu124",
+        "ultralytics_version": "8.3.221",
+        "imgsz": 1280
+      },
+      "frames": 73,
+      "elapsed_s": 3.25,
+      "negative_frames": 0,
+      "unmatched_on_negatives": 0,
+      "project_human_review_completed": false,
+      "scope": "Development AI-reviewed labels; extra physical balls on full frames may be unlabelled"
+    },
+    "tiled": {
+      "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+      "mAP50": 0.5748519958889426,
+      "mAP50_95": 0.23336801171460783,
+      "workpoint": {
+        "confidence": 0.25,
+        "matching_iou": 0.5
+      },
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "ball",
+          "objects": 73,
+          "AP50": 0.5748519958889426,
+          "AP50_95": 0.23336801171460783,
+          "TP": 36,
+          "FP": 12,
+          "FN": 37,
+          "precision": 0.75,
+          "recall": 0.4931506849315068
+        }
+      ],
+      "identity": {
+        "weights_sha256": "0bfd52b880a6994b646c78374fb00156ba211b3a464f8c8a273873f9b5d2bb52",
+        "mode": "tiled",
+        "frames": "67b20d45c24471f99aa572b855a642c627020789e631e0958b17ac5dcc783819",
+        "confidence_floor": 0.001,
+        "work_confidence": 0.25,
+        "nms_iou": 0.7,
+        "merge_iou": 0.5,
+        "evaluator_sha256": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+        "tiling_sha256": "9a723990a9ffd8fab9255e18582a69c2e42fc0f6ba343db5fa90638cf47cfd66",
+        "torch_version": "2.6.0+cu124",
+        "ultralytics_version": "8.3.221",
+        "imgsz": 640
+      },
+      "frames": 73,
+      "elapsed_s": 10.562999999999988,
+      "negative_frames": 0,
+      "unmatched_on_negatives": 0,
+      "project_human_review_completed": false,
+      "scope": "Development AI-reviewed labels; extra physical balls on full frames may be unlabelled"
+    }
+  },
+  "candidates": {
+    "freeze-10": {
+      "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\broadcast-ball-v3\\freeze-10\\weights\\best.pt",
+      "weights_sha256": "b8cf0526ef718af5291bdfd7003dd4454636e1c74055bb8bc82c397388473394",
+      "measurements": {
+        "crops": {
+          "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+          "mAP50": 0.6612650120624056,
+          "mAP50_95": 0.2675352200384275,
+          "workpoint": {
+            "confidence": 0.25,
+            "matching_iou": 0.5
+          },
+          "per_class": [
+            {
+              "class_id": 0,
+              "name": "ball",
+              "objects": 73,
+              "AP50": 0.6612650120624056,
+              "AP50_95": 0.2675352200384275,
+              "TP": 41,
+              "FP": 4,
+              "FN": 32,
+              "precision": 0.9111111111111111,
+              "recall": 0.5616438356164384
+            }
+          ],
+          "identity": {
+            "weights_sha256": "b8cf0526ef718af5291bdfd7003dd4454636e1c74055bb8bc82c397388473394",
+            "mode": "crops",
+            "frames": "344ade61833eee517591919cc2148b64b356bd4aef333fdf4d7065810102196e",
+            "confidence_floor": 0.001,
+            "work_confidence": 0.25,
+            "nms_iou": 0.7,
+            "merge_iou": 0.5,
+            "evaluator_sha256": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+            "tiling_sha256": "9a723990a9ffd8fab9255e18582a69c2e42fc0f6ba343db5fa90638cf47cfd66",
+            "torch_version": "2.6.0+cu124",
+            "ultralytics_version": "8.3.221",
+            "imgsz": 640
+          },
+          "frames": 85,
+          "elapsed_s": 1.7189999999998236,
+          "negative_frames": 12,
+          "unmatched_on_negatives": 0,
+          "project_human_review_completed": false,
+          "scope": "Development AI-reviewed labels; extra physical balls on full frames may be unlabelled"
+        },
+        "full": {
+          "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+          "mAP50": 0.4333299026938365,
+          "mAP50_95": 0.16447585172658802,
+          "workpoint": {
+            "confidence": 0.25,
+            "matching_iou": 0.5
+          },
+          "per_class": [
+            {
+              "class_id": 0,
+              "name": "ball",
+              "objects": 73,
+              "AP50": 0.4333299026938365,
+              "AP50_95": 0.16447585172658802,
+              "TP": 20,
+              "FP": 10,
+              "FN": 53,
+              "precision": 0.6666666666666666,
+              "recall": 0.273972602739726
+            }
+          ],
+          "identity": {
+            "weights_sha256": "b8cf0526ef718af5291bdfd7003dd4454636e1c74055bb8bc82c397388473394",
+            "mode": "full",
+            "frames": "67b20d45c24471f99aa572b855a642c627020789e631e0958b17ac5dcc783819",
+            "confidence_floor": 0.001,
+            "work_confidence": 0.25,
+            "nms_iou": 0.7,
+            "merge_iou": 0.5,
+            "evaluator_sha256": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+            "tiling_sha256": "9a723990a9ffd8fab9255e18582a69c2e42fc0f6ba343db5fa90638cf47cfd66",
+            "torch_version": "2.6.0+cu124",
+            "ultralytics_version": "8.3.221",
+            "imgsz": 1280
+          },
+          "frames": 73,
+          "elapsed_s": 2.0,
+          "negative_frames": 0,
+          "unmatched_on_negatives": 0,
+          "project_human_review_completed": false,
+          "scope": "Development AI-reviewed labels; extra physical balls on full frames may be unlabelled"
+        },
+        "tiled": {
+          "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+          "mAP50": 0.6108902343492739,
+          "mAP50_95": 0.23962391670493216,
+          "workpoint": {
+            "confidence": 0.25,
+            "matching_iou": 0.5
+          },
+          "per_class": [
+            {
+              "class_id": 0,
+              "name": "ball",
+              "objects": 73,
+              "AP50": 0.6108902343492739,
+              "AP50_95": 0.23962391670493216,
+              "TP": 39,
+              "FP": 11,
+              "FN": 34,
+              "precision": 0.78,
+              "recall": 0.5342465753424658
+            }
+          ],
+          "identity": {
+            "weights_sha256": "b8cf0526ef718af5291bdfd7003dd4454636e1c74055bb8bc82c397388473394",
+            "mode": "tiled",
+            "frames": "67b20d45c24471f99aa572b855a642c627020789e631e0958b17ac5dcc783819",
+            "confidence_floor": 0.001,
+            "work_confidence": 0.25,
+            "nms_iou": 0.7,
+            "merge_iou": 0.5,
+            "evaluator_sha256": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+            "tiling_sha256": "9a723990a9ffd8fab9255e18582a69c2e42fc0f6ba343db5fa90638cf47cfd66",
+            "torch_version": "2.6.0+cu124",
+            "ultralytics_version": "8.3.221",
+            "imgsz": 640
+          },
+          "frames": 73,
+          "elapsed_s": 6.1879999999998745,
+          "negative_frames": 0,
+          "unmatched_on_negatives": 0,
+          "project_human_review_completed": false,
+          "scope": "Development AI-reviewed labels; extra physical balls on full frames may be unlabelled"
+        }
+      },
+      "eligible": true
+    },
+    "freeze-0": {
+      "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\broadcast-ball-v3\\freeze-0\\weights\\best.pt",
+      "weights_sha256": "97c314c3ec62c072ff700cb2fe682f13806e3c9b59acd9c0c98077a2c7c22058",
+      "measurements": {
+        "crops": {
+          "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+          "mAP50": 0.660369015113512,
+          "mAP50_95": 0.27959468842258145,
+          "workpoint": {
+            "confidence": 0.25,
+            "matching_iou": 0.5
+          },
+          "per_class": [
+            {
+              "class_id": 0,
+              "name": "ball",
+              "objects": 73,
+              "AP50": 0.660369015113512,
+              "AP50_95": 0.27959468842258145,
+              "TP": 37,
+              "FP": 4,
+              "FN": 36,
+              "precision": 0.9024390243902439,
+              "recall": 0.5068493150684932
+            }
+          ],
+          "identity": {
+            "weights_sha256": "97c314c3ec62c072ff700cb2fe682f13806e3c9b59acd9c0c98077a2c7c22058",
+            "mode": "crops",
+            "frames": "344ade61833eee517591919cc2148b64b356bd4aef333fdf4d7065810102196e",
+            "confidence_floor": 0.001,
+            "work_confidence": 0.25,
+            "nms_iou": 0.7,
+            "merge_iou": 0.5,
+            "evaluator_sha256": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+            "tiling_sha256": "9a723990a9ffd8fab9255e18582a69c2e42fc0f6ba343db5fa90638cf47cfd66",
+            "torch_version": "2.6.0+cu124",
+            "ultralytics_version": "8.3.221",
+            "imgsz": 640
+          },
+          "frames": 85,
+          "elapsed_s": 2.8910000000000764,
+          "negative_frames": 12,
+          "unmatched_on_negatives": 0,
+          "project_human_review_completed": false,
+          "scope": "Development AI-reviewed labels; extra physical balls on full frames may be unlabelled"
+        },
+        "full": {
+          "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+          "mAP50": 0.3846527204151955,
+          "mAP50_95": 0.1678840870519315,
+          "workpoint": {
+            "confidence": 0.25,
+            "matching_iou": 0.5
+          },
+          "per_class": [
+            {
+              "class_id": 0,
+              "name": "ball",
+              "objects": 73,
+              "AP50": 0.3846527204151955,
+              "AP50_95": 0.1678840870519315,
+              "TP": 19,
+              "FP": 10,
+              "FN": 54,
+              "precision": 0.6551724137931034,
+              "recall": 0.2602739726027397
+            }
+          ],
+          "identity": {
+            "weights_sha256": "97c314c3ec62c072ff700cb2fe682f13806e3c9b59acd9c0c98077a2c7c22058",
+            "mode": "full",
+            "frames": "67b20d45c24471f99aa572b855a642c627020789e631e0958b17ac5dcc783819",
+            "confidence_floor": 0.001,
+            "work_confidence": 0.25,
+            "nms_iou": 0.7,
+            "merge_iou": 0.5,
+            "evaluator_sha256": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+            "tiling_sha256": "9a723990a9ffd8fab9255e18582a69c2e42fc0f6ba343db5fa90638cf47cfd66",
+            "torch_version": "2.6.0+cu124",
+            "ultralytics_version": "8.3.221",
+            "imgsz": 1280
+          },
+          "frames": 73,
+          "elapsed_s": 3.2970000000000255,
+          "negative_frames": 0,
+          "unmatched_on_negatives": 0,
+          "project_human_review_completed": false,
+          "scope": "Development AI-reviewed labels; extra physical balls on full frames may be unlabelled"
+        },
+        "tiled": {
+          "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+          "mAP50": 0.6357459924428476,
+          "mAP50_95": 0.2573613650677421,
+          "workpoint": {
+            "confidence": 0.25,
+            "matching_iou": 0.5
+          },
+          "per_class": [
+            {
+              "class_id": 0,
+              "name": "ball",
+              "objects": 73,
+              "AP50": 0.6357459924428476,
+              "AP50_95": 0.2573613650677421,
+              "TP": 36,
+              "FP": 5,
+              "FN": 37,
+              "precision": 0.8780487804878049,
+              "recall": 0.4931506849315068
+            }
+          ],
+          "identity": {
+            "weights_sha256": "97c314c3ec62c072ff700cb2fe682f13806e3c9b59acd9c0c98077a2c7c22058",
+            "mode": "tiled",
+            "frames": "67b20d45c24471f99aa572b855a642c627020789e631e0958b17ac5dcc783819",
+            "confidence_floor": 0.001,
+            "work_confidence": 0.25,
+            "nms_iou": 0.7,
+            "merge_iou": 0.5,
+            "evaluator_sha256": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+            "tiling_sha256": "9a723990a9ffd8fab9255e18582a69c2e42fc0f6ba343db5fa90638cf47cfd66",
+            "torch_version": "2.6.0+cu124",
+            "ultralytics_version": "8.3.221",
+            "imgsz": 640
+          },
+          "frames": 73,
+          "elapsed_s": 11.406999999999925,
+          "negative_frames": 0,
+          "unmatched_on_negatives": 0,
+          "project_human_review_completed": false,
+          "scope": "Development AI-reviewed labels; extra physical balls on full frames may be unlabelled"
+        }
+      },
+      "eligible": true
+    }
+  },
+  "selected_candidate": "freeze-0",
+  "default_models_changed": false
+}

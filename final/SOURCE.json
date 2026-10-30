@@ -1,0 +1,14 @@
+{
+  "created_on": "2026-10-30",
+  "repository": "https://github.com/JorreVanDyck10/Messi10",
+  "base_revision": "4a3f9e51a7be76d4d943e0cafbd4af9b4e706739",
+  "includes_uncommitted_working_tree_improvements": true,
+  "note": "Curated snapshot including current app, calibration and result-inspection changes; original project left intact.",
+  "dataset": {
+    "frames": 80,
+    "train": 48,
+    "val": 32,
+    "human_review_completed": false
+  },
+  "external_runtime": "Automatic field calibration requires scripts/setup_field_model.py; manual school mode does not."
+}

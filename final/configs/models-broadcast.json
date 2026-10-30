@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "profile_name": "Broadcast — spelers en teams (ontwikkelprofiel)",
+  "models": [
+    {
+      "model_id": "broadcast-pitch-players-v7",
+      "weights": "../artifacts/broadcast-players-v1/players_best.pt",
+      "weights_sha256": "fb6deea2d6c51bada9d3f8bfd666882212f45d1a1584547d02dc98aa59aaaa25",
+      "class_mapping": {
+        "0": "player"
+      },
+      "expected_names": {
+        "0": "player"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    },
+    {
+      "model_id": "coco-person-proposals",
+      "weights": "../artifacts/broadcast-players-v1/person_proposals.pt",
+      "weights_sha256": "d5ffc1a674953a08e11a8d21e022781b1b23a19b730afc309290bd9fb5305b95",
+      "class_mapping": {
+        "0": "person"
+      },
+      "expected_names": {
+        "0": "person"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.5,
+      "device": "0"
+    }
+  ],
+  "appearance": {
+    "model_id": "joint-selected-roles",
+    "weights": "../artifacts/broadcast-players-v1/roles_teams.pt",
+    "weights_sha256": "8987a94964d8d00802cac5b863a889dc0b7ca9052ac159e6c5480830e7c69025",
+    "role_names": [
+      "player",
+      "referee",
+      "person"
+    ],
+    "role_confidence": 0.5,
+    "team_confidence": 0.65,
+    "device": "0",
+    "role_policy": "preserve_detector_players"
+  },
+  "analysis_scope": "on_pitch_players",
+  "kit_embedding": {
+    "model_id": "broadcast-kit-v1",
+    "weights": "../artifacts/broadcast-players-v1/kit_embedding.pt",
+    "weights_sha256": "bb37f14d7f6b85a61b3d688e18563895f3c1ebac82db340e39f125af2c4125fe",
+    "device": "0"
+  },
+  "person_geometry": true,
+  "role_context": {
+    "model_id": "pitch-role-context-observed-v8",
+    "weights": "../artifacts/broadcast-players-v1/role_context.pt",
+    "weights_sha256": "fa9fd730d668a4225279fe31ffacb450e2b5bc1c2f7674df7550006b7ba76541",
+    "player_threshold": 0.95,
+    "nonplayer_threshold": 0.99,
+    "protect_end_fraction": 0.08
+  },
+  "person_box_fusion_weight": 0.5,
+  "handoff": {
+    "evaluation_record": "../reports/broadcast-pitch-v1/summary.json",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "targets_met": false,
+    "scope": "Broadcast development validation; players inside current field only"
+  }
+}

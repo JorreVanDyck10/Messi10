@@ -1,0 +1,5 @@
+# Preserve release checksums, including historical JSON line endings.
+* -text whitespace=cr-at-eol
+*.pt filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text

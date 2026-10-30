@@ -1,0 +1,1180 @@
+{
+  "candidate_fingerprint": "b1e5e5a4a29a526e602eb2f36d73357980fe72b6aadfce5baf1c86f898fad526",
+  "reviewer": "Codex (AI)",
+  "human_review_completed": false,
+  "criteria": "Accept only a visually identifiable ball substantially enclosed by the provider box; reject uncertain visibility or visible misalignment. Two known errors corrected using original-pixel diagnostic grids.",
+  "decisions": [
+    {
+      "candidate_id": 0,
+      "status": "correct",
+      "reason": "Original source box lies above the visible ball; moved and resized to the ball's visible extent using the original-pixel grid.",
+      "corrected_bbox_xyxy": [
+        932,
+        456,
+        947,
+        471
+      ]
+    },
+    {
+      "candidate_id": 1,
+      "status": "correct",
+      "reason": "Original source box lies above the visible ball; moved and resized to the ball's visible extent using the original-pixel grid.",
+      "corrected_bbox_xyxy": [
+        700,
+        672,
+        719,
+        692
+      ]
+    },
+    {
+      "candidate_id": 2,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 3,
+      "status": "reject",
+      "reason": "Visible ball extends substantially to the right of the box."
+    },
+    {
+      "candidate_id": 4,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 5,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 6,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 7,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 8,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 9,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 10,
+      "status": "reject",
+      "reason": "Box is below the visible ball."
+    },
+    {
+      "candidate_id": 11,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 12,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 13,
+      "status": "reject",
+      "reason": "Ball is partly occluded by goalkeeper; boundary uncertain."
+    },
+    {
+      "candidate_id": 14,
+      "status": "reject",
+      "reason": "Ball overlaps leg; full boundary uncertain."
+    },
+    {
+      "candidate_id": 15,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 16,
+      "status": "reject",
+      "reason": "Box cuts the visible horizontal blur."
+    },
+    {
+      "candidate_id": 17,
+      "status": "reject",
+      "reason": "Occlusion makes the ball boundary uncertain."
+    },
+    {
+      "candidate_id": 18,
+      "status": "reject",
+      "reason": "Ball is near the image boundary; visible extent uncertain."
+    },
+    {
+      "candidate_id": 19,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 20,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 21,
+      "status": "reject",
+      "reason": "Visible ball extends below the box."
+    },
+    {
+      "candidate_id": 22,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 23,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 24,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 25,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 26,
+      "status": "reject",
+      "reason": "Tiny object against goalkeeper/net is ambiguous."
+    },
+    {
+      "candidate_id": 27,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 28,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 29,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 30,
+      "status": "reject",
+      "reason": "Box is left of the visible ball."
+    },
+    {
+      "candidate_id": 31,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 32,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 33,
+      "status": "reject",
+      "reason": "Box cuts the right side of the visible ball."
+    },
+    {
+      "candidate_id": 34,
+      "status": "reject",
+      "reason": "Box misses the right extent of the visible ball."
+    },
+    {
+      "candidate_id": 35,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 36,
+      "status": "reject",
+      "reason": "Ball occluded behind player."
+    },
+    {
+      "candidate_id": 37,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 38,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 39,
+      "status": "reject",
+      "reason": "Visibility against advertising/staff is ambiguous."
+    },
+    {
+      "candidate_id": 40,
+      "status": "reject",
+      "reason": "Ball boundary overlaps player leg."
+    },
+    {
+      "candidate_id": 41,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 42,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 43,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 44,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 45,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 46,
+      "status": "reject",
+      "reason": "Box lies above and right of the visible ball."
+    },
+    {
+      "candidate_id": 47,
+      "status": "reject",
+      "reason": "Box lies below and left of the visible ball."
+    },
+    {
+      "candidate_id": 48,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 49,
+      "status": "reject",
+      "reason": "Ball is near upper-left boundary of box; box mostly contains grass."
+    },
+    {
+      "candidate_id": 50,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 51,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 52,
+      "status": "reject",
+      "reason": "Ball is obscured by the player's leg."
+    },
+    {
+      "candidate_id": 53,
+      "status": "reject",
+      "reason": "Ball is partly occluded under player's arm."
+    },
+    {
+      "candidate_id": 54,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 55,
+      "status": "reject",
+      "reason": "Dark motion blur next to foot makes ball boundary uncertain."
+    },
+    {
+      "candidate_id": 56,
+      "status": "reject",
+      "reason": "Visible ball is below and left of box."
+    },
+    {
+      "candidate_id": 57,
+      "status": "reject",
+      "reason": "Visible ball is below and left of box."
+    },
+    {
+      "candidate_id": 58,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 59,
+      "status": "reject",
+      "reason": "Ball/feet overlap; extent uncertain."
+    },
+    {
+      "candidate_id": 60,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 61,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 62,
+      "status": "reject",
+      "reason": "Visible ball is below and left of box."
+    },
+    {
+      "candidate_id": 63,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 64,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 65,
+      "status": "reject",
+      "reason": "Visible ball is above and right of box."
+    },
+    {
+      "candidate_id": 66,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 67,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 68,
+      "status": "reject",
+      "reason": "Box clips right side of motion-blurred ball."
+    },
+    {
+      "candidate_id": 69,
+      "status": "reject",
+      "reason": "Box is shifted above and left of visible ball."
+    },
+    {
+      "candidate_id": 70,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 71,
+      "status": "reject",
+      "reason": "Visible blur extends below and right of box."
+    },
+    {
+      "candidate_id": 72,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 73,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 74,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 75,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 76,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 77,
+      "status": "reject",
+      "reason": "Visible ball lies above and right of the box."
+    },
+    {
+      "candidate_id": 78,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 79,
+      "status": "reject",
+      "reason": "Visible ball lies left of the box."
+    },
+    {
+      "candidate_id": 80,
+      "status": "reject",
+      "reason": "Box covers only the lower part of the visible ball."
+    },
+    {
+      "candidate_id": 81,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 82,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 83,
+      "status": "reject",
+      "reason": "Visible ball extends far to the right of the box."
+    },
+    {
+      "candidate_id": 84,
+      "status": "reject",
+      "reason": "Box cuts right extent of visible ball."
+    },
+    {
+      "candidate_id": 85,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 86,
+      "status": "reject",
+      "reason": "Ball lies left of the box."
+    },
+    {
+      "candidate_id": 87,
+      "status": "reject",
+      "reason": "Box cuts right extent of ball near player's foot."
+    },
+    {
+      "candidate_id": 88,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 89,
+      "status": "reject",
+      "reason": "Ball boundary overlaps player's head; uncertain extent."
+    },
+    {
+      "candidate_id": 90,
+      "status": "reject",
+      "reason": "Visible ball extends right of the box."
+    },
+    {
+      "candidate_id": 91,
+      "status": "reject",
+      "reason": "Tiny ball against spectators is not unambiguously visible."
+    },
+    {
+      "candidate_id": 92,
+      "status": "reject",
+      "reason": "Box contains pitch/net while visible object is elsewhere."
+    },
+    {
+      "candidate_id": 93,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 94,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 95,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 96,
+      "status": "reject",
+      "reason": "Visible ball lies below and left of the box."
+    },
+    {
+      "candidate_id": 97,
+      "status": "reject",
+      "reason": "Box lies above visible ball."
+    },
+    {
+      "candidate_id": 98,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 99,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 100,
+      "status": "reject",
+      "reason": "Ball is occluded by player's body."
+    },
+    {
+      "candidate_id": 101,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 102,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 103,
+      "status": "reject",
+      "reason": "Box contains foot/advertising; ball boundary unclear."
+    },
+    {
+      "candidate_id": 104,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 105,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 106,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 107,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 108,
+      "status": "reject",
+      "reason": "Ball extends below and right of box."
+    },
+    {
+      "candidate_id": 109,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 110,
+      "status": "reject",
+      "reason": "Possible ball against advertising is not enclosed by box."
+    },
+    {
+      "candidate_id": 111,
+      "status": "reject",
+      "reason": "Visible ball is below the box."
+    },
+    {
+      "candidate_id": 112,
+      "status": "reject",
+      "reason": "Box covers only upper part of visible white blur."
+    },
+    {
+      "candidate_id": 113,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 114,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 115,
+      "status": "reject",
+      "reason": "Visible ball lies left of box."
+    },
+    {
+      "candidate_id": 116,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 117,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 118,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 119,
+      "status": "reject",
+      "reason": "Ball lies above and right of box."
+    },
+    {
+      "candidate_id": 120,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 121,
+      "status": "reject",
+      "reason": "Visible ball lies below and left of box."
+    },
+    {
+      "candidate_id": 122,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 123,
+      "status": "reject",
+      "reason": "Box cuts left part of horizontal blur."
+    },
+    {
+      "candidate_id": 124,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 125,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 126,
+      "status": "reject",
+      "reason": "Visible ball lies above and left of box."
+    },
+    {
+      "candidate_id": 127,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 128,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 129,
+      "status": "reject",
+      "reason": "Ball against advertising cannot be separated confidently."
+    },
+    {
+      "candidate_id": 130,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 131,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 132,
+      "status": "reject",
+      "reason": "Box lies below the visible ball."
+    },
+    {
+      "candidate_id": 133,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 134,
+      "status": "reject",
+      "reason": "Ball is obscured by overlapping players."
+    },
+    {
+      "candidate_id": 135,
+      "status": "reject",
+      "reason": "Visible ball lies below and right of box."
+    },
+    {
+      "candidate_id": 136,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 137,
+      "status": "reject",
+      "reason": "Box cuts right extent of the large ball."
+    },
+    {
+      "candidate_id": 138,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 139,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 140,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 141,
+      "status": "reject",
+      "reason": "Visible streak lies above and right of box."
+    },
+    {
+      "candidate_id": 142,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 143,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 144,
+      "status": "reject",
+      "reason": "Ball and foot overlap; full visible ball boundary uncertain."
+    },
+    {
+      "candidate_id": 145,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 146,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 147,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 148,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 149,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 150,
+      "status": "reject",
+      "reason": "Visible blur lies above and right of the box."
+    },
+    {
+      "candidate_id": 151,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 152,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 153,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 154,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 155,
+      "status": "reject",
+      "reason": "Ball lies below and right of the box."
+    },
+    {
+      "candidate_id": 156,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 157,
+      "status": "reject",
+      "reason": "Ball is partly obscured by the player's leg."
+    },
+    {
+      "candidate_id": 158,
+      "status": "reject",
+      "reason": "Ball overlaps moving leg; visible boundary uncertain."
+    },
+    {
+      "candidate_id": 159,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 160,
+      "status": "reject",
+      "reason": "Held ball is occluded by goalkeeper gloves/body."
+    },
+    {
+      "candidate_id": 161,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 162,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 163,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 164,
+      "status": "reject",
+      "reason": "Tiny low-contrast object cannot be identified confidently."
+    },
+    {
+      "candidate_id": 165,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 166,
+      "status": "reject",
+      "reason": "Blur overlaps foot/background; ball extent uncertain."
+    },
+    {
+      "candidate_id": 167,
+      "status": "reject",
+      "reason": "Ball and leg overlap; visible ball boundary uncertain."
+    },
+    {
+      "candidate_id": 168,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 169,
+      "status": "reject",
+      "reason": "Visible ball lies below and right of the box."
+    },
+    {
+      "candidate_id": 170,
+      "status": "reject",
+      "reason": "Visible ball lies left of the box."
+    },
+    {
+      "candidate_id": 171,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 172,
+      "status": "reject",
+      "reason": "Foot/ball overlap makes the boundary uncertain."
+    },
+    {
+      "candidate_id": 173,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 174,
+      "status": "reject",
+      "reason": "Box cuts left side of horizontal blur."
+    },
+    {
+      "candidate_id": 175,
+      "status": "reject",
+      "reason": "Goalkeeper hands obscure ball boundary."
+    },
+    {
+      "candidate_id": 176,
+      "status": "reject",
+      "reason": "Background blur prevents confident ball identification."
+    },
+    {
+      "candidate_id": 177,
+      "status": "reject",
+      "reason": "Visible ball extends left of the box."
+    },
+    {
+      "candidate_id": 178,
+      "status": "reject",
+      "reason": "Ball overlaps heads; boundary uncertain."
+    },
+    {
+      "candidate_id": 179,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 180,
+      "status": "reject",
+      "reason": "Visible ball lies below the box."
+    },
+    {
+      "candidate_id": 181,
+      "status": "reject",
+      "reason": "Held ball extends left of the box."
+    },
+    {
+      "candidate_id": 182,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 183,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 184,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 185,
+      "status": "reject",
+      "reason": "Goalkeeper gloves obscure visible ball boundary."
+    },
+    {
+      "candidate_id": 186,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 187,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 188,
+      "status": "reject",
+      "reason": "Low-contrast object against spectators is ambiguous."
+    },
+    {
+      "candidate_id": 189,
+      "status": "reject",
+      "reason": "Box cuts left side of the clearly visible ball."
+    },
+    {
+      "candidate_id": 190,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 191,
+      "status": "reject",
+      "reason": "Ball is occluded by player bodies."
+    },
+    {
+      "candidate_id": 192,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 193,
+      "status": "reject",
+      "reason": "Visible ball lies above and right of the box."
+    },
+    {
+      "candidate_id": 194,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 195,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 196,
+      "status": "reject",
+      "reason": "Foot/ball overlap prevents clear boundary identification."
+    },
+    {
+      "candidate_id": 197,
+      "status": "reject",
+      "reason": "Visible ball extends above the box."
+    },
+    {
+      "candidate_id": 198,
+      "status": "reject",
+      "reason": "Box lies below the visible ball."
+    },
+    {
+      "candidate_id": 199,
+      "status": "reject",
+      "reason": "Box lies below and left of the visible blur."
+    },
+    {
+      "candidate_id": 200,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 201,
+      "status": "reject",
+      "reason": "Ball cannot be separated confidently from net/background."
+    },
+    {
+      "candidate_id": 202,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 203,
+      "status": "reject",
+      "reason": "Held ball/gloves overlap; boundary uncertain."
+    },
+    {
+      "candidate_id": 204,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 205,
+      "status": "reject",
+      "reason": "Ball overlaps foot and extends beyond the box."
+    },
+    {
+      "candidate_id": 206,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 207,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 208,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 209,
+      "status": "reject",
+      "reason": "Goalkeeper hands obscure full ball boundary."
+    },
+    {
+      "candidate_id": 210,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 211,
+      "status": "reject",
+      "reason": "Visible ball lies left of the box."
+    },
+    {
+      "candidate_id": 212,
+      "status": "reject",
+      "reason": "Ball extends substantially right of the box."
+    },
+    {
+      "candidate_id": 213,
+      "status": "reject",
+      "reason": "Ball extends right of the box."
+    },
+    {
+      "candidate_id": 214,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 215,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 216,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 217,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 218,
+      "status": "reject",
+      "reason": "Visible ball lies right of the box."
+    },
+    {
+      "candidate_id": 219,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 220,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 221,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 222,
+      "status": "reject",
+      "reason": "Ball boundary is obscured by the player's body."
+    },
+    {
+      "candidate_id": 223,
+      "status": "reject",
+      "reason": "Box clips upper part of the ball."
+    },
+    {
+      "candidate_id": 224,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 225,
+      "status": "reject",
+      "reason": "Visible ball is below the box."
+    },
+    {
+      "candidate_id": 226,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 227,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 228,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 229,
+      "status": "accept",
+      "reason": "Visible ball is enclosed by the source box in the native crop."
+    },
+    {
+      "candidate_id": 230,
+      "status": "reject",
+      "reason": "Box clips the upper/right ball boundary."
+    },
+    {
+      "candidate_id": 231,
+      "status": "reject",
+      "reason": "Visible ball lies above and right of the box."
+    }
+  ]
+}

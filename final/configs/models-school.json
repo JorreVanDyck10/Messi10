@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "profile_name": "Schoolbasis: YOLO en handmatige homography (voorlopig)",
+  "models": [
+    {
+      "model_id": "exp-p006-gsr-multimatch-v3",
+      "weights": "../artifacts/players-v3/players_best.pt",
+      "weights_sha256": "beecb2439ca3329816df75e28c247236dfd7b283e66db72168139a1d28891aee",
+      "class_mapping": {
+        "0": "player",
+        "1": "referee"
+      },
+      "expected_names": {
+        "0": "player",
+        "1": "referee"
+      },
+      "imgsz": 1280,
+      "confidence": 0.25,
+      "iou": 0.7,
+      "device": "0"
+    },
+    {
+      "model_id": "fullscene-ball-f005-multiscale",
+      "weights": "../artifacts/fullscene-ball-v1/fullscene_ball_f005.pt",
+      "weights_sha256": "de7d869c01cb8539664c1a3917f6eee90de9d7e655cd484be99999847b0ebf11",
+      "class_mapping": {
+        "32": "ball"
+      },
+      "expected_names": {
+        "32": "sports ball"
+      },
+      "imgsz": 1280,
+      "confidence": 0.25,
+      "iou": 0.7,
+      "device": "0"
+    }
+  ],
+  "handoff": {
+    "evaluation_record": "../reports/course-improvement/players-selected-metrics.json",
+    "evaluation_sha256": "62d44fd55c7d6713a9e3395757dcd4a16eb68904aaa24726f7c625a94f51f7de",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "dataset_fingerprint": "02d3531ae28aff7aeab5e4fc016cb15b4e863bc6a255df2c14bd686fb0c6ef71",
+    "source": "SN-GSR-2024 v1.3 provider labels; three training and three held-out validation games",
+    "selected_experiment": "EXP-P006",
+    "ball_promoted": false,
+    "referee_coverage": "Published provider roles; referee recall still limited on held-out validation.",
+    "ball_evaluation_record": "../reports/broadcast-data/v2-experiment.json",
+    "ball_evaluation_sha256": "2267100279fb1e0af0362980c723d77f8988afec6a394f2aac6454a8b1d9caa1",
+    "default_promoted": false,
+    "joint_accuracy_evaluated": false,
+    "ball_available_in_this_profile": true,
+    "ball_selected_model": "F005 baseline; no broadcast-v2 promotion",
+    "ball_inference_scope": "Full frames at imgsz 1280; baseline.full in ball_evaluation_record"
+  }
+}

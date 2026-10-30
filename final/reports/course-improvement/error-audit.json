@@ -1,0 +1,25 @@
+{
+  "method": "Geometric overlap categories, not established causal explanations",
+  "counts": {
+    "FP:0:localization_overlap": 14,
+    "FP:0:wrong_role_overlap": 22,
+    "FP:0:no_matching_reference_box": 10,
+    "FP:0:duplicate_or_competing_prediction": 19,
+    "FN:0:below_work_confidence": 14,
+    "FN:0:localization_overlap": 9,
+    "FN:0:wrong_role_overlap": 1,
+    "FP:1:wrong_role_overlap": 12,
+    "FP:1:localization_overlap": 3,
+    "FP:1:duplicate_or_competing_prediction": 1,
+    "FN:1:below_work_confidence": 3,
+    "FN:1:wrong_role_overlap": 13,
+    "FN:2:no_matching_prediction": 6,
+    "FN:2:wrong_role_overlap": 10,
+    "FN:2:localization_overlap": 4
+  },
+  "hypotheses": [
+    "Small ball targets and class imbalance warrant a separate targeted experiment; no balldetector is promoted.",
+    "Referee/player confusion remains; add and independently review varied officials before claiming reliable role recognition."
+  ],
+  "human_review_completed": false
+}

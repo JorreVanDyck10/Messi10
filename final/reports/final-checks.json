@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-30",
+  "pytest": {
+    "passed": 187,
+    "failed": 0,
+    "duration_seconds": 77.95,
+    "report": "final-tests.xml",
+    "scope": "Packaged tests executed with final/src and final as Python path, using the existing parent environment"
+  },
+  "ruff_check": "passed",
+  "ruff_format_check": "passed",
+  "powershell_syntax": "passed",
+  "model_manifests": {
+    "validated": 7,
+    "missing_files": 0,
+    "weight_checksums": "passed"
+  },
+  "real_inference_smoke_tests": [
+    {
+      "profile": "models-school",
+      "device": "cpu",
+      "frame": "SNGS-060_000486",
+      "detections": 18,
+      "status": "passed"
+    },
+    {
+      "profile": "models-players-ball-broadcast-v3",
+      "device": "cpu",
+      "frame": "SNGS-060_000486",
+      "detections": 22,
+      "status": "passed"
+    },
+    {
+      "profile": "models-broadcast",
+      "device": "cpu",
+      "frame": "SNGS-060_000486",
+      "detections": 37,
+      "status": "passed"
+    }
+  ],
+  "python_syntax_tree_comparison": {
+    "matched_original_files": 117,
+    "status": "passed",
+    "note": "Formatting in the package did not change copied Python syntax trees."
+  },
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "ultralytics": "8.3.221",
+    "streamlit": "1.64.0",
+    "ffmpeg": "N-127579-g5cb9fcd211-20261016"
+  },
+  "limits": [
+    "Fresh dependency installation on a second laptop was not repeated.",
+    "Automatic field-model installation and automatic field inference were not repeated for this packaging task.",
+    "Single-frame detector checks are technical smoke tests, not independent accuracy measurements.",
+    "Human annotation review and an independent final benchmark remain incomplete."
+  ]
+}
