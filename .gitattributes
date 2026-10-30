@@ -48,7 +48,19 @@ artifacts/broadcast-ball-v3/*.pt filter=lfs diff=lfs merge=lfs -text
 reports/field-reliability/** -text whitespace=cr-at-eol
 reports/team-analysis/** -text whitespace=cr-at-eol
 reports/broadcast-reliability-20261030/** -text whitespace=cr-at-eol
+reports/player-field-reliability-20261030/** -text whitespace=cr-at-eol
 reports/broadcast-reliability-day1-20261028/** -text whitespace=cr-at-eol
 reports/broadcast-reliability-day2-20261028/** -text whitespace=cr-at-eol
 artifacts/fullscene-ball-v1/*.pt filter=lfs diff=lfs merge=lfs -text
+# Reviewed training inputs are selected by datasets/training-runtime-v1/manifest.json.
+# Keep original label/manifest bytes: their hashes are used by the training guards.
+data/** -text whitespace=cr-at-eol
+data/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+data/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+data/**/*.png filter=lfs diff=lfs merge=lfs -text
+data/**/*.gz filter=lfs diff=lfs merge=lfs -text
+artifacts/broadcast-pitch-v1/appearance/features.pt filter=lfs diff=lfs merge=lfs -text
+artifacts/player-field-reliability-20261030/field-recovery/training-index.json -text whitespace=cr-at-eol
+configs/models-broadcast.json -text whitespace=cr-at-eol
+datasets/training-runtime-v1/** -text whitespace=cr-at-eol
 assets/annotations/football-fullscene100b/images/**/*.png filter=lfs diff=lfs merge=lfs -text

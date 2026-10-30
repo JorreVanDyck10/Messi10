@@ -339,7 +339,12 @@ def prepare_automatic_calibration(video_path, runtime_path, output_root, *, sour
         "worker_sha256": sha256_file(worker),
         "adapter_files": {
             name: sha256_file(Path(__file__).with_name(name))
-            for name in ("automatic_calibration.py", "field_layout.py", "field_model_spec.py")
+            for name in (
+                "automatic_calibration.py",
+                "field_layout.py",
+                "field_model_spec.py",
+                "field_coordinates.py",
+            )
         },
     }
     # Rehash executable, model weights and source tree before cache lookup.

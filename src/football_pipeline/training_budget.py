@@ -104,6 +104,14 @@ def train_yolo(weights, dataset, output, config, minutes):
             return best
         except torch.cuda.OutOfMemoryError as exc:
             record["attempts"].append({"batch": batch, "status": "cuda_out_of_memory", "error": str(exc)})
+        except RuntimeError as exc:
+            # Some CUDA/driver combinations surface allocation failures as a
+            # generic RuntimeError rather than torch.cuda.OutOfMemoryError.
+            if "cuda" in str(exc).lower() and "out of memory" in str(exc).lower():
+                record["attempts"].append({"batch": batch, "status": "cuda_out_of_memory", "error": str(exc)})
+            else:
+                record.update(status="failed", error=str(exc), runtime_s=budget.clock() - budget.started)
+                raise
         except BaseException as exc:
             record.update(status="failed", error=str(exc), runtime_s=budget.clock() - budget.started)
             raise

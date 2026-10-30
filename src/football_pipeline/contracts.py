@@ -147,7 +147,7 @@ class FrameRecord:
         )
 
     def to_dict(self) -> dict:
-        from .participants import count_exclusion_reason, counted_as_player, player_summary
+        from .participants import count_exclusion_reason, counted_as_player, frame_diagnostics, player_summary
 
         result = asdict(self)
         if self.calibration is None:
@@ -157,6 +157,7 @@ class FrameRecord:
         if self.team_context is None:
             result.pop("team_context")
         result["player_summary"] = player_summary(self)
+        result["diagnostics"] = frame_diagnostics(self)
         for detection, serialized in zip(self.detections, result["detections"]):
             serialized["counted_as_player"] = counted_as_player(self, detection)
             serialized["player_exclusion_reason"] = count_exclusion_reason(self, detection)

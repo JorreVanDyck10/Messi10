@@ -8,7 +8,14 @@ from .contracts import FrameRecord
 from .field_layout import LINES_UV
 from .field_motion import status_label
 from .geometry import valid_box
-from .participants import DISPLAY_CONFIDENCE, player_summary, visible_detection
+from .participants import (
+    DISPLAY_CONFIDENCE,
+    displayed_as_player,
+    field_available,
+    field_exclusion_reason,
+    player_summary,
+    visible_detection,
+)
 from .teams import UNKNOWN_COLOR, hex_rgb
 from .tracking import Trajectories
 
@@ -76,9 +83,10 @@ def render_frame(
     if record.analysis_scope == "on_pitch_players":
         from dataclasses import replace
 
-        from .participants import counted_as_player
-
-        record = replace(record, detections=[d for d in record.detections if counted_as_player(record, d)])
+        record = replace(
+            record,
+            detections=[d for d in record.detections if displayed_as_player(record, d, display_confidence)],
+        )
     canvas = np.full((720, 1920, 3), (22, 35, 29), dtype=np.uint8)
     h, w = frame.shape[:2]
     scale = min(1280 / w, 720 / h)
@@ -172,7 +180,7 @@ def render_frame(
                 scale=0.43,
             )
     for detection in record.detections:
-        if detection.field_position is None:
+        if not field_available(record) or field_exclusion_reason(detection, record.image_size) is not None:
             continue
         if not visible_detection(detection, display_confidence):
             continue

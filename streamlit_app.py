@@ -64,7 +64,7 @@ with st.sidebar:
     st.caption("Van wedstrijdbeeld naar inzicht")
     navigation = st.radio(
         "Werkruimte",
-        ["Nieuwe analyse", "Opgeslagen analyses", "Veldcontrole"],
+        ["Nieuwe analyse", "Opgeslagen analyses", "Veldcontrole", "Modellen trainen"],
         key="workspace_view",
         on_change=navigate,
     )
@@ -76,6 +76,12 @@ with st.sidebar:
                 ROOT / "artifacts/joint-retrain-20261027-v2",
                 latest_demo=ROOT / "reports/broadcast-pitch-v1/demonstration.json",
             )
+
+if navigation == "Modellen trainen":
+    from football_pipeline.training_ui import training_page
+
+    training_page()
+    st.stop()
 
 st.title("Elke beweging in beeld")
 st.caption(

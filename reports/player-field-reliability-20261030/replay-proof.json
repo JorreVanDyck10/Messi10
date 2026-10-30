@@ -1,0 +1,12 @@
+{
+  "frames": 750,
+  "calibration_status_and_homography_exactly_equal": true,
+  "unknown_field_frames_with_boxes": 295,
+  "unknown_field_frames_with_image_tracks": 295,
+  "source_run": "C:\\Messi10\\runs\\cdbccee936a74aecbffd40d557e573318a634d7ca6e1688f25bee4a8f3da277e",
+  "new_run": "C:\\Messi10\\artifacts\\player-field-reliability-20261030\\final-replay\\7f435bf75a90dbb66336a693f38d04fead151b0d641f6caa5cdd00951b11a0a6",
+  "detector_rerun": false,
+  "replay_precondition": "Same native pixels, same detector/role weights and unchanged field matrices; final retained detections replayed.",
+  "new_field_accuracy_claim": false,
+  "human_review_completed": false
+}

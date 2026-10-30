@@ -288,8 +288,7 @@ def process_video(
             {
                 "camera_compensation": "background_affine_ransac" if automatic else None,
                 "reset_on_cut_or_unreliable_motion": automatic,
-                "field_required_for_image_ids": not automatic
-                or models.get("analysis_scope") == "on_pitch_players",
+                "field_required_for_image_ids": not automatic,
                 "human_accuracy_validated": False,
                 "status": "experimental" if automatic else "mvp_reviewed",
             }
@@ -408,7 +407,7 @@ def process_video(
                     config,
                     video.fps,
                     camera_motion=automatic,
-                    require_field=models.get("analysis_scope") == "on_pitch_players",
+                    require_field=not automatic,
                 )
                 if config
                 else None

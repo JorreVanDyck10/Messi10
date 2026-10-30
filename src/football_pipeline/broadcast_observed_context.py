@@ -193,7 +193,7 @@ def collect(dataset, profile, output):
     return output
 
 
-def train(cache, output, epochs=50, nonplayer_weight=3.0):
+def train(cache, output, epochs=50, nonplayer_weight=3.0, *, device="cpu", minutes=None):
     if not np.isfinite(nonplayer_weight) or nonplayer_weight <= 0:
         raise ValueError("Nonplayer weight must be positive and finite")
     torch.set_num_threads(4)
@@ -223,28 +223,28 @@ def train(cache, output, epochs=50, nonplayer_weight=3.0):
     xv, yv = (np.concatenate(v) for v in groups["val"])
     mean, std = x.mean(0), x.std(0).clip(0.05)
     x, y, xv = (
-        torch.from_numpy((x - mean) / std),
-        torch.from_numpy(y).float(),
-        torch.from_numpy((xv - mean) / std),
+        torch.from_numpy((x - mean) / std).to(device),
+        torch.from_numpy(y).float().to(device),
+        torch.from_numpy((xv - mean) / std).to(device),
     )
-    model = context_head()
+    model = context_head().to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.01)
     best, curve, started = None, [], time.monotonic()
     for epoch in range(1, epochs + 1):
         model.train()
-        order = torch.randperm(len(x))
+        order = torch.randperm(len(x), device=device)
         for start in range(0, len(x), 1024):
             indices = order[start : start + 1024]
             logits = model(x[indices] + 0.02 * torch.randn_like(x[indices])).squeeze(1)
             loss = torch.nn.functional.binary_cross_entropy_with_logits(
-                logits, y[indices], pos_weight=torch.tensor(float(nonplayer_weight))
+                logits, y[indices], pos_weight=torch.tensor(float(nonplayer_weight), device=device)
             )
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
         model.eval()
         with torch.inference_mode():
-            q = model(xv).sigmoid().numpy().ravel()
+            q = model(xv).sigmoid().cpu().numpy().ravel()
         row = {
             "epoch": epoch,
             "rejected_players": int(((q >= 0.99) & (yv == 0)).sum()),
@@ -263,6 +263,8 @@ def train(cache, output, epochs=50, nonplayer_weight=3.0):
             best = score, {k: v.detach().clone() for k, v in model.state_dict().items()}, row
         if epoch % 5 == 0:
             print(row, flush=True)
+        if minutes is not None and time.monotonic() - started >= minutes * 60:
+            break
     projection = torch.load(cache / "projection.pt", map_location="cpu", weights_only=True)
     torch.save(
         {
@@ -284,6 +286,7 @@ def train(cache, output, epochs=50, nonplayer_weight=3.0):
             "inputs": inputs,
             "train_rows": len(x),
             "nonplayer_weight": nonplayer_weight,
+            "device": str(device),
             "val_rows": len(xv),
             "runtime_s": time.monotonic() - started,
             "weights_sha256": sha256_file(output / "role_context.pt"),

@@ -21,8 +21,6 @@ sys.path.insert(0, str(ROOT / "src"))
 from football_pipeline.contracts import sha256_file, write_json  # noqa: E402
 from football_pipeline.field_layout import (  # noqa: E402
     COORDINATE_SYSTEM,
-    LINES_UV,
-    POINTS_UV,
     POLICY,
     UPSTREAM_REVISION,
     UPSTREAM_URL,
@@ -46,6 +44,7 @@ def main():
         for p in (
             Path(__file__),
             ROOT / "src/football_pipeline/field_layout.py",
+            ROOT / "src/football_pipeline/field_coordinates.py",
             ROOT / "src/football_pipeline/field_model_spec.py",
             ROOT / "src/football_pipeline/automatic_calibration.py",
         )
@@ -78,6 +77,7 @@ def main():
     )
 
     from football_pipeline.automatic_calibration import estimate_frame
+    from football_pipeline.field_coordinates import observation_from_peaks
 
     started = time.perf_counter()
     device = runtime["device"]
@@ -120,36 +120,10 @@ def main():
                     threshold=float("-inf"),
                     ground_plane_only=True,
                 )[0]
-                points = [
-                    {
-                        "id": k,
-                        "x": p["x"] * width / 960,
-                        "y": p["y"] * height / 540,
-                        "confidence": min(1.0, max(0.0, p["p"])),
-                        "raw_score": p["p"],
-                    }
-                    for k, p in keypoints.items()
-                    if k in POINTS_UV
-                ]
-                detected_lines = [
-                    {
-                        "id": k,
-                        "xy": [
-                            [p["x_1"] * width / 960, p["y_1"] * height / 540],
-                            [p["x_2"] * width / 960, p["y_2"] * height / 540],
-                        ],
-                        "confidence": min(1.0, max(0.0, min(p["p_1"], p["p_2"]))),
-                        "raw_scores": [p["p_1"], p["p_2"]],
-                    }
-                    for k, p in lines.items()
-                    if k in LINES_UV
-                ]
                 row = {
+                    **observation_from_peaks(keypoints, lines, (width, height)),
                     "frame_index": count,
                     "timestamp_s": count * args.fps_den / args.fps_num,
-                    "image_size": [width, height],
-                    "points": points,
-                    "lines": detected_lines,
                 }
                 inference_s += time.perf_counter() - tick
                 statuses[estimate_frame(row, (width, height))["status"]] += 1

@@ -21,7 +21,7 @@ from pathlib import Path
 import numpy as np
 
 from .contracts import atomic_replace, digest_json, read_json, sha256_file, write_json
-from .field_layout import LINES_UV, POINTS_UV
+from .field_coordinates import observation_from_peaks
 from .field_model_spec import RELEASE_WEIGHTS, UPSTREAM_REVISION, validate_runtime_models
 
 LABEL_ROUNDOFF_TOLERANCE = 0.0001
@@ -180,6 +180,29 @@ def dataset_index(root, limits=None, splits=("train", "valid")):
         "pretraining_overlap": True,
         "independent_accuracy_claim": False,
     }
+
+
+def load_training_index(path):
+    """Validate an explicit mined index before any gradient or checkpoint selection."""
+    index = read_json(path)
+    rows = index["frames"]
+    matches, images = {}, {}
+    if not rows or {r["split"] for r in rows} != {"train", "valid"}:
+        raise ValueError("Training index must contain only nonempty train and valid splits")
+    for row in rows:
+        if not row.get("match_id"):
+            raise ValueError("Training requires verified match identifiers")
+        for key in ("image", "label"):
+            if sha256_file(row[key]) != row[key + "_sha256"]:
+                raise ValueError("Frozen training image or label changed")
+        labels_for_row(row)
+        for mapping, identifier in ((matches, row["match_id"]), (images, row["image_sha256"])):
+            if identifier in mapping and mapping[identifier] != row["split"]:
+                raise ValueError("Match or duplicate image crosses training/validation splits")
+            mapping[identifier] = row["split"]
+    if digest_json(rows) != index["fingerprint"]:
+        raise ValueError("Training index fingerprint changed")
+    return index
 
 
 def upstream_runtime(path):
@@ -379,7 +402,11 @@ def _train(args):
     limits = (
         {"train": 1, "valid": 1} if args.smoke else {"train": args.limit_train, "valid": args.limit_valid}
     )
-    index = dataset_index(args.dataset, limits)
+    index = (
+        load_training_index(args.dataset_index)
+        if getattr(args, "dataset_index", None)
+        else dataset_index(args.dataset, limits)
+    )
     args.output.mkdir(parents=True, exist_ok=True)
     write_json(args.output / "dataset-index.json", index)
     config = {
@@ -399,6 +426,8 @@ def _train(args):
         "smoke": args.smoke,
         "limit_train": args.limit_train,
         "limit_valid": args.limit_valid,
+        "roles": list(getattr(args, "roles", None) or ("keypoints", "lines")),
+        "max_minutes": getattr(args, "max_minutes", None),
     }
     identity = digest_json(
         {
@@ -420,9 +449,12 @@ def _train(args):
             "identity": identity,
             "started_at": timestamp(),
             "dataset_fingerprint": index["fingerprint"],
-            "dataset_version": read_json(args.dataset.parent / "manifest.json")["dataset_version"]
-            if (args.dataset.parent / "manifest.json").is_file()
-            else "SN-Calibration-2023",
+            "dataset_version": index.get("dataset_version")
+            or (
+                read_json(args.dataset.parent / "manifest.json")["dataset_version"]
+                if (args.dataset.parent / "manifest.json").is_file()
+                else "SN-Calibration-2023"
+            ),
             "config": config,
             "models": {},
             "status": "running",
@@ -446,7 +478,7 @@ def _train(args):
     report["gpu"] = torch.cuda.get_device_name(0)
     write_json(report_path, report)
     try:
-        for role in ("keypoints", "lines"):
+        for role in config["roles"]:
             saved = report["models"].get(role, {})
             if saved.get("status") == "complete":
                 if sha256_file(saved["path"]) != saved["sha256"]:
@@ -510,8 +542,13 @@ def _train(args):
                 print(json.dumps({"role": role, "baseline_valid_loss": baseline_loss}), flush=True)
             torch.cuda.reset_peak_memory_stats()
             print(f"Training {role}: {len(train_rows)} train, {len(valid_rows)} valid", flush=True)
+            deadline = (
+                time.monotonic() + config["max_minutes"] * 60 if config["max_minutes"] is not None else None
+            )
             for epoch in range(start, 1 if args.smoke else args.epochs):
                 if stale >= args.patience:
+                    break
+                if deadline is not None and time.monotonic() >= deadline:
                     break
                 tick = time.monotonic()
                 training_loss = run_epoch(
@@ -522,6 +559,7 @@ def _train(args):
                     scaler,
                     1 if args.smoke else None,
                     frozen_features=args.head_only,
+                    deadline=deadline,
                 )
                 validation_loss = run_epoch(model, valid_loader, device, max_steps=1 if args.smoke else None)
                 used_lr = optimizer.param_groups[0]["lr"]
@@ -548,6 +586,7 @@ def _train(args):
                         "learning_rate": used_lr,
                         "runtime_s": time.monotonic() - tick,
                         "peak_gpu_bytes": torch.cuda.max_memory_allocated(),
+                        "time_limit_reached": deadline is not None and time.monotonic() >= deadline,
                     }
                 )
                 checkpoint = args.output / f"{role}-resume-{epoch + 1:03d}.pt"
@@ -623,9 +662,11 @@ def make_runtime(base_path, output):
     report_path = (output / "training-report.json").resolve()
     report = read_json(report_path)
     if report["status"] != "complete":
-        raise ValueError("Both networks must finish before model registration")
+        raise ValueError("Selected networks must finish before model registration")
     for role, key in (("keypoints", "weights_keypoints"), ("lines", "weights_lines")):
-        model = report["models"][role]
+        model = report["models"].get(role)
+        if model is None:
+            continue
         if model.get("selected_epoch") == 0:
             # Training ran, but this network did not beat its unmodified baseline.
             continue
@@ -671,33 +712,7 @@ def image_observation(models, image, device, *, amp=False):
             threshold=float("-inf"),
             ground_plane_only=True,
         )[0]
-    return {
-        "image_size": [width, height],
-        "points": [
-            {
-                "id": k,
-                "x": p["x"] * width / 960,
-                "y": p["y"] * height / 540,
-                "confidence": min(1.0, max(0.0, p["p"])),
-                "raw_score": p["p"],
-            }
-            for k, p in kp.items()
-            if k in POINTS_UV
-        ],
-        "lines": [
-            {
-                "id": k,
-                "xy": [
-                    [p["x_1"] * width / 960, p["y_1"] * height / 540],
-                    [p["x_2"] * width / 960, p["y_2"] * height / 540],
-                ],
-                "confidence": min(1.0, max(0.0, min(p["p_1"], p["p_2"]))),
-                "raw_scores": [p["p_1"], p["p_2"]],
-            }
-            for k, p in ln.items()
-            if k in LINES_UV
-        ],
-    }
+    return observation_from_peaks(kp, ln, (width, height))
 
 
 def _propose(args):
@@ -920,11 +935,16 @@ def main():
     parser.add_argument("command", choices=["index", "train", "propose", "compare"])
     parser.add_argument("--runtime", type=Path, default=Path(".tools/field-runtime.json"))
     parser.add_argument("--dataset", type=Path, default=Path("data/field-corpus/soccernet"))
+    parser.add_argument(
+        "--dataset-index", type=Path, help="Frozen match-separated hard-example training index"
+    )
     parser.add_argument("--root", type=Path, default=Path("data/field-corpus"))
     parser.add_argument("--output", type=Path, default=Path("artifacts/field-training"))
     parser.add_argument("--candidate", type=Path)
     parser.add_argument("--video", type=Path)
     parser.add_argument("--epochs", type=int, default=30)
+    parser.add_argument("--roles", choices=("keypoints", "lines"), nargs="+")
+    parser.add_argument("--max-minutes", type=float, help="Optimizer time budget per selected field network")
     parser.add_argument("--lr", type=float, default=0.0001)
     parser.add_argument("--patience", type=int, default=8)
     parser.add_argument("--weight-decay", type=float, default=0.0001)
@@ -951,6 +971,8 @@ def main():
         value is not None and value < 1 for value in (args.limit_train, args.limit_valid)
     ):
         parser.error("Epochs and optional sample limits must be positive")
+    if args.max_minutes is not None and (not math.isfinite(args.max_minutes) or args.max_minutes <= 0):
+        parser.error("--max-minutes must be positive and finite")
     if args.command == "train":
         train(args)
     elif args.command == "index":

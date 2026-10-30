@@ -190,6 +190,8 @@ def test_full_pipeline_loss_recovery_artifacts_cache_and_frame_identity(demo_fix
         detector=SyntheticDetector(),
     )
     assert tracked.manifest["tracking_policy"]["camera_compensation"] == "background_affine_ransac"
+    assert tracked.manifest["tracking_policy"]["field_required_for_image_ids"] is False
+    assert tracked.manifest["tracker_effective"]["field_required_for_image_ids"] is False
     assert tracked.manifest["mvp_acceptance"] is None
     assert tracked.manifest["tracking_policy"]["human_accuracy_validated"] is False
 

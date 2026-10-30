@@ -7,6 +7,8 @@ __pycache__/
 *.egg-info/
 weights/
 data/
+# The reviewed subset is explicitly tracked from datasets/training-runtime-v1/manifest.json.
+# Keep ignoring new caches, uploads and unreviewed data outside that catalog.
 runs/
 artifacts/*
 !artifacts/ball-ai-v1/
