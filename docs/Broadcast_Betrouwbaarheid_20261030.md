@@ -32,6 +32,8 @@ De automatische route heeft 16.388 correcte en 1.146 foutpositieve spelerwaarnem
 
 De providerroute gebruikt referentiecorrespondenties om geometrie als ontwikkelfactor te onderzoeken. De rolbeslissingen en teamgroepering kunnen daardoor eveneens veranderen. Deze route is geen automatische veldnauwkeurigheid en geen gegarandeerde bovengrens voor iedere afzonderlijke score.
 
+Precision beschrijft hoeveel getelde spelers echt spelers zijn: hier circa 93 van elke 100. Recall beschrijft hoeveel zichtbare referentiespelers worden teruggevonden: hier circa 82 van elke 100. De gecombineerde teamscore vraagt beide tegelijk: een speler correct vinden én bij het juiste team zetten. Daarom ligt die met circa 78 van elke 100 lager. Dit zijn afgeronde verhoudingen uit dezelfde ontwikkelmeting, geen garantie per nieuw videoframe.
+
 De spreiding over tijd is groot. Automatische precision is circa 96,45% aan het begin, 90,20% in het midden en 94,07% aan het einde. Recall is respectievelijk 72,62%, 80,50% en 93,90%. De gewichten zijn gelijk; de andere beelden en velddekking verklaren dat verschillende tijdvakken andere scores geven.
 
 Keeperteams blijven zwak: 381 van 979 keeperwaarnemingen krijgen het juiste team, 179 een verkeerd team. De rest wordt niet correct gevonden en ingedeeld. De hoge teamscore onder gevonden spelers mag daarom niet als betrouwbare keeperkoppeling worden gelezen.

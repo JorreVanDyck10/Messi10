@@ -2,9 +2,11 @@
 
 ## Actuele stand
 
-**Dag 10: inhoudelijk afgerond; Git-overdracht is de laatste stap. Daarna blijven nul werkfasen over in deze ronde.** Dagen betekenen werkfasen, geen kalenderdagen. De gebruiker heeft commit en push expliciet gevraagd. Het halen van de modeldoelen is niet hetzelfde als het afronden van deze onderzoeksronde: `targets_met` blijft false.
+**Dag 10: inhoudelijk afgerond en gepusht; nul werkfasen over in deze ronde.** Dagen betekenen werkfasen, geen kalenderdagen. De gebruiker heeft commit en push expliciet gevraagd. Het halen van de modeldoelen is niet hetzelfde als het afronden van deze onderzoeksronde: `targets_met` blijft false.
 
-Branch: `codex/broadcast-reliability-20261030`. Origin: `https://github.com/JorreVanDyck10/Messi10.git`. Uitgangspunt: main op `4a3f9e51a7be76d4d943e0cafbd4af9b4e706739`. Voor de eerste commit is push dry-run geslaagd. De exacte overgedragen commits staan na de push in het Git-log en worden aan de gebruiker gemeld. Geen merge naar main aangevraagd.
+Branch: `codex/broadcast-reliability-20261030`. Origin: `https://github.com/JorreVanDyck10/Messi10.git`. Uitgangspunt: main op `4a3f9e51a7be76d4d943e0cafbd4af9b4e706739`. Onderzoekscommit `bb1f5b081d7b18163a770815b2e9e9670ef6f389` is werkelijk gepusht en met `git ls-remote` gecontroleerd. Een opvolgende overdrachtscommit bewaart ook de oorspronkelijke rapportbytes via `.gitattributes`, zodat bewijs-SHA’s niet door regeleindconversie veranderen. Geen merge naar main aangevraagd.
+
+GitHub Actions is gestart: [Windows pipeline checks](https://github.com/JorreVanDyck10/Messi10/actions/runs/41041623675). Status direct na push: actief. De lokale eindcontrole is geslaagd; lees voor de uiteindelijke remote status de actuele workflowrun van de branch.
 
 Lees eerst [de actuele resultaten](Broadcast_Betrouwbaarheid_20261030.md). Het [verslag van 28 oktober](Broadcast_Betrouwbaarheid_Resultaten.md) is historisch: de daar voorlopig geselecteerde rank-bridge is op 30 oktober **afgewezen en uit het standaardprofiel verwijderd**. Oude acceptatiecijfers of de run met 255 geldige eigen frames beschrijven die proef, niet het huidige standaardbeleid.
 
