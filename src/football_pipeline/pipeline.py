@@ -221,6 +221,8 @@ def process_video(
                 raise PipelineError("Automatische kalibratie ondersteunt geen statische technische pilot.")
             if field_settings is None:
                 field_settings = read_json(field_runtime_path).get("calibration_settings")
+                if field_settings is None:
+                    field_settings = models.get("field_settings")
             calibration = prepare_automatic_calibration(
                 video_path,
                 field_runtime_path,

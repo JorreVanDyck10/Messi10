@@ -1,0 +1,10 @@
+{
+  "restored_exact_loaded_profile": true,
+  "profile_sha256": "b1fe7c9ee6f9ce8fa01a00c1975cac1b67a24e500a563ba092603256e5812421",
+  "comparison_profile_sha256": "300b5cc0c2afec6fc978b8c8f7ee025a14273d40783c0e78e715ca33e97e065d",
+  "field_rule_without_runtime_or_call_override": "two_semantic_tertiles_no_refit",
+  "reason": "Expanded provider-line reference audit: both extra validation frames fail existing tolerance; no-added-false gate not met",
+  "model_weights_changed": false,
+  "human_review_completed": false,
+  "independent_final_test_completed": false
+}

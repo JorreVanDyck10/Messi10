@@ -1,0 +1,141 @@
+{
+  "frames": 1800,
+  "supported": 1774,
+  "unsupported": [
+    {
+      "frame_id": "SNGS-021_000448",
+      "clip": "SNGS-021-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000301",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000302",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000303",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000304",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000305",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000306",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000307",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000308",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000309",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000310",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000311",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000312",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000404",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000405",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000406",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000436",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000437",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000438",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000439",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000440",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000441",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000442",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000446",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000447",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    },
+    {
+      "frame_id": "SNGS-078_000448",
+      "clip": "SNGS-078-middle",
+      "reason": "Provider line exceeds the bounded image-border preprocessing policy"
+    }
+  ],
+  "per_clip": {
+    "SNGS-021-middle": 1,
+    "SNGS-078-middle": 25
+  },
+  "policy": "Keep original provider-label limits; unsupported field references excluded equally from both geometry scores; people frames remain in recognition/tracking evaluation"
+}

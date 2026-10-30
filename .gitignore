@@ -37,3 +37,6 @@ artifacts/broadcast-ball-v2/*
 artifacts/broadcast-ball-v3/*
 !artifacts/broadcast-ball-v3/broadcast_ball_v3.pt
 !artifacts/broadcast-ball-v3/README.md
+
+# Local inference cache; compact reliability reports remain versioned.
+/reports/broadcast-reliability-day1-20261028/confidence-*/detections.json

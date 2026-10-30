@@ -36,6 +36,8 @@ DEFAULT_SETTINGS = {
 # Candidate only: DEFAULT_SETTINGS and the installed runtime keep their v2 policy
 # until the reviewed comparison passes the release gate.
 RELIABLE_SETTINGS = {**DEFAULT_SETTINGS, "version": 3}
+MOTION_RANK_RULE = "semantic_rank_deficiency_motion_bridge"
+MOTION_RANK_SETTINGS = {**DEFAULT_SETTINGS, "holdout_rule": MOTION_RANK_RULE}
 
 
 def validate_settings(settings):
@@ -45,7 +47,10 @@ def validate_settings(settings):
         or settings["version"] not in (2, 3)
     ):
         raise PipelineError("Onbekende instellingen voor automatische kalibratie.")
-    if type(settings["motion"]) is not bool or settings["holdout_rule"] != DEFAULT_SETTINGS["holdout_rule"]:
+    if type(settings["motion"]) is not bool or settings["holdout_rule"] not in {
+        "two_semantic_tertiles_no_refit",
+        MOTION_RANK_RULE,
+    }:
         raise PipelineError("Ongeldig kalibratieprofiel.")
     for name, default in DEFAULT_SETTINGS.items():
         if type(default) in (int, float):
@@ -106,6 +111,31 @@ def line_checks(lines, inverse):
     return errors, identifiers
 
 
+def _canonical_layout_determined(points):
+    if len(points) < 4:
+        return False
+    design = []
+    for point in points:
+        x, y = POINTS_UV[point["id"]]
+        design.extend(([-x, -y, -1, 0, 0, 0, x * x, x * y, x], [0, 0, 0, -x, -y, -1, x * y, y * y, y]))
+    singular = np.linalg.svd(np.asarray(design), compute_uv=False)
+    return bool(singular[7] / singular[0] > 1e-8)
+
+
+def canonical_rank_deficiency(points):
+    """Identify a broken semantic fit using only the known field layout.
+
+    The full point set must still determine a homography. This check never
+    selects a new fitted matrix from residuals or provider reference labels.
+    """
+    points = sorted(points, key=lambda p: p["id"])
+    if len(points) < 6:
+        return False
+    nominal = {len(points) // 3, 2 * len(points) // 3}
+    fit = [p for i, p in enumerate(points) if i not in nominal]
+    return not _canonical_layout_determined(fit) and _canonical_layout_determined(points)
+
+
 def estimate_checked(observation, image_size, settings=None):
     settings = validate_settings(settings or DEFAULT_SETTINGS)
     result = {
@@ -156,6 +186,21 @@ def estimate_checked(observation, image_size, settings=None):
         uv = np.asarray([POINTS_UV[p["id"]] for p in points], float)
         # Semantic, deterministic split BEFORE fitting or examining errors. Never refit the controls.
         holdout = [n // 3, 2 * n // 3] if n >= 6 else []
+        if (
+            settings["holdout_rule"] == MOTION_RANK_RULE
+            and n >= 6
+            and not _canonical_layout_determined(points)
+        ):
+            raise ValueError("degenerate_geometry")
+        if settings["holdout_rule"] == MOTION_RANK_RULE and canonical_rank_deficiency(points):
+            # No new homography: only a recent trusted estimate may bridge the
+            # frame through the existing motion, semantic and age checks.
+            result["quality"].update(
+                fit_ids=[p["id"] for i, p in enumerate(points) if i not in holdout],
+                control_ids=[points[i]["id"] for i in holdout],
+                canonical_rank_deficiency=True,
+            )
+            raise ValueError("insufficient_fit_geometry")
         fit = [i for i in range(n) if i not in holdout]
         result["quality"].update(
             fit_ids=[points[i]["id"] for i in fit],
@@ -216,6 +261,7 @@ def estimate_checked(observation, image_size, settings=None):
                 "orientation_unknown",
                 "inconsistent_points",
                 "insufficient_controls",
+                "insufficient_fit_geometry",
                 "inconsistent_controls",
                 "inconsistent_lines",
             }

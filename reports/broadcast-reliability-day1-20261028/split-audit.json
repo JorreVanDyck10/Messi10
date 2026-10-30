@@ -1,0 +1,25 @@
+{
+  "frames": {
+    "train": 3936,
+    "val": 348
+  },
+  "training_games": [
+    "4",
+    "6",
+    "9",
+    "sportsmot:v_1yHWGw8DH4A",
+    "sportsmot:v_HdiyOtliFiw",
+    "sportsmot:v_gQNyhv8y0QY",
+    "sportsmot:v_iIxMOsCGH58"
+  ],
+  "validation_games": [
+    "2",
+    "3",
+    "5"
+  ],
+  "cross_split_games": [],
+  "cross_split_image_hashes": [],
+  "independent_final_test": false,
+  "reason": "Validation games previously used for selection; no new test data accessed",
+  "verified_image_files": 4284
+}

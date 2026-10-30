@@ -193,7 +193,9 @@ def collect(dataset, profile, output):
     return output
 
 
-def train(cache, output, epochs=50):
+def train(cache, output, epochs=50, nonplayer_weight=3.0):
+    if not np.isfinite(nonplayer_weight) or nonplayer_weight <= 0:
+        raise ValueError("Nonplayer weight must be positive and finite")
     torch.set_num_threads(4)
     torch.manual_seed(42)
     cache, output = Path(cache).resolve(), Path(output).resolve()
@@ -235,7 +237,7 @@ def train(cache, output, epochs=50):
             indices = order[start : start + 1024]
             logits = model(x[indices] + 0.02 * torch.randn_like(x[indices])).squeeze(1)
             loss = torch.nn.functional.binary_cross_entropy_with_logits(
-                logits, y[indices], pos_weight=torch.tensor(3.0)
+                logits, y[indices], pos_weight=torch.tensor(float(nonplayer_weight))
             )
             optimizer.zero_grad()
             loss.backward()
@@ -281,6 +283,7 @@ def train(cache, output, epochs=50):
             "curve": curve,
             "inputs": inputs,
             "train_rows": len(x),
+            "nonplayer_weight": nonplayer_weight,
             "val_rows": len(xv),
             "runtime_s": time.monotonic() - started,
             "weights_sha256": sha256_file(output / "role_context.pt"),
@@ -303,10 +306,11 @@ if __name__ == "__main__":
     )
     parser.add_argument("--cache", type=Path, default=ROOT / "artifacts/broadcast-observed-v8/cache")
     parser.add_argument("--output", type=Path, default=ROOT / "artifacts/broadcast-observed-v8/training")
+    parser.add_argument("--nonplayer-weight", type=float, default=3.0)
     args = parser.parse_args()
     print(
         collect(args.dataset, args.profile, args.cache)
         if args.action == "collect"
-        else train(args.cache, args.output),
+        else train(args.cache, args.output, nonplayer_weight=args.nonplayer_weight),
         flush=True,
     )

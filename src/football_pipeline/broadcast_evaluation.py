@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import gzip
 import json
+import time
 from collections import Counter, defaultdict
 from dataclasses import asdict
 from pathlib import Path
@@ -45,7 +46,10 @@ def reference_geometry(annotations, width, height):
     return {"status": "valid", "homography": matrix.tolist(), "reference_correspondences": len(xy)}
 
 
-def evaluate_profile(dataset, profile, team_settings, output, *, replay=None):
+def evaluate_profile(dataset, profile, team_settings, output, *, replay=None, confidence=0.25):
+    if not 0 <= confidence <= 1:
+        raise ValueError("Confidence must be between zero and one")
+    started = time.perf_counter()
     dataset, output = Path(dataset), Path(output)
     output.mkdir(parents=True, exist_ok=True)
     manifest = read_json(dataset / "manifest.json")
@@ -77,6 +81,7 @@ def evaluate_profile(dataset, profile, team_settings, output, *, replay=None):
     identity = digest_json(
         [
             manifest["fingerprint"],
+            confidence,
             models,
             settings,
             replay_identity,
@@ -141,7 +146,7 @@ def evaluate_profile(dataset, profile, team_settings, output, *, replay=None):
 
             for d in found:
                 d.shirt_color_lab = shirt_color(frame, d, settings)
-            eligible = [d for d in found if d.projection_status == "valid" and d.confidence >= 0.25]
+            eligible = [d for d in found if d.projection_status == "valid" and d.confidence >= confidence]
             final_counts.update(d.semantic_class for d in eligible)
             transitions.update(
                 (d.detector_semantic_class or d.semantic_class) + " -> " + d.semantic_class for d in eligible
@@ -186,7 +191,7 @@ def evaluate_profile(dataset, profile, team_settings, output, *, replay=None):
                     for d in found
                     if d.semantic_class == "player"
                     and d.projection_status == "valid"
-                    and d.confidence >= 0.25
+                    and d.confidence >= confidence
                 ],
                 key=lambda d: -d.confidence,
             )
@@ -248,12 +253,41 @@ def evaluate_profile(dataset, profile, team_settings, output, *, replay=None):
             }
         )
     write_json(output / "detections.json", {"frames": all_serialized})
-    metrics = evaluate(truths, predictions, ["player"])
+    metrics = evaluate(truths, predictions, ["player"], confidence=confidence)
+    per_game = []
+    for game in sorted({str(r["game_id"]) for r in frame_rows.values()}):
+        ids = [fid for fid, r in frame_rows.items() if str(r["game_id"]) == game]
+        game_metrics = evaluate(
+            {fid: truths[fid] for fid in ids},
+            {fid: predictions[fid] for fid in ids},
+            ["player"],
+            confidence=confidence,
+        )
+        game_metrics.pop("errors")
+        clips = {frame_rows[fid]["clip"] for fid in ids}
+        team_rows = [r for r in per_clip if r["clip"] in clips]
+        correct = sum(r["correct"] for r in team_rows)
+        total = sum(r["matched"] + r["missed_players"] for r in team_rows)
+        per_game.append(
+            {
+                "game_id": game,
+                "frames": len(ids),
+                "players": game_metrics,
+                "teams": team_rows,
+                "correct_fraction_all_players": correct / max(1, total),
+            }
+        )
     errors = metrics.pop("errors")
     write_json(output / "player-errors.json", {"errors": errors})
     player = metrics["per_class"][0]
     result = {
         "identity": identity,
+        "runtime_workpoint": {"confidence": confidence, "matching_iou": 0.5},
+        "per_game": per_game,
+        "elapsed_seconds": time.perf_counter() - started,
+        "timing_kind": "evaluation wall time including scoring; not pipeline throughput",
+        "reference_type": "provider",
+        "split_status": "reused development validation",
         "frames": len(truths),
         "reference_geometry_unavailable": geometry_missing,
         "dataset_fingerprint": manifest["fingerprint"],
@@ -299,8 +333,11 @@ if __name__ == "__main__":
     parser.add_argument("--teams", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--replay", type=Path)
+    parser.add_argument("--confidence", type=float, default=0.25)
     args = parser.parse_args()
-    report = evaluate_profile(args.dataset, args.profile, args.teams, args.output, replay=args.replay)
+    report = evaluate_profile(
+        args.dataset, args.profile, args.teams, args.output, replay=args.replay, confidence=args.confidence
+    )
     print(
         {
             "frames": report["frames"],

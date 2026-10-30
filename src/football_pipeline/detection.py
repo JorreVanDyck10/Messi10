@@ -29,6 +29,12 @@ def load_model_manifest(path: str | Path) -> dict:
             raise PipelineError("Boxcombinatie vereist persoonsgeometrie en een gewicht tussen nul en één.")
     if manifest.get("schema_version") != 1 or not models:
         raise PipelineError("Modelmanifest vereist schema_version 1 en minstens één model.")
+    if "field_settings" in manifest:
+        from .field_motion import DEFAULT_SETTINGS, validate_settings
+
+        if not isinstance(manifest["field_settings"], dict):
+            raise PipelineError("Veldinstellingen in het modelprofiel moeten een JSON-object zijn.")
+        manifest["field_settings"] = validate_settings({**DEFAULT_SETTINGS, **manifest["field_settings"]})
     owners, identifiers = {}, set()
     for spec in models:
         try:

@@ -1,0 +1,283 @@
+{
+  "run": "runs\\d3cff1b2360bb235635d9e2dcd99870a462d153a6b253913c73afb2f07b61664",
+  "frames": 150,
+  "calibration_status": {
+    "insufficient_points": 7,
+    "insufficient_controls": 2,
+    "inconsistent_controls": 19,
+    "inconsistent_points": 1,
+    "orientation_unknown": 1,
+    "valid": 112,
+    "motion_semantic_disagreement": 7,
+    "degenerate_geometry": 1
+  },
+  "tracking_resets": 0,
+  "temporary_tracks": 29,
+  "tracks_with_measured_intervals": 20,
+  "distance_method": "observed_median3_step02_v1",
+  "tracks": [
+    {
+      "track": "0:38",
+      "track_id": 38,
+      "shot": 1,
+      "distance_m": 8.144980975258939,
+      "measured_s": 1.7200000000000002,
+      "team": "B",
+      "coverage": 0.2866666666666667
+    },
+    {
+      "track": "0:39",
+      "track_id": 39,
+      "shot": 1,
+      "distance_m": 11.11818995866361,
+      "measured_s": 2.519999999999999,
+      "team": "A",
+      "coverage": 0.4199999999999999
+    },
+    {
+      "track": "0:52",
+      "track_id": 52,
+      "shot": 1,
+      "distance_m": 7.170648517825794,
+      "measured_s": 1.6399999999999992,
+      "team": "A",
+      "coverage": 0.2733333333333332
+    },
+    {
+      "track": "0:40",
+      "track_id": 40,
+      "shot": 1,
+      "distance_m": null,
+      "measured_s": 0.0,
+      "team": "B",
+      "coverage": 0.0
+    },
+    {
+      "track": "0:43",
+      "track_id": 43,
+      "shot": 1,
+      "distance_m": 1.619888537073039,
+      "measured_s": 0.35999999999999943,
+      "team": "B",
+      "coverage": 0.05999999999999991
+    },
+    {
+      "track": "0:46",
+      "track_id": 46,
+      "shot": 1,
+      "distance_m": 2.3491711071992762,
+      "measured_s": 0.4399999999999995,
+      "team": "A",
+      "coverage": 0.07333333333333325
+    },
+    {
+      "track": "0:47",
+      "track_id": 47,
+      "shot": 1,
+      "distance_m": null,
+      "measured_s": 0.0,
+      "team": "A",
+      "coverage": 0.0
+    },
+    {
+      "track": "0:41",
+      "track_id": 41,
+      "shot": 1,
+      "distance_m": 9.947635705364144,
+      "measured_s": 3.3200000000000003,
+      "team": "B",
+      "coverage": 0.5533333333333333
+    },
+    {
+      "track": "0:42",
+      "track_id": 42,
+      "shot": 1,
+      "distance_m": null,
+      "measured_s": 0.0,
+      "team": "B",
+      "coverage": 0.0
+    },
+    {
+      "track": "0:48",
+      "track_id": 48,
+      "shot": 1,
+      "distance_m": null,
+      "measured_s": 0.0,
+      "team": "B",
+      "coverage": 0.0
+    },
+    {
+      "track": "0:44",
+      "track_id": 44,
+      "shot": 1,
+      "distance_m": 2.3580556789226272,
+      "measured_s": 0.39999999999999947,
+      "team": "B",
+      "coverage": 0.06666666666666658
+    },
+    {
+      "track": "0:45",
+      "track_id": 45,
+      "shot": 1,
+      "distance_m": 11.466865138253814,
+      "measured_s": 3.9199999999999995,
+      "team": "A",
+      "coverage": 0.6533333333333332
+    },
+    {
+      "track": "0:49",
+      "track_id": 49,
+      "shot": 1,
+      "distance_m": null,
+      "measured_s": 0.0,
+      "team": "A",
+      "coverage": 0.0
+    },
+    {
+      "track": "0:51",
+      "track_id": 51,
+      "shot": 1,
+      "distance_m": null,
+      "measured_s": 0.0,
+      "team": "B",
+      "coverage": 0.0
+    },
+    {
+      "track": "0:53",
+      "track_id": 53,
+      "shot": 1,
+      "distance_m": null,
+      "measured_s": 0.0,
+      "team": "unknown",
+      "coverage": 0.0
+    },
+    {
+      "track": "0:50",
+      "track_id": 50,
+      "shot": 1,
+      "distance_m": 8.014168548124603,
+      "measured_s": 1.9200000000000004,
+      "team": "B",
+      "coverage": 0.32000000000000006
+    },
+    {
+      "track": "0:57",
+      "track_id": 57,
+      "shot": 1,
+      "distance_m": 3.858944300334196,
+      "measured_s": 1.1599999999999997,
+      "team": "B",
+      "coverage": 0.19333333333333327
+    },
+    {
+      "track": "0:58",
+      "track_id": 58,
+      "shot": 1,
+      "distance_m": null,
+      "measured_s": 0.0,
+      "team": "A",
+      "coverage": 0.0
+    },
+    {
+      "track": "0:61",
+      "track_id": 61,
+      "shot": 1,
+      "distance_m": 7.980380529135977,
+      "measured_s": 1.7200000000000006,
+      "team": "A",
+      "coverage": 0.2866666666666668
+    },
+    {
+      "track": "0:65",
+      "track_id": 65,
+      "shot": 1,
+      "distance_m": 4.934166723219094,
+      "measured_s": 1.0799999999999996,
+      "team": "A",
+      "coverage": 0.17999999999999994
+    },
+    {
+      "track": "0:63",
+      "track_id": 63,
+      "shot": 1,
+      "distance_m": 11.76749345211098,
+      "measured_s": 3.039999999999999,
+      "team": "A",
+      "coverage": 0.5066666666666665
+    },
+    {
+      "track": "0:62",
+      "track_id": 62,
+      "shot": 1,
+      "distance_m": 12.348425863392235,
+      "measured_s": 2.48,
+      "team": "B",
+      "coverage": 0.41333333333333333
+    },
+    {
+      "track": "0:68",
+      "track_id": 68,
+      "shot": 1,
+      "distance_m": 12.088712666244655,
+      "measured_s": 2.879999999999999,
+      "team": "A",
+      "coverage": 0.4799999999999998
+    },
+    {
+      "track": "0:67",
+      "track_id": 67,
+      "shot": 1,
+      "distance_m": 12.607605749590862,
+      "measured_s": 2.5199999999999987,
+      "team": "B",
+      "coverage": 0.41999999999999976
+    },
+    {
+      "track": "0:66",
+      "track_id": 66,
+      "shot": 1,
+      "distance_m": 11.542085208467688,
+      "measured_s": 3.6799999999999997,
+      "team": "A",
+      "coverage": 0.6133333333333333
+    },
+    {
+      "track": "0:72",
+      "track_id": 72,
+      "shot": 1,
+      "distance_m": null,
+      "measured_s": 0.0,
+      "team": "A",
+      "coverage": 0.0
+    },
+    {
+      "track": "0:71",
+      "track_id": 71,
+      "shot": 1,
+      "distance_m": 9.941675660628333,
+      "measured_s": 2.0400000000000005,
+      "team": "unknown",
+      "coverage": 0.3400000000000001
+    },
+    {
+      "track": "0:80",
+      "track_id": 80,
+      "shot": 1,
+      "distance_m": 1.9229375693095618,
+      "measured_s": 0.3599999999999999,
+      "team": "unknown",
+      "coverage": 0.05999999999999998
+    },
+    {
+      "track": "0:82",
+      "track_id": 82,
+      "shot": 1,
+      "distance_m": 0.7351158151454378,
+      "measured_s": 0.1200000000000001,
+      "team": "B",
+      "coverage": 0.020000000000000018
+    }
+  ],
+  "independent_accuracy_measured": false,
+  "reference_limitation": "No human-reviewed landmarks or distance truth for this run"
+}

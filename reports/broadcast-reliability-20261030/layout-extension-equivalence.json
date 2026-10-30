@@ -1,0 +1,92 @@
+{
+  "per_clip": [
+    {
+      "clip": "SNGS-021-last",
+      "frames": 150,
+      "exact_projection_semantics_equal": true,
+      "baseline_sha256": "a8233c031aedb48586170acae1b7f7d6efaf7eda02e07c378ababebff90f0516",
+      "candidate_sha256": "a8233c031aedb48586170acae1b7f7d6efaf7eda02e07c378ababebff90f0516"
+    },
+    {
+      "clip": "SNGS-021-middle",
+      "frames": 150,
+      "exact_projection_semantics_equal": true,
+      "baseline_sha256": "d47360b7843a215ea0c7f24b18159f85e9a0620d0ea18a61bb15dddc5177a5bb",
+      "candidate_sha256": "d47360b7843a215ea0c7f24b18159f85e9a0620d0ea18a61bb15dddc5177a5bb"
+    },
+    {
+      "clip": "SNGS-039-last",
+      "frames": 150,
+      "exact_projection_semantics_equal": true,
+      "baseline_sha256": "d9e64fa793376c91e6afabd88e3c757bae429b8d55f94ceb26564799b8d63cf9",
+      "candidate_sha256": "d9e64fa793376c91e6afabd88e3c757bae429b8d55f94ceb26564799b8d63cf9"
+    },
+    {
+      "clip": "SNGS-039-middle",
+      "frames": 150,
+      "exact_projection_semantics_equal": true,
+      "baseline_sha256": "9c14f1fdb5b3163ceac805275b62be951f8e17bb699ac175ff70a810b9f42e0a",
+      "candidate_sha256": "9c14f1fdb5b3163ceac805275b62be951f8e17bb699ac175ff70a810b9f42e0a"
+    },
+    {
+      "clip": "SNGS-060-last",
+      "frames": 150,
+      "exact_projection_semantics_equal": true,
+      "baseline_sha256": "cd16de09fab9744efe031981af94ede62928e65534b344c8c5a1bc81360aa485",
+      "candidate_sha256": "cd16de09fab9744efe031981af94ede62928e65534b344c8c5a1bc81360aa485"
+    },
+    {
+      "clip": "SNGS-060-middle",
+      "frames": 150,
+      "exact_projection_semantics_equal": true,
+      "baseline_sha256": "cc79772761682960f5fc1b6693d6ae6c150e3064dafd5e0695b4a421f56741fe",
+      "candidate_sha256": "cc79772761682960f5fc1b6693d6ae6c150e3064dafd5e0695b4a421f56741fe"
+    },
+    {
+      "clip": "SNGS-078-last",
+      "frames": 150,
+      "exact_projection_semantics_equal": true,
+      "baseline_sha256": "391d8833e79fe4f78d24acef8c6736472884ff7071c95334d706c500f84f2c07",
+      "candidate_sha256": "391d8833e79fe4f78d24acef8c6736472884ff7071c95334d706c500f84f2c07"
+    },
+    {
+      "clip": "SNGS-078-middle",
+      "frames": 150,
+      "exact_projection_semantics_equal": true,
+      "baseline_sha256": "c51ed03f23c80190c74fde92cd51644ec009f98d873670dbbff7a0fe3a01bbf2",
+      "candidate_sha256": "c51ed03f23c80190c74fde92cd51644ec009f98d873670dbbff7a0fe3a01bbf2"
+    },
+    {
+      "clip": "SNGS-097-last",
+      "frames": 150,
+      "exact_projection_semantics_equal": true,
+      "baseline_sha256": "b6cb1854b3124228fac58ce5eb8cc0da9cd6ee948ef7b973311260721a1ce4a4",
+      "candidate_sha256": "b6cb1854b3124228fac58ce5eb8cc0da9cd6ee948ef7b973311260721a1ce4a4"
+    },
+    {
+      "clip": "SNGS-097-middle",
+      "frames": 150,
+      "exact_projection_semantics_equal": true,
+      "baseline_sha256": "fcfe5488c7d5e1db514f65165897b27743f6770dcd0dfc002ca2f395c9b302b3",
+      "candidate_sha256": "fcfe5488c7d5e1db514f65165897b27743f6770dcd0dfc002ca2f395c9b302b3"
+    },
+    {
+      "clip": "SNGS-151-last",
+      "frames": 150,
+      "exact_projection_semantics_equal": true,
+      "baseline_sha256": "a84104b5faf8fa619dfca3109e99502c43d022c5fc121fe53321c0ea1911fb42",
+      "candidate_sha256": "a84104b5faf8fa619dfca3109e99502c43d022c5fc121fe53321c0ea1911fb42"
+    },
+    {
+      "clip": "SNGS-151-middle",
+      "frames": 150,
+      "exact_projection_semantics_equal": true,
+      "baseline_sha256": "f8e835c88cc5e789da9849207bb8da65bac3f441235b45d869f3bbb8d59ced76",
+      "candidate_sha256": "f8e835c88cc5e789da9849207bb8da65bac3f441235b45d869f3bbb8d59ced76"
+    }
+  ],
+  "source_projection_sha256": "7daf65514c8b4138ae4e4617aabda424ece825091f6b4daa5e7526732c76ed95",
+  "meaning": "All inputs used by project_automatic are exactly equal on1800newframes; no geometry-dependent detector or tracking result can differ from this policy on these frames. Diagnostic rejection status text may differ.",
+  "selected_as_default": false,
+  "reason": "Only7unlabelledownclipframesbenefit; no extra labelled temporal recovery examples in2700frames."
+}

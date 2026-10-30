@@ -1,0 +1,5 @@
+{
+  "checked_frames": 900,
+  "additional_rejection_counts": {},
+  "reason": "Additional full-layout rank guard prevents synthetic false acceptance; verify measured field states are unaffected"
+}

@@ -1,0 +1,48 @@
+{
+  "training_summary": {
+    "baseline": {
+      "precision": 0.958394438107653,
+      "recall": 0.9199687174139729,
+      "TP": 17645,
+      "FP": 766,
+      "FN": 1535,
+      "correct_team_fraction": 0.7625651720542231,
+      "temporal_rejections": 0
+    },
+    "candidate": {
+      "precision": 0.9588609314711157,
+      "recall": 0.9199165797705944,
+      "TP": 17644,
+      "FP": 757,
+      "FN": 1536,
+      "correct_team_fraction": 0.7625130344108446,
+      "temporal_rejections": 0
+    }
+  },
+  "additional_nonplayers": 10,
+  "selected": false,
+  "reason": "Ninefalsepositivesremoved,onecorrectplayerandteamlost; fixed training gate failed, validation was not searched.",
+  "inputs": {
+    "target": 0.95,
+    "baseline": 0.99,
+    "tracking_evaluated": false,
+    "validation_used_for_selection": false,
+    "rule": "One fixed .95 negative threshold; retain all existing goalkeeper/end protections",
+    "files": {
+      "C:\\Messi10\\artifacts\\broadcast-reliability-day2\\motion-rank-automatic-native-v1\\SNGS-060.json": "632e946d02dc38994c1315177ecf596096b1b18263dcbb37f0adc76b0f73d863",
+      "C:\\Messi10\\artifacts\\broadcast-reliability-day2\\motion-rank-automatic-native-v1\\SNGS-097.json": "9c13ed2f3fdc252fa0781f268a7ada20ae38a4ffde4f0c5d9f1d81bfdc85b2fe",
+      "C:\\Messi10\\artifacts\\broadcast-reliability-day2\\motion-rank-automatic-native-v1\\SNGS-151.json": "33331101da4f8bee49360d91a83844dd688c4b42fc4c5c89bf48ef116cc8830d",
+      "C:\\Messi10\\artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-060-last.json": "2166d5f5216bf993023b37e1681e3e7ea5a3dfd550109ec45b513058aa08b87f",
+      "C:\\Messi10\\artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-060-middle.json": "334ffa27e84e489993d5330a851ae682e982c62da7249eaf28647119d182871d",
+      "C:\\Messi10\\artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-097-last.json": "df349fec092abf585731b06417e5a450ab06bb57133f2fe4bb068d18d0d9da20",
+      "C:\\Messi10\\artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-097-middle.json": "59e7df17801f76e9487f2e97d5389d4cf62c29ec374a8f673622f74e74e7cc37",
+      "C:\\Messi10\\artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-151-last.json": "a72fe3b5c04c3c4446f1602321b3ca2625b8e0220d6e4c525e80b5e9347e08be",
+      "C:\\Messi10\\artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-151-middle.json": "edd2b126c684f2c14cbdb52d95d2541b0340f7380045bfafbbb2c85d607cbdcb"
+    },
+    "source_sha256": "5cf30f1a4541596df30225ba36bd521221b9e253d8138bf6c9273a12457f2d8d"
+  },
+  "tracking_evaluated": false,
+  "installed_threshold": 0.99,
+  "human_review_completed": false,
+  "independent_final_test_completed": false
+}
