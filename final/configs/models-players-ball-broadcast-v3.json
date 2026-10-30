@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "profile_name": "Spelers v3 + broadcastbal v3 — experimentele tegels",
+  "models": [
+    {
+      "model_id": "exp-p006-gsr-multimatch-v3",
+      "weights": "../artifacts/players-v3/players_best.pt",
+      "weights_sha256": "beecb2439ca3329816df75e28c247236dfd7b283e66db72168139a1d28891aee",
+      "class_mapping": {
+        "0": "player",
+        "1": "referee"
+      },
+      "expected_names": {
+        "0": "player",
+        "1": "referee"
+      },
+      "imgsz": 1280,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    },
+    {
+      "model_id": "broadcast-ball-native-v3-freeze-0",
+      "weights": "../artifacts/broadcast-ball-v3/broadcast_ball_v3.pt",
+      "weights_sha256": "97c314c3ec62c072ff700cb2fe682f13806e3c9b59acd9c0c98077a2c7c22058",
+      "class_mapping": {
+        "32": "ball"
+      },
+      "expected_names": {
+        "32": "sports ball"
+      },
+      "imgsz": 640,
+      "confidence": 0.25,
+      "iou": 0.7,
+      "device": "0",
+      "ball_tiles": {
+        "sizes": [
+          640
+        ],
+        "imgsz": 640,
+        "overlap": 0.2,
+        "merge_iou": 0.5
+      }
+    }
+  ],
+  "handoff": {
+    "evaluation_record": "../reports/course-improvement/players-selected-metrics.json",
+    "evaluation_sha256": "62d44fd55c7d6713a9e3395757dcd4a16eb68904aaa24726f7c625a94f51f7de",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "dataset_fingerprint": "02d3531ae28aff7aeab5e4fc016cb15b4e863bc6a255df2c14bd686fb0c6ef71",
+    "source": "SN-GSR-2024 v1.3 provider labels; three training and three held-out validation games",
+    "selected_experiment": "EXP-P006",
+    "ball_promoted": false,
+    "referee_coverage": "Published provider roles; referee recall still limited on held-out validation.",
+    "ball_evaluation_record": "../reports/broadcast-data/v3-experiment.json",
+    "ball_evaluation_sha256": "b00130c7279bc134f77089a0cc5bb7d609a83a52710694abce0215907fc49d5c",
+    "default_promoted": false,
+    "joint_accuracy_evaluated": false,
+    "ball_available_in_this_profile": true,
+    "ball_inference_scope": "640px tiles only; full-frame inference regressed",
+    "selected_ball_experiment": "freeze-0"
+  }
+}
