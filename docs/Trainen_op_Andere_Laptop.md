@@ -16,6 +16,14 @@ Git voor Windows en een NVIDIA-driver die de gekozen CUDA-runtime ondersteunt.
 
 Open PowerShell in de nieuwe projectmap:
 
+Deze levering staat op `codex/broadcast-reliability-20261030`. Tot die branch
+in `main` is samengevoegd, clone je expliciet deze versie:
+
+```powershell
+git clone --branch codex/broadcast-reliability-20261030 https://github.com/JorreVanDyck10/Messi10.git Messi10
+cd Messi10
+```
+
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/Setup-Laptop.ps1
 powershell -ExecutionPolicy Bypass -File scripts/Start-Laptop.ps1
@@ -75,6 +83,13 @@ getrainde onderdelen in:
 
 - `configs/models-shared-candidate.json`: spelers, bal, rollen, shirt en context;
 - `configs/field-shared-candidate.json`: veldpunten en veldlijnen.
+
+Dit werkt ook op dezelfde laptop: exporteer de afgeronde ronde en importeer dat
+modelpakket. Bij **Nieuwe analyse → Geavanceerde model- en trackinginstellingen
+→ Modelprofiel** kun je vervolgens het geïmporteerde detectorprofiel kiezen.
+Andrews kandidaat krijgt daar een eigen profiel. De standaardkeuze wordt niet
+automatisch vervangen. Een veldkandidaat kun je apart starten met
+`scripts/Start-Laptop.ps1 -FieldRuntime configs/field-shared-candidate.json`.
 
 Een nieuwe import vervangt alleen de onderdelen in dat modelpakket. Een
 contextmodel blijft alleen in de combinatie wanneer zijn rol- en shirthashes

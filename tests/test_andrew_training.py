@@ -121,3 +121,57 @@ def test_andrew_model_package_imports_without_replacing_other_candidates(tmp_pat
     assert Path(imported["models"][0]["weights"]).is_relative_to(target)
     assert existing.read_bytes() == before
     assert imported["models"][0]["class_mapping"]["0"] == "ball"
+
+
+def test_training_package_includes_original_andrew_images_on_another_laptop(tmp_path):
+    import torch
+
+    from football_pipeline.training_transfer import export_bundle
+
+    source = tmp_path / "source"
+    source.mkdir()
+    inputs = profile_at(source)
+    dataset = Path(inputs["andrew_dataset"])
+    frames = []
+    for split in ("train", "val"):
+        image = source / f"Andrew_Prototype/archive/{split}/images/frame.jpg"
+        label = source / f"Andrew_Prototype/archive/{split}/labels/frame.txt"
+        image.parent.mkdir(parents=True)
+        label.parent.mkdir(parents=True)
+        image.write_bytes(f"{split} image payload".encode())
+        label.write_text("2 0.5 0.5 0.1 0.2")
+        frames.append(
+            {
+                "split": split,
+                "source_frame_group": split,
+                "image": "../../" + image.relative_to(source).as_posix(),
+                "label": "../../" + label.relative_to(source).as_posix(),
+                "image_sha256": sha256_file(image),
+                "label_sha256": sha256_file(label),
+            }
+        )
+    write_json(dataset / "manifest.json", {"frames": frames})
+    (dataset / "data.yaml").write_text(
+        "path: ../../Andrew_Prototype/archive\ntrain: train/images\nval: val/images\nnames: [ball, goalkeeper, player, referee]\n"
+    )
+    features = source / "weights/features.pt"
+    torch.save({"rows": []}, features)
+    field = dataset / "field.json"
+    write_json(field, {"frames": []})
+    inputs.update(
+        profile=inputs["andrew_profile"],
+        players=str(dataset),
+        ball=str(dataset),
+        appearance=str(features),
+        field=str(field),
+        context_dataset=str(dataset),
+    )
+    package = tmp_path / "data.zip"
+    manifest = export_bundle(package, inputs, source)
+    assert "Andrew_Prototype/archive/train/images/frame.jpg" in manifest["files"]
+    target = tmp_path / "another-laptop"
+    target.mkdir()
+    import_bundle(package, target)
+    rebound = yolo_data(target / "data/andrew", target / "bound")
+    assert rebound["path"] == str(target / "Andrew_Prototype/archive")
+    assert rebound["names"] == ["ball", "goalkeeper", "player", "referee"]

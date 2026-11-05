@@ -1,0 +1,100 @@
+{
+  "technical_only": true,
+  "gpu_check_passed": true,
+  "tasks": [
+    "andrew"
+  ],
+  "epochs": 1,
+  "minutes_per_model": 1,
+  "job": "C:\\Messi10\\artifacts\\training-workbench\\20261105-192117-8acd9311",
+  "real_worker_started": true,
+  "independent_accuracy_measured": false,
+  "worker_status": "complete",
+  "completed_tasks": [
+    "andrew"
+  ],
+  "result": {
+    "status": "complete",
+    "weights": "C:\\Messi10\\artifacts\\training-workbench\\20261105-192117-8acd9311\\andrew\\candidate-profile.json",
+    "weights_sha256": "53027e495168f0e540f4de35172c38714da9ac4aadb5fe01674349f07651cfcd",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "activated": false,
+    "evaluation_required": true,
+    "training_data": {
+      "players": "data/broadcast-multisource-v1",
+      "ball": "data/joint-local-20261027-v2/ball",
+      "appearance": "artifacts/broadcast-pitch-v1/appearance/features.pt",
+      "context_dataset": "data/broadcast-pitch-v1",
+      "field": "artifacts/player-field-reliability-20261030/field-recovery/training-index.json",
+      "profile": "configs/models-broadcast.json",
+      "andrew_dataset": "data/andrew-four-class-v1",
+      "andrew_profile": "configs/models-andrew.json"
+    }
+  },
+  "training_status": {
+    "status": "time_limited",
+    "base_weights": "C:\\Messi10\\artifacts\\andrew-four-class-v1\\best.pt",
+    "base_sha256": "78a847ecd67f78566e666a54aabca6141e7e63495fb76783e17b3a859d90fee9",
+    "config": {
+      "epochs": 1,
+      "imgsz": 1280,
+      "seed": 42,
+      "patience": 10,
+      "optimizer": "AdamW",
+      "lr0": 0.0001,
+      "amp": true,
+      "plots": true,
+      "batch": 1
+    },
+    "minutes": 1,
+    "attempts": [
+      {
+        "batch": 1,
+        "status": "complete",
+        "epochs": 1
+      }
+    ],
+    "training_source_sha256": "b7dd1b4f31984efb06fa2d565be557204ef4d8e1f697ffe2d369a78f8b3ebcd5",
+    "last_epoch_may_be_partial": true,
+    "best": "C:\\Messi10\\artifacts\\training-workbench\\20261105-192117-8acd9311\\andrew\\training\\batch-1\\weights\\best.pt",
+    "best_sha256": "08fa4ad2d953ad607d6877403b185dff7fa5d52e95de6777734a5d5bbfdd4c27",
+    "epochs": 1,
+    "runtime_s": 200.68799999999464
+  },
+  "candidate_model": {
+    "schema_version": 1,
+    "profile_name": "Andrew · getrainde kandidaat · 20261105-192117-8acd9311",
+    "models": [
+      {
+        "model_id": "andrew-four-class-20261105-192117-8acd9311",
+        "weights": "C:\\Messi10\\artifacts\\training-workbench\\20261105-192117-8acd9311\\andrew\\training\\batch-1\\weights\\best.pt",
+        "weights_sha256": "08fa4ad2d953ad607d6877403b185dff7fa5d52e95de6777734a5d5bbfdd4c27",
+        "class_mapping": {
+          "0": "ball",
+          "1": "player",
+          "2": "player",
+          "3": "referee"
+        },
+        "expected_names": {
+          "0": "ball",
+          "1": "goalkeeper",
+          "2": "player",
+          "3": "referee"
+        },
+        "imgsz": 1280,
+        "confidence": 0.03,
+        "iou": 0.5,
+        "device": "0"
+      }
+    ],
+    "handoff": {
+      "human_review_completed": false,
+      "independent_final_test_completed": false,
+      "targets_met": false,
+      "scope": "Four-class development training; evaluation required"
+    }
+  },
+  "original_weights_preserved": true,
+  "elapsed_wall_seconds": 222.5494191646576
+}

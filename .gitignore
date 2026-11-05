@@ -25,6 +25,8 @@ artifacts/*
 datasets/teamtrack-players-v1/
 requirements.lock.tmp
 .cache/
+# Ultralytics rebuilds these machine-specific caches from the shared labels.
+/Andrew_Prototype/archive/**/labels.cache
 models/
 output/
 !docs/**
