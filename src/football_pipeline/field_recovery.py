@@ -45,6 +45,7 @@ def diverse_rows(rows, count):
 
 
 def field_score(observation, labels, size):
+    """Bereken correcte velddekking en de verdeling van projectiefouten op vaste referenties."""
     state = estimate_checked(observation, size, DEFAULT_SETTINGS)
     scored = reprojection_metrics(observation, labels, DEFAULT_SETTINGS, state=state)
     errors = scored.get("errors_px", [])
@@ -64,6 +65,7 @@ def field_score(observation, labels, size):
 
 
 def cached_observation(models, row, output, runtime):
+    """Hergebruik een bij dezelfde beeld- en modelhash horende veldwaarneming of bereken haar opnieuw."""
     identity = digest_json(
         [
             row["image_sha256"],
@@ -89,6 +91,7 @@ def cached_observation(models, row, output, runtime):
 
 
 def prepare(args):
+    """Selecteer moeilijke en goede vergelijkingsbeelden met gescheiden trainings- en validatiewedstrijden."""
     import torch
 
     args.output.mkdir(parents=True, exist_ok=True)
@@ -167,6 +170,7 @@ def prepare(args):
 
 
 def summarize(scores):
+    """Vat geometrische dekking, foutprojecties en projectieafwijkingen van een variant samen."""
     errors = [e for s in scores for e in s["errors_px"]]
     return {
         "frames": len(scores),
@@ -181,6 +185,7 @@ def summarize(scores):
 
 
 def development_gate(baseline, candidate):
+    """Accepteer een variant alleen bij betere dekking zonder meer foutprojecties of hogere mediane en p95-fout."""
     return (
         baseline["frames"] == candidate["frames"]
         and candidate["correct"] > baseline["correct"]
@@ -194,6 +199,7 @@ def development_gate(baseline, candidate):
 
 
 def compare(args):
+    """Vergelijk de vaste veldvarianten op dezelfde bevroren ontwikkelreferenties."""
     import torch
 
     index = load_training_index(args.output / "training-index.json")
@@ -253,6 +259,7 @@ def compare(args):
 
 
 def main():
+    """Verwerk de opdrachten voor veldselectie, training en geometrische modelvergelijking."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("prepare", "compare"))
     parser.add_argument("--runtime", type=Path, default=Path(".tools/field-runtime.json"))

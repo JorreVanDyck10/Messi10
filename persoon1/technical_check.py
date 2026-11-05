@@ -1,4 +1,4 @@
-"""One-epoch GPU software check on generated rectangles, never project results."""
+"""Controleert GPU-training met synthetische rechthoeken; resultaten zijn geen voetbalmodelscore."""
 
 import contextlib
 import gc
@@ -10,6 +10,9 @@ from .modeling import yolo
 
 
 def main():
+    """Probeer één epoch training op synthetische rechthoeken met de toegestane batches om de GPU-
+    softwareketen te controleren, zonder dit als voetbalresultaat te rapporteren.
+    """
     import torch
     import yaml
     from PIL import Image, ImageDraw

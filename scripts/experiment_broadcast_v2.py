@@ -18,6 +18,9 @@ from persoon1.metrics import evaluate
 
 
 def measured(weights, rows, image_root, output, *, mode):
+    """Voer het balcheckpoint met de gekozen inferentiemodus uit op de aangeleverde referentierijen en
+    bewaar metrics plus bronidentiteit.
+    """
     from ultralytics import YOLO, __version__
 
     output.mkdir(parents=True, exist_ok=True)
@@ -98,6 +101,9 @@ def measured(weights, rows, image_root, output, *, mode):
 
 
 def run(dataset, output, epochs):
+    """Train de begrensde v2-balkandidaat en vergelijk baseline en kandidaat op dezelfde crop-,
+    volledige-beeld- en tegelreferenties.
+    """
     os.environ.setdefault("YOLO_CONFIG_DIR", str(Path(".cache/ultralytics-broadcast-v2").resolve()))
     (Path(os.environ["YOLO_CONFIG_DIR"]) / "Ultralytics").mkdir(parents=True, exist_ok=True)
     os.environ.setdefault("MPLCONFIGDIR", str(Path(".cache/matplotlib").resolve()))

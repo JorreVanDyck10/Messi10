@@ -12,14 +12,17 @@ from football_pipeline.contracts import read_json, sha256_file, write_json
 
 
 def audit_split(manifest):
+    """Controleer of bronwedstrijden en beeldhashes van training en validatie gescheiden zijn."""
     rows = manifest["frames"]
     train = [r for r in rows if r["split"] == "train"]
     val = [r for r in rows if r["split"] == "val"]
 
     def games(items):
+        """Lees de bronwedstrijden uit een datasetmanifest."""
         return {str(r["game_id"]) for r in items}
 
     def hashes(items):
+        """Verzamel de unieke beeldhashes uit een datasetmanifest."""
         return {r["image_sha256"] for r in items}
 
     overlap = sorted(games(train) & games(val))
@@ -38,6 +41,7 @@ def audit_split(manifest):
 
 
 def main():
+    """Leg de huidige broadcastnulmeting vast zonder de gereserveerde eindtest te gebruiken."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()

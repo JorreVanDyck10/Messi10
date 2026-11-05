@@ -29,6 +29,7 @@ TASKS = {
 
 
 def default_inputs(root=ROOT):
+    """Geef de gedeelde bronpaden voor de acht trainingsonderdelen terug."""
     return {
         "players": "data/broadcast-multisource-v1",
         "ball": "data/joint-local-20261027-v2/ball",
@@ -42,11 +43,13 @@ def default_inputs(root=ROOT):
 
 
 def local_path(value, root=ROOT):
+    """Zet een relatief bronpad om naar een absoluut pad vanuit de gekozen projectmap."""
     path = Path(value)
     return path.resolve() if path.is_absolute() else (root / path).resolve()
 
 
 def training_processes():
+    """Zoek bestaande lokale trainingsworkers om gelijktijdig GPU-gebruik te begrenzen."""
     found = []
     for process in psutil.process_iter(["pid", "name", "cmdline"]):
         try:
@@ -76,6 +79,7 @@ def training_processes():
 
 
 def check_inputs(tasks, inputs, root=ROOT):
+    """Controleer vereiste datasets, startprofielen en veldomgevingen voor de gekozen taken."""
     issues = []
     required = {"profile"}
     for task in tasks:
@@ -110,6 +114,7 @@ def check_inputs(tasks, inputs, root=ROOT):
 
 
 def job_alive(job):
+    """Controleer procesidentiteit en starttijd zodat hergebruik van een PID geen actieve training simuleert."""
     try:
         process = psutil.Process(job["pid"])
         return abs(process.create_time() - job["process_created_at"]) < 1 and process.is_running()
@@ -118,6 +123,7 @@ def job_alive(job):
 
 
 def jobs(root=ROOT):
+    """Laad trainingsrondes en markeer verdwenen workers als onderbroken zonder hun checkpoints te verwijderen."""
     result = []
     for path in sorted((root / "artifacts/training-workbench").glob("*/job.json"), reverse=True):
         try:
@@ -136,6 +142,7 @@ def jobs(root=ROOT):
 
 
 def launch(tasks, inputs, *, epochs=20, minutes=60, root=ROOT):
+    """Valideer taken en limieten en start precies een onafhankelijke, herstartbestendige trainingsronde."""
     if not tasks or len(set(tasks)) != len(tasks) or not 1 <= epochs <= 300 or not 1 <= minutes <= 1440:
         raise PipelineError("Kies modellen en geldige trainingslimieten")
     issues = check_inputs(tasks, inputs, root)
@@ -193,6 +200,7 @@ def launch(tasks, inputs, *, epochs=20, minutes=60, root=ROOT):
 
 
 def stop_after_model(path, root=ROOT):
+    """Registreer binnen de bekende trainingsronde dat volgende modellen niet meer mogen starten."""
     path = Path(path).resolve()
     if not path.is_relative_to((root / "artifacts/training-workbench").resolve()):
         raise PipelineError("Onbekende trainingsmap")
@@ -200,6 +208,7 @@ def stop_after_model(path, root=ROOT):
 
 
 def tail(path, limit=12000):
+    """Lees het laatste deel van een trainingslog voor de voortgangsweergave."""
     if not path.exists():
         return ""
     with path.open("rb") as stream:
@@ -208,6 +217,7 @@ def tail(path, limit=12000):
 
 
 def hardware_snapshot(root=ROOT):
+    """Laat een apart proces de echte lokale GPU-controle uitvoeren en lees het resultaat."""
     result = subprocess.run(
         [sys.executable, "-m", "football_pipeline.training_hardware"],
         cwd=root,

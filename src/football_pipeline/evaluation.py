@@ -1,3 +1,5 @@
+"""Koppelt voorspelde boxen aan trackingreferenties en telt projectgebonden fouten; dit is geen officiële MOT-metriekimplementatie."""
+
 from __future__ import annotations
 
 import json
@@ -11,6 +13,9 @@ from .pipeline import validate_completed
 
 
 def iou_matrix(predicted: list, references: list) -> np.ndarray:
+    """Bereken vectorieel de overlap gedeeld door de vereniging voor ieder paar voorspelde en
+    referentieboxen, ook bij lege invoerlijsten.
+    """
     if not predicted or not references:
         return np.empty((len(predicted), len(references)))
     p, r = np.asarray(predicted, dtype=float), np.asarray(references, dtype=float)
@@ -27,6 +32,9 @@ def evaluate_frames(predictions: list[dict], references: list[dict]) -> dict:
         raise PipelineError("Trackingreferentie bevat geen frames.")
 
     def check_box(box):
+        """Weiger referentie- of voorspellingsboxen met verkeerde vorm, ongeldige getallen of omgekeerde
+        coördinaten vóór evaluatie.
+        """
         try:
             values = np.asarray(box, dtype=float)
             if (
@@ -123,6 +131,9 @@ def evaluate_frames(predictions: list[dict], references: list[dict]) -> dict:
 
 
 def evaluate_run(run_directory: Path, reference_path: Path) -> dict:
+    """Controleer de opgeslagen run en trackingreferenties en schrijf de projectgebonden trackingfouten
+    en referentieherkomst naar een evaluatierapport.
+    """
     manifest = validate_completed(run_directory)
     reference = read_json(reference_path)
     if not isinstance(reference.get("frames"), list) or not reference["frames"]:

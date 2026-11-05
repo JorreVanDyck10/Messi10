@@ -15,6 +15,9 @@ from scripts.review_broadcast_data import font
 
 
 def prepare(root, destination):
+    """Maak een reproduceerbare selectie van bal- en negatieve kandidaten met bronmetadata voor de
+    visuele curatieronde.
+    """
     source = read_json(root / "manifest.json")
     if (destination / "candidates.json").exists():
         saved = read_json(destination / "candidates.json")
@@ -76,6 +79,9 @@ def prepare(root, destination):
 
 
 def render(root, destination, manifest):
+    """Teken de geselecteerde kandidaten op overzichtspagina's zodat de opgeslagen beslissingen visueel
+    te controleren zijn.
+    """
     for page in range(1, max(c["page"] for c in manifest["candidates"]) + 1):
         canvas = Image.new("RGB", (1440, 1080), "#111827")
         for candidate in (c for c in manifest["candidates"] if c["page"] == page):
@@ -100,6 +106,9 @@ def render(root, destination, manifest):
 
 
 def export(root, destination, manifest, decisions_path):
+    """Pas uitsluitend de expliciete curatiebeslissingen toe en schrijf beelden, labels en herleidbaar
+    manifest als aparte export.
+    """
     decisions = read_json(decisions_path)
     if digest_json({k: v for k, v in manifest.items() if k != "fingerprint"}) != manifest["fingerprint"]:
         raise ValueError("Candidate manifest fingerprint changed")

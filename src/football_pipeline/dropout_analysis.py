@@ -73,6 +73,7 @@ def sequence_summary(records, fps):
 
 
 def load_run(run):
+    """Laad een opgeslagen analyse met bronvideo, frames en beschikbare modelstatussen."""
     manifest = validate_completed(run)
     video = manifest["video"]
     source = Path(video["path"])
@@ -90,6 +91,7 @@ def load_run(run):
 
 
 def audit(run, output):
+    """Meet detectie- en velduitval per frame en exporteer oorspronkelijke overgangsbeelden."""
     manifest, records = load_run(run)
     output.mkdir(parents=True, exist_ok=True)
     summary = sequence_summary(records, manifest["video"]["fps_num"] / manifest["video"]["fps_den"])
@@ -178,6 +180,7 @@ def export_review(run, output):
 
 
 def main():
+    """Verwerk de opdrachtregel voor uitvalmetingen en blinde beeldreview."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("audit", "export-review"))
     parser.add_argument("run", type=Path)

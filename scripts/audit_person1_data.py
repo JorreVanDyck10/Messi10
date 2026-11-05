@@ -18,11 +18,15 @@ from scripts.football48_ball_experiment import truth_and_identity
 
 
 def difference_hash(frame):
+    """Bereken de horizontale grijswaardeverschillen van een klein beeld voor snelle perceptuele
+    duplicaatvergelijking.
+    """
     small = cv2.resize(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), (17, 16))
     return (small[:, 1:] > small[:, :-1]).reshape(-1)
 
 
 def audit_roles(path):
+    """Inventariseer rolcrops, bronbeelden, klassen en reviewstatus van één roldatasetversie."""
     data = load_training_manifest(path)
     counts = defaultdict(Counter)
     source_rows = defaultdict(list)
@@ -61,6 +65,9 @@ def audit_roles(path):
 
 
 def audit_detection(path):
+    """Controleer detectiebeelden en labels op hashes, bronverdeling en exacte of sterk gelijkende
+    beelden over splits.
+    """
     data = read_json(path)
     role_path = ROOT / "datasets/roles-teams-v2/manifest.json"
     reference_hashes = {
@@ -220,6 +227,9 @@ def render_new_role_sheets(rows, data_root, output):
 
 
 def main():
+    """Inventariseer ontwikkeldata, detecteer overlap en maak menselijke reviewoverzichten zonder
+    gereserveerde testbeelden te openen.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()

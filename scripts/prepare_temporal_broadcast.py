@@ -17,6 +17,7 @@ OUTPUT = ROOT / "data/broadcast-temporal-v1"
 
 
 def prepare_clip(task):
+    """Exporteer een vast continu venster met zijn oorspronkelijke labels en herkomst."""
     split, catalog = task
     clip = catalog["info"]["name"]
     directory = OUTPUT / clip
@@ -90,6 +91,7 @@ def prepare_clip(task):
 
 
 def main():
+    """Leg vaste continue vensters uit de reeds geselecteerde ontwikkelwedstrijden vast."""
     OUTPUT.mkdir(parents=True, exist_ok=True)
     tasks = []
     games = read_json(ROOT / "data/broadcast-pitch-v1/selection.json")["games"]

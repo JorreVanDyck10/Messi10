@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
+    """Verzamel keeperteamkansen zonder het geselecteerde shirtmodel te vervangen."""
     torch.set_num_threads(2)
     output = ROOT / "artifacts/broadcast-reliability-day2/keeper-evidence-v2"
     output.mkdir(parents=True, exist_ok=True)
@@ -22,6 +23,7 @@ def main():
     probabilities = []
 
     def capture_probabilities(module, inputs, logits):
+        """Registreer keeperkansen terwijl de oorspronkelijke voorspelfunctie normaal blijft werken."""
         probabilities.extend(logits.detach().softmax(1)[:, 1].cpu().tolist())
 
     kit.keeper.register_forward_hook(capture_probabilities)

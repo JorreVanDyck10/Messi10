@@ -16,6 +16,7 @@ from PIL import Image, ImageDraw
 
 
 def digest(path):
+    """Bereken de SHA-256 van het bron-, beeld- of labelbestand in blokken voor de identiteitscontrole."""
     h = hashlib.sha256()
     with path.open('rb') as stream:
         for chunk in iter(lambda: stream.read(1024 * 1024), b''):
@@ -24,15 +25,22 @@ def digest(path):
 
 
 def write_json(path, value):
+    """Schrijf de exportgegevens als leesbare UTF-8-JSON met behoud van niet-ASCII-tekens."""
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
 
 
 def yolo_line(category, box, width, height):
+    """Reken een bronpixelbox om naar één YOLO-regel met klasse en genormaliseerd centrum, breedte en
+    hoogte.
+    """
     x, y, z, w = box
     return f'{category} {(x+z)/2/width:.9f} {(y+w)/2/height:.9f} {(z-x)/width:.9f} {(w-y)/height:.9f}'
 
 
 def link_image(source, target):
+    """Hergebruik het volledige bronbeeld via een hardlink of kopie en weiger een al bestaande afwijkende
+    taakafbeelding.
+    """
     target.parent.mkdir(parents=True, exist_ok=True)
     if target.exists():
         if digest(source) != digest(target):
@@ -45,6 +53,9 @@ def link_image(source, target):
 
 
 def build(annotation_path, source_dir, out, download=False):
+    """Verifieer de vijf bronclips, reconstrueer de geselecteerde volledige frames en schrijf scène-,
+    speler- en speelbalexports met hashes en expliciete uitsluitingen.
+    """
     data = json.loads(annotation_path.read_text(encoding='utf-8'))
     source_dir.mkdir(parents=True, exist_ok=True)
     out.mkdir(parents=True, exist_ok=True)

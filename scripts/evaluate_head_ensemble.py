@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
+    """Meet de vaste combinatie van twee al bewaarde veldkopvoorspellingen."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", choices=("historical", "pose"), default="historical")
     parser.add_argument("--split", choices=("train", "val"), default="train")

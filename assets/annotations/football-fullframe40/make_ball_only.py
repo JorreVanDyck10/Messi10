@@ -7,6 +7,9 @@ from build_dataset import read,write
 
 
 def create(output,in_play_only=False):
+    """Maak een bal-only-datasetweergave met dezelfde invoerbeelden en splits en hernummer de gekozen
+    balboxen naar klasse nul.
+    """
     root=Path(__file__).resolve().parent;spec=read(root/'source-annotations.json');manifest=read(root/'manifest.json')
     output=Path(output).resolve()
     if output.exists():raise ValueError('Choose a new output directory')

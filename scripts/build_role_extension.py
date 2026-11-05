@@ -13,6 +13,9 @@ from persoon1.role_training import load_training_manifest
 
 
 def main():
+    """Pas de expliciete visuele AI-beslissingen toe op nieuwe rolcrops en bewaar de uitbreiding als
+    nieuwe datasetversie.
+    """
     output = ROOT / "datasets/roles-teams-v2"
     if output.exists():
         raise ValueError("Preserve the existing version; choose a new version before changing crop labels")
@@ -119,6 +122,9 @@ def main():
     decisions = []
 
     def add(item, image, group, split, role, origin):
+        """Voeg één expliciet gekozen rolcrop met bron, split en herkomst toe en registreer welke visuele
+        beslissing de toevoeging verklaart.
+        """
         row = {
             "id": f"extension:{split}:{item['frame_id']}:{item['index']}",
             "image": Path(os.path.relpath(image, output)).as_posix(),

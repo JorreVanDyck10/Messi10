@@ -7,6 +7,9 @@ from build_dataset import read,write,digest
 
 
 def validate(root,source=None,scan=False):
+    """Controleer beeldidentiteit, labelboxen, overeenkomst tussen YOLO en COCO en de vastgelegde bron-
+    en splitvoorwaarden van deze datasetversie.
+    """
     root=Path(root).resolve();spec=read(root/'source-annotations.json');m=read(root/'manifest.json');coco=read(root/'annotations.coco.json')
     names=['player','ball','referee','other_person','crowd','goal','corner_flag','stored_goals'];assert spec['names']==m['names']==names
     frames=m['frames'];assert len(frames)==16 and len({f['frame_index'] for f in frames})==16

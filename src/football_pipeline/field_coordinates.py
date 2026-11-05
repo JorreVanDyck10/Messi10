@@ -6,6 +6,7 @@ MODEL_SIZE = (960, 540)
 
 
 def observation_from_peaks(keypoints, lines, image_size):
+    """Zet netwerkpieken uit de uitgerekte 960x540-invoer terug naar oorspronkelijke beeldcoordinaten."""
     width, height = image_size
     if width <= 0 or height <= 0:
         raise ValueError("Field observation requires positive original image dimensions")

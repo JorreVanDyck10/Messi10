@@ -1,4 +1,4 @@
-"""Count labels surviving the installed YOLO training transforms on real train images."""
+"""Controleert hoeveel echte labels behouden blijven na de geïnstalleerde YOLO-trainingsaugmentaties."""
 
 from collections import Counter
 import os
@@ -8,6 +8,9 @@ from .core import now, read_json, write_json
 
 
 def main():
+    """Voer de geïnstalleerde YOLO-trainingsaugmentaties op echte trainingsbeelden uit en rapporteer
+    hoeveel doelboxen behouden blijven.
+    """
     os.environ.setdefault("YOLO_CONFIG_DIR", str(Path(".cache/ultralytics").resolve()))
     import torch
     from ultralytics.cfg import get_cfg

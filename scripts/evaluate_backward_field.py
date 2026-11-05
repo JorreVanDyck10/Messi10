@@ -19,6 +19,7 @@ OUTPUT = ROOT / "artifacts/broadcast-reliability-20261030/backward-field-v1"
 
 
 def reverse_video(path, count, block=16):
+    """Schrijf bronframes achterstevoren voor de vergelijking met toekomstige veldankers."""
     capture = cv2.VideoCapture(str(path))
     try:
         stop = count
@@ -39,6 +40,7 @@ def reverse_video(path, count, block=16):
 
 
 def point_errors(rows, states, clip):
+    """Bereken pixelafwijkingen tussen overeenkomstige veldreferentiepunten."""
     clip = rows[0].get("provider_clip", clip)
     provider = json.loads(
         gzip.decompress((ROOT / "data/broadcast-pitch-v1/provider-labels" / (clip + ".json.gz")).read_bytes())
@@ -70,6 +72,7 @@ def point_errors(rows, states, clip):
 
 
 def evaluate(name, observations, forward, reverse_frames, rows=None):
+    """Vergelijk achterwaartse veldankers met de nulmeting op dezelfde opgeslagen waarnemingen."""
     directory = OUTPUT / name
     directory.mkdir(parents=True, exist_ok=True)
     identity = digest_json(
@@ -126,6 +129,7 @@ def evaluate(name, observations, forward, reverse_frames, rows=None):
 
 
 def main():
+    """Beoordeel achterwaartse veldankers op dezelfde bewaarde ontwikkelwaarnemingen."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--own-clip", action="store_true")
     args = parser.parse_args()
@@ -166,6 +170,7 @@ def main():
         )["frames"]
 
         def images():
+            """Lever de oorspronkelijke frames in de gewenste evaluatievolgorde."""
             for row in reversed(rows):
                 frame = cv2.imread(row["image"])
                 if frame is None or sha256_file(row["image"]) != row["image_sha256"]:

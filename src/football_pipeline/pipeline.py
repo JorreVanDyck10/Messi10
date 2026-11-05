@@ -1,3 +1,5 @@
+"""Verbindt video-inspectie, detectie, projectie, optionele tracking en uitvoer. Ieder bronframe krijgt één gedeeld gegevensrecord voor beeld en minimap."""
+
 from __future__ import annotations
 
 import contextlib
@@ -35,6 +37,7 @@ from .video import ROOT, VideoWriter, inspect_video, tool_versions
 
 
 def code_identity() -> dict:
+    """Bewaar Git-commit en bronhashes om te kunnen uitleggen welke code een run maakte."""
     paths = sorted((ROOT / "src" / "football_pipeline").glob("*.py"))
     paths += [ROOT / "streamlit_app.py", ROOT / "pyproject.toml"]
     hashes = {str(p.relative_to(ROOT)): sha256_file(p) for p in paths if p.is_file()}
@@ -48,6 +51,9 @@ def code_identity() -> dict:
 
 
 def dependencies() -> dict:
+    """Lees de werkelijk geïnstalleerde versies van de runtimebibliotheken voor het runmanifest en de
+    cache-identiteit.
+    """
     names = (
         "streamlit",
         "ultralytics",
@@ -64,6 +70,7 @@ def dependencies() -> dict:
 
 @contextlib.contextmanager
 def processing_lock(root: Path):
+    """Voorkom dat twee verwerkingen tegelijk dezelfde uitvoermap schrijven; geef de lock altijd vrij."""
     root.mkdir(parents=True, exist_ok=True)
     lock = (root / ".processing.lock").open("a+b")
     locked = False
@@ -103,6 +110,7 @@ def processing_lock(root: Path):
 
 
 def validate_completed(directory: Path) -> dict:
+    """Herbereken uitvoerhashes voordat een opgeslagen analyse wordt vertrouwd of hergebruikt."""
     manifest = read_json(directory / "runmanifest.json")
     if manifest.get("status") != "completed":
         raise PipelineError("Uitvoering is niet volledig geslaagd.")
@@ -124,6 +132,9 @@ def validate_completed(directory: Path) -> dict:
 
 
 def accept_mvp(directory: Path, reviewer: str, confirmed: bool) -> Path:
+    """Leg alleen een expliciet gereviewde, voltooide MVP-run met reviewer vast als acceptatierecord voor
+    de passende workflow.
+    """
     manifest = validate_completed(directory)
     if (
         not confirmed
@@ -162,6 +173,9 @@ def check_mvp_acceptance(
     code: dict,
     versions: dict,
 ) -> dict:
+    """Controleer dat de menselijke MVP-acceptatie bij precies dezelfde video, kalibratie, modellen, code
+    en omgeving hoort.
+    """
     if path is None:
         raise PipelineError("Tracking vereist eerst een gecontroleerde MVP-run; zie accept-mvp.")
     acceptance = read_json(path)
@@ -462,6 +476,9 @@ def process_video(
                             if models.get("person_box_fusion_weight"):
 
                                 def refined_projection(d):
+                                    """Projecteer een door de rolstap aangepaste detectie opnieuw met de
+                                    actuele handmatige of automatische kalibratie.
+                                    """
                                     if automatic:
                                         project_automatic(d, frame_calibration, video.size)
                                     else:

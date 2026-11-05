@@ -1,10 +1,13 @@
-"""Produce a compact, evidence-linked Dutch report after the actual runs finish."""
+"""Schrijft het gezamenlijke rapport uit werkelijk opgeslagen trainings- en demonstratieresultaten."""
 
 from .contracts import read_json, sha256_file, write_json
 from .video import ROOT
 
 
 def write_report(dataset, output):
+    """Lees de werkelijk voltooide deeltrainingen en demonstraties en schrijf daaruit het gezamenlijke
+    verslag met bronverwijzingen.
+    """
     import json
     import shutil
     import xml.etree.ElementTree as ET

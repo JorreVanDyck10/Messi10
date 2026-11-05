@@ -17,15 +17,24 @@ from football_pipeline.field_model_spec import RELEASE_WEIGHTS, UPSTREAM_REVISIO
 
 
 def checksum(path):
+    """Lees het modelbestand in binaire vorm en bereken zijn SHA-256 voor verificatie van de
+    runtimegewichten.
+    """
     with Path(path).open("rb") as stream:
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
 def run(arguments, **kwargs):
+    """Voer het opgegeven installatie- of inspectiecommando uit en retourneer de tekstuitvoer; een
+    mislukte subprocessstap veroorzaakt een fout.
+    """
     return subprocess.check_output([str(a) for a in arguments], text=True, **kwargs).strip()
 
 
 def main():
+    """Installeer de geïsoleerde veldruntime en de vastgelegde releasegewichten en schrijf hun
+    gecontroleerde runtimeconfiguratie.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / ".tools/field-runtime.json")
     parser.add_argument("--device", default="cuda:0")

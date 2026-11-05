@@ -27,6 +27,7 @@ BASE_RUNTIME = ROOT / "artifacts/joint-retrain-20261027-v2/selected-field-runtim
 
 class HeadPair:
     def __init__(self, candidate):
+        """Initialiseer twee veldkoppen met dezelfde bevroren featurebackbone."""
         self.base = upstream_runtime(BASE_RUNTIME)
         self.candidate = upstream_runtime(candidate)
         original = torch.load(self.base["weights_keypoints"], map_location="cpu", weights_only=True)
@@ -46,6 +47,7 @@ class HeadPair:
         self.points.head[0][3].register_forward_pre_hook(lambda _, inputs: self.captured.append(inputs[0]))
 
     def observe(self, frame):
+        """Bereken beide veldvoorspellingen op hetzelfde ingevoerde frame."""
         tensor = tf.resize(tf.to_tensor(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)), [540, 960], antialias=True)[
             None
         ].cuda()
@@ -59,6 +61,7 @@ class HeadPair:
 
 
 def source_rows(source, split):
+    """Selecteer de vastgelegde frames met hun providerreferenties."""
     if source == "historical":
         index = read_json(ROOT / "artifacts/course-improvement-20261019/field/dataset-index.json")
         return [r for r in index["frames"] if r["split"] == ("valid" if split == "val" else split)]
@@ -81,6 +84,7 @@ def source_rows(source, split):
 
 
 def accuracy(observation, row):
+    """Meet correcte velddekking en projectiefouten tegenover de gekoppelde referenties."""
     measured = reprojection_metrics(observation, labels_for_row(row), MOTION_RANK_SETTINGS)
     if not measured["valid"]:
         return "unavailable"
@@ -92,6 +96,7 @@ def accuracy(observation, row):
 
 
 def main():
+    """Vergelijk twee veldkoppen met dezelfde bevroren featurebackbone."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidate", type=Path, required=True)
     parser.add_argument("--source", choices=("historical", "pose"), default="historical")

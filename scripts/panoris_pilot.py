@@ -20,6 +20,9 @@ from football_pipeline.video import ROOT, find_tool, inspect_video, read_frame, 
 
 
 def prepare(output: Path, points_config: dict):
+    """Reconstrueer het exacte pilotfragment en controleer bronvideo en gekozen kalibratiepunten voor de
+    proef.
+    """
     if (points_config.get("source_frame_start"), points_config.get("source_frame_end_exclusive")) != (0, 150):
         raise PipelineError("Deze pilot is uitsluitend voor bronframes 0 tot en met 149.")
     source = ROOT / "assets/videos/HBTFZwMdcCw.mp4"
@@ -123,6 +126,9 @@ def prepare(output: Path, points_config: dict):
 
 
 def assess_geometry(video, config: dict, output: Path):
+    """Controleer de aangeklikte kalibratie en de temporele camerastabiliteit en schrijf een technisch
+    gemarkeerd geometrieverslag.
+    """
     if list(video.size) != config["image_size"]:
         raise PipelineError("Puntselectie hoort niet bij dit beeldformaat.")
     points = config["points"]
@@ -248,6 +254,9 @@ def assess_geometry(video, config: dict, output: Path):
 
 
 def summarize(result, geometry: dict, output: Path) -> dict:
+    """Combineer echte rungegevens en geometriecontrole tot het pilotrapport zonder technische controle
+    als menselijke acceptatie voor te stellen.
+    """
     manifest = validate_completed(result.directory)
     counts, statuses, per_frame = Counter(), Counter(), []
     with (result.directory / "framegegevens.jsonl").open(encoding="utf-8") as stream:
@@ -305,6 +314,9 @@ def summarize(result, geometry: dict, output: Path) -> dict:
 
 
 def main(argv=None):
+    """Bereid het vaste pilotfragment voor, controleer kalibratie en voer de technisch gemarkeerde
+    videopipeline uit.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "artifacts/panoris-pilot")
     parser.add_argument("--points", type=Path, default=ROOT / "configs/panoris-pilot-points.json")

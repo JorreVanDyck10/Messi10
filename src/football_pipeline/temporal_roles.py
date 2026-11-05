@@ -14,6 +14,7 @@ class TemporalOfficials:
     """Link unambiguous adjacent boxes, including officials without player track IDs."""
 
     def __init__(self, fps, model, required=3, window=5):
+        """Initialiseer trackgeheugen en drempels voor causale officialconsensus."""
         if not 1 <= required <= window or fps <= 0:
             raise ValueError("Invalid temporal consensus settings")
         self.model, self.required, self.window = model, required, window
@@ -21,6 +22,7 @@ class TemporalOfficials:
         self.last_index = None
 
     def update(self, detections, index, *, reset=False):
+        """Bevestig officials uit huidig en eerder trackbewijs, zonder toekomstige frames."""
         if reset or self.last_index is None or index != self.last_index + 1:
             self.previous = []
         self.last_index = index

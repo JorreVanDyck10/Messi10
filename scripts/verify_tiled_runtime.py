@@ -12,6 +12,7 @@ from football_pipeline.detection import UltralyticsDetector, load_model_manifest
 
 
 def main():
+    """Vergelijk de tegeldetecties van de echte applicatieadapter met de eerder gemeten bronpixelboxen."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--models", type=Path, required=True)
     parser.add_argument("--reference", type=Path, required=True)

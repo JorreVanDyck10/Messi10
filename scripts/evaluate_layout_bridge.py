@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def evaluate(name, observations, baseline, frames, fps, output, rows=None):
+    """Herhaal het veldbeleid met camerabeweging en vaste geometrische geldigheidsvoorwaarden."""
     directory = output / name
     directory.mkdir(parents=True, exist_ok=True)
     identity = digest_json(
@@ -108,6 +109,7 @@ def evaluate(name, observations, baseline, frames, fps, output, rows=None):
 
 
 def main():
+    """Herhaal de geometrisch begrensde camerabrug op bewaarde broadcastframes."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--split", choices=("train", "val", "all"), default="train")
@@ -132,6 +134,7 @@ def main():
         ]
 
         def frames():
+            """Lever oorspronkelijke videoframes voor de vaste beleidsvergelijking."""
             capture = cv2.VideoCapture(video["path"])
             try:
                 for _ in observations:
@@ -168,6 +171,7 @@ def main():
         )["frames"]
 
         def frames():
+            """Lever oorspronkelijke videoframes voor de vaste beleidsvergelijking."""
             for row in rows:
                 if sha256_file(row["image"]) != row["image_sha256"]:
                     raise ValueError("Source image changed")

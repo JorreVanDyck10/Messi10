@@ -14,13 +14,11 @@ Gebruik het laptop-startpakket of een eigen kopie van deze broncode. Kopieer
 geen `.venv` of `.tools` van een andere computer. Vereist: Windows, Python 3.11,
 Git voor Windows en een NVIDIA-driver die de gekozen CUDA-runtime ondersteunt.
 
-Open PowerShell in de nieuwe projectmap:
-
-Deze levering staat op `codex/broadcast-reliability-20261030`. Tot die branch
-in `main` is samengevoegd, clone je expliciet deze versie:
+Open PowerShell in de map waarin je het project wilt zetten. De complete versie
+staat op `main`:
 
 ```powershell
-git clone --branch codex/broadcast-reliability-20261030 https://github.com/JorreVanDyck10/Messi10.git Messi10
+git clone https://github.com/JorreVanDyck10/Messi10.git Messi10
 cd Messi10
 ```
 

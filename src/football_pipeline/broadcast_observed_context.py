@@ -1,4 +1,5 @@
-"""Learn role context from genuine detector crops matched to provider annotations.
+"""Leert rolcontext uit echte detectorcrops die aan providerlabels zijn gekoppeld.
+
 
 Unmatched predictions participate in scene context but never become invented
 role labels. The fixed SoccerNet validation matches remain development-only.
@@ -46,6 +47,9 @@ def matched_targets(detections, people, minimum_iou=0.5):
 
 
 def scene_features(detections, size):
+    """Maak contextvectoren uit actuele detecties met hun rolkansen, embeddings, veldposities en
+    boxafmetingen.
+    """
     return context_features(
         [d.role_probabilities for d in detections],
         [d.team_embedding for d in detections],
@@ -57,6 +61,9 @@ def scene_features(detections, size):
 
 
 def collect(dataset, profile, output):
+    """Voer echte detectorcrops uit, koppel ze aan providerrollen en bewaar de kenmerken die later de
+    contextclassifier trainen.
+    """
     torch.set_num_threads(4)
     # Leave room for the independent detector fine-tuning process on this GPU.
     torch.cuda.set_per_process_memory_fraction(0.45)
@@ -128,6 +135,9 @@ def collect(dataset, profile, output):
             found = detector.detect(image, row["frame_index"])
 
             def project(d):
+                """Vul de veldpositie van deze detectie in met de huidige geometrie en de afmetingen van
+                het geselecteerde bronbeeld.
+                """
                 project_automatic(d, geometry, (row["width"], row["height"]))
 
             for d in found:
@@ -194,6 +204,7 @@ def collect(dataset, profile, output):
 
 
 def train(cache, output, epochs=50, nonplayer_weight=3.0, *, device="cpu", minutes=None):
+    """Train de contextkop op gecontroleerde kenmerken, met gekozen GPU, klasseweging en tijdslimiet."""
     if not np.isfinite(nonplayer_weight) or nonplayer_weight <= 0:
         raise ValueError("Nonplayer weight must be positive and finite")
     torch.set_num_threads(4)

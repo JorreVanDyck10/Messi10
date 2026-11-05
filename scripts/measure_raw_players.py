@@ -13,6 +13,7 @@ from persoon1.metrics import evaluate
 
 
 def measure(manifests, profile, output):
+    """Meet de ruwe spelersdetector onafhankelijk van veldprojectie en het veldfilter."""
     output.mkdir(parents=True, exist_ok=True)
     manifest = load_model_manifest(profile)
     specialist = [m for m in manifest["models"] if "player" in m["class_mapping"].values()]
@@ -96,6 +97,7 @@ def measure(manifests, profile, output):
 
 
 def main():
+    """Meet de spelersdetector rechtstreeks op beelden zonder veldfilter."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset", type=Path, action="append", required=True)
     parser.add_argument("--profile", type=Path, default=Path("configs/models-broadcast.json"))

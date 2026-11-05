@@ -10,6 +10,7 @@ from football_pipeline.video import ROOT
 
 
 def build(data, output):
+    """Verpak broncode en een gecontroleerd datapakket zonder lokale omgevingen in een Windows-startpakket."""
     if not data.is_file() or output.exists():
         raise ValueError("Datapakket moet bestaan en het startpakket moet een nieuwe naam krijgen")
     with zipfile.ZipFile(data) as archive:

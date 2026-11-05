@@ -12,6 +12,7 @@ from .field_lens import line_rmse, white_chains
 
 
 def paint_evidence(frame, state, *, chains_and_size=None):
+    """Meet zichtbare veldverf die een bestaande homografie ondersteunt zonder zelf een veldanker te maken."""
     if state["status"] != "valid":
         return {"status": "not_applicable", "reject": False, "chains": []}
     chains, size = white_chains(frame) if chains_and_size is None else chains_and_size

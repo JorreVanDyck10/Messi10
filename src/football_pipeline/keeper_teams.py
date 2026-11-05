@@ -6,11 +6,13 @@ from math import hypot
 
 class KeeperTeamConsensus:
     def __init__(self, fps):
+        """Initialiseer geheugen en drempels voor experimentele keeperteamconsensus."""
         self.required = max(3, round(fps * 0.5))
         self.history = {}
         self.last_index = None
 
     def update(self, detections, index, *, reset=False):
+        """Werk keeperteamsteun uit nabije medespelers bij en behoud onbekend bij onvoldoende consistent bewijs."""
         if reset or self.last_index is None or index != self.last_index + 1:
             self.history.clear()
         self.last_index = index

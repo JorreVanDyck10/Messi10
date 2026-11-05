@@ -22,6 +22,7 @@ FULL = ROOT / "runs/0b2006b23d066695e0c35ebe1d282748e2d083217f3a33ee638783db251c
 
 
 def process(source, label, policy, profile):
+    """Herhaal de broadcastproef met expliciet gekozen model- en veldinstellingen."""
     original = validate_completed(source)
     bundle = load_automatic_calibration(source / "calibration.json")
     calibration = AutomaticCalibration(bundle.manifest, bundle.observations_path, policy)
@@ -68,6 +69,7 @@ def process(source, label, policy, profile):
 
 
 def main():
+    """Herhaal de historische camerabrugproef zonder die opnieuw standaard te activeren."""
     torch.set_num_threads(4)
     OUTPUT.mkdir(parents=True, exist_ok=True)
     target = OUTPUT / "integration.json"

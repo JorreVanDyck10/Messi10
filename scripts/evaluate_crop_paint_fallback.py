@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def supported_by_paint(evidence):
+    """Controleer of zichtbare veldverf de bestaande uitsnedeprojectie ondersteunt."""
     if evidence["status"] != "checked" or not evidence.get("lines"):
         return False
     if any(line["mismatch"] for line in evidence["lines"]):
@@ -31,6 +32,7 @@ def supported_by_paint(evidence):
 
 
 def main():
+    """Meet uitsnedeherstel dat door zichtbare veldverf wordt ondersteund."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--split", choices=("train", "valid"), default="train")
     parser.add_argument("--output", type=Path, required=True)

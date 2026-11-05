@@ -1,3 +1,5 @@
+"""Laadt expliciete modelprofielen en zet YOLO-uitvoer om naar gedeelde Detection-objecten. Optionele rol- en shirtmodellen verfijnen die uitvoer."""
+
 from __future__ import annotations
 
 import math
@@ -9,6 +11,10 @@ from .participants import GROUND_ROLES
 
 
 def load_model_manifest(path: str | Path) -> dict:
+    """Lees modelinstellingen en controleer bestanden, hashes en de betekenis van bronklassen.
+
+    Klasse-ID 0 betekent niet in ieder model hetzelfde. De expliciete mapping
+    voorkomt bijvoorbeeld dat een algemene person-box als player wordt geteld."""
     path = Path(path).resolve()
     manifest = read_json(path)
     models = manifest.get("models", [])
@@ -155,12 +161,18 @@ def load_model_manifest(path: str | Path) -> dict:
 
 
 def available_roles(manifest):
+    """Verzamel de semantische rollen die het geladen detector- en optionele appearanceprofiel
+    daadwerkelijk kunnen leveren.
+    """
     roles = {v for spec in manifest["models"] for v in spec["class_mapping"].values()}
     roles.update(manifest.get("appearance", {}).get("role_names", []))
     return roles
 
 
 def player_detection_sources(manifest):
+    """Vind de modelbronnen die expliciet spelerdetecties leveren, zodat tracking geen algemene personen
+    als spelers behandelt.
+    """
     actual = [s for s in manifest["models"] if "player" in s["class_mapping"].values()]
     if actual:
         return actual
@@ -343,6 +355,9 @@ def validate_detection_devices(manifest: dict) -> None:
 class UltralyticsDetector:
     def __init__(self, manifest: dict):
         # Keep the local app usable without write access to the Windows user profile.
+        """Controleer device en bronklassen, laad de geconfigureerde YOLO-gewichten en initialiseer
+        optionele appearance-, shirt- en contextmodellen.
+        """
         root = Path(__file__).resolve().parents[2]
         os.environ.setdefault("YOLO_CONFIG_DIR", str(root / ".cache/ultralytics"))
         (Path(os.environ["YOLO_CONFIG_DIR"]) / "Ultralytics").mkdir(parents=True, exist_ok=True)
@@ -389,6 +404,7 @@ class UltralyticsDetector:
             )
 
     def set_video_identity(self, video_hash):
+        """Bewaar de videohash en begin bij een nieuwe video met nieuwe videospecifieke teamprototypes."""
         if video_hash != self.video_hash and self.appearance:
             from .teams import VideoTeams
 
@@ -396,6 +412,10 @@ class UltralyticsDetector:
         self.video_hash = video_hash
 
     def detect(self, frame, frame_index: int) -> list[Detection]:
+        """Zet YOLO-boxen van dit bronframe om naar Detection-objecten.
+
+        Tegeloffsets worden in bronpixels teruggeteld; confidence en bronklasse
+        blijven bewaard. Projectie en tracking gebeuren later in de pipeline."""
         detections = []
         for spec, model in self.models:
             if "ball_tiles" in spec:
@@ -475,6 +495,9 @@ class UltralyticsDetector:
                         )
                     )
         if self.appearance and getattr(self, "manifest", {}).get("analysis_scope") != "on_pitch_players":
+            # Eerst dubbele persoonsvoorstellen samenvoegen; anders krijgt één
+            # persoon meerdere rolbeslissingen. Veldgerichte profielen doen deze
+            # stap pas na projectie in classify_on_pitch.
             detections = merge_person_proposals(detections)
         if self.appearance and getattr(self, "manifest", {}).get("analysis_scope") != "on_pitch_players":
             self.appearance.classify(frame, detections, self.video_hash)

@@ -1,4 +1,4 @@
-"""Build explicit player/referee labels from source MOT boxes and reviewed role boxes."""
+"""Zet MOT-persoonsboxen en expliciete rolboxen om naar speler-/scheidsrechterlabels."""
 
 from pathlib import Path
 
@@ -6,6 +6,9 @@ from .core import now, read_json, sha256, validate_dataset, write_json
 
 
 def build(root="datasets/teamtrack-players-v2"):
+    """Bouw speler-/scheidsrechterlabels uit de vastgelegde TeamTrack-boxen en expliciete rolcorrecties
+    en schrijf de dataset met bron- en splitmetadata.
+    """
     import numpy as np
     import yaml
     from PIL import Image, ImageDraw

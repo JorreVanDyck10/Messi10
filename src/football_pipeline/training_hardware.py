@@ -4,6 +4,7 @@ import json
 
 
 def probe():
+    """Controleer CUDA, GPU-architectuur en een echte voorwaartse en achterwaartse GPU-berekening."""
     import torch
 
     result = {

@@ -72,6 +72,7 @@ def sparse_targets(output, keypoints):
 
 
 def collect(args, runtime, manifest, identity):
+    """Verzamel bevroren veldkenmerken en bestaande labels voor de uitvoerlaagproef."""
     directory = args.output / "features"
     directory.mkdir(exist_ok=True)
     model, captured = None, []
@@ -117,6 +118,7 @@ def collect(args, runtime, manifest, identity):
 
 
 def train(args, runtime, manifest, identity):
+    """Train en selecteer de veldkop met afzonderlijke trainings- en validatiebeelden."""
     matches = sorted({r["match_id"] for r in manifest["frames"] if r["split"] == "train"})
     holdout = set(matches[::5])
     train_x, train_y, valid_x, valid_y = [], [], [], []
@@ -244,6 +246,7 @@ def train(args, runtime, manifest, identity):
 
 
 def main():
+    """Verzamel kenmerken of train een uitvoerlaag op bestaande, gescheiden veldlabels."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--stage", choices=("collect", "train", "all"), default="all")

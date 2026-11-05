@@ -20,6 +20,9 @@ from football_pipeline.video import ROOT, VideoWriter, inspect_video
 
 
 def main():
+    """Voer echte veldgewichten uit op gecontroleerde kunstmatige cameravariaties en schrijf de
+    technische diagnose.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "artifacts/automatic-field-diagnostic")
     parser.add_argument("--runtime", type=Path, default=ROOT / ".tools/field-runtime.json")

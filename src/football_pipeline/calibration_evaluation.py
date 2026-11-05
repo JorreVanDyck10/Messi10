@@ -1,4 +1,4 @@
-"""Evaluate automatic projection against explicitly reviewed, held-out human landmarks."""
+"""Vergelijkt automatische veldprojecties met afzonderlijk gereviewde menselijke referentiepunten."""
 
 from __future__ import annotations
 
@@ -13,6 +13,9 @@ from .pipeline import validate_completed
 
 
 def evaluate_calibration(run_directory, reference_path):
+    """Vergelijk een voltooide veldanalyse met onafhankelijke menselijke landmarkreferenties en
+    retourneer fouten, dekking en herkomst.
+    """
     directory = Path(run_directory)
     manifest = validate_completed(directory)
     reference = read_json(reference_path)

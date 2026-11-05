@@ -1,4 +1,4 @@
-"""Measure player/role/team stages with explicit reference-geometry provenance."""
+"""Meet afzonderlijke detectie-, rol- en teamstappen en registreert waar de referentiegeometrie vandaan komt."""
 
 from __future__ import annotations
 
@@ -47,6 +47,7 @@ def reference_geometry(annotations, width, height):
 
 
 def evaluate_profile(dataset, profile, team_settings, output, *, replay=None, confidence=0.25):
+    """Meet detectie, rollen en teams op vaste referentiebeelden met een instelbare weergavedrempel."""
     if not 0 <= confidence <= 1:
         raise ValueError("Confidence must be between zero and one")
     started = time.perf_counter()
@@ -62,6 +63,11 @@ def evaluate_profile(dataset, profile, team_settings, output, *, replay=None, co
         previous = read_json(replay / "metrics.json")
 
         def inference_spec(value):
+            """Verwijder recursief alleen devicevelden uit een modelprofiel voor de replayvergelijking.
+
+            Dezelfde gewichten mogen op een ander device worden gelezen; alle overige profielvelden
+            blijven onderdeel van de gelijkheidscontrole.
+            """
             if isinstance(value, dict):
                 return {k: inference_spec(v) for k, v in value.items() if k != "device"}
             return [inference_spec(v) for v in value] if isinstance(value, list) else value

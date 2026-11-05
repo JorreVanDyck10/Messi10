@@ -1,3 +1,5 @@
+"""Controleert videometadata met ffprobe, leest frames met OpenCV en schrijft uitvoer met FFmpeg. De pipeline vereist constante frametiming."""
+
 from __future__ import annotations
 
 import json
@@ -17,6 +19,9 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def find_tool(name: str) -> str:
+    """Zoek ffmpeg of ffprobe via een expliciete omgevingsvariabele, PATH of de lokale toolsmap en geef
+    anders een bruikbare installatiefout.
+    """
     explicit = os.environ.get(f"FOOTBALL_{name.upper()}")
     if explicit and Path(explicit).is_file():
         return explicit
@@ -30,6 +35,9 @@ def find_tool(name: str) -> str:
 
 
 def probe_json(path: Path, *, frames: bool = False) -> dict:
+    """Vraag streammetadata en desgevraagd alle frametijdstippen met ffprobe op en parse de
+    gecontroleerde JSON-uitvoer.
+    """
     entries = (
         "stream=width,height,r_frame_rate,codec_name,time_base:stream_tags=rotate:stream_side_data=rotation"
     )
@@ -49,6 +57,10 @@ def probe_json(path: Path, *, frames: bool = False) -> dict:
 
 
 def inspect_video(path: str | Path) -> VideoMetadata:
+    """Controleer alle frametijdstippen, afmetingen en rotatie vóór de sequentiële pipeline start.
+
+    Variabele timing wordt hier geweigerd: de uitvoer gebruikt dezelfde vaste
+    framerate voor beeld, minimap en trackingupdates."""
     path = Path(path).resolve()
     if path.suffix.lower() != ".mp4" or not path.is_file():
         raise PipelineError("Kies een bestaand .mp4-bestand.")
@@ -98,6 +110,7 @@ def inspect_video(path: str | Path) -> VideoMetadata:
 
 
 def read_frame(video: VideoMetadata, frame_index: int) -> np.ndarray:
+    """Lees een specifiek bronframe en sluit de videolezer ook bij een leesfout."""
     if not 0 <= frame_index < video.frame_count:
         raise PipelineError("Frame-index ligt buiten de clip.")
     cap = cv2.VideoCapture(video.path)
@@ -112,6 +125,7 @@ def read_frame(video: VideoMetadata, frame_index: int) -> np.ndarray:
 
 
 def tool_versions() -> dict:
+    """Vraag de werkelijk gebruikte FFmpeg- en ffprobe-versieregels op voor het runmanifest."""
     return {
         name: subprocess.check_output([find_tool(name), "-version"], text=True).splitlines()[0]
         for name in ("ffmpeg", "ffprobe")
@@ -122,6 +136,9 @@ class VideoWriter:
     """Stream BGR frames to FFmpeg; stderr goes to disk to avoid pipe deadlocks."""
 
     def __init__(self, path: Path, width: int, height: int, fps_num: int, fps_den: int):
+        """Start FFmpeg als uitvoerproces voor frames met vaste afmetingen en rationele framerate en
+        bewaar zijn foutlog voor diagnose.
+        """
         self.path, self.size = path, (width, height)
         self.error_log = tempfile.TemporaryFile()
         self.closed = False
@@ -163,6 +180,9 @@ class VideoWriter:
             raise PipelineError(f"FFmpeg kan niet starten: {exc}") from exc
 
     def write(self, frame: np.ndarray) -> None:
+        """Controleer het uitvoerframe en schrijf zijn aaneengesloten pixelbytes naar FFmpeg; verhoog
+        daarna de geschreven frameteller.
+        """
         if frame.shape != (self.size[1], self.size[0], 3) or frame.dtype != np.uint8:
             raise PipelineError("Verkeerd uitvoerframeformaat.")
         try:
@@ -174,6 +194,9 @@ class VideoWriter:
             ) from exc
 
     def close(self, abort: bool = False) -> None:
+        """Sluit de invoerstroom, wacht op de encoder of breek af en controleer de procesuitvoer; ruim
+        tijdelijke foutlogmiddelen ook bij fouten op.
+        """
         if self.closed:
             return
         self.closed = True

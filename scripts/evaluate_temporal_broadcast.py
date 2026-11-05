@@ -35,6 +35,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def infer_clip(rows, models, settings, output, geometry_states=None):
+    """Bereken en bewaar detecties per oorspronkelijk videoframe."""
     identity = digest_json(
         [
             rows,
@@ -108,6 +109,7 @@ def score(
     team_model=None,
     count_policy="confidence_025",
 ):
+    """Meet herkenning en temporele consistentie tegenover de vaste bronreferenties."""
     if count_policy not in {"confidence_025", "runtime"}:
         raise ValueError("Unknown player counting policy")
     detections = [[Detection(**d) for d in r["detections"]] for r in cached["frames"]]
@@ -261,6 +263,7 @@ def score(
 
 
 def summarize(rows):
+    """Vat de gemeten temporele resultaten per proefvariant samen."""
     result = {}
     for split in ("train", "val"):
         selected = [r for r in rows if r["split"] == split]
@@ -286,6 +289,7 @@ def summarize(rows):
 
 
 def main():
+    """Meet detectie en causale rolconsensus op vaste opeenvolgende bronframes."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--score-only", action="store_true")

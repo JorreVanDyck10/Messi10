@@ -13,6 +13,7 @@ from persoon1.metrics import iou
 
 
 def identity_metrics(frames):
+    """Meet identiteitsassociatie bij box-IoU 0.5 zonder aanvullende benchmark-ignore-regios."""
     potential, gt_counts, pred_counts = Counter(), Counter(), Counter()
     previous, switches = {}, 0
     for truth, predicted in frames:

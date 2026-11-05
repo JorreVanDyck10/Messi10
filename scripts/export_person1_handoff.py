@@ -16,6 +16,9 @@ from persoon1.modeling import yolo
 
 
 def main():
+    """Voer de afzonderlijke detectors op vaste bronframes uit en schrijf bronpixelvoorbeelden voor de
+    modeloverdracht.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--video", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

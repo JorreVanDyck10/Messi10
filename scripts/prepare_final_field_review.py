@@ -15,6 +15,7 @@ from football_pipeline.field_layout import POINTS_UV
 
 
 def prepare(root, output):
+    """Exporteer oorspronkelijke testframes en sjablonen voor een blinde handmatige eindcontrole."""
     inventory = read_json(root / "highlight-inventory.json")
     candidates = sorted(
         [v for v in inventory["videos"] if v.get("split") == "test" and v.get("status") == "complete"],
@@ -118,6 +119,7 @@ def prepare(root, output):
 
 
 def main():
+    """Maak een blind reviewpakket van apart gehouden oorspronkelijke testbeelden."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path("data/field-corpus"))
     parser.add_argument("--output", type=Path, required=True)

@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
+    """Meet een vaste veldverfcontrole tegenover de bestaande providergeometrie."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--split", choices=("train", "valid"), default="train")
     parser.add_argument("--output", required=True, type=Path)

@@ -16,6 +16,7 @@ OUTPUT = ROOT / "artifacts/broadcast-reliability-day2/tracker-association-v1"
 
 
 def run_clip(rows, source, config, output, settings):
+    """Herhaal spelerassociatie op bewaarde framewaarnemingen met de gekozen drempels."""
     target = output / f"{rows[0]['clip']}.json"
     identity = digest_json([sha256_file(source), config, rows])
     if target.exists():
@@ -41,6 +42,7 @@ def run_clip(rows, source, config, output, settings):
 
 
 def main():
+    """Selecteer een associatiedrempel op de vaste trainingswaarnemingen."""
     torch.set_num_threads(2)
     OUTPUT.mkdir(parents=True, exist_ok=True)
     base = load_tracker_config(ROOT / "configs/bytetrack.yaml")

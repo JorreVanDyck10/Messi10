@@ -25,6 +25,7 @@ from .video import ROOT
 
 @st.fragment(run_every="5s")
 def show_jobs():
+    """Toon recente echte trainingsrondes met voortgang, logs, stopverzoeken en modeloverdracht."""
     for directory, job in jobs()[:5]:
         if job.get("technical_only"):
             continue
@@ -67,6 +68,7 @@ def show_jobs():
 
 
 def start_transfer(action, source, inputs, job=None):
+    """Start een afzonderlijk lokaal pakketproces en bewaar zijn loglocatie in de sessie."""
     directory = ROOT / "artifacts/training-transfers"
     directory.mkdir(parents=True, exist_ok=True)
     tag = str(time.time_ns())
@@ -101,6 +103,7 @@ def start_transfer(action, source, inputs, job=None):
 
 @st.fragment(run_every="5s")
 def show_transfer():
+    """Toon de voortgang van het lopende data- of modelpakketproces."""
     from pathlib import Path
 
     if transfer := st.session_state.get("training_transfer"):
@@ -110,6 +113,7 @@ def show_transfer():
 
 
 def training_page():
+    """Toon GPU-controle, broninstellingen en de acht trainingsknoppen zonder de worker aan de browser te koppelen."""
     st.title("Modellen trainen")
     st.write(
         "Train op de GPU van de computer waarop je deze app start. Iedere laptop kan een eigen model trainen."

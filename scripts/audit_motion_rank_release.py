@@ -17,6 +17,7 @@ ARTIFACTS = ROOT / "artifacts/broadcast-reliability-20261030"
 
 
 def references(rows, directory):
+    """Lees de vastgelegde veldreferenties voor de volledige ontwikkelvergelijking."""
     provider_clip = rows[0].get("provider_clip", rows[0]["clip"])
     path = ROOT / "data/broadcast-pitch-v1/provider-labels" / f"{provider_clip}.json.gz"
     provider = json.loads(gzip.decompress(path.read_bytes()))
@@ -43,6 +44,7 @@ def references(rows, directory):
 
 
 def signature(state):
+    """Maak een vergelijkbare identiteit van de gekozen veldinstellingen."""
     return {
         "valid": state["status"] == "valid",
         "homography": state.get("homography") if state["status"] == "valid" else None,
@@ -52,6 +54,7 @@ def signature(state):
 
 
 def main():
+    """Vergelijk het eerdere veldbeleid met alle 2700 vaste providerreferentieframes."""
     output = ARTIFACTS / "release-rank-audit-v1"
     output.mkdir(parents=True, exist_ok=True)
     upstream_runtime(ROOT / "artifacts/joint-retrain-20261027-v2/selected-field-runtime.json")

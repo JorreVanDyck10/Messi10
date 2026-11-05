@@ -6,6 +6,7 @@ from .field_pose import field_crop
 
 
 def observe_cropped(frame, observe, *, roi=None):
+    """Bereken veldwaarnemingen op een beeldgestuurde uitsnede en vertaal ze naar het origineel."""
     height, width = frame.shape[:2]
     x1, y1, x2, y2 = field_crop(frame) if roi is None else roi
     if (

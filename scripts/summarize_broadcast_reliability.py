@@ -12,6 +12,7 @@ REPORTS = ROOT / "reports/broadcast-reliability-20261030"
 
 
 def count_stats(rows):
+    """Bereken aantallen en afwijkingen tussen app-tellingen en referentietellingen."""
     frames = [f for row in rows for f in row["counts"]["per_frame"]]
     available = [f for f in frames if f["predicted_players"] is not None]
     deltas = [f["predicted_players"] - f["reference_players"] for f in available]
@@ -27,6 +28,7 @@ def count_stats(rows):
 
 
 def metrics(rows):
+    """Bundel de herkennings- en veldkengetallen van een opgeslagen run."""
     result = summarize(rows)
     for split in ("train", "val"):
         selected = [row for row in rows if row["split"] == split]
@@ -38,6 +40,7 @@ def metrics(rows):
 
 
 def main():
+    """Bundel herkennings-, tracking- en veldmetingen van het huidige ontwikkelprofiel."""
     sources = {
         "automatic": [ARTIFACTS / "runtime-default-first-v1", ARTIFACTS / "runtime-extension-automatic-v1"],
         "provider": [ARTIFACTS / "runtime-provider-baseline-v1", ARTIFACTS / "runtime-extension-provider-v1"],

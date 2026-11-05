@@ -14,6 +14,9 @@ from football_pipeline.video import ROOT
 
 
 def main():
+    """Vergelijk afgeleide tegelpixels en terugvertaalde ballabels met de oorspronkelijke trainings- en
+    validatiebeelden.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

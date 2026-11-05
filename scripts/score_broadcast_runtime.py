@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
+    """Vergelijk de vaste detectiemeting met de werkelijke spelertelregels van de app."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--inference", type=Path, required=True)
     parser.add_argument("--dataset", type=Path, default=ROOT / "data/broadcast-temporal-v1/manifest.json")

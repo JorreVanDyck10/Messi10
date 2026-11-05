@@ -22,6 +22,7 @@ WINDOWS = {"middle": (301, 450), "last": (601, 750)}
 
 
 def prepare_clip(task):
+    """Leg een aanvullend bronvenster vast zonder voorspellingen voor de selectie te gebruiken."""
     split, catalog, selection = task
     clip = catalog["info"]["name"]
     source = ROOT / "data/broadcast-pitch-v1/provider-labels" / f"{clip}.json.gz"
@@ -115,6 +116,7 @@ def prepare_clip(task):
 
 
 def main():
+    """Leg de midden- en eindvensters van bestaande ontwikkelclips vooraf vast."""
     OUTPUT.mkdir(parents=True, exist_ok=True)
     old = read_json(ROOT / "data/broadcast-temporal-v1/manifest.json")
     games = read_json(ROOT / "data/broadcast-pitch-v1/selection.json")["games"]

@@ -1,4 +1,4 @@
-"""Produce source-resolution context for selected development FP/FN records."""
+"""Maakt detailbeelden van geselecteerde false positives en false negatives voor foutenanalyse."""
 
 from pathlib import Path
 
@@ -6,6 +6,9 @@ from .core import dataset_path, label_pixels, load_manifest, read_json, read_lab
 
 
 def main():
+    """Lees de opgeslagen FP/FN-selectie en maak contextbeelden op bronresolutie voor visuele
+    foutenanalyse.
+    """
     from PIL import Image, ImageDraw
     root = Path("reports/players-experiments")
     errors = read_json(root / "EXP-P004/validation-metrics/errors.json")
@@ -16,6 +19,9 @@ def main():
     officials_fn = [e for e in errors if e["type"] == "FN" and e["class_id"] == 1]
 
     def area(error):
+        """Bereken de bronpixeloppervlakte van de foutbox om gevallen op objectgrootte te kunnen
+        selecteren.
+        """
         b = error.get("annotation", error.get("prediction"))["bbox_xyxy"]
         return (b[2]-b[0])*(b[3]-b[1])
 

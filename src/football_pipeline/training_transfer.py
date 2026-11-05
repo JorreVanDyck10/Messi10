@@ -14,6 +14,7 @@ from .video import ROOT
 
 
 def imported_source_root(root=ROOT):
+    """Lees de oorspronkelijke bronroot uit een datapakket of de repositorycatalogus."""
     path = root / ".cache/training-import.json"
     if path.exists():
         return read_json(path)["source_root"]
@@ -39,11 +40,13 @@ def rebase(value, source_root, root=ROOT):
 
 
 def export_bundle(output, inputs, root=ROOT):
+    """Verpak benodigde trainingsbeelden, labels, kenmerken en startgewichten met controlehashes."""
     from .detection import load_model_manifest
 
     files = set()
 
     def add(path):
+        """Registreer alleen een bestaand trainingsbestand binnen de projectmap."""
         path = Path(path).resolve()
         if not path.is_relative_to(root.resolve()) or not path.is_file():
             raise PipelineError(f"Trainingsbestand ontbreekt of ligt buiten dit project: {path}")
@@ -127,6 +130,7 @@ def export_bundle(output, inputs, root=ROOT):
 
 
 def import_bundle(source, root=ROOT):
+    """Controleer een data- of modelpakket en importeer zonder afwijkende bestaande bestanden te overschrijven."""
     with zipfile.ZipFile(source) as archive:
         info = archive.getinfo("training-transfer.json")
         if info.file_size > 16 * 1024**2:
@@ -283,12 +287,14 @@ def export_models(output, job, root=ROOT):
     profiles = {}
 
     def add(path):
+        """Registreer een bestaand modelbestand binnen de projectmap voor de gewichtsoverdracht."""
         path = Path(path).resolve()
         if not path.is_relative_to(root.resolve()) or not path.is_file():
             raise PipelineError(f"Modelbestand ontbreekt of ligt buiten het project: {path}")
         files.add(path)
 
     def profile_files(path):
+        """Verzamel een kandidaatprofiel met alle bijbehorende gewichten en trainingsrapporten."""
         add(path)
         data = read_json(path)
         specs = data.get("models", [])
@@ -355,6 +361,7 @@ def export_models(output, job, root=ROOT):
 
 
 def main():
+    """Start pakketexport, modeloverdracht of gecontroleerde import via de opdrachtregel."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("export", "export-models", "import"))
     parser.add_argument("path", type=Path)

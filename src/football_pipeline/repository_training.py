@@ -13,6 +13,7 @@ CATALOG = Path("datasets/training-runtime-v1/manifest.json")
 
 
 def verify_repository(root=ROOT, *, allow_lfs_pointers=False):
+    """Controleer paden, bestanden en hashes uit de gedeelde trainingscatalogus; accepteer pointers alleen voor CI."""
     root = Path(root).resolve()
     manifest = read_json(root / CATALOG)
     failures = []
@@ -52,6 +53,7 @@ def verify_repository(root=ROOT, *, allow_lfs_pointers=False):
 
 
 def prepare_repository(root=ROOT):
+    """Valideer de gedownloade trainingsdata en registreer de herkomst voor deze projectmap."""
     manifest, total = verify_repository(root)
     metadata = {
         "source_root": manifest["source_root"],
@@ -70,6 +72,7 @@ def prepare_repository(root=ROOT):
 
 
 def main():
+    """Voer de gekozen cataloguscontrole of voorbereiding uit en meld ontbrekende trainingsbestanden."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("verify", "prepare", "check-git"), default="prepare", nargs="?")
     args = parser.parse_args()

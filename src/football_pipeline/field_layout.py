@@ -1,4 +1,4 @@
-"""PnLCalib's semantic IDs on its assumed 105 x 68 template (not measured pitch dimensions)."""
+"""Legt de semantische veldpunten en lijnen van het aangenomen 105 × 68-meter-template vast."""
 
 from __future__ import annotations
 

@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
+    """Vergelijk beide veldbeleidsvarianten op de langere eigen ontwikkelclip."""
     source = ROOT / "runs/0b2006b23d066695e0c35ebe1d282748e2d083217f3a33ee638783db251c4167"
     manifest = read_json(source / "runmanifest.json")
     video = inspect_video(manifest["video"]["path"])

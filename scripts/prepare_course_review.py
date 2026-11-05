@@ -8,6 +8,9 @@ from football_pipeline.video import ROOT
 
 
 def prepare_review(dataset):
+    """Maak een afzonderlijke bewerkbare reviewkopie zodat menselijke correcties de bevroren
+    experimentele labels niet veranderen.
+    """
     source = read_json(dataset / "manifest.json")
     destination = dataset / "review-workspace"
     output = destination / "manifest.json"

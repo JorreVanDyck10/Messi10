@@ -27,6 +27,7 @@ RUNTIME = ROOT / "artifacts/joint-retrain-20261027-v2/selected-field-runtime.jso
 
 
 def reference_metrics(rows, observations, states):
+    """Vergelijk veldprojecties met oorspronkelijke providerpunten en veldlijnen."""
     results, errors, relative_errors = [], [], []
     counts = Counter()
     for row, observation, state in zip(rows, observations, states, strict=True):
@@ -91,6 +92,7 @@ def reference_metrics(rows, observations, states):
 
 
 def main():
+    """Meet veldgeometrie op vooraf vastgelegde latere broadcastvensters."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--dataset", type=Path, default=DATASET)

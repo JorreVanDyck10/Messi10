@@ -1,4 +1,4 @@
-"""Experimental dual homography: fit semantic lines, reserve every point as a control."""
+"""Berekent een experimentele homography uit semantische lijnen en houdt punten apart als controle."""
 
 from __future__ import annotations
 

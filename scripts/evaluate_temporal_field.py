@@ -29,6 +29,7 @@ OUTPUT = ROOT / "artifacts/broadcast-reliability-day2/field-native-v1"
 
 
 def make_video(rows, directory):
+    """Stel een vast temporeel referentievenster samen uit oorspronkelijke videobeelden."""
     target = directory / "native-lossless.mp4"
     if target.exists():
         video = inspect_video(target)
@@ -88,6 +89,7 @@ def make_video(rows, directory):
 
 
 def compare_clip(rows, directory, motion_rank=False):
+    """Vergelijk automatische veldprojectie met providergeometrie op hetzelfde bronvenster."""
     result_path = directory / "projection-metrics.json"
     if result_path.exists():
         return read_json(result_path)
@@ -172,6 +174,7 @@ def compare_clip(rows, directory, motion_rank=False):
 
 
 def main():
+    """Meet automatische veldprojectie op vaste continue referentievensters."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--prepare-only", action="store_true")
     parser.add_argument("--motion-rank", action="store_true")

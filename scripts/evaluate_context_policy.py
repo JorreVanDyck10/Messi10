@@ -21,6 +21,7 @@ TARGET = 0.95
 
 
 def refine_context(cached, spec):
+    """Pas de vaste contextdrempels toe op bestaande rolvoorspellingen."""
     changed = deepcopy(cached)
     rejected = 0
     for frame in changed["frames"]:
@@ -48,6 +49,7 @@ def refine_context(cached, spec):
 
 
 def main():
+    """Meet de vaste contextdrempels uitsluitend op de vooraf gekozen ontwikkelbeelden."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()

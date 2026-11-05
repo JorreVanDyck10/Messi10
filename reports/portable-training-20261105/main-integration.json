@@ -1,0 +1,24 @@
+{
+  "baseline_commit": "f9ed9297baaf7e9ec29cd9c70f59a4933bf21464",
+  "existing_modules_same_executable_ast": 202,
+  "existing_modules_changed_executable_ast": [],
+  "new_documentation_tools": [
+    "scripts/build_code_guide.py",
+    "scripts/check_function_docs.py"
+  ],
+  "changed_training_inputs": [],
+  "merged_sources": [
+    "origin/AndrewNoeyens-patch-1",
+    "origin/codex/code-uitleg-verdediging"
+  ],
+  "unresolved_conflicts": 0,
+  "local_tests_passed": 505,
+  "local_subtests_passed": 4,
+  "documented_functions": 747,
+  "missing_function_docs": 0,
+  "code_guide_current": true,
+  "ruff_passed": true,
+  "formatter_passed": true,
+  "final_snapshot_unchanged": true,
+  "catalog_sha256": "e1766bcfcf79bc6c90c6c1ed9a359cba26ce8ca2b2393e95bfb745225b99692c"
+}

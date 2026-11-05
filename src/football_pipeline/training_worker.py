@@ -20,10 +20,12 @@ from .video import ROOT
 
 
 def bind_json(path):
+    """Lees bronmetadata en bind alleen oorspronkelijke projectpaden aan de huidige checkout."""
     return rebase(read_json(path), imported_source_root(), ROOT)
 
 
 def initial_profile(source, destination):
+    """Maak een apart startprofiel met geldige absolute gewichtspaden en behoud de bronklassen."""
     from .detection import load_model_manifest
 
     profile = bind_json(source)
@@ -36,6 +38,7 @@ def initial_profile(source, destination):
 
 
 def yolo_data(source, output):
+    """Valideer splits en bronhashes en schrijf een aan deze projectmap gebonden YOLO-dataset."""
     import yaml
 
     source = Path(source)
@@ -140,6 +143,7 @@ def train_andrew(inputs, directory, *, epochs, minutes):
 
 
 def save_result(directory, weights, inputs):
+    """Leg een afgeronde kandidaat met gewichtshash en beoordelingsstatus vast zonder activatie."""
     write_json(
         directory / "result.json",
         {
@@ -156,6 +160,7 @@ def save_result(directory, weights, inputs):
 
 
 def one_model(spec_path, task):
+    """Train een gekozen onderdeel in een eigen GPU-proces en bewaar zijn geisoleerde kandidaat."""
     import torch
 
     from .detection import load_model_manifest
@@ -375,6 +380,7 @@ def one_model(spec_path, task):
 
 
 def run(spec_path):
+    """Voer taken achter elkaar onder de lokale GPU-lock uit en bewaar stop-, fout- en voltooiingsstatussen."""
     directory, spec = spec_path.parent, read_json(spec_path)
     path = directory / "job.json"
     # The launcher publishes the exact PID before this worker mutates job state.

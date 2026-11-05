@@ -22,6 +22,7 @@ RUNTIME = ROOT / "artifacts/joint-retrain-20261027-v2/selected-field-runtime.jso
 
 
 def sources(kind, split):
+    """Selecteer de vooraf vastgelegde bronbeelden voor de grasuitsnedeproef."""
     if kind == "historical":
         index = read_json(ROOT / "artifacts/course-improvement-20261019/field/dataset-index.json")
         cache = (
@@ -92,6 +93,7 @@ def sources(kind, split):
 
 
 def main():
+    """Vergelijk de vaste grasuitsnede met de oorspronkelijke PnLCalib-voorspellingen."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", choices=("historical", "dense", "own-sparse", "own"), required=True)
     parser.add_argument("--split", choices=("train", "valid", "all"), default="train")

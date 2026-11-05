@@ -9,6 +9,7 @@ from persoon1.metrics import evaluate
 
 
 def score_stages(datasets, inference_dirs, raw, output):
+    """Vergelijk detectie, rolfilter en veldfilter op dezelfde opgeslagen ruwe spelerwaarnemingen."""
     if len(datasets) != len(inference_dirs):
         raise ValueError("Provide one native inference directory per dataset")
     raw_predictions = read_json(raw / "raw-detections.json")["predictions"]
@@ -63,6 +64,7 @@ def score_stages(datasets, inference_dirs, raw, output):
 
 
 def main():
+    """Meet waar opgeslagen spelerwaarnemingen door rol- en veldfilters verloren gaan."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset", type=Path, action="append", required=True)
     parser.add_argument("--inference", type=Path, action="append", required=True)
