@@ -183,7 +183,7 @@ def training_page():
     show_jobs()
     with st.expander("Trainen op een andere laptop"):
         st.write(
-            "Gebruik een eigen checkout en voer Setup-Laptop.ps1 en Start-Laptop.ps1 uit. Deel de trainingsdata met het pakket hieronder; virtuele omgevingen worden lokaal opgebouwd."
+            "Gebruik een eigen checkout en voer Setup-Laptop.ps1 en Start-Laptop.ps1 uit. De installatie haalt de gedeelde trainingsdata en startgewichten uit GitHub op en controleert ze. Een pakket hieronder is een alternatief; iedere laptop bouwt zijn eigen omgeving op."
         )
         export_path = st.text_input(
             "Nieuw deelpakket", value="artifacts/training-transfers/trainingsdata.zip"

@@ -13,6 +13,7 @@ CATALOG = Path("datasets/training-runtime-v1/manifest.json")
 
 
 def verify_repository(root=ROOT, *, allow_lfs_pointers=False):
+    root = Path(root).resolve()
     manifest = read_json(root / CATALOG)
     failures = []
     total = 0
@@ -21,7 +22,7 @@ def verify_repository(root=ROOT, *, allow_lfs_pointers=False):
         if not parts or ".." in parts or ":" in name or "\\" in name or PurePosixPath(name).is_absolute():
             raise PipelineError("Ongeldig pad in de trainingscatalogus")
         path = root.joinpath(*parts).resolve()
-        if not path.is_relative_to(root.resolve()):
+        if not path.is_relative_to(root):
             raise PipelineError("Trainingspad valt buiten het project")
         if not path.is_file():
             failures.append((name, "ontbreekt"))
