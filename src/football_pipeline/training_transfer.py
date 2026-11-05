@@ -85,6 +85,15 @@ def export_bundle(output, inputs, root=ROOT):
         models[k] for k in ("appearance", "kit_embedding", "role_context") if k in models
     ]:
         add(spec["weights"])
+    if inputs.get("andrew_dataset"):
+        source = local_path(inputs["andrew_dataset"], root)
+        for row in rebase(read_json(source / "manifest.json")["frames"], source_root, root):
+            for key in ("image", "label"):
+                path = Path(row[key])
+                add(path if path.is_absolute() else source / path)
+    if inputs.get("andrew_profile"):
+        for spec in load_model_manifest(local_path(inputs["andrew_profile"], root))["models"]:
+            add(spec["weights"])
     ball_profile = root / "configs/models-ball-broadcast-v3.json"
     if ball_profile.exists():
         add(ball_profile)
@@ -130,7 +139,17 @@ def import_bundle(source, root=ROOT):
             parts = PurePosixPath(name).parts
             if (
                 not parts
-                or parts[0] not in {"data", "datasets", "assets", "artifacts", "configs", "models", "weights"}
+                or parts[0]
+                not in {
+                    "data",
+                    "datasets",
+                    "assets",
+                    "artifacts",
+                    "configs",
+                    "models",
+                    "weights",
+                    "Andrew_Prototype",
+                }
                 or ".." in parts
                 or "\\" in name
                 or ":" in name
@@ -175,14 +194,15 @@ def import_bundle(source, root=ROOT):
         for kind, relative in manifest.get("profiles", {}).items():
             original = root / relative
             rebound = rebase(read_json(original), manifest["source_root"], root)
-            destination = (
-                root / "configs" / f"{'models' if kind == 'models' else 'field'}-imported-{tag}.json"
-            )
-            if kind == "models":
-                rebound["profile_name"] = "Geïmporteerde trainingskandidaten · evaluatie nodig"
+            prefix = "models-andrew" if kind == "andrew" else "models" if kind == "models" else "field"
+            destination = root / "configs" / f"{prefix}-imported-{tag}.json"
+            if kind in {"models", "andrew"}:
+                rebound["profile_name"] = (
+                    "Andrew · " if kind == "andrew" else ""
+                ) + "Geïmporteerde trainingskandidaten · evaluatie nodig"
             destination.parent.mkdir(parents=True, exist_ok=True)
             write_json(destination, rebound)
-            if kind == "models":
+            if kind in {"models", "andrew"}:
                 load_model_manifest(destination)
             print(f"Proefprofiel, niet geactiveerd: {destination}", flush=True)
         merge_imported_models(manifest, root)
@@ -287,7 +307,11 @@ def export_models(output, job, root=ROOT):
     status = read_json(job / "job.json")
     if status["status"] in {"starting", "running"} or not status.get("completed"):
         raise PipelineError("Laat minstens één model afronden en stop de ronde vóór export")
-    for kind, name in (("models", "candidate-profile.json"), ("field", "candidate-field-runtime.json")):
+    for kind, name in (
+        ("models", "candidate-profile.json"),
+        ("field", "candidate-field-runtime.json"),
+        ("andrew", "andrew/candidate-profile.json"),
+    ):
         path = job / name
         if path.exists():
             profile_files(path)

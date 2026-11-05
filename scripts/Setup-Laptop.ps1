@@ -31,7 +31,7 @@ try {
         if ($LASTEXITCODE -ne 0) { throw 'Installeer Git LFS en voer daarna deze installatie opnieuw uit.' }
         & git lfs install --local
         if ($LASTEXITCODE -ne 0) { throw 'Git LFS activeren mislukt.' }
-        & git lfs pull --include='data/**,datasets/**,assets/annotations/**,artifacts/broadcast-players-v1/**,artifacts/broadcast-ball-v3/**,artifacts/broadcast-pitch-v1/appearance/features.pt'
+        & git lfs pull --include='data/**,datasets/**,assets/annotations/**,artifacts/broadcast-players-v1/**,artifacts/broadcast-ball-v3/**,artifacts/broadcast-pitch-v1/appearance/features.pt,artifacts/andrew-four-class-v1/**'
         if ($LASTEXITCODE -ne 0) { throw 'Trainingsdata ophalen via Git LFS mislukt.' }
         & $runtimePython -m football_pipeline.repository_training prepare
         if ($LASTEXITCODE -ne 0) { throw 'De gedeelde trainingsdata zijn nog niet volledig; lees de bestandscontrole hierboven.' }

@@ -47,7 +47,9 @@ def yolo_data(source, output):
             split = row["split"]
             if split not in {"train", "val"}:
                 raise ValueError("Testbeelden mogen niet naar training of modelselectie")
-            group = row.get("match_id", row.get("game_id", row.get("video_id")))
+            group = row.get(
+                "match_id", row.get("game_id", row.get("video_id", row.get("source_frame_group")))
+            )
             for seen, identity in ((split_by_match, group), (split_by_image, row.get("image_sha256"))):
                 if identity is not None:
                     if identity in seen and seen[identity] != split:
@@ -80,6 +82,79 @@ def yolo_data(source, output):
     return data
 
 
+def train_andrew(inputs, directory, *, epochs, minutes):
+    """Keep the four-class detector separate from the other component candidates."""
+    from ultralytics import YOLO
+
+    from .detection import load_model_manifest
+    from .training_budget import train_yolo
+
+    source = local_path(inputs["andrew_profile"])
+    profile = load_model_manifest(source)
+    names = {0: "ball", 1: "goalkeeper", 2: "player", 3: "referee"}
+    initial = profile["models"][0]["weights"]
+    if YOLO(initial).names != names:
+        raise ValueError("Andrew-startmodel moet bal, keeper, speler en scheidsrechter bevatten")
+    data = yolo_data(local_path(inputs["andrew_dataset"]), directory / "dataset")
+    dataset_names = data["names"]
+    if isinstance(dataset_names, list):
+        dataset_names = dict(enumerate(dataset_names))
+    if dataset_names != names:
+        raise ValueError("De datasetklassen passen niet bij Andrews vierklassendetector")
+    weights = train_yolo(
+        initial,
+        directory / "dataset",
+        directory / "training",
+        {
+            "epochs": epochs,
+            "imgsz": 1280,
+            "batch": 1,
+            "seed": 42,
+            "patience": 10,
+            "optimizer": "AdamW",
+            "lr0": 0.0001,
+            "amp": True,
+            "plots": True,
+            "workers": 0,
+        },
+        minutes,
+    )
+    if YOLO(str(weights)).names != names:
+        raise ValueError("Getraind Andrew-model heeft onverwachte klassen")
+    profile["models"][0].update(
+        weights=str(weights.resolve()),
+        weights_sha256=sha256_file(weights),
+        model_id="andrew-four-class-" + directory.parent.name,
+    )
+    profile["profile_name"] = "Andrew · getrainde kandidaat · " + directory.parent.name
+    profile["handoff"] = {
+        "human_review_completed": False,
+        "independent_final_test_completed": False,
+        "targets_met": False,
+        "scope": "Four-class development training; evaluation required",
+    }
+    candidate = directory / "candidate-profile.json"
+    write_json(candidate, profile)
+    load_model_manifest(candidate)
+    return candidate
+
+
+def save_result(directory, weights, inputs):
+    write_json(
+        directory / "result.json",
+        {
+            "status": "complete",
+            "weights": str(weights.resolve()),
+            "weights_sha256": sha256_file(weights),
+            "human_review_completed": False,
+            "independent_final_test_completed": False,
+            "activated": False,
+            "evaluation_required": True,
+            "training_data": inputs,
+        },
+    )
+
+
 def one_model(spec_path, task):
     import torch
 
@@ -93,6 +168,10 @@ def one_model(spec_path, task):
     if not hardware["ready"]:
         raise ValueError(hardware.get("error", "GPU-controle mislukt"))
     inputs, epochs, minutes = spec["inputs"], spec["epochs"], spec["minutes_per_model"]
+    if task == "andrew":
+        candidate = train_andrew(inputs, directory, epochs=epochs, minutes=minutes)
+        save_result(directory, candidate, inputs)
+        return
     profile_path = spec_path.parent / "candidate-profile.json"
     base_profile_path = spec_path.parent / "base-profile.json"
     if not base_profile_path.exists():
@@ -292,19 +371,7 @@ def one_model(spec_path, task):
         # Recomputed hashes/expected classes must pass the regular profile validator.
         write_json(profile_path, profile)
         load_model_manifest(profile_path)
-    write_json(
-        directory / "result.json",
-        {
-            "status": "complete",
-            "weights": str(weights.resolve()),
-            "weights_sha256": sha256_file(weights),
-            "human_review_completed": False,
-            "independent_final_test_completed": False,
-            "activated": False,
-            "evaluation_required": True,
-            "training_data": inputs,
-        },
-    )
+    save_result(directory, weights, inputs)
 
 
 def run(spec_path):

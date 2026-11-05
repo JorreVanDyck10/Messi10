@@ -24,6 +24,7 @@ TASKS = {
     "context": "Spelerscontext",
     "field_points": "Veldpunten",
     "field_lines": "Veldlijnen",
+    "andrew": "Andrew-model (4 klassen)",
 }
 
 
@@ -35,6 +36,8 @@ def default_inputs(root=ROOT):
         "context_dataset": "data/broadcast-pitch-v1",
         "field": "artifacts/player-field-reliability-20261030/field-recovery/training-index.json",
         "profile": "configs/models-broadcast.json",
+        "andrew_dataset": "data/andrew-four-class-v1",
+        "andrew_profile": "configs/models-andrew.json",
     }
 
 
@@ -87,13 +90,14 @@ def check_inputs(tasks, inputs, root=ROOT):
                 "context": ["context_dataset"],
                 "field_points": ["field"],
                 "field_lines": ["field"],
+                "andrew": ["andrew_dataset", "andrew_profile"],
             }[task]
         )
     for key in sorted(required):
         path = local_path(inputs.get(key, ""), root)
         if not inputs.get(key) or not path.exists():
             issues.append(f"Ontbreekt: {key} ({path})")
-        elif key in {"players", "ball"} and not (path / "data.yaml").is_file():
+        elif key in {"players", "ball", "andrew_dataset"} and not (path / "data.yaml").is_file():
             issues.append(f"Geen data.yaml bij {key}")
         elif key == "context_dataset" and not (path / "manifest.json").is_file():
             issues.append("Contextdata mist manifest.json")

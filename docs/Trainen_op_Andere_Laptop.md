@@ -1,8 +1,9 @@
 # Trainen via de app, op iedere eigen Windows-laptop
 
 Open **Modellen trainen** in de zijbalk. Er zijn knoppen voor spelers, bal,
-rollen, shirtkenmerken, spelerscontext, veldpunten en veldlijnen. **Train veldmodel
-volledig** zet beide veldnetwerken achter elkaar; **Alles trainen** zet alle zeven
+rollen, shirtkenmerken, spelerscontext, veldpunten, veldlijnen en **Andrew-model
+(4 klassen)**. **Train veldmodel volledig** zet beide veldnetwerken achter elkaar;
+**Alles trainen** zet alle acht
 onderdelen in een lokale wachtrij. Een andere laptop start zijn eigen app en
 gebruikt zijn eigen GPU. Alleen de website openen die op iemand anders zijn
 computer draait, verplaatst de training niet naar jouw GPU.
@@ -39,7 +40,7 @@ wordt vóór training gemeld. De 5070 zelf is niet op deze 4050-laptop getest.
 ### Rechtstreeks uit GitHub
 
 De trainingsinvoer staat ook in Git: zie de
-[catalogus met 15.324 bestanden](../datasets/training-runtime-v1/README.md).
+[catalogus met 16.656 bestanden](../datasets/training-runtime-v1/README.md).
 De bestaande bijdragen onder `assets`, `datasets` en `final` zijn behouden.
 Afbeeldingen en het grote featurecheckpoint worden via Git LFS opgehaald;
 de labels, splits en bronmanifesten zijn eveneens meegedeeld.
@@ -53,8 +54,10 @@ een los ZIP-bestand te importeren. Een andere drive of mapnaam is toegestaan.
 
 Bij **Trainen op een andere laptop** maak je een trainingspakket of importeer
 je een gekopieerd pakket. Het voorbereide pakket van deze ronde bevat ongeveer
-5,1 GB: 15.324 bestanden met de geselecteerde beelden, labels, features en
-startgewichten. Je kopieert het ZIP-bestand zelf naar de andere laptop.
+5,1 GB: 15.324 bestanden met de toen geselecteerde beelden, labels, features en
+startgewichten. Dat oude pakket bevat Andrews latere bijdrage nog niet. Gebruik
+de actuele GitHub-checkout of maak een nieuw pakket in de app. Je kopieert het
+ZIP-bestand zelf naar de andere laptop.
 
 De import controleert de inhoud met SHA-256, weigert uitvoerbare bestanden en
 paden buiten het project en overschrijft geen afwijkende bestaande bestanden.
@@ -82,6 +85,20 @@ featureprojectie dient als starttransformatie; de context-uitvoerlaag wordt
 opnieuw geleerd. Er worden geen rol- of veldlabels uit voorspellingen verzonnen.
 
 ## Training uitvoeren en verdelen
+
+**Andrews model** gebruikt het aangeleverde `best.pt` met bal, keeper, speler en
+scheidsrechter en zijn oorspronkelijke 612 train-/38 validatiebeelden. De 13
+testbeelden worden niet voor training gebruikt. Het notebook wordt niet
+uitgevoerd: de app start een eigen worker, met batch 1 op 1280 px en dezelfde
+GPU-/tijdcontroles. Dit grote YOLOv8x-model kan meer VRAM vragen dan de andere
+detectoren. Het krijgt een eigen kandidaatprofiel en wordt bij export/import
+afzonderlijk gehouden. Zijn bestaande model is ook selecteerbaar bij een nieuwe
+analyse als **Andrew · bal, keeper, spelers en scheidsrechters**.
+
+De bronframegroepen zijn tussen de drie originele splits gescheiden. Volledige
+wedstrijdscheiding is voor deze dataset niet aangetoond; de validatie is daarom
+ontwikkelmateriaal en geen onafhankelijke eindmeting. De analyse gebruikt de
+bestaande projecttracking; de extrapolatiecode uit zijn notebook is niet overgenomen.
 
 1. Voer de laptopinstallatie uit of importeer een datapakket en controleer de GPU.
 2. Controleer onder **Trainingsdata en startprofiel** welke data werkelijk

@@ -154,13 +154,15 @@ def training_page():
                 "context_dataset": "Contextdataset",
                 "field": "Veldindex",
                 "profile": "Startprofiel",
+                "andrew_dataset": "Andrew: vierklassendataset",
+                "andrew_profile": "Andrew: startprofiel",
             }
             inputs = {
                 key: st.text_input(label, value=defaults[key], key=f"training_input_{key}")
                 for key, label in labels.items()
             }
         st.caption(
-            "Spelers: 1920 px · bal: 640 px · veld: 960 × 540. Batchgrootte daalt bij onvoldoende VRAM. De veldnetwerken trainen afzonderlijk."
+            "Spelers: 1920 px · bal: 640 px · veld: 960 × 540 · Andrew: 1280 px. Batchgrootte daalt bij onvoldoende VRAM. De veldnetwerken trainen afzonderlijk."
         )
         st.caption(
             "Datacontrole en featureberekening vallen buiten het trainingsbudget. Shirtkenmerken gebruiken trainingsstappen in plaats van epochs."

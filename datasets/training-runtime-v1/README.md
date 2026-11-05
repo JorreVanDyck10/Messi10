@@ -1,13 +1,15 @@
 # Gedeelde trainingsinvoer voor de app
 
-`manifest.json` beschrijft de 15.324 bestanden die de zeven trainingsknoppen
+`manifest.json` beschrijft de 16.656 bestanden die de acht trainingsknoppen
 nodig hebben: beelden, labels, oorspronkelijke providerannotaties, rol-/shirtfeatures,
 de veldindex en startgewichten. Het is een catalogus van bestaande paden;
 beelden die al bij andere bijdragen stonden worden hergebruikt.
 
-299 bestanden stonden al in Git. De overige 15.025 bestanden zijn toegevoegd
-op hun bestaande projectpaden. Afbeeldingen, gecomprimeerde annotaties en het
-featurecheckpoint gebruiken Git LFS. Labels en manifests blijven als gewone
+De eerste ronde hergebruikte 299 bestanden en voegde 15.025 bestanden toe.
+Andrews bijdrage voegt 1.332 vereiste bestanden aan de catalogus toe, waarvan
+1.327 al op zijn GitHub-branch stonden. Zijn oorspronkelijke data en notebooks
+blijven behouden. Afbeeldingen van de eerste ronde, gecomprimeerde annotaties,
+het featurecheckpoint en `best.pt` gebruiken Git LFS. Labels en manifests blijven als gewone
 Git-bestanden leesbaar. De oorspronkelijke bytes blijven behouden vanwege
 hun SHA-256-controles.
 
@@ -45,6 +47,9 @@ aan de eigen checkout. De originele labels worden daarbij niet herschreven.
   `data/broadcast-pitch-v1`.
 - Veld: 128 train- en 48 validatiebeelden uit verschillende wedstrijden,
   met hun oorspronkelijke veldlabels en de vastgezette veldindex.
+- Andrew: vierklassengewichten, 612 train-/38 validatiebeelden en 13 apart
+  gehouden testbeelden uit zijn oorspronkelijke bijdrage. Het trainingsmanifest
+  bevat alleen train en validatie. Volledige wedstrijdscheiding is niet bevestigd.
 
 De volledige corpuscaches, uploads, uitvoervideo's en mislukte experimenten
 zijn niet nodig voor deze trainingsconfiguratie en blijven lokaal. Het gehele
