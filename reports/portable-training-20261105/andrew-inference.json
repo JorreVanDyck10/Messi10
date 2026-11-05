@@ -1,0 +1,37 @@
+{
+  "technical_only": true,
+  "independent_accuracy_measured": false,
+  "frames": [
+    {
+      "frame": 0,
+      "detections": 24,
+      "roles": {
+        "ball": 1,
+        "player": 20,
+        "referee": 3
+      },
+      "goalkeepers": 1
+    },
+    {
+      "frame": 50,
+      "detections": 24,
+      "roles": {
+        "ball": 1,
+        "player": 20,
+        "referee": 3
+      },
+      "goalkeepers": 0
+    },
+    {
+      "frame": 100,
+      "detections": 24,
+      "roles": {
+        "ball": 2,
+        "player": 20,
+        "referee": 2
+      },
+      "goalkeepers": 0
+    }
+  ],
+  "weights_sha256": "78a847ecd67f78566e666a54aabca6141e7e63495fb76783e17b3a859d90fee9"
+}

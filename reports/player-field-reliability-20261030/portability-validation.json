@@ -1,0 +1,25 @@
+{
+  "verified_transfer_files": 15324,
+  "source_root": "C:\\Messi10",
+  "relocated_root": "C:\\Messi10\\.cache\\laptop-validation-20261030",
+  "yolo_players_and_ball_paths_and_hashes_verified": true,
+  "field_index_images_labels_and_match_splits_verified": true,
+  "appearance_unique_images_found": 2412,
+  "profile_weights_verified": true,
+  "model_imports": [
+    {
+      "job": "C:\\Messi10\\artifacts\\training-workbench\\20261030-132050-f770be32",
+      "archive": "C:\\Messi10\\artifacts\\training-transfers\\validation-20261030-132050-f770be32.zip",
+      "verified_files": 9
+    },
+    {
+      "job": "C:\\Messi10\\artifacts\\training-workbench\\20261030-132437-45a808fe",
+      "archive": "C:\\Messi10\\artifacts\\training-transfers\\validation-20261030-132437-45a808fe.zip",
+      "verified_files": 14
+    }
+  ],
+  "shared_model_profile_created": true,
+  "shared_field_profile_created": true,
+  "physical_second_laptop_tested": false,
+  "rtx5070_tested": false
+}

@@ -15,9 +15,13 @@ jobs:
           cache-dependency-path: requirements.lock
       - run: python -m pip install -r requirements.lock
       - run: python -m pip install --no-deps -e .
+      - name: Validate shared training catalog without downloading image payloads
+        run: python -m football_pipeline.repository_training check-git
       - shell: pwsh
         run: ./scripts/setup_tools.ps1
       - run: python -m football_pipeline doctor
       - run: python -m pytest -q
       - run: python -m ruff check src streamlit_app.py scripts tests
       - run: python -m ruff format --check src streamlit_app.py scripts tests
+      - run: python scripts/build_code_guide.py --check
+      - run: python scripts/check_function_docs.py

@@ -1,4 +1,4 @@
-"""Real development video inference without pretending a field calibration is available."""
+"""Voert een ontwikkelvideo door de herkenningsmodellen zonder ontbrekende veldkalibratie te verzinnen."""
 
 import argparse
 import json
@@ -18,6 +18,9 @@ from .role_training import ROOT, save
 
 
 def run(video_path, output, frames=30, model_manifest_path=None):
+    """Voer herkenning op geselecteerde frames van een echte ontwikkelvideo uit en bewaar boxen, rollen
+    en teaminformatie zonder ontbrekende kalibratie te verzinnen.
+    """
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
     yolo(ROOT / "models/yolo11n.pt")

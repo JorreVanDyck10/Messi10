@@ -1,0 +1,70 @@
+{
+  "accepted_development_change": true,
+  "gates": {
+    "precision_improves": true,
+    "recall_improves": true,
+    "team_fraction_improves": true,
+    "field_IDF1_improves": true,
+    "field_switches_not_increased": true,
+    "image_IDF1_not_worse": true,
+    "image_switches_not_increased": true,
+    "runtime_within_20_percent": true,
+    "native_csv_counts_match_all_frames": true,
+    "per_game_team_fraction_drop_within_2pp": true,
+    "historical_wrong_calibrations_not_increased": true
+  },
+  "baseline_automatic_validation": {
+    "precision": 0.9652033178231842,
+    "recall": 0.7245254365983296,
+    "TP": 4771,
+    "FP": 172,
+    "FN": 1814,
+    "correct_team_fraction": 0.6943052391799545,
+    "IDF1": 0.7971065016559177,
+    "ID_switches": 16,
+    "temporal_rejections": 0,
+    "image_IDF1": 0.9038476366720641,
+    "image_ID_switches": 22
+  },
+  "candidate_automatic_validation": {
+    "precision": 0.9653575025176233,
+    "recall": 0.7278663629460896,
+    "TP": 4793,
+    "FP": 172,
+    "FN": 1792,
+    "correct_team_fraction": 0.6976461655277145,
+    "IDF1": 0.7987125956854558,
+    "ID_switches": 16,
+    "temporal_rejections": 0,
+    "image_IDF1": 0.9040018505667361,
+    "image_ID_switches": 22
+  },
+  "timing": {
+    "baseline_median_s": 38.867599399993196,
+    "candidate_median_s": 38.382914250018075,
+    "ratio": 0.9875298408582649,
+    "max_ratio": 1.2,
+    "passed": true,
+    "scope": "paired 150-frame native pipeline incl model init, projection, tracking, team fit, video and CSV; unchanged field network excluded via shared observations"
+  },
+  "selected_change": "Broadcast model-profile field policy only; detector weights and tracker configuration unchanged",
+  "saved_run": "C:\\Messi10\\runs\\316e0824bc9fbb019691a294474bbc008c9701072b5309b6ee3939e759e6c386",
+  "video": "C:\\Messi10\\runs\\316e0824bc9fbb019691a294474bbc008c9701072b5309b6ee3939e759e6c386\\samengestelde_video.mp4",
+  "tests": {
+    "passed": 433,
+    "subtests_passed": 4
+  },
+  "source_hashes": {
+    "configs\\models-broadcast.json": "56df2ee7162e595b06d6ccd201c89ca65390f6bad6e9c0f2ffc4bdfae8f80901",
+    "src\\football_pipeline\\field_motion.py": "da802b823ca3a327ef175e8928028fc87c4bd2d8ba2e2521fc33ec024fe95f09",
+    "src\\football_pipeline\\detection.py": "ee85c825d0e40e0be9836fd96c87f84d63034cf3c6c0d0743eac087c8daa2ef1",
+    "src\\football_pipeline\\pipeline.py": "035183a6818e085c4b79fe23a1aa760381652bb831e4a8bc8a3bd0c2e9fae1e3"
+  },
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "distance_accuracy_measured": false,
+  "visual_review_frames": [
+    619,
+    18
+  ]
+}

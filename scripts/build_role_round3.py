@@ -30,6 +30,9 @@ DECISIONS = {
 
 
 def main():
+    """Voeg de vastgelegde zeldzame-rolvoorbeelden en correcties toe zonder bestaande datasetlabels te
+    overschrijven.
+    """
     output = ROOT / "datasets/roles-teams-v3"
     if (output / "manifest.json").exists():
         raise ValueError("Preserve dataset/review history; choose a new version")

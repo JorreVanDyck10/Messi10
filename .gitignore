@@ -7,6 +7,8 @@ __pycache__/
 *.egg-info/
 weights/
 data/
+# The reviewed subset is explicitly tracked from datasets/training-runtime-v1/manifest.json.
+# Keep ignoring new caches, uploads and unreviewed data outside that catalog.
 runs/
 artifacts/*
 !artifacts/ball-ai-v1/
@@ -23,6 +25,8 @@ artifacts/*
 datasets/teamtrack-players-v1/
 requirements.lock.tmp
 .cache/
+# Ultralytics rebuilds these machine-specific caches from the shared labels.
+/Andrew_Prototype/archive/**/labels.cache
 models/
 output/
 !docs/**
@@ -37,3 +41,6 @@ artifacts/broadcast-ball-v2/*
 artifacts/broadcast-ball-v3/*
 !artifacts/broadcast-ball-v3/broadcast_ball_v3.pt
 !artifacts/broadcast-ball-v3/README.md
+
+# Local inference cache; compact reliability reports remain versioned.
+/reports/broadcast-reliability-day1-20261028/confidence-*/detections.json

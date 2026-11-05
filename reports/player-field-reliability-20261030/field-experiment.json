@@ -1,0 +1,37 @@
+{
+  "training_index_sha256": "f407e86f83c64dda60221e4f61bc825fba871f91188e8081729da6a1d3f5cfe5",
+  "variants": [
+    "keypoints_only",
+    "lines_only",
+    "both"
+  ],
+  "train": {
+    "epochs": 3,
+    "lr": 1e-05,
+    "patience": 3,
+    "weight_decay": 0.0001,
+    "head_only": false
+  },
+  "settings": {
+    "version": 2,
+    "keypoint_threshold": 0.3434,
+    "line_threshold": 0.7867,
+    "motion": true,
+    "tracking_width": 960,
+    "forward_backward_px": 1.5,
+    "minimum_motion_inliers": 20,
+    "minimum_motion_ratio": 0.6,
+    "maximum_age_s": 2.0,
+    "ransac_px": 3.0,
+    "median_diagonal_fraction": 0.005,
+    "maximum_diagonal_fraction": 0.01,
+    "minimum_image_hull_fraction": 0.001,
+    "minimum_motion_hull_fraction": 0.01,
+    "cut_mean_difference": 45.0,
+    "cut_histogram_distance": 0.55,
+    "holdout_rule": "two_semantic_tertiles_no_refit"
+  },
+  "selection_metric": "correct_field_coverage_with_error_nonregression",
+  "no_automatic_promotion": true,
+  "human_final_test_required": true
+}

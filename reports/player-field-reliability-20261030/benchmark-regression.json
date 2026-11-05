@@ -1,0 +1,18 @@
+{
+  "benchmark-first": {
+    "identical_metrics": true,
+    "source_inferences_retained": true,
+    "new_tracking_inference": false,
+    "frames": 900,
+    "new_metrics_sha256": "b5e22fa3cdb5302da48a676e367516c2edc0acfba25d04ebfcc27e6cd2867eb8",
+    "baseline_metrics_sha256": "b5e22fa3cdb5302da48a676e367516c2edc0acfba25d04ebfcc27e6cd2867eb8"
+  },
+  "benchmark-extension": {
+    "identical_metrics": true,
+    "source_inferences_retained": true,
+    "new_tracking_inference": false,
+    "frames": 1800,
+    "new_metrics_sha256": "b993933d1c1bb82a6ec25196f2cef7da6b4dff5420e79349574237e833b2e282",
+    "baseline_metrics_sha256": "b993933d1c1bb82a6ec25196f2cef7da6b4dff5420e79349574237e833b2e282"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "status": "complete",
+  "job": "C:\\Messi10\\artifacts\\training-workbench\\20261030-132050-f770be32",
+  "hardware": {
+    "torch": "2.6.0+cu124",
+    "cuda_build": "12.4",
+    "available": true,
+    "ready": true,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+        "memory_gib": 6.0,
+        "capability": [
+          8,
+          9
+        ]
+      }
+    ]
+  },
+  "training": {
+    "status": "complete",
+    "base_weights": "C:\\Messi10\\artifacts\\broadcast-players-v1\\players_best.pt",
+    "base_sha256": "fb6deea2d6c51bada9d3f8bfd666882212f45d1a1584547d02dc98aa59aaaa25",
+    "config": {
+      "epochs": 1,
+      "imgsz": 1920,
+      "seed": 42,
+      "patience": 10,
+      "optimizer": "AdamW",
+      "lr0": 0.0001,
+      "amp": true,
+      "plots": true,
+      "batch": 1
+    },
+    "minutes": 5,
+    "attempts": [
+      {
+        "batch": 1,
+        "status": "complete",
+        "epochs": 1
+      }
+    ],
+    "training_source_sha256": "b7dd1b4f31984efb06fa2d565be557204ef4d8e1f697ffe2d369a78f8b3ebcd5",
+    "last_epoch_may_be_partial": false,
+    "best": "C:\\Messi10\\artifacts\\training-workbench\\20261030-132050-f770be32\\players\\training\\batch-1\\weights\\best.pt",
+    "best_sha256": "a96f3bdc88070f893f98a2c9e9c68c3d13b9df5d36572eb0d468a655c3a0c05d",
+    "epochs": 1,
+    "runtime_s": 11.422000000020489
+  },
+  "model_result": {
+    "status": "complete",
+    "weights": "C:\\Messi10\\artifacts\\training-workbench\\20261030-132050-f770be32\\players\\training\\batch-1\\weights\\best.pt",
+    "weights_sha256": "a96f3bdc88070f893f98a2c9e9c68c3d13b9df5d36572eb0d468a655c3a0c05d",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "activated": false,
+    "evaluation_required": true,
+    "training_data": {
+      "profile": "configs/models-broadcast.json",
+      "players": "artifacts/player-field-reliability-20261030/training-smoke-data"
+    }
+  },
+  "technical_only": true
+}

@@ -1,0 +1,20 @@
+{
+  "candidate_sha256": "96f3d9a022d0dcc0db4536045adbf8ee3fd4decc9e85af1202d4cb94fe489e93",
+  "candidate_runtime_sha256": "8d0420cfe85e31d3a4d8f4e4990b68326e1335ab761e1b662853b4a800ecaf7e",
+  "checkpoint_selection": "Fixed1000steps, lowest sparse KL on58internaltrainingmatchholdout; original validation not used for selection",
+  "training_matches": 231,
+  "internal_holdout_matches": 58,
+  "gates": {
+    "historical_train": "correct>=24,wrong<=16 and improvement in at least one; observed29correct10wrong",
+    "historical_valid": "correct>=12,wrong<=2",
+    "pose_valid_192": "correct count>=baseline,wrong count<=baseline; at least one improves",
+    "native_dense_450valid": "precision>=baseline; recall decrease<=1pp; correct-team/all>=baseline and each match no more than2pp decrease; field and imageIDF1 no regression; ID switches no increase",
+    "runtime": "paired full pipeline median<=1.2x; unchanged field network architecture verified",
+    "own_clip": "report calibration coverage, no accuracy claim without reference"
+  },
+  "unchanged": "Detector/role/team/tracker weights; maximum motion anchor age2s; geometric thresholds; no test set accessed",
+  "selection_if_any_gate_fails": "retain currently installed profile, do not search validation checkpoints",
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "pretraining_overlap_with_field_corpus": true
+}

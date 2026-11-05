@@ -23,6 +23,7 @@ from football_pipeline.render import calibrated_field_preview
 
 
 def line(points, width, height):
+    """Pas een homogene rechte lijn met SVD aan de providerpunten in bronpixels aan."""
     xy = np.array([[p["x"] * width, p["y"] * height, 1] for p in points])
     if len(xy) < 2:
         raise ValueError("Not enough line observations.")
@@ -30,6 +31,9 @@ def line(points, width, height):
 
 
 def intersection(a, b):
+    """Bereken het snijpunt van twee homogene lijnen en deel door de derde component om beeldcoördinaten
+    terug te krijgen.
+    """
     point = np.cross(a, b)
     if not np.isfinite(point).all() or abs(point[2]) < 1e-9:
         raise ValueError("Parallel or invalid provider lines.")
@@ -37,6 +41,9 @@ def intersection(a, b):
 
 
 def required_lines(side):
+    """Geef de semantische namen van de zijlijn en grote/kleine rechthoekranden die voor deze veldzijde
+    nodig zijn.
+    """
     return [
         f"Side line {side}",
         *(f"{size} rect. {side} {edge}" for size in ("Big", "Small") for edge in ("top", "bottom", "main")),
@@ -44,6 +51,7 @@ def required_lines(side):
 
 
 def provider_points(pitch, row, side):
+    """Bepaal de bruikbare hoekpunten van de gedeeltelijke veldkalibratie uit de providerlijnsnijpunten."""
     fitted = {name: line(pitch[name], row["width"], row["height"]) for name in required_lines(side)}
     goal, big, small = [
         fitted[name] for name in (f"Side line {side}", f"Big rect. {side} main", f"Small rect. {side} main")
@@ -64,6 +72,9 @@ def provider_points(pitch, row, side):
 
 
 def audit(root, output):
+    """Toets de strafschopgebiedkalibratie aan apart gehouden doelgebiedlijnen en schrijf aantallen en
+    bronposities van de gecontroleerde gevallen.
+    """
     root, output = root.resolve(), output.resolve()
     if output.exists():
         raise ValueError("Use a new output directory to preserve earlier evidence.")

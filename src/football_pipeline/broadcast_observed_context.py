@@ -1,4 +1,5 @@
-"""Learn role context from genuine detector crops matched to provider annotations.
+"""Leert rolcontext uit echte detectorcrops die aan providerlabels zijn gekoppeld.
+
 
 Unmatched predictions participate in scene context but never become invented
 role labels. The fixed SoccerNet validation matches remain development-only.
@@ -46,6 +47,9 @@ def matched_targets(detections, people, minimum_iou=0.5):
 
 
 def scene_features(detections, size):
+    """Maak contextvectoren uit actuele detecties met hun rolkansen, embeddings, veldposities en
+    boxafmetingen.
+    """
     return context_features(
         [d.role_probabilities for d in detections],
         [d.team_embedding for d in detections],
@@ -57,6 +61,9 @@ def scene_features(detections, size):
 
 
 def collect(dataset, profile, output):
+    """Voer echte detectorcrops uit, koppel ze aan providerrollen en bewaar de kenmerken die later de
+    contextclassifier trainen.
+    """
     torch.set_num_threads(4)
     # Leave room for the independent detector fine-tuning process on this GPU.
     torch.cuda.set_per_process_memory_fraction(0.45)
@@ -128,6 +135,9 @@ def collect(dataset, profile, output):
             found = detector.detect(image, row["frame_index"])
 
             def project(d):
+                """Vul de veldpositie van deze detectie in met de huidige geometrie en de afmetingen van
+                het geselecteerde bronbeeld.
+                """
                 project_automatic(d, geometry, (row["width"], row["height"]))
 
             for d in found:
@@ -193,7 +203,10 @@ def collect(dataset, profile, output):
     return output
 
 
-def train(cache, output, epochs=50):
+def train(cache, output, epochs=50, nonplayer_weight=3.0, *, device="cpu", minutes=None):
+    """Train de contextkop op gecontroleerde kenmerken, met gekozen GPU, klasseweging en tijdslimiet."""
+    if not np.isfinite(nonplayer_weight) or nonplayer_weight <= 0:
+        raise ValueError("Nonplayer weight must be positive and finite")
     torch.set_num_threads(4)
     torch.manual_seed(42)
     cache, output = Path(cache).resolve(), Path(output).resolve()
@@ -221,28 +234,28 @@ def train(cache, output, epochs=50):
     xv, yv = (np.concatenate(v) for v in groups["val"])
     mean, std = x.mean(0), x.std(0).clip(0.05)
     x, y, xv = (
-        torch.from_numpy((x - mean) / std),
-        torch.from_numpy(y).float(),
-        torch.from_numpy((xv - mean) / std),
+        torch.from_numpy((x - mean) / std).to(device),
+        torch.from_numpy(y).float().to(device),
+        torch.from_numpy((xv - mean) / std).to(device),
     )
-    model = context_head()
+    model = context_head().to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.01)
     best, curve, started = None, [], time.monotonic()
     for epoch in range(1, epochs + 1):
         model.train()
-        order = torch.randperm(len(x))
+        order = torch.randperm(len(x), device=device)
         for start in range(0, len(x), 1024):
             indices = order[start : start + 1024]
             logits = model(x[indices] + 0.02 * torch.randn_like(x[indices])).squeeze(1)
             loss = torch.nn.functional.binary_cross_entropy_with_logits(
-                logits, y[indices], pos_weight=torch.tensor(3.0)
+                logits, y[indices], pos_weight=torch.tensor(float(nonplayer_weight), device=device)
             )
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
         model.eval()
         with torch.inference_mode():
-            q = model(xv).sigmoid().numpy().ravel()
+            q = model(xv).sigmoid().cpu().numpy().ravel()
         row = {
             "epoch": epoch,
             "rejected_players": int(((q >= 0.99) & (yv == 0)).sum()),
@@ -261,6 +274,8 @@ def train(cache, output, epochs=50):
             best = score, {k: v.detach().clone() for k, v in model.state_dict().items()}, row
         if epoch % 5 == 0:
             print(row, flush=True)
+        if minutes is not None and time.monotonic() - started >= minutes * 60:
+            break
     projection = torch.load(cache / "projection.pt", map_location="cpu", weights_only=True)
     torch.save(
         {
@@ -281,6 +296,8 @@ def train(cache, output, epochs=50):
             "curve": curve,
             "inputs": inputs,
             "train_rows": len(x),
+            "nonplayer_weight": nonplayer_weight,
+            "device": str(device),
             "val_rows": len(xv),
             "runtime_s": time.monotonic() - started,
             "weights_sha256": sha256_file(output / "role_context.pt"),
@@ -303,10 +320,11 @@ if __name__ == "__main__":
     )
     parser.add_argument("--cache", type=Path, default=ROOT / "artifacts/broadcast-observed-v8/cache")
     parser.add_argument("--output", type=Path, default=ROOT / "artifacts/broadcast-observed-v8/training")
+    parser.add_argument("--nonplayer-weight", type=float, default=3.0)
     args = parser.parse_args()
     print(
         collect(args.dataset, args.profile, args.cache)
         if args.action == "collect"
-        else train(args.cache, args.output),
+        else train(args.cache, args.output, nonplayer_weight=args.nonplayer_weight),
         flush=True,
     )

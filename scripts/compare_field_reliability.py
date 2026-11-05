@@ -33,6 +33,9 @@ from football_pipeline.video import ROOT, VideoWriter, inspect_video
 
 
 def prepare(video_path, kind, output, selection_path=None):
+    """Leg de bronvideo, bevroren framekeuze en benodigde baseline-/kandidaatinstellingen vast voor de
+    latere veldvergelijking.
+    """
     video = inspect_video(video_path)
     output.mkdir(parents=True, exist_ok=True)
     if (output / "selection.json").exists():
@@ -115,6 +118,9 @@ def prepare(video_path, kind, output, selection_path=None):
 
 
 def comparison_canvas(frame, records):
+    """Teken de verschillende veldtoestanden naast elkaar op hetzelfde bronframe voor een framesynchrone
+    vergelijking.
+    """
     canvas = np.zeros((720, 1280, 3), np.uint8)
     for column, (name, record) in enumerate(records.items()):
         left = column * 640
@@ -167,6 +173,9 @@ def comparison_canvas(frame, records):
 
 
 def run(bundle_path, detections_path, output, make_video=True):
+    """Hergebruik opgeslagen detecties en voer de veldvarianten uit op dezelfde bronvideo; sla hun
+    vergelijkingsrecords en optionele video op.
+    """
     selection = read_json(output / "selection.json")
     frozen = read_json(output / "frozen-settings.json")
     for name, expected in frozen["code_sha256"].items():
@@ -287,6 +296,9 @@ def run(bundle_path, detections_path, output, make_video=True):
 
 
 def evaluate(outputs, destination):
+    """Combineer de bevroren vergelijkingen en eventuele menselijke reviews tot de gerapporteerde
+    releasebeslissing.
+    """
     comparisons = {}
     for output in outputs:
         report = read_json(output / "comparison.json")
@@ -382,6 +394,9 @@ def export_review(output):
 
 
 def main():
+    """Voer de gekozen voorbereidings-, replay-, evaluatie- of reviewexportstap van de veldvergelijking
+    uit.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
     p = commands.add_parser("prepare")

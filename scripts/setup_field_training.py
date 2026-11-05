@@ -10,6 +10,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
+    """Maak de afzonderlijke veldtrainingsomgeving uit de vastgelegde inferentieruntime zonder de
+    oorspronkelijke omgeving te veranderen.
+    """
     runtime = json.loads((ROOT / ".tools/field-runtime.json").read_text(encoding="utf-8"))
     base = Path(runtime["python"])
     environment = ROOT / ".tools/field-training-env"

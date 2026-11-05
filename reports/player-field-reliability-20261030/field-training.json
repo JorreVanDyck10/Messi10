@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "identity": "509d36318004f19312615293602528880100bd69a920ed504b746b496d4079e8",
+  "started_at": "2026-10-30T12:35:12.458346+00:00",
+  "dataset_fingerprint": "d98e67f147c772df90bcea649c967c9b665667fb3d1a9e7eafd5e6ddc12c800a",
+  "dataset_version": "field-recovery-hard-examples-v1",
+  "config": {
+    "epochs": 3,
+    "batch": 1,
+    "lr": 1e-05,
+    "optimizer": "Adam",
+    "patience": 3,
+    "weight_decay": 0.0001,
+    "scheduler": "ReduceLROnPlateau_factor_0.5_patience_1",
+    "best_checkpoint_includes_unmodified_baseline": true,
+    "head_only": false,
+    "target_generation": "geometry_seeded_interpolation; exact_float32_compressed_cache",
+    "seed": 42,
+    "amp": true,
+    "image_size": [
+      960,
+      540
+    ],
+    "smoke": false,
+    "limit_train": null,
+    "limit_valid": null
+  },
+  "models": {
+    "keypoints": {
+      "status": "complete",
+      "path": "C:\\Messi10\\artifacts\\player-field-reliability-20261030\\field-recovery\\training\\keypoints-best-000.pt",
+      "sha256": "ccd26d7b10cca81ccc903e5e96f47e73ee030b0f963427493d4d35dea1c38628",
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.1325747093948735e-05,
+          "valid_loss": 1.5319924802525975e-05,
+          "learning_rate": 1e-05,
+          "runtime_s": 233.34400000004098,
+          "peak_gpu_bytes": 3097127936
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.1898203386984108e-05,
+          "valid_loss": 1.5950193731129048e-05,
+          "learning_rate": 1e-05,
+          "runtime_s": 98.17200000002049,
+          "peak_gpu_bytes": 3097127936
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.4153131949079523e-05,
+          "valid_loss": 1.916965828267318e-05,
+          "learning_rate": 1e-05,
+          "runtime_s": 103.84399999992456,
+          "peak_gpu_bytes": 3097127936
+        }
+      ],
+      "base_model": {
+        "name": "SV_kp",
+        "sha256": "7ea78fa76aaf94976a8eca428d6e3c59697a93430cba1a4603e20284b61f5113"
+      },
+      "best_valid_loss": 1.4804166927007145e-05,
+      "baseline_valid_loss": 1.4804166927007145e-05,
+      "selected_epoch": 0,
+      "improved_over_baseline_loss": false,
+      "trainable_parameters": 65987658,
+      "train_frames": 128,
+      "valid_frames": 48,
+      "last_path": "C:\\Messi10\\artifacts\\player-field-reliability-20261030\\field-recovery\\training\\keypoints-resume-003.pt",
+      "last_sha256": "ba6a15f9362199f7ce47a384c6426d41e01a1223d91a1dd271783abc7cc13dbf"
+    },
+    "lines": {
+      "status": "complete",
+      "path": "C:\\Messi10\\artifacts\\player-field-reliability-20261030\\field-recovery\\training\\lines-best-002.pt",
+      "sha256": "074d5aa4c6046b4895beb18ff02dca2266e1c10f711c715419082b10f360ce73",
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.00011259808749741751,
+          "valid_loss": 0.00013572548641604953,
+          "learning_rate": 1e-05,
+          "runtime_s": 266.60999999998603,
+          "peak_gpu_bytes": 3061879808
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.00011295722066506642,
+          "valid_loss": 0.00013474637057697691,
+          "learning_rate": 1e-05,
+          "runtime_s": 284.10899999993853,
+          "peak_gpu_bytes": 3062474240
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.00011185741860231246,
+          "valid_loss": 0.0001349490354793185,
+          "learning_rate": 1e-05,
+          "runtime_s": 212.65599999995902,
+          "peak_gpu_bytes": 3062474240
+        }
+      ],
+      "base_model": {
+        "name": "SV_lines",
+        "sha256": "d72f4ed71734a2e3df9fa084f666e9b8adaef21bf69bac8952d6d3f970ff7455"
+      },
+      "best_valid_loss": 0.00013474637057697691,
+      "baseline_valid_loss": 0.00014000001101521775,
+      "selected_epoch": 2,
+      "improved_over_baseline_loss": true,
+      "trainable_parameters": 65960968,
+      "train_frames": 128,
+      "valid_frames": 48,
+      "last_path": "C:\\Messi10\\artifacts\\player-field-reliability-20261030\\field-recovery\\training\\lines-resume-003.pt",
+      "last_sha256": "0a08a23c68e92ee67e8eaac0c0de633fbd6c50e23ed5c5039a43fbdc013fa1fb"
+    }
+  },
+  "status": "complete",
+  "training_performed": true,
+  "is_smoke_test": false,
+  "independent_accuracy_claim": false,
+  "trainer_sha256": "9643f2cd27f97d590d01b7d6b38b01e3b6eb7f78424bfd6d628e5c6e6c8726f2",
+  "upstream": {
+    "url": "https://github.com/mguti97/PnLCalib",
+    "revision": "8c87391d6f4ea40c5e4d65e61529916c7a49ce62",
+    "license": "GPL-2.0",
+    "license_sha256": "189b1af95d661151e054cea10c91b3d754e4de4d3fecfb074c1fb29476f7167b"
+  },
+  "dependencies": {
+    "torch": "2.3.1+cu121",
+    "torchvision": "0.18.1+cu121",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "lsq-ellipse": "2.2.1"
+  },
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "updated_at": "2026-10-30T13:00:20.082656+00:00",
+  "completed_at": "2026-10-30T13:00:20.114649+00:00"
+}

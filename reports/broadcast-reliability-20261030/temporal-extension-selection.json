@@ -1,0 +1,27 @@
+{
+  "revision": "3cc710eb6d53a23350a3d2863311c1c0a2e645d7",
+  "source_clips": [
+    "SNGS-060",
+    "SNGS-097",
+    "SNGS-151",
+    "SNGS-021",
+    "SNGS-039",
+    "SNGS-078"
+  ],
+  "source_manifest_sha256": "ea769af34691124b20c25769738d3b3063f4d10acbed1f6d325d189e2010fb0a",
+  "windows": {
+    "middle": [
+      301,
+      450
+    ],
+    "last": [
+      601,
+      750
+    ]
+  },
+  "rule": "Fixed frames301–450 and601–750; same first clip per previously selected game; no outcome-based window selection",
+  "test_accessed": false,
+  "independent_final_test": false,
+  "human_review_completed": false,
+  "training_performed": false
+}

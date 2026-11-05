@@ -12,6 +12,9 @@ from football_pipeline.contracts import sha256_file
 
 
 def main():
+    """Download de expliciet gekozen Commons-beelden en bewaar hun bron- en attributiegegevens bij de
+    rolvoorbeelden.
+    """
     root = Path(__file__).resolve().parents[1]
     target = root / "datasets/roles-teams-v1/sources"
     target.mkdir(parents=True, exist_ok=True)

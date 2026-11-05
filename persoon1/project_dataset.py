@@ -1,4 +1,4 @@
-"""Rebuild the disclosed, provisional ball dataset from the exact LFS source video."""
+"""Reconstrueert de voorlopige baldataset uit de exacte bronvideo en expliciete annotaties."""
 
 import argparse
 from pathlib import Path
@@ -7,6 +7,9 @@ from .core import now, read_json, sha256, validate_dataset, write_json
 
 
 def prepare(video, selection, output):
+    """Extraheer de expliciet geselecteerde bronframes en reconstructeer de voorlopige baldataset met
+    haar bronidentiteit en labelmetadata.
+    """
     import av
     from PIL import ImageDraw
     video, output = Path(video), Path(output)

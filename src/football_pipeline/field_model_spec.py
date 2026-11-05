@@ -1,4 +1,4 @@
-"""Pinned model provenance; dependency-free so the setup can bootstrap a clean machine."""
+"""Legt veldmodelherkomst en runtimecontroles vast zonder zware ML-imports tijdens installatie."""
 
 UPSTREAM_URL = "https://github.com/mguti97/PnLCalib"
 UPSTREAM_REVISION = "8c87391d6f4ea40c5e4d65e61529916c7a49ce62"
@@ -22,6 +22,9 @@ def validate_runtime_models(runtime):
     from pathlib import Path
 
     def checksum(path):
+        """Bereken de SHA-256 van het echte model- of rapportbestand om de opgegeven runtimeherkomst te
+        verifiëren.
+        """
         with Path(path).open("rb") as stream:
             return hashlib.file_digest(stream, "sha256").hexdigest()
 

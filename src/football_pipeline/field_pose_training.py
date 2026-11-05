@@ -1,4 +1,4 @@
-"""Actual full-network YOLO field-keypoint transfer learning on frozen provider annotations."""
+"""Traint een YOLO-veldpuntenmodel via transfer learning op vastgelegde providerannotaties."""
 
 from __future__ import annotations
 
@@ -11,6 +11,9 @@ from .contracts import digest_json, read_json, sha256_file, write_json
 
 
 def train(dataset, output, epochs=100, batch=8, imgsz=960, workers=4):
+    """Fine-tune het YOLO-veldpuntenmodel met de gekozen batch en resolutie op de vastgelegde dataset en
+    bewaar de werkelijke trainingsuitvoer.
+    """
     import torch
     from ultralytics import YOLO, __version__
 
@@ -107,6 +110,9 @@ def train(dataset, output, epochs=100, batch=8, imgsz=960, workers=4):
     write_json(report_path, report)
 
     def progress(trainer):
+        """Schrijf huidig epochnummer, verstreken tijd en trainingsloss voor de statusweergave van de
+        veldpunttraining.
+        """
         report["completed_epoch"] = trainer.epoch + 1
         report["metrics"] = {k: float(v) for k, v in trainer.metrics.items()}
         write_json(report_path, report)

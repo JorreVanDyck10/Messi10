@@ -1,0 +1,11 @@
+{
+  "catalog_sha256": "074d80f1508bbe99f11dd272e2330d095e63c51cf5fdc8414024706beae99663",
+  "verified_files": 15324,
+  "verified_bytes": 5088063291,
+  "lfs_paths": 7903,
+  "unique_lfs_objects": 5845,
+  "unique_lfs_bytes": 4555341368,
+  "indexed_payload_hashes_match": true,
+  "main_final_snapshot_unchanged": true,
+  "remote_upload_verified": false
+}

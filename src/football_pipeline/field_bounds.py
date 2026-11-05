@@ -1,4 +1,4 @@
-"""Visible pitch geometry in source pixels, clipped before perspective division."""
+"""Berekent het zichtbare veldgebied in bronpixels en controleert of voetpunten daarin liggen."""
 
 from __future__ import annotations
 
@@ -53,6 +53,9 @@ def contains_footpoint(polygon, point):
 
 
 def attach_visible_field(state, image_size):
+    """Voeg het in bronpixels zichtbare veldpolygon toe aan een kopie van de kalibratietoestand voor
+    verdere geldigheidscontroles.
+    """
     result = dict(state, visible_field_polygon_xy=None)
     if result["status"] != "valid":
         return result

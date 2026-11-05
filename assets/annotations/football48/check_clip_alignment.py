@@ -11,6 +11,9 @@ from build_dataset import read,write,digest
 
 
 def check(source,clips,output):
+    """Vergelijk bron- en fragmentframes voor de acht tijdgroepen en controleer dat hun temporele
+    uitlijning hoogstens één frame afwijkt.
+    """
     root=Path(clips);manifest=read(root/'manifest.json')
     if digest(source)!=manifest['source']['sha256']:raise ValueError('Source checksum mismatch')
     video=cv2.VideoCapture(str(source));records=[]

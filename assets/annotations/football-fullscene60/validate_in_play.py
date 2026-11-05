@@ -5,6 +5,9 @@ from build_dataset import read,write,digest
 
 
 def validate(output):
+    """Controleer dat de afgeleide speelbalset dezelfde volledige bronbeelden en splits bevat en
+    uitsluitend de goedgekeurde speelballabels gebruikt.
+    """
     root=Path(__file__).resolve().parent;output=Path(output).resolve()
     spec=read(root/'source-annotations.json');manifest=read(root/'manifest.json')
     records={f['frame_id']:f for f in spec['frames']};counts={}

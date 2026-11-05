@@ -13,6 +13,9 @@ from football_pipeline.video import ROOT
 
 
 def specification(run):
+    """Lees welke bronimplementatie, manifestversie, encoderblokken en kleurweging bij de gevraagde
+    historische trainingsrun hoorden.
+    """
     reports = ROOT / "reports/person1-round3"
     old = reports / "source-snapshot/role_training.py"
     specs = {
@@ -38,6 +41,9 @@ def specification(run):
 
 
 def main():
+    """Lees de historische trainingsspecificatie en voer de vastgelegde roltraining opnieuw uit met
+    dezelfde bron- en datasetversie.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run", choices=["R011", "R012", "R013", "R014", "R016"], required=True)
     parser.add_argument("--output", type=Path)

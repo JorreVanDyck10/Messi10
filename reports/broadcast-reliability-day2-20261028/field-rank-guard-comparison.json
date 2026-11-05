@@ -1,0 +1,91 @@
+{
+  "per_clip": [
+    {
+      "clip": "SNGS-021",
+      "split": "val",
+      "baseline_valid": 150,
+      "candidate_valid": 150,
+      "gained_frames": 0,
+      "lost_frames": 0,
+      "common_points": 2250,
+      "baseline_common_median_m": 0.36962602456744387,
+      "candidate_common_median_m": 0.36962602456744387,
+      "baseline_common_p90_m": 1.5557973968380807,
+      "candidate_common_p90_m": 1.5557973968380807,
+      "largest_common_error_change_m": 0.0
+    },
+    {
+      "clip": "SNGS-039",
+      "split": "val",
+      "baseline_valid": 102,
+      "candidate_valid": 104,
+      "gained_frames": 2,
+      "lost_frames": 0,
+      "common_points": 1852,
+      "baseline_common_median_m": 0.4163978034253395,
+      "candidate_common_median_m": 0.4163978034253395,
+      "baseline_common_p90_m": 1.1204942134512292,
+      "candidate_common_p90_m": 1.1204942134512292,
+      "largest_common_error_change_m": 0.0
+    },
+    {
+      "clip": "SNGS-060",
+      "split": "train",
+      "baseline_valid": 150,
+      "candidate_valid": 150,
+      "gained_frames": 0,
+      "lost_frames": 0,
+      "common_points": 2031,
+      "baseline_common_median_m": 0.2714595099550418,
+      "candidate_common_median_m": 0.2714595099550418,
+      "baseline_common_p90_m": 0.9082593228149275,
+      "candidate_common_p90_m": 0.9082593228149275,
+      "largest_common_error_change_m": 0.0
+    },
+    {
+      "clip": "SNGS-078",
+      "split": "val",
+      "baseline_valid": 84,
+      "candidate_valid": 133,
+      "gained_frames": 49,
+      "lost_frames": 0,
+      "common_points": 1020,
+      "baseline_common_median_m": 0.3248377662487782,
+      "candidate_common_median_m": 0.3248377662487782,
+      "baseline_common_p90_m": 0.7724208668619071,
+      "candidate_common_p90_m": 0.7724208668619071,
+      "largest_common_error_change_m": 0.0
+    },
+    {
+      "clip": "SNGS-097",
+      "split": "train",
+      "baseline_valid": 150,
+      "candidate_valid": 150,
+      "gained_frames": 0,
+      "lost_frames": 0,
+      "common_points": 2435,
+      "baseline_common_median_m": 0.4306766839209424,
+      "candidate_common_median_m": 0.4306766839209424,
+      "baseline_common_p90_m": 1.6183756274730106,
+      "candidate_common_p90_m": 1.6183756274730106,
+      "largest_common_error_change_m": 0.0
+    },
+    {
+      "clip": "SNGS-151",
+      "split": "train",
+      "baseline_valid": 150,
+      "candidate_valid": 150,
+      "gained_frames": 0,
+      "lost_frames": 0,
+      "common_points": 1950,
+      "baseline_common_median_m": 0.32160018557797004,
+      "candidate_common_median_m": 0.32160018557797004,
+      "baseline_common_p90_m": 1.1528389366557796,
+      "candidate_common_p90_m": 1.1528389366557796,
+      "largest_common_error_change_m": 0.0
+    }
+  ],
+  "independent_final_test": false,
+  "human_review_completed": false,
+  "comparison": "identical provider points on frames valid in both routes; added coverage reported separately"
+}

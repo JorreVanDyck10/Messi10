@@ -1,0 +1,10 @@
+names:
+- ball
+- goalkeeper
+- player
+- referee
+nc: 4
+
+test: ./test/images
+train: ./train/images
+val: ./valid/images

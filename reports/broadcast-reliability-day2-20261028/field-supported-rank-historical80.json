@@ -1,0 +1,111 @@
+{
+  "results": [
+    {
+      "cache": "artifacts\\course-improvement-20261019\\field-policy-full-last\\observations-6c30ef8aa93dc16a6d5c1f7beb965e9ba17b7759fb77faa08cfb5112381e7ff1.json",
+      "splits": {
+        "train": {
+          "baseline": {
+            "frames": 60,
+            "valid": 40,
+            "correct": 24,
+            "wrong": 16,
+            "unscored_valid": 0,
+            "median_line_error_px": 2.2632337409366827,
+            "p95_line_error_px": 17.71057160806368,
+            "correct_fraction": 0.4,
+            "independent_final_test": false
+          },
+          "supported_rank": {
+            "frames": 60,
+            "valid": 40,
+            "correct": 24,
+            "wrong": 16,
+            "unscored_valid": 0,
+            "median_line_error_px": 2.2632337409366827,
+            "p95_line_error_px": 17.71057160806368,
+            "correct_fraction": 0.4,
+            "independent_final_test": false
+          }
+        },
+        "valid": {
+          "baseline": {
+            "frames": 20,
+            "valid": 14,
+            "correct": 12,
+            "wrong": 2,
+            "unscored_valid": 0,
+            "median_line_error_px": 1.9265431216106306,
+            "p95_line_error_px": 14.553795105229792,
+            "correct_fraction": 0.6,
+            "independent_final_test": false
+          },
+          "supported_rank": {
+            "frames": 20,
+            "valid": 15,
+            "correct": 12,
+            "wrong": 3,
+            "unscored_valid": 0,
+            "median_line_error_px": 1.8781399684590159,
+            "p95_line_error_px": 19.475675718905478,
+            "correct_fraction": 0.6,
+            "independent_final_test": false
+          }
+        }
+      }
+    },
+    {
+      "cache": "artifacts\\course-improvement-20261019\\field-policy-full-last\\observations-d26dfadd2e3b3235ce49ae00930e54d655b33a1033212c775d79b4d15d981367.json",
+      "splits": {
+        "train": {
+          "baseline": {
+            "frames": 60,
+            "valid": 21,
+            "correct": 9,
+            "wrong": 12,
+            "unscored_valid": 0,
+            "median_line_error_px": 2.457895863307029,
+            "p95_line_error_px": 22.270849318206295,
+            "correct_fraction": 0.15,
+            "independent_final_test": false
+          },
+          "supported_rank": {
+            "frames": 60,
+            "valid": 21,
+            "correct": 9,
+            "wrong": 12,
+            "unscored_valid": 0,
+            "median_line_error_px": 2.457895863307029,
+            "p95_line_error_px": 22.270849318206295,
+            "correct_fraction": 0.15,
+            "independent_final_test": false
+          }
+        },
+        "valid": {
+          "baseline": {
+            "frames": 20,
+            "valid": 5,
+            "correct": 2,
+            "wrong": 3,
+            "unscored_valid": 0,
+            "median_line_error_px": 2.50951623275877,
+            "p95_line_error_px": 20.535129371962412,
+            "correct_fraction": 0.1,
+            "independent_final_test": false
+          },
+          "supported_rank": {
+            "frames": 20,
+            "valid": 5,
+            "correct": 2,
+            "wrong": 3,
+            "unscored_valid": 0,
+            "median_line_error_px": 2.50951623275877,
+            "p95_line_error_px": 20.535129371962412,
+            "correct_fraction": 0.1,
+            "independent_final_test": false
+          }
+        }
+      }
+    }
+  ],
+  "independent_final_test": false
+}

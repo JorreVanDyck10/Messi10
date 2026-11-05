@@ -1,0 +1,81 @@
+{
+  "stage": "raw_specialist_detector_before_roles_geometry_tracking_or_display",
+  "identity": "ba7405f1d3a46dbebbd24ae8e70559e94c3e128b493c07e13eb54de1ee6873b6",
+  "specialist": [
+    {
+      "model_id": "broadcast-pitch-players-v7",
+      "weights": "C:\\Messi10\\artifacts\\broadcast-players-v1\\players_best.pt",
+      "weights_sha256": "fb6deea2d6c51bada9d3f8bfd666882212f45d1a1584547d02dc98aa59aaaa25",
+      "class_mapping": {
+        "0": "player"
+      },
+      "expected_names": {
+        "0": "player"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    }
+  ],
+  "metrics": {
+    "train": {
+      "frames": 54,
+      "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+      "mAP50": 0.9669127222012287,
+      "mAP50_95": 0.721977198374934,
+      "workpoint": {
+        "confidence": 0.25,
+        "matching_iou": 0.5
+      },
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "player",
+          "objects": 760,
+          "AP50": 0.9669127222012287,
+          "AP50_95": 0.721977198374934,
+          "TP": 745,
+          "FP": 67,
+          "FN": 15,
+          "precision": 0.9174876847290641,
+          "recall": 0.9802631578947368
+        }
+      ]
+    },
+    "val": {
+      "frames": 54,
+      "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+      "mAP50": 0.944316666312261,
+      "mAP50_95": 0.6055840703163595,
+      "workpoint": {
+        "confidence": 0.25,
+        "matching_iou": 0.5
+      },
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "player",
+          "objects": 796,
+          "AP50": 0.944316666312261,
+          "AP50_95": 0.6055840703163595,
+          "TP": 749,
+          "FP": 129,
+          "FN": 47,
+          "precision": 0.8530751708428246,
+          "recall": 0.9409547738693468
+        }
+      ]
+    }
+  },
+  "error_counts": {
+    "train:FP": 67,
+    "train:FN": 15,
+    "val:FP": 129,
+    "val:FN": 47
+  },
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "sampling": "one native frame per second in existing fixed windows",
+  "reference": "Existing provider on-pitch player boxes, including keepers"
+}

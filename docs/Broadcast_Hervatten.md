@@ -1,5 +1,7 @@
 # Broadcastanalyse: actuele overdracht
 
+> **Nieuwere overdracht, 30 oktober 2026:** gebruik [Broadcastbetrouwbaarheid hervatten](Broadcast_Betrouwbaarheid_Hervatten.md) voor de huidige branch, limietafspraak en meetresultaten. De onderstaande overdracht beschrijft een eerdere ontwikkelronde. De gebruiker heeft inmiddels tijdig committen/pushen en stoppen bij circa 5–10% resterend budget gevraagd.
+
 Bijgewerkt op **28 oktober 2026**. De pauze van gisteren is hervat na “ga door”. Een verbeterd **ontwikkelprofiel** is nu standaard beschikbaar; de nauwkeurigheid is nog niet definitief goedgekeurd. De gebruiker wil spelers op het veld per team herkennen. Buitenveldse personen blijven uitgesteld. De eerdere tijdslimiet is expliciet opgeheven. Vraag bij een volgende “ga door” niet opnieuw toestemming om hiermee verder te werken.
 
 ## Meteen terugvinden

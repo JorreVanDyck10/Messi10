@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-30",
+  "plan_phase": 10,
+  "remaining_plan_phases": 0,
+  "targets_met": false,
+  "default_policy": "two_semantic_tertiles_no_refit",
+  "previous_rank_bridge_acceptance_superseded": true,
+  "motion_rank_selected": false,
+  "rejection_reason": "Both additional validation projections exceed the preset provider-line tolerance; no-added-outside-tolerance gate failed.",
+  "additional_validation_frames": [
+    {"clip": "SNGS-078", "frame_index": 90, "reference_result": "outside_tolerance"},
+    {"clip": "SNGS-078", "frame_index": 92, "reference_result": "outside_tolerance"}
+  ],
+  "later_frames_audited": 1800,
+  "later_projection_changes": 0,
+  "loaded_default_profile_restored_exactly": true,
+  "model_weights_changed": false,
+  "research_options_enabled_by_default": false,
+  "tests_passed": 455,
+  "subtests_passed": 4,
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "distance_accuracy_validated": false,
+  "summary": "summary.json",
+  "audit": "motion-rank-release-audit.json",
+  "profile_proof": "profile-restoration.json",
+  "tests": "final-tests.xml"
+}

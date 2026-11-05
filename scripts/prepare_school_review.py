@@ -9,6 +9,9 @@ from football_pipeline.contracts import digest_json, read_json, sha256_file, wri
 
 
 def prepare(source: Path, metadata: Path, output: Path):
+    """Kopieer de vastgelegde 80 balbeelden en labels naar een nieuwe reviewmap met behouden splits en
+    weiger bestaande reviewgegevens te overschrijven.
+    """
     source, output = source.resolve(), output.resolve()
     if output.exists():
         raise ValueError("Choose a new output directory; an existing review must be preserved.")

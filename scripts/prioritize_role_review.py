@@ -14,6 +14,9 @@ from football_pipeline.video import ROOT
 
 
 def main():
+    """Rangschik bestaande rolmeningsverschillen voor menselijke review zonder voorspellingen tot nieuwe
+    waarheid te maken.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()

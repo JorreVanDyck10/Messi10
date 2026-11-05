@@ -17,6 +17,9 @@ from persoon1.modeling import yolo
 
 
 def main():
+    """Haal de gedeelde LFS-objecten in een nieuwe opslag op en controleer hun echte bytes en
+    model-/beeldleesbaarheid.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--revision", required=True)
     parser.add_argument("--cache", type=Path, required=True)

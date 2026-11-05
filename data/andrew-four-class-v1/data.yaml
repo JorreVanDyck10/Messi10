@@ -1,0 +1,4 @@
+path: ../../Andrew_Prototype/archive
+train: train/images
+val: valid/images
+names: [ball, goalkeeper, player, referee]

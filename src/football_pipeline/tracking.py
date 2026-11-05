@@ -1,3 +1,5 @@
+"""Koppelt actuele spelerboxen over opeenvolgende frames met ByteTrack. Een tijdelijk track-ID is geen herkende naam of gegarandeerde identiteit."""
+
 from __future__ import annotations
 
 from collections import deque
@@ -14,6 +16,9 @@ from .participants import player_exclusion_reason
 
 
 def load_tracker_config(path: str | Path) -> dict:
+    """Lees YAML en controleer ByteTrack-type, confidencegrenzen, matchdrempel en bufferduur vóór
+    initialisatie.
+    """
     try:
         config = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
         if config["tracker_type"] != "bytetrack":
@@ -33,13 +38,21 @@ def load_tracker_config(path: str | Path) -> dict:
 
 
 class ByteTrackAdapter:
+    """Adapter tussen onze Detection-objecten en de versieafhankelijke ByteTrack-API."""
+
     def __init__(self, config: dict, fps: float, *, camera_motion: bool = False, require_field: bool = False):
+        """Bouw de ByteTrack-adapter met versiecontrole, optionele achtergrondcompensatie en de
+        beleidseisen voor veldgeldigheid.
+        """
         from ultralytics.trackers.byte_tracker import BYTETracker
 
         legacy_partition_indices = version("ultralytics") == "8.3.221"
 
         class SourceIndexedTracker(BYTETracker):
             def init_track(self, results, features=None):
+                """Bewaar in de versiegebonden ByteTrack-route de oorspronkelijke detectie-index wanneer
+                hoge en lage confidencegroepen afzonderlijk worden geïnitialiseerd.
+                """
                 tracks = super().init_track(results, features)
                 # 8.3.221 numbers each confidence partition from zero. Preserve
                 # the input detection index through both association stages.
@@ -52,6 +65,9 @@ class ByteTrackAdapter:
                 return tracks
 
             def multi_predict(self, tracks):
+                """Voorspel de tracktoestanden en pas daarna de gemeten achtergrondtransformatie op de
+                XYAH-toestanden toe wanneer cameracompensatie beschikbaar is.
+                """
                 super().multi_predict(tracks)
                 if getattr(self, "background_motion", None) is not None:
                     from .tracking_motion import warp_xyah
@@ -94,6 +110,10 @@ class ByteTrackAdapter:
     def update(
         self, detections: list[Detection], frame_index: int, image_size: tuple[int, int], *, frame=None
     ) -> None:
+        """Koppel alleen actuele detecties en schrijf tijdelijke track-IDs terug.
+
+        De updatevolgorde moet ieder opeenvolgend bronframe volgen. Interne
+        bewegingsvoorspellingen worden niet als nieuwe zichtbare detecties uitgevoerd."""
         from ultralytics.engine.results import Boxes
 
         if frame_index != self.last_frame + 1:
@@ -144,25 +164,41 @@ class _IndexedBoxes:
     """Carry source indices when ByteTrack slices high/low confidence subsets."""
 
     def __init__(self, boxes, indices=None):
+        """Bewaar de bibliotheekboxen samen met hun oorspronkelijke indices, ook wanneer de tracker er
+        subsets van maakt.
+        """
         self.boxes = boxes
         self.source_indices = np.arange(len(boxes)) if indices is None else indices
 
     def __len__(self):
+        """Geef het aantal momenteel verpakte bibliotheekboxen terug."""
         return len(self.boxes)
 
     def __getitem__(self, item):
+        """Slice boxen en bronindices met dezelfde selectie en geef opnieuw een gekoppelde adapter terug."""
         return _IndexedBoxes(self.boxes[item], self.source_indices[item])
 
     def __getattr__(self, name):
+        """Geef niet-eigen attribuutverzoeken door aan de oorspronkelijke bibliotheekboxen voor API-
+        compatibiliteit.
+        """
         return getattr(self.boxes, name)
 
 
 class Trajectories:
+    """Bewaar een beperkt tijdvenster van daadwerkelijk waargenomen veldposities."""
+
     def __init__(self, fps: float, seconds: float = 5.0):
+        """Zet de trajectduur om naar een begrensd aantal bronframes en begin met lege historie per
+        tijdelijk track-ID.
+        """
         self.window = max(1, round(fps * seconds))
         self.points: dict[int, deque] = {}
 
     def update(self, detections: list[Detection], frame_index: int) -> None:
+        """Verwijder te oude trajectpunten en voeg alleen actuele waarnemingen met track-ID en geldige
+        veldpositie toe.
+        """
         cutoff = frame_index - self.window + 1
         for key in list(self.points):
             while self.points[key] and self.points[key][0][0] < cutoff:
@@ -176,5 +212,6 @@ class Trajectories:
                 )
 
     def segments(self, track_id: int) -> list[tuple]:
+        """Verbind alleen buurframes; teken geen lijn over ontbrekende waarnemingen."""
         history = list(self.points.get(track_id, []))
         return [(a, b) for a, b in zip(history, history[1:]) if b[0] == a[0] + 1]

@@ -1,0 +1,41 @@
+{
+  "dense_clips": [
+    {
+      "clip": "SNGS-021",
+      "gained": 0,
+      "lost": 0,
+      "common_field_matrices_equal": true
+    },
+    {
+      "clip": "SNGS-039",
+      "gained": 0,
+      "lost": 0,
+      "common_field_matrices_equal": true
+    },
+    {
+      "clip": "SNGS-060",
+      "gained": 0,
+      "lost": 0,
+      "common_field_matrices_equal": true
+    },
+    {
+      "clip": "SNGS-078",
+      "gained": 2,
+      "lost": 0,
+      "common_field_matrices_equal": true
+    },
+    {
+      "clip": "SNGS-097",
+      "gained": 0,
+      "lost": 0,
+      "common_field_matrices_equal": true
+    },
+    {
+      "clip": "SNGS-151",
+      "gained": 0,
+      "lost": 0,
+      "common_field_matrices_equal": true
+    }
+  ],
+  "user_clip_valid_frames_affected_by_final_safety_guard": 0
+}

@@ -8,15 +8,19 @@ import cv2
 from PIL import Image,ImageDraw
 
 
-def read(path):return json.loads(Path(path).read_text(encoding='utf-8'))
+def read(path):
+    """Lees de opgeslagen dataset- of annotatiegegevens uit UTF-8-JSON."""
+    return json.loads(Path(path).read_text(encoding='utf-8'))
 
 
 def write(path,value):
+    """Maak de uitvoermap en schrijf de datasetmetadata als leesbare UTF-8-JSON."""
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(value,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
 
 
 def digest(path):
+    """Bereken de SHA-256 van het bron-, beeld- of labelbestand in blokken voor de identiteitscontrole."""
     h=hashlib.sha256()
     with Path(path).open('rb') as stream:
         for block in iter(lambda:stream.read(1024*1024),b''):h.update(block)
@@ -24,6 +28,9 @@ def digest(path):
 
 
 def export(source,output,spec):
+    """Reconstrueer de vastgelegde bronframes en schrijf YOLO-labels, COCO-annotaties, voorbeelden en
+    manifest met behouden klassen en splits.
+    """
     output=Path(output)
     if (output/'images').exists() or (output/'labels').exists():raise ValueError('Choose a new output directory')
     if digest(source)!=spec['source']['sha256']:raise ValueError('Source checksum mismatch')

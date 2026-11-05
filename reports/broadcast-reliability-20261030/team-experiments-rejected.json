@@ -1,0 +1,1686 @@
+{
+  "status": "rejected; production defaults unchanged",
+  "source_snapshots": {
+    "src/football_pipeline/track_team_modes.py": "45aafb993200b9fc2e4d488cb75513843e491e3630f45e4c73015825787a412d",
+    "src/football_pipeline/team_metric.py": "d69abc0259d6d937bf12fdb7dd814c7e94e9d2576f0d603225ceadd6936d5679",
+    "src/football_pipeline/teams.py": "b90e2fd5fdb9103f6bad3be8885539d787606778aaaaaf98922b557122b2c805",
+    "src/football_pipeline/kit_embedding.py": "3533e3b7dc0f9fe1373af3dbd1577470cbb198218a13f1ee5e97679376e1f3fc",
+    "scripts/train_kit_metric.py": "d5cd81c78647243fc37efc2abe9abcf94c013dfb73ee74de3621b7cbbfe67443",
+    "scripts/evaluate_kit_metric.py": "9c4410d50a45ad0c3a06e4e90c36463157390e47802d403cfc7f7d760bd5fc4a",
+    "scripts/evaluate_track_team_modes.py": "ad8964abf7a644b1a48652365d8c8339f29c3a00da6f0567c719c19882f0ab63",
+    "scripts/evaluate_temporal_broadcast.py": "a891a58072f7dd5f3f9c0d5c17721819dfd6d25da9e13dbe3176bb4fd78a1b9b",
+    "tests/test_track_team_modes.py": "14beecd364d4015bc5a4f1a8771f59d58b408bd4c7d5c20e986e3624bbd54333"
+  },
+  "attempts": {
+    "balanced": {
+      "per_clip": [
+        {
+          "clip": "SNGS-060",
+          "game_id": "4",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.938412577633221,
+            "mAP50_95": 0.5997813552355109,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2031,
+                "AP50": 0.938412577633221,
+                "AP50_95": 0.5997813552355109,
+                "TP": 1917,
+                "FP": 31,
+                "FN": 114,
+                "precision": 0.9840862422997947,
+                "recall": 0.9438700147710487
+              }
+            ]
+          },
+          "teams": {
+            "correct": 1546,
+            "wrong": 371,
+            "assigned": 1917,
+            "matched": 1917,
+            "total": 2031,
+            "correct_fraction_all_players": 0.7612013786312162,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": true
+          },
+          "tracking": {
+            "IDTP": 1811,
+            "IDFN": 220,
+            "IDFP": 118,
+            "IDF1": 0.9146464646464646,
+            "ID_switches": 6,
+            "ground_truth_detections": 2031,
+            "tracked_detections": 1929,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1811,
+            "IDFN": 220,
+            "IDFP": 118,
+            "IDF1": 0.9146464646464646,
+            "ID_switches": 6,
+            "ground_truth_detections": 2031,
+            "tracked_detections": 1929,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-097",
+          "game_id": "6",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9578682380828729,
+            "mAP50_95": 0.7234769383293035,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2435,
+                "AP50": 0.9578682380828729,
+                "AP50_95": 0.7234769383293035,
+                "TP": 2355,
+                "FP": 60,
+                "FN": 80,
+                "precision": 0.9751552795031055,
+                "recall": 0.9671457905544147
+              }
+            ]
+          },
+          "teams": {
+            "correct": 2196,
+            "wrong": 159,
+            "assigned": 2355,
+            "matched": 2355,
+            "total": 2435,
+            "correct_fraction_all_players": 0.9018480492813141,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 150,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 2171,
+            "IDFN": 264,
+            "IDFP": 235,
+            "IDF1": 0.8969221235281967,
+            "ID_switches": 7,
+            "ground_truth_detections": 2435,
+            "tracked_detections": 2406,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 2171,
+            "IDFN": 264,
+            "IDFP": 235,
+            "IDF1": 0.8969221235281967,
+            "ID_switches": 7,
+            "ground_truth_detections": 2435,
+            "tracked_detections": 2406,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-151",
+          "game_id": "9",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9398119711676276,
+            "mAP50_95": 0.791267749463855,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 1950,
+                "AP50": 0.9398119711676276,
+                "AP50_95": 0.791267749463855,
+                "TP": 1911,
+                "FP": 183,
+                "FN": 39,
+                "precision": 0.9126074498567335,
+                "recall": 0.98
+              }
+            ]
+          },
+          "teams": {
+            "correct": 1474,
+            "wrong": 435,
+            "assigned": 1909,
+            "matched": 1911,
+            "total": 1950,
+            "correct_fraction_all_players": 0.7558974358974359,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 1911,
+            "IDFN": 39,
+            "IDFP": 54,
+            "IDF1": 0.9762452107279693,
+            "ID_switches": 0,
+            "ground_truth_detections": 1950,
+            "tracked_detections": 1965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1911,
+            "IDFN": 39,
+            "IDFP": 54,
+            "IDF1": 0.9762452107279693,
+            "ID_switches": 0,
+            "ground_truth_detections": 1950,
+            "tracked_detections": 1965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        }
+      ],
+      "summary": {
+        "train": {
+          "precision": 0.9575654328635589,
+          "recall": 0.9636845386533666,
+          "TP": 6183,
+          "FP": 274,
+          "FN": 233,
+          "correct_team_fraction": 0.8129675810473815,
+          "IDF1": 0.9268637936458005,
+          "ID_switches": 13,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.9268637936458005,
+          "image_ID_switches": 13
+        },
+        "val": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "correct_team_fraction": 0.0,
+          "IDF1": 0.0,
+          "ID_switches": 0,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.0,
+          "image_ID_switches": 0
+        }
+      }
+    },
+    "exclusive": {
+      "per_clip": [
+        {
+          "clip": "SNGS-060",
+          "game_id": "4",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.938412577633221,
+            "mAP50_95": 0.5997813552355109,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2031,
+                "AP50": 0.938412577633221,
+                "AP50_95": 0.5997813552355109,
+                "TP": 1917,
+                "FP": 31,
+                "FN": 114,
+                "precision": 0.9840862422997947,
+                "recall": 0.9438700147710487
+              }
+            ]
+          },
+          "teams": {
+            "correct": 1546,
+            "wrong": 371,
+            "assigned": 1917,
+            "matched": 1917,
+            "total": 2031,
+            "correct_fraction_all_players": 0.7612013786312162,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": true
+          },
+          "tracking": {
+            "IDTP": 1811,
+            "IDFN": 220,
+            "IDFP": 118,
+            "IDF1": 0.9146464646464646,
+            "ID_switches": 6,
+            "ground_truth_detections": 2031,
+            "tracked_detections": 1929,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1811,
+            "IDFN": 220,
+            "IDFP": 118,
+            "IDF1": 0.9146464646464646,
+            "ID_switches": 6,
+            "ground_truth_detections": 2031,
+            "tracked_detections": 1929,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-097",
+          "game_id": "6",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9578682380828729,
+            "mAP50_95": 0.7234769383293035,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2435,
+                "AP50": 0.9578682380828729,
+                "AP50_95": 0.7234769383293035,
+                "TP": 2355,
+                "FP": 60,
+                "FN": 80,
+                "precision": 0.9751552795031055,
+                "recall": 0.9671457905544147
+              }
+            ]
+          },
+          "teams": {
+            "correct": 2196,
+            "wrong": 159,
+            "assigned": 2355,
+            "matched": 2355,
+            "total": 2435,
+            "correct_fraction_all_players": 0.9018480492813141,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 150,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 2171,
+            "IDFN": 264,
+            "IDFP": 235,
+            "IDF1": 0.8969221235281967,
+            "ID_switches": 7,
+            "ground_truth_detections": 2435,
+            "tracked_detections": 2406,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 2171,
+            "IDFN": 264,
+            "IDFP": 235,
+            "IDF1": 0.8969221235281967,
+            "ID_switches": 7,
+            "ground_truth_detections": 2435,
+            "tracked_detections": 2406,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-151",
+          "game_id": "9",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9412817181888496,
+            "mAP50_95": 0.7923933813014367,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 1950,
+                "AP50": 0.9412817181888496,
+                "AP50_95": 0.7923933813014367,
+                "TP": 1911,
+                "FP": 152,
+                "FN": 39,
+                "precision": 0.9263208919049928,
+                "recall": 0.98
+              }
+            ]
+          },
+          "teams": {
+            "correct": 1461,
+            "wrong": 449,
+            "assigned": 1910,
+            "matched": 1911,
+            "total": 1950,
+            "correct_fraction_all_players": 0.7492307692307693,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 1911,
+            "IDFN": 39,
+            "IDFP": 54,
+            "IDF1": 0.9762452107279693,
+            "ID_switches": 0,
+            "ground_truth_detections": 1950,
+            "tracked_detections": 1965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1911,
+            "IDFN": 39,
+            "IDFP": 54,
+            "IDF1": 0.9762452107279693,
+            "ID_switches": 0,
+            "ground_truth_detections": 1950,
+            "tracked_detections": 1965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        }
+      ],
+      "summary": {
+        "train": {
+          "precision": 0.9621848739495799,
+          "recall": 0.9636845386533666,
+          "TP": 6183,
+          "FP": 243,
+          "FN": 233,
+          "correct_team_fraction": 0.8109413965087282,
+          "IDF1": 0.9268637936458005,
+          "ID_switches": 13,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.9268637936458005,
+          "image_ID_switches": 13
+        },
+        "val": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "correct_team_fraction": 0.0,
+          "IDF1": 0.0,
+          "ID_switches": 0,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.0,
+          "image_ID_switches": 0
+        }
+      }
+    },
+    "representative": {
+      "per_clip": [
+        {
+          "clip": "SNGS-060",
+          "game_id": "4",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.938412577633221,
+            "mAP50_95": 0.5997813552355109,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2031,
+                "AP50": 0.938412577633221,
+                "AP50_95": 0.5997813552355109,
+                "TP": 1917,
+                "FP": 31,
+                "FN": 114,
+                "precision": 0.9840862422997947,
+                "recall": 0.9438700147710487
+              }
+            ]
+          },
+          "teams": {
+            "correct": 1546,
+            "wrong": 371,
+            "assigned": 1917,
+            "matched": 1917,
+            "total": 2031,
+            "correct_fraction_all_players": 0.7612013786312162,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": true
+          },
+          "tracking": {
+            "IDTP": 1811,
+            "IDFN": 220,
+            "IDFP": 118,
+            "IDF1": 0.9146464646464646,
+            "ID_switches": 6,
+            "ground_truth_detections": 2031,
+            "tracked_detections": 1929,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1811,
+            "IDFN": 220,
+            "IDFP": 118,
+            "IDF1": 0.9146464646464646,
+            "ID_switches": 6,
+            "ground_truth_detections": 2031,
+            "tracked_detections": 1929,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-097",
+          "game_id": "6",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9578682380828729,
+            "mAP50_95": 0.7234769383293035,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2435,
+                "AP50": 0.9578682380828729,
+                "AP50_95": 0.7234769383293035,
+                "TP": 2355,
+                "FP": 60,
+                "FN": 80,
+                "precision": 0.9751552795031055,
+                "recall": 0.9671457905544147
+              }
+            ]
+          },
+          "teams": {
+            "correct": 2196,
+            "wrong": 159,
+            "assigned": 2355,
+            "matched": 2355,
+            "total": 2435,
+            "correct_fraction_all_players": 0.9018480492813141,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 150,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 2171,
+            "IDFN": 264,
+            "IDFP": 235,
+            "IDF1": 0.8969221235281967,
+            "ID_switches": 7,
+            "ground_truth_detections": 2435,
+            "tracked_detections": 2406,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 2171,
+            "IDFN": 264,
+            "IDFP": 235,
+            "IDF1": 0.8969221235281967,
+            "ID_switches": 7,
+            "ground_truth_detections": 2435,
+            "tracked_detections": 2406,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-151",
+          "game_id": "9",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9627291933124005,
+            "mAP50_95": 0.8099539186765421,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 1950,
+                "AP50": 0.9627291933124005,
+                "AP50_95": 0.8099539186765421,
+                "TP": 1911,
+                "FP": 57,
+                "FN": 39,
+                "precision": 0.9710365853658537,
+                "recall": 0.98
+              }
+            ]
+          },
+          "teams": {
+            "correct": 0,
+            "wrong": 0,
+            "assigned": 0,
+            "matched": 1911,
+            "total": 1950,
+            "correct_fraction_all_players": 0.0,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 1911,
+            "IDFN": 39,
+            "IDFP": 54,
+            "IDF1": 0.9762452107279693,
+            "ID_switches": 0,
+            "ground_truth_detections": 1950,
+            "tracked_detections": 1965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1911,
+            "IDFN": 39,
+            "IDFP": 54,
+            "IDF1": 0.9762452107279693,
+            "ID_switches": 0,
+            "ground_truth_detections": 1950,
+            "tracked_detections": 1965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        }
+      ],
+      "summary": {
+        "train": {
+          "precision": 0.9766229663560259,
+          "recall": 0.9636845386533666,
+          "TP": 6183,
+          "FP": 148,
+          "FN": 233,
+          "correct_team_fraction": 0.5832294264339152,
+          "IDF1": 0.9268637936458005,
+          "ID_switches": 13,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.9268637936458005,
+          "image_ID_switches": 13
+        },
+        "val": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "correct_team_fraction": 0.0,
+          "IDF1": 0.0,
+          "ID_switches": 0,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.0,
+          "image_ID_switches": 0
+        }
+      }
+    },
+    "linear_roles_changed": {
+      "per_clip": [
+        {
+          "clip": "SNGS-060",
+          "game_id": "4",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.8915771496543905,
+            "mAP50_95": 0.5704318217415003,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2031,
+                "AP50": 0.8915771496543905,
+                "AP50_95": 0.5704318217415003,
+                "TP": 1917,
+                "FP": 212,
+                "FN": 114,
+                "precision": 0.900422733677783,
+                "recall": 0.9438700147710487
+              }
+            ]
+          },
+          "teams": {
+            "correct": 1903,
+            "wrong": 13,
+            "assigned": 1916,
+            "matched": 1917,
+            "total": 2031,
+            "correct_fraction_all_players": 0.9369768586903003,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 1811,
+            "IDFN": 220,
+            "IDFP": 118,
+            "IDF1": 0.9146464646464646,
+            "ID_switches": 6,
+            "ground_truth_detections": 2031,
+            "tracked_detections": 1929,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1811,
+            "IDFN": 220,
+            "IDFP": 118,
+            "IDF1": 0.9146464646464646,
+            "ID_switches": 6,
+            "ground_truth_detections": 2031,
+            "tracked_detections": 1929,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-097",
+          "game_id": "6",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9253614724113821,
+            "mAP50_95": 0.7008003797145042,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2435,
+                "AP50": 0.9253614724113821,
+                "AP50_95": 0.7008003797145042,
+                "TP": 2355,
+                "FP": 208,
+                "FN": 80,
+                "precision": 0.9188451033944596,
+                "recall": 0.9671457905544147
+              }
+            ]
+          },
+          "teams": {
+            "correct": 2196,
+            "wrong": 159,
+            "assigned": 2355,
+            "matched": 2355,
+            "total": 2435,
+            "correct_fraction_all_players": 0.9018480492813141,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 150,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 2171,
+            "IDFN": 264,
+            "IDFP": 235,
+            "IDF1": 0.8969221235281967,
+            "ID_switches": 7,
+            "ground_truth_detections": 2435,
+            "tracked_detections": 2406,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 2171,
+            "IDFN": 264,
+            "IDFP": 235,
+            "IDF1": 0.8969221235281967,
+            "ID_switches": 7,
+            "ground_truth_detections": 2435,
+            "tracked_detections": 2406,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-151",
+          "game_id": "9",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9398580004023517,
+            "mAP50_95": 0.7912886513282114,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 1950,
+                "AP50": 0.9398580004023517,
+                "AP50_95": 0.7912886513282114,
+                "TP": 1911,
+                "FP": 180,
+                "FN": 39,
+                "precision": 0.9139167862266858,
+                "recall": 0.98
+              }
+            ]
+          },
+          "teams": {
+            "correct": 1911,
+            "wrong": 0,
+            "assigned": 1911,
+            "matched": 1911,
+            "total": 1950,
+            "correct_fraction_all_players": 0.98,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 1911,
+            "IDFN": 39,
+            "IDFP": 54,
+            "IDF1": 0.9762452107279693,
+            "ID_switches": 0,
+            "ground_truth_detections": 1950,
+            "tracked_detections": 1965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1911,
+            "IDFN": 39,
+            "IDFP": 54,
+            "IDF1": 0.9762452107279693,
+            "ID_switches": 0,
+            "ground_truth_detections": 1950,
+            "tracked_detections": 1965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        }
+      ],
+      "summary": {
+        "train": {
+          "precision": 0.9115435647943387,
+          "recall": 0.9636845386533666,
+          "TP": 6183,
+          "FP": 600,
+          "FN": 233,
+          "correct_team_fraction": 0.9367206982543641,
+          "IDF1": 0.9268637936458005,
+          "ID_switches": 13,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.9268637936458005,
+          "image_ID_switches": 13
+        },
+        "val": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "correct_team_fraction": 0.0,
+          "IDF1": 0.0,
+          "ID_switches": 0,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.0,
+          "image_ID_switches": 0
+        }
+      }
+    },
+    "linear_roles_preserved_train": {
+      "per_clip": [
+        {
+          "clip": "SNGS-060",
+          "game_id": "4",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9382917934521474,
+            "mAP50_95": 0.5997148413423762,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2031,
+                "AP50": 0.9382917934521474,
+                "AP50_95": 0.5997148413423762,
+                "TP": 1917,
+                "FP": 32,
+                "FN": 114,
+                "precision": 0.9835813237557722,
+                "recall": 0.9438700147710487
+              }
+            ]
+          },
+          "teams": {
+            "correct": 1903,
+            "wrong": 13,
+            "assigned": 1916,
+            "matched": 1917,
+            "total": 2031,
+            "correct_fraction_all_players": 0.9369768586903003,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 1811,
+            "IDFN": 220,
+            "IDFP": 118,
+            "IDF1": 0.9146464646464646,
+            "ID_switches": 6,
+            "ground_truth_detections": 2031,
+            "tracked_detections": 1929,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1811,
+            "IDFN": 220,
+            "IDFP": 118,
+            "IDF1": 0.9146464646464646,
+            "ID_switches": 6,
+            "ground_truth_detections": 2031,
+            "tracked_detections": 1929,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-097",
+          "game_id": "6",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9578682380828729,
+            "mAP50_95": 0.7234769383293035,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2435,
+                "AP50": 0.9578682380828729,
+                "AP50_95": 0.7234769383293035,
+                "TP": 2355,
+                "FP": 60,
+                "FN": 80,
+                "precision": 0.9751552795031055,
+                "recall": 0.9671457905544147
+              }
+            ]
+          },
+          "teams": {
+            "correct": 2196,
+            "wrong": 159,
+            "assigned": 2355,
+            "matched": 2355,
+            "total": 2435,
+            "correct_fraction_all_players": 0.9018480492813141,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 150,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 2171,
+            "IDFN": 264,
+            "IDFP": 235,
+            "IDF1": 0.8969221235281967,
+            "ID_switches": 7,
+            "ground_truth_detections": 2435,
+            "tracked_detections": 2406,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 2171,
+            "IDFN": 264,
+            "IDFP": 235,
+            "IDF1": 0.8969221235281967,
+            "ID_switches": 7,
+            "ground_truth_detections": 2435,
+            "tracked_detections": 2406,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-151",
+          "game_id": "9",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9412817181888496,
+            "mAP50_95": 0.7923933813014367,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 1950,
+                "AP50": 0.9412817181888496,
+                "AP50_95": 0.7923933813014367,
+                "TP": 1911,
+                "FP": 152,
+                "FN": 39,
+                "precision": 0.9263208919049928,
+                "recall": 0.98
+              }
+            ]
+          },
+          "teams": {
+            "correct": 1911,
+            "wrong": 0,
+            "assigned": 1911,
+            "matched": 1911,
+            "total": 1950,
+            "correct_fraction_all_players": 0.98,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 1911,
+            "IDFN": 39,
+            "IDFP": 54,
+            "IDF1": 0.9762452107279693,
+            "ID_switches": 0,
+            "ground_truth_detections": 1950,
+            "tracked_detections": 1965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1911,
+            "IDFN": 39,
+            "IDFP": 54,
+            "IDF1": 0.9762452107279693,
+            "ID_switches": 0,
+            "ground_truth_detections": 1950,
+            "tracked_detections": 1965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        }
+      ],
+      "summary": {
+        "train": {
+          "precision": 0.962035164151237,
+          "recall": 0.9636845386533666,
+          "TP": 6183,
+          "FP": 244,
+          "FN": 233,
+          "correct_team_fraction": 0.9367206982543641,
+          "IDF1": 0.9268637936458005,
+          "ID_switches": 13,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.9268637936458005,
+          "image_ID_switches": 13
+        },
+        "val": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "correct_team_fraction": 0.0,
+          "IDF1": 0.0,
+          "ID_switches": 0,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.0,
+          "image_ID_switches": 0
+        }
+      }
+    },
+    "linear_roles_preserved_val": {
+      "per_clip": [
+        {
+          "clip": "SNGS-021",
+          "game_id": "2",
+          "split": "val",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9603960396039604,
+            "mAP50_95": 0.7564919307100502,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2250,
+                "AP50": 0.9603960396039604,
+                "AP50_95": 0.7564919307100502,
+                "TP": 2165,
+                "FP": 1,
+                "FN": 85,
+                "precision": 0.9995383194829178,
+                "recall": 0.9622222222222222
+              }
+            ]
+          },
+          "teams": {
+            "correct": 1274,
+            "wrong": 891,
+            "assigned": 2165,
+            "matched": 2165,
+            "total": 2250,
+            "correct_fraction_all_players": 0.5662222222222222,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": true
+          },
+          "tracking": {
+            "IDTP": 2167,
+            "IDFN": 83,
+            "IDFP": 0,
+            "IDF1": 0.9812089653611048,
+            "ID_switches": 0,
+            "ground_truth_detections": 2250,
+            "tracked_detections": 2167,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 2167,
+            "IDFN": 83,
+            "IDFP": 0,
+            "IDF1": 0.9812089653611048,
+            "ID_switches": 0,
+            "ground_truth_detections": 2250,
+            "tracked_detections": 2167,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-039",
+          "game_id": "3",
+          "split": "val",
+          "frames": 150,
+          "missing_reference_geometry": 48,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.6142125567820899,
+            "mAP50_95": 0.35293930688313113,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2653,
+                "AP50": 0.6142125567820899,
+                "AP50_95": 0.35293930688313113,
+                "TP": 1680,
+                "FP": 142,
+                "FN": 973,
+                "precision": 0.9220636663007684,
+                "recall": 0.633245382585752
+              }
+            ]
+          },
+          "teams": {
+            "correct": 937,
+            "wrong": 743,
+            "assigned": 1680,
+            "matched": 1680,
+            "total": 2653,
+            "correct_fraction_all_players": 0.3531850735016962,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 86,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 1580,
+            "IDFN": 1073,
+            "IDFP": 199,
+            "IDF1": 0.7129963898916968,
+            "ID_switches": 8,
+            "ground_truth_detections": 2653,
+            "tracked_detections": 1779,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 2299,
+            "IDFN": 354,
+            "IDFP": 282,
+            "IDF1": 0.8784868169659916,
+            "ID_switches": 12,
+            "ground_truth_detections": 2653,
+            "tracked_detections": 2581,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-078",
+          "game_id": "5",
+          "split": "val",
+          "frames": 150,
+          "missing_reference_geometry": 64,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.5604547892412703,
+            "mAP50_95": 0.3343712541237376,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 1682,
+                "AP50": 0.5604547892412703,
+                "AP50_95": 0.3343712541237376,
+                "TP": 948,
+                "FP": 29,
+                "FN": 734,
+                "precision": 0.970317297850563,
+                "recall": 0.5636147443519619
+              }
+            ]
+          },
+          "teams": {
+            "correct": 521,
+            "wrong": 427,
+            "assigned": 948,
+            "matched": 948,
+            "total": 1682,
+            "correct_fraction_all_players": 0.3097502972651605,
+            "goalkeepers_correct": 2,
+            "goalkeepers_wrong": 70,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 844,
+            "IDFN": 838,
+            "IDFP": 121,
+            "IDF1": 0.6377030600680015,
+            "ID_switches": 8,
+            "ground_truth_detections": 1682,
+            "tracked_detections": 965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1396,
+            "IDFN": 286,
+            "IDFP": 240,
+            "IDF1": 0.8414707655213984,
+            "ID_switches": 10,
+            "ground_truth_detections": 1682,
+            "tracked_detections": 1636,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        }
+      ],
+      "summary": {
+        "train": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "correct_team_fraction": 0.0,
+          "IDF1": 0.0,
+          "ID_switches": 0,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.0,
+          "image_ID_switches": 0
+        },
+        "val": {
+          "precision": 0.9653575025176233,
+          "recall": 0.7278663629460896,
+          "TP": 4793,
+          "FP": 172,
+          "FN": 1792,
+          "correct_team_fraction": 0.4148823082763857,
+          "IDF1": 0.7987125956854558,
+          "ID_switches": 16,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.9040018505667361,
+          "image_ID_switches": 22
+        }
+      }
+    },
+    "root_histogram": {
+      "per_clip": [
+        {
+          "clip": "SNGS-060",
+          "game_id": "4",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9382917934521474,
+            "mAP50_95": 0.5997148413423762,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2031,
+                "AP50": 0.9382917934521474,
+                "AP50_95": 0.5997148413423762,
+                "TP": 1917,
+                "FP": 32,
+                "FN": 114,
+                "precision": 0.9835813237557722,
+                "recall": 0.9438700147710487
+              }
+            ]
+          },
+          "teams": {
+            "correct": 1546,
+            "wrong": 371,
+            "assigned": 1917,
+            "matched": 1917,
+            "total": 2031,
+            "correct_fraction_all_players": 0.7612013786312162,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": true
+          },
+          "tracking": {
+            "IDTP": 1811,
+            "IDFN": 220,
+            "IDFP": 118,
+            "IDF1": 0.9146464646464646,
+            "ID_switches": 6,
+            "ground_truth_detections": 2031,
+            "tracked_detections": 1929,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1811,
+            "IDFN": 220,
+            "IDFP": 118,
+            "IDF1": 0.9146464646464646,
+            "ID_switches": 6,
+            "ground_truth_detections": 2031,
+            "tracked_detections": 1929,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-097",
+          "game_id": "6",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9578682380828729,
+            "mAP50_95": 0.7234769383293035,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 2435,
+                "AP50": 0.9578682380828729,
+                "AP50_95": 0.7234769383293035,
+                "TP": 2355,
+                "FP": 60,
+                "FN": 80,
+                "precision": 0.9751552795031055,
+                "recall": 0.9671457905544147
+              }
+            ]
+          },
+          "teams": {
+            "correct": 2196,
+            "wrong": 158,
+            "assigned": 2354,
+            "matched": 2355,
+            "total": 2435,
+            "correct_fraction_all_players": 0.9018480492813141,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 149,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 2171,
+            "IDFN": 264,
+            "IDFP": 235,
+            "IDF1": 0.8969221235281967,
+            "ID_switches": 7,
+            "ground_truth_detections": 2435,
+            "tracked_detections": 2406,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 2171,
+            "IDFN": 264,
+            "IDFP": 235,
+            "IDF1": 0.8969221235281967,
+            "ID_switches": 7,
+            "ground_truth_detections": 2435,
+            "tracked_detections": 2406,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        },
+        {
+          "clip": "SNGS-151",
+          "game_id": "9",
+          "split": "train",
+          "frames": 150,
+          "missing_reference_geometry": 0,
+          "players": {
+            "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+            "mAP50": 0.9412817181888496,
+            "mAP50_95": 0.7923933813014367,
+            "workpoint": {
+              "confidence": 0.25,
+              "matching_iou": 0.5
+            },
+            "per_class": [
+              {
+                "class_id": 0,
+                "name": "player",
+                "objects": 1950,
+                "AP50": 0.9412817181888496,
+                "AP50_95": 0.7923933813014367,
+                "TP": 1911,
+                "FP": 152,
+                "FN": 39,
+                "precision": 0.9263208919049928,
+                "recall": 0.98
+              }
+            ]
+          },
+          "teams": {
+            "correct": 0,
+            "wrong": 0,
+            "assigned": 0,
+            "matched": 1911,
+            "total": 1950,
+            "correct_fraction_all_players": 0.0,
+            "goalkeepers_correct": 0,
+            "goalkeepers_wrong": 0,
+            "single_fixed_swap": false
+          },
+          "tracking": {
+            "IDTP": 1911,
+            "IDFN": 39,
+            "IDFP": 54,
+            "IDF1": 0.9762452107279693,
+            "ID_switches": 0,
+            "ground_truth_detections": 1950,
+            "tracked_detections": 1965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "image_tracking": {
+            "IDTP": 1911,
+            "IDFN": 39,
+            "IDFP": 54,
+            "IDF1": 0.9762452107279693,
+            "ID_switches": 0,
+            "ground_truth_detections": 1950,
+            "tracked_detections": 1965,
+            "iou_threshold": 0.5,
+            "scope": "fully labelled on-pitch people; no benchmark ignore/crowd handling"
+          },
+          "temporal_rejections": 0
+        }
+      ],
+      "summary": {
+        "train": {
+          "precision": 0.962035164151237,
+          "recall": 0.9636845386533666,
+          "TP": 6183,
+          "FP": 244,
+          "FN": 233,
+          "correct_team_fraction": 0.5832294264339152,
+          "IDF1": 0.9268637936458005,
+          "ID_switches": 13,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.9268637936458005,
+          "image_ID_switches": 13
+        },
+        "val": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "TP": 0,
+          "FP": 0,
+          "FN": 0,
+          "correct_team_fraction": 0.0,
+          "IDF1": 0.0,
+          "ID_switches": 0,
+          "temporal_rejections": 0,
+          "image_IDF1": 0.0,
+          "image_ID_switches": 0
+        }
+      }
+    }
+  },
+  "reasons": {
+    "balanced": "Precision regressed on training",
+    "exclusive": "No training gain; mixed modes defeat the proposed identity veto",
+    "representative": "No supported pair in SNGS-151, teams became unknown",
+    "linear": "Large training improvement failed validation; role evidence must remain in original feature space",
+    "root_histogram": "No supported pair in SNGS-151"
+  },
+  "linear_training": {
+    "selected_step": 1000,
+    "internal_holdout_pair_loss": 0.03165028989315033,
+    "curve": [
+      {
+        "step": 0,
+        "internal_holdout_pair_loss": 0.13460853695869446
+      },
+      {
+        "step": 50,
+        "internal_holdout_pair_loss": 0.06491269916296005
+      },
+      {
+        "step": 100,
+        "internal_holdout_pair_loss": 0.05012965947389603
+      },
+      {
+        "step": 150,
+        "internal_holdout_pair_loss": 0.04378988593816757
+      },
+      {
+        "step": 200,
+        "internal_holdout_pair_loss": 0.04122379422187805
+      },
+      {
+        "step": 250,
+        "internal_holdout_pair_loss": 0.03909765183925629
+      },
+      {
+        "step": 300,
+        "internal_holdout_pair_loss": 0.03733910247683525
+      },
+      {
+        "step": 350,
+        "internal_holdout_pair_loss": 0.036664824932813644
+      },
+      {
+        "step": 400,
+        "internal_holdout_pair_loss": 0.036464206874370575
+      },
+      {
+        "step": 450,
+        "internal_holdout_pair_loss": 0.03548908978700638
+      },
+      {
+        "step": 500,
+        "internal_holdout_pair_loss": 0.03470226749777794
+      },
+      {
+        "step": 550,
+        "internal_holdout_pair_loss": 0.033883437514305115
+      },
+      {
+        "step": 600,
+        "internal_holdout_pair_loss": 0.032889388501644135
+      },
+      {
+        "step": 650,
+        "internal_holdout_pair_loss": 0.03296007961034775
+      },
+      {
+        "step": 700,
+        "internal_holdout_pair_loss": 0.033577315509319305
+      },
+      {
+        "step": 750,
+        "internal_holdout_pair_loss": 0.032522328197956085
+      },
+      {
+        "step": 800,
+        "internal_holdout_pair_loss": 0.03290700539946556
+      },
+      {
+        "step": 850,
+        "internal_holdout_pair_loss": 0.03236774727702141
+      },
+      {
+        "step": 900,
+        "internal_holdout_pair_loss": 0.03354420140385628
+      },
+      {
+        "step": 950,
+        "internal_holdout_pair_loss": 0.035154882818460464
+      },
+      {
+        "step": 1000,
+        "internal_holdout_pair_loss": 0.03165028989315033
+      }
+    ],
+    "elapsed_s": 9.912267599953339,
+    "weights_sha256": "c01bd180933010a8ed4d74e30fc778d18d7e6e263f36a9cf85b3e6a82464a4f9",
+    "limitations": "Holdout clips share training matches; development results only"
+  },
+  "independent_final_test": false,
+  "human_review_completed": false
+}

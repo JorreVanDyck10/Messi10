@@ -1,4 +1,4 @@
-"""Per-video kit-colour clustering; new videos never inherit another match's team identities."""
+"""Groepeert shirtkleuren per video; een nieuwe wedstrijd krijgt eigen teamprototypes."""
 
 import cv2
 import numpy as np
@@ -34,12 +34,18 @@ def kit_feature(frame, box):
 
 class VideoTeams:
     def __init__(self):
+        """Begin met lege kleurvoorbeelden en zonder teamcentra, zodat deze video geen prototypes van een
+        andere wedstrijd erft.
+        """
         self.samples = []
         self.updates = 0
         self.centers = None
         self.radii = None
 
     def update(self, frame, detections):
+        """Verzamel shirtkleurkenmerken, zoek voldoende gescheiden dominante groepen en schrijf alleen
+        onderbouwde A/B-toekenningen terug naar de detecties.
+        """
         self.updates += 1
         players = [
             d
@@ -110,6 +116,9 @@ class VideoTeams:
 
     @property
     def info(self):
+        """Geef de methodeversie, observatielimiet en gereedheidsstatus van de videospecifieke
+        kleurclustering terug.
+        """
         return {
             "method": "video_colour_clusters",
             "feature_version": "saturation_weighted_hsv_v2",

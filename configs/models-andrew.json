@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "profile_name": "Andrew · bal, keeper, spelers en scheidsrechters (ontwikkelprofiel)",
+  "models": [
+    {
+      "model_id": "andrew-four-class-v1",
+      "weights": "../artifacts/andrew-four-class-v1/best.pt",
+      "weights_sha256": "78a847ecd67f78566e666a54aabca6141e7e63495fb76783e17b3a859d90fee9",
+      "class_mapping": {
+        "0": "ball",
+        "1": "player",
+        "2": "player",
+        "3": "referee"
+      },
+      "expected_names": {
+        "0": "ball",
+        "1": "goalkeeper",
+        "2": "player",
+        "3": "referee"
+      },
+      "imgsz": 1280,
+      "confidence": 0.03,
+      "iou": 0.5,
+      "device": "0"
+    }
+  ],
+  "handoff": {
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "targets_met": false,
+    "scope": "Andrew supplied checkpoint; development candidate, independent multi-match evaluation required",
+    "source_branch": "AndrewNoeyens-patch-1",
+    "source_commit": "811798c78836201fbf262ac0f3ecc03f5aa3e245",
+    "tracking": "Shared project tracking; notebook extrapolation not imported"
+  }
+}

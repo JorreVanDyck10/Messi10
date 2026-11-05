@@ -190,6 +190,8 @@ def test_full_pipeline_loss_recovery_artifacts_cache_and_frame_identity(demo_fix
         detector=SyntheticDetector(),
     )
     assert tracked.manifest["tracking_policy"]["camera_compensation"] == "background_affine_ransac"
+    assert tracked.manifest["tracking_policy"]["field_required_for_image_ids"] is False
+    assert tracked.manifest["tracker_effective"]["field_required_for_image_ids"] is False
     assert tracked.manifest["mvp_acceptance"] is None
     assert tracked.manifest["tracking_policy"]["human_accuracy_validated"] is False
 
@@ -457,3 +459,44 @@ def test_runtime_geometry_policy_is_used_and_explicit_policy_takes_precedence(
             detector=SyntheticDetector(),
         )
         assert result.manifest["field_settings"]["motion"] == (override is not None)
+
+
+def test_model_field_policy_is_used_only_without_runtime_or_explicit_override(
+    demo_fixture, tmp_path, monkeypatch
+):
+    from football_pipeline import pipeline
+    from football_pipeline.field_motion import MOTION_RANK_SETTINGS
+
+    video = inspect_video(demo_fixture["video"])
+    bundle = bundle_for(video, tmp_path / "bundle")
+    monkeypatch.setattr(pipeline, "prepare_automatic_calibration", lambda *a, **kw: bundle)
+    from football_pipeline.detection import load_model_manifest
+
+    model = load_model_manifest(demo_fixture["models"])
+    model["field_settings"] = MOTION_RANK_SETTINGS
+    profile = tmp_path / "models-with-field.json"
+    write_json(profile, model)
+    runtime = tmp_path / "runtime.json"
+    cases = [
+        ({}, None, True, MOTION_RANK_SETTINGS["holdout_rule"]),
+        ({"calibration_settings": {"motion": False}}, None, False, "two_semantic_tertiles_no_refit"),
+        (
+            {"calibration_settings": {"motion": False}},
+            {"motion": True},
+            True,
+            "two_semantic_tertiles_no_refit",
+        ),
+    ]
+    for index, (runtime_config, override, motion, rule) in enumerate(cases):
+        write_json(runtime, runtime_config)
+        result = process_video(
+            video.path,
+            None,
+            profile,
+            tmp_path / f"profile-run-{index}",
+            field_runtime_path=runtime,
+            field_settings=override,
+            detector=SyntheticDetector(),
+        )
+        assert result.manifest["field_settings"]["motion"] is motion
+        assert result.manifest["field_settings"]["holdout_rule"] == rule

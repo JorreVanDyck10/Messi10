@@ -1,0 +1,6 @@
+names:
+  0: player
+  1: referee
+path: C:/Messi10/data/broadcast-pitch-v1
+train: images/train
+val: images/val
