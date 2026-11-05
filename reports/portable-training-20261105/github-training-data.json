@@ -7,5 +7,11 @@
   "unique_lfs_bytes": 4692128306,
   "indexed_payload_hashes_match": true,
   "main_final_snapshot_unchanged": true,
-  "remote_clean_checkout_verified": false
+  "remote_clean_checkout_verified": true,
+  "verified_checkout_sha": "88421dd1cea3f2e1a37342993017f875c19350e8",
+  "remote_recipe_binding_verified": true,
+  "git_lfs_pull_exit_code": 0,
+  "ci_application_commit": "88421dd1cea3f2e1a37342993017f875c19350e8",
+  "ci_application_status": "success",
+  "ci_application_url": "https://github.com/JorreVanDyck10/Messi10/actions/runs/42095125933"
 }
