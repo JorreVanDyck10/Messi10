@@ -26,6 +26,15 @@ def show_result(result):
     """
     metrics = result.manifest["measurements"]
     st.subheader("Wedstrijdanalyse")
+    policy = result.manifest.get("player_policy", {})
+    st.caption(
+        f"Instellingen van deze analyse · spelersdrempel {policy.get('display_confidence', 0.25):.2f} · "
+        + (
+            "gevolgde spelers blijven zichtbaar"
+            if policy.get("include_matched_low_confidence", True)
+            else "strikte weergavedrempel, ook voor gevolgde spelers"
+        )
+    )
     with st.container(horizontal=True, vertical_alignment="center"):
         st.badge("Analyse voltooid", icon=":material/check_circle:", color="green")
         st.link_button(

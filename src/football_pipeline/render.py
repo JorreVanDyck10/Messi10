@@ -11,12 +11,11 @@ from .field_layout import LINES_UV
 from .field_motion import status_label
 from .geometry import valid_box
 from .participants import (
-    DISPLAY_CONFIDENCE,
     displayed_as_player,
     field_available,
     field_exclusion_reason,
     player_summary,
-    visible_detection,
+    visible_in_record,
 )
 from .teams import UNKNOWN_COLOR, hex_rgb
 from .tracking import Trajectories
@@ -83,7 +82,7 @@ def render_frame(
     frame: np.ndarray,
     record: FrameRecord,
     histories: Trajectories | None = None,
-    display_confidence: float = DISPLAY_CONFIDENCE,
+    display_confidence: float | None = None,
     technical_pilot: bool = False,
     recognized_points: bool = True,
     tracked_points: bool = True,
@@ -96,7 +95,11 @@ def render_frame(
 
         record = replace(
             record,
-            detections=[d for d in record.detections if displayed_as_player(record, d, display_confidence)],
+            detections=[
+                d
+                for d in record.detections
+                if d.semantic_class == "ball" or displayed_as_player(record, d, display_confidence)
+            ],
         )
     canvas = np.full((720, 1920, 3), (22, 35, 29), dtype=np.uint8)
     h, w = frame.shape[:2]
@@ -114,8 +117,8 @@ def render_frame(
     for detection in record.detections:
         if not valid_box(detection, record.image_size):
             continue
-        # Matched low-confidence observations remain visible with the same ID on both sides.
-        if not visible_detection(detection, display_confidence):
+        # The saved run policy controls visibility; internal tracking remains unchanged.
+        if not visible_in_record(record, detection, display_confidence):
             continue
         x1, y1, x2, y2 = [round(x * scale) for x in detection.bbox_xyxy]
         color = detection_color(detection, record)
@@ -193,7 +196,7 @@ def render_frame(
     for detection in record.detections:
         if not field_available(record) or field_exclusion_reason(detection, record.image_size) is not None:
             continue
-        if not visible_detection(detection, display_confidence):
+        if not visible_in_record(record, detection, display_confidence):
             continue
         color = detection_color(detection, record)
         if histories is not None and detection.track_id is not None:

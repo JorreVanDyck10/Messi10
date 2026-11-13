@@ -29,7 +29,7 @@ from .detection import (
     validate_detection_devices,
 )
 from .geometry import Calibration, project_detection, valid_box
-from .participants import GROUND_ROLES, PLAYER_POLICY
+from .participants import GROUND_ROLES, player_display_policy, visible_in_record
 from .render import render_frame
 from .teams import load_team_settings, shirt_color
 from .tracking import ByteTrackAdapter, Trajectories, load_tracker_config
@@ -218,8 +218,10 @@ def process_video(
     field_settings: dict | None = None,
     recalibrate_replay: bool = False,
     team_config_path: str | Path | None = None,
+    player_display_confidence: float | None = None,
 ) -> RunResult:
     """Process sequentially; injected detectors are explicitly marked as non-model evidence."""
+    player_policy = player_display_policy(player_display_confidence)
     output_root = Path(output_root).resolve()
     with processing_lock(output_root):
         video = inspect_video(video_path)
@@ -348,7 +350,7 @@ def process_video(
             "acceptance": acceptance,
             "replay_hash": (replay_manifest or {}).get("artifacts", {}).get("framegegevens.jsonl"),
             "recalibrate_replay": recalibrate_replay,
-            "player_policy": PLAYER_POLICY,
+            "player_policy": player_policy,
             "team_settings": team_settings,
         }
         key = digest_json(identity)
@@ -371,7 +373,7 @@ def process_video(
             "field_settings": calibration.settings if automatic else None,
             "recalibrate_replay": recalibrate_replay,
             "calibration_mode": "automatic" if automatic else "manual",
-            "player_policy": PLAYER_POLICY,
+            "player_policy": player_policy,
             "team_settings": team_settings,
             "cache_key": key,
             "status": "running",
@@ -503,13 +505,14 @@ def process_video(
                         player_model_available=player_model_available,
                         tracking=dict(tracker.motion.state) if tracker and tracker.motion else None,
                         analysis_scope=models.get("analysis_scope", "all_participants"),
+                        player_policy=player_policy,
                     )
                     if team_settings is not None:
                         for detection in detections:
                             detection.shirt_color_lab = shirt_color(frame, detection, team_settings)
                     else:
                         if histories:
-                            histories.update(detections, index)
+                            histories.update([d for d in detections if visible_in_record(record, d)], index)
                         rendered = render_frame(frame, record, histories, technical_pilot=technical_pilot)
                         writer.write(rendered)
                     records.write(json.dumps(record.to_dict(), allow_nan=False) + "\n")

@@ -15,7 +15,7 @@ import cv2
 import psutil
 
 from .contracts import FrameRecord, PipelineError, RunResult, digest_json, read_json, sha256_file, write_json
-from .participants import player_summary
+from .participants import player_summary, visible_in_record
 from .render import render_frame
 from .teams import (
     TEAM_IDS,
@@ -96,7 +96,7 @@ def render_team_file(
                     assigner.history.clear()
                 assigner.update(record.detections, index)
                 record.team_context = team_context(model)
-                histories.update(record.detections, index)
+                histories.update([d for d in record.detections if visible_in_record(record, d)], index)
                 rendered = render_frame(
                     frame, record, histories, technical_pilot=manifest.get("technical_pilot", False)
                 )

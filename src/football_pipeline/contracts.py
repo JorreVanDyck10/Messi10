@@ -148,6 +148,7 @@ class FrameRecord:
     tracking: dict | None = None
     team_context: dict | None = None
     analysis_scope: str = "all_participants"
+    player_policy: dict | None = None
 
     @classmethod
     def from_dict(cls, value: dict) -> FrameRecord:
@@ -164,6 +165,7 @@ class FrameRecord:
             tracking=value.get("tracking"),
             team_context=value.get("team_context"),
             analysis_scope=value.get("analysis_scope", "all_participants"),
+            player_policy=value.get("player_policy"),
         )
 
     def to_dict(self) -> dict:
@@ -173,6 +175,8 @@ class FrameRecord:
         from .participants import count_exclusion_reason, counted_as_player, frame_diagnostics, player_summary
 
         result = asdict(self)
+        if self.player_policy is None:
+            result.pop("player_policy")
         if self.calibration is None:
             result.pop("calibration")
         if self.tracking is None:

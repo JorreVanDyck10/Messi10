@@ -11,7 +11,7 @@ import streamlit as st
 
 from .contracts import FrameRecord, PipelineError, read_json
 from .field_review_ui import source_frame
-from .participants import player_summary
+from .participants import player_summary, visible_in_record
 from .render import render_frame
 from .team_results import apply_team_corrections
 from .teams import TEAM_IDS, UNKNOWN_COLOR
@@ -35,7 +35,7 @@ def team_tables(directory: str, records_hash: str):
                 }
             )
             for d in record.detections:
-                if d.semantic_class != "player" or d.track_id is None:
+                if d.semantic_class != "player" or d.track_id is None or not visible_in_record(record, d):
                     continue
                 item = tracks.setdefault(
                     d.track_id,
@@ -147,7 +147,9 @@ def show_teams(result):
         histories = Trajectories(fps)
         for row in rows:
             record = FrameRecord.from_dict(row)
-            histories.update(record.detections, record.frame_index)
+            histories.update(
+                [d for d in record.detections if visible_in_record(record, d)], record.frame_index
+            )
         frame = source_frame(manifest["video"]["path"], manifest["video"]["sha256"], index)
         st.image(
             cv2.cvtColor(render_frame(frame, record, histories), cv2.COLOR_BGR2RGB),
@@ -164,7 +166,7 @@ def show_teams(result):
                         "Kleurmatchscore": d.team_match_score,
                     }
                     for d in record.detections
-                    if d.semantic_class == "player"
+                    if d.semantic_class == "player" and visible_in_record(record, d)
                 ]
             ),
             hide_index=True,

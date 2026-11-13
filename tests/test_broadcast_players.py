@@ -192,6 +192,21 @@ def test_pitch_render_hides_external_people_without_mutating_saved_detections():
     assert FrameRecord.from_dict(record.to_dict()).analysis_scope == "on_pitch_players"
 
 
+@pytest.mark.parametrize("confidence,visible", [(0.8, True), (0.03, False)])
+@pytest.mark.parametrize("calibration", [None, {"status": "insufficient_points", "homography": None}])
+def test_pitch_render_shows_ball_without_counting_or_ground_projecting_it(confidence, visible, calibration):
+    pixels = np.zeros((360, 640, 3), np.uint8)
+    ball = Detection("0:0", "andrew-ball-v1", 0, "ball", [300, 180, 308, 188], confidence)
+    ball.projection_status = "not_ground_projected"
+    record = FrameRecord(0, 0, (640, 360), [ball], calibration=calibration, analysis_scope="on_pitch_players")
+    empty = FrameRecord(0, 0, (640, 360), [], calibration=calibration, analysis_scope="on_pitch_players")
+    actual, expected = render_frame(pixels, record), render_frame(pixels, empty)
+    assert (not np.array_equal(actual[:, :1280], expected[:, :1280])) == visible
+    assert np.array_equal(actual[170:530, 1280:], expected[170:530, 1280:])
+    assert record.to_dict()["player_summary"]["on_field"] == empty.to_dict()["player_summary"]["on_field"]
+    assert record.detections == [ball] and ball.field_position is None
+
+
 def test_profile_rejects_unknown_scope_and_role_policy(model_manifest):
     path, model = model_manifest
     model["analysis_scope"] = "guess_everybody_is_a_player"

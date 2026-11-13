@@ -8,7 +8,9 @@ import streamlit as st
 from .app_results import show_result
 from .contracts import PipelineError, digest_json, read_json, sha256_file
 from .detection import load_model_manifest, player_detection_sources, validate_detection_devices
+from .participants import player_display_policy
 from .pipeline import code_identity, process_video
+from .player_controls_ui import player_controls
 from .teams import configured_team_path
 from .video import ROOT
 
@@ -35,11 +37,13 @@ def automatic_analysis(video, upload_name, output_root):
             name: [Path(field[name]).stat().st_size, Path(field[name]).stat().st_mtime_ns]
             for name in ("weights_keypoints", "weights_lines")
         }
+        player_display_confidence = player_controls(models, ROOT / "configs/bytetrack.yaml", video.fps, True)
         signature = digest_json(
             {
                 "video": video.sha256,
                 "upload_name": upload_name,
                 "models": models,
+                "player_policy": player_display_policy(player_display_confidence),
                 "runtime": field,
                 "field_weights": field_weights,
                 "worker": sha256_file(ROOT / "scripts/field_calibration_worker.py"),
@@ -59,6 +63,10 @@ def automatic_analysis(video, upload_name, output_root):
     )
     if st.session_state.get("result_request_signature") != signature:
         st.session_state.pop("result", None)
+    process_requested = st.button("Verwerken", key="automatic_process", type="primary")
+    if st.session_state.get("player_display_dirty", False) and not process_requested:
+        st.info("Spelersweergave aangepast. Klik op Verwerken om de video met deze instellingen te maken.")
+        return
     retry = False
     retry_visible = (
         st.session_state.get("automatic_last_attempt") == signature and "result" not in st.session_state
@@ -68,7 +76,8 @@ def automatic_analysis(video, upload_name, output_root):
         if st.session_state.get("automatic_error"):
             st.error(st.session_state.automatic_error)
         retry = st.button("Opnieuw proberen", key="automatic_retry", type="primary")
-    if st.session_state.get("automatic_last_attempt") != signature or retry:
+    if st.session_state.get("automatic_last_attempt") != signature or retry or process_requested:
+        st.session_state.player_display_dirty = False
         st.session_state.automatic_last_attempt = signature
         bar = st.progress(0.0, text="Analyse voorbereiden…")
 
@@ -99,6 +108,7 @@ def automatic_analysis(video, upload_name, output_root):
                 field_source=f"Gebruikersupload: {upload_name}",
                 field_usage="Lokale analyse van een gebruikersupload; gebruiksrechten niet onafhankelijk gecontroleerd.",
                 tracker_config_path=ROOT / "configs/bytetrack.yaml",
+                player_display_confidence=player_display_confidence,
                 team_config_path=team_path,
                 progress=player_progress,
                 field_progress=field_progress,

@@ -29,7 +29,9 @@ from football_pipeline.geometry import (
     point_coordinate_issues,
 )
 from football_pipeline.model_handoff import available_model_profiles
+from football_pipeline.participants import player_display_policy
 from football_pipeline.pipeline import process_video, validate_completed
+from football_pipeline.player_controls_ui import player_controls
 from football_pipeline.point_picker import apply_point_click, point_picker
 from football_pipeline.render import LABELS, calibrated_field_preview, calibration_target_preview
 from football_pipeline.teams import configured_team_path
@@ -764,6 +766,9 @@ with st.expander("Geavanceerde model- en trackinginstellingen", expanded=SCHOOL_
             and "player" in semantic_classes
         )
     )
+player_display_confidence = None
+if not SCHOOL_MODE and "player" in semantic_classes:
+    player_display_confidence = player_controls(models, ROOT / "configs/bytetrack.yaml", video.fps, tracking)
 team_config_path = configured_team_path(models)
 if automatic_mode:
     st.caption(
@@ -788,6 +793,7 @@ request_signature = digest_json(
         "field_usage": field_usage,
         "models": models,
         "tracking": tracking,
+        "player_policy": player_display_policy(player_display_confidence),
         "teams": sha256_file(team_config_path) if teams_enabled else None,
         "acceptance": hashlib.sha256(acceptance_upload.getvalue()).hexdigest() if acceptance_upload else None,
     }
@@ -801,6 +807,7 @@ if st.button(
     key="process",
     disabled=not field_ready or (tracking and not automatic_mode and acceptance_upload is None),
 ):
+    st.session_state.player_display_dirty = False
     progress_bar = st.progress(0.0, text="Verwerking voorbereiden…")
     acceptance_path = None
     if acceptance_upload:
@@ -833,6 +840,7 @@ if st.button(
             selected_model_path,
             OUTPUT_ROOT,
             tracker_config_path=ROOT / "configs/bytetrack.yaml" if tracking else None,
+            player_display_confidence=player_display_confidence,
             team_config_path=team_config_path if teams_enabled else None,
             mvp_acceptance_path=acceptance_path,
             progress=show_progress,

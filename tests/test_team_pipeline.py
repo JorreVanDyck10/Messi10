@@ -85,6 +85,28 @@ def records(result):
     return [json.loads(line) for line in (result.directory / "framegegevens.jsonl").read_text().splitlines()]
 
 
+def test_strict_player_policy_survives_team_render_csv_and_corrections(team_run):
+    result, (video_path, calibration, profile, arguments) = team_run
+    strict = process_video(
+        video_path,
+        calibration,
+        profile,
+        result.directory.parent,
+        player_display_confidence=0.25,
+        **arguments,
+    )
+    original_rows, strict_rows = records(result), records(strict)
+    assert original_rows[6]["player_summary"]["on_field"] == 7
+    assert strict_rows[6]["player_summary"]["on_field"] == 6
+    assert strict_rows[6]["detections"][0]["track_id"] == original_rows[6]["detections"][0]["track_id"]
+    with (strict.directory / "teamtelling.csv").open(encoding="utf-8-sig", newline="") as stream:
+        assert list(csv.DictReader(stream))[6]["on_field"] == "6"
+    request = read_json(strict.directory / "teamcorrecties.json")
+    corrected = apply_team_corrections(strict.directory, request, strict.directory.parent)
+    assert records(corrected)[6]["player_summary"] == strict_rows[6]["player_summary"]
+    assert corrected.manifest["player_policy"] == strict.manifest["player_policy"]
+
+
 def test_full_team_video_exports_and_cache(team_run):
     result, (video_path, calibration, profile, arguments) = team_run
     validate_completed(result.directory)

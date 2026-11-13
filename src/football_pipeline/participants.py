@@ -9,7 +9,7 @@ from collections import Counter
 
 import numpy as np
 
-from .contracts import Detection, FrameRecord
+from .contracts import Detection, FrameRecord, PipelineError
 from .geometry import valid_box
 
 GROUND_ROLES = frozenset(
@@ -25,6 +25,34 @@ PLAYER_POLICY = {
     "include_matched_low_confidence": True,
     "meaning": "current_detected_players_not_unique_people_or_verified_match_roster",
 }
+
+
+def player_display_policy(confidence: float | None = None) -> dict:
+    """Bewaar het oorspronkelijke beleid of maak een strikte spelersweergave zonder de tracker te wijzigen."""
+    policy = dict(PLAYER_POLICY)
+    if confidence is not None:
+        if isinstance(confidence, bool) or not np.isfinite(confidence) or not 0 <= confidence <= 1:
+            raise PipelineError("De spelersdrempel moet een eindig getal tussen 0 en 1 zijn.")
+        policy.update(version=2, display_confidence=float(confidence), include_matched_low_confidence=False)
+    return policy
+
+
+def record_player_policy(record: FrameRecord, confidence: float | None = None) -> dict:
+    """Lees het opgeslagen weergavebeleid; oude records behouden hun oorspronkelijke uitzonderingen."""
+    policy = dict(record.player_policy or PLAYER_POLICY)
+    if confidence is not None:
+        policy["display_confidence"] = confidence
+    return policy
+
+
+def visible_in_record(record: FrameRecord, detection: Detection, confidence: float | None = None) -> bool:
+    """Filter uitsluitend spelers met het runbeleid; andere rollen behouden hun oorspronkelijke weergave."""
+    if detection.semantic_class != "player":
+        return visible_detection(detection, DISPLAY_CONFIDENCE if confidence is None else confidence)
+    policy = record_player_policy(record, confidence)
+    return detection.confidence >= policy["display_confidence"] or (
+        policy["include_matched_low_confidence"] and detection.track_id is not None
+    )
 
 
 def player_exclusion_reason(detection: Detection, image_size: tuple[int, int]) -> str | None:
@@ -63,9 +91,7 @@ def field_available(record: FrameRecord) -> bool:
     return record.calibration is None or record.calibration.get("status") == "valid"
 
 
-def count_exclusion_reason(
-    record: FrameRecord, detection: Detection, confidence=DISPLAY_CONFIDENCE
-) -> str | None:
+def count_exclusion_reason(record: FrameRecord, detection: Detection, confidence=None) -> str | None:
     """Pas de rol-, confidence- en veldvoorwaarden voor spelertelling toe en retourneer een expliciete
     uitsluitreden.
     """
@@ -76,17 +102,17 @@ def count_exclusion_reason(
         return "player_model_unavailable"
     if not field_available(record):
         return "calibration_unavailable"
-    if not visible_detection(detection, confidence):
+    if not visible_in_record(record, detection, confidence):
         return "below_display_confidence"
     return None
 
 
-def counted_as_player(record: FrameRecord, detection: Detection, confidence=DISPLAY_CONFIDENCE) -> bool:
+def counted_as_player(record: FrameRecord, detection: Detection, confidence=None) -> bool:
     """Pas dezelfde telregels toe voor zowel de interface als opgeslagen analyses."""
     return count_exclusion_reason(record, detection, confidence) is None
 
 
-def displayed_as_player(record: FrameRecord, detection: Detection, confidence=DISPLAY_CONFIDENCE) -> bool:
+def displayed_as_player(record: FrameRecord, detection: Detection, confidence=None) -> bool:
     """An observed image box survives field loss; known off-field boxes stay excluded."""
     if counted_as_player(record, detection, confidence):
         return True
@@ -96,11 +122,11 @@ def displayed_as_player(record: FrameRecord, detection: Detection, confidence=DI
         and detection.semantic_class == "player"
         and valid_box(detection, record.image_size)
         and detection.projection_status == "calibration_unavailable"
-        and visible_detection(detection, confidence)
+        and visible_in_record(record, detection, confidence)
     )
 
 
-def frame_diagnostics(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
+def frame_diagnostics(record: FrameRecord, confidence=None) -> dict:
     """Describe retained evidence, not ground truth or pre-NMS detector recall."""
     detections = record.detections
     players = [d for d in detections if d.semantic_class == "player"]
@@ -114,12 +140,14 @@ def frame_diagnostics(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dic
         ),
         "role_players": len(players),
         "visible_player_candidates": sum(
-            valid_box(d, record.image_size) and visible_detection(d, confidence) for d in players
+            valid_box(d, record.image_size) and visible_in_record(record, d, confidence) for d in players
         ),
         "image_tracked_players": sum(d.track_id is not None for d in players),
         "displayed_players": sum(displayed_as_player(record, d, confidence) for d in detections)
         if record.analysis_scope == "on_pitch_players"
-        else sum(valid_box(d, record.image_size) and visible_detection(d, confidence) for d in players),
+        else sum(
+            valid_box(d, record.image_size) and visible_in_record(record, d, confidence) for d in players
+        ),
         "counted_players": sum(counted_as_player(record, d, confidence) for d in detections)
         if field_available(record) and record.player_model_available
         else None,
@@ -138,10 +166,12 @@ def normalized_team_id(team_id: str | None) -> str:
     return {"A": "A", "B": "B", "team_a": "A", "team_b": "B"}.get(team_id, "unknown")
 
 
-def player_summary(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
+def player_summary(record: FrameRecord, confidence=None) -> dict:
     """Tel geldige spelers per team en bewaar waarom andere detecties niet meetellen."""
     visible = [
-        d for d in record.detections if valid_box(d, record.image_size) and visible_detection(d, confidence)
+        d
+        for d in record.detections
+        if valid_box(d, record.image_size) and visible_in_record(record, d, confidence)
     ]
     players = [d for d in visible if d.semantic_class == "player"]
     reasons = Counter(player_exclusion_reason(d, record.image_size) for d in players)
@@ -182,6 +212,8 @@ def player_summary(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
         if field_available(record)
         else None,
         "visible_person_candidates": sum(d.semantic_class == "person" for d in visible),
-        "display_confidence": confidence,
-        "include_matched_low_confidence": True,
+        "display_confidence": record_player_policy(record, confidence)["display_confidence"],
+        "include_matched_low_confidence": record_player_policy(record, confidence)[
+            "include_matched_low_confidence"
+        ],
     }

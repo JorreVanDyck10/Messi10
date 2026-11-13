@@ -108,6 +108,13 @@ detectoren. Het krijgt een eigen kandidaatprofiel en wordt bij export/import
 afzonderlijk gehouden. Zijn bestaande model is ook selecteerbaar bij een nieuwe
 analyse als **Andrew · bal, keeper, spelers en scheidsrechters**.
 
+Sinds 13 november 2026 gebruikt het gewone startprofiel `configs/models-broadcast.json`
+dit checkpoint uitsluitend voor de bal: alleen bronklasse 0 wordt bij inferentie
+opgevraagd. De bestaande YOLO11-spelersmodellen en teamherkenning blijven actief.
+`scripts/Start-Laptop.ps1` gebruikt deze combinatie ook bij automatische analyse.
+Het afzonderlijke vierklassenprofiel blijft beschikbaar voor training en vergelijking.
+Deze koppeling bewijst nog geen balnauwkeurigheid op een nieuwe wedstrijd.
+
 De bronframegroepen zijn tussen de drie originele splits gescheiden. Volledige
 wedstrijdscheiding is voor deze dataset niet aangetoond; de validatie is daarom
 ontwikkelmateriaal en geen onafhankelijke eindmeting. De analyse gebruikt de

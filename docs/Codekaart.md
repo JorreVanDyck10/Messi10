@@ -5,7 +5,7 @@ de rol vast en noemt de daadwerkelijk aanwezige functies/klassen en lokale afhan
 Bij scripts met een oorspronkelijke Engelse moduleuitleg blijft die technische samenvatting zichtbaar.
 Functienamen zijn navigatiehulp; een lijst met namen vervangt het lezen van de implementatie niet.
 
-Dekking: **507 codebestanden**, inclusief tests, datasethelpers en historische bronkopieën.
+Dekking: **513 codebestanden**, inclusief tests, datasethelpers en historische bronkopieën.
 Niet-gevolgde virtuele omgevingen, externe modelrepositories en gegenereerde uitvoer horen hier niet bij.
 Inline JavaScript van de puntenkiezer staat in `point_picker.py` en schaalt klikposities terug naar bronpixels.
 
@@ -53,7 +53,7 @@ Verbindt upload, automatische verwerking en resultaatweergave in de Streamlit-ap
 
 Topniveaufuncties en klassen: `automatic_analysis`.
 
-Lokale koppelingen: `.app_results`, `.contracts`, `.detection`, `.pipeline`, `.teams`, `.video`.
+Lokale koppelingen: `.app_results`, `.contracts`, `.detection`, `.participants`, `.pipeline`, `.player_controls_ui`, `.teams`, `.video`.
 
 ### [src/football_pipeline/automatic_calibration.py](../src/football_pipeline/automatic_calibration.py)
 
@@ -495,7 +495,7 @@ Lokale koppelingen: `.contracts`, `.detection`.
 
 Houdt modelrollen, veldgeldigheid, zichtbaarheid en spelertelling gescheiden. Een persoon op het veld is niet automatisch een speler.
 
-Topniveaufuncties en klassen: `player_exclusion_reason`, `field_exclusion_reason`, `visible_detection`, `field_available`, `count_exclusion_reason`, `counted_as_player`, `displayed_as_player`, `frame_diagnostics`, `normalized_team_id`, `player_summary`.
+Topniveaufuncties en klassen: `player_display_policy`, `record_player_policy`, `visible_in_record`, `player_exclusion_reason`, `field_exclusion_reason`, `visible_detection`, `field_available`, `count_exclusion_reason`, `counted_as_player`, `displayed_as_player`, `frame_diagnostics`, `normalized_team_id`, `player_summary`.
 
 Lokale koppelingen: `.contracts`, `.geometry`.
 
@@ -506,6 +506,14 @@ Verbindt video-inspectie, detectie, projectie, optionele tracking en uitvoer. Ie
 Topniveaufuncties en klassen: `code_identity`, `dependencies`, `processing_lock`, `validate_completed`, `accept_mvp`, `check_mvp_acceptance`, `process_video`.
 
 Lokale koppelingen: `.automatic_calibration`, `.contracts`, `.detection`, `.field_motion`, `.geometry`, `.participants`, `.render`, `.replay`, `.team_results`, `.teams`, `.tracking`, `.video`.
+
+### [src/football_pipeline/player_controls_ui.py](../src/football_pipeline/player_controls_ui.py)
+
+Zichtbare spelersdrempel met herstelbare oorspronkelijke waarden en uitleg over tijdelijke ID's.
+
+Topniveaufuncties en klassen: `change_player_threshold`, `restore_player_threshold`, `player_controls`.
+
+Lokale koppelingen: `.participants`, `.tracking`.
 
 ### [src/football_pipeline/point_picker.py](../src/football_pipeline/point_picker.py)
 
@@ -695,6 +703,14 @@ Topniveaufuncties en klassen: `kit_feature`, `VideoTeams`.
 
 Lokale koppelingen: `.geometry`.
 
+### [src/football_pipeline/yolo26_comparison.py](../src/football_pipeline/yolo26_comparison.py)
+
+Train and compare isolated YOLO11/26 player candidates with resumable quota pauses.
+
+Topniveaufuncties en klassen: `ExperimentPaused`, `configure_environment`, `usage_guard`, `validate_dataset`, `candidate_profile`, `prepare`, `checkpoint_saved`, `loss_values`, `train_one`, `train_all`, `summary_scores`, `profiles`, `evaluate_detector`, `benchmark`, `evaluate_all`, `videos`, `rank_models`, `report`, `handoff`, `main`.
+
+Lokale koppelingen: `.broadcast_evaluation`, `.contracts`, `.detection`, `.pipeline`, `.video`, `persoon1.metrics`.
+
 ## Data, training en evaluatie
 
 De afzonderlijke datatools en hun commandoregelinterface.
@@ -870,6 +886,14 @@ Inventory P1 development data and prepare truthful human review, never inspect t
 Topniveaufuncties en klassen: `difference_hash`, `audit_roles`, `audit_detection`, `render_new_role_sheets`, `main`.
 
 Lokale koppelingen: `football_pipeline.contracts`, `football_pipeline.video`, `persoon1.role_training`.
+
+### [scripts/audit_player_tracking.py](../scripts/audit_player_tracking.py)
+
+Controleer vaste spelertracking op ontwikkelclips en toon het effect van uitsluitend weergavedrempels.
+
+Topniveaufuncties en klassen: `observation_summary`, `render_display_replay`, `event_examples`, `main`.
+
+Lokale koppelingen: `football_pipeline.contracts`, `football_pipeline.detection`, `football_pipeline.participants`, `football_pipeline.pipeline`, `football_pipeline.render`, `football_pipeline.teams`, `football_pipeline.tracking`, `football_pipeline.video`.
 
 ### [scripts/ball_resolution_experiment.py](../scripts/ball_resolution_experiment.py)
 
@@ -1441,6 +1465,12 @@ Start de gezamenlijke wedstrijdworkflow met rollen en uitbreidingen.
 
 Parameters: `Device`, `Recognition`, `FieldRuntime`.
 
+### [scripts/Start-Yolo26-Players.ps1](../scripts/Start-Yolo26-Players.ps1)
+
+PowerShell-startprocedure.
+
+Parameters: `Model`, `Experiment`, `Port`.
+
 ### [scripts/summarize_ball_resolution.py](../scripts/summarize_ball_resolution.py)
 
 Pool full-frame references correctly and separate in-play recall from all-ball AP.
@@ -1823,7 +1853,7 @@ Lokale koppelingen: `football_pipeline`, `football_pipeline.contracts`, `footbal
 
 Controleert gedrag via de onderstaande testfuncties en fixtures.
 
-Topniveaufuncties en klassen: `player`, `settings`, `test_provider_attributes_follow_annotation_id_and_goalkeepers_remain_players`, `test_pitch_policy_protects_real_players_but_does_not_rename_generic_people`, `test_classification_happens_only_for_people_projected_inside_the_current_field`, `test_outside_proposal_cannot_suppress_an_inside_player_at_the_touchline`, `test_embedding_groups_survive_short_tracks_and_exclude_people_outside_the_field`, `test_bad_embedding_models_are_rejected`, `test_kit_context_requires_trained_roles_valid_field_and_strong_player_prototypes`, `test_pitch_render_hides_external_people_without_mutating_saved_detections`, `test_profile_rejects_unknown_scope_and_role_policy`, `test_team_metric_allows_one_swap_per_clip_not_a_different_swap_every_frame`, `test_reference_geometry_requires_correspondences_and_is_not_an_automatic_field_claim`, `test_team_profile_is_selected_with_the_model_and_respects_explicit_override`, `test_two_overlapping_players_survive_while_duplicate_proposals_still_merge`, `test_nested_partial_box_at_same_feet_does_not_count_a_second_player`, `test_optional_box_fusion_retains_both_actual_sources_and_uses_the_refined_feet`, `test_fused_boxes_are_reprojected_before_crop_and_context_classification`, `test_box_fusion_profile_rejects_unbounded_weights_or_missing_person_geometry`, `test_unreadable_edge_crop_stays_unknown_instead_of_crashing_team_inference`, `test_renaming_teams_does_not_replace_a_valid_embedding_model_with_color_rejection`, `test_role_training_refuses_same_image_in_two_splits_even_if_the_crop_is_duplicate`, `test_three_class_field_checkpoint_uses_its_actual_class_names`, `test_person_geometry_retains_real_source_and_requires_trained_role_evidence`.
+Topniveaufuncties en klassen: `player`, `settings`, `test_provider_attributes_follow_annotation_id_and_goalkeepers_remain_players`, `test_pitch_policy_protects_real_players_but_does_not_rename_generic_people`, `test_classification_happens_only_for_people_projected_inside_the_current_field`, `test_outside_proposal_cannot_suppress_an_inside_player_at_the_touchline`, `test_embedding_groups_survive_short_tracks_and_exclude_people_outside_the_field`, `test_bad_embedding_models_are_rejected`, `test_kit_context_requires_trained_roles_valid_field_and_strong_player_prototypes`, `test_pitch_render_hides_external_people_without_mutating_saved_detections`, `test_pitch_render_shows_ball_without_counting_or_ground_projecting_it`, `test_profile_rejects_unknown_scope_and_role_policy`, `test_team_metric_allows_one_swap_per_clip_not_a_different_swap_every_frame`, `test_reference_geometry_requires_correspondences_and_is_not_an_automatic_field_claim`, `test_team_profile_is_selected_with_the_model_and_respects_explicit_override`, `test_two_overlapping_players_survive_while_duplicate_proposals_still_merge`, `test_nested_partial_box_at_same_feet_does_not_count_a_second_player`, `test_optional_box_fusion_retains_both_actual_sources_and_uses_the_refined_feet`, `test_fused_boxes_are_reprojected_before_crop_and_context_classification`, `test_box_fusion_profile_rejects_unbounded_weights_or_missing_person_geometry`, `test_unreadable_edge_crop_stays_unknown_instead_of_crashing_team_inference`, `test_renaming_teams_does_not_replace_a_valid_embedding_model_with_color_rejection`, `test_role_training_refuses_same_image_in_two_splits_even_if_the_crop_is_duplicate`, `test_three_class_field_checkpoint_uses_its_actual_class_names`, `test_person_geometry_retains_real_source_and_requires_trained_role_evidence`.
 
 Lokale koppelingen: `football_pipeline`, `football_pipeline.appearance`, `football_pipeline.automatic_calibration`, `football_pipeline.broadcast_data`, `football_pipeline.broadcast_evaluation`, `football_pipeline.broadcast_training`, `football_pipeline.contracts`, `football_pipeline.detection`, `football_pipeline.kit_embedding`, `football_pipeline.render`, `football_pipeline.team_results`, `football_pipeline.teams`.
 
@@ -2043,6 +2073,14 @@ Topniveaufuncties en klassen: `test_entire_clip_encoding_sync_empty_frames_cache
 
 Lokale koppelingen: `football_pipeline`, `football_pipeline.contracts`, `football_pipeline.demo`, `football_pipeline.detection`, `football_pipeline.pipeline`, `football_pipeline.video`.
 
+### [tests/test_player_display_settings.py](../tests/test_player_display_settings.py)
+
+Controleert gedrag via de onderstaande testfuncties en fixtures.
+
+Topniveaufuncties en klassen: `test_strict_boundary_shared_by_render_counts_exports_and_roundtrip`, `test_original_behavior_is_preserved_and_restorable_without_losing_evidence`, `test_invalid_threshold_fails_before_processing`, `test_filtering_does_not_modify_low_score_tracking`, `test_threshold_run_cache_and_default_restore`, `test_ui_change_and_restore_keep_model_and_tracker_files_unchanged`, `test_automatic_upload_waits_for_process_after_threshold_change`.
+
+Lokale koppelingen: `football_pipeline`, `football_pipeline.automatic_analysis_ui`, `football_pipeline.contracts`, `football_pipeline.demo`, `football_pipeline.participants`, `football_pipeline.pipeline`, `football_pipeline.player_controls_ui`, `football_pipeline.render`, `football_pipeline.tracking`, `football_pipeline.video`.
+
 ### [tests/test_player_field_dropout.py](../tests/test_player_field_dropout.py)
 
 Controleert gedrag via de onderstaande testfuncties en fixtures.
@@ -2127,7 +2165,7 @@ Lokale koppelingen: `football_pipeline`, `football_pipeline.contracts`, `footbal
 
 Controleert gedrag via de onderstaande testfuncties en fixtures.
 
-Topniveaufuncties en klassen: `TeamFixtureDetector`, `team_run`, `records`, `test_full_team_video_exports_and_cache`, `test_corrections_are_new_runs_preserve_observations_and_bind_to_root`, `test_correction_failure_leaves_original_and_failed_manifest`.
+Topniveaufuncties en klassen: `TeamFixtureDetector`, `team_run`, `records`, `test_strict_player_policy_survives_team_render_csv_and_corrections`, `test_full_team_video_exports_and_cache`, `test_corrections_are_new_runs_preserve_observations_and_bind_to_root`, `test_correction_failure_leaves_original_and_failed_manifest`.
 
 Lokale koppelingen: `football_pipeline`, `football_pipeline.contracts`, `football_pipeline.demo`, `football_pipeline.geometry`, `football_pipeline.pipeline`, `football_pipeline.team_results`, `football_pipeline.video`.
 
@@ -2210,6 +2248,14 @@ Controleert gedrag via de onderstaande testfuncties en fixtures.
 Topniveaufuncties en klassen: `VideoTests`.
 
 Lokale koppelingen: `persoon1.core`, `persoon1.modeling`, `persoon1.video`.
+
+### [tests/test_yolo26_comparison.py](../tests/test_yolo26_comparison.py)
+
+Controleert gedrag via de onderstaande testfuncties en fixtures.
+
+Topniveaufuncties en klassen: `dataset`, `test_dataset_checks_source_hashes_and_disjoint_matches`, `test_reserved_images_rejected_before_access`, `test_account_quota_reserves_handoff_capacity`, `test_stale_unknown_and_explicit_pause_block_training`, `test_pause_preserves_completed_checkpoint_before_unwinding`, `test_candidate_changes_only_player_supplier_and_retains_andrew`, `test_speed_breaks_only_practically_equal_balanced_f1`, `test_progress_supports_yolo26_dual_head_losses`.
+
+Lokale koppelingen: `football_pipeline.contracts`, `football_pipeline.yolo26_comparison`.
 
 ## Historische bronkopieën
 
@@ -3901,7 +3947,7 @@ Streamlit-toegangspunt: kiest modelprofiel en workflow, verzamelt invoer en toon
 
 Topniveaufuncties en klassen: `navigate`, `cached_video_metadata`, `cached_frame`.
 
-Lokale koppelingen: `football_pipeline.app_results`, `football_pipeline.automatic_analysis_ui`, `football_pipeline.calibration_input`, `football_pipeline.contracts`, `football_pipeline.demo`, `football_pipeline.detection`, `football_pipeline.field_review_ui`, `football_pipeline.geometry`, `football_pipeline.model_handoff`, `football_pipeline.pipeline`, `football_pipeline.point_picker`, `football_pipeline.render`, `football_pipeline.teams`, `football_pipeline.training_status_ui`, `football_pipeline.training_ui`, `football_pipeline.video`.
+Lokale koppelingen: `football_pipeline.app_results`, `football_pipeline.automatic_analysis_ui`, `football_pipeline.calibration_input`, `football_pipeline.contracts`, `football_pipeline.demo`, `football_pipeline.detection`, `football_pipeline.field_review_ui`, `football_pipeline.geometry`, `football_pipeline.model_handoff`, `football_pipeline.participants`, `football_pipeline.pipeline`, `football_pipeline.player_controls_ui`, `football_pipeline.point_picker`, `football_pipeline.render`, `football_pipeline.teams`, `football_pipeline.training_status_ui`, `football_pipeline.training_ui`, `football_pipeline.video`.
 
 ## Modelconfiguraties
 
@@ -3917,7 +3963,7 @@ De loader controleert bestanden en mappings; de run bewaart wat daadwerkelijk is
 | [models-ball-f003.json](../configs/models-ball-f003.json) | football48-coco-head-f003 | geen |
 | [models-ball-f005.json](../configs/models-ball-f005.json) | fullscene-ball-f005-multiscale | ball_tiles |
 | [models-ball-tiles.json](../configs/models-ball-tiles.json) | coco-ball-multiscale-tiles | ball_tiles |
-| [models-broadcast.json](../configs/models-broadcast.json) | broadcast-pitch-players-v7, coco-person-proposals | appearance, kit_embedding, role_context, analysis_scope |
+| [models-broadcast.json](../configs/models-broadcast.json) | broadcast-pitch-players-v7, coco-person-proposals, andrew-ball-v1 | appearance, kit_embedding, role_context, analysis_scope |
 | [models-coco-baseline.json](../configs/models-coco-baseline.json) | coco_baseline | geen |
 | [models-integrated-20261027.json](../configs/models-integrated-20261027.json) | joint-selected-players, coco-person-proposals, joint-selected-ball | appearance, ball_tiles |
 | [models-panoris-pilot-1920.json](../configs/models-panoris-pilot-1920.json) | coco_baseline | geen |
@@ -3938,4 +3984,4 @@ De loader controleert bestanden en mappings; de run bewaart wat daadwerkelijk is
 | [models-school.json](../configs/models-school.json) | exp-p006-gsr-multimatch-v3, fullscene-ball-f005-multiscale | geen |
 | [models.json](../configs/models.json) | exp-p006-gsr-multimatch-v3 | geen |
 
-Bestandstypen: .ps1: 23, .py: 484.
+Bestandstypen: .ps1: 24, .py: 489.
