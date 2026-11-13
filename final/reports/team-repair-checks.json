@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-13",
+  "base_revision": "27097eb8",
+  "scope": "Targeted team dropout repair and final package audit; historical final-checks.json remains unchanged.",
+  "pytest": {
+    "root_targeted": {
+      "tests": 109,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "duration_seconds": 29.37
+    },
+    "final_all": {
+      "tests": 202,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "duration_seconds": 101.16
+    }
+  },
+  "ruff_check": "passed",
+  "powershell_syntax": "passed",
+  "function_docstrings": "passed",
+  "synthetic_export": {
+    "frames": 30,
+    "assigned_observations": 180,
+    "on_field_count": null,
+    "accuracy_claim": false
+  },
+  "real_kit_checkpoint_on_synthetic_crops": {
+    "input": "synthetic frames and supplied player boxes; no detector accuracy claim",
+    "kit_checkpoint": "actual released broadcast-kit-hist-v2",
+    "teams": [
+      "A",
+      "A",
+      "A",
+      "B",
+      "B",
+      "B"
+    ],
+    "team_model_status": "available",
+    "field_count": null
+  },
+  "real_video_probe": {
+    "source": "final\\examples\\teamtrack_20s.mp4",
+    "source_sha256": "5e89ce0906f53b13a279fff0b674f08bdb83fd784ed8d2c39309745bd5319ba7",
+    "frames": [
+      0,
+      10,
+      20,
+      30,
+      40
+    ],
+    "detector": "actual final broadcast weights on CPU",
+    "geometry": "deliberately unavailable to isolate team dropout; not a field-model measurement",
+    "team_model_status": "insufficient_groups",
+    "sample_count": 4,
+    "frames_results": [
+      {
+        "frame": 0,
+        "players": 1,
+        "assigned": 0,
+        "embedding": 1
+      },
+      {
+        "frame": 10,
+        "players": 1,
+        "assigned": 0,
+        "embedding": 1
+      },
+      {
+        "frame": 20,
+        "players": 1,
+        "assigned": 0,
+        "embedding": 1
+      },
+      {
+        "frame": 30,
+        "players": 1,
+        "assigned": 0,
+        "embedding": 1
+      },
+      {
+        "frame": 40,
+        "players": 1,
+        "assigned": 0,
+        "embedding": 1
+      }
+    ],
+    "runtime_s": 13.5950334998779,
+    "accuracy_claim": false
+  },
+  "runtime": {
+    "python": "3.12",
+    "torch": "2.10.0+cpu",
+    "ultralytics": "8.3.221",
+    "environment": "separate parent venv with final/src and final on PYTHONPATH"
+  },
+  "limits": [
+    "Original screenshot video and start command unknown.",
+    "Synthetic checks do not establish real football detection or team accuracy.",
+    "No automatic field calibration installation/inference rerun.",
+    "No fresh installation of the documented Python 3.11 environment.",
+    "Final is a curated snapshot, not full root feature parity."
+  ]
+}

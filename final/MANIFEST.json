@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "date": "2026-10-30",
-  "file_count": 359,
-  "total_bytes": 116040376,
+  "date": "2026-11-13",
+  "file_count": 364,
+  "total_bytes": 116070517,
   "files": [
     {
       "path": ".gitattributes",
@@ -21,13 +21,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 5706,
-      "sha256": "942d094142a1ba6faaa3611735d273164c8fa478336b93074a83de09f9175fed"
+      "bytes": 6274,
+      "sha256": "9d174c9fb4bcb5b2ea2cd12d377c8bf17855ac85ddd417260fa969a3b43e5018"
     },
     {
       "path": "SOURCE.json",
-      "bytes": 582,
-      "sha256": "ee81208dee5bc90a4bded64dbfdcc7cdf976665f30d5e00fc48d943314ffa31f"
+      "bytes": 1133,
+      "sha256": "64e8544fa2e294c9520c5a3017aacbbf566cda63cd52113b728bec6c789effb7"
     },
     {
       "path": "artifacts/broadcast-ball-v3/README.md",
@@ -1000,6 +1000,11 @@
       "sha256": "bae3aca08d137f3cd959b1c50baa5ab739ada1de2dee72a5886ed8b747c126bf"
     },
     {
+      "path": "docs/Herstel_Teams_En_Pakketcontrole.md",
+      "bytes": 6091,
+      "sha256": "8116c369692760ec71a609789ccbea7fb7039e1c6e083adaab32774531cb6bff"
+    },
+    {
       "path": "docs/Modelverbetering_Volgens_Cursus.md",
       "bytes": 11746,
       "sha256": "441d0f881f32fac6caa4ac7656f0ebf90c17ee3d235e40a8ca4ac29e9049755f"
@@ -1230,9 +1235,19 @@
       "sha256": "66edf1dec2819312c999eac78530e35f0c2c5be23dd90f9fd3b0bf9019adf4e6"
     },
     {
+      "path": "reports/final-team-sync-audit.json",
+      "bytes": 3966,
+      "sha256": "057ef1bb170617b289a7c120b160e7aeb4e83aa3ae3618c180f9a16facceb762"
+    },
+    {
       "path": "reports/final-tests.xml",
       "bytes": 25141,
       "sha256": "2d49becad921985f5b1a93b8184136eb087b150e130d71201cef7d97937789fe"
+    },
+    {
+      "path": "reports/team-repair-checks.json",
+      "bytes": 2797,
+      "sha256": "fc731d38115f065fc8bc2b793f1921a1ec0a84a2bb4fd26c18f7b5652de06b1a"
     },
     {
       "path": "requirements-app-gpu.txt",
@@ -1271,8 +1286,8 @@
     },
     {
       "path": "scripts/Start-Final.ps1",
-      "bytes": 3406,
-      "sha256": "7e2281013910dc486dfe9e703a7bcfb98b7a1395aebb2c9860c05e3ff2bf5702"
+      "bytes": 3409,
+      "sha256": "9169e338dec1feb9b6fde39c97d04c4d3490fe46ca7586be5a369410e4e60a30"
     },
     {
       "path": "scripts/Start-School.ps1",
@@ -1441,8 +1456,8 @@
     },
     {
       "path": "src/football_pipeline/contracts.py",
-      "bytes": 5720,
-      "sha256": "0b0664cab622de2554ecd1a8b21f825a8bf0fd10f6145cd79420455c62ee9974"
+      "bytes": 7265,
+      "sha256": "244f876d171aad36d12e2cfca1bb77093158b3a5694f65f01d83fb6c7baf478e"
     },
     {
       "path": "src/football_pipeline/course_dataset.py",
@@ -1466,8 +1481,8 @@
     },
     {
       "path": "src/football_pipeline/detection.py",
-      "bytes": 24963,
-      "sha256": "8275bc95f8cf4146a176a47d6f0a4f64f1c8e6e4dae0e38860cd3a1ec095ef63"
+      "bytes": 25429,
+      "sha256": "d777006ca5d7f68c56bfe282b56bfa8aaf9e6aed5beb0bb04fbf8a3c5b3bcd90"
     },
     {
       "path": "src/football_pipeline/distance_ui.py",
@@ -1586,8 +1601,8 @@
     },
     {
       "path": "src/football_pipeline/kit_embedding.py",
-      "bytes": 8624,
-      "sha256": "100f737c740b9fb90bf2200531e5c9651d7b8ca90f381dcc4a19cafb213514e9"
+      "bytes": 8920,
+      "sha256": "224014c46cf80c0a3fd0618c30770fd6d70a463087cc9523298138e545c4b765"
     },
     {
       "path": "src/football_pipeline/model_handoff.py",
@@ -1596,8 +1611,8 @@
     },
     {
       "path": "src/football_pipeline/participants.py",
-      "bytes": 4950,
-      "sha256": "3fbb69101f88f25d96d3691145fde8a7b1872688641a1a8277b924dda8e5b861"
+      "bytes": 8182,
+      "sha256": "f3effb6013db8d3f33ce01a4f128a0ce33679416ba20cf641f240c59add7a822"
     },
     {
       "path": "src/football_pipeline/pipeline.py",
@@ -1616,8 +1631,8 @@
     },
     {
       "path": "src/football_pipeline/render.py",
-      "bytes": 15989,
-      "sha256": "18c2fe2de554c9b8124d153e6ff6409ea7647ff967e62dc1dcd76684ee88797d"
+      "bytes": 17092,
+      "sha256": "43cd7b310eff35205cb3ea049751c4e1348147eb587af2d99f10ef89f5383c8c"
     },
     {
       "path": "src/football_pipeline/replay.py",
@@ -1656,8 +1671,8 @@
     },
     {
       "path": "src/football_pipeline/teams.py",
-      "bytes": 20542,
-      "sha256": "4c0842d68533da26a80c00c2b12288796a7e03c26d5e67f9523a934b95f3104c"
+      "bytes": 20626,
+      "sha256": "63b47e93a2b28b4ab5d3b1f9d41dc72bf7fad187379d799c620be91a81781cb8"
     },
     {
       "path": "src/football_pipeline/tracking.py",
@@ -1750,6 +1765,11 @@
       "sha256": "225364d612c0d86ed5b030b90ae95648ab1f590dc9881fbae8278266b7efc5b6"
     },
     {
+      "path": "tests/test_player_field_dropout.py",
+      "bytes": 2667,
+      "sha256": "8936bc8ce7b7090fbec4dc722c8095908962d6ac1f359851604f4227f4ea0d5b"
+    },
+    {
       "path": "tests/test_point_picker.py",
       "bytes": 2706,
       "sha256": "55280a021c168595a9a96e647d588ad58988222b11b7ca907cd56429c4ecab40"
@@ -1773,6 +1793,11 @@
       "path": "tests/test_team_app.py",
       "bytes": 4788,
       "sha256": "73f87fdba2fe17eb2aeb906f17db0fc7e055da619f25576fb213977a5c6721cc"
+    },
+    {
+      "path": "tests/test_team_field_dropout.py",
+      "bytes": 6772,
+      "sha256": "048e3b91f5959306c51d5f66a6eabc7b360bdfe3bc3c2a9b8ff049ea1fcc9885"
     },
     {
       "path": "tests/test_team_pipeline.py",

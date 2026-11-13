@@ -1,6 +1,6 @@
 # Sports Vision — final
 
-Deze map is het afzonderlijk startbare eindpakket van **30 oktober 2026**. Het bevat de actuele interface, detectie, homography, minimap, tracking, teams en afstandsschatting, met de geselecteerde modellen en de belangrijkste onderbouwing. De eenvoudige schoolmodus is de standaardstart.
+Deze map begon als een afzonderlijk startbare snapshot van **30 oktober 2026** en bevat gerichte herstelwijzigingen van **13 november 2026**. De standaardstart is nu **broadcast**: spelers, shirtteams en automatische veldkalibratie. De eenvoudige schoolmodus blijft expliciet beschikbaar met `-Mode school`. Zie [de vergelijking met de hoofdcode en de teamreparatie](docs/Herstel_Teams_En_Pakketcontrole.md).
 
 ## Downloaden en starten
 
@@ -14,6 +14,7 @@ git lfs pull --include="final/**"
 cd final
 python scripts/verify_final.py
 .\scripts\Setup-Final.ps1
+python scripts/setup_field_model.py --device cpu
 .\scripts\Start-Final.ps1
 ```
 
@@ -26,7 +27,7 @@ Voor de NVIDIA-laptop:
 .\scripts\Start-Final.ps1 -Device 0
 ```
 
-Open de lokale URL die Streamlit toont. Upload een MP4 met een vaste camera, selecteer het zichtbare velddeel, klik de veldpunten en controlepunten, keur de kalibratie na visuele controle goed en verwerk de clip. Resultaten komen onder `runs/school`.
+Open de lokale URL die Streamlit toont en upload een MP4 voor de automatische broadcastanalyse. Resultaten komen onder `runs/broadcast`. Shirtteams kunnen ook bij ontbrekende veldkalibratie worden getoond; de minimap, veldtelling en afstanden blijven dan onbekend. Voor handmatige veldpunten en een vaste camera start je `scripts/Start-Final.ps1 -Mode school`; die uitvoer komt onder `runs/school`.
 
 Alleen de modelbestanden en het gekozen device controleren:
 
@@ -59,7 +60,7 @@ De Word- en PDF-bestanden zijn bestaande documenten, ongewijzigd overgenomen. De
 De schoolbasis gebruikt spelers/officials **P006** en balmodel **F005** op volledige beelden. Voor de experimentele broadcastbal v3 met tegelverwerking:
 
 ```powershell
-.\scripts\Start-Final.ps1 -BroadcastTiles
+.\scripts\Start-Final.ps1 -Mode school -BroadcastTiles
 ```
 
 De broadcastuitbreiding gebruikt de geselecteerde broadcastspelers, rolherkenning, teams en automatische veldkalibratie. Het afzonderlijke PnLCalib-veldmodel wordt met vastgelegde upstreamversie en checksums geïnstalleerd; de grote externe veldgewichten en omgeving worden niet gedupliceerd in Git:
@@ -94,4 +95,4 @@ python scripts/verify_final.py
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-De pakketcontroles worden beschreven in [reports/final-checks.json](reports/final-checks.json). Softwaretests controleren de werking; de historische modelmetingen zijn ontwikkelmetingen. Een onafhankelijke eindtest, volledige menselijke labelreview en onafhankelijke tracking-/afstandsnauwkeurigheid zijn nog niet uitgevoerd.
+De herstelcontroles van 13 november staan in [reports/team-repair-checks.json](reports/team-repair-checks.json), de vergelijking met de hoofdcode in [reports/final-team-sync-audit.json](reports/final-team-sync-audit.json). De oorspronkelijke pakketcontroles blijven bewaard in [reports/final-checks.json](reports/final-checks.json). Softwaretests controleren de werking; de historische modelmetingen zijn ontwikkelmetingen. Een onafhankelijke eindtest, volledige menselijke labelreview en onafhankelijke tracking-/afstandsnauwkeurigheid zijn nog niet uitgevoerd.

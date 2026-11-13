@@ -1,5 +1,5 @@
 param(
-    [ValidateSet('school', 'broadcast')][string]$Mode = 'school',
+    [ValidateSet('school', 'broadcast')][string]$Mode = 'broadcast',
     [string]$Device = 'cpu',
     [ValidateRange(1024,65535)][int]$Port = 8501,
     [switch]$BroadcastTiles,

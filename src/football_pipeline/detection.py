@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 
 from .contracts import Detection, PipelineError, read_json, sha256_file
+from .geometry import valid_box
 from .participants import GROUND_ROLES
 
 
@@ -530,6 +531,15 @@ class UltralyticsDetector:
         if self.appearance:
             self.appearance.classify(frame, people, self.video_hash)
         if self.kit_embedding:
-            self.kit_embedding.update(frame, people)
+            # Shirt appearance remains observable when field calibration drops
+            # out. Do not run pitch-only role recovery on those observations.
+            visible_players = [
+                d
+                for d in detections
+                if d.semantic_class == "player"
+                and d.projection_status == "calibration_unavailable"
+                and valid_box(d, size)
+            ]
+            self.kit_embedding.update(frame, [*people, *visible_players])
         if getattr(self, "role_context", None):
             self.role_context.update(people, size)

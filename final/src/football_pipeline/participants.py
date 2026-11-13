@@ -1,4 +1,5 @@
-"""Keep model roles separate from geometric field membership.
+"""Houdt modelrollen, veldgeldigheid, zichtbaarheid en spelertelling gescheiden. Een persoon op het veld is niet automatisch een speler.
+
 
 Being on grass never turns a generic person, steward or official into a player.
 These rules filter predictions; they cannot repair an incorrect model class.
@@ -27,12 +28,18 @@ PLAYER_POLICY = {
 
 
 def player_exclusion_reason(detection: Detection, image_size: tuple[int, int]) -> str | None:
+    """Geef de reden waarom een detectie niet als geldige spelerwaarneming kan worden gebruikt, of None
+    wanneer zij voldoet.
+    """
     if detection.semantic_class != "player":
         return "not_player"
     return field_exclusion_reason(detection, image_size)
 
 
 def field_exclusion_reason(detection: Detection, image_size: tuple[int, int]) -> str | None:
+    """Toets box, onderrand en projectiestatus los van de voorspelde persoonsrol voor veldgerichte
+    verwerking.
+    """
     if not valid_box(detection, image_size):
         return "invalid_box"
     if detection.projection_status != "valid":
@@ -46,17 +53,22 @@ def field_exclusion_reason(detection: Detection, image_size: tuple[int, int]) ->
 
 
 def visible_detection(detection: Detection, confidence: float = DISPLAY_CONFIDENCE) -> bool:
+    """Bepaal of de detectie de zichtbaarheid-/confidencegrens voor weergave haalt."""
     return detection.confidence >= confidence or detection.track_id is not None
 
 
 def field_available(record: FrameRecord) -> bool:
     # Manual records are produced only after validating the fixed calibration.
+    """Bepaal uit het framerecord of er op dit tijdstip bruikbare veldkalibratie bestaat."""
     return record.calibration is None or record.calibration.get("status") == "valid"
 
 
 def count_exclusion_reason(
     record: FrameRecord, detection: Detection, confidence=DISPLAY_CONFIDENCE
 ) -> str | None:
+    """Pas de rol-, confidence- en veldvoorwaarden voor spelertelling toe en retourneer een expliciete
+    uitsluitreden.
+    """
     reason = player_exclusion_reason(detection, record.image_size)
     if reason is not None:
         return reason
@@ -70,14 +82,64 @@ def count_exclusion_reason(
 
 
 def counted_as_player(record: FrameRecord, detection: Detection, confidence=DISPLAY_CONFIDENCE) -> bool:
+    """Pas dezelfde telregels toe voor zowel de interface als opgeslagen analyses."""
     return count_exclusion_reason(record, detection, confidence) is None
 
 
+def displayed_as_player(record: FrameRecord, detection: Detection, confidence=DISPLAY_CONFIDENCE) -> bool:
+    """An observed image box survives field loss; known off-field boxes stay excluded."""
+    if counted_as_player(record, detection, confidence):
+        return True
+    return (
+        record.player_model_available
+        and not field_available(record)
+        and detection.semantic_class == "player"
+        and valid_box(detection, record.image_size)
+        and detection.projection_status == "calibration_unavailable"
+        and visible_detection(detection, confidence)
+    )
+
+
+def frame_diagnostics(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
+    """Describe retained evidence, not ground truth or pre-NMS detector recall."""
+    detections = record.detections
+    players = [d for d in detections if d.semantic_class == "player"]
+    return {
+        "version": 1,
+        "retained_predictions": len(detections),
+        "detector_player_evidence": sum(
+            (d.detector_semantic_class or d.semantic_class) == "player"
+            or (d.role_evidence or {}).get("semantic_class") == "player"
+            for d in detections
+        ),
+        "role_players": len(players),
+        "visible_player_candidates": sum(
+            valid_box(d, record.image_size) and visible_detection(d, confidence) for d in players
+        ),
+        "image_tracked_players": sum(d.track_id is not None for d in players),
+        "displayed_players": sum(displayed_as_player(record, d, confidence) for d in detections)
+        if record.analysis_scope == "on_pitch_players"
+        else sum(valid_box(d, record.image_size) and visible_detection(d, confidence) for d in players),
+        "counted_players": sum(counted_as_player(record, d, confidence) for d in detections)
+        if field_available(record) and record.player_model_available
+        else None,
+        "field_status": (record.calibration or {}).get("status", "manual"),
+        "field_source": (record.calibration or {}).get("source", "manual"),
+        "player_exclusions": dict(
+            Counter(count_exclusion_reason(record, d, confidence) or "counted" for d in players)
+        ),
+        "role_decisions": dict(Counter(d.role_decision or "unchanged" for d in detections)),
+        "ground_truth_available": False,
+    }
+
+
 def normalized_team_id(team_id: str | None) -> str:
+    """Zet bekende varianten van team-ID's om naar de gedeelde A/B/unknown-indeling."""
     return {"A": "A", "B": "B", "team_a": "A", "team_b": "B"}.get(team_id, "unknown")
 
 
 def player_summary(record: FrameRecord, confidence=DISPLAY_CONFIDENCE) -> dict:
+    """Tel geldige spelers per team en bewaar waarom andere detecties niet meetellen."""
     visible = [
         d for d in record.detections if valid_box(d, record.image_size) and visible_detection(d, confidence)
     ]

@@ -10,5 +10,20 @@
     "val": 32,
     "human_review_completed": false
   },
-  "external_runtime": "Automatic field calibration requires scripts/setup_field_model.py; manual school mode does not."
+  "external_runtime": "Automatic field calibration requires scripts/setup_field_model.py; manual school mode does not.",
+  "targeted_repairs": [
+    {
+      "date": "2026-11-13",
+      "comparison_base_revision": "27097eb8",
+      "branch": "codex/fix-teamherkenning",
+      "changes": [
+        "Team appearance independent of unavailable field calibration for detected players.",
+        "Port player display and diagnostics fixes from root.",
+        "Default Start-Final to broadcast mode."
+      ],
+      "audit": "reports/final-team-sync-audit.json",
+      "checks": "reports/team-repair-checks.json",
+      "full_root_feature_sync": false
+    }
+  ]
 }

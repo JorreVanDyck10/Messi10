@@ -147,7 +147,7 @@ def test_embedding_groups_survive_short_tracks_and_exclude_people_outside_the_fi
     assert group[2].team_id is None
     assert dominant_teams([np.eye(32)[0]] * 10) is None
     off = player(9)
-    off.projection_status = "calibration_unavailable"
+    off.projection_status = "outside_field"
     assert embedding_candidate(off, model) == (None, None)
 
 

@@ -6,6 +6,7 @@ import numpy as np
 
 from .appearance import backbone, crop_tensor
 from .contracts import PipelineError
+from .geometry import valid_box
 from .video_teams import kit_feature
 
 
@@ -52,7 +53,11 @@ class KitEmbedding:
             d
             for d in detections
             if d.semantic_class in eligible
-            and d.projection_status == "valid"
+            and valid_box(d, (frame.shape[1], frame.shape[0]))
+            and (
+                d.projection_status == "valid"
+                or (d.semantic_class == "player" and d.projection_status == "calibration_unavailable")
+            )
             and d.bbox_xyxy[2] - d.bbox_xyxy[0] >= 4
             and d.bbox_xyxy[3] - d.bbox_xyxy[1] >= 12
         ]
@@ -125,7 +130,7 @@ class PitchTeamSamples:
         d = detection
         if (
             d.semantic_class != "player"
-            or d.projection_status != "valid"
+            or d.projection_status not in {"valid", "calibration_unavailable"}
             or d.confidence < 0.25
             or d.team_embedding is None
             or d.player_kind == "goalkeeper"
@@ -184,7 +189,7 @@ def embedding_candidate(detection, model):
     if (
         detection.team_embedding is None
         or detection.player_kind == "goalkeeper"
-        or detection.projection_status != "valid"
+        or detection.projection_status not in {"valid", "calibration_unavailable"}
         or model["status"] != "available"
     ):
         return None, None

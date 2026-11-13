@@ -407,6 +407,7 @@ class TeamAssigner:
                 embedding_method
                 and self.settings.get("kit_player_recovery")
                 and d.role_decision not in {"pitch_context_nonplayer", "pitch_referee_consensus"}
+                and d.projection_status == "valid"
                 and d.semantic_class in {"person", "referee"}
                 and d.detector_semantic_class == "person"
                 and d.role_model_id
@@ -449,7 +450,7 @@ class TeamAssigner:
                 continue
             if (
                 embedding_method or self.model.get("analysis_scope") == "on_pitch_players"
-            ) and d.projection_status != "valid":
+            ) and d.projection_status not in {"valid", "calibration_unavailable"}:
                 continue
             key = str(d.track_id) if d.track_id is not None else None
             if key in self.overrides:
