@@ -4,6 +4,8 @@ Voor Andrew, Milan, Raoul en Jorre. Versie 13 november 2026. De Word-gids telt 3
 
 ## Bestanden
 
+- [Raoul versie in Word](Sports_Vision_Raoul.docx): korte samenvatting van de kern, met resultaten en korte verdedigingsantwoorden.
+- [Raoul versie lezen op GitHub](Raoul_versie.md).
 - [Sports Vision studiegids in Word](Sports_Vision_Studiegids.docx): uitgebreide uitleg in 36 hoofdstukken, met voorbeelden en verdedigingsvragen.
 - [Dezelfde studiegids direct lezen op GitHub](Studiegids.md).
 - [Functieindex](Functieindex.md): vindplaatsen en leesaanwijzingen voor de eigen Pythonfuncties, classes, methoden, tests en PowerShell-starters.
