@@ -1,4 +1,3 @@
-
 """Verify and bind the reviewed training files shipped through Git and Git LFS."""
 
 from __future__ import annotations

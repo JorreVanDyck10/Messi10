@@ -34,7 +34,8 @@ def main():
     if errors:
         raise SystemExit("\n".join(errors))
     print(f"OK: {len(manifest['files'])} files verified; 80 image/label pairs; no train/val group overlap.")
-    print("Dataset reviews remain open; software checks do not establish model accuracy.")
+    reviewed = sum(row.get("review_status") == "approved" for row in frames)
+    print(f"Dataset reviews approved: {reviewed}/{len(frames)}; software checks do not establish model accuracy.")
 
 
 if __name__ == "__main__":

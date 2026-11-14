@@ -1,5 +1,5 @@
-
 from pathlib import Path
+
 import torch
 
 path = Path("artifacts/broadcast-players-v1/roles_teams.pt")
@@ -8,11 +8,7 @@ if not path.is_file():
     print(f"Checkpoint not found: {path}")
     raise SystemExit(1)
 
-state = torch.load(
-    path,
-    map_location="cpu",
-    weights_only=True
-)
+state = torch.load(path, map_location="cpu", weights_only=True)
 
 print("\n=== APPEARANCE CHECKPOINT DIAGNOSTIC ===")
 print(f"File exists: {path.is_file()}")

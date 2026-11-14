@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "date": "2026-10-30",
-  "file_count": 359,
-  "total_bytes": 116040376,
+  "file_count": 360,
+  "total_bytes": 116065477,
   "files": [
     {
       "path": ".gitattributes",
@@ -21,8 +21,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5706,
-      "sha256": "942d094142a1ba6faaa3611735d273164c8fa478336b93074a83de09f9175fed"
+      "bytes": 5957,
+      "sha256": "d35425e74d089885ef1397899db5b88dd005a8ea03b3b7f8beaa21bab5594788"
     },
     {
       "path": "SOURCE.json",
@@ -163,6 +163,11 @@
       "path": "configs/train-players-unfrozen.json",
       "bytes": 716,
       "sha256": "49feca9901a51d21dea3926fa5bb58e8178c5cbb74125faaf7417b49a503705b"
+    },
+    {
+      "path": "datasets/school-ball80-review-v1/REVIEW.md",
+      "bytes": 2997,
+      "sha256": "9932828c59ea8396dfd918de254a9d5d59a3d3892672f3b1f32101929ec00984"
     },
     {
       "path": "datasets/school-ball80-review-v1/data.yaml",
@@ -971,8 +976,8 @@
     },
     {
       "path": "datasets/school-ball80-review-v1/manifest.json",
-      "bytes": 77442,
-      "sha256": "583850d240da788d1fe4d7bc89ac52fbdf497b524cab46a51ce5da2156f82c73"
+      "bytes": 97976,
+      "sha256": "c22a7caf66ca7791c655b8aa94a992c19bc37e056d61a227e66e60f4bf95444d"
     },
     {
       "path": "docs/Afgelegde_Afstand.md",
@@ -996,8 +1001,8 @@
     },
     {
       "path": "docs/GenAI_Disclosure.md",
-      "bytes": 19749,
-      "sha256": "bae3aca08d137f3cd959b1c50baa5ab739ada1de2dee72a5886ed8b747c126bf"
+      "bytes": 20509,
+      "sha256": "158a2e93d281000e3cac9ac820c50a99eddb26947aaced15176c42603ad4c88c"
     },
     {
       "path": "docs/Modelverbetering_Volgens_Cursus.md",
@@ -1016,8 +1021,8 @@
     },
     {
       "path": "docs/Schoolversie_en_Verdediging.md",
-      "bytes": 14502,
-      "sha256": "e36c44eaa6be48440f9d64413e0867a8ea5d98259ee36f7c347e7b895dae6734"
+      "bytes": 14960,
+      "sha256": "cd35d93e77a8e19794052b8a05622bc64a359873f8e8d18ca97156308a4aedf5"
     },
     {
       "path": "docs/Sports_Vision_Korte_Uitleg_NL.docx",
@@ -1331,8 +1336,8 @@
     },
     {
       "path": "scripts/verify_final.py",
-      "bytes": 1745,
-      "sha256": "8bc431e5fade4a0ce5d189a953e222e1026176ddfd0a0a4bb983967c6fd3399c"
+      "bytes": 1846,
+      "sha256": "f020aa68177aef17d222bdd71472df73adb02608301074382196cfd1185995e8"
     },
     {
       "path": "src/football_pipeline/__init__.py",
@@ -1799,5 +1804,6 @@
       "bytes": 1142,
       "sha256": "76e1f7dbfd09a126fc2aec7bca4d9742d0f2d698bc342ecab019026d1374c0b7"
     }
-  ]
+  ],
+  "review_status_updated_on": "2026-11-14"
 }

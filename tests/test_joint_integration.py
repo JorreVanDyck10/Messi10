@@ -183,6 +183,7 @@ def test_joint_app_runs_automatic_field_and_preserves_roles_teams_on_review(
     monkeypatch.setenv("FOOTBALL_FIELD_RUNTIME", str(runtime))
     monkeypatch.setenv("FOOTBALL_RUNS", str(tmp_path / "runs"))
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
+    app.session_state["workspace_view"] = "Nieuwe analyse"
     app.session_state["automatic_analysis"] = False
     app.run()
     app.file_uploader(key="video_upload").set_value(

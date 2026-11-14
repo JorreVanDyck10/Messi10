@@ -5,7 +5,7 @@ de rol vast en noemt de daadwerkelijk aanwezige functies/klassen en lokale afhan
 Bij scripts met een oorspronkelijke Engelse moduleuitleg blijft die technische samenvatting zichtbaar.
 Functienamen zijn navigatiehulp; een lijst met namen vervangt het lezen van de implementatie niet.
 
-Dekking: **513 codebestanden**, inclusief tests, datasethelpers en historische bronkopieën.
+Dekking: **514 codebestanden**, inclusief tests, datasethelpers en historische bronkopieën.
 Niet-gevolgde virtuele omgevingen, externe modelrepositories en gegenereerde uitvoer horen hier niet bij.
 Inline JavaScript van de puntenkiezer staat in `point_picker.py` en schaalt klikposities terug naar bronpixels.
 
@@ -683,7 +683,7 @@ Lokale koppelingen: `.contracts`, `.video`.
 
 Detached, sequential training worker. Every model runs in its own GPU process.
 
-Topniveaufuncties en klassen: `bind_json`, `initial_profile`, `yolo_data`, `train_andrew`, `save_result`, `one_model`, `run`.
+Topniveaufuncties en klassen: `bind_json`, `initial_profile`, `yolo_data`, `train_andrew`, `save_result`, `preserve_team_metadata`, `one_model`, `run`.
 
 Lokale koppelingen: `.broadcast_observed_context`, `.contracts`, `.detection`, `.field_learning`, `.role_context`, `.training_budget`, `.training_hardware`, `.training_transfer`, `.training_workbench`, `.video`.
 
@@ -940,6 +940,10 @@ Explicit AI visual decisions for rare-role development; preserves all earlier la
 Topniveaufuncties en klassen: `main`.
 
 Lokale koppelingen: `football_pipeline.contracts`, `football_pipeline.video`, `persoon1.role_training`.
+
+### [scripts/check_appearance_points.py](../scripts/check_appearance_points.py)
+
+Lees de onderstaande functies en de bijbehorende werkstap in de hoofdleesgids.
 
 ### [scripts/check_function_docs.py](../scripts/check_function_docs.py)
 
@@ -1765,7 +1769,7 @@ Lokale koppelingen: `football_pipeline`, `football_pipeline.contracts`, `footbal
 
 Controleert gedrag via de onderstaande testfuncties en fixtures.
 
-Topniveaufuncties en klassen: `test_app_initial_screen_and_rerun`, `test_preloaded_calibration_processes_once_on_explicit_click`, `test_point_table_calculation_review_and_invalidation`, `test_image_click_workflow_advances_persists_and_invalidates_draft`, `test_failed_calibration_shows_named_errors_and_persists_until_correction`.
+Topniveaufuncties en klassen: `test_app_initial_setup_screen_navigation_and_rerun`, `test_preloaded_calibration_processes_once_on_explicit_click`, `test_point_table_calculation_review_and_invalidation`, `test_image_click_workflow_advances_persists_and_invalidates_draft`, `test_failed_calibration_shows_named_errors_and_persists_until_correction`.
 
 Lokale koppelingen: `football_pipeline`, `football_pipeline.contracts`, `football_pipeline.demo`, `football_pipeline.detection`, `football_pipeline.video`.
 
@@ -3945,7 +3949,7 @@ Lokale koppelingen: `football_pipeline`, `football_pipeline.contracts`.
 
 Streamlit-toegangspunt: kiest modelprofiel en workflow, verzamelt invoer en toont resultaten. De rekenstappen staan in football_pipeline zodat ze ook zonder interface bruikbaar zijn.
 
-Topniveaufuncties en klassen: `navigate`, `cached_video_metadata`, `cached_frame`.
+Topniveaufuncties en klassen: `navigate`, `_read_setup_output`, `_stop_setup_process`, `laptop_setup_page`, `cached_video_metadata`, `cached_frame`.
 
 Lokale koppelingen: `football_pipeline.app_results`, `football_pipeline.automatic_analysis_ui`, `football_pipeline.calibration_input`, `football_pipeline.contracts`, `football_pipeline.demo`, `football_pipeline.detection`, `football_pipeline.field_review_ui`, `football_pipeline.geometry`, `football_pipeline.model_handoff`, `football_pipeline.participants`, `football_pipeline.pipeline`, `football_pipeline.player_controls_ui`, `football_pipeline.point_picker`, `football_pipeline.render`, `football_pipeline.teams`, `football_pipeline.training_status_ui`, `football_pipeline.training_ui`, `football_pipeline.video`.
 
@@ -3984,4 +3988,4 @@ De loader controleert bestanden en mappings; de run bewaart wat daadwerkelijk is
 | [models-school.json](../configs/models-school.json) | exp-p006-gsr-multimatch-v3, fullscene-ball-f005-multiscale | geen |
 | [models.json](../configs/models.json) | exp-p006-gsr-multimatch-v3 | geen |
 
-Bestandstypen: .ps1: 24, .py: 489.
+Bestandstypen: .ps1: 24, .py: 490.

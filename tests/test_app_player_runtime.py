@@ -29,6 +29,7 @@ def test_player_app_checks_runtime_and_preserves_automatic_tracking_limit(
     monkeypatch.setattr(torch.cuda, "is_available", lambda: cuda_available)
     monkeypatch.setattr(torch.cuda, "device_count", lambda: 1 if cuda_available else 0)
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
+    app.session_state["workspace_view"] = "Nieuwe analyse"
     app.session_state["automatic_analysis"] = False
     app.run()
     app.file_uploader(key="video_upload").set_value(

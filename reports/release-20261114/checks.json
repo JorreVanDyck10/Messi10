@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-14",
+  "base_commit": "a2c89e37",
+  "tests": {
+    "passed": 537,
+    "skipped": 1,
+    "subtests_passed": 4,
+    "failures": 0,
+    "errors": 0,
+    "runtime_s": 79.431,
+    "skipped_reason": "GPU smoke test: no CUDA device in this environment"
+  },
+  "environment": {
+    "python": "3.12.3",
+    "packages": {
+      "pytest": "9.2.0",
+      "ruff": "0.17.5",
+      "streamlit": "1.64.0",
+      "torch": "2.10.0+cpu",
+      "torchvision": "0.25.0",
+      "ultralytics": "8.3.221"
+    }
+  },
+  "checks": {
+    "ruff_check": "passed",
+    "ruff_format": "passed (230 files)",
+    "function_docs": "passed (784 functions)",
+    "code_guide": "passed",
+    "final_package": "passed (360 files; 80 reviewed label pairs; no train/val group overlap)",
+    "training_catalog": {
+      "status": "passed",
+      "verified_files": 16656,
+      "verified_bytes": 5377081920,
+      "lfs_pointer_hashes_allowed": true
+    },
+    "doctor": "passed (FFmpeg, ffprobe and Python dependencies)"
+  },
+  "human_review": {
+    "approved_frames": 80,
+    "basis": "explicit user confirmation",
+    "ambiguous_candidates": "excluded before the retained 80-frame selection",
+    "new_label_changes": false
+  },
+  "limitations": [
+    "No new model training or mAP measurement",
+    "No new independent accuracy claim",
+    "GPU smoke test skipped"
+  ]
+}

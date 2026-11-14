@@ -32,6 +32,7 @@ def test_school_run_uses_manual_calibration_without_tracking_or_teams(demo_fixtu
     }
     monkeypatch.setattr(st, "file_uploader", lambda *a, **kw: uploads.get(kw["key"]))
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
+    app.session_state["workspace_view"] = "Nieuwe analyse"
     for key in ("automatic_analysis", "open_team_result", "open_field_review", "tracking", "teams_enabled"):
         app.session_state[key] = True
     app.session_state["calibration_mode"] = "Automatische veldkalibratie"
@@ -78,6 +79,7 @@ def test_switching_the_visible_field_region_discards_the_previous_calibration(de
 
     monkeypatch.setattr(st, "data_editor", populate_points)
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
+    app.session_state["workspace_view"] = "Nieuwe analyse"
     app.run()
     assert not app.exception
     video = inspect_video(demo_fixture["video"])
