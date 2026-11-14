@@ -801,11 +801,11 @@ Het programma gebruikt dus niet alleen objectdetectie, maar combineert deze met 
 
 ---
 
-# 17. Gebruik van AI tijdens de ontwikkeling
+# 16. Gebruik van AI tijdens de ontwikkeling
 
 Tijdens de ontwikkeling en documentatie van dit document en deze documentatie werd generatieve AI gebruikt als ondersteunend hulpmiddel. AI werd op verschillende momenten ingezet om het ontwikkelingsproces efficiënter te maken en de kwaliteit van de code en het tekstdocument te verbeteren.
 
-## 17.1 Opmaak en structuur van de documentatie
+## 16.1 Opmaak en structuur van de documentatie
 
 AI werd gebruikt om de documentatie overzichtelijker en duidelijker te structureren. Hierbij werd ondersteuning geboden bij:
 
@@ -813,7 +813,7 @@ AI werd gebruikt om de documentatie overzichtelijker en duidelijker te structure
 - Het opstellen van Markdown-tabellen om parameters en variabelen toe te lichten.
 - Het verbeteren van de leesbaarheid en formulering van de technische uitleg.
 
-## 17.2 Eerste versie van de code
+## 16.2 Eerste versie van de code
 
 AI werd gebruikt als ondersteuning bij het uitwerken van de eerste versie van bepaalde onderdelen van de code.
 
@@ -826,7 +826,7 @@ Hierbij hielp AI onder andere met:
 
 De voorgestelde code en oplossingen werden vervolgens handmatig geëvalueerd en aangepast aan de specifieke vereisten van het project.
 
-## 17.3 Debugging en foutopsporing
+## 16.3 Debugging en foutopsporing
 
 Tijdens het ontwikkelen werd AI ook gebruikt om te helpen bij het opsporen en oplossen van fouten.
 
@@ -838,7 +838,7 @@ Wanneer bepaalde onderdelen niet het gewenste resultaat opleverden, kon AI helpe
 
 De voorgestelde aanpassingen werden getest en waar nodig verder aangepast.
 
-## 17.4 Ownership
+## 16.4 Ownership
 
 De uiteindelijke implementatie, keuzes van parameters, evaluatie van de resultaten en aanpassingen aan de code werden afgestemd op de werking en doelstellingen van het project.
 
