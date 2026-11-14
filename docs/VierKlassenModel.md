@@ -18,6 +18,9 @@ De code maakt gebruik van verschillende libraries:
 
 Het eindresultaat is een nieuwe video waarin de voetbal en scheidsrechters aangeduid worden met bounding boxes.
 
+De training en de uitwerking van het YOLO model zijn gebaseerd op een publieke dataset terug te vinden op:
+https://github.com/aaditya29/DFL-Bundesliga-Data-Shootout-Analysis/tree/main/training/football-players-detection-1
+
 ---
 
 ## 2. Libraries importeren
