@@ -21,6 +21,9 @@ Het eindresultaat is een nieuwe video waarin de voetbal en scheidsrechters aange
 De training en de uitwerking van het YOLO model zijn gebaseerd op een publieke dataset terug te vinden op:
 https://github.com/aaditya29/DFL-Bundesliga-Data-Shootout-Analysis/tree/main/training/football-players-detection-1
 
+Deze dataset levert een grote collectie aan visuele trainings- en validatie data over verschillende voetbalwedstrijden. Zo worden details over spelers, keepers, scheidsrechters en de bal meegegeven aan het model tijdens het trainen.
+Doordat dit script voornamelijk focust op de ligging van de bal en de referees, worden de klassen van spelers en keepers niet weergegeven in het eindresultaat.
+
 ---
 
 ## 2. Libraries importeren
