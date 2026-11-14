@@ -158,9 +158,11 @@ def save_result(directory, weights, inputs):
         },
     )
 
+
 def preserve_team_metadata(trained_weights, original_weights):
-    import torch
     """Behoud teamclassificatievelden wanneer de roltrainer ze niet wegschrijft."""
+    import torch
+
     trained = torch.load(trained_weights, map_location="cpu", weights_only=True)
     original = torch.load(original_weights, map_location="cpu", weights_only=True)
 
@@ -178,9 +180,7 @@ def preserve_team_metadata(trained_weights, original_weights):
     )
     missing = [key for key in required if key not in trained]
     if missing:
-        raise ValueError(
-            "Het getrainde rolcheckpoint mist vereiste velden: " + ", ".join(missing)
-        )
+        raise ValueError("Het getrainde rolcheckpoint mist vereiste velden: " + ", ".join(missing))
 
     torch.save(trained, trained_weights)
 

@@ -7,10 +7,14 @@ from streamlit.testing.v1 import AppTest
 from football_pipeline.video import ROOT
 
 
-def test_app_initial_screen_and_rerun():
+def test_app_initial_setup_screen_navigation_and_rerun():
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20)
     app.session_state["automatic_analysis"] = False
     app.run()
+    assert not app.exception
+    assert "Laptop instellen" in app.title[0].value
+    assert app.button(key="start_laptop_setup")
+    app.radio(key="workspace_view").set_value("Nieuwe analyse").run()
     assert not app.exception
     assert app.title[0].value == "Elke beweging in beeld"
     app.run()
@@ -56,6 +60,7 @@ def test_preloaded_calibration_processes_once_on_explicit_click(demo_fixture, tm
 
     monkeypatch.setattr(st, "file_uploader", upload)
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
+    app.session_state["workspace_view"] = "Nieuwe analyse"
     app.session_state["automatic_analysis"] = False
     app.run()
     assert not app.exception
@@ -95,6 +100,7 @@ def test_point_table_calculation_review_and_invalidation(demo_fixture, monkeypat
     points = deepcopy(demo_fixture["calibration"].points)
     monkeypatch.setattr(st, "data_editor", lambda *a, **kw: pd.DataFrame(points))
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20)
+    app.session_state["workspace_view"] = "Nieuwe analyse"
     app.session_state["automatic_analysis"] = False
     app.run()
     assert not app.exception
@@ -140,6 +146,7 @@ def test_image_click_workflow_advances_persists_and_invalidates_draft(demo_fixtu
 
     monkeypatch.setattr(picker_module, "point_picker", simulate_browser)
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20)
+    app.session_state["workspace_view"] = "Nieuwe analyse"
     app.session_state["automatic_analysis"] = False
     app.run()
     assert not app.exception
@@ -179,6 +186,7 @@ def test_failed_calibration_shows_named_errors_and_persists_until_correction(dem
     points[4]["y"] += 20
     monkeypatch.setattr(st, "data_editor", lambda *a, **kw: pd.DataFrame(points))
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=20)
+    app.session_state["workspace_view"] = "Nieuwe analyse"
     app.session_state["automatic_analysis"] = False
     app.run()
     app.button(key="calculate").click().run()

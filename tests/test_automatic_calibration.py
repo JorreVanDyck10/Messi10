@@ -282,6 +282,7 @@ def test_automatic_ui_processes_only_on_click_and_invalidates_when_switching(
     upload = SimpleNamespace(file_id="automatic-ui-fixture", getbuffer=lambda: content)
     monkeypatch.setattr(st, "file_uploader", lambda *a, **kw: upload if kw["key"] == "video_upload" else None)
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
+    app.session_state["workspace_view"] = "Nieuwe analyse"
     app.session_state["automatic_analysis"] = False
     app.run()
     app.segmented_control(key="calibration_mode").set_value("Automatische veldkalibratie").run()
@@ -380,7 +381,9 @@ def test_upload_automatically_runs_field_players_tracking_and_does_not_repeat(
     runtime = tmp_path / "runtime.json"
     write_json(runtime, {"weights_keypoints": str(identity), "weights_lines": str(identity)})
     monkeypatch.setenv("FOOTBALL_FIELD_RUNTIME", str(runtime))
-    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=40).run()
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=40)
+    app.session_state["workspace_view"] = "Nieuwe analyse"
+    app.run()
     assert app.toggle(key="automatic_analysis").value
     app.file_uploader(key="video_upload").set_value(
         ("match.mp4", demo_fixture["video"].read_bytes(), "video/mp4")
@@ -423,7 +426,9 @@ def test_automatic_analysis_failure_requires_explicit_retry_and_survives_repeate
     runtime = tmp_path / "runtime.json"
     write_json(runtime, {"weights_keypoints": str(identity), "weights_lines": str(identity)})
     monkeypatch.setenv("FOOTBALL_FIELD_RUNTIME", str(runtime))
-    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30).run()
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=30)
+    app.session_state["workspace_view"] = "Nieuwe analyse"
+    app.run()
     app.file_uploader(key="video_upload").set_value(
         ("failed.mp4", demo_fixture["video"].read_bytes(), "video/mp4")
     ).run()

@@ -42,7 +42,7 @@ Alleen de modelbestanden en het gekozen device controleren:
 | [Verdedigingsverslag](docs/Verdedigingsverslag_Sports_Vision_NL.docx) | Uitgebreide uitleg voor de mondelinge verdediging |
 | [Projectuitleg in PDF](docs/Projectuitleg_en_mondelinge_verdediging.pdf) | Bestaande export van de projectuitleg |
 | [Schoolhandleiding](docs/Schoolversie_en_Verdediging.md) | Homography, modellen, labelafspraken en verdediging |
-| [GenAI-disclosure](docs/GenAI_Disclosure.md) | AI-gebruik en openstaande menselijke review |
+| [GenAI-disclosure](docs/GenAI_Disclosure.md) | AI-gebruik en herkomst van annotaties |
 | `streamlit_app.py`, `src/football_pipeline/` | Interface en volledige pipelinecode |
 | `persoon1/` | Annotatie-editor, training en evaluatiehulpmiddelen |
 | `configs/`, `artifacts/` | Gekozen profielen, trackinginstellingen en gewichten |
@@ -82,7 +82,7 @@ $env:PYTHONPATH = 'src;.'
 .\.venv\Scripts\python.exe -m persoon1 annotate --manifest datasets/school-ball80-review-v1/manifest.json --split all --port 8765
 ```
 
-De labels zijn bestaande provider-/AI-voorstellen. Menselijke review staat open. De 80 beelden zijn ontwikkelgegevens; ze vormen geen onafhankelijke eindtest. `verify_final.py` controleert de oorspronkelijke pakketchecksums, dus na bewuste labelwijzigingen meldt het script die wijzigingen.
+De labels zijn bestaande provider-/AI-voorstellen. Op 14 november 2026 bevestigde de gebruiker dat het team alle huidige 80 labels heeft gecontroleerd en goedgekeurd. Twijfelgevallen vielen buiten deze selectie. Zie [de reviewregistratie](datasets/school-ball80-review-v1/REVIEW.md). De 80 beelden zijn ontwikkelgegevens; ze vormen geen onafhankelijke eindtest. `verify_final.py` controleert de oorspronkelijke pakketchecksums, dus na bewuste labelwijzigingen meldt het script die wijzigingen.
 
 De oorspronkelijke trainingsmetingen blijven gekoppeld aan hun eigen data en experimenten. De 80-beeldenreviewset heeft geen nieuwe training of nieuwe prestaties opgeleverd. De trainingscode is meegeleverd; voor het herhalen van historische trainingen blijven de volledige brondata uit de hoofdrepository nodig.
 
@@ -94,4 +94,4 @@ python scripts/verify_final.py
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-De pakketcontroles worden beschreven in [reports/final-checks.json](reports/final-checks.json). Softwaretests controleren de werking; de historische modelmetingen zijn ontwikkelmetingen. Een onafhankelijke eindtest, volledige menselijke labelreview en onafhankelijke tracking-/afstandsnauwkeurigheid zijn nog niet uitgevoerd.
+De pakketcontroles worden beschreven in [reports/final-checks.json](reports/final-checks.json). Softwaretests controleren de werking; de historische modelmetingen zijn ontwikkelmetingen. De menselijke review van de meegeleverde 80 beelden is door de gebruiker bevestigd. Een onafhankelijke eindtest en onafhankelijke tracking-/afstandsnauwkeurigheid zijn hiermee niet aangetoond.

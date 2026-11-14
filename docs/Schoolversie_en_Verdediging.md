@@ -1,3 +1,5 @@
+> Actuele status, geregistreerd op 14 november 2026: het team heeft volgens expliciete gebruikersbevestiging alle huidige 80 labels goedgekeurd; twijfelgevallen vielen buiten deze selectie. De oorspronkelijke AI-herkomst blijft vermeld. Zie het reviewverslag in `final/datasets/school-ball80-review-v1/REVIEW.md` (vanuit het eindpakket: `datasets/school-ball80-review-v1/REVIEW.md`). Oudere passages hieronder beschrijven de situatie voor deze bevestiging.
+
 # Schoolversie: starten en zelf kunnen uitleggen
 
 Voor de volledige code-uitleg, coördinaten, algoritmekeuzes en alternatieven:

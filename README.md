@@ -1,3 +1,5 @@
+> **Technische afronding (14 november 2026):** interfacetests en codecontroles hersteld; 537 tests en vier subtests geslaagd, één GPU-test overgeslagen. De menselijke review van de 80-beeldenselectie is door het team bevestigd. [Wijzigingen, controles en grenzen](docs/Afronding_20261114.md).
+
 > **Korte projectuitleg:** [Word-document over technieken en modellen](docs/Projectuitleg_Technieken_en_Modellen.docx), één pagina over de gewone projectcode buiten `final`.
 
 > **Trainen en Andrews model (5 november 2026):** **Modellen trainen** heeft acht afzonderlijke trainingsknoppen en **Alles trainen**. Andrews aangeleverde vierklassendetector, brondata en een afzonderlijk analyseprofiel zijn toegevoegd. De [trainingscatalogus](datasets/training-runtime-v1/README.md) bevat 16.656 bestanden; de laptopinstallatie haalt data en gewichten uit GitHub op. [Installatie en bediening](docs/Trainen_op_Andere_Laptop.md).

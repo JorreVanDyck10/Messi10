@@ -1,4 +1,3 @@
-
 """Streamlit-toegangspunt: kiest modelprofiel en workflow, verzamelt invoer en toont resultaten. De rekenstappen staan in football_pipeline zodat ze ook zonder interface bruikbaar zijn."""
 
 from __future__ import annotations
@@ -17,32 +16,31 @@ import cv2
 import pandas as pd
 import streamlit as st
 
-from src.football_pipeline.app_results import show_result
-from src.football_pipeline.calibration_input import panoris_point_suggestion, penalty_area_points, point_label
-from src.football_pipeline.contracts import PipelineError, RunResult, digest_json, read_json, sha256_file
-from src.football_pipeline.demo import default_points
-from src.football_pipeline.detection import (
+from football_pipeline.app_results import show_result
+from football_pipeline.calibration_input import panoris_point_suggestion, penalty_area_points, point_label
+from football_pipeline.contracts import PipelineError, RunResult, digest_json, read_json, sha256_file
+from football_pipeline.demo import default_points
+from football_pipeline.detection import (
     available_roles,
     load_model_manifest,
     player_detection_sources,
     validate_detection_devices,
 )
-from src.football_pipeline.geometry import (
+from football_pipeline.geometry import (
     Calibration,
     CalibrationControlError,
     create_calibration,
     point_coordinate_issues,
 )
-from src.football_pipeline.model_handoff import available_model_profiles
-from src.football_pipeline.participants import player_display_policy
-from src.football_pipeline.pipeline import process_video, validate_completed
-from src.football_pipeline.player_controls_ui import player_controls
-from src.football_pipeline.point_picker import apply_point_click, point_picker
-from src.football_pipeline.render import LABELS, calibrated_field_preview, calibration_target_preview
-from src.football_pipeline.teams import configured_team_path
-from src.football_pipeline.training_status_ui import show_training_status
-from src.football_pipeline.video import ROOT, inspect_video, read_frame
-
+from football_pipeline.model_handoff import available_model_profiles
+from football_pipeline.participants import player_display_policy
+from football_pipeline.pipeline import process_video, validate_completed
+from football_pipeline.player_controls_ui import player_controls
+from football_pipeline.point_picker import apply_point_click, point_picker
+from football_pipeline.render import LABELS, calibrated_field_preview, calibration_target_preview
+from football_pipeline.teams import configured_team_path
+from football_pipeline.training_status_ui import show_training_status
+from football_pipeline.video import ROOT, inspect_video, read_frame
 
 st.set_page_config(
     page_title="Sports Vision · voetbalanalyse",
@@ -67,7 +65,6 @@ def navigate():
     st.query_params.pop("run", None)
     st.session_state.pop("linked_run", None)
     st.session_state.pop("navigation_link", None)
-
 
 
 def _read_setup_output(stream, output_queue):
@@ -133,9 +130,7 @@ def laptop_setup_page():
 
     st.title(":material/laptop_windows: Laptop instellen")
 
-    st.caption(
-        "Bereid je Windows-laptop automatisch voor op de voetbalanalyse."
-    )
+    st.caption("Bereid je Windows-laptop automatisch voor op de voetbalanalyse.")
 
     st.markdown(
         """
@@ -160,17 +155,14 @@ def laptop_setup_page():
         st.stop()
 
     if not script_path.is_file():
-        st.error(
-            f"Het installatiescript is niet gevonden:\n\n{script_path}"
-        )
+        st.error(f"Het installatiescript is niet gevonden:\n\n{script_path}")
         st.stop()
 
     powershell = shutil.which("powershell.exe") or shutil.which("pwsh.exe")
 
     if not powershell:
         st.error(
-            "PowerShell is niet gevonden. Controleer of PowerShell "
-            "op deze Windows-laptop beschikbaar is."
+            "PowerShell is niet gevonden. Controleer of PowerShell op deze Windows-laptop beschikbaar is."
         )
         st.stop()
 
@@ -192,10 +184,7 @@ def laptop_setup_page():
         "draait. Je kunt deze pagina alleen gebruiken voor lokale installatie."
     )
 
-    st.info(
-            "Indien de installatie faalt door middel van een FFmpeg error, "
-            "druk opnieuw op installeren."
-    )
+    st.info("Indien de installatie faalt door middel van een FFmpeg error, druk opnieuw op installeren.")
 
     process = st.session_state.get("laptop_setup_process")
     setup_running = process is not None and process.poll() is None
@@ -256,6 +245,7 @@ def laptop_setup_page():
 
     @st.fragment(run_every=1)
     def show_setup_progress():
+        """Toon installatie-uitvoer en ruim procesgegevens op zodra de installatie eindigt."""
         process = st.session_state.get("laptop_setup_process")
 
         if process is None:
@@ -322,16 +312,11 @@ def laptop_setup_page():
                     language="powershell",
                 )
             else:
-                st.caption(
-                    "Wachten op uitvoer van het installatiescript..."
-                )
+                st.caption("Wachten op uitvoer van het installatiescript...")
 
         # Rond pas af wanneer het proces gestopt is en de reader
         # alle resterende uitvoer heeft doorgestuurd.
-        if (
-            process.poll() is not None
-            and st.session_state.get("laptop_setup_reader_done", False)
-        ):
+        if process.poll() is not None and st.session_state.get("laptop_setup_reader_done", False):
             return_code = process.returncode
             cancelled = st.session_state.get(
                 "laptop_setup_cancelled",
@@ -414,7 +399,7 @@ if navigation == "Laptop instellen":
 # ---------------------------------------------------------------------
 
 if navigation == "Modellen trainen":
-    from src.football_pipeline.training_ui import training_page
+    from football_pipeline.training_ui import training_page
 
     training_page()
     st.stop()
@@ -434,7 +419,7 @@ st.caption(
 # ---------------------------------------------------------------------
 
 if linked_run := st.query_params.get("run"):
-    from src.football_pipeline.app_results import linked_result
+    from football_pipeline.app_results import linked_result
 
     try:
         if st.session_state.get("linked_run") != linked_run:
@@ -457,7 +442,6 @@ if linked_run := st.query_params.get("run"):
 # ---------------------------------------------------------------------
 
 if navigation == "Opgeslagen analyses":
-
     st.subheader("Je opgeslagen analyses")
 
     team_runs = []
@@ -478,11 +462,7 @@ if navigation == "Opgeslagen analyses":
     )
 
     if team_runs:
-
-        run_manifests = {
-            str(path): manifest
-            for path, manifest in team_runs
-        }
+        run_manifests = {str(path): manifest for path, manifest in team_runs}
 
         pending = st.session_state.pop(
             "pending_saved_run",
@@ -508,11 +488,7 @@ if navigation == "Opgeslagen analyses":
         try:
             active = st.session_state.get("result")
 
-            if (
-                active is None
-                or st.session_state.get("saved_team_selection")
-                != str(directory)
-            ):
+            if active is None or st.session_state.get("saved_team_selection") != str(directory):
                 active = RunResult(
                     directory,
                     validate_completed(directory),
@@ -528,10 +504,7 @@ if navigation == "Opgeslagen analyses":
             st.error(str(exc))
 
     else:
-        st.info(
-            "Nog geen voltooide analyse beschikbaar. "
-            "Begin bij Nieuwe analyse met een voetbalvideo."
-        )
+        st.info("Nog geen voltooide analyse beschikbaar. Begin bij Nieuwe analyse met een voetbalvideo.")
 
     st.stop()
 
@@ -541,10 +514,9 @@ if navigation == "Opgeslagen analyses":
 # ---------------------------------------------------------------------
 
 if navigation == "Veldcontrole":
-
     st.subheader("Controleer de veldprojectie")
 
-    from src.football_pipeline.field_review_ui import visual_review
+    from football_pipeline.field_review_ui import visual_review
 
     saved_runs = []
 
@@ -552,10 +524,7 @@ if navigation == "Veldcontrole":
         try:
             saved = read_json(run_path)
 
-            if (
-                saved.get("status") == "completed"
-                and saved.get("calibration_mode") == "automatic"
-            ):
+            if saved.get("status") == "completed" and saved.get("calibration_mode") == "automatic":
                 saved_runs.append((run_path.parent, saved))
 
         except PipelineError:
@@ -567,7 +536,6 @@ if navigation == "Veldcontrole":
     )
 
     if saved_runs:
-
         selected_run = st.selectbox(
             "Opgeslagen veldtest",
             range(len(saved_runs)),
@@ -581,9 +549,7 @@ if navigation == "Veldcontrole":
 
         directory = saved_runs[selected_run][0]
 
-        st.video(
-            str(directory / "samengestelde_video.mp4")
-        )
+        st.video(str(directory / "samengestelde_video.mp4"))
 
         try:
             visual_review(directory)
@@ -600,6 +566,7 @@ if navigation == "Veldcontrole":
 # ---------------------------------------------------------------------
 # Video caching
 # ---------------------------------------------------------------------
+
 
 @st.cache_data(max_entries=8, show_spinner=False)
 def cached_video_metadata(path: str, file_hash: str):
@@ -620,7 +587,6 @@ def cached_frame(video, index):
 st.subheader("Begin met je wedstrijdclip")
 
 with st.container(horizontal=True):
-
     for label, caption in (
         (
             ":material/upload: 1. Video kiezen",
@@ -635,7 +601,6 @@ with st.container(horizontal=True):
             "Bekijk de minimap en geschatte afstanden.",
         ),
     ):
-
         with st.container(border=True, width=300):
             st.markdown(f"**{label}**")
             st.caption(caption)
@@ -654,7 +619,6 @@ automatic_analysis_enabled = (
 
 
 with st.container(border=True):
-
     upload = st.file_uploader(
         "Voetbalvideo (.mp4)",
         type=["mp4"],
@@ -664,21 +628,14 @@ with st.container(border=True):
 
 
 if upload is None:
-    st.caption(
-        "Kies een ontwikkelfragment van ongeveer 30–60 seconden om te beginnen."
-    )
+    st.caption("Kies een ontwikkelfragment van ongeveer 30–60 seconden om te beginnen.")
     st.stop()
 
 
 try:
-
-    upload_id = (
-        getattr(upload, "file_id", None)
-        or hashlib.sha256(upload.getbuffer()).hexdigest()
-    )
+    upload_id = getattr(upload, "file_id", None) or hashlib.sha256(upload.getbuffer()).hexdigest()
 
     if st.session_state.get("active_upload_id") != upload_id:
-
         content = upload.getbuffer()
 
         file_hash = hashlib.sha256(content).hexdigest()
@@ -689,7 +646,6 @@ try:
         staged = upload_root / f"{file_hash}.mp4"
 
         if not staged.is_file():
-
             temporary = staged.with_suffix(".upload")
 
             temporary.write_bytes(content)
@@ -712,14 +668,12 @@ try:
             st.session_state.pop(name, None)
 
     with st.spinner("Videotijdlijn controleren…"):
-
         video = cached_video_metadata(
             st.session_state.video_path,
             st.session_state.video_hash,
         )
 
     with st.container(horizontal=True):
-
         st.metric(
             "Resolutie",
             f"{video.width} × {video.height}",
@@ -746,8 +700,7 @@ except (PipelineError, OSError) as exc:
 
 
 if automatic_analysis_enabled:
-
-    from src.football_pipeline.automatic_analysis_ui import automatic_analysis
+    from football_pipeline.automatic_analysis_ui import automatic_analysis
 
     automatic_analysis(
         video,
@@ -788,7 +741,6 @@ automatic_mode = mode == "Automatische veldkalibratie"
 
 
 if st.session_state.get("active_calibration_mode") != mode:
-
     st.session_state.active_calibration_mode = mode
     st.session_state.tracking = False
 
@@ -803,12 +755,10 @@ field_ready = True
 
 
 if automatic_mode:
-
     calibration = None
 
     st.write(
-        "Veldpunten en lijnen worden voor ieder frame opnieuw herkend, "
-        "ook wanneer hoeken buiten beeld zijn."
+        "Veldpunten en lijnen worden voor ieder frame opnieuw herkend, ook wanneer hoeken buiten beeld zijn."
     )
 
     st.caption(
@@ -839,16 +789,10 @@ if automatic_mode:
         key="field_usage",
     )
 
-    field_ready = (
-        field_runtime.is_file()
-        and bool(field_source.strip() and field_usage.strip())
-    )
+    field_ready = field_runtime.is_file() and bool(field_source.strip() and field_usage.strip())
 
     if not field_runtime.is_file():
-
-        st.warning(
-            "De afzonderlijke veldmodelomgeving is nog niet ingesteld."
-        )
+        st.warning("De afzonderlijke veldmodelomgeving is nog niet ingesteld.")
 
         st.code(
             "python scripts/setup_field_model.py",
@@ -856,17 +800,13 @@ if automatic_mode:
         )
 
     else:
-
         try:
-
             runtime = read_json(field_runtime)
 
             field_signature = digest_json(
                 {
                     "runtime": runtime,
-                    "worker": sha256_file(
-                        ROOT / "scripts/field_calibration_worker.py"
-                    ),
+                    "worker": sha256_file(ROOT / "scripts/field_calibration_worker.py"),
                     "weights": {
                         name: [
                             Path(runtime[name]).stat().st_size,
@@ -881,22 +821,15 @@ if automatic_mode:
             )
 
         except (OSError, PipelineError, KeyError) as exc:
-
-            st.error(
-                f"Veldmodelomgeving niet gereed: {exc}"
-            )
+            st.error(f"Veldmodelomgeving niet gereed: {exc}")
 
             field_ready = False
 
     if not field_source.strip() or not field_usage.strip():
-
-        st.caption(
-            "Vul de videobron en het toegelaten gebruik in om te verwerken."
-        )
+        st.caption("Vul de videobron en het toegelaten gebruik in om te verwerken.")
 
 
 else:
-
     st.write(
         "Kies hieronder een veldpunt en klik op de bijbehorende plek "
         "in het videobeeld. De coördinaten worden automatisch ingevuld. "
@@ -910,7 +843,6 @@ else:
     )
 
     with st.expander("Waar horen de zes punten?"):
-
         st.code(
             "1. Linksboven ───── 5. Middenlijn boven ───── 2. Rechtsboven\n"
             "       │                    │                      │\n"
@@ -921,8 +853,7 @@ else:
         )
 
         st.caption(
-            "Punt 5 en 6 liggen op de zijlijnen. "
-            "De middenstip is geen vervanging voor deze twee punten."
+            "Punt 5 en 6 liggen op de zijlijnen. De middenstip is geen vervanging voor deze twee punten."
         )
 
     calibration_upload = st.file_uploader(
@@ -932,36 +863,23 @@ else:
     )
 
     if calibration_upload is not None:
-
         try:
-
-            loaded = Calibration(
-                **json.loads(calibration_upload.getvalue())
-            )
+            loaded = Calibration(**json.loads(calibration_upload.getvalue()))
 
             loaded.validate_for(video)
 
             st.session_state.calibration = loaded
 
-            st.session_state.calibration_signature = (
-                "loaded:" + loaded.identity
-            )
+            st.session_state.calibration_signature = "loaded:" + loaded.identity
 
-            st.success(
-                f"Goedgekeurde kalibratie geladen; reviewer: "
-                f"{loaded.review['reviewer']}."
-            )
+            st.success(f"Goedgekeurde kalibratie geladen; reviewer: {loaded.review['reviewer']}.")
 
         except (PipelineError, ValueError, TypeError, KeyError) as exc:
-
-            st.error(
-                f"Kalibratie niet geladen: {exc}"
-            )
+            st.error(f"Kalibratie niet geladen: {exc}")
 
             st.session_state.pop("calibration", None)
 
     else:
-
         seed_key = f"point_seed_{video.sha256}"
         revision_key = f"point_revision_{video.sha256}"
         latest_key = f"point_latest_{video.sha256}"
@@ -984,17 +902,14 @@ else:
         length, width = 105.0, 68.0
 
         if layout != "Volledig veld":
-
             st.caption(
-                "Klik de vier hoeken van het strafschopgebied en twee "
-                "hoeken van het kleine doelgebied."
+                "Klik de vier hoeken van het strafschopgebied en twee hoeken van het kleine doelgebied."
             )
 
             with st.expander(
                 "Veldafmetingen controleren",
                 expanded=True,
             ):
-
                 length = st.number_input(
                     "Veldlengte (m)",
                     60.0,
@@ -1011,21 +926,13 @@ else:
                     key=f"pitch_width_{video.sha256}",
                 )
 
-                st.caption(
-                    "105 × 68 m is een aanname. Gebruik de werkelijke afmetingen."
-                )
+                st.caption("105 × 68 m is een aanname. Gebruik de werkelijke afmetingen.")
 
-        layout_signature = digest_json(
-            [layout, length, width]
-        )
+        layout_signature = digest_json([layout, length, width])
 
         layout_key = f"point_layout_signature_{video.sha256}"
 
-        if (
-            seed_key not in st.session_state
-            or st.session_state.get(layout_key) != layout_signature
-        ):
-
+        if seed_key not in st.session_state or st.session_state.get(layout_key) != layout_signature:
             st.session_state[seed_key] = (
                 default_points(video.width, video.height)
                 if layout == "Volledig veld"
@@ -1050,24 +957,17 @@ else:
             ):
                 st.session_state.pop(name, None)
 
-        suggested_points = (
-            panoris_point_suggestion(video)
-            if layout == "Volledig veld"
-            else None
-        )
+        suggested_points = panoris_point_suggestion(video) if layout == "Volledig veld" else None
 
         if suggested_points is not None:
-
             st.info(
-                "Deze PANORIS-video wordt herkend. "
-                "Je kunt de bestaande pilotpunten invullen en controleren."
+                "Deze PANORIS-video wordt herkend. Je kunt de bestaande pilotpunten invullen en controleren."
             )
 
             if st.button(
                 "Pilotpunten invullen",
                 key="load_pilot_points",
             ):
-
                 st.session_state[seed_key] = suggested_points
                 st.session_state[revision_key] += 1
 
@@ -1082,9 +982,7 @@ else:
                 ):
                     st.session_state.pop(name, None)
 
-                st.success(
-                    "Pilotpunten ingevuld. Controleer de markeringen."
-                )
+                st.success("Pilotpunten ingevuld. Controleer de markeringen.")
 
         reference_index = st.slider(
             "Referentieframe",
@@ -1095,8 +993,7 @@ else:
         )
 
         point_labels = [
-            f"{i + 1}. {point_label(point)}"
-            for i, point in enumerate(st.session_state[seed_key])
+            f"{i + 1}. {point_label(point)}" for i, point in enumerate(st.session_state[seed_key])
         ]
 
         selected = st.selectbox(
@@ -1110,7 +1007,6 @@ else:
             "Waar ligt dit punt op het veld?",
             expanded=layout != "Volledig veld",
         ):
-
             st.image(
                 cv2.cvtColor(
                     calibration_target_preview(
@@ -1121,41 +1017,27 @@ else:
                     ),
                     cv2.COLOR_BGR2RGB,
                 ),
-                caption=(
-                    "Bovenaanzicht: wit omcirkeld = huidig punt; "
-                    "blauw = fit; geel = controle."
-                ),
+                caption=("Bovenaanzicht: wit omcirkeld = huidig punt; blauw = fit; geel = controle."),
                 width=560,
             )
 
         picker_container = st.container()
 
-        points_df = pd.DataFrame(
-            st.session_state[seed_key]
-        )
+        points_df = pd.DataFrame(st.session_state[seed_key])
 
         points_df.insert(
             0,
             "plek",
-            [
-                point_label(point)
-                for point in st.session_state[seed_key]
-            ],
+            [point_label(point) for point in st.session_state[seed_key]],
         )
 
         points_df["x"] = points_df["x"].astype(float)
         points_df["y"] = points_df["y"].astype(float)
 
-        with st.expander(
-            "Puntentabel bekijken of precies bijstellen"
-        ):
-
+        with st.expander("Puntentabel bekijken of precies bijstellen"):
             edited = st.data_editor(
                 points_df,
-                key=(
-                    f"points_{video.sha256}_"
-                    f"{st.session_state[revision_key]}"
-                ),
+                key=(f"points_{video.sha256}_{st.session_state[revision_key]}"),
                 hide_index=True,
                 disabled=[
                     "plek",
@@ -1165,9 +1047,7 @@ else:
                     "v",
                 ],
                 column_config={
-                    "plek": st.column_config.TextColumn(
-                        "Plek op het veld"
-                    ),
+                    "plek": st.column_config.TextColumn("Plek op het veld"),
                     "name": None,
                     "x": st.column_config.NumberColumn(
                         "x (pixels)",
@@ -1199,12 +1079,9 @@ else:
             }
         )
 
-        failure = st.session_state.get(
-            "calibration_failure"
-        )
+        failure = st.session_state.get("calibration_failure")
 
         if failure and failure["signature"] != signature:
-
             st.session_state.pop(
                 "calibration_failure",
                 None,
@@ -1212,12 +1089,9 @@ else:
 
             failure = None
 
-        previous_signature = st.session_state.get(
-            "calibration_signature"
-        )
+        previous_signature = st.session_state.get("calibration_signature")
 
         if previous_signature != signature:
-
             st.session_state.pop(
                 "calibration",
                 None,
@@ -1244,6 +1118,7 @@ else:
         )
 
         def save_clicked_point():
+            """Bewaar alleen een klik die bij het huidige videoframe en de huidige puntselectie hoort."""
 
             event = st.session_state[picker_key].clicked
 
@@ -1252,9 +1127,7 @@ else:
             current_context = digest_json(
                 {
                     "video": video.sha256,
-                    "reference": st.session_state[
-                        f"reference_{video.sha256}"
-                    ],
+                    "reference": st.session_state[f"reference_{video.sha256}"],
                     "revision": st.session_state[revision_key],
                     "points": current_points,
                     "selected": st.session_state[selected_key],
@@ -1262,7 +1135,6 @@ else:
             )
 
             try:
-
                 updated = apply_point_click(
                     current_points,
                     event,
@@ -1273,7 +1145,6 @@ else:
                 )
 
             except PipelineError as exc:
-
                 st.session_state["point_click_error"] = str(exc)
                 return
 
@@ -1282,10 +1153,7 @@ else:
             st.session_state[revision_key] += 1
 
             missing = [
-                i
-                for i, point in enumerate(updated)
-                if point.get("x") is None
-                or point.get("y") is None
+                i for i, point in enumerate(updated) if point.get("x") is None or point.get("y") is None
             ]
 
             if missing:
@@ -1301,12 +1169,8 @@ else:
                 st.session_state.pop(name, None)
 
         with picker_container:
-
             if "point_click_error" in st.session_state:
-
-                st.warning(
-                    st.session_state.pop("point_click_error")
-                )
+                st.warning(st.session_state.pop("point_click_error"))
 
             point_picker(
                 frame,
@@ -1315,11 +1179,7 @@ else:
                 context=click_context,
                 key=picker_key,
                 on_clicked_change=save_clicked_point,
-                diagnostics=(
-                    failure.get("diagnostics")
-                    if failure
-                    else None
-                ),
+                diagnostics=(failure.get("diagnostics") if failure else None),
             )
 
             st.caption(
@@ -1330,34 +1190,19 @@ else:
         issues = point_coordinate_issues(points)
 
         if issues:
+            missing_labels = [point_label(point) for point in points if point_coordinate_issues([point])]
 
-            missing_labels = [
-                point_label(point)
-                for point in points
-                if point_coordinate_issues([point])
-            ]
-
-            st.info(
-                "Wijs nog aan of verbeter: "
-                + "; ".join(missing_labels)
-                + "."
-            )
+            st.info("Wijs nog aan of verbeter: " + "; ".join(missing_labels) + ".")
 
         else:
-
-            st.success(
-                "Alle punten zijn ingevuld. "
-                "Controleer de markeringen en bereken de kalibratie."
-            )
+            st.success("Alle punten zijn ingevuld. Controleer de markeringen en bereken de kalibratie.")
 
         if st.button(
             "Kalibratie berekenen",
             key="calculate",
             disabled=bool(issues),
         ):
-
             try:
-
                 draft = create_calibration(
                     video,
                     points,
@@ -1373,14 +1218,12 @@ else:
                 )
 
             except PipelineError as exc:
-
                 failure = {
                     "signature": signature,
                     "message": str(exc),
                 }
 
                 if isinstance(exc, CalibrationControlError):
-
                     failure.update(
                         diagnostics=exc.diagnostics,
                         median_px=exc.median_px,
@@ -1393,16 +1236,12 @@ else:
 
                 st.rerun()
 
-        failure = st.session_state.get(
-            "calibration_failure"
-        )
+        failure = st.session_state.get("calibration_failure")
 
         if failure and failure["signature"] == signature:
-
             st.error(failure["message"])
 
             if failure.get("diagnostics"):
-
                 st.dataframe(
                     [
                         {
@@ -1436,34 +1275,20 @@ else:
                 )
 
                 if suggested_points is not None:
+                    st.info("Voor deze herkende clip kun je bovenaan ‘Pilotpunten invullen’ gebruiken.")
 
-                    st.info(
-                        "Voor deze herkende clip kun je bovenaan "
-                        "‘Pilotpunten invullen’ gebruiken."
-                    )
+        draft = st.session_state.get("draft_calibration")
 
-        draft = st.session_state.get(
-            "draft_calibration"
-        )
-
-        if (
-            draft is not None
-            and st.session_state.get("draft_signature") == signature
-        ):
-
+        if draft is not None and st.session_state.get("draft_signature") == signature:
             st.success(
                 "Puntcontrole geslaagd. Afwijkingen: "
-                + ", ".join(
-                    f"{e:.2f} px"
-                    for e in draft.check_errors_px
-                )
+                + ", ".join(f"{e:.2f} px" for e in draft.check_errors_px)
             )
 
             with st.expander(
                 "Begin, midden en einde controleren",
                 expanded=True,
             ):
-
                 columns = st.columns(3)
 
                 temporal = [
@@ -1473,7 +1298,6 @@ else:
                 ]
 
                 for column, index in zip(columns, temporal):
-
                     temporal_frame = calibrated_field_preview(
                         cached_frame(video, index),
                         draft,
@@ -1488,33 +1312,24 @@ else:
                     )
 
                 st.caption(
-                    "Groen = geschatte veldgrenzen en middenlijn. "
-                    "Controleer die op alle drie beelden."
+                    "Groen = geschatte veldgrenzen en middenlijn. Controleer die op alle drie beelden."
                 )
 
             with st.form("approve_calibration"):
-
                 reviewer = st.text_input("Naam reviewer")
                 source = st.text_input("Videobron")
 
-                usage = st.text_input(
-                    "Toegelaten gebruik / bronvermelding"
-                )
+                usage = st.text_input("Toegelaten gebruik / bronvermelding")
 
                 static = st.checkbox(
-                    "Ik bevestig de puntvolgorde en een vaste camera "
-                    "op begin, midden en einde.",
+                    "Ik bevestig de puntvolgorde en een vaste camera op begin, midden en einde.",
                     key="confirm_static_camera",
                 )
 
-                approve = st.form_submit_button(
-                    "Kalibratie goedkeuren"
-                )
+                approve = st.form_submit_button("Kalibratie goedkeuren")
 
             if approve:
-
                 try:
-
                     draft.review = {
                         "approved": True,
                         "reviewer": reviewer,
@@ -1534,23 +1349,15 @@ else:
 
                     st.session_state.calibration_signature = signature
 
-                    st.success(
-                        "Kalibratie goedgekeurd."
-                    )
+                    st.success("Kalibratie goedgekeurd.")
 
                 except PipelineError as exc:
-
                     st.error(str(exc))
 
-    calibration = st.session_state.get(
-        "calibration"
-    )
+    calibration = st.session_state.get("calibration")
 
     if calibration is None:
-
-        st.caption(
-            "Bereken en keur de kalibratie goed om verder te gaan."
-        )
+        st.caption("Bereken en keur de kalibratie goed om verder te gaan.")
 
         st.stop()
 
@@ -1573,10 +1380,7 @@ else:
 st.subheader("3. Verwerken")
 
 profiles = (
-    {
-        MODEL_PATH.resolve():
-        "Schoolversie · spelers, scheidsrechters en bal"
-    }
+    {MODEL_PATH.resolve(): "Schoolversie · spelers, scheidsrechters en bal"}
     if SCHOOL_MODE
     else available_model_profiles(
         MODEL_PATH,
@@ -1585,7 +1389,6 @@ profiles = (
 )
 
 if not profiles:
-
     st.error("Er is geen modelprofiel beschikbaar.")
     st.stop()
 
@@ -1594,7 +1397,6 @@ with st.expander(
     "Geavanceerde model- en trackinginstellingen",
     expanded=SCHOOL_MODE,
 ):
-
     selected_model_path = st.selectbox(
         "Modelprofiel",
         list(profiles),
@@ -1603,20 +1405,13 @@ with st.expander(
     )
 
     try:
-
-        models = load_model_manifest(
-            selected_model_path
-        )
+        models = load_model_manifest(selected_model_path)
 
         validate_detection_devices(models)
 
         profile_identity = digest_json(models)
 
-        if (
-            st.session_state.get("active_model_profile")
-            != profile_identity
-        ):
-
+        if st.session_state.get("active_model_profile") != profile_identity:
             st.session_state.active_model_profile = profile_identity
 
             st.session_state.tracking = False
@@ -1628,93 +1423,61 @@ with st.expander(
         st.caption(
             "Dit model onderscheidt: "
             + ", ".join(
-                "scheidsrechter"
-                if role == "referee" and models.get("appearance")
-                else LABELS.get(role, role)
+                "scheidsrechter" if role == "referee" and models.get("appearance") else LABELS.get(role, role)
                 for role in sorted(semantic_classes)
             )
             + (
-                ". Alleen gedetecteerde spelers met hun voetpunt "
-                "binnen het geldige veld tellen mee. "
+                ". Alleen gedetecteerde spelers met hun voetpunt binnen het geldige veld tellen mee. "
                 if "player" in semantic_classes
-                else ". Personen blijven als persoon aangeduid; "
-                "hun rol is onbekend. "
+                else ". Personen blijven als persoon aangeduid; hun rol is onbekend. "
             )
             + "Zonder geldige veldherkenning is het aantal op het veld onbekend."
         )
 
         if models.get("appearance"):
-
             st.caption(
                 "Spelers krijgen Team A, Team B of team onbekend. "
                 "A/B zijn geen clubnamen. Bij twijfel blijft het team onbekend."
             )
 
         if "player" in semantic_classes and (
-            "steward" not in semantic_classes
-            or "spectator" not in semantic_classes
+            "steward" not in semantic_classes or "spectator" not in semantic_classes
         ):
+            st.warning("Dit model heeft nog geen aparte herkenning voor stewards en supporters.")
 
-            st.warning(
-                "Dit model heeft nog geen aparte herkenning voor stewards "
-                "en supporters."
-            )
+        if models.get("handoff", {}).get("human_review_completed") is False:
+            st.caption("Dit model is voorlopig. De menselijke labelreview staat nog open.")
 
-        if models.get("handoff", {}).get(
-            "human_review_completed"
-        ) is False:
-
-            st.caption(
-                "Dit model is voorlopig. De menselijke labelreview staat nog open."
-            )
-
-        if models.get("handoff", {}).get(
-            "broadcast_transfer_adequate"
-        ) is False:
-
+        if models.get("handoff", {}).get("broadcast_transfer_adequate") is False:
             st.warning(
                 "De P004-basisdetector miste veel personen in de "
                 "Broadcast-ontwikkelclip. Controleer de detecties."
             )
 
         if "player" not in semantic_classes:
-
             st.warning(
                 "Dit profiel detecteert personen. "
                 "Spelertracking vereist een model met expliciete spelerklassen."
             )
 
         elif SCHOOL_MODE:
-
-            st.info(
-                "Duid de veldpunten aan en controleer de projectie. "
-                "Daarna kun je de video verwerken."
-            )
+            st.info("Duid de veldpunten aan en controleer de projectie. Daarna kun je de video verwerken.")
 
         elif not automatic_mode:
-
             st.info(
                 "Spelermodel geselecteerd. Controleer eerst een run "
                 "zonder tracking en leg de MVP-review vast."
             )
 
         else:
-
-            st.info(
-                "Spelermodel geselecteerd. "
-                "Het veldmodel plaatst de actuele detecties op de minimap."
-            )
+            st.info("Spelermodel geselecteerd. Het veldmodel plaatst de actuele detecties op de minimap.")
 
     except PipelineError as exc:
-
         st.error(str(exc))
 
-        st.caption(
-            "Eenmalige voorbereiding: python -m football_pipeline download-baseline"
-        )
+        st.caption("Eenmalige voorbereiding: python -m football_pipeline download-baseline")
 
         st.stop()
-
 
     tracking = (
         False
@@ -1744,7 +1507,6 @@ with st.expander(
 player_display_confidence = None
 
 if not SCHOOL_MODE and "player" in semantic_classes:
-
     player_display_confidence = player_controls(
         models,
         ROOT / "configs/bytetrack.yaml",
@@ -1757,7 +1519,6 @@ team_config_path = configured_team_path(models)
 
 
 if automatic_mode:
-
     st.caption(
         "Speler-ID’s gebruiken cameracompensatie en worden bij "
         "camerawissels vernieuwd. Trajecten bevatten alleen actuele, "
@@ -1768,7 +1529,6 @@ if automatic_mode:
 acceptance_upload = None
 
 if tracking and not automatic_mode:
-
     acceptance_upload = st.file_uploader(
         "Gecontroleerde MVP-acceptatie (.json)",
         type=["json"],
@@ -1784,40 +1544,22 @@ if tracking and not automatic_mode:
 request_signature = digest_json(
     {
         "video": video.sha256,
-        "calibration": (
-            field_signature
-            if automatic_mode
-            else calibration.identity
-        ),
+        "calibration": (field_signature if automatic_mode else calibration.identity),
         "calibration_mode": mode,
         "field_source": field_source,
         "field_usage": field_usage,
         "models": models,
         "tracking": tracking,
-        "player_policy": player_display_policy(
-            player_display_confidence
-        ),
-        "teams": (
-            sha256_file(team_config_path)
-            if teams_enabled
-            else None
-        ),
+        "player_policy": player_display_policy(player_display_confidence),
+        "teams": (sha256_file(team_config_path) if teams_enabled else None),
         "acceptance": (
-            hashlib.sha256(
-                acceptance_upload.getvalue()
-            ).hexdigest()
-            if acceptance_upload
-            else None
+            hashlib.sha256(acceptance_upload.getvalue()).hexdigest() if acceptance_upload else None
         ),
     }
 )
 
 
-if (
-    st.session_state.get("result_request_signature")
-    != request_signature
-):
-
+if st.session_state.get("result_request_signature") != request_signature:
     st.session_state.pop("result", None)
 
 
@@ -1825,16 +1567,8 @@ if st.button(
     "Verwerken",
     type="primary",
     key="process",
-    disabled=(
-        not field_ready
-        or (
-            tracking
-            and not automatic_mode
-            and acceptance_upload is None
-        )
-    ),
+    disabled=(not field_ready or (tracking and not automatic_mode and acceptance_upload is None)),
 ):
-
     st.session_state.player_display_dirty = False
 
     progress_bar = st.progress(
@@ -1845,90 +1579,53 @@ if st.button(
     acceptance_path = None
 
     if acceptance_upload:
-
         acceptance_path = (
             ROOT
             / "data/uploads"
-            / (
-                "acceptance-"
-                + hashlib.sha256(
-                    acceptance_upload.getvalue()
-                ).hexdigest()
-                + ".json"
-            )
+            / ("acceptance-" + hashlib.sha256(acceptance_upload.getvalue()).hexdigest() + ".json")
         )
 
-        acceptance_path.write_bytes(
-            acceptance_upload.getvalue()
-        )
+        acceptance_path.write_bytes(acceptance_upload.getvalue())
 
     try:
 
         def show_progress(count, total, elapsed):
+            """Werk de voortgang bij tijdens detectie, tracking en het tekenen van de minimap."""
 
-            fraction = (
-                0.5 + count / total * 0.5
-                if automatic_mode
-                else count / total
-            )
+            fraction = 0.5 + count / total * 0.5 if automatic_mode else count / total
 
             progress_bar.progress(
                 fraction,
-                text=(
-                    f"Detecties en minimap: {count}/{total} frames "
-                    f"· {elapsed:.1f} seconden"
-                ),
+                text=(f"Detecties en minimap: {count}/{total} frames · {elapsed:.1f} seconden"),
             )
 
-
         def show_field_progress(count, total, elapsed):
+            """Reserveer de eerste helft van de voortgang voor automatische veldherkenning."""
 
             progress_bar.progress(
                 count / total * 0.5,
-                text=(
-                    f"Veldherkenning: {count}/{total} frames "
-                    f"· {elapsed:.1f} seconden"
-                ),
+                text=(f"Veldherkenning: {count}/{total} frames · {elapsed:.1f} seconden"),
             )
-
 
         result = process_video(
             video.path,
             calibration,
             selected_model_path,
             OUTPUT_ROOT,
-            tracker_config_path=(
-                ROOT / "configs/bytetrack.yaml"
-                if tracking
-                else None
-            ),
+            tracker_config_path=(ROOT / "configs/bytetrack.yaml" if tracking else None),
             player_display_confidence=player_display_confidence,
-            team_config_path=(
-                team_config_path
-                if teams_enabled
-                else None
-            ),
+            team_config_path=(team_config_path if teams_enabled else None),
             mvp_acceptance_path=acceptance_path,
             progress=show_progress,
-            field_progress=(
-                show_field_progress
-                if automatic_mode
-                else None
-            ),
-            field_runtime_path=(
-                field_runtime
-                if automatic_mode
-                else None
-            ),
+            field_progress=(show_field_progress if automatic_mode else None),
+            field_runtime_path=(field_runtime if automatic_mode else None),
             field_source=field_source,
             field_usage=field_usage,
         )
 
         st.session_state.result = result
 
-        st.session_state.result_request_signature = (
-            request_signature
-        )
+        st.session_state.result_request_signature = request_signature
 
         progress_bar.progress(
             1.0,
@@ -1941,7 +1638,6 @@ if st.button(
         ValueError,
         KeyError,
     ) as exc:
-
         st.error(str(exc))
 
 
