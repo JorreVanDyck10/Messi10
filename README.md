@@ -1,3 +1,5 @@
+> **YOLO26 en herstel naar YOLO11:** afzonderlijke import- en startcommando's met een bewaarde kopie van de oorspronkelijke spelersgewichten. Raouls getrainde YOLO26-checkpoint moet nog worden geïmporteerd. [Starten en terugschakelen](docs/YOLO26_Omschakelen_en_Terugzetten.md).
+
 > **Korte projectuitleg:** [Word-document over technieken en modellen](docs/Projectuitleg_Technieken_en_Modellen.docx), één pagina over de gewone projectcode buiten `final`.
 
 > **Trainen en Andrews model (5 november 2026):** **Modellen trainen** heeft acht afzonderlijke trainingsknoppen en **Alles trainen**. Andrews aangeleverde vierklassendetector, brondata en een afzonderlijk analyseprofiel zijn toegevoegd. De [trainingscatalogus](datasets/training-runtime-v1/README.md) bevat 16.656 bestanden; de laptopinstallatie haalt data en gewichten uit GitHub op. [Installatie en bediening](docs/Trainen_op_Andere_Laptop.md).

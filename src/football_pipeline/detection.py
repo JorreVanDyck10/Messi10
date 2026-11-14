@@ -60,6 +60,8 @@ def load_model_manifest(path: str | Path) -> dict:
                 owners[semantic] = identifier
             if not 0 < float(spec["confidence"]) <= 1 or not 0 < float(spec["iou"]) <= 1:
                 raise PipelineError("Confidence en NMS-IoU moeten in (0,1] liggen.")
+            if "nms" in spec and type(spec["nms"]) is not bool:
+                raise PipelineError("De expliciete NMS-keuze moet true of false zijn.")
             if not math.isfinite(float(spec["imgsz"])) or int(spec["imgsz"]) <= 0:
                 raise PipelineError("imgsz moet positief zijn.")
             expected = {int(k): str(v) for k, v in spec["expected_names"].items()}
@@ -460,7 +462,11 @@ class UltralyticsDetector:
                     device=spec.get("device", "cpu"),
                     classes=[int(k) for k in spec["class_mapping"]],
                     verbose=False,
+                    **({"nms": spec["nms"]} if "nms" in spec else {}),
                 )[0]
+                if spec.get("nms") and getattr(getattr(model, "predictor", None), "model", None) is not None:
+                    if getattr(model.predictor.model, "end2end", False):
+                        raise PipelineError("YOLO26 gebruikt niet de gevraagde NMS/one-to-many-kop.")
                 if tuple(result.orig_shape) != pixels.shape[:2]:
                     raise PipelineError("Detectorcoördinaten horen niet bij het oorspronkelijke invoerbeeld.")
                 for box, confidence, class_id in zip(

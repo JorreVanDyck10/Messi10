@@ -5,7 +5,7 @@ de rol vast en noemt de daadwerkelijk aanwezige functies/klassen en lokale afhan
 Bij scripts met een oorspronkelijke Engelse moduleuitleg blijft die technische samenvatting zichtbaar.
 Functienamen zijn navigatiehulp; een lijst met namen vervangt het lezen van de implementatie niet.
 
-Dekking: **513 codebestanden**, inclusief tests, datasethelpers en historische bronkopieën.
+Dekking: **520 codebestanden**, inclusief tests, datasethelpers en historische bronkopieën.
 Niet-gevolgde virtuele omgevingen, externe modelrepositories en gegenereerde uitvoer horen hier niet bij.
 Inline JavaScript van de puntenkiezer staat in `point_picker.py` en schaalt klikposities terug naar bronpixels.
 
@@ -490,6 +490,14 @@ Registreert modelprofielen met expliciete bronklassen en herkomst voor overdrach
 Topniveaufuncties en klassen: `available_model_profiles`, `register_player_model`.
 
 Lokale koppelingen: `.contracts`, `.detection`.
+
+### [src/football_pipeline/model_switch.py](../src/football_pipeline/model_switch.py)
+
+Afzonderlijke YOLO11/26-profielen met controleerbare import en herstelbare startinstellingen.
+
+Topniveaufuncties en klassen: `rebase_profile`, `select_profile`, `register_yolo26`, `local_profile`, `main`.
+
+Lokale koppelingen: `.contracts`, `.detection`, `.video`.
 
 ### [src/football_pipeline/participants.py](../src/football_pipeline/participants.py)
 
@@ -1225,6 +1233,12 @@ Topniveaufuncties en klassen: `create_coco_view`, `truth_and_identity`, `measure
 
 Lokale koppelingen: `football_pipeline.contracts`, `football_pipeline.pipeline`, `football_pipeline.video`, `persoon1.metrics`, `persoon1.modeling`.
 
+### [scripts/Import-Yolo26.ps1](../scripts/Import-Yolo26.ps1)
+
+PowerShell-startprocedure.
+
+Parameters: `Weights`, `Python`.
+
 ### [scripts/measure_broadcast_baseline.py](../scripts/measure_broadcast_baseline.py)
 
 Freeze and measure the current broadcast development baseline, without test access.
@@ -1403,6 +1417,12 @@ Bereidt de lokale omgeving van persoon 1 voor.
 
 Parameters: `Python`, `CpuOnly`.
 
+### [scripts/Setup-Yolo26.ps1](../scripts/Setup-Yolo26.ps1)
+
+PowerShell-startprocedure.
+
+Parameters: `BasePython`.
+
 ### [scripts/setup_field_model.py](../scripts/setup_field_model.py)
 
 Install only the isolated field-model runtime and official release weights.
@@ -1459,17 +1479,35 @@ Start de toepassing met een expliciete herkenningskeuze.
 
 Parameters: `Mode`, `Device`, `Recognition`, `FieldMode`, `RunName`, `Weights`, `TrainingConfig`.
 
+### [scripts/Start-Voetbal.ps1](../scripts/Start-Voetbal.ps1)
+
+PowerShell-startprocedure.
+
+Parameters: `Model`, `Device`, `Port`, `Python`, `FieldRuntime`, `CheckOnly`.
+
 ### [scripts/Start-Wedstrijd.ps1](../scripts/Start-Wedstrijd.ps1)
 
 Start de gezamenlijke wedstrijdworkflow met rollen en uitbreidingen.
 
 Parameters: `Device`, `Recognition`, `FieldRuntime`.
 
+### [scripts/Start-Yolo11.ps1](../scripts/Start-Yolo11.ps1)
+
+PowerShell-startprocedure.
+
+Parameters: `Device`, `Port`, `Python`, `CheckOnly`.
+
 ### [scripts/Start-Yolo26-Players.ps1](../scripts/Start-Yolo26-Players.ps1)
 
 PowerShell-startprocedure.
 
 Parameters: `Model`, `Experiment`, `Port`.
+
+### [scripts/Start-Yolo26.ps1](../scripts/Start-Yolo26.ps1)
+
+PowerShell-startprocedure.
+
+Parameters: `Device`, `Port`, `Python`, `CheckOnly`.
 
 ### [scripts/summarize_ball_resolution.py](../scripts/summarize_ball_resolution.py)
 
@@ -2024,6 +2062,14 @@ Controleert gedrag via de onderstaande testfuncties en fixtures.
 Topniveaufuncties en klassen: `handoff`, `test_register_player_model_verifies_names_hashes_and_preserves_previous_version`, `test_invalid_handoff_cannot_create_ready_profile`, `test_profile_discovery_adds_registered_model_without_restarting`, `test_equivalent_model_profiles_are_shown_once_despite_relative_paths`, `test_unavailable_optional_profiles_are_hidden_but_default_reports_its_error`, `test_profiles_with_the_same_detector_and_different_heads_remain_selectable`.
 
 Lokale koppelingen: `football_pipeline.contracts`, `football_pipeline.detection`, `football_pipeline.model_handoff`.
+
+### [tests/test_model_switch.py](../tests/test_model_switch.py)
+
+Controleert gedrag via de onderstaande testfuncties en fixtures.
+
+Topniveaufuncties en klassen: `switch_root`, `test_missing_yolo26_has_clear_import_path_and_keeps_yolo11_available`, `test_registration_duplicates_weights_and_preserves_other_models_and_settings`, `test_registration_does_not_replace_a_different_registered_candidate`, `test_registration_rejects_wrong_architecture_or_generic_person_model`, `test_relative_profile_movement_preserves_the_actual_referenced_files`, `test_cpu_working_profile_leaves_the_rollback_profile_unchanged`, `test_nms_override_reaches_only_the_model_that_requests_it`, `test_manifest_rejects_non_boolean_nms`.
+
+Lokale koppelingen: `football_pipeline.contracts`, `football_pipeline.detection`, `football_pipeline.model_switch`.
 
 ### [tests/test_models_and_evaluation.py](../tests/test_models_and_evaluation.py)
 
@@ -3963,6 +4009,7 @@ De loader controleert bestanden en mappings; de run bewaart wat daadwerkelijk is
 | [models-ball-f003.json](../configs/models-ball-f003.json) | football48-coco-head-f003 | geen |
 | [models-ball-f005.json](../configs/models-ball-f005.json) | fullscene-ball-f005-multiscale | ball_tiles |
 | [models-ball-tiles.json](../configs/models-ball-tiles.json) | coco-ball-multiscale-tiles | ball_tiles |
+| [models-broadcast-yolo11.json](../configs/models-broadcast-yolo11.json) | broadcast-pitch-players-v7, coco-person-proposals, andrew-ball-v1 | appearance, kit_embedding, role_context, analysis_scope |
 | [models-broadcast.json](../configs/models-broadcast.json) | broadcast-pitch-players-v7, coco-person-proposals, andrew-ball-v1 | appearance, kit_embedding, role_context, analysis_scope |
 | [models-coco-baseline.json](../configs/models-coco-baseline.json) | coco_baseline | geen |
 | [models-integrated-20261027.json](../configs/models-integrated-20261027.json) | joint-selected-players, coco-person-proposals, joint-selected-ball | appearance, ball_tiles |
@@ -3984,4 +4031,4 @@ De loader controleert bestanden en mappings; de run bewaart wat daadwerkelijk is
 | [models-school.json](../configs/models-school.json) | exp-p006-gsr-multimatch-v3, fullscene-ball-f005-multiscale | geen |
 | [models.json](../configs/models.json) | exp-p006-gsr-multimatch-v3 | geen |
 
-Bestandstypen: .ps1: 24, .py: 489.
+Bestandstypen: .ps1: 29, .py: 491.
