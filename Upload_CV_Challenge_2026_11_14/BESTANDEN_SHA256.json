@@ -1,7 +1,7 @@
 {
   "source_commit": "524d081a",
-  "file_count": 12410,
-  "total_bytes": 2231474119,
+  "file_count": 12412,
+  "total_bytes": 2231580661,
   "files": [
     {
       "path": ".gitattributes",
@@ -10,8 +10,18 @@
     },
     {
       "path": "00_LEESMIJ.md",
-      "bytes": 4896,
-      "sha256": "ef370b1a97ac2acba676a3a985a863e848f43c4eb2f06d5febd8a7819e2b8061"
+      "bytes": 5031,
+      "sha256": "f4f5cad29d2e4471a38d245d49e3c80eb6005ec49a7629e58e2bb2f1978670ec"
+    },
+    {
+      "path": "01_Rapport/Bronmateriaal_Milan/HERKOMST.md",
+      "bytes": 759,
+      "sha256": "c3c64b82c1ceb99e9101e0a9a9af60eb106af21c882d2c36bf43f7c1bd299513"
+    },
+    {
+      "path": "01_Rapport/Bronmateriaal_Milan/Projectuitleg_en_mondelinge_verdediging.pdf",
+      "bytes": 105513,
+      "sha256": "a69fcbd7c3b59e5b49810fbbe5b80c2b2dd469eed9409d9e1327e1621138f48a"
     },
     {
       "path": "01_Rapport/figuren/resultaat.jpg",
@@ -62041,7 +62051,7 @@
     {
       "path": "CONTROLE.json",
       "bytes": 1308,
-      "sha256": "b057d9533254961f2d7011f138c93e8e88219d109f97803f4877a6994105add6"
+      "sha256": "911ebc5f7a1135676be091d95de399fc082b3c2cfbb38755bb6144a21a7c17e1"
     },
     {
       "path": "CONTROLEER_BESTANDEN.py",
@@ -62050,8 +62060,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4896,
-      "sha256": "ef370b1a97ac2acba676a3a985a863e848f43c4eb2f06d5febd8a7819e2b8061"
+      "bytes": 5031,
+      "sha256": "f4f5cad29d2e4471a38d245d49e3c80eb6005ec49a7629e58e2bb2f1978670ec"
     }
   ]
 }
