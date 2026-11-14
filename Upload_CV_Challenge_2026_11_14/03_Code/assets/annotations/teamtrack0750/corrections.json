@@ -1,0 +1,30 @@
+{
+  "annotator": "Codex (AI; model-assisted visual annotation)",
+  "independent_human_review": false,
+  "ignore_regions_xyxy": [[3180,457,3520,495],[3670,457,3860,498]],
+  "ignore_reason": "Unresolved distant crowd/dugout groups at the far touchline. Explicit regular person annotations take precedence where they overlap these areas.",
+  "additional_visible_partial_balls_all_frames": [],
+  "frames": {
+    "9": {
+      "keep_person_ids": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],
+      "keep_ball_ids": [],
+      "updates_xyxy": {},
+      "additional_boxes": [[1,3813,662,3822,671]],
+      "notes": "Added the visually recognizable ball immediately beside the foreground white player's left foot. Removed person proposals 0 and 1 on tree/background features."
+    },
+    "10": {
+      "keep_person_ids": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
+      "keep_ball_ids": [25],
+      "updates_xyxy": {},
+      "additional_boxes": [],
+      "notes": "Ball at x3789,y692 verified on an enlarged source crop. Removed background/tree person proposals 0 and 24."
+    },
+    "11": {
+      "keep_person_ids": [1,2,3,4,5,6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22,23,24,25,26],
+      "keep_ball_ids": [28],
+      "updates_xyxy": {"15": [3734,514,3748,546]},
+      "additional_boxes": [],
+      "notes": "Kept the foreground white person (13) and blue person behind (15) as separate instances; removed merged duplicate box 14 and tightened the blue player's visible extent. Removed background/tree proposals 0 and 27. Ball 28 is visibly distinct from the shoe."
+    }
+  }
+}

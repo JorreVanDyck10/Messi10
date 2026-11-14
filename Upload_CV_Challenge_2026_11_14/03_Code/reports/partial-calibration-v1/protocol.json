@@ -1,0 +1,13 @@
+{
+  "source_fingerprint": "4fa69bad392c33bffb8d6c97397246c5b052e745c09e2bbc4e6c5a44cbdde421",
+  "script_sha256": "2ab7a88933e5f785da2706b0d796e93c28580a8f2cb958f362b8488d452e50f0",
+  "selection": "First frame with all seven required polylines in each clip/side; no selection on errors.",
+  "fit": "Four intersections of separate penalty-area boundary lines",
+  "checks": "Two intersections of goal-area lines, excluded from fitting",
+  "pitch_dimensions_m": [
+    105,
+    68
+  ],
+  "human_review_completed": false,
+  "scope": "Provider-derived development geometry; no independent human ground truth or MVP approval."
+}

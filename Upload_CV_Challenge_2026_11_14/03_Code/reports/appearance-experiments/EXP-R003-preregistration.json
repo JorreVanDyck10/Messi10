@@ -1,0 +1,9 @@
+{
+  "reference": "EXP-R002",
+  "hypothesis": "Normalized torso colour is underweighted relative to 576 CNN dimensions, causing white-shirt/high-visibility steward confusion.",
+  "change": "Multiply the 32 standardized colour features by 8 for the role head only. Team feature transform unchanged.",
+  "selection": "Highest validation macro F1 at actual rejection threshold .65; earliest tie. Same rule for team head.",
+  "maximum_updates": 400,
+  "validation_used_for_development": true,
+  "new_labels": false
+}

@@ -1,0 +1,18 @@
+{
+  "archive": "C:\\Messi10\\artifacts\\training-transfers\\Messi10-Laptop-Startpakket-20261030.zip",
+  "bytes": 5095747687,
+  "sha256": "81d57b68ddbba9cb0ed20fbf2212f28b2812949fb7dc4837587d67e6d6621915",
+  "source_files_verified": 262,
+  "embedded_data_files": 15324,
+  "all_source_bytes_match_working_tree": true,
+  "zip_crc_verified": true,
+  "virtual_environments_included": false,
+  "rtx5070_physically_tested": false,
+  "tests": {
+    "passed": 482,
+    "subtests": 4
+  },
+  "hardware_smoke": "RTX 4050",
+  "entrypoint": "scripts/Start-Laptop.ps1",
+  "setup": "scripts/Setup-Laptop.ps1"
+}

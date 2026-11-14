@@ -1,0 +1,29 @@
+{
+  "seed": 42,
+  "dataset_sha256": "e5a9dc823411e86b615134b1a29011012546350d640154ac40acc94883d7b6b0",
+  "warm_start_sha256": "adad67b0e3b60803d11a179c11c24d5c6cf2a31cbe9804a93c5da43b2bc008f2",
+  "fine_tune": true,
+  "fine_tune_blocks": 0,
+  "role_colour_scale": 8.0,
+  "fine_epochs": 20,
+  "steps_per_epoch": 10,
+  "samples_per_class_step": 12,
+  "fine_head_lr": 0.0005,
+  "fine_backbone_lr": 5e-05,
+  "head_refit_epochs": 400,
+  "head_refit_lr": 0.005,
+  "role_threshold": 0.65,
+  "selection": "Validation macro F1 at role confidence .65",
+  "human_review_completed": false,
+  "training_source_sha256": "49e57991039a729c45e34410dd4bcb1d61c34534e65874cad46092a51a0417ea",
+  "photo_augmentation_applied_in_both_feature_stages": true,
+  "photo_augmentation": {
+    "0": "original",
+    "1": "horizontal mirror",
+    "2": "32x24 then restore",
+    "3": "mirror and 32x24 then restore",
+    "4": "64x48 then restore",
+    "5": "mirror and 64x48 then restore"
+  },
+  "colour_histogram_source": "Original torso histogram, retained across crop-only visual transforms"
+}

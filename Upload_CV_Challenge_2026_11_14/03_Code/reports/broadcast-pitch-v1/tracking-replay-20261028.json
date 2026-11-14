@@ -1,0 +1,17 @@
+{
+  "native_xy_pair_warp": {
+    "distinct_temporary_ids": 393,
+    "maximum_id": 682,
+    "current_players": 1753,
+    "observations_with_id": 1070
+  },
+  "correct_xyah_warp": {
+    "distinct_temporary_ids": 28,
+    "maximum_id": 83,
+    "current_players": 1753,
+    "observations_with_id": 1662
+  },
+  "source_sha256": "bbe02d6a3154d8079adbf2aea88e635ebcc51bbac306537d81c9b47690280da3",
+  "same_detections_and_measured_camera_motion": true,
+  "tracking_accuracy_test": false
+}

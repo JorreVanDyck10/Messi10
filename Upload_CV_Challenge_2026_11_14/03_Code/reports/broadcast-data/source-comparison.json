@@ -1,0 +1,13 @@
+{
+  "SN-GSR-2024_revision": "3cc710eb6d53a23350a3d2863311c1c0a2e645d7",
+  "SN-GSR-2025_revision": "ce84ee7d9acb2f9fe999ceed2b38e303ffa5efb9",
+  "identical_train_and_validation_archives": true,
+  "shared_sha256": {
+    "train.zip": "f216ebed0347f5af52ee7d975a9b5f6f33b5370bdbed75dd1aded9f8b5ae8316",
+    "valid.zip": "d60e517e0bfbce83d46a2805842d73bc98bbb65e84ba76be7b55af9bb3047a50"
+  },
+  "evidence": "Published Hugging Face blob metadata for pinned dataset revisions",
+  "decision": "2025 archives not downloaded or counted again",
+  "additional_source": "https://huggingface.co/datasets/infactory-ai/referee-tracking",
+  "additional_source_revision": "094370666a599016e2e0646525b148046a023498"
+}

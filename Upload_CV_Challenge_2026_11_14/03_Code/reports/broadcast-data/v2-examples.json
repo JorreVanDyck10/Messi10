@@ -1,0 +1,29 @@
+{
+  "selection": "first lexical frame per win/regression/shared-miss/shared-hit category; green=AI label, orange=baseline, blue=candidate",
+  "category_counts": {
+    "improved": 16,
+    "regression": 3,
+    "both_miss": 34,
+    "both_hit": 20
+  },
+  "selected": [
+    [
+      "improved",
+      "SNGS-021_000241"
+    ],
+    [
+      "regression",
+      "SNGS-053_000271"
+    ],
+    [
+      "both_miss",
+      "SNGS-022_000216"
+    ],
+    [
+      "both_hit",
+      "SNGS-023_000241"
+    ]
+  ],
+  "confidence": 0.25,
+  "IoU": 0.5
+}

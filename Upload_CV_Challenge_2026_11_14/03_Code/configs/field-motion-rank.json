@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "keypoint_threshold": 0.3434,
+  "line_threshold": 0.7867,
+  "motion": true,
+  "tracking_width": 960,
+  "forward_backward_px": 1.5,
+  "minimum_motion_inliers": 20,
+  "minimum_motion_ratio": 0.6,
+  "maximum_age_s": 2.0,
+  "ransac_px": 3.0,
+  "median_diagonal_fraction": 0.005,
+  "maximum_diagonal_fraction": 0.01,
+  "minimum_image_hull_fraction": 0.001,
+  "minimum_motion_hull_fraction": 0.01,
+  "cut_mean_difference": 45.0,
+  "cut_histogram_distance": 0.55,
+  "holdout_rule": "semantic_rank_deficiency_motion_bridge"
+}

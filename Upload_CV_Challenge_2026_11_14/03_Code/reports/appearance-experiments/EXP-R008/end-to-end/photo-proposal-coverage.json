@@ -1,0 +1,677 @@
+{
+  "scope": "Selected annotated people only; unlabelled predictions are not scored as FP. Not mAP.",
+  "records": [
+    {
+      "id": "london-control:steward:0",
+      "truth": "steward",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "london-control:steward:1",
+      "truth": "steward",
+      "proposal_iou": 0.6217789843158548,
+      "proposal_found": true,
+      "predicted_role": "steward",
+      "role_correct": true
+    },
+    {
+      "id": "london-control:steward:2",
+      "truth": "steward",
+      "proposal_iou": 0.6467301995036014,
+      "proposal_found": true,
+      "predicted_role": "steward",
+      "role_correct": true
+    },
+    {
+      "id": "london-control:steward:3",
+      "truth": "steward",
+      "proposal_iou": 0.000980925504864899,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "london-control:steward:4",
+      "truth": "steward",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "london-control:steward:5",
+      "truth": "steward",
+      "proposal_iou": 0.004023739596577962,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "london-control:steward:6",
+      "truth": "steward",
+      "proposal_iou": 0.5144102491870612,
+      "proposal_found": true,
+      "predicted_role": "person",
+      "role_correct": false
+    },
+    {
+      "id": "london-control:spectator:0",
+      "truth": "spectator",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "london-control:spectator:1",
+      "truth": "spectator",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "london-control:spectator:2",
+      "truth": "spectator",
+      "proposal_iou": 0.601688386060799,
+      "proposal_found": true,
+      "predicted_role": "spectator",
+      "role_correct": true
+    },
+    {
+      "id": "london-control:spectator:3",
+      "truth": "spectator",
+      "proposal_iou": 0.37702585474787603,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "liverpool-steward:steward:0",
+      "truth": "steward",
+      "proposal_iou": 0.8919436261514575,
+      "proposal_found": true,
+      "predicted_role": "steward",
+      "role_correct": true
+    },
+    {
+      "id": "uganda-fan:spectator:0",
+      "truth": "spectator",
+      "proposal_iou": 0.7537822077844258,
+      "proposal_found": true,
+      "predicted_role": "spectator",
+      "role_correct": true
+    },
+    {
+      "id": "troyes-fans:spectator:0",
+      "truth": "spectator",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "troyes-fans:spectator:1",
+      "truth": "spectator",
+      "proposal_iou": 0.3314382624970977,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "troyes-fans:spectator:2",
+      "truth": "spectator",
+      "proposal_iou": 0.567414960981578,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": false
+    },
+    {
+      "id": "troyes-fans:spectator:3",
+      "truth": "spectator",
+      "proposal_iou": 0.6484422081583028,
+      "proposal_found": true,
+      "predicted_role": "spectator",
+      "role_correct": true
+    },
+    {
+      "id": "troyes-fans:spectator:4",
+      "truth": "spectator",
+      "proposal_iou": 0.5989501434489359,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": false
+    },
+    {
+      "id": "troyes-fans:spectator:5",
+      "truth": "spectator",
+      "proposal_iou": 0.5440801964574928,
+      "proposal_found": true,
+      "predicted_role": "spectator",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:0",
+      "truth": "player",
+      "proposal_iou": 0.8389842727673107,
+      "proposal_found": true,
+      "predicted_role": "person",
+      "role_correct": false
+    },
+    {
+      "id": "original-002100:1",
+      "truth": "player",
+      "proposal_iou": 0.6438048273951166,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:2",
+      "truth": "player",
+      "proposal_iou": 0.5139171551290941,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:4",
+      "truth": "player",
+      "proposal_iou": 0.5372348896678089,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:14",
+      "truth": "player",
+      "proposal_iou": 0.48586137291187753,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "original-002100:15",
+      "truth": "player",
+      "proposal_iou": 0.9940501996869546,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:17",
+      "truth": "player",
+      "proposal_iou": 0.5405373326486831,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:18",
+      "truth": "player",
+      "proposal_iou": 0.6878079422630007,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:3",
+      "truth": "player",
+      "proposal_iou": 0.5178672448792498,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:5",
+      "truth": "player",
+      "proposal_iou": 0.5827054241142975,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:6",
+      "truth": "player",
+      "proposal_iou": 0.6395214867947365,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:8",
+      "truth": "player",
+      "proposal_iou": 0.44578865760293307,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "original-002100:9",
+      "truth": "player",
+      "proposal_iou": 0.8604057857133633,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:10",
+      "truth": "player",
+      "proposal_iou": 0.6427111341813011,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:13",
+      "truth": "player",
+      "proposal_iou": 0.587149518846261,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:16",
+      "truth": "player",
+      "proposal_iou": 0.827979097652668,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:11",
+      "truth": "referee",
+      "proposal_iou": 0.5446771982898414,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": false
+    },
+    {
+      "id": "original-002100:19",
+      "truth": "assistant_referee",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "original-002100:12",
+      "truth": "person",
+      "proposal_iou": 0.9947684263727048,
+      "proposal_found": true,
+      "predicted_role": "person",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:20",
+      "truth": "person",
+      "proposal_iou": 0.8617348848585643,
+      "proposal_found": true,
+      "predicted_role": "person",
+      "role_correct": true
+    },
+    {
+      "id": "original-002100:21",
+      "truth": "person",
+      "proposal_iou": 0.710120349258699,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": false
+    },
+    {
+      "id": "original-002175:0",
+      "truth": "player",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "original-002175:1",
+      "truth": "player",
+      "proposal_iou": 0.6543852816742654,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:8",
+      "truth": "player",
+      "proposal_iou": 0.7600083592696977,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:13",
+      "truth": "player",
+      "proposal_iou": 0.5021705042813738,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:16",
+      "truth": "player",
+      "proposal_iou": 0.5870040537991238,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:17",
+      "truth": "player",
+      "proposal_iou": 0.45596707245423,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "original-002175:2",
+      "truth": "player",
+      "proposal_iou": 0.8505400626909473,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:3",
+      "truth": "player",
+      "proposal_iou": 0.6354824687539844,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:4",
+      "truth": "player",
+      "proposal_iou": 0.7498641317541631,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:5",
+      "truth": "player",
+      "proposal_iou": 0.6826258949869298,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:6",
+      "truth": "player",
+      "proposal_iou": 0.7446687423479182,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:9",
+      "truth": "player",
+      "proposal_iou": 0.6413498636338087,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:10",
+      "truth": "player",
+      "proposal_iou": 0.7565952899334869,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:11",
+      "truth": "player",
+      "proposal_iou": 0.6289267292694858,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:12",
+      "truth": "player",
+      "proposal_iou": 0.9148412930325411,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:20",
+      "truth": "player",
+      "proposal_iou": 0.836067733820536,
+      "proposal_found": true,
+      "predicted_role": "person",
+      "role_correct": false
+    },
+    {
+      "id": "original-002175:14",
+      "truth": "referee",
+      "proposal_iou": 0.6311638917050145,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": false
+    },
+    {
+      "id": "original-002175:18",
+      "truth": "assistant_referee",
+      "proposal_iou": 0.891797041157653,
+      "proposal_found": true,
+      "predicted_role": "person",
+      "role_correct": false
+    },
+    {
+      "id": "original-002175:15",
+      "truth": "person",
+      "proposal_iou": 0.9954026706664653,
+      "proposal_found": true,
+      "predicted_role": "person",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:19",
+      "truth": "person",
+      "proposal_iou": 0.902389046763962,
+      "proposal_found": true,
+      "predicted_role": "person",
+      "role_correct": true
+    },
+    {
+      "id": "original-002175:21",
+      "truth": "person",
+      "proposal_iou": 0.8239610554920354,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": false
+    },
+    {
+      "id": "original-002250:0",
+      "truth": "player",
+      "proposal_iou": 0.8248795258207774,
+      "proposal_found": true,
+      "predicted_role": "steward",
+      "role_correct": false
+    },
+    {
+      "id": "original-002250:1",
+      "truth": "player",
+      "proposal_iou": 0.6257781991896493,
+      "proposal_found": true,
+      "predicted_role": "steward",
+      "role_correct": false
+    },
+    {
+      "id": "original-002250:2",
+      "truth": "player",
+      "proposal_iou": 0.0,
+      "proposal_found": false,
+      "predicted_role": null,
+      "role_correct": false
+    },
+    {
+      "id": "original-002250:4",
+      "truth": "player",
+      "proposal_iou": 0.8305123913397608,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:6",
+      "truth": "player",
+      "proposal_iou": 0.6377179622093969,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:9",
+      "truth": "player",
+      "proposal_iou": 0.7248734301154259,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:12",
+      "truth": "player",
+      "proposal_iou": 0.7692554694944681,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:13",
+      "truth": "player",
+      "proposal_iou": 0.8710343897450016,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:14",
+      "truth": "player",
+      "proposal_iou": 0.5771538223183286,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:15",
+      "truth": "player",
+      "proposal_iou": 0.7398462728827966,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:18",
+      "truth": "player",
+      "proposal_iou": 0.5506417081619054,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:3",
+      "truth": "player",
+      "proposal_iou": 0.8735238535817388,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:5",
+      "truth": "player",
+      "proposal_iou": 0.7424585696444636,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:7",
+      "truth": "player",
+      "proposal_iou": 0.5183189402725726,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:8",
+      "truth": "player",
+      "proposal_iou": 0.657895816593686,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:10",
+      "truth": "player",
+      "proposal_iou": 0.592025860654091,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:17",
+      "truth": "player",
+      "proposal_iou": 0.7467207540298463,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:21",
+      "truth": "player",
+      "proposal_iou": 0.8531533323235563,
+      "proposal_found": true,
+      "predicted_role": "referee",
+      "role_correct": false
+    },
+    {
+      "id": "original-002250:11",
+      "truth": "referee",
+      "proposal_iou": 0.650605135142735,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": false
+    },
+    {
+      "id": "original-002250:19",
+      "truth": "assistant_referee",
+      "proposal_iou": 0.9930028497620532,
+      "proposal_found": true,
+      "predicted_role": "person",
+      "role_correct": false
+    },
+    {
+      "id": "original-002250:16",
+      "truth": "person",
+      "proposal_iou": 0.9889453720761823,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": false
+    },
+    {
+      "id": "original-002250:20",
+      "truth": "person",
+      "proposal_iou": 0.8629701187311963,
+      "proposal_found": true,
+      "predicted_role": "person",
+      "role_correct": true
+    },
+    {
+      "id": "original-002250:22",
+      "truth": "person",
+      "proposal_iou": 0.8101038691123279,
+      "proposal_found": true,
+      "predicted_role": "player",
+      "role_correct": false
+    }
+  ]
+}

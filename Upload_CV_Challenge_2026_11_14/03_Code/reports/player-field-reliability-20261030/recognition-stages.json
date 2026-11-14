@@ -1,0 +1,180 @@
+{
+  "reference": "Same 108 source frames as fresh raw inference; existing provider labels",
+  "raw_inference_metrics_sha256": "88db504f1aebbe1b7b0140ec7575487a4390dea60d9ddecade46b2305a515d13",
+  "cached_inferences": [
+    {
+      "path": "artifacts\\broadcast-reliability-day2\\automatic-native-v1\\SNGS-060.json",
+      "sha256": "8731db7927723c126e7937d8e7712fe5fcd1cb330074631425fa3368b2cd3f4e"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-day2\\automatic-native-v1\\SNGS-097.json",
+      "sha256": "b67eb5826ca9b88bea4e5d2da968074891fa06637bb292405cea4af92c2edf8e"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-day2\\automatic-native-v1\\SNGS-151.json",
+      "sha256": "0bc34f870a232688e5534480e1ff1ec8b204e63a8027636520c999a3604b13c7"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-day2\\automatic-native-v1\\SNGS-021.json",
+      "sha256": "dd858504c9fb44740f330c44fa00941fd81e47950cec8f2707c1bb2551848385"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-day2\\automatic-native-v1\\SNGS-039.json",
+      "sha256": "91b5d88aba55f2930093984e83bd64adc2a16ad8be11eb68e718bd6325e1cfa8"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-day2\\automatic-native-v1\\SNGS-078.json",
+      "sha256": "893fec5faccc8967c3ab3284d0890448601cfab4b61af90207ee51f88f0d0211"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-060-last.json",
+      "sha256": "2166d5f5216bf993023b37e1681e3e7ea5a3dfd550109ec45b513058aa08b87f"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-060-middle.json",
+      "sha256": "334ffa27e84e489993d5330a851ae682e982c62da7249eaf28647119d182871d"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-097-last.json",
+      "sha256": "df349fec092abf585731b06417e5a450ab06bb57133f2fe4bb068d18d0d9da20"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-097-middle.json",
+      "sha256": "59e7df17801f76e9487f2e97d5389d4cf62c29ec374a8f673622f74e74e7cc37"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-151-last.json",
+      "sha256": "a72fe3b5c04c3c4446f1602321b3ca2625b8e0220d6e4c525e80b5e9347e08be"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-151-middle.json",
+      "sha256": "edd2b126c684f2c14cbdb52d95d2541b0340f7380045bfafbbb2c85d607cbdcb"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-021-last.json",
+      "sha256": "9ad257e0aeb2b8a9e606ffbf2b106b121f3a38318c66f9d6960e471d15af065f"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-021-middle.json",
+      "sha256": "949f61148687674a7a15ba9c93dcda9f33288ba42b74f9e6c59b9ea8bb4b1c0a"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-039-last.json",
+      "sha256": "47ffd35fa288e6849974e8b8bf67378f23a9b62f30db26414864b4702dcc3820"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-039-middle.json",
+      "sha256": "adc1d9b730b1708646c4407549fc0068f0efe0849a13161b0a96943b61579db1"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-078-last.json",
+      "sha256": "53d35750b3a2814fe764efc6cc76534ac98b3cd0c1e4bc3e08e0e5416e215424"
+    },
+    {
+      "path": "artifacts\\broadcast-reliability-20261030\\extension-automatic-native-v1\\SNGS-078-middle.json",
+      "sha256": "a80168178e0c1498f6fe8e312bf6a54dcdb65a31486c8238df72f1e2d9ca07fe"
+    }
+  ],
+  "scoring_source_sha256": "b7e7fdc194aa8bec85459984adcd7cde233c26142404bcda87303fd97e18399b",
+  "results": {
+    "train": {
+      "retained_players_without_field_filter": {
+        "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+        "mAP50": 0.956593063287032,
+        "mAP50_95": 0.6786294280618915,
+        "workpoint": {
+          "confidence": 0.25,
+          "matching_iou": 0.5
+        },
+        "per_class": [
+          {
+            "class_id": 0,
+            "name": "player",
+            "objects": 760,
+            "AP50": 0.956593063287032,
+            "AP50_95": 0.6786294280618915,
+            "TP": 742,
+            "FP": 27,
+            "FN": 18,
+            "precision": 0.9648894668400521,
+            "recall": 0.9763157894736842
+          }
+        ]
+      },
+      "retained_players_with_field_filter": {
+        "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+        "mAP50": 0.8935670247264833,
+        "mAP50_95": 0.6326772928957803,
+        "workpoint": {
+          "confidence": 0.25,
+          "matching_iou": 0.5
+        },
+        "per_class": [
+          {
+            "class_id": 0,
+            "name": "player",
+            "objects": 760,
+            "AP50": 0.8935670247264833,
+            "AP50_95": 0.6326772928957803,
+            "TP": 688,
+            "FP": 13,
+            "FN": 72,
+            "precision": 0.9814550641940085,
+            "recall": 0.9052631578947369
+          }
+        ]
+      }
+    },
+    "val": {
+      "retained_players_without_field_filter": {
+        "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+        "mAP50": 0.9274760025855868,
+        "mAP50_95": 0.5905720416534381,
+        "workpoint": {
+          "confidence": 0.25,
+          "matching_iou": 0.5
+        },
+        "per_class": [
+          {
+            "class_id": 0,
+            "name": "player",
+            "objects": 796,
+            "AP50": 0.9274760025855868,
+            "AP50_95": 0.5905720416534381,
+            "TP": 752,
+            "FP": 65,
+            "FN": 44,
+            "precision": 0.9204406364749081,
+            "recall": 0.9447236180904522
+          }
+        ]
+      },
+      "retained_players_with_field_filter": {
+        "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+        "mAP50": 0.7560693123518523,
+        "mAP50_95": 0.4805712058047978,
+        "workpoint": {
+          "confidence": 0.25,
+          "matching_iou": 0.5
+        },
+        "per_class": [
+          {
+            "class_id": 0,
+            "name": "player",
+            "objects": 796,
+            "AP50": 0.7560693123518523,
+            "AP50_95": 0.4805712058047978,
+            "TP": 612,
+            "FP": 44,
+            "FN": 184,
+            "precision": 0.9329268292682927,
+            "recall": 0.7688442211055276
+          }
+        ]
+      }
+    }
+  },
+  "fresh_detector_inference_for_retained_stages": false,
+  "new_tracking_evaluated": false,
+  "independent_final_test_completed": false
+}

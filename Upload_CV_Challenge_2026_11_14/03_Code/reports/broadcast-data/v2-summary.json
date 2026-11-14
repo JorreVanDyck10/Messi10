@@ -1,0 +1,108 @@
+{
+  "player_training": {
+    "before": 6000,
+    "after": 1710,
+    "covered_train_seconds": 1710,
+    "validation_frames_unchanged": 2000,
+    "before_adjacent_gaps": {
+      "median_s": 0.2,
+      "fraction_below_half_second": 1.0
+    },
+    "after_adjacent_gaps": {
+      "median_s": 1.0,
+      "fraction_below_half_second": 0.13732607380520268
+    },
+    "class_counts": {
+      "train": {
+        "0": 25158,
+        "1": 2543
+      },
+      "val": {
+        "0": 29676,
+        "1": 2851
+      }
+    },
+    "player_accuracy_retrained_or_claimed": false
+  },
+  "ball_data": {
+    "counts": {
+      "train": 197,
+      "val": 85
+    },
+    "negative_counts": {
+      "train": 22,
+      "val": 12
+    },
+    "unique_source_frames": 132,
+    "native_pixels_verified": true,
+    "duplicate_windows_excluded": 2,
+    "reviewed_negative_candidates": 36,
+    "negative_candidates_rejected": 2
+  },
+  "experiment": {
+    "epochs_completed": 12,
+    "comparison": "reports/broadcast-data/v2-experiment.json",
+    "baseline_tiled": {
+      "class_id": 0,
+      "name": "ball",
+      "objects": 73,
+      "AP50": 0.27383217127951626,
+      "AP50_95": 0.10190115374609235,
+      "TP": 23,
+      "FP": 33,
+      "FN": 50,
+      "precision": 0.4107142857142857,
+      "recall": 0.3150684931506849
+    },
+    "candidate_tiled": {
+      "class_id": 0,
+      "name": "ball",
+      "objects": 73,
+      "AP50": 0.5748519958889426,
+      "AP50_95": 0.23336801171460783,
+      "TP": 36,
+      "FP": 12,
+      "FN": 37,
+      "precision": 0.75,
+      "recall": 0.4931506849315068
+    },
+    "candidate_meets_optional_profile_gate": true,
+    "standalone_full_frame_TP_before": 28,
+    "standalone_full_frame_TP_after": 22
+  },
+  "optional_profiles": [
+    "configs\\models-ball-broadcast-v2.json",
+    "configs\\models-players-ball-broadcast-v2.json"
+  ],
+  "runtime_smoke": {
+    "profile": "configs\\models-players-ball-broadcast-v2.json",
+    "frame_id": "SNGS-021_000241",
+    "observed_classes": {
+      "player": 14,
+      "referee": 2,
+      "ball": 1
+    },
+    "status": "passed"
+  },
+  "software_tests": {
+    "tests": 48,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "active_defaults_changed": false,
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "source_image_count_increase": 0,
+  "actual_training_source_sha256": "a2d5956dd835a95b3987a7ee8d785240b86c26d00857326f2c16b264698fde83",
+  "evaluation_source_sha256": {
+    "persoon1/metrics.py": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+    "src/football_pipeline/ball_tiles.py": "9a723990a9ffd8fab9255e18582a69c2e42fc0f6ba343db5fa90638cf47cfd66"
+  },
+  "current_tool_source_sha256": {
+    "scripts/prepare_broadcast_v2.py": "89250bde4111e04196981ba7dedd4fcd7783912df39475cd2111d489a925a352",
+    "scripts/experiment_broadcast_v2.py": "d32576aa83917bcc0c9c64316b2ad800e2d748bf122332d043cdb961939ac09e",
+    "scripts/verify_broadcast_v2.py": "bb3a7326a89e905b513cd8b094fb18aa098cfe278ce4c79f9f3e856fb99cadb3",
+    "tests/test_broadcast_v2.py": "2140e40484ec7b3d1df53b3a922549c57e1bf16a88831ca3fe00637a508dd7a2"
+  }
+}

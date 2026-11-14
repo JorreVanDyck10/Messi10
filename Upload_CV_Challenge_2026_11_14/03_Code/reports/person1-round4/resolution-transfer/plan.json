@@ -1,0 +1,61 @@
+{
+  "recorded_before_inference": "2026-10-26T20:57:58.281817+00:00",
+  "modes": {
+    "whole1280": {
+      "imgsz": 1280
+    },
+    "whole4096": {
+      "imgsz": 4096
+    },
+    "tiles1280": {
+      "size": 1280,
+      "imgsz": 1280
+    },
+    "tiles640x2": {
+      "size": 640,
+      "imgsz": 1280
+    }
+  },
+  "hypothesis": "Preserving source detail improves tiny-ball matching versus global 1280 resize.",
+  "primary": "AP50:95 at the same annotated full-frame ball target; AP50 and FP/FN also retained",
+  "weights": {
+    "pretrained": {
+      "path": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\appearance-v1\\person_proposals.pt",
+      "sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1"
+    },
+    "F003": {
+      "path": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\football48-ball-v2\\EXP-F003-best.pt",
+      "sha256": "1aa203d2971ad582da9631ce54ad5cb057aa79667a064d8a0c771805b4ce0fa4"
+    },
+    "F004": {
+      "path": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\football48-ball-v2\\EXP-F004-best.pt",
+      "sha256": "2d3b00417a8ea19c4506c5daf09436542a611d32ca30e653e6e62251dee4b408"
+    }
+  },
+  "source_class": 32,
+  "confidence_floor": 0.001,
+  "workpoint": 0.25,
+  "tile_overlap": 0.2,
+  "tile_nms_iou": 0.7,
+  "global_nms_iou": 0.5,
+  "unchanged": "No training, labels, confidence or field-filter tuning within this experiment",
+  "human_review_complete": false,
+  "independent_final_test": false,
+  "scope": "Development labels include reserve balls; not in-play-only recall or independent-match generalization.",
+  "datasets": {
+    "football-fullframe40": "3bae5f0c8d2a50d1da3b5552adeb082fb311bc91093f1f52594b845c2ee4db2f",
+    "football-fullscene16": "c3c9d34ad9e4810811ac216e2cb16d76c63de8616738f6b3b0144503724d7dad"
+  },
+  "software": {
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "opencv-python": "4.11.0.86",
+    "numpy": "2.2.6",
+    "psutil": "7.2.2",
+    "lap": "0.5.13"
+  },
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "source_sha256": "615d79b36b84eed9ed4876deb5b7ce3902151f282ad760b063ee0b8e744e92f4"
+}

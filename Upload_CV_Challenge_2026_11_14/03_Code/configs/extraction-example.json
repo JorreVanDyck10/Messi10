@@ -1,0 +1,10 @@
+{
+  "names": ["person", "ball"],
+  "minimum_split_gap_s": 5.0,
+  "windows": [
+    {"group_id": "development-a", "split": "train", "start_s": 0, "end_s": 20, "every_s": 1, "reason": "EXAMPLE: replace after source review"},
+    {"group_id": "development-b", "split": "train", "start_s": 30, "end_s": 50, "every_s": 1, "reason": "EXAMPLE: replace after source review"},
+    {"group_id": "validation-a", "split": "val", "start_s": 60, "end_s": 70, "every_s": 1, "reason": "EXAMPLE: independent group must be verified"},
+    {"group_id": "heldout-a", "split": "test", "start_s": 80, "end_s": 90, "every_s": 1, "reason": "EXAMPLE: reserve before baseline analysis"}
+  ]
+}

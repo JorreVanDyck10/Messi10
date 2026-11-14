@@ -1,0 +1,107 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-10-16T20:28:46.856660+00:00",
+  "run_directory": "C:\\Messi10\\runs\\40719771434a1dc8f508d1f16e1f5f1f1b2dc6aa37c541858846e20d28f2b16e",
+  "video_sha256": "6cdaf4089cb578636bc4773bde0ebdc1e68b8554e169d413e855bdf144780f4a",
+  "model_profile": "C:\\Messi10\\configs\\models.json",
+  "models": [
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "weights": "C:\\Messi10\\artifacts\\players-v2\\players_best.pt",
+      "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+      "class_mapping": {
+        "0": "player",
+        "1": "referee"
+      },
+      "expected_names": {
+        "0": "player",
+        "1": "referee"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    }
+  ],
+  "dependencies": {
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "opencv-python": "4.11.0.86",
+    "numpy": "2.2.6",
+    "psutil": "7.2.2",
+    "lap": "0.5.13"
+  },
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "audit": {
+    "frames": 1239,
+    "detections_by_role": {
+      "player": 2802,
+      "referee": 1320
+    },
+    "displayed_detections_by_role": {
+      "player": 796,
+      "referee": 352
+    },
+    "projection_status_counts": {
+      "calibration_unavailable": 3010,
+      "valid": 1088,
+      "outside_field": 24
+    },
+    "unknown_player_count_frames": 988,
+    "empty_detection_frames": 245,
+    "known_player_count_min_median_max": [
+      0,
+      0.0,
+      11
+    ],
+    "checks": [
+      "source_coordinates",
+      "finite_confidence",
+      "normalized_field_positions",
+      "role_and_field_count_filter",
+      "unknown_count_without_field",
+      "frame_synchronization",
+      "h264_encoding",
+      "artifact_hashes"
+    ]
+  },
+  "measurements": {
+    "processed_frames": 1239,
+    "runtime_s": 95.40381920000073,
+    "processing_fps": 12.986901471969485,
+    "inference_or_replay_s": 49.041093000043475,
+    "tracking_s": 0.0,
+    "peak_process_ram_bytes_sampled": 1334829056,
+    "peak_gpu_allocated_bytes": 343580160,
+    "projection_counts": {
+      "calibration_unavailable": 3010,
+      "valid": 1088,
+      "outside_field": 24
+    },
+    "calibration_preparation_s": 1.0000003385357559e-06,
+    "calibration_status_counts": {
+      "insufficient_points": 743,
+      "insufficient_controls": 66,
+      "inconsistent_controls": 95,
+      "inconsistent_points": 17,
+      "orientation_unknown": 3,
+      "valid": 251,
+      "motion_semantic_disagreement": 30,
+      "degenerate_geometry": 27,
+      "motion_line_disagreement": 1,
+      "inconsistent_lines": 2,
+      "invalid_observation": 4
+    },
+    "calibration_usable_fraction": 0.20258272800645682
+  },
+  "human_accuracy_reference": null,
+  "tracking_enabled": false,
+  "limitations": [
+    "Technical integration check; no new detection accuracy score.",
+    "Automatic-camera player IDs remain disabled pending camera-motion validation.",
+    "The model has player/referee classes; no individual identity or team recognition."
+  ]
+}

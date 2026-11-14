@@ -1,0 +1,56 @@
+{
+  "recorded_before_inference": "2026-10-26T21:15:40.200999+00:00",
+  "modes": {
+    "whole1280": {
+      "imgsz": 1280
+    },
+    "whole4096": {
+      "imgsz": 4096
+    },
+    "tiles1280": {
+      "size": 1280,
+      "imgsz": 1280
+    },
+    "tiles640x2": {
+      "size": 640,
+      "imgsz": 1280
+    }
+  },
+  "hypothesis": "Preserving source detail improves tiny-ball matching versus global 1280 resize.",
+  "primary": "AP50:95 at the same annotated full-frame ball target; AP50 and FP/FN also retained",
+  "weights": {
+    "F005": {
+      "path": "artifacts\\fullscene-ball-v1\\fullscene_ball_f005.pt",
+      "sha256": "de7d869c01cb8539664c1a3917f6eee90de9d7e655cd484be99999847b0ebf11"
+    }
+  },
+  "source_class": 32,
+  "confidence_floor": 0.001,
+  "workpoint": 0.25,
+  "tile_overlap": 0.2,
+  "tile_nms_iou": 0.7,
+  "global_nms_iou": 0.5,
+  "unchanged": "No training, labels, confidence or field-filter tuning within this experiment",
+  "human_review_complete": false,
+  "independent_final_test": false,
+  "scope": "Development labels include reserve balls; not in-play-only recall or independent-match generalization.",
+  "datasets": {
+    "football-fullframe40": "3bae5f0c8d2a50d1da3b5552adeb082fb311bc91093f1f52594b845c2ee4db2f",
+    "football-fullscene16": "c3c9d34ad9e4810811ac216e2cb16d76c63de8616738f6b3b0144503724d7dad",
+    "football-fullscene20": "5ffebb947dc739bbcb22cefc2115f0f6e241b3cc7c3718e6901b264bf4994756",
+    "football-fullscene50": "1560469f2d5c00df2feb21f4d515d61651397123eaab7ae0f26eaeb05d51856d",
+    "football-fullscene60": "905df00bcc5234ccc83dd74340e55cd146d7ffc9ed8146a11e3a2b809d5e5a1b"
+  },
+  "software": {
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "opencv-python": "4.11.0.86",
+    "numpy": "2.2.6",
+    "psutil": "7.2.2",
+    "lap": "0.5.13"
+  },
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "source_sha256": "86c04c93c511c00cd92fe26b3cbb3d034f6f3285bb1db7aa10621616ef6a65e6"
+}

@@ -1,0 +1,62 @@
+{
+  "recorded_at": "2026-10-16T12:20:20.955214+00:00",
+  "review_policy": "provisional_ai_visual",
+  "records": [
+    {
+      "id": "ERR-001",
+      "run": "EXP-001",
+      "type": "preprocessing",
+      "observation": "All 27 ball boxes removed at 640; effective instances and box/DFL losses zero throughout training.",
+      "hypothesis": "Resized width/height fail >2px training filter.",
+      "alternative": "Missing labels or corrupt images.",
+      "control": "Dataset scanner reads 27 labelled images without corruption; inspect pinned box_candidates source and scaled sizes.",
+      "finding": "Filter explanation supported; 27/27 survive size check at 1920.",
+      "next": "EXP-002, preserve this negative result."
+    },
+    {
+      "id": "ERR-002",
+      "run": "baseline-1920",
+      "frame_index": 2475,
+      "type": "localisation_at_AP_threshold",
+      "observation": "Highest confidence prediction 0.03044 centers near ball but encloses much more background than the 6x7 source box.",
+      "hypothesis": "Pretrained regressor localizes tiny balls too coarsely.",
+      "alternative": "One-pixel annotation boundary uncertainty.",
+      "control": "Compare source crop, AI box and predicted box; inspect IoU and repeat after independent label review.",
+      "evidence": "baseline-localisation.jpg",
+      "next": "Evaluate specialist on same input resolution and labels."
+    },
+    {
+      "id": "ERR-003",
+      "run": "baseline-1920",
+      "frame_index": 2200,
+      "type": "FP_at_low_AP_confidence",
+      "observation": "Sports-ball prediction at confidence 0.03016 lies on a player; actual ball is elsewhere.",
+      "hypothesis": "Clothing/limb detail resembles the small ball.",
+      "alternative": "Coarse localization of a nearby object.",
+      "control": "Source crop shows a person at predicted location; true ball is around x1444 y197.",
+      "evidence": "baseline-false-positive.jpg",
+      "next": "At workpoint 0.25 this proposal is suppressed. Lowering confidence also admits wrong proposals."
+    },
+    {
+      "id": "ERR-004",
+      "frame_index": 2525,
+      "type": "annotation_proposal_error",
+      "observation": "Brightness component joined shoe and ball.",
+      "hypothesis": "Color-only components cannot distinguish touching objects.",
+      "control": "Inspect enlarged source and whole context.",
+      "finding": "Corrected before training from [1409,356,12,10] to [1413,355,9,9].",
+      "next": "Independent human check still needed."
+    },
+    {
+      "id": "ERR-005",
+      "run": "EXP-002",
+      "type": "failed_validation_generalisation",
+      "observation": "Training mAP50=0.1485148515, mAP50_95=0.1306930693; validation both zero. At confidence .25: training TP4/FN23, validation TP0/FN12.",
+      "hypothesis": "Differences in object scale/appearance and limited effective training diversity restrict adaptation.",
+      "alternative": "One-pixel label uncertainty, limited optimization or low target confidence. Not proven as a single cause.",
+      "control": "Compare recorded source-box sizes, held-out group content, training predictions and validation predictions. Review labels independently before selecting further experiments.",
+      "evidence": "object-sizes.json and evaluation/EXP-002-1920-train/metrics.json",
+      "next": "No final test exposure or deployment claim. A future version may test source-scale tiling or better scale-matched development examples; not executed in this version."
+    }
+  ]
+}

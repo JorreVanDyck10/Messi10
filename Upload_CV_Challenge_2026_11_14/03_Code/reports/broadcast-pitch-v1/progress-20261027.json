@@ -1,0 +1,245 @@
+{
+  "status": "paused_by_user",
+  "goal_complete": false,
+  "default_model_changed": false,
+  "time_limit_lifted_by_user": true,
+  "checkpoint": {
+    "resume_checkpoint": "C:\\Messi10\\artifacts\\broadcast-detector-v4\\paused\\last.pt",
+    "sha256": "47c4dd369115f4d1a4180ca969ad2a9b9da0cd3daf45eadc1ab61f76752a0f86",
+    "last_completed_epoch": 8,
+    "maximum_epochs_total": 40,
+    "best_checkpoint": "C:\\Messi10\\artifacts\\broadcast-detector-v4\\paused\\best.pt",
+    "best_sha256": "b07409789b6d3ee1d85316c484c401f9a8aa36d2c618152d2659d03a0fc9ab9a",
+    "dataset": "C:\\Messi10\\data\\broadcast-pitch-v1",
+    "dataset_fingerprint": "26e5c8a12d9f009b118fdc47f9cbe9a7a0f7d3117818fd7f1b7874d9273f89d9",
+    "training_output": "C:\\Messi10\\artifacts\\broadcast-detector-v4\\training",
+    "native_save_dir": "C:\\Messi10\\artifacts\\broadcast-detector-v4\\training\\batch-1",
+    "optimizer_present": true,
+    "time_limit": null,
+    "reason": "User requested temporary stop until tomorrow"
+  },
+  "jobs": {
+    "paused_at_utc": "2026-10-27T22:25:15.2890418Z",
+    "training_process_started_utc": "2026-10-27T21:27:58.9210760Z",
+    "training_process_wall_seconds": 3436.3763911,
+    "completed_checkpoint": "artifacts/broadcast-detector-v4/paused/checkpoint.json",
+    "discarded_partial_epoch": 9,
+    "download_partial": ".cache/sportsmot/train.tar.part",
+    "download_completed_bytes": 4857004032,
+    "stopped_process_ids": [
+      4384,
+      37860,
+      31184,
+      25356,
+      28424,
+      21416,
+      25524,
+      26328,
+      19332,
+      13184,
+      11516,
+      27060,
+      33720,
+      12056,
+      37840,
+      27320
+    ]
+  },
+  "sportsmot": {
+    "source": "https://huggingface.co/datasets/MCG-NJU/SportsMOT",
+    "revision": "1b0b418ea611a8e934f1e773313e719e4fa1265e",
+    "train_list": "v_-6Os86HzwCs_c001\nv_-6Os86HzwCs_c003\nv_-6Os86HzwCs_c007\nv_-6Os86HzwCs_c009\nv_2j7kLB-vEEk_c001\nv_2j7kLB-vEEk_c002\nv_2j7kLB-vEEk_c005\nv_2j7kLB-vEEk_c007\nv_2j7kLB-vEEk_c009\nv_2j7kLB-vEEk_c010\nv_4LXTUim5anY_c002\nv_4LXTUim5anY_c003\nv_4LXTUim5anY_c010\nv_4LXTUim5anY_c012\nv_4LXTUim5anY_c013\nv_1LwtoLPw2TU_c006\nv_1LwtoLPw2TU_c012\nv_1LwtoLPw2TU_c014\nv_1LwtoLPw2TU_c016\nv_ApPxnw_Jffg_c001\nv_ApPxnw_Jffg_c002\nv_ApPxnw_Jffg_c009\nv_ApPxnw_Jffg_c015\nv_ApPxnw_Jffg_c016\nv_CW0mQbgYIF4_c004\nv_CW0mQbgYIF4_c005\nv_CW0mQbgYIF4_c006\nv_dChHNGIfm4Y_c003\nv_Dk3EpDDa3o0_c002\nv_Dk3EpDDa3o0_c007\nv_1yHWGw8DH4A_c029\nv_1yHWGw8DH4A_c047\nv_1yHWGw8DH4A_c077\nv_1yHWGw8DH4A_c601\nv_1yHWGw8DH4A_c609\nv_1yHWGw8DH4A_c610\nv_gQNyhv8y0QY_c003\nv_gQNyhv8y0QY_c012\nv_gQNyhv8y0QY_c013\nv_HdiyOtliFiw_c003\nv_HdiyOtliFiw_c004\nv_HdiyOtliFiw_c008\nv_HdiyOtliFiw_c010\nv_HdiyOtliFiw_c602\nv_iIxMOsCGH58_c013",
+    "football_list": "v_-hhDbvY5aAM_c001\nv_-hhDbvY5aAM_c002\nv_-hhDbvY5aAM_c005\nv_-hhDbvY5aAM_c006\nv_-hhDbvY5aAM_c007\nv_-hhDbvY5aAM_c008\nv_-hhDbvY5aAM_c009\nv_-hhDbvY5aAM_c011\nv_-hhDbvY5aAM_c012\nv_-hhDbvY5aAM_c600\nv_-hhDbvY5aAM_c602\nv_1UDUODIBSsc_c001\nv_1UDUODIBSsc_c004\nv_1UDUODIBSsc_c015\nv_1UDUODIBSsc_c037\nv_1UDUODIBSsc_c055\nv_1UDUODIBSsc_c056\nv_1UDUODIBSsc_c063\nv_1UDUODIBSsc_c067\nv_1UDUODIBSsc_c090\nv_1UDUODIBSsc_c103\nv_1UDUODIBSsc_c111\nv_1UDUODIBSsc_c113\nv_1UDUODIBSsc_c601\nv_1UDUODIBSsc_c602\nv_1UDUODIBSsc_c603\nv_1UDUODIBSsc_c606\nv_1UDUODIBSsc_c609\nv_1UDUODIBSsc_c615\nv_1yHWGw8DH4A_c029\nv_1yHWGw8DH4A_c047\nv_1yHWGw8DH4A_c077\nv_1yHWGw8DH4A_c601\nv_1yHWGw8DH4A_c609\nv_1yHWGw8DH4A_c610\nv_2ChiYdg5bxI_c039\nv_2ChiYdg5bxI_c044\nv_2ChiYdg5bxI_c046\nv_2ChiYdg5bxI_c058\nv_2ChiYdg5bxI_c067\nv_2ChiYdg5bxI_c072\nv_2ChiYdg5bxI_c086\nv_2ChiYdg5bxI_c115\nv_2ChiYdg5bxI_c120\nv_2ChiYdg5bxI_c128\nv_2ChiYdg5bxI_c135\nv_2ChiYdg5bxI_c136\nv_2ChiYdg5bxI_c600\nv_2ChiYdg5bxI_c601\nv_2ChiYdg5bxI_c602\nv_2QhNRucNC7E_c017\nv_DjtFlW2eHFI_c614\nv_DjtFlW2eHFI_c616\nv_G-vNjfx1GGc_c004\nv_G-vNjfx1GGc_c008\nv_G-vNjfx1GGc_c600\nv_G-vNjfx1GGc_c601\nv_HdiyOtliFiw_c003\nv_HdiyOtliFiw_c004\nv_HdiyOtliFiw_c008\nv_HdiyOtliFiw_c010\nv_HdiyOtliFiw_c602\nv_ITo3sCnpw_k_c007\nv_ITo3sCnpw_k_c010\nv_ITo3sCnpw_k_c011\nv_ITo3sCnpw_k_c012\nv_dw7LOz17Omg_c053\nv_dw7LOz17Omg_c067\nv_foGDoBblREI_c002\nv_foGDoBblREI_c008\nv_gQNyhv8y0QY_c003\nv_gQNyhv8y0QY_c012\nv_gQNyhv8y0QY_c013\nv_i2_L4qquVg0_c006\nv_i2_L4qquVg0_c007\nv_i2_L4qquVg0_c009\nv_i2_L4qquVg0_c010\nv_iF9bKPWdZlc_c001\nv_iF9bKPWdZlc_c003\nv_iIxMOsCGH58_c013\n",
+    "selected": [
+      "v_1yHWGw8DH4A_c029",
+      "v_1yHWGw8DH4A_c047",
+      "v_1yHWGw8DH4A_c077",
+      "v_1yHWGw8DH4A_c601",
+      "v_1yHWGw8DH4A_c609",
+      "v_1yHWGw8DH4A_c610",
+      "v_HdiyOtliFiw_c003",
+      "v_HdiyOtliFiw_c004",
+      "v_HdiyOtliFiw_c008",
+      "v_HdiyOtliFiw_c010",
+      "v_HdiyOtliFiw_c602",
+      "v_gQNyhv8y0QY_c003",
+      "v_gQNyhv8y0QY_c012",
+      "v_gQNyhv8y0QY_c013",
+      "v_iIxMOsCGH58_c013"
+    ],
+    "test_accessed": false
+  },
+  "validation": {
+    "kind": "development; provider reference homography, not automatic field accuracy",
+    "original_frames": 348,
+    "evaluable_frames": 341,
+    "independent_final_test": false,
+    "candidates": {
+      "fused-s": {
+        "players": {
+          "class_id": 0,
+          "name": "player",
+          "objects": 5078,
+          "AP50": 0.872138012541487,
+          "AP50_95": 0.5263310184451501,
+          "TP": 4528,
+          "FP": 418,
+          "FN": 550,
+          "precision": 0.9154872624342903,
+          "recall": 0.8916896415911776
+        },
+        "teams": {
+          "matched_players": 4528,
+          "correct": 4097,
+          "wrong": 153,
+          "unknown": 278,
+          "missed_players": 550,
+          "false_positive_players": 418,
+          "accuracy_assigned": 0.964,
+          "coverage_matched": 0.9386042402826855,
+          "correct_fraction_all_players": 0.8068137061835369,
+          "goalkeepers_total": 194,
+          "goalkeepers_matched": 174,
+          "goalkeepers_correct_team": 18
+        },
+        "targets_met": false,
+        "identity": "38a9903547451daef640577697a1926637b94dff22dab80891cf13af63885f02"
+      },
+      "context-s": {
+        "players": {
+          "class_id": 0,
+          "name": "player",
+          "objects": 5078,
+          "AP50": 0.8731237091769073,
+          "AP50_95": 0.5113950710830683,
+          "TP": 4563,
+          "FP": 440,
+          "FN": 515,
+          "precision": 0.9120527683389966,
+          "recall": 0.8985821189444664
+        },
+        "teams": {
+          "matched_players": 4563,
+          "correct": 4148,
+          "wrong": 135,
+          "unknown": 280,
+          "missed_players": 515,
+          "false_positive_players": 440,
+          "accuracy_assigned": 0.9684800373569927,
+          "coverage_matched": 0.9386368617137848,
+          "correct_fraction_all_players": 0.8168570303269004,
+          "goalkeepers_total": 194,
+          "goalkeepers_matched": 174,
+          "goalkeepers_correct_team": 18
+        },
+        "targets_met": false,
+        "identity": "66ab3d1f8adbddcf6176c9f12f6b9ca599f541acc18324872af603be57b05e8d"
+      },
+      "context-fused-s": {
+        "players": {
+          "class_id": 0,
+          "name": "player",
+          "objects": 5078,
+          "AP50": 0.8839232004141481,
+          "AP50_95": 0.5335091794670117,
+          "TP": 4590,
+          "FP": 412,
+          "FN": 488,
+          "precision": 0.9176329468212715,
+          "recall": 0.9038991729027176
+        },
+        "teams": {
+          "matched_players": 4590,
+          "correct": 4178,
+          "wrong": 124,
+          "unknown": 288,
+          "missed_players": 488,
+          "false_positive_players": 412,
+          "accuracy_assigned": 0.9711761971176197,
+          "coverage_matched": 0.9372549019607843,
+          "correct_fraction_all_players": 0.8227648680582906,
+          "goalkeepers_total": 194,
+          "goalkeepers_matched": 174,
+          "goalkeepers_correct_team": 19
+        },
+        "targets_met": false,
+        "identity": "0e0b4ace4549a20451480086d4c94062c8e952d0caf8fae29cc8831e19443491"
+      },
+      "context-fused-m": {
+        "players": {
+          "class_id": 0,
+          "name": "player",
+          "objects": 5078,
+          "AP50": 0.8815924105630661,
+          "AP50_95": 0.5346702213765958,
+          "TP": 4584,
+          "FP": 408,
+          "FN": 494,
+          "precision": 0.9182692307692307,
+          "recall": 0.9027176053564395
+        },
+        "teams": {
+          "matched_players": 4584,
+          "correct": 4171,
+          "wrong": 132,
+          "unknown": 281,
+          "missed_players": 494,
+          "false_positive_players": 408,
+          "accuracy_assigned": 0.9693237276318847,
+          "coverage_matched": 0.9386998254799301,
+          "correct_fraction_all_players": 0.8213863725876329,
+          "goalkeepers_total": 194,
+          "goalkeepers_matched": 172,
+          "goalkeepers_correct_team": 18
+        },
+        "targets_met": false,
+        "identity": "1a80da7f02a2938a5931fc9111c733db7e618fcb2e0fe278193686d0fcfbabc7"
+      }
+    },
+    "best_provisional_by_saved_rule": "context-fused-s",
+    "fresh_evaluation_required_after_latest_projection_order_fix": true
+  },
+  "software_checks": {
+    "pytest_tests": 369,
+    "subtests_passed": 4,
+    "failures": 0,
+    "ruff": "passed",
+    "git_diff_check": "passed"
+  },
+  "preview": {
+    "field_calibrations_identical": true,
+    "frames": 150,
+    "run": "C:\\Messi10\\runs\\9472cb5a2fb4217c651aedb6a988ccf707f23021d429f00c92293f62d6d66e3f",
+    "frame_75": {
+      "status": "available",
+      "on_field": 18,
+      "by_team": {
+        "A": 8,
+        "B": 9,
+        "unknown": 1
+      },
+      "visible_player_candidates": 18,
+      "outside_field": 0,
+      "unlocated": 0,
+      "other_roles": {
+        "person": 3
+      },
+      "teams": {
+        "team_a": 8,
+        "team_b": 9,
+        "unknown": 1
+      },
+      "persons_on_field": 0,
+      "visible_person_candidates": 3,
+      "display_confidence": 0.25,
+      "include_matched_low_confidence": true
+    },
+    "human_review_completed": false
+  },
+  "known_issues": [
+    "Some referees still count as players in the local clip, including frame 149",
+    "Duplicate/fragmented detections and temporary tracking IDs remain",
+    "Player precision target .95 not reached; do not present as final approved model"
+  ],
+  "handover": "docs/Broadcast_Hervatten.md"
+}

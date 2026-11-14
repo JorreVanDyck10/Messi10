@@ -1,0 +1,137 @@
+{
+  "schema_version": 2,
+  "score_storage": "all_ground_peaks_before_threshold",
+  "evidence_kind": "pnlcalib",
+  "kind": "automatic_field_observations",
+  "coordinate_system": "normalized_u_length_v_width_v1",
+  "video": {
+    "sha256": "a9a615e5349db1c84f9e49960e7f0233e46d70fd540f32275e3eb9f67adf5143",
+    "image_size": [
+      1920,
+      1080
+    ],
+    "frame_count": 75,
+    "fps_num": 25,
+    "fps_den": 1
+  },
+  "source": "Gebruikersupload: github-andrew-zijlijn-3s.mp4",
+  "usage": "Lokale analyse van een gebruikersupload; gebruiksrechten niet onafhankelijk gecontroleerd.",
+  "policy": {
+    "version": 1,
+    "keypoint_threshold": 0.3434,
+    "line_threshold": 0.7867,
+    "minimum_points": 6,
+    "minimum_lines": 2,
+    "median_diagonal_fraction": 0.005,
+    "maximum_diagonal_fraction": 0.01,
+    "minimum_image_hull_fraction": 0.001,
+    "orientation": "main_sideline_camera_u_right_v_down"
+  },
+  "upstream": {
+    "url": "https://github.com/mguti97/PnLCalib",
+    "revision": "8c87391d6f4ea40c5e4d65e61529916c7a49ce62",
+    "license": "GPL-2.0",
+    "license_sha256": "189b1af95d661151e054cea10c91b3d754e4de4d3fecfb074c1fb29476f7167b"
+  },
+  "upstream_source_sha256": {
+    "config\\hrnetv2_w48.yaml": "ee9c1fa3f7147574370569c4161c8fa9d04fd8ba8f123a1cf7adb952efe90b73",
+    "config\\hrnetv2_w48_l.yaml": "05ee5f459818ae6d92c40fbd566eb47f1cec9449127eeec32a0c0ae537c720a4",
+    "eval_wp.py": "7cf82aac4fbf1088af45b5d63f842bbadb8dab6babeff20fe1625e93f2db8c7b",
+    "inference.py": "3116072876a2d8c910d4056ff5849ae15c15fc240e35b8d219be618498acdd84",
+    "model\\cls_hrnet.py": "1e2d7ea76dc996345d47fdc1e27b68418f610fed5d202b73b90fba11d412825e",
+    "model\\cls_hrnet_l.py": "31e02fc3f677b199223aa2398b1a9184dc6a3dbc1eedbc0e80b43f0d1c38e902",
+    "model\\dataloader.py": "18e031d5e8b53e58bc1cd7ed300a03063c80df4709d7e5873dce0ff86c3f91b6",
+    "model\\dataloader_l.py": "19e87f0968cd587edec0bcc14776baf6797adcf8603aa4256ece0e354d889cca",
+    "model\\losses.py": "14c05a60207d6221a3c816bcd96b33155aa4a3451e715d8daf9f8505c7d95cac",
+    "model\\metrics.py": "d022ff621cced90ca0ed4fbf1165d11d6a921f8ba690a075c63322d3d41b59c9",
+    "model\\transforms.py": "29d9d2f78b925a0da3237e12e9524ad85d3c271b3308e73e74acb6a2a66a1e6a",
+    "model\\transforms_l.py": "736431e5d313e5bb7ceffbca2a172d1cfec4a9c8a6fb0d04ece45fac4c44b6aa",
+    "model\\transformsWC.py": "ca25371742fa295762534fff548ef22374870c4af78a95065b6bd687ee7f2e41",
+    "model\\transformsWC_l.py": "1202c3481aa6e2e8492e943f7dd732be08e4713a947c8a390dad25e45f968f10",
+    "scripts\\eval_tswc.py": "1be17ce9045ec412cd15d52ca4ca12efa2b397cb4db2606f3af68f6a65a9da40",
+    "scripts\\eval_wc14.py": "58200c4c081c3dbd4453c2510174d88d93afdaedb25400c118a18f485bec4f1b",
+    "scripts\\inference_sn.py": "db91d61b1e79393fc81e9e4ac3f38e1f58b3617bc2a30945c2b963912576bd09",
+    "scripts\\inference_tswc.py": "fc943887528b9bf00f00145562a646ca7c21ed87a8a39e67c8162d39a3554830",
+    "scripts\\inference_wc14.py": "446d170b1225c35c7659fcfba28b71adb1ecaffd463cab78286bb6bde8d5c96c",
+    "sn_calibration\\src\\baseline_cameras.py": "edcde69b16d68daea0a01b1db7b83ea4bfd1386030644ea91b637d02c6ed9f37",
+    "sn_calibration\\src\\camera.py": "84730cc2bff2c519769e227263fd41e8a3d4a8b3dff4cabd22ab74b629b8e3e5",
+    "sn_calibration\\src\\dataloader.py": "498180cf02f365c06ee28213e9f3fc144a1d098e233a238ea7726ed0fd777bc1",
+    "sn_calibration\\src\\detect_extremities.py": "b143c2fe6f9d1e3cfe684dc3f8eaa06ea8d99c784e8491ab805ff72195a3e560",
+    "sn_calibration\\src\\evalai_camera.py": "b8429c86839abf6ecf7420d789df7ac370a3d165b0d9f9ff69d30ec50135ea77",
+    "sn_calibration\\src\\evalai_camera_gs.py": "ccbbbda7c8832dfe3d499b66f61ccc1669016466996b7dde3d9a6c717675ef85",
+    "sn_calibration\\src\\evaluate_camera.py": "a713e9552029c1fa08046b4b3116b7b60a51305dbf3b2332244760d612f3d40b",
+    "sn_calibration\\src\\evaluate_extremities.py": "faf97bb5c18b61f806c270637b4e402859c977d9efd7d3ad7a38e7408895e392",
+    "sn_calibration\\src\\soccerpitch.py": "a4a10ffd5224c8e0b5e550be9bb606f861f7471f2ac64f12910f6d27886190d6",
+    "train.py": "a74fa57ba795a94dbae081307edd4e0d7230e332a21c4656360e3fbf93274583",
+    "train_l.py": "2af45dd3ed4bd327c0b1a429c564e1b8490dff5a552788d986337c39826e43df",
+    "utils\\utils_calib.py": "7932f06a7a7f9d1d7e11e2fe184d6c215e518349b9becc4f905d20a55b0e606d",
+    "utils\\utils_calib_seq.py": "50b0adaa1bf11fce543d0c9ce3f06a326a6cb7d174e18110541ea91f3ac8b9f2",
+    "utils\\utils_calib_wp.py": "96413c92a88daafb79323f3f76eef2b1a75e204c6768db61fa31c55cd05dee38",
+    "utils\\utils_field.py": "39e7dcbe718e95e8bd074b3c097bf97774e3bab384fbc70a907d6ba75dd7ca26",
+    "utils\\utils_geometry.py": "011ca36e6b6a9ec29aef97eed027cfb34184e921eebec4b44dccbfeda1858318",
+    "utils\\utils_heatmap.py": "6ab34390b9a45065016318339bdb2d9298b383f1216ad6acbcf66e2191f57daa",
+    "utils\\utils_keypoints.py": "d94c9d1fe0f619457c72a117847e9d97a65199ed71df8554e50580e5d1555790",
+    "utils\\utils_keypointsWC.py": "d0acd1f4c092121d9c5bee2e8d53cc0725bb2aeb8ef2bf9070c1d5cc2c3692f1",
+    "utils\\utils_keypointsWP.py": "69520aae0345b531a3d2abc653d5fe16cfd09d7496ce606521dac501e3f96f8d",
+    "utils\\utils_lines.py": "97237898eb173d5c6a670d9445dd241157fce2d07789f33571f3d93e3c27c914",
+    "utils\\utils_linesWC.py": "231731ac9e7c58c704aec9a1d837e11be6fb685edbe28f7711269ae352c6bd8c",
+    "utils\\utils_linesWP.py": "efe2b36f6d5fea34542159d492d509030c11dc965db2b50da940508678f6a34b",
+    "utils\\utils_optimize.py": "378bcf01c672cce24a744944cb96b0f68f70161779fdf6ba033b657b9cc08726",
+    "utils\\utils_train.py": "5f9558db6663021483522b0b9551634127a4b99c400d4f467a93ea483af532dc",
+    "utils\\utils_train_l.py": "673e0acfe0d8fca96d04fd35e51137277d35de72c397838cb0342d22609ce7b5"
+  },
+  "models": {
+    "keypoints": {
+      "name": "SV_kp",
+      "path": "C:\\CV\\Messi10-teamfix\\final\\weights\\pnlcalib\\SV_kp",
+      "url": "https://github.com/mguti97/PnLCalib/releases/download/v1.0.0/SV_kp",
+      "sha256": "7ea78fa76aaf94976a8eca428d6e3c59697a93430cba1a4603e20284b61f5113"
+    },
+    "lines": {
+      "name": "SV_lines",
+      "path": "C:\\CV\\Messi10-teamfix\\final\\weights\\pnlcalib\\SV_lines",
+      "url": "https://github.com/mguti97/PnLCalib/releases/download/v1.0.0/SV_lines",
+      "sha256": "d72f4ed71734a2e3df9fa084f666e9b8adaef21bf69bac8952d6d3f970ff7455"
+    }
+  },
+  "dependencies": {
+    "torch": "2.3.1+cpu",
+    "torchvision": "0.18.1+cpu",
+    "numpy": "1.26.4",
+    "opencv-python": "4.10.0.84",
+    "scipy": "1.13.1",
+    "PyYAML": "6.0.2"
+  },
+  "pip_freeze": "filelock==4.2.10\nfsspec==2026.9.0\nintel-openmp==2021.4.0\nJinja2==3.1.6\nMarkupSafe==3.0.4\nmkl==2021.4.0\nmpmath==1.3.0\nnetworkx==3.6.1\nnumpy==1.26.4\nopencv-python==4.10.0.84\npillow==11.1.0\nPyYAML==6.0.2\nscipy==1.13.1\nsympy==1.14.0\ntbb==2021.13.1\ntorch==2.3.1+cpu\ntorchvision==0.18.1+cpu\ntyping_extensions==4.16.0",
+  "worker_sha256": "3610729d71ddffc5691c2caa06b140f3aecaf69ffdb862c1e5d8a2902c762963",
+  "adapter_sha256": {
+    "C:\\CV\\Messi10-AN-verify\\scripts\\field_calibration_worker.py": "3610729d71ddffc5691c2caa06b140f3aecaf69ffdb862c1e5d8a2902c762963",
+    "C:\\CV\\Messi10-AN-verify\\src\\football_pipeline\\field_layout.py": "490675e281ea5231fc4a05d3f14f05cc568efff07c27a843a1a18123a6f12573",
+    "C:\\CV\\Messi10-AN-verify\\src\\football_pipeline\\field_coordinates.py": "da9bdeab694073349df6d22fbb13bd3fed2a3fd16735520c04056182deb36ebb",
+    "C:\\CV\\Messi10-AN-verify\\src\\football_pipeline\\field_model_spec.py": "810762dd296ae6125db4d5f9f1a21296d0f6184bf6fd76afe2a976228685261e",
+    "C:\\CV\\Messi10-AN-verify\\src\\football_pipeline\\automatic_calibration.py": "104936b3501dff9ee784af7e9dc8369420690593c8de01d95f009059a581a389"
+  },
+  "observations_sha256": "7d70e68d2a06080230222be0cc27d9e2cb3246dbba3f95aecfc88903ed39afdd",
+  "template": {
+    "length": 105,
+    "width": 68,
+    "units": "assumed_template_not_measured",
+    "orientation": "main_sideline_camera_u_right_v_down"
+  },
+  "measurements": {
+    "runtime_s": 530.274276799988,
+    "inference_s": 527.7208024999127,
+    "frames": 75,
+    "status_counts": {
+      "valid": 12,
+      "insufficient_lines": 61,
+      "inconsistent_lines": 1,
+      "inconsistent_points": 1
+    },
+    "usable_fraction": 0.16,
+    "device": "cpu",
+    "gpu": null
+  },
+  "human_evaluation": "pending",
+  "independent_accuracy_claim": false
+}

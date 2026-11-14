@@ -131,7 +131,8 @@ def render() -> str:
     """Beschrijf alle gevolgde codebestanden, hun functies en lokale imports en voeg de actuele
     modelprofielen toe aan één Markdown-codekaart.
     """
-    paths = followed_files()
+    # Submission folders are frozen copies; document the application sources once.
+    paths = [p for p in followed_files() if not p.parts[0].startswith("Upload_CV_Challenge_")]
     code = [p for p in paths if p.suffix in SUFFIXES]
     grouped = {name: [] for name in GROUPS}
     for path in code:

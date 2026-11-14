@@ -1,0 +1,34 @@
+{
+  "recorded_before_inference": "2026-10-26T20:38:19.917109+00:00",
+  "weights_frozen": {
+    "pretrained": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "F003": "1aa203d2971ad582da9631ce54ad5cb057aa79667a064d8a0c771805b4ce0fa4",
+    "F004": "2d3b00417a8ea19c4506c5daf09436542a611d32ca30e653e6e62251dee4b408"
+  },
+  "imgsz": 1280,
+  "confidence_floor": 0.001,
+  "nms_iou": 0.7,
+  "max_det": 300,
+  "application_workpoint": 0.25,
+  "target": "all annotated visible footballs, including reserves",
+  "selection_policy": "No weight, training or threshold changes; measure domain transfer only",
+  "scope": "New full-frame development measurement, AI labels, no independent human review. Unresolved tiny regions are retained without ignore masks; AP refers to available labels, not guaranteed exhaustive ground truth. In-play-only recall is not claimed.",
+  "dataset_manifests": {
+    "football-fullframe40": "3bae5f0c8d2a50d1da3b5552adeb082fb311bc91093f1f52594b845c2ee4db2f",
+    "football-fullscene16": "c3c9d34ad9e4810811ac216e2cb16d76c63de8616738f6b3b0144503724d7dad"
+  },
+  "software": {
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "opencv-python": "4.11.0.86",
+    "numpy": "2.2.6",
+    "psutil": "7.2.2",
+    "lap": "0.5.13"
+  },
+  "implementation_sha256": {
+    "scripts/evaluate_fullframe_ball.py": "397efcd79242aa3a37e238294cb18e9ed101a87bf2dc6c447ab4e65d9342883b",
+    "persoon1/metrics.py": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f"
+  }
+}

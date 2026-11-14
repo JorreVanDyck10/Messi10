@@ -1,0 +1,23 @@
+{
+  "clip_frames": 500,
+  "fps": 25,
+  "duration_s": 20,
+  "width": 6500,
+  "height": 1000,
+  "valid_yolo_label_files": 3,
+  "regular_coco_annotations": 77,
+  "crowd_regions": 6,
+  "object_counts": {
+    "person": 74,
+    "ball": 3
+  },
+  "clip_source_mean_absolute_pixel_errors": [
+    0.8339551091194153,
+    0.5476484894752502,
+    0.61295485496521
+  ],
+  "source_checksum_verified": true,
+  "clip_checksum_verified": true,
+  "independent_human_review": false,
+  "checks": "Actual video metadata, exact source-frame alignment, strict YOLO coordinate/class validation, COCO consistency, source and clip checksums"
+}

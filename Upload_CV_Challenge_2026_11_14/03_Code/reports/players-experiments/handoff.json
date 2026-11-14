@@ -1,0 +1,148 @@
+{
+  "recorded_at": "2026-10-16T19:13:32.804866+00:00",
+  "selected_run": "EXP-P004",
+  "weights": "artifacts/players-v2/players_best.pt",
+  "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+  "actual_names": {
+    "0": "player",
+    "1": "referee"
+  },
+  "criterion": "player AP50:95, then player AP50 on the same validation split",
+  "results": {
+    "EXP-P003": {
+      "mAP50": 0.595584983376449,
+      "mAP50_95": 0.30639844009556594,
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "player",
+          "objects": 264,
+          "AP50": 0.6862194717033933,
+          "AP50_95": 0.2489655684885331,
+          "TP": 191,
+          "FP": 88,
+          "FN": 73,
+          "precision": 0.6845878136200717,
+          "recall": 0.7234848484848485
+        },
+        {
+          "class_id": 1,
+          "name": "referee",
+          "objects": 24,
+          "AP50": 0.504950495049505,
+          "AP50_95": 0.3638313117025988,
+          "TP": 12,
+          "FP": 1,
+          "FN": 12,
+          "precision": 0.9230769230769231,
+          "recall": 0.5
+        }
+      ]
+    },
+    "EXP-P004": {
+      "mAP50": 0.6215610862155106,
+      "mAP50_95": 0.3141320179416004,
+      "per_class": [
+        {
+          "class_id": 0,
+          "name": "player",
+          "objects": 264,
+          "AP50": 0.7450262089885232,
+          "AP50_95": 0.265510617684238,
+          "TP": 199,
+          "FP": 65,
+          "FN": 65,
+          "precision": 0.7537878787878788,
+          "recall": 0.7537878787878788
+        },
+        {
+          "class_id": 1,
+          "name": "referee",
+          "objects": 24,
+          "AP50": 0.49809596344249807,
+          "AP50_95": 0.36275341819896273,
+          "TP": 10,
+          "FP": 0,
+          "FN": 14,
+          "precision": 1.0,
+          "recall": 0.4166666666666667
+        }
+      ]
+    }
+  },
+  "tradeoff": "Unfreezing improves player localization and reduces player FP/FN; known-official recall worsens at .25. Central official remains weak. Referee coverage is incomplete.",
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "source_change": "TeamTrack 6500x1000 25fps. Original PANORIS geometry must not be reused.",
+  "manifest_sha256": "69b6f83426125f5826044afd868aad2e021b7ca2cf25e5982a779ff038e17773",
+  "inference": {
+    "schema_version": 1,
+    "profile_name": "Spelermodel TeamTrack v2.1 — voorlopig, officials nog zwak",
+    "models": [
+      {
+        "model_id": "exp-p004-teamtrack-v2_1",
+        "weights": "../artifacts/players-v2/players_best.pt",
+        "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+        "class_mapping": {
+          "0": "player",
+          "1": "referee"
+        },
+        "expected_names": {
+          "0": "player",
+          "1": "referee"
+        },
+        "imgsz": 1920,
+        "confidence": 0.1,
+        "iou": 0.7,
+        "device": "0"
+      }
+    ],
+    "handoff": {
+      "evaluation_record": "../reports/players-experiments/EXP-P004/validation-metrics/metrics.json",
+      "evaluation_sha256": "2b725cbb140f22297f5e397e5277ad51f17c957ac109f55ebdee56c3f1f7c240",
+      "human_review_completed": false,
+      "independent_final_test_completed": false,
+      "referee_coverage": "central and near assistant; far roles unresolved"
+    }
+  },
+  "software": {
+    "recorded_at": "2026-10-16T19:13:32.885534+00:00",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.6.0+cu124",
+      "torchvision": "0.21.0+cu124",
+      "ultralytics": "8.3.221",
+      "numpy": "2.2.6",
+      "opencv-python": "4.11.0.86",
+      "Pillow": "11.3.0",
+      "PyYAML": "6.0.2",
+      "av": "16.0.1"
+    },
+    "source_code_sha256": {
+      "__init__.py": "66805ab972173f9440b0c998545a1197b3540176911f57f24120b272853c3fd3",
+      "__main__.py": "cce2a672e6ea6fc41ced11104365aed532ca7ec647fb321eb8667039ea4941ea",
+      "annotation.py": "ab2172c147ea236dcbe3675a05559d19f776f564d614c6bc11a1b82a56f42356",
+      "core.py": "4c3cad40263168bce0b4c47791978e95948623c8ea2cd1abd0bb771fd4a08b93",
+      "metrics.py": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+      "modeling.py": "c7e345cd14ab7f8004924c092631808b209b29f6f84a57a411b972728dc72465",
+      "participant_baseline.py": "8b9176072e322f581a85a153af48c8a0fb7d85baa1259837fd83320c0fdb6085",
+      "preprocessing_audit.py": "f154f3b46ff142aa9a1c4c5caed879895e647836232eac7f72d4470bc117e69f",
+      "project_dataset.py": "030e9693cbf1321233fa4775e5155ab461fd94b471b14723c6a013d75abd8d56",
+      "review_sheets.py": "b1d27552756e036cd6d04fd3dc58ed4d7544a65d626b087541252454d4cc006c",
+      "teamtrack_dataset.py": "1fc72a39a0cb5fbfb878a4f76d5cb4adab0ceae68f26359000b6178cab7f706b",
+      "technical_check.py": "43dcecffa5948eea3546c871b9b135db3524bc47d9e670a7aed009056a2d4ec0",
+      "video.py": "94639fd093f0d13ab3bc40f0a1c908ded8d29811cf4ad9bd5eb7c7205c3112b4"
+    },
+    "nvidia_smi": "NVIDIA GeForce RTX 3050 Laptop GPU, 4096 MiB, 3964 MiB, 566.07",
+    "git_commit": null,
+    "cuda_available": true,
+    "torch_cuda": "12.4",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_total_bytes": 4294443008
+  },
+  "training_hardware": "RTX 3050 Laptop GPU, 4096 MiB; not an RTX 4050 benchmark",
+  "download": "git lfs pull --include=\"artifacts/players-v2/**,datasets/teamtrack-players-v2/images/**\"",
+  "test_warning": "0720-0750 also has development labels on main; no independent final project test is claimed.",
+  "remote_download_verification": "reports/players-experiments/remote-download-verification.json"
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T17:56:17.815101+00:00",
+  "implementation_status": "automatic per-frame integration available; real broadcast accuracy not accepted",
+  "code": {
+    "git_commit": "99a166abef337df9ac9a36fd44a852b2a39b8663",
+    "source_sha256": "c116e55686d1a656212ef4e1a4be57f4b36983699d8b17b49b81bd9f8f607aa2",
+    "files": {
+      "src\\football_pipeline\\__init__.py": "b130f200a792b9d0af46123ab875d28ededf9f741aec8dfef41abbc55653862e",
+      "src\\football_pipeline\\__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "src\\football_pipeline\\automatic_calibration.py": "1189fb255d26d24c1d292252de9d06bed272008e51e2c4b33eeaef2411a6eacf",
+      "src\\football_pipeline\\calibration_evaluation.py": "b756ec7c28f0131493357e14dc7a0983bb26c194c8fc6b367ef0c3dfd1625c99",
+      "src\\football_pipeline\\calibration_input.py": "93ffbceec0e7ff83f9138bf1a1c3d221d99f0a8e6c5efd911561fd19a919d83f",
+      "src\\football_pipeline\\cli.py": "e2d524726419f273b938a02dc3e77537707ebe5b38ef0d7d36043d901729bafb",
+      "src\\football_pipeline\\contracts.py": "9780c736dea65358cc2c8bf42f480132959441bf8fabfe1a49602a6d5b424e9c",
+      "src\\football_pipeline\\demo.py": "f26e522703651485498d55ab2418fa34e9e3ba9443dc4407389b78ab5e6f2e92",
+      "src\\football_pipeline\\detection.py": "720ad9e82662c09feeaae4a6822da19d58ab344e0a4bf3c27cef02f1910d2068",
+      "src\\football_pipeline\\evaluation.py": "bda4c6d973ea0cbf26504eb631d927571dcbb7aa4363df785fffc81800ced8a3",
+      "src\\football_pipeline\\field_layout.py": "99f33d3b4a137bd17feaaad421630e03ef4c68151e91623f821c8afe8c3cbf1f",
+      "src\\football_pipeline\\field_model_spec.py": "731c22db1c7897a3c9b1cf853d41ffbefbca5b40edf721d2629f693e70ea2892",
+      "src\\football_pipeline\\geometry.py": "be472de24606f58b7ba88e3d3c5e735db9831f7af1c75aeb2f38013d3a61fbe5",
+      "src\\football_pipeline\\model_handoff.py": "a7dab90147f2f32e64611d780fb870cc68a18e548fa0e81f3221776480723a72",
+      "src\\football_pipeline\\pipeline.py": "6b962a87ece0764dd989575725986e9db3ba6b0cbf92705202f7f7d46223417b",
+      "src\\football_pipeline\\point_picker.py": "4c690ee2e1b7f88a63ce125a673a07ff22ff3b244f21adaf0dc6e75d42344ca8",
+      "src\\football_pipeline\\render.py": "1bfcc51b77cefbd0ebf9b79fc24dd2f72fd064f1fb02763a63e13fc2b1f18a47",
+      "src\\football_pipeline\\replay.py": "4ad66e8ce3ddf56ea2fb9f7333b061a8b908cf8ba9b37e2ee56a852f5494f69e",
+      "src\\football_pipeline\\tracking.py": "77f43b4b2dd379c26d8820cf5acf737426c50f226e9b5593db25f3f89b89cab8",
+      "src\\football_pipeline\\video.py": "62a459da4b90fb26654903ec44b34a20d6f0df4adc38d33c585cfc0326f5765d",
+      "streamlit_app.py": "c078fca978a802627f3f6b890c0fdf967ffe7e6aa1b703f2e2077b6278c87e7b",
+      "pyproject.toml": "84b294023e07584324ee385b581fab9c226e3cefb50a6c4e5f3fb5852a784942"
+    }
+  },
+  "validation": {
+    "pytest_passed": 117,
+    "subtests_passed": 4,
+    "ruff_check": "passed",
+    "ruff_format_check": "passed",
+    "warnings": "33 existing Pillow deprecation warnings in person-1 tests"
+  },
+  "field_model": {
+    "source": "https://github.com/mguti97/PnLCalib",
+    "revision": "8c87391d6f4ea40c5e4d65e61529916c7a49ce62",
+    "weights": {
+      "keypoints": {
+        "name": "SV_kp",
+        "sha256": "7ea78fa76aaf94976a8eca428d6e3c59697a93430cba1a4603e20284b61f5113"
+      },
+      "lines": {
+        "name": "SV_lines",
+        "sha256": "d72f4ed71734a2e3df9fa084f666e9b8adaef21bf69bac8952d6d3f970ff7455"
+      }
+    },
+    "device": "NVIDIA GeForce RTX 4050 Laptop GPU; CUDA; dedicated environment"
+  },
+  "synthetic_camera_diagnostic": {
+    "kind": "synthetic_camera_transform_of_upstream_still_image",
+    "frames": 50,
+    "video_sha256": "0d6c4b130d2c1d4fbc4ef7908a8cc572b25a2ed236f0d9ce42d98bf16d4c09a1",
+    "status_counts": {
+      "valid": 32,
+      "insufficient_lines": 9,
+      "inconsistent_points": 2,
+      "inconsistent_lines": 2,
+      "insufficient_points": 5
+    },
+    "usable_fraction": 0.64,
+    "blank_frames_have_no_positions": true,
+    "first_valid_frame_after_blank": 27,
+    "model_inference_runtime_s": 41.28087009999945,
+    "pipeline_runtime_s": 12.859705300001224,
+    "note": "Pipeline invocation reused cached field observations; model time is from the original cached inference.",
+    "source": "PnLCalib upstream still example with artificial pan/zoom and five blank frames",
+    "video": "artifacts/automatic-field-diagnostic/demonstratie.mp4",
+    "reproduce": ".venv/Scripts/python.exe scripts/field_calibration_diagnostic.py",
+    "independent_accuracy_claim": false
+  },
+  "real_footage_development_trial": {
+    "source": {
+      "page": "https://commons.wikimedia.org/wiki/File:2018_FIFA_U-17_Women%27s_World_Cup_-_New_Zealand_vs_Canada_-_24.webm",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/95/2018_FIFA_U-17_Women%27s_World_Cup_-_New_Zealand_vs_Canada_-_24.webm",
+      "author": "NaBUru38",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "original_sha1": "c90cbbf2da1dc837cebed0cbf6047365d9f21b57"
+    },
+    "frames": 120,
+    "status_counts": {
+      "insufficient_points": 120
+    },
+    "usable_fraction": 0.0,
+    "video_sha256": "92750cbcb504bf3a3aa529754d9c0f3d4037660bcb6ebc80c537e3a757ba8201",
+    "note": "Low spectator camera; insufficient reliable pitch landmarks. Failed development trial, not a positive broadcast benchmark.",
+    "reproduce": ".venv/Scripts/python.exe scripts/field_calibration_pilot.py"
+  },
+  "human_evaluation": {
+    "status": "pending",
+    "required_frames": 30,
+    "human_accepted": false,
+    "review_template": "artifacts/automatic-field-pilot/nz-canada/reference-to-review.json"
+  },
+  "limitations": [
+    "No validated accuracy on a real moving broadcast main camera",
+    "No player tracking in automatic mode until camera compensation is validated",
+    "Normalized standard-pitch coordinates only; no metric speed or distance",
+    "Player-specific weights still come from person 1; demo uses person/ball baseline"
+  ]
+}

@@ -1,0 +1,3819 @@
+{
+  "scope": "Development GT-box conditional kit assignment; NOT detector mAP, independent test or tracking accuracy. Cold start, no label input to clusters. One scoring permutation per video.",
+  "review_policy": "provisional_ai_visual",
+  "human_review_completed": false,
+  "manifest_sha256": "129079c8e5380ade5962f533a55fa00b1298145b990f718eeb2103c051da93d7",
+  "reference_sha256": "a9b1aeb3c104396f3db19d270e9a1cd26cf45c2c740f8d728e5f178938d7ea80",
+  "implementation_sha256": "7157135a7eb8bc4ce7ef40b2522d2084c42c1b48892b0529e257f2e0ca7403b0",
+  "totals": {
+    "outfield_crops": 338,
+    "correct": 218,
+    "wrong": 22,
+    "unknown_including_warmup": 98
+  },
+  "videos": [
+    {
+      "video": "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+      "images": 3,
+      "outfield_crops": 50,
+      "correct": 14,
+      "wrong": 1,
+      "unknown_including_warmup": 35,
+      "accuracy_including_unknown": 0.28,
+      "accuracy_when_assigned": 0.9333333333333333,
+      "coverage": 0.3,
+      "unknown_goalkeeper_references": 0,
+      "assigned_unknown_goalkeepers": 0,
+      "per_video_permutation_swapped": false,
+      "final_calibration": {
+        "method": "video_colour_clusters",
+        "feature_version": "median_torso_lab_v2",
+        "ready": true,
+        "samples": 50,
+        "updates": 3,
+        "centers": [
+          [
+            0.20980392396450043,
+            0.03125,
+            0.0234375
+          ],
+          [
+            0.31568628549575806,
+            -0.0625,
+            0.2265625
+          ]
+        ],
+        "radii": [
+          0.1369798630475998,
+          0.26788029074668884
+        ],
+        "names": "neutral A/B; no club or home-away claim",
+        "confidence_meaning": "relative colour distance margin, not probability"
+      },
+      "records": [
+        {
+          "id": "original-002100:0",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:1",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:2",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:4",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:14",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:15",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:17",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:18",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:3",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:5",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:6",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:8",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:9",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:10",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:13",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002100:16",
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:0",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:1",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:8",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:13",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:16",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:17",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:2",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:3",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:4",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:5",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:6",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:9",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:10",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:11",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:12",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002175:20",
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002250:0",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002250:1",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.2455158986207251,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "original-002250:2",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7440840454244351,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "original-002250:4",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002250:6",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7777887361941537,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "original-002250:9",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.9015490632454739,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "original-002250:12",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7303092414823227,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "original-002250:13",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "original-002250:14",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.3100261023754898,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "original-002250:15",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6852512515711396,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "original-002250:18",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.773553566827538,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "original-002250:3",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6909603418056594,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "original-002250:5",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6630858145734233,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "original-002250:7",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7989774520885267,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "original-002250:8",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7390916494192835,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "original-002250:10",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7712840019809649,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "original-002250:17",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6708963185931931,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "original-002250:21",
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.458321173313069,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        }
+      ]
+    },
+    {
+      "video": "939eaae38f9d14d4141154f931e00e95bdc2d8d7e24f006551a3e48952a539fb",
+      "images": 12,
+      "outfield_crops": 240,
+      "correct": 180,
+      "wrong": 13,
+      "unknown_including_warmup": 47,
+      "accuracy_including_unknown": 0.75,
+      "accuracy_when_assigned": 0.9326424870466321,
+      "coverage": 0.8041666666666667,
+      "unknown_goalkeeper_references": 0,
+      "assigned_unknown_goalkeepers": 0,
+      "per_video_permutation_swapped": false,
+      "final_calibration": {
+        "method": "video_colour_clusters",
+        "feature_version": "median_torso_lab_v2",
+        "ready": true,
+        "samples": 66,
+        "updates": 12,
+        "centers": [
+          [
+            0.25294119119644165,
+            -0.00390625,
+            -0.0078125
+          ],
+          [
+            0.1039215698838234,
+            0.046875,
+            -0.109375
+          ]
+        ],
+        "radii": [
+          0.11340072005987167,
+          0.1274651736021042
+        ],
+        "names": "neutral A/B; no club or home-away claim",
+        "confidence_meaning": "relative colour distance margin, not probability"
+      },
+      "records": [
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:0",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_a",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:1",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:2",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:3",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:4",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:5",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:6",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:7",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:8",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:9",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:10",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:11",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:12",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:13",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_b",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:14",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:15",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:16",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:17",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:18",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:19",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:20",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000000:player:21",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:0",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_a",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:1",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:2",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:3",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:4",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:5",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:6",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:7",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:8",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:9",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:10",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:11",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:12",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:13",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_b",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:14",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:15",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:16",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:17",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:18",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:19",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:20",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000060:player:21",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:0",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_a",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:1",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.758178258955617,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:2",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8072764648173828,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:3",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8381467511495728,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:4",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.912477579674303,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:5",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6217851916465645,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:6",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8468294596078971,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:7",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7137585589956482,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:8",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6598341934233681,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:9",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5558830992266419,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:10",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.4351074842126581,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:11",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.40340282100777514,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:12",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.848727949286067,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:13",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_b",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:14",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.4366630099601778,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:15",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7568646577852676,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:16",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.4512042260743123,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:17",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.633510301280814,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:18",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7638612091024144,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:19",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6431967555701121,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:20",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8299367511662991,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000120:player:21",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:0",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_a",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:1",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7900776423005849,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:2",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.46780410511165915,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:3",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8623083503686909,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:4",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8914139459766883,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:5",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6009056521963269,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:6",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6673143524926768,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:7",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.46496728189399594,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:8",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.4519634638468498,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:9",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8275994319664169,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:10",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.4808752028988639,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:11",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7337101660060646,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:12",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8098654759129863,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:13",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_b",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:14",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8272862637512813,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:15",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6541782672449465,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:16",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7179944215451555,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:17",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7563258779876045,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:18",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.46416387160537576,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:19",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7006405271506198,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:20",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7178098790856633,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000180:player:21",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7578999498200139,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:0",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_a",
+          "goalkeeper": true,
+          "prediction": "team_b",
+          "confidence": 0.27886905532692796,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:1",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8367159932089429,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:2",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6551812886560991,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:3",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.830007773173902,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:4",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5009632791052542,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:5",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5553874269897305,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:6",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.4985055267787383,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:7",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5760397069931081,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:8",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.759025353935993,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:9",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.648609982697276,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:10",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.4233187107939357,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:11",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7528222183484323,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:12",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6791216357679701,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:13",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_b",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:14",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.4646894908998539,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:15",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.36379084166089903,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:16",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.25101072874383934,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:17",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6341947582887555,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:18",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.2642451910041371,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:19",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7525589721039108,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:20",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.5286407727508442,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000240:player:21",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.30629000941128814,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:0",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_a",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:1",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8129215619531371,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:2",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.44616742240557383,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:3",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5268451032482999,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:4",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7927407992592935,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:5",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7289695440121678,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:6",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.49320691087783197,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:7",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7548383667567911,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:8",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8853040263589915,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:9",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6773164427714624,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:10",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.46541373768878835,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:11",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7281629954966087,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:12",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.832227615640681,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:13",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_b",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:14",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.3744099931789361,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:15",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6714224981380363,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:16",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.29434427963791765,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:17",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.5961539724140826,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:18",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8699155173868645,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:19",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6655583601996193,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:20",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7896037909732356,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000300:player:21",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.863182039189584,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:0",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_a",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:1",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8805939233546377,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:2",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6357980414523334,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:3",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8002101017569793,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:4",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6709212330449087,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:5",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.831184293035427,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:6",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.32628643445741257,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:7",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5608864241996725,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:8",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.9130341547939657,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:9",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.44173814773154463,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:10",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.4019428060685283,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:11",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.3526001456042904,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:12",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.44585220656486657,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:13",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_b",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:14",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.33008190916802127,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:15",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8011010934932092,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:16",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7718091747854967,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:17",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6607520343435093,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:18",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6148948842631582,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:19",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.22102898363982604,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:20",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5148007505485765,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000360:player:21",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.5379885808744411,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:0",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_a",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:1",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.9545208598675484,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:2",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6646472384360954,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:3",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8837751969378563,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:4",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8258733561791535,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:5",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.9048153023818855,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:6",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.35539677304628636,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:7",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5552948983752615,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:8",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8861106461604197,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:9",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7959953021482986,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:10",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.4827217259916584,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:11",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6197256860597292,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:12",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7513641256432056,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:13",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_b",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:14",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.5687529992039864,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:15",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6356017845076822,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:16",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:17",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7393676573087609,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:18",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7370303803976572,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:19",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:20",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.37259289352507285,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000420:player:21",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8253872392841415,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:0",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_a",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:1",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7921343758879025,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:2",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.4600886507962235,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:3",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.44229518422585146,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:4",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5952063746307339,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:5",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.9456736885345766,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:6",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6264719476318537,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:7",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6318132512361863,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:8",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5175017047501129,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:9",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7573543958426059,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:10",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.3974410201208012,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:11",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8920248405533063,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:12",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7674246029903286,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:13",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_b",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:14",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8249092776384584,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:15",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6884639068214762,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:16",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.9008116548285452,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:17",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8288365855278209,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:18",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.3799339891480803,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:19",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7057664538239676,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:20",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7347087581972305,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000480:player:21",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.5951371861760489,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:0",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_a",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:1",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8881198466494432,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:2",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8237425359083385,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:3",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8464710254380625,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:4",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7498363317797387,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:5",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8316608112149395,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:6",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.45652283681239114,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:7",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:8",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.3793399446761989,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:9",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5492567801965411,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:10",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6210326557379431,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:11",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.2693399385173356,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:12",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6669446580860072,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:13",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_b",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:14",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8290303032240597,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:15",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7624947495987491,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:16",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7999612763752697,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:17",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8423751139661937,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:18",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6799659301416613,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:19",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:20",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.20303216210454456,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000540:player:21",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6612357850301562,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:0",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_a",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:1",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7337295883443664,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:2",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8237425359083385,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:3",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7932985652461494,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:4",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5425181534659126,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:5",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7001704545180276,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:6",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7084221876438974,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:7",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6957087040761165,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:8",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5112217848037145,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:9",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7822236008100498,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:10",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8139599454825712,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:11",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.723588901746459,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:12",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.870381657537097,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:13",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_b",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:14",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7587225438540182,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:15",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.424539478656181,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:16",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7079175399961395,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:17",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6571924046457964,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:18",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.5407185451416985,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:19",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7374388817277272,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:20",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.33152277199648594,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000600:player:21",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.739885164306818,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:0",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_a",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:1",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8474043049295417,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:2",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.22541040534836476,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:3",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7386064334374176,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:4",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.8267609355644918,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:5",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.673010626474042,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:6",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.87695928388837,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:7",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:8",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7190799328998445,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:9",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7562282975878725,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:10",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6932404149995515,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:11",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:12",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.46685972755283844,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:13",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_b",
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:14",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8658805179932657,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:15",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8464069512537572,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:16",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.21160447682199945,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:17",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7752418283392487,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:18",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7949892526318458,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:19",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8521036937154659,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:20",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.623047797349323,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "F_20200220_1_0660_0690_000660:player:21",
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.9196640026529713,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        }
+      ]
+    },
+    {
+      "video": "football48-panorama-128057",
+      "images": 10,
+      "outfield_crops": 48,
+      "correct": 24,
+      "wrong": 8,
+      "unknown_including_warmup": 16,
+      "accuracy_including_unknown": 0.5,
+      "accuracy_when_assigned": 0.75,
+      "coverage": 0.6666666666666666,
+      "unknown_goalkeeper_references": 6,
+      "assigned_unknown_goalkeepers": 0,
+      "per_video_permutation_swapped": false,
+      "final_calibration": {
+        "method": "video_colour_clusters",
+        "feature_version": "median_torso_lab_v2",
+        "ready": true,
+        "samples": 28,
+        "updates": 10,
+        "centers": [
+          [
+            0.2549019753932953,
+            0.0,
+            -0.1640625
+          ],
+          [
+            0.08921568840742111,
+            0.1484375,
+            -0.3203125
+          ]
+        ],
+        "radii": [
+          0.19796472787857056,
+          0.1234951764345169
+        ],
+        "names": "neutral A/B; no club or home-away claim",
+        "confidence_meaning": "relative colour distance margin, not probability"
+      },
+      "records": [
+        {
+          "id": "extension:val:128057_00013525:0",
+          "image": "../../assets/annotations/football48/images/val/128057_00013525.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013525:1",
+          "image": "../../assets/annotations/football48/images/val/128057_00013525.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013525:2",
+          "image": "../../assets/annotations/football48/images/val/128057_00013525.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013675:7",
+          "image": "../../assets/annotations/football48/images/val/128057_00013675.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013675:8",
+          "image": "../../assets/annotations/football48/images/val/128057_00013675.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013675:9",
+          "image": "../../assets/annotations/football48/images/val/128057_00013675.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013825:13",
+          "image": "../../assets/annotations/football48/images/val/128057_00013825.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013825:14",
+          "image": "../../assets/annotations/football48/images/val/128057_00013825.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013825:15",
+          "image": "../../assets/annotations/football48/images/val/128057_00013825.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013825:16",
+          "image": "../../assets/annotations/football48/images/val/128057_00013825.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013825:17",
+          "image": "../../assets/annotations/football48/images/val/128057_00013825.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": false,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013900:19",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6354492854086318,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00013900:20",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7332404800272154,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00013900:21",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6732035548760547,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "extension:val:128057_00013900:22",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7082835922547357,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00013900:23",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.955354877263428,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "extension:val:128057_00013900:25",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.9401694500461335,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00013900:26",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.24760335950179702,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00013900:27",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7487537524522023,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "extension:val:128057_00013900:28",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.38829800057246644,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00013900:29",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013900:30",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.8701746299403964,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "extension:val:128057_00013900:31",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6989180705774185,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "extension:val:128057_00013900:32",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.912340934397906,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00013900:33",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": null,
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00013900:34",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.9308131431135414,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "extension:val:128057_00013900:35",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.6125380511910655,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "extension:val:128057_00013900:38",
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.9338036322056884,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "extension:val:128057_00050275:39",
+          "image": "../../assets/annotations/football48/images/val/128057_00050275.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7583801427765651,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "extension:val:128057_00050275:40",
+          "image": "../../assets/annotations/football48/images/val/128057_00050275.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.47740569451446624,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050275:41",
+          "image": "../../assets/annotations/football48/images/val/128057_00050275.png",
+          "truth": null,
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00050275:42",
+          "image": "../../assets/annotations/football48/images/val/128057_00050275.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6374443582737072,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050275:43",
+          "image": "../../assets/annotations/football48/images/val/128057_00050275.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00050275:44",
+          "image": "../../assets/annotations/football48/images/val/128057_00050275.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6393338231620855,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050275:45",
+          "image": "../../assets/annotations/football48/images/val/128057_00050275.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7489610737816756,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050300:49",
+          "image": "../../assets/annotations/football48/images/val/128057_00050300.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6891981410968306,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050300:50",
+          "image": "../../assets/annotations/football48/images/val/128057_00050300.png",
+          "truth": null,
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00050500:51",
+          "image": "../../assets/annotations/football48/images/val/128057_00050500.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00050500:52",
+          "image": "../../assets/annotations/football48/images/val/128057_00050500.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.9222456945619026,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050500:55",
+          "image": "../../assets/annotations/football48/images/val/128057_00050500.png",
+          "truth": null,
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00050500:56",
+          "image": "../../assets/annotations/football48/images/val/128057_00050500.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.7357784612931269,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "extension:val:128057_00050500:57",
+          "image": "../../assets/annotations/football48/images/val/128057_00050500.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.7253678490048796,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050525:59",
+          "image": "../../assets/annotations/football48/images/val/128057_00050525.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00050525:60",
+          "image": "../../assets/annotations/football48/images/val/128057_00050525.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.9136344184023524,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050575:64",
+          "image": "../../assets/annotations/football48/images/val/128057_00050575.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6407376497655832,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050575:65",
+          "image": "../../assets/annotations/football48/images/val/128057_00050575.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.37973432051297795,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "extension:val:128057_00050575:66",
+          "image": "../../assets/annotations/football48/images/val/128057_00050575.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6012835274852187,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050575:67",
+          "image": "../../assets/annotations/football48/images/val/128057_00050575.png",
+          "truth": null,
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00050575:68",
+          "image": "../../assets/annotations/football48/images/val/128057_00050575.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_b",
+          "confidence": 0.3747598014709924,
+          "ready": true,
+          "aligned_prediction": "team_b"
+        },
+        {
+          "id": "extension:val:128057_00050575:69",
+          "image": "../../assets/annotations/football48/images/val/128057_00050575.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.5647890105703124,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050650:70",
+          "image": "../../assets/annotations/football48/images/val/128057_00050650.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        },
+        {
+          "id": "extension:val:128057_00050650:71",
+          "image": "../../assets/annotations/football48/images/val/128057_00050650.png",
+          "truth": "team_a",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.6183056236449815,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050650:72",
+          "image": "../../assets/annotations/football48/images/val/128057_00050650.png",
+          "truth": "team_b",
+          "goalkeeper": false,
+          "prediction": "team_a",
+          "confidence": 0.677046828284019,
+          "ready": true,
+          "aligned_prediction": "team_a"
+        },
+        {
+          "id": "extension:val:128057_00050650:73",
+          "image": "../../assets/annotations/football48/images/val/128057_00050650.png",
+          "truth": null,
+          "goalkeeper": true,
+          "prediction": null,
+          "confidence": null,
+          "ready": true,
+          "aligned_prediction": null
+        }
+      ]
+    }
+  ]
+}

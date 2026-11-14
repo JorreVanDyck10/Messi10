@@ -1,0 +1,55 @@
+{
+  "app_entrypoint": "streamlit_app.py",
+  "navigation": "Modellen trainen",
+  "gpu_check_passed": true,
+  "hardware": {
+    "torch": "2.6.0+cu124",
+    "cuda_build": "12.4",
+    "available": true,
+    "ready": true,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+        "memory_gib": 6.0,
+        "capability": [
+          8,
+          9
+        ]
+      }
+    ]
+  },
+  "form_tasks": [
+    "shirt"
+  ],
+  "epochs": 1,
+  "minutes_per_model": 1,
+  "job": "C:\\Messi10\\artifacts\\training-workbench\\20261105-190048-341f2dfe",
+  "real_worker_started": true,
+  "worker_status": "complete",
+  "completed_tasks": [
+    "shirt"
+  ],
+  "result": {
+    "status": "complete",
+    "weights": "C:\\Messi10\\artifacts\\training-workbench\\20261105-190048-341f2dfe\\shirt\\training\\kit_embedding.pt",
+    "weights_sha256": "bb37f14d7f6b85a61b3d688e18563895f3c1ebac82db340e39f125af2c4125fe",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "activated": false,
+    "evaluation_required": true,
+    "training_data": {
+      "players": "data/broadcast-multisource-v1",
+      "ball": "data/joint-local-20261027-v2/ball",
+      "appearance": "artifacts/broadcast-pitch-v1/appearance/features.pt",
+      "context_dataset": "data/broadcast-pitch-v1",
+      "field": "artifacts/player-field-reliability-20261030/field-recovery/training-index.json",
+      "profile": "configs/models-broadcast.json",
+      "andrew_dataset": "data/andrew-four-class-v1",
+      "andrew_profile": "configs/models-andrew.json"
+    }
+  },
+  "worker_log_tail": "Start shirt\nColor metric {'total': 5075, 'correct': 4511, 'wrong': 176, 'unknown': 388, 'accuracy_assigned': 0.9624493279283124, 'coverage': 0.9235467980295566, 'correct_fraction': 0.8888669950738917, 'goalkeepers': 194, 'goalkeepers_assigned': 77, 'meaning': 'reference crops, one A/B mapping per whole clip; not end-to-end detector accuracy'}\n",
+  "baseline_profile_sha256": "b1fe7c9ee6f9ce8fa01a00c1975cac1b67a24e500a563ba092603256e5812421",
+  "baseline_weights_preserved": true
+}

@@ -1,0 +1,962 @@
+{
+  "schema_version": 2,
+  "candidate_status": "experimental_pending_human_validation",
+  "source": {
+    "schema_version": 1,
+    "video_sha256": "6cdaf4089cb578636bc4773bde0ebdc1e68b8554e169d413e855bdf144780f4a",
+    "selection_frozen_at": "2026-10-16T18:37:27.850513+00:00",
+    "source": "Broadcast video.mp4, lokaal aangeleverd door gebruiker",
+    "usage": "Lokale ontwikkeling en beoordeling; publicatierechten niet bevestigd",
+    "split_rule": "Alternating contiguous five-second groups; 10 development frames in even groups, 30 review frames in odd groups; 0.4s margins",
+    "development_indices": [
+      10,
+      114,
+      260,
+      364,
+      510,
+      614,
+      760,
+      864,
+      1010,
+      1114
+    ],
+    "evaluation_indices": [
+      135,
+      155,
+      176,
+      197,
+      218,
+      239,
+      385,
+      405,
+      426,
+      447,
+      468,
+      489,
+      635,
+      655,
+      676,
+      697,
+      718,
+      739,
+      885,
+      905,
+      926,
+      947,
+      968,
+      989,
+      1135,
+      1153,
+      1172,
+      1190,
+      1209,
+      1228
+    ]
+  },
+  "video": {
+    "sha256": "6cdaf4089cb578636bc4773bde0ebdc1e68b8554e169d413e855bdf144780f4a",
+    "image_size": [
+      1920,
+      1080
+    ],
+    "fps": 25.0,
+    "frames": 1239
+  },
+  "baseline_run": "9fd00e0e1f535a74b32902671872843928a24866902f284c644ed9e9c9d3d107",
+  "saved_baseline_measurements": {
+    "processed_frames": 1239,
+    "runtime_s": 848.2363457000029,
+    "processing_fps": 1.4606778008050592,
+    "inference_or_replay_s": 160.8776145000229,
+    "tracking_s": 0.0,
+    "peak_process_ram_bytes_sampled": 731955200,
+    "peak_gpu_allocated_bytes": null,
+    "projection_counts": {
+      "calibration_unavailable": 18032,
+      "not_ground_projected": 268
+    },
+    "calibration_preparation_s": 589.1392541000023,
+    "calibration_status_counts": {
+      "insufficient_points": 830,
+      "inconsistent_points": 24,
+      "insufficient_lines": 385
+    },
+    "calibration_usable_fraction": 0.0
+  },
+  "candidate_run": "0b2006b23d066695e0c35ebe1d282748e2d083217f3a33ee638783db251c4167",
+  "observations_sha256": "d261b9b27cd51ff0620fcc49f4674b79b33017e9c8dd88d130d2f022fe05c610",
+  "models": {
+    "keypoints": {
+      "name": "SV_kp",
+      "path": "C:\\Messi10\\weights\\pnlcalib\\SV_kp",
+      "url": "https://github.com/mguti97/PnLCalib/releases/download/v1.0.0/SV_kp",
+      "sha256": "7ea78fa76aaf94976a8eca428d6e3c59697a93430cba1a4603e20284b61f5113"
+    },
+    "lines": {
+      "name": "SV_lines",
+      "path": "C:\\Messi10\\weights\\pnlcalib\\SV_lines",
+      "url": "https://github.com/mguti97/PnLCalib/releases/download/v1.0.0/SV_lines",
+      "sha256": "d72f4ed71734a2e3df9fa084f666e9b8adaef21bf69bac8952d6d3f970ff7455"
+    }
+  },
+  "worker_sha256": "83e8ccdcd2dfbd0781989092814313ca002a04438ca31399a200f5e967320f9c",
+  "upstream": {
+    "url": "https://github.com/mguti97/PnLCalib",
+    "revision": "8c87391d6f4ea40c5e4d65e61529916c7a49ce62",
+    "license": "GPL-2.0",
+    "license_sha256": "189b1af95d661151e054cea10c91b3d754e4de4d3fecfb074c1fb29476f7167b"
+  },
+  "dependencies": {
+    "torch": "2.3.1+cu121",
+    "torchvision": "0.18.1+cu121",
+    "numpy": "1.26.4",
+    "opencv-python": "4.10.0.84",
+    "scipy": "1.13.1",
+    "PyYAML": "6.0.2"
+  },
+  "device": "cuda:0",
+  "code": {
+    "git_commit": "5403a39d0e3f24f11ff4b370c118007c0b0b6f42",
+    "source_sha256": "e96f2f962e470b21b6c69ae1ecad98f5e1ad609b5fe9cfe6d3c7a76fedd37e8c",
+    "files": {
+      "src\\football_pipeline\\__init__.py": "b130f200a792b9d0af46123ab875d28ededf9f741aec8dfef41abbc55653862e",
+      "src\\football_pipeline\\__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "src\\football_pipeline\\automatic_calibration.py": "161a1ebe7e9acab46db35ceb658309f913c36417258d3043195efb105e4db233",
+      "src\\football_pipeline\\calibration_evaluation.py": "c31e48bc86740fc79d3232e216732f7eadeeb3e008ce707518613d797331bced",
+      "src\\football_pipeline\\calibration_input.py": "93ffbceec0e7ff83f9138bf1a1c3d221d99f0a8e6c5efd911561fd19a919d83f",
+      "src\\football_pipeline\\cli.py": "04a6cb9b877710940e997fb9535717f67d9a682f8317e3759233c5b38d8318b1",
+      "src\\football_pipeline\\contracts.py": "9780c736dea65358cc2c8bf42f480132959441bf8fabfe1a49602a6d5b424e9c",
+      "src\\football_pipeline\\demo.py": "f26e522703651485498d55ab2418fa34e9e3ba9443dc4407389b78ab5e6f2e92",
+      "src\\football_pipeline\\detection.py": "720ad9e82662c09feeaae4a6822da19d58ab344e0a4bf3c27cef02f1910d2068",
+      "src\\football_pipeline\\evaluation.py": "bda4c6d973ea0cbf26504eb631d927571dcbb7aa4363df785fffc81800ced8a3",
+      "src\\football_pipeline\\field_layout.py": "99f33d3b4a137bd17feaaad421630e03ef4c68151e91623f821c8afe8c3cbf1f",
+      "src\\football_pipeline\\field_model_spec.py": "731c22db1c7897a3c9b1cf853d41ffbefbca5b40edf721d2629f693e70ea2892",
+      "src\\football_pipeline\\field_motion.py": "07eaf1eddfba882fc2a08307f0a09ab07a195f526497fff5f43e3fbd7138bdfd",
+      "src\\football_pipeline\\field_review.py": "17a26fd1efb01b8bc93ec8b6dbe6aab3b41bcf585b0441bf92ea37acc67d0363",
+      "src\\football_pipeline\\field_review_ui.py": "cd74da465d3386ffa68d68671f4dcb1b111d1654628fab366b448b4b5fccf445",
+      "src\\football_pipeline\\geometry.py": "be472de24606f58b7ba88e3d3c5e735db9831f7af1c75aeb2f38013d3a61fbe5",
+      "src\\football_pipeline\\model_handoff.py": "a7dab90147f2f32e64611d780fb870cc68a18e548fa0e81f3221776480723a72",
+      "src\\football_pipeline\\pipeline.py": "c92a0f8ec207a2a64febbe6b4a1242481f9875aaad45452b4443f9756a3dccb0",
+      "src\\football_pipeline\\point_picker.py": "4c690ee2e1b7f88a63ce125a673a07ff22ff3b244f21adaf0dc6e75d42344ca8",
+      "src\\football_pipeline\\render.py": "f92761273367fa78c1ff0ae771265ad7d2b1abe3183180835465d069e41f1e27",
+      "src\\football_pipeline\\replay.py": "4ad66e8ce3ddf56ea2fb9f7333b061a8b908cf8ba9b37e2ee56a852f5494f69e",
+      "src\\football_pipeline\\tracking.py": "77f43b4b2dd379c26d8820cf5acf737426c50f226e9b5593db25f3f89b89cab8",
+      "src\\football_pipeline\\video.py": "62a459da4b90fb26654903ec44b34a20d6f0df4adc38d33c585cfc0326f5765d",
+      "streamlit_app.py": "24bc20e4fc6ec7b451386460de7f5555a78a67a2da05acbd17fca0dd2ee46eb2",
+      "pyproject.toml": "84b294023e07584324ee385b581fab9c226e3cefb50a6c4e5f3fb5852a784942"
+    }
+  },
+  "frozen_settings": {
+    "settings": {
+      "version": 2,
+      "keypoint_threshold": 0.3434,
+      "line_threshold": 0.7867,
+      "motion": true,
+      "tracking_width": 960,
+      "forward_backward_px": 1.5,
+      "minimum_motion_inliers": 20,
+      "minimum_motion_ratio": 0.6,
+      "maximum_age_s": 2.0,
+      "ransac_px": 3.0,
+      "median_diagonal_fraction": 0.005,
+      "maximum_diagonal_fraction": 0.01,
+      "minimum_image_hull_fraction": 0.001,
+      "minimum_motion_hull_fraction": 0.01,
+      "cut_mean_difference": 45.0,
+      "cut_histogram_distance": 0.55,
+      "holdout_rule": "two_semantic_tertiles_no_refit"
+    },
+    "settings_frozen_at": "2026-10-16T18:56:33.006637+00:00",
+    "selection_sha256": "14f40776709d8cb77646b30542dedca779b9f7b0f942725f8585898bfc1242e7",
+    "choice": "geometry_03434",
+    "rule": "Highest internally controlled development-frame coverage; tie retains stricter confidence. Provisional until human reference validation.",
+    "human_references_used": false
+  },
+  "stages": {
+    "baseline": {
+      "settings": {
+        "version": 1,
+        "keypoint_threshold": 0.3434,
+        "line_threshold": 0.7867,
+        "minimum_points": 6,
+        "minimum_lines": 2,
+        "median_diagonal_fraction": 0.005,
+        "maximum_diagonal_fraction": 0.01,
+        "minimum_image_hull_fraction": 0.001,
+        "orientation": "main_sideline_camera_u_right_v_down"
+      },
+      "frames": 1239,
+      "valid_frames": 0,
+      "coverage_all_frames": 0.0,
+      "development_valid_frames": 0,
+      "development_frames": 10,
+      "status_counts": {
+        "insufficient_points": 830,
+        "inconsistent_points": 24,
+        "insufficient_lines": 385
+      },
+      "source_counts": {
+        "legacy": 1239
+      },
+      "model_holdout_median_px": null,
+      "model_holdout_maximum_px": null,
+      "human_reference_errors_px": null,
+      "human_calibratable_coverage": null,
+      "failure_intervals": [
+        [
+          0,
+          1238
+        ]
+      ],
+      "longest_failure_s": 49.56,
+      "human_reviewed": false,
+      "calibration_s": 0.3624208999972325
+    },
+    "geometry_03434": {
+      "settings": {
+        "version": 2,
+        "keypoint_threshold": 0.3434,
+        "line_threshold": 0.7867,
+        "motion": false,
+        "tracking_width": 960,
+        "forward_backward_px": 1.5,
+        "minimum_motion_inliers": 20,
+        "minimum_motion_ratio": 0.6,
+        "maximum_age_s": 2.0,
+        "ransac_px": 3.0,
+        "median_diagonal_fraction": 0.005,
+        "maximum_diagonal_fraction": 0.01,
+        "minimum_image_hull_fraction": 0.001,
+        "minimum_motion_hull_fraction": 0.01,
+        "cut_mean_difference": 45.0,
+        "cut_histogram_distance": 0.55,
+        "holdout_rule": "two_semantic_tertiles_no_refit"
+      },
+      "frames": 1239,
+      "valid_frames": 228,
+      "coverage_all_frames": 0.18401937046004843,
+      "development_valid_frames": 2,
+      "development_frames": 10,
+      "status_counts": {
+        "insufficient_points": 747,
+        "insufficient_controls": 66,
+        "inconsistent_controls": 139,
+        "inconsistent_points": 17,
+        "orientation_unknown": 3,
+        "valid": 228,
+        "degenerate_geometry": 27,
+        "inconsistent_lines": 8,
+        "invalid_observation": 4
+      },
+      "source_counts": {
+        "unavailable": 1011,
+        "detected": 228
+      },
+      "model_holdout_median_px": 4.208394573809356,
+      "model_holdout_maximum_px": 18.305609866481255,
+      "human_reference_errors_px": null,
+      "human_calibratable_coverage": null,
+      "failure_intervals": [
+        [
+          0,
+          17
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          22,
+          24
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          30,
+          40
+        ],
+        [
+          45,
+          45
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          71,
+          72
+        ],
+        [
+          190,
+          191
+        ],
+        [
+          193,
+          610
+        ],
+        [
+          613,
+          613
+        ],
+        [
+          618,
+          624
+        ],
+        [
+          626,
+          627
+        ],
+        [
+          632,
+          638
+        ],
+        [
+          640,
+          640
+        ],
+        [
+          642,
+          647
+        ],
+        [
+          649,
+          654
+        ],
+        [
+          656,
+          657
+        ],
+        [
+          659,
+          659
+        ],
+        [
+          662,
+          662
+        ],
+        [
+          665,
+          674
+        ],
+        [
+          678,
+          678
+        ],
+        [
+          688,
+          703
+        ],
+        [
+          705,
+          706
+        ],
+        [
+          708,
+          711
+        ],
+        [
+          713,
+          715
+        ],
+        [
+          717,
+          719
+        ],
+        [
+          721,
+          739
+        ],
+        [
+          743,
+          743
+        ],
+        [
+          745,
+          746
+        ],
+        [
+          748,
+          879
+        ],
+        [
+          881,
+          881
+        ],
+        [
+          883,
+          883
+        ],
+        [
+          885,
+          888
+        ],
+        [
+          902,
+          913
+        ],
+        [
+          915,
+          915
+        ],
+        [
+          919,
+          919
+        ],
+        [
+          921,
+          932
+        ],
+        [
+          937,
+          937
+        ],
+        [
+          940,
+          940
+        ],
+        [
+          946,
+          947
+        ],
+        [
+          949,
+          952
+        ],
+        [
+          954,
+          954
+        ],
+        [
+          957,
+          1238
+        ]
+      ],
+      "longest_failure_s": 16.72,
+      "human_reviewed": false,
+      "calibration_s": 1.026585999999952
+    },
+    "confidence_025": {
+      "settings": {
+        "version": 2,
+        "keypoint_threshold": 0.25,
+        "line_threshold": 0.7867,
+        "motion": false,
+        "tracking_width": 960,
+        "forward_backward_px": 1.5,
+        "minimum_motion_inliers": 20,
+        "minimum_motion_ratio": 0.6,
+        "maximum_age_s": 2.0,
+        "ransac_px": 3.0,
+        "median_diagonal_fraction": 0.005,
+        "maximum_diagonal_fraction": 0.01,
+        "minimum_image_hull_fraction": 0.001,
+        "minimum_motion_hull_fraction": 0.01,
+        "cut_mean_difference": 45.0,
+        "cut_histogram_distance": 0.55,
+        "holdout_rule": "two_semantic_tertiles_no_refit"
+      },
+      "frames": 1239,
+      "valid_frames": 277,
+      "coverage_all_frames": 0.22356739305891848,
+      "development_valid_frames": 2,
+      "development_frames": 10,
+      "status_counts": {
+        "insufficient_points": 615,
+        "insufficient_controls": 146,
+        "inconsistent_controls": 131,
+        "invalid_observation": 10,
+        "valid": 277,
+        "inconsistent_lines": 9,
+        "degenerate_geometry": 24,
+        "orientation_unknown": 13,
+        "inconsistent_points": 14
+      },
+      "source_counts": {
+        "unavailable": 962,
+        "detected": 277
+      },
+      "model_holdout_median_px": 4.187493148457127,
+      "model_holdout_maximum_px": 15.139372031816228,
+      "human_reference_errors_px": null,
+      "human_calibratable_coverage": null,
+      "failure_intervals": [
+        [
+          0,
+          16
+        ],
+        [
+          18,
+          20
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          31,
+          36
+        ],
+        [
+          39,
+          40
+        ],
+        [
+          42,
+          42
+        ],
+        [
+          71,
+          71
+        ],
+        [
+          182,
+          182
+        ],
+        [
+          191,
+          191
+        ],
+        [
+          195,
+          196
+        ],
+        [
+          198,
+          198
+        ],
+        [
+          200,
+          608
+        ],
+        [
+          610,
+          610
+        ],
+        [
+          613,
+          613
+        ],
+        [
+          616,
+          626
+        ],
+        [
+          632,
+          645
+        ],
+        [
+          647,
+          647
+        ],
+        [
+          649,
+          649
+        ],
+        [
+          652,
+          653
+        ],
+        [
+          662,
+          662
+        ],
+        [
+          664,
+          664
+        ],
+        [
+          666,
+          666
+        ],
+        [
+          668,
+          669
+        ],
+        [
+          672,
+          674
+        ],
+        [
+          678,
+          678
+        ],
+        [
+          688,
+          688
+        ],
+        [
+          690,
+          700
+        ],
+        [
+          703,
+          706
+        ],
+        [
+          708,
+          711
+        ],
+        [
+          713,
+          715
+        ],
+        [
+          717,
+          720
+        ],
+        [
+          722,
+          730
+        ],
+        [
+          732,
+          734
+        ],
+        [
+          739,
+          739
+        ],
+        [
+          743,
+          743
+        ],
+        [
+          746,
+          746
+        ],
+        [
+          748,
+          878
+        ],
+        [
+          882,
+          882
+        ],
+        [
+          885,
+          885
+        ],
+        [
+          887,
+          887
+        ],
+        [
+          901,
+          901
+        ],
+        [
+          903,
+          903
+        ],
+        [
+          906,
+          909
+        ],
+        [
+          912,
+          912
+        ],
+        [
+          917,
+          918
+        ],
+        [
+          921,
+          928
+        ],
+        [
+          949,
+          949
+        ],
+        [
+          952,
+          952
+        ],
+        [
+          956,
+          956
+        ],
+        [
+          958,
+          1238
+        ]
+      ],
+      "longest_failure_s": 16.36,
+      "human_reviewed": false,
+      "calibration_s": 0.9708294000010937
+    },
+    "camera_motion": {
+      "settings": {
+        "version": 2,
+        "keypoint_threshold": 0.3434,
+        "line_threshold": 0.7867,
+        "motion": true,
+        "tracking_width": 960,
+        "forward_backward_px": 1.5,
+        "minimum_motion_inliers": 20,
+        "minimum_motion_ratio": 0.6,
+        "maximum_age_s": 2.0,
+        "ransac_px": 3.0,
+        "median_diagonal_fraction": 0.005,
+        "maximum_diagonal_fraction": 0.01,
+        "minimum_image_hull_fraction": 0.001,
+        "minimum_motion_hull_fraction": 0.01,
+        "cut_mean_difference": 45.0,
+        "cut_histogram_distance": 0.55,
+        "holdout_rule": "two_semantic_tertiles_no_refit"
+      },
+      "frames": 1239,
+      "valid_frames": 252,
+      "coverage_all_frames": 0.2033898305084746,
+      "development_valid_frames": 2,
+      "development_frames": 10,
+      "status_counts": {
+        "insufficient_points": 743,
+        "insufficient_controls": 66,
+        "inconsistent_controls": 95,
+        "inconsistent_points": 10,
+        "orientation_unknown": 3,
+        "valid": 252,
+        "motion_semantic_disagreement": 32,
+        "degenerate_geometry": 27,
+        "motion_line_disagreement": 1,
+        "inconsistent_lines": 6,
+        "invalid_observation": 4
+      },
+      "source_counts": {
+        "unavailable": 987,
+        "detected": 228,
+        "tracked": 24
+      },
+      "model_holdout_median_px": 4.208394573809356,
+      "model_holdout_maximum_px": 18.305609866481255,
+      "human_reference_errors_px": null,
+      "human_calibratable_coverage": null,
+      "failure_intervals": [
+        [
+          0,
+          17
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          22,
+          24
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          30,
+          40
+        ],
+        [
+          45,
+          45
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          191,
+          191
+        ],
+        [
+          195,
+          610
+        ],
+        [
+          613,
+          613
+        ],
+        [
+          618,
+          624
+        ],
+        [
+          626,
+          627
+        ],
+        [
+          632,
+          638
+        ],
+        [
+          640,
+          640
+        ],
+        [
+          642,
+          647
+        ],
+        [
+          650,
+          654
+        ],
+        [
+          656,
+          657
+        ],
+        [
+          659,
+          659
+        ],
+        [
+          662,
+          662
+        ],
+        [
+          665,
+          674
+        ],
+        [
+          678,
+          678
+        ],
+        [
+          688,
+          703
+        ],
+        [
+          708,
+          711
+        ],
+        [
+          713,
+          715
+        ],
+        [
+          717,
+          719
+        ],
+        [
+          727,
+          739
+        ],
+        [
+          743,
+          743
+        ],
+        [
+          745,
+          746
+        ],
+        [
+          751,
+          879
+        ],
+        [
+          883,
+          883
+        ],
+        [
+          885,
+          888
+        ],
+        [
+          903,
+          913
+        ],
+        [
+          915,
+          915
+        ],
+        [
+          919,
+          919
+        ],
+        [
+          921,
+          932
+        ],
+        [
+          937,
+          937
+        ],
+        [
+          949,
+          952
+        ],
+        [
+          954,
+          954
+        ],
+        [
+          957,
+          1238
+        ]
+      ],
+      "longest_failure_s": 16.64,
+      "human_reviewed": false,
+      "calibration_s": 7.572056599998177
+    }
+  },
+  "inference": {
+    "runtime_s": 364.5485800999995,
+    "inference_s": 354.0214568999727,
+    "frames": 1239,
+    "status_counts": {
+      "insufficient_points": 830,
+      "inconsistent_points": 31,
+      "insufficient_lines": 378
+    },
+    "usable_fraction": 0.0,
+    "device": "cuda:0",
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU"
+  },
+  "demo_processing": {
+    "processed_frames": 1239,
+    "runtime_s": 32.642626400000154,
+    "processing_fps": 37.95650462733581,
+    "inference_or_replay_s": 0.19395460006853682,
+    "tracking_s": 0.0,
+    "peak_process_ram_bytes_sampled": 471044096,
+    "peak_gpu_allocated_bytes": null,
+    "projection_counts": {
+      "calibration_unavailable": 13559,
+      "not_ground_projected": 268,
+      "valid": 4427,
+      "outside_field": 44,
+      "truncated_bottom": 2
+    },
+    "calibration_preparation_s": 1.1999982234556228e-06,
+    "calibration_status_counts": {
+      "insufficient_points": 743,
+      "insufficient_controls": 66,
+      "inconsistent_controls": 95,
+      "inconsistent_points": 10,
+      "orientation_unknown": 3,
+      "valid": 252,
+      "motion_semantic_disagreement": 32,
+      "degenerate_geometry": 27,
+      "motion_line_disagreement": 1,
+      "inconsistent_lines": 6,
+      "invalid_observation": 4
+    },
+    "calibration_usable_fraction": 0.2033898305084746
+  },
+  "limits": {
+    "median_px": 11.014535850411491,
+    "maximum_px": 22.029071700822982,
+    "target_human_calibratable_coverage": 0.9
+  },
+  "human_evaluation": "pending_explicit_user_references",
+  "human_reviewed": false,
+  "generalization_claim": false,
+  "player_model_changed": false
+}

@@ -1,0 +1,26 @@
+{
+  "code": {
+    "git_commit": "af119ff8c44d412112ecaad78fa2a08489be1a31",
+    "source_sha256": "1c9b6d25c43566f6acd7ef646cc9562e0eb6dad3fa2364cfe186890a32775ca8",
+    "files": {
+      "src\\football_pipeline\\__init__.py": "b130f200a792b9d0af46123ab875d28ededf9f741aec8dfef41abbc55653862e",
+      "src\\football_pipeline\\__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "src\\football_pipeline\\cli.py": "5e843e97b7e066fe64df5e80114fe588c9680dcd8b6f06d082f4e9d247e806cb",
+      "src\\football_pipeline\\contracts.py": "1edbaf06f365f7a004bea9c877cbaf4fc22ec7ef70de0b39285e49b7ac0fb094",
+      "src\\football_pipeline\\demo.py": "f26e522703651485498d55ab2418fa34e9e3ba9443dc4407389b78ab5e6f2e92",
+      "src\\football_pipeline\\detection.py": "720ad9e82662c09feeaae4a6822da19d58ab344e0a4bf3c27cef02f1910d2068",
+      "src\\football_pipeline\\evaluation.py": "bda4c6d973ea0cbf26504eb631d927571dcbb7aa4363df785fffc81800ced8a3",
+      "src\\football_pipeline\\geometry.py": "cd68ebb80d39ec0f8275f3cba9a5fa75af689d9113dc1626e004092c1b70294c",
+      "src\\football_pipeline\\pipeline.py": "0c7d9eae0b4986792dd91e3f10706b1ea2a46207d5d454b676021e86f1f0f633",
+      "src\\football_pipeline\\render.py": "df0cd17dde8197063b15e8f27830d893ad6b3d6f3908672e697865c830052aff",
+      "src\\football_pipeline\\replay.py": "4ad66e8ce3ddf56ea2fb9f7333b061a8b908cf8ba9b37e2ee56a852f5494f69e",
+      "src\\football_pipeline\\tracking.py": "77f43b4b2dd379c26d8820cf5acf737426c50f226e9b5593db25f3f89b89cab8",
+      "src\\football_pipeline\\video.py": "62a459da4b90fb26654903ec44b34a20d6f0df4adc38d33c585cfc0326f5765d",
+      "streamlit_app.py": "adbe2cfc03d858832b2d044d56576f421e93ed81fe531010f5c224d9b1778144",
+      "pyproject.toml": "84b294023e07584324ee385b581fab9c226e3cefb50a6c4e5f3fb5852a784942"
+    }
+  },
+  "script_sha256": "3e87ed497a33cd7b13fd1f991c5616e1ca46c8aa86c6b9c79cce5004ab16c2bb",
+  "points_sha256": "9734f79f5e3feb09853491aefac626de039cbbcaa53b6baa9c61101076ba06e5",
+  "models_sha256": "2ec42db453502ea4bff8270dd46c046dbc70378bacdb9aec546e026bf3583b9c"
+}

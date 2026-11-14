@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-10-16T10:46:47.818155+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "ultralytics": "8.3.221",
+    "numpy": "2.2.6",
+    "opencv-python": "4.11.0.86",
+    "Pillow": "11.3.0",
+    "PyYAML": "6.0.2",
+    "av": "16.0.1"
+  },
+  "nvidia_smi": "NVIDIA GeForce RTX 3050 Laptop GPU, 4096 MiB, 2745 MiB, 566.07",
+  "git_commit": "4e45e495e2bd4b3a06c913039c974f998f14b100",
+  "git_dirty": true,
+  "cuda_available": true,
+  "torch_cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "gpu_total_bytes": 4294443008
+}

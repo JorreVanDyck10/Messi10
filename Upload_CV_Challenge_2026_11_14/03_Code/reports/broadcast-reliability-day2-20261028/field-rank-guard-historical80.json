@@ -1,0 +1,115 @@
+{
+  "dataset_fingerprint": "bae967693dd09af90bf7f1dc9adcbae8a4d1d58414a87e1100f8fed89f2e9d74",
+  "models": "two historical caches; each compared against itself with only the geometry rule changed",
+  "results": [
+    {
+      "observation_cache": "artifacts\\course-improvement-20261019\\field-policy-full-last\\observations-6c30ef8aa93dc16a6d5c1f7beb965e9ba17b7759fb77faa08cfb5112381e7ff1.json",
+      "observation_sha256": "ba6da7399b12433cc17c9b428631cac8af2ab60383d745b420e37ea0f21da789",
+      "results": {
+        "train": {
+          "baseline": {
+            "frames": 60,
+            "valid": 40,
+            "correct": 24,
+            "wrong": 16,
+            "unscored_valid": 0,
+            "median_line_error_px": 2.2632337409366827,
+            "p95_line_error_px": 17.71057160806368,
+            "correct_fraction": 0.4,
+            "independent_final_test": false
+          },
+          "rank_guard": {
+            "frames": 60,
+            "valid": 41,
+            "correct": 24,
+            "wrong": 17,
+            "unscored_valid": 0,
+            "median_line_error_px": 2.261455344322591,
+            "p95_line_error_px": 19.229108496066942,
+            "correct_fraction": 0.4,
+            "independent_final_test": false
+          }
+        },
+        "valid": {
+          "baseline": {
+            "frames": 20,
+            "valid": 14,
+            "correct": 12,
+            "wrong": 2,
+            "unscored_valid": 0,
+            "median_line_error_px": 1.9265431216106306,
+            "p95_line_error_px": 14.553795105229792,
+            "correct_fraction": 0.6,
+            "independent_final_test": false
+          },
+          "rank_guard": {
+            "frames": 20,
+            "valid": 16,
+            "correct": 12,
+            "wrong": 4,
+            "unscored_valid": 0,
+            "median_line_error_px": 1.9271054470227709,
+            "p95_line_error_px": 20.309680000953495,
+            "correct_fraction": 0.6,
+            "independent_final_test": false
+          }
+        }
+      }
+    },
+    {
+      "observation_cache": "artifacts\\course-improvement-20261019\\field-policy-full-last\\observations-d26dfadd2e3b3235ce49ae00930e54d655b33a1033212c775d79b4d15d981367.json",
+      "observation_sha256": "607edf7bbd52f90d2174cf68ea1faecbecb3cf8192d6a951a1f7d1598d429ead",
+      "results": {
+        "train": {
+          "baseline": {
+            "frames": 60,
+            "valid": 21,
+            "correct": 9,
+            "wrong": 12,
+            "unscored_valid": 0,
+            "median_line_error_px": 2.457895863307029,
+            "p95_line_error_px": 22.270849318206295,
+            "correct_fraction": 0.15,
+            "independent_final_test": false
+          },
+          "rank_guard": {
+            "frames": 60,
+            "valid": 21,
+            "correct": 9,
+            "wrong": 12,
+            "unscored_valid": 0,
+            "median_line_error_px": 2.457895863307029,
+            "p95_line_error_px": 22.270849318206295,
+            "correct_fraction": 0.15,
+            "independent_final_test": false
+          }
+        },
+        "valid": {
+          "baseline": {
+            "frames": 20,
+            "valid": 5,
+            "correct": 2,
+            "wrong": 3,
+            "unscored_valid": 0,
+            "median_line_error_px": 2.50951623275877,
+            "p95_line_error_px": 20.535129371962412,
+            "correct_fraction": 0.1,
+            "independent_final_test": false
+          },
+          "rank_guard": {
+            "frames": 20,
+            "valid": 5,
+            "correct": 2,
+            "wrong": 3,
+            "unscored_valid": 0,
+            "median_line_error_px": 2.50951623275877,
+            "p95_line_error_px": 20.535129371962412,
+            "correct_fraction": 0.1,
+            "independent_final_test": false
+          }
+        }
+      }
+    }
+  ],
+  "independent_final_test": false
+}

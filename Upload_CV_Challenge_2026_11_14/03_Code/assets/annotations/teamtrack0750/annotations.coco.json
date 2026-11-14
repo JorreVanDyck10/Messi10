@@ -1,0 +1,1282 @@
+{
+  "info": {
+    "description": "Small AI-annotated excerpt with person crowd ignore regions",
+    "created_at": "2026-10-16T12:51:09.577460+00:00",
+    "independent_human_review": false
+  },
+  "images": [
+    {
+      "id": 1,
+      "file_name": "images/teamtrack0750_00000225.jpg",
+      "width": 6500,
+      "height": 1000,
+      "source_timestamp_s": 9.0,
+      "source_frame_index": 225,
+      "clip_timestamp_s": 9.0
+    },
+    {
+      "id": 2,
+      "file_name": "images/teamtrack0750_00000250.jpg",
+      "width": 6500,
+      "height": 1000,
+      "source_timestamp_s": 10.0,
+      "source_frame_index": 250,
+      "clip_timestamp_s": 10.0
+    },
+    {
+      "id": 3,
+      "file_name": "images/teamtrack0750_00000275.jpg",
+      "width": 6500,
+      "height": 1000,
+      "source_timestamp_s": 11.0,
+      "source_frame_index": 275,
+      "clip_timestamp_s": 11.0
+    }
+  ],
+  "annotations": [
+    {
+      "id": 1,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        2960.394172668457,
+        516.1739501953125,
+        21.44732666015625,
+        35.1217041015625
+      ],
+      "area": 753.2666607275605,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 2,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3232.3890991210938,
+        469.3574523925781,
+        8.234130859375,
+        19.02960205078125
+      ],
+      "area": 156.69223348796368,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 3,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3280.7996215820312,
+        471.2061767578125,
+        8.276123046875,
+        17.828125
+      ],
+      "area": 147.54775619506836,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 4,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3434.6856689453125,
+        523.2640380859375,
+        14.17529296875,
+        33.2890625
+      ],
+      "area": 471.8822135925293,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 5,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3462.2625732421875,
+        559.0196228027344,
+        21.55810546875,
+        42.9971923828125
+      ],
+      "area": 926.938008248806,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 6,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3540.4625244140625,
+        502.76531982421875,
+        14.913818359375,
+        30.7708740234375
+      ],
+      "area": 458.91122594475746,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 7,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3568.1104736328125,
+        508.9940185546875,
+        12.533935546875,
+        21.84490966796875
+      ],
+      "area": 273.80268980562687,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 8,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3616.4120483398438,
+        497.306640625,
+        11.7025146484375,
+        22.0826416015625
+      ],
+      "area": 258.4224368184805,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 9,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3657.360107421875,
+        534.9116821289062,
+        12.081787109375,
+        34.97369384765625
+      ],
+      "area": 422.544723495841,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 10,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3691.17724609375,
+        531.9200439453125,
+        13.0704345703125,
+        31.194580078125
+      ],
+      "area": 407.7267178595066,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 11,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3710.059326171875,
+        523.6350708007812,
+        14.98974609375,
+        29.3900146484375
+      ],
+      "area": 440.5488572716713,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 12,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3733.3351440429688,
+        525.4863891601562,
+        13.7928466796875,
+        33.4171142578125
+      ],
+      "area": 460.91713343560696,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 13,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3737.1121826171875,
+        573.5474853515625,
+        21.7034912109375,
+        40.0489501953125
+      ],
+      "area": 869.2020385712385,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 14,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3763.132080078125,
+        478.17913818359375,
+        7.7637939453125,
+        16.9163818359375
+      ],
+      "area": 131.33530287444592,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 15,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3773.8616943359375,
+        520.46044921875,
+        10.177490234375,
+        30.19927978515625
+      ],
+      "area": 307.3528750985861,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 16,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3791.728515625,
+        477.7210693359375,
+        7.16552734375,
+        18.1942138671875
+      ],
+      "area": 130.37113696336746,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 17,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3808.0223999023438,
+        497.3177490234375,
+        13.40625,
+        22.180908203125
+      ],
+      "area": 297.36280059814453,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 18,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3820.824462890625,
+        620.7745361328125,
+        21.52392578125,
+        54.904296875
+      ],
+      "area": 1181.7560110092163,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 19,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3842.955804824829,
+        517.77783203125,
+        14.932130813598633,
+        45.6148681640625
+      ],
+      "area": 681.127178470837,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 20,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3855.5252418518066,
+        504.721435546875,
+        8.60886001586914,
+        24.6776123046875
+      ],
+      "area": 212.44610985694453,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 21,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3905.235107421875,
+        504.57476806640625,
+        11.94677734375,
+        27.9833984375
+      ],
+      "area": 334.31143045425415,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 22,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3921.927001953125,
+        536.98583984375,
+        14.527587890625,
+        36.3798828125
+      ],
+      "area": 528.5119450092316,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 23,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        4058.111083984375,
+        572.0773315429688,
+        19.1083984375,
+        43.1444091796875
+      ],
+      "area": 824.4205609560013,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 24,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        4058.85888671875,
+        531.2823791503906,
+        14.46533203125,
+        37.0474853515625
+      ],
+      "area": 535.9041765332222,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 25,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        4321.9505615234375,
+        536.4122924804688,
+        13.81036376953125,
+        31.1553955078125
+      ],
+      "area": 430.2673453465104,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 26,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        5027.541748046875,
+        802.0283203125,
+        62.53076171875,
+        93.67822265625
+      ],
+      "area": 5857.770619153976,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 27,
+      "image_id": 1,
+      "category_id": 2,
+      "bbox": [
+        3813,
+        662,
+        9,
+        9
+      ],
+      "area": 81,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 28,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3180,
+        457,
+        340,
+        38
+      ],
+      "area": 12920,
+      "iscrowd": 1,
+      "segmentation": [
+        [
+          3180,
+          457,
+          3520,
+          457,
+          3520,
+          495,
+          3180,
+          495
+        ]
+      ],
+      "annotation_source": "background crowd ignore region"
+    },
+    {
+      "id": 29,
+      "image_id": 1,
+      "category_id": 1,
+      "bbox": [
+        3670,
+        457,
+        190,
+        41
+      ],
+      "area": 7790,
+      "iscrowd": 1,
+      "segmentation": [
+        [
+          3670,
+          457,
+          3860,
+          457,
+          3860,
+          498,
+          3670,
+          498
+        ]
+      ],
+      "annotation_source": "background crowd ignore region"
+    },
+    {
+      "id": 30,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        2907.268335342407,
+        516.2580261230469,
+        16.770185470581055,
+        38.04217529296875
+      ],
+      "area": 637.9743353674421,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 31,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3385.3185424804688,
+        527.18359375,
+        18.3365478515625,
+        37.447998046875
+      ],
+      "area": 686.6670081317425,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 32,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3404.1488647460938,
+        568.6016235351562,
+        19.1429443359375,
+        44.7152099609375
+      ],
+      "area": 855.9807752519846,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 33,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3461.572265625,
+        512.6749267578125,
+        16.135498046875,
+        35.30328369140625
+      ],
+      "area": 569.6360650509596,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 34,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3483.4055786132812,
+        497.6997985839844,
+        16.0921630859375,
+        39.99456787109375
+      ],
+      "area": 643.5991087332368,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 35,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3559.6553955078125,
+        496.2592468261719,
+        10.811279296875,
+        23.59564208984375
+      ],
+      "area": 255.0990768224001,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 36,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3609.7136840820312,
+        545.5792541503906,
+        14.6142578125,
+        38.40716552734375
+      ],
+      "area": 561.2922188639641,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 37,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3651.318359375,
+        525.9586181640625,
+        16.2333984375,
+        49.507080078125
+      ],
+      "area": 803.6681563854218,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 38,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3707.156982421875,
+        531.8956604003906,
+        12.783447265625,
+        32.59490966796875
+      ],
+      "area": 416.675308868289,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 39,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3710.0299072265625,
+        593.8394165039062,
+        19.6630859375,
+        50.3328857421875
+      ],
+      "area": 989.6998578310013,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 40,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3754.0668334960938,
+        523.1720581054688,
+        12.0286865234375,
+        33.006591796875
+      ],
+      "area": 397.02594593167305,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 41,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3776.0423583984375,
+        498.5362548828125,
+        9.117919921875,
+        21.85986328125
+      ],
+      "area": 199.31648290157318,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 42,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3789.0576782226562,
+        512.31689453125,
+        13.212158203125,
+        26.2083740234375
+      ],
+      "area": 346.2691838443279,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 43,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3791.1951293945312,
+        477.54833984375,
+        7.431640625,
+        18.681884765625
+      ],
+      "area": 138.83705377578735,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 44,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3795.468017578125,
+        642.974365234375,
+        32.433349609375,
+        54.39300537109375
+      ],
+      "area": 1764.1473595052958,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 45,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3816.5865478515625,
+        539.5337524414062,
+        14.787841796875,
+        30.552001953125
+      ],
+      "area": 451.7981714606285,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 46,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3832.4305419921875,
+        505.8675537109375,
+        8.48388671875,
+        26.53717041015625
+      ],
+      "area": 225.1383475959301,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 47,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3900.2440795898438,
+        505.3913879394531,
+        11.51715087890625,
+        29.61773681640625
+      ],
+      "area": 341.11194360628724,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 48,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3907.0418701171875,
+        544.1163330078125,
+        13.674072265625,
+        37.90966796875
+      ],
+      "area": 518.3795393705368,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 49,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        4052.8807525634766,
+        536.328857421875,
+        14.143524169921875,
+        36.4034423828125
+      ],
+      "area": 514.872967209667,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 50,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        4081.3622436523438,
+        591.4066772460938,
+        18.656005859375,
+        49.06689453125
+      ],
+      "area": 915.3922718763351,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 51,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        4315.945404052734,
+        539.7318115234375,
+        14.74237060546875,
+        30.2603759765625
+      ],
+      "area": 446.1096773073077,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 52,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        4897.826385498047,
+        800.7105712890625,
+        90.794921875,
+        101.17041015625
+      ],
+      "area": 9185.759486198425,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 53,
+      "image_id": 2,
+      "category_id": 2,
+      "bbox": [
+        3785.323486328125,
+        687.5479125976562,
+        8.821044921875,
+        8.6829833984375
+      ],
+      "area": 76.59298661351204,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 54,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3180,
+        457,
+        340,
+        38
+      ],
+      "area": 12920,
+      "iscrowd": 1,
+      "segmentation": [
+        [
+          3180,
+          457,
+          3520,
+          457,
+          3520,
+          495,
+          3180,
+          495
+        ]
+      ],
+      "annotation_source": "background crowd ignore region"
+    },
+    {
+      "id": 55,
+      "image_id": 2,
+      "category_id": 1,
+      "bbox": [
+        3670,
+        457,
+        190,
+        41
+      ],
+      "area": 7790,
+      "iscrowd": 1,
+      "segmentation": [
+        [
+          3670,
+          457,
+          3860,
+          457,
+          3860,
+          498,
+          3670,
+          498
+        ]
+      ],
+      "annotation_source": "background crowd ignore region"
+    },
+    {
+      "id": 56,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        2855.877197265625,
+        516.2875366210938,
+        18.6627197265625,
+        41.0970458984375
+      ],
+      "area": 766.982649192214,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 57,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3323.4251098632812,
+        537.3869934082031,
+        16.22021484375,
+        38.487548828125
+      ],
+      "area": 624.276310801506,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 58,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3339.6439819335938,
+        580.1222534179688,
+        19.5194091796875,
+        47.4290771484375
+      ],
+      "area": 925.7875638753176,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 59,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3394.6515502929688,
+        515.0104675292969,
+        14.581298828125,
+        32.71343994140625
+      ],
+      "area": 477.0044434815645,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 60,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3434.0816650390625,
+        500.174560546875,
+        15.31591796875,
+        24.9935302734375
+      ],
+      "area": 382.7988594174385,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 61,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3500.1835327148438,
+        496.13104248046875,
+        13.245361328125,
+        25.8299560546875
+      ],
+      "area": 342.127101033926,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 62,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3566.093994140625,
+        561.4833374023438,
+        16.924072265625,
+        38.441650390625
+      ],
+      "area": 650.589269220829,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 63,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3587.6060791015625,
+        526.4045715332031,
+        17.0108642578125,
+        36.65380859375
+      ],
+      "area": 623.5129625201225,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 64,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3593.9010009765625,
+        550.6151733398438,
+        15.979248046875,
+        37.75341796875
+      ],
+      "area": 603.271230340004,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 65,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3649.93505859375,
+        617.2762145996094,
+        26.758544921875,
+        59.18145751953125
+      ],
+      "area": 1583.609689578414,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 66,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3664.193603515625,
+        535.783203125,
+        14.875244140625,
+        33.892578125
+      ],
+      "area": 504.1603741645813,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 67,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3694.9559326171875,
+        650.2054443359375,
+        20.774169921875,
+        58.2847900390625
+      ],
+      "area": 1210.8181321322918,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 68,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3725.1342163085938,
+        527.6804809570312,
+        12.3570556640625,
+        32.7647705078125
+      ],
+      "area": 404.8760929852724,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 69,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3734,
+        514,
+        14,
+        32
+      ],
+      "area": 448,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 70,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3748.4962158203125,
+        496.693115234375,
+        11.938232421875,
+        24.13623046875
+      ],
+      "area": 288.1439291238785,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 71,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3763.1810302734375,
+        478.34967041015625,
+        8.046630859375,
+        17.641357421875
+      ],
+      "area": 141.95349103212357,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 72,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3789.3883056640625,
+        544.2516784667969,
+        14.1959228515625,
+        37.3262939453125
+      ],
+      "area": 529.8811891824007,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 73,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3791.3130493164062,
+        477.6107177734375,
+        7.01220703125,
+        18.275634765625
+      ],
+      "area": 128.15253460407257,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 74,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3807.8590087890625,
+        510.333740234375,
+        11.7008056640625,
+        28.2703857421875
+      ],
+      "area": 330.78628961741924,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 75,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3895.4422607421875,
+        508.21771240234375,
+        12.659423828125,
+        28.939453125
+      ],
+      "area": 366.3568024635315,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 76,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3904.18017578125,
+        553.3952026367188,
+        14.56396484375,
+        45.9583740234375
+      ],
+      "area": 669.336143553257,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 77,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        4047.7952575683594,
+        544.0690307617188,
+        14.60369873046875,
+        35.8272705078125
+      ],
+      "area": 523.2106648311019,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 78,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        4102.091949462891,
+        616.9353332519531,
+        22.1636962890625,
+        56.15936279296875
+      ],
+      "area": 1244.6990607306361,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 79,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        4305.789031982422,
+        539.9183654785156,
+        14.11553955078125,
+        32.20172119140625
+      ],
+      "area": 454.54466908052564,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 80,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        4808.3847732543945,
+        802.8643798828125,
+        75.45298767089844,
+        99.2177734375
+      ],
+      "area": 7486.277435913682,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 81,
+      "image_id": 3,
+      "category_id": 2,
+      "bbox": [
+        3689.3411865234375,
+        702.0362548828125,
+        9.7274169921875,
+        9.9769287109375
+      ],
+      "area": 97.04974587261677,
+      "iscrowd": 0,
+      "annotation_source": "AI visually corrected; human review pending"
+    },
+    {
+      "id": 82,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3180,
+        457,
+        340,
+        38
+      ],
+      "area": 12920,
+      "iscrowd": 1,
+      "segmentation": [
+        [
+          3180,
+          457,
+          3520,
+          457,
+          3520,
+          495,
+          3180,
+          495
+        ]
+      ],
+      "annotation_source": "background crowd ignore region"
+    },
+    {
+      "id": 83,
+      "image_id": 3,
+      "category_id": 1,
+      "bbox": [
+        3670,
+        457,
+        190,
+        41
+      ],
+      "area": 7790,
+      "iscrowd": 1,
+      "segmentation": [
+        [
+          3670,
+          457,
+          3860,
+          457,
+          3860,
+          498,
+          3670,
+          498
+        ]
+      ],
+      "annotation_source": "background crowd ignore region"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "person"
+    },
+    {
+      "id": 2,
+      "name": "ball"
+    }
+  ]
+}

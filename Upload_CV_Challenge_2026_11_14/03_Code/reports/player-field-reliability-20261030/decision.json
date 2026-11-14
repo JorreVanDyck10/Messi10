@@ -1,0 +1,16 @@
+{
+  "field_development_gates": {
+    "keypoints_only": false,
+    "lines_only": false,
+    "both": false
+  },
+  "field_model_replaced": false,
+  "current_field_runtime_sha256": "0086dfadf0cda1487ac3349ea4ab23517a3df51daecfa2870c19a288be9bb60d",
+  "player_weights_replaced": false,
+  "player_display_and_image_tracking_changed": true,
+  "field_coverage_target_met": false,
+  "dropout_reduction_target_met": false,
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "reason": "No trained field variant increased correct validation coverage. Preserve the baseline; human references remain required."
+}

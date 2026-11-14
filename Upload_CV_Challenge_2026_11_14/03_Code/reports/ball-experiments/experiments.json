@@ -1,0 +1,38 @@
+{
+  "recorded_at": "2026-10-16T12:30:37.503378+00:00",
+  "records": [
+    {
+      "id": "EXP-001",
+      "status": "completed",
+      "dataset_version": "panoris-ball-ai-v1",
+      "reference": "pretrained YOLO11n",
+      "training_size": 640,
+      "rectangular_batches": false,
+      "epochs_completed": 100,
+      "training_time_s_framework_csv": 308.068,
+      "batch": 4,
+      "checkpoint_sha256": "9f6b121cf8c3cadac4d40ae5a08d1b237c7b22ee5a7914575bcbc4e185f579d7",
+      "hypothesis": "Reference settings on real video data",
+      "outcome": "No validation improvement; keep as negative result.",
+      "usable_ball_detector": false,
+      "human_review_completed": false
+    },
+    {
+      "id": "EXP-002",
+      "status": "completed",
+      "dataset_version": "panoris-ball-ai-v1",
+      "reference": "EXP-001",
+      "training_size": 1920,
+      "rectangular_batches": true,
+      "epochs_completed": 100,
+      "training_time_s_framework_csv": 542.433,
+      "batch": 4,
+      "checkpoint_sha256": "8fa01974339a0511cbde8495ae6e4fc3bc2baddeef11aaed895fe2edd9b5b172",
+      "hypothesis": "Preserve tiny boxes through preprocessing; rectangular padding makes 1920 feasible.",
+      "outcome": "No validation improvement; keep as negative result.",
+      "usable_ball_detector": false,
+      "human_review_completed": false
+    }
+  ],
+  "selection": "Neither experiment promoted: validation scores zero. Keep original person detector separately."
+}

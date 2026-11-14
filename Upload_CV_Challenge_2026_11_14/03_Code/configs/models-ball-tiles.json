@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "profile_name": "Bal met detailbehoud - twee tegelschalen, experimenteel",
+  "models": [
+    {
+      "model_id": "coco-ball-multiscale-tiles",
+      "weights": "../artifacts/appearance-v1/person_proposals.pt",
+      "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+      "class_mapping": {
+        "32": "ball"
+      },
+      "expected_names": {
+        "32": "sports ball"
+      },
+      "imgsz": 1280,
+      "confidence": 0.25,
+      "iou": 0.7,
+      "device": "0",
+      "ball_tiles": {
+        "sizes": [
+          1280,
+          640
+        ],
+        "imgsz": 1280,
+        "overlap": 0.2,
+        "merge_iou": 0.5
+      }
+    }
+  ],
+  "handoff": {
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "evaluation_record": "../reports/person1-round4/all-validation-summary/summary.json",
+    "target": "All visible labelled footballs including reserve balls; not automatic in-play identification.",
+    "default_promoted": false,
+    "scope": "Development-only multiscale inference; preserve R007 default and field-counting policy.",
+    "evaluation_sha256": "c42a5e535a22c8c9d506aa553366d33cfadca90ea9d9a40ca4c78bb2b70ab065"
+  }
+}

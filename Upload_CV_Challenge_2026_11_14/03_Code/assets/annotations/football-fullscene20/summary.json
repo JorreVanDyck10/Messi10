@@ -1,0 +1,50 @@
+{
+  "images": 20,
+  "unique_source_frames": 20,
+  "new_source_frames_vs_football48": 20,
+  "objects": {
+    "player": 428,
+    "referee": 40,
+    "other_person": 111,
+    "ball": 100,
+    "goal": 120,
+    "stored_goals": 40,
+    "corner_flag": 80,
+    "crowd": 60
+  },
+  "splits": {
+    "train": {
+      "player": 320,
+      "referee": 30,
+      "other_person": 74,
+      "ball": 76,
+      "reserve_ball": 71,
+      "goal": 90,
+      "stored_goals": 30,
+      "corner_flag": 60,
+      "crowd": 45,
+      "images": 15,
+      "in_play_ball": 5
+    },
+    "val": {
+      "player": 108,
+      "referee": 10,
+      "other_person": 37,
+      "ball": 24,
+      "in_play_ball": 3,
+      "reserve_ball": 21,
+      "goal": 30,
+      "stored_goals": 10,
+      "corner_flag": 20,
+      "crowd": 15,
+      "images": 5
+    }
+  },
+  "native_size": [
+    4096,
+    1080
+  ],
+  "preprocessing": "none",
+  "independent_human_review_complete": false,
+  "model_training_performed": false
+}

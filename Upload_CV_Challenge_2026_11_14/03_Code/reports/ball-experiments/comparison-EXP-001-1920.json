@@ -1,0 +1,10 @@
+{
+  "recorded_at": "2026-10-16T12:30:37.484798+00:00",
+  "baseline": "runs/ball-eval/baseline-1920-metrics/metrics.json",
+  "candidate": "runs/ball-eval/EXP-001-1920-metrics/metrics.json",
+  "deltas": {
+    "mAP50": 0.0,
+    "mAP50_95": 0.0
+  },
+  "conclusion": "Requires error examples, sample-size assessment and review; no automatic improvement claim"
+}

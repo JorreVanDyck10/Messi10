@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "profile_name": "Broadcastbal v3 — minder ongekoppelde detecties, experimenteel",
+  "models": [
+    {
+      "model_id": "broadcast-ball-native-v3-freeze-0",
+      "weights": "../artifacts/broadcast-ball-v3/broadcast_ball_v3.pt",
+      "weights_sha256": "97c314c3ec62c072ff700cb2fe682f13806e3c9b59acd9c0c98077a2c7c22058",
+      "class_mapping": {
+        "32": "ball"
+      },
+      "expected_names": {
+        "32": "sports ball"
+      },
+      "imgsz": 640,
+      "confidence": 0.25,
+      "iou": 0.7,
+      "device": "0",
+      "ball_tiles": {
+        "sizes": [
+          640
+        ],
+        "imgsz": 640,
+        "overlap": 0.2,
+        "merge_iou": 0.5
+      }
+    }
+  ],
+  "handoff": {
+    "evaluation_record": "../reports/broadcast-data/v3-experiment.json",
+    "evaluation_sha256": "b00130c7279bc134f77089a0cc5bb7d609a83a52710694abce0215907fc49d5c",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "default_promoted": false,
+    "dataset_fingerprint": "afa5bbce1eff649d9967e927d0d54f36671dcea3c855620b7919d0a926870d2e",
+    "scope": "73 AI-curated development frames, fixed 640-pixel tiling; not independent final accuracy",
+    "ball_inference_scope": "640px tiles only; full-frame inference regressed",
+    "selected_ball_experiment": "freeze-0"
+  }
+}

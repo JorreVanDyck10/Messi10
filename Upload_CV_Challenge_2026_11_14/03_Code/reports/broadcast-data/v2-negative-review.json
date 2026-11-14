@@ -1,0 +1,188 @@
+{
+  "preparation_fingerprint": "ee0e4a40a296312302e205bcb94f976f97e6c36003f0549ffb1aa92db8daaae2",
+  "reviewer": "Codex (AI)",
+  "human_review_completed": false,
+  "scope": "Each 640x640 candidate inspected at native pixel scale. No candidate became negative automatically from missing labels.",
+  "decisions": [
+    {
+      "candidate_id": 0,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 1,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 2,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 3,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 4,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 5,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 6,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 7,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 8,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 9,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 10,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 11,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 12,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 13,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 14,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 15,
+      "status": "reject",
+      "reason": "Small isolated white object near the touchline could be a reserve ball; not treated as a negative."
+    },
+    {
+      "candidate_id": 16,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 17,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 18,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 19,
+      "status": "reject",
+      "reason": "Isolated white roundish object on the grass cannot confidently be ruled out as a ball."
+    },
+    {
+      "candidate_id": 20,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 21,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 22,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 23,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 24,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 25,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 26,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 27,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 28,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 29,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 30,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 31,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 32,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 33,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 34,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    },
+    {
+      "candidate_id": 35,
+      "status": "accept",
+      "reason": "No visible football in the complete native crop; players, officials and field markings are present."
+    }
+  ]
+}

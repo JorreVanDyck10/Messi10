@@ -1,0 +1,5028 @@
+{
+  "kind": "conditional ground-truth crop classification, not detection mAP",
+  "dataset_sha256": "e5a9dc823411e86b615134b1a29011012546350d640154ac40acc94883d7b6b0",
+  "device": "cuda:0",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "runtime_s": 33.40899990001344,
+  "weights_sha256": "b1706eda279ba5a8cabe896d88bbd8449739013a2fbcbe17aa5c9e014469b91d",
+  "roles": {
+    "selected_epoch": "fine_epoch_18",
+    "argmax": {
+      "accuracy": 0.9273504273504274,
+      "macro_f1": 0.71815517224865,
+      "per_class": [
+        {
+          "name": "player",
+          "n": 369,
+          "correct": 364,
+          "precision": 0.9732620320855615,
+          "recall": 0.986449864498645,
+          "f1": 0.9798115746971737
+        },
+        {
+          "name": "referee",
+          "n": 19,
+          "correct": 16,
+          "precision": 0.7272727272727273,
+          "recall": 0.8421052631578947,
+          "f1": 0.7804878048780488
+        },
+        {
+          "name": "assistant_referee",
+          "n": 15,
+          "correct": 14,
+          "precision": 1.0,
+          "recall": 0.9333333333333333,
+          "f1": 0.9655172413793104
+        },
+        {
+          "name": "steward",
+          "n": 14,
+          "correct": 3,
+          "precision": 0.42857142857142855,
+          "recall": 0.21428571428571427,
+          "f1": 0.2857142857142857
+        },
+        {
+          "name": "spectator",
+          "n": 41,
+          "correct": 32,
+          "precision": 0.7619047619047619,
+          "recall": 0.7804878048780488,
+          "f1": 0.7710843373493976
+        },
+        {
+          "name": "person",
+          "n": 10,
+          "correct": 5,
+          "precision": 0.5555555555555556,
+          "recall": 0.5,
+          "f1": 0.5263157894736842
+        }
+      ],
+      "confusion": [
+        [
+          364,
+          3,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          16,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          14,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          3,
+          9,
+          1,
+          0
+        ],
+        [
+          4,
+          1,
+          0,
+          2,
+          32,
+          2,
+          0
+        ],
+        [
+          4,
+          0,
+          0,
+          0,
+          1,
+          5,
+          0
+        ]
+      ],
+      "confusion_columns": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person",
+        "unknown"
+      ]
+    },
+    "threshold_0_65": {
+      "accuracy": 0.9209401709401709,
+      "macro_f1": 0.7457854916129589,
+      "per_class": [
+        {
+          "name": "player",
+          "n": 369,
+          "correct": 363,
+          "precision": 0.9731903485254692,
+          "recall": 0.983739837398374,
+          "f1": 0.9784366576819407
+        },
+        {
+          "name": "referee",
+          "n": 19,
+          "correct": 16,
+          "precision": 0.8421052631578947,
+          "recall": 0.8421052631578947,
+          "f1": 0.8421052631578947
+        },
+        {
+          "name": "assistant_referee",
+          "n": 15,
+          "correct": 13,
+          "precision": 1.0,
+          "recall": 0.8666666666666667,
+          "f1": 0.9285714285714286
+        },
+        {
+          "name": "steward",
+          "n": 14,
+          "correct": 3,
+          "precision": 0.6,
+          "recall": 0.21428571428571427,
+          "f1": 0.3157894736842105
+        },
+        {
+          "name": "spectator",
+          "n": 41,
+          "correct": 31,
+          "precision": 0.8157894736842105,
+          "recall": 0.7560975609756098,
+          "f1": 0.7848101265822786
+        },
+        {
+          "name": "person",
+          "n": 10,
+          "correct": 5,
+          "precision": 0.8333333333333334,
+          "recall": 0.5,
+          "f1": 0.625
+        }
+      ],
+      "confusion": [
+        [
+          363,
+          2,
+          0,
+          1,
+          0,
+          0,
+          3
+        ],
+        [
+          2,
+          16,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          13,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          6,
+          0,
+          5
+        ],
+        [
+          4,
+          1,
+          0,
+          1,
+          31,
+          1,
+          3
+        ],
+        [
+          4,
+          0,
+          0,
+          0,
+          1,
+          5,
+          0
+        ]
+      ],
+      "confusion_columns": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person",
+        "unknown"
+      ]
+    },
+    "predictions": [
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999481439590454
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999982118606567
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999998807907104
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999630451202393
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9994897842407227
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999126195907593
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9989907145500183
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9996508359909058
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 1.0
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999987006187439
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999828338623047
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999948740005493
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999998927116394
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9996824264526367
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999966621398926
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999984502792358
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998157620429993
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9979031085968018
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9995833039283752
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9930410385131836
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999780654907227
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999510049819946
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:referee",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.9961729645729065
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:assistant_referee",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.9944236874580383
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999978542327881
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999279975891113
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 1.0
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999985694885254
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999998807907104
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 1.0
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999998927116394
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999992847442627
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999995231628418
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999995231628418
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999942779541016
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999626874923706
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999996423721313
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.99925297498703
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999165534973145
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999974966049194
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999996423721313
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999954700469971
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9994001388549805
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999808073043823
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999992847442627
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999226331710815
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:referee",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.9736660122871399
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:assistant_referee",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.9948338270187378
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999971389770508
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9995219707489014
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999998807907104
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 1.0
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999995231628418
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:5",
+        "truth": "player",
+        "prediction": "referee",
+        "confidence": 0.6976780891418457
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999886751174927
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999995231628418
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999970197677612
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9995262622833252
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999990463256836
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999731779098511
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999871253967285
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9997091889381409
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999755620956421
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999940395355225
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9993543028831482
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999412298202515
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999811589717865
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999998927116394
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999998807907104
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999210834503174
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:referee",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.9871125817298889
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:assistant_referee",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.9920765161514282
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999829530715942
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999979734420776
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999961853027344
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999996423721313
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.99998939037323
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9985707998275757
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999994039535522
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 1.0
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999949932098389
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999995231628418
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999822199344635
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999889135360718
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999650716781616
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9991816878318787
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999991655349731
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999988079071045
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999993085861206
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9993178844451904
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999240636825562
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999990463256836
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 1.0
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999549388885498
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:referee",
+        "truth": "referee",
+        "prediction": "person",
+        "confidence": 0.6346760988235474
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:assistant_referee",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.9870649576187134
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999860525131226
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999994039535522
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 1.0
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998644590377808
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999959468841553
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9975161552429199
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999998927116394
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999988079071045
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999996423721313
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999880790710449
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999972581863403
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999978542327881
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9988753199577332
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999582767486572
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999830722808838
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999898672103882
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999727010726929
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999842643737793
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9994693398475647
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999773502349854
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999531507492065
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999295473098755
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:referee",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.9217302203178406
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:assistant_referee",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.999459445476532
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999884366989136
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 1.0
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999265670776367
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9978961944580078
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9979137778282166
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9984558820724487
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999818801879883
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999717473983765
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9997509121894836
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9997178912162781
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999980092048645
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999908447265625
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999700784683228
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998775720596313
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999997615814209
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999986886978149
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999978542327881
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9994828701019287
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9993876218795776
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999827146530151
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999951124191284
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999914169311523
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:referee",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.9972700476646423
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:assistant_referee",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.998530387878418
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999948740005493
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999996423721313
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999990463256836
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999610960483551
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9997614026069641
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999942421913147
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999986886978149
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999939203262329
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999986886978149
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999955892562866
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999872446060181
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9994581341743469
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999698400497437
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9996767044067383
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999978542327881
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9995506405830383
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999914169311523
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999896287918091
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9976478219032288
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9996311664581299
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9996943473815918
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999799728393555
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:referee",
+        "truth": "referee",
+        "prediction": "player",
+        "confidence": 0.9191371202468872
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:assistant_referee",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.9968066215515137
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999955892562866
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999997615814209
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 1.0
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999767541885376
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999839067459106
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999922513961792
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999809265136719
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999996423721313
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999737739562988
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999967813491821
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999960660934448
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9849105477333069
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999998807907104
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9989100694656372
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999997615814209
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999948740005493
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999992847442627
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999316930770874
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999666213989258
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999912977218628
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999985694885254
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999996542930603
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:referee",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.9986717700958252
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:assistant_referee",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.9977943897247314
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999992847442627
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999997615814209
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999991774559021
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999998927116394
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999450445175171
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999998807907104
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999974966049194
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999994039535522
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999951124191284
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999997615814209
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999804496765137
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999144434928894
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999349117279053
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999686479568481
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999984502792358
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999390840530396
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999986886978149
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998414516448975
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999697208404541
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999956488609314
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999998807907104
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999959468841553
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:referee",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.9990111589431763
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:assistant_referee",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.9469231963157654
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999918937683105
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999997615814209
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999991655349731
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999994039535522
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9997825026512146
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999994039535522
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999958276748657
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999998807907104
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999996542930603
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999783039093018
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999994039535522
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999349117279053
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999991655349731
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9995536208152771
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999996423721313
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999995231628418
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999998807907104
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999637603759766
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999535083770752
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999675750732422
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999982118606567
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999886751174927
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:referee",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.9913353323936462
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:assistant_referee",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.962022602558136
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999988079071045
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999524354934692
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999978542327881
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999994039535522
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9993699193000793
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998691082000732
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999978542327881
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 1.0
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999997615814209
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999346733093262
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999895095825195
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999980926513672
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999987006187439
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999812841415405
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999933242797852
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9996966123580933
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999998927116394
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999996423721313
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999227523803711
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999648332595825
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9937428832054138
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999812841415405
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:referee",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.999295711517334
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:assistant_referee",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.998994767665863
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999597072601318
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999945163726807
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999978542327881
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999821186065674
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999483823776245
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9988523721694946
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999998807907104
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999586343765259
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998596906661987
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999688863754272
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999940395355225
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9989683628082275
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999867677688599
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9884946942329407
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999656677246094
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999982476234436
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999814033508301
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999691247940063
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9984227418899536
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999902248382568
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999998807907104
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999179840087891
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:referee",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.9991095662117004
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:assistant_referee",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.999193012714386
+      },
+      {
+        "id": "london-control:steward:0",
+        "truth": "steward",
+        "prediction": "spectator",
+        "confidence": 0.764373779296875
+      },
+      {
+        "id": "london-control:steward:1",
+        "truth": "steward",
+        "prediction": "steward",
+        "confidence": 0.6824829578399658
+      },
+      {
+        "id": "london-control:steward:2",
+        "truth": "steward",
+        "prediction": "person",
+        "confidence": 0.3506280779838562
+      },
+      {
+        "id": "london-control:steward:3",
+        "truth": "steward",
+        "prediction": "spectator",
+        "confidence": 0.6944194436073303
+      },
+      {
+        "id": "london-control:steward:4",
+        "truth": "steward",
+        "prediction": "spectator",
+        "confidence": 0.8993539810180664
+      },
+      {
+        "id": "london-control:steward:5",
+        "truth": "steward",
+        "prediction": "spectator",
+        "confidence": 0.998531699180603
+      },
+      {
+        "id": "london-control:steward:6",
+        "truth": "steward",
+        "prediction": "spectator",
+        "confidence": 0.9555439949035645
+      },
+      {
+        "id": "london-control:spectator:0",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.8635320067405701
+      },
+      {
+        "id": "london-control:spectator:1",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.6832209825515747
+      },
+      {
+        "id": "london-control:spectator:2",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9136567711830139
+      },
+      {
+        "id": "london-control:spectator:3",
+        "truth": "spectator",
+        "prediction": "person",
+        "confidence": 0.883551836013794
+      },
+      {
+        "id": "liverpool-steward:steward:0",
+        "truth": "steward",
+        "prediction": "steward",
+        "confidence": 0.8540436625480652
+      },
+      {
+        "id": "uganda-fan:spectator:0",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9979920387268066
+      },
+      {
+        "id": "troyes-fans:spectator:0",
+        "truth": "spectator",
+        "prediction": "player",
+        "confidence": 0.7954447865486145
+      },
+      {
+        "id": "troyes-fans:spectator:1",
+        "truth": "spectator",
+        "prediction": "player",
+        "confidence": 0.9991564750671387
+      },
+      {
+        "id": "troyes-fans:spectator:2",
+        "truth": "spectator",
+        "prediction": "player",
+        "confidence": 0.9999958276748657
+      },
+      {
+        "id": "troyes-fans:spectator:3",
+        "truth": "spectator",
+        "prediction": "player",
+        "confidence": 0.8429058194160461
+      },
+      {
+        "id": "troyes-fans:spectator:4",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.96135413646698
+      },
+      {
+        "id": "troyes-fans:spectator:5",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9225226044654846
+      },
+      {
+        "id": "original-002100:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.8385841250419617
+      },
+      {
+        "id": "original-002100:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9989299178123474
+      },
+      {
+        "id": "original-002100:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9997996687889099
+      },
+      {
+        "id": "original-002100:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9980480670928955
+      },
+      {
+        "id": "original-002100:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9912394881248474
+      },
+      {
+        "id": "original-002100:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9972719550132751
+      },
+      {
+        "id": "original-002100:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9997484087944031
+      },
+      {
+        "id": "original-002100:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999987006187439
+      },
+      {
+        "id": "original-002100:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9934700727462769
+      },
+      {
+        "id": "original-002100:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.8772154450416565
+      },
+      {
+        "id": "original-002100:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9694250226020813
+      },
+      {
+        "id": "original-002100:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9335317611694336
+      },
+      {
+        "id": "original-002100:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9859076142311096
+      },
+      {
+        "id": "original-002100:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999538660049438
+      },
+      {
+        "id": "original-002100:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998099207878113
+      },
+      {
+        "id": "original-002100:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9933956265449524
+      },
+      {
+        "id": "original-002100:11",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.937471330165863
+      },
+      {
+        "id": "original-002100:19",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.999345600605011
+      },
+      {
+        "id": "original-002100:12",
+        "truth": "person",
+        "prediction": "person",
+        "confidence": 0.83697909116745
+      },
+      {
+        "id": "original-002100:20",
+        "truth": "person",
+        "prediction": "person",
+        "confidence": 0.9981123208999634
+      },
+      {
+        "id": "original-002100:21",
+        "truth": "person",
+        "prediction": "player",
+        "confidence": 0.9983726143836975
+      },
+      {
+        "id": "original-002175:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.8565212488174438
+      },
+      {
+        "id": "original-002175:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999955892562866
+      },
+      {
+        "id": "original-002175:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999828338623047
+      },
+      {
+        "id": "original-002175:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9972364902496338
+      },
+      {
+        "id": "original-002175:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998818635940552
+      },
+      {
+        "id": "original-002175:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999707937240601
+      },
+      {
+        "id": "original-002175:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9982019662857056
+      },
+      {
+        "id": "original-002175:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9698576331138611
+      },
+      {
+        "id": "original-002175:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999528169631958
+      },
+      {
+        "id": "original-002175:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9753283262252808
+      },
+      {
+        "id": "original-002175:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9987056255340576
+      },
+      {
+        "id": "original-002175:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9991607666015625
+      },
+      {
+        "id": "original-002175:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9978057742118835
+      },
+      {
+        "id": "original-002175:11",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999990701675415
+      },
+      {
+        "id": "original-002175:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9979667663574219
+      },
+      {
+        "id": "original-002175:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9727572202682495
+      },
+      {
+        "id": "original-002175:14",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.9601656198501587
+      },
+      {
+        "id": "original-002175:18",
+        "truth": "assistant_referee",
+        "prediction": "assistant_referee",
+        "confidence": 0.5446065068244934
+      },
+      {
+        "id": "original-002175:15",
+        "truth": "person",
+        "prediction": "person",
+        "confidence": 0.9010762572288513
+      },
+      {
+        "id": "original-002175:19",
+        "truth": "person",
+        "prediction": "person",
+        "confidence": 0.9986190795898438
+      },
+      {
+        "id": "original-002175:21",
+        "truth": "person",
+        "prediction": "player",
+        "confidence": 0.9999067783355713
+      },
+      {
+        "id": "original-002250:0",
+        "truth": "player",
+        "prediction": "steward",
+        "confidence": 0.6984533667564392
+      },
+      {
+        "id": "original-002250:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9757384657859802
+      },
+      {
+        "id": "original-002250:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998623132705688
+      },
+      {
+        "id": "original-002250:4",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9992654919624329
+      },
+      {
+        "id": "original-002250:6",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999920129776001
+      },
+      {
+        "id": "original-002250:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998302459716797
+      },
+      {
+        "id": "original-002250:12",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999532699584961
+      },
+      {
+        "id": "original-002250:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9992050528526306
+      },
+      {
+        "id": "original-002250:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.998731791973114
+      },
+      {
+        "id": "original-002250:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.997891366481781
+      },
+      {
+        "id": "original-002250:18",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9982494711875916
+      },
+      {
+        "id": "original-002250:3",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9993801116943359
+      },
+      {
+        "id": "original-002250:5",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9987095594406128
+      },
+      {
+        "id": "original-002250:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998088479042053
+      },
+      {
+        "id": "original-002250:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9996334314346313
+      },
+      {
+        "id": "original-002250:10",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999947190284729
+      },
+      {
+        "id": "original-002250:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999432563781738
+      },
+      {
+        "id": "original-002250:21",
+        "truth": "player",
+        "prediction": "referee",
+        "confidence": 0.46767929196357727
+      },
+      {
+        "id": "original-002250:11",
+        "truth": "referee",
+        "prediction": "player",
+        "confidence": 0.7866845726966858
+      },
+      {
+        "id": "original-002250:19",
+        "truth": "assistant_referee",
+        "prediction": "referee",
+        "confidence": 0.513603925704956
+      },
+      {
+        "id": "original-002250:16",
+        "truth": "person",
+        "prediction": "player",
+        "confidence": 0.9997445940971375
+      },
+      {
+        "id": "original-002250:20",
+        "truth": "person",
+        "prediction": "person",
+        "confidence": 0.9800530076026917
+      },
+      {
+        "id": "original-002250:22",
+        "truth": "person",
+        "prediction": "player",
+        "confidence": 0.9933567643165588
+      },
+      {
+        "id": "extension:val:128057_00013525:0",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999895095825195
+      },
+      {
+        "id": "extension:val:128057_00013525:1",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999840259552002
+      },
+      {
+        "id": "extension:val:128057_00013525:2",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9977204203605652
+      },
+      {
+        "id": "extension:val:128057_00013675:7",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9988012313842773
+      },
+      {
+        "id": "extension:val:128057_00013675:8",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9511870741844177
+      },
+      {
+        "id": "extension:val:128057_00013675:9",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9782159924507141
+      },
+      {
+        "id": "extension:val:128057_00013675:10",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.9866416454315186
+      },
+      {
+        "id": "extension:val:128057_00013825:13",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9985970854759216
+      },
+      {
+        "id": "extension:val:128057_00013825:14",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999587535858154
+      },
+      {
+        "id": "extension:val:128057_00013825:15",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9958264231681824
+      },
+      {
+        "id": "extension:val:128057_00013825:16",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999929666519165
+      },
+      {
+        "id": "extension:val:128057_00013825:17",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999980926513672
+      },
+      {
+        "id": "extension:val:128057_00013900:19",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999508857727051
+      },
+      {
+        "id": "extension:val:128057_00013900:20",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998024106025696
+      },
+      {
+        "id": "extension:val:128057_00013900:21",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9866841435432434
+      },
+      {
+        "id": "extension:val:128057_00013900:22",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9992081522941589
+      },
+      {
+        "id": "extension:val:128057_00013900:23",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999996423721313
+      },
+      {
+        "id": "extension:val:128057_00013900:24",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.9674404859542847
+      },
+      {
+        "id": "extension:val:128057_00013900:25",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999994039535522
+      },
+      {
+        "id": "extension:val:128057_00013900:26",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9974268078804016
+      },
+      {
+        "id": "extension:val:128057_00013900:27",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.999454915523529
+      },
+      {
+        "id": "extension:val:128057_00013900:28",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9992445707321167
+      },
+      {
+        "id": "extension:val:128057_00013900:29",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9956050515174866
+      },
+      {
+        "id": "extension:val:128057_00013900:30",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999915361404419
+      },
+      {
+        "id": "extension:val:128057_00013900:31",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9962149262428284
+      },
+      {
+        "id": "extension:val:128057_00013900:32",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999929666519165
+      },
+      {
+        "id": "extension:val:128057_00013900:33",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9277051687240601
+      },
+      {
+        "id": "extension:val:128057_00013900:34",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999994039535522
+      },
+      {
+        "id": "extension:val:128057_00013900:35",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9837333559989929
+      },
+      {
+        "id": "extension:val:128057_00013900:36",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998821020126343
+      },
+      {
+        "id": "extension:val:128057_00013900:38",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9991346001625061
+      },
+      {
+        "id": "extension:val:128057_00050275:39",
+        "truth": "player",
+        "prediction": "steward",
+        "confidence": 0.38998186588287354
+      },
+      {
+        "id": "extension:val:128057_00050275:40",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999431371688843
+      },
+      {
+        "id": "extension:val:128057_00050275:41",
+        "truth": "player",
+        "prediction": "referee",
+        "confidence": 0.8866140246391296
+      },
+      {
+        "id": "extension:val:128057_00050275:42",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9975245594978333
+      },
+      {
+        "id": "extension:val:128057_00050275:43",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999583959579468
+      },
+      {
+        "id": "extension:val:128057_00050275:44",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9989193677902222
+      },
+      {
+        "id": "extension:val:128057_00050275:45",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999139308929443
+      },
+      {
+        "id": "extension:val:128057_00050300:49",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9997308850288391
+      },
+      {
+        "id": "extension:val:128057_00050300:50",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.7703799605369568
+      },
+      {
+        "id": "extension:val:128057_00050500:51",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998427629470825
+      },
+      {
+        "id": "extension:val:128057_00050500:52",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.5225567817687988
+      },
+      {
+        "id": "extension:val:128057_00050500:55",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9995554089546204
+      },
+      {
+        "id": "extension:val:128057_00050500:56",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9943690896034241
+      },
+      {
+        "id": "extension:val:128057_00050500:57",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9966431856155396
+      },
+      {
+        "id": "extension:val:128057_00050525:59",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9999455213546753
+      },
+      {
+        "id": "extension:val:128057_00050525:60",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9870210289955139
+      },
+      {
+        "id": "extension:val:128057_00050575:64",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9823408126831055
+      },
+      {
+        "id": "extension:val:128057_00050575:65",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9064047336578369
+      },
+      {
+        "id": "extension:val:128057_00050575:66",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9948051571846008
+      },
+      {
+        "id": "extension:val:128057_00050575:67",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9526420831680298
+      },
+      {
+        "id": "extension:val:128057_00050575:68",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9998997449874878
+      },
+      {
+        "id": "extension:val:128057_00050575:69",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9971246123313904
+      },
+      {
+        "id": "extension:val:128057_00050650:70",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9948740601539612
+      },
+      {
+        "id": "extension:val:128057_00050650:71",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9845045804977417
+      },
+      {
+        "id": "extension:val:128057_00050650:72",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9983928799629211
+      },
+      {
+        "id": "extension:val:128057_00050650:73",
+        "truth": "player",
+        "prediction": "player",
+        "confidence": 0.9985540509223938
+      },
+      {
+        "id": "extension:val:128057_00013550:77",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.8649855852127075
+      },
+      {
+        "id": "extension:val:128057_00013700:78",
+        "truth": "referee",
+        "prediction": "referee",
+        "confidence": 0.722439706325531
+      },
+      {
+        "id": "round3:portugal-stewards:0",
+        "truth": "steward",
+        "prediction": "spectator",
+        "confidence": 0.5866913795471191
+      },
+      {
+        "id": "round3:portugal-stewards:1",
+        "truth": "steward",
+        "prediction": "steward",
+        "confidence": 0.878440797328949
+      },
+      {
+        "id": "round3:portugal-stewards:2",
+        "truth": "steward",
+        "prediction": "spectator",
+        "confidence": 0.7925522327423096
+      },
+      {
+        "id": "round3:portugal-stewards:3",
+        "truth": "steward",
+        "prediction": "referee",
+        "confidence": 0.5096414089202881
+      },
+      {
+        "id": "round3:portugal-stewards:5",
+        "truth": "steward",
+        "prediction": "spectator",
+        "confidence": 0.537341296672821
+      },
+      {
+        "id": "round3:portugal-stewards:8",
+        "truth": "steward",
+        "prediction": "spectator",
+        "confidence": 0.4206971228122711
+      },
+      {
+        "id": "round3:portugal-stewards:9",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.6245409846305847
+      },
+      {
+        "id": "round3:portugal-stewards:15",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9275062680244446
+      },
+      {
+        "id": "round3:portugal-stewards:16",
+        "truth": "spectator",
+        "prediction": "referee",
+        "confidence": 0.7192001342773438
+      },
+      {
+        "id": "round3:portugal-stewards:17",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9911688566207886
+      },
+      {
+        "id": "round3:portugal-stewards:4",
+        "truth": "person",
+        "prediction": "spectator",
+        "confidence": 0.988494336605072
+      },
+      {
+        "id": "round3:japan-audience:2",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9704257845878601
+      },
+      {
+        "id": "round3:japan-audience:7",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9979730248451233
+      },
+      {
+        "id": "round3:japan-audience:8",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.806591808795929
+      },
+      {
+        "id": "round3:japan-audience:15",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9576210379600525
+      },
+      {
+        "id": "round3:japan-audience:18",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.8767762780189514
+      },
+      {
+        "id": "round3:japan-audience:29",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.7672452926635742
+      },
+      {
+        "id": "round3:faroe-fans:0",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9998570680618286
+      },
+      {
+        "id": "round3:faroe-fans:1",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9999948740005493
+      },
+      {
+        "id": "round3:faroe-fans:8",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9999921321868896
+      },
+      {
+        "id": "round3:faroe-fans:10",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9999197721481323
+      },
+      {
+        "id": "round3:faroe-fans:14",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9999954700469971
+      },
+      {
+        "id": "round3:faroe-fans:18",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9999991655349731
+      },
+      {
+        "id": "round3:faroe-fans:23",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.999860405921936
+      },
+      {
+        "id": "round3:faroe-fans:29",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9999836683273315
+      },
+      {
+        "id": "round3:leverkusen-fans:0",
+        "truth": "spectator",
+        "prediction": "steward",
+        "confidence": 0.8317447900772095
+      },
+      {
+        "id": "round3:leverkusen-fans:1",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9970153570175171
+      },
+      {
+        "id": "round3:leverkusen-fans:2",
+        "truth": "spectator",
+        "prediction": "steward",
+        "confidence": 0.6451759934425354
+      },
+      {
+        "id": "round3:leverkusen-fans:6",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.8193865418434143
+      },
+      {
+        "id": "round3:leverkusen-fans:10",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9884067177772522
+      },
+      {
+        "id": "round3:leverkusen-fans:23",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9979680180549622
+      },
+      {
+        "id": "round3:leverkusen-fans:24",
+        "truth": "spectator",
+        "prediction": "person",
+        "confidence": 0.5084757208824158
+      },
+      {
+        "id": "round3:leverkusen-fans:25",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9979664087295532
+      },
+      {
+        "id": "round3:leverkusen-fans:28",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9999730587005615
+      },
+      {
+        "id": "round3:leverkusen-fans:35",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9278860688209534
+      },
+      {
+        "id": "round3:leverkusen-fans:44",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9751999974250793
+      },
+      {
+        "id": "round3:leverkusen-fans:59",
+        "truth": "spectator",
+        "prediction": "spectator",
+        "confidence": 0.9996071457862854
+      }
+    ]
+  },
+  "teams": {
+    "selected_epoch": 110,
+    "argmax": {
+      "accuracy": 0.9777070063694268,
+      "macro_f1": 0.9777049712436731,
+      "per_class": [
+        {
+          "name": "team_a",
+          "n": 157,
+          "correct": 152,
+          "precision": 0.987012987012987,
+          "recall": 0.9681528662420382,
+          "f1": 0.977491961414791
+        },
+        {
+          "name": "team_b",
+          "n": 157,
+          "correct": 155,
+          "precision": 0.96875,
+          "recall": 0.9872611464968153,
+          "f1": 0.9779179810725551
+        }
+      ],
+      "confusion": [
+        [
+          152,
+          5,
+          0
+        ],
+        [
+          2,
+          155,
+          0
+        ]
+      ],
+      "confusion_columns": [
+        "team_a",
+        "team_b",
+        "unknown"
+      ]
+    },
+    "threshold_0_65": {
+      "accuracy": 0.9777070063694268,
+      "macro_f1": 0.9839728771767606,
+      "per_class": [
+        {
+          "name": "team_a",
+          "n": 157,
+          "correct": 152,
+          "precision": 1.0,
+          "recall": 0.9681528662420382,
+          "f1": 0.9838187702265372
+        },
+        {
+          "name": "team_b",
+          "n": 157,
+          "correct": 155,
+          "precision": 0.9810126582278481,
+          "recall": 0.9872611464968153,
+          "f1": 0.9841269841269842
+        }
+      ],
+      "confusion": [
+        [
+          152,
+          3,
+          2
+        ],
+        [
+          0,
+          155,
+          2
+        ]
+      ],
+      "confusion_columns": [
+        "team_a",
+        "team_b",
+        "unknown"
+      ]
+    },
+    "predictions": [
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9531092643737793
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9976805448532104
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:2",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9736266136169434
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:3",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9864960312843323
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9958672523498535
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:5",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9974313378334045
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9993853569030762
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:7",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9991579055786133
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9966285824775696
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9726823568344116
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:10",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9808380007743835
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9980863332748413
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9996249675750732
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:13",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9982532858848572
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:14",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9974902868270874
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:15",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9998020529747009
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9979810118675232
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9995148181915283
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:18",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999375343322754
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:19",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9982740879058838
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9997839331626892
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000000:player:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9996496438980103
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.8877290487289429
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9261659979820251
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:2",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9940260648727417
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:3",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9908068776130676
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9988116025924683
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:5",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9990054965019226
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9961678385734558
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:7",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9993484616279602
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.997767448425293
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9995782971382141
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:10",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9983349442481995
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9978458881378174
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9997949004173279
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:13",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9993185997009277
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:14",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9905319213867188
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:15",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9923991560935974
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9998453855514526
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.999738872051239
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:18",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9992187023162842
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:19",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9991990923881531
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9993594288825989
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000060:player:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9969485402107239
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9949235320091248
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9979751706123352
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:2",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9603748321533203
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:3",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9948861002922058
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9960078001022339
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:5",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9668132066726685
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9990111589431763
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:7",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9988646507263184
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9776521921157837
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9968307614326477
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:10",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.994968593120575
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.995298445224762
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9947031140327454
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:13",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999445676803589
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:14",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9949304461479187
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:15",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9978423118591309
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9952830672264099
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999101161956787
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:18",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999240636825562
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:19",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9991422891616821
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9950182437896729
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000120:player:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9989984631538391
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.8330164551734924
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9995137453079224
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:2",
+        "truth": "team_a",
+        "prediction": "team_b",
+        "confidence": 0.6115821003913879
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:3",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9951959252357483
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9989068508148193
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:5",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9999936819076538
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9979392886161804
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:7",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9995452761650085
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9982343912124634
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9968852400779724
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:10",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9854958653450012
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9987057447433472
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9273971915245056
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:13",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999696016311646
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:14",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9421662092208862
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:15",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999690055847168
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.999800980091095
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9998769760131836
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:18",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9993934631347656
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:19",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9968857169151306
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9993941783905029
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000180:player:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9991816878318787
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9727315306663513
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9999420642852783
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:2",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9987013339996338
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:3",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9996684789657593
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9692167639732361
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:5",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9950064420700073
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9999384880065918
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:7",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9962576627731323
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9979557991027832
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9935551285743713
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:10",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9961649179458618
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9995728135108948
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9695760607719421
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:13",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9960432052612305
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:14",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9908945560455322
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:15",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9899227023124695
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9985059499740601
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999982118606567
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:18",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9994528889656067
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:19",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999837875366211
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9998724460601807
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000240:player:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9991621971130371
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9972291588783264
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9997904896736145
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:2",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9920068383216858
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:3",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9996792078018188
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9644336104393005
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:5",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9935663342475891
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9918379187583923
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:7",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9979610443115234
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9958232641220093
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9994956254959106
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:10",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9999862909317017
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9981125593185425
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9790483713150024
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:13",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9963512420654297
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:14",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.8503835201263428
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:15",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9873656034469604
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9732096791267395
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9997468590736389
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:18",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9996939897537231
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:19",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9996353387832642
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9991414546966553
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000300:player:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.999146580696106
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9643327593803406
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9991520643234253
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:2",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.928837776184082
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:3",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9960124492645264
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9972208738327026
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:5",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9998186230659485
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9791710376739502
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:7",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9882804155349731
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9870566129684448
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9982861876487732
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:10",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9973387122154236
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9938473105430603
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.773197591304779
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:13",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9918882250785828
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:14",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.6805933117866516
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:15",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9987024068832397
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9743233323097229
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.998772919178009
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:18",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9996249675750732
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:19",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999721050262451
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.6542258858680725
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000360:player:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.993779718875885
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9749258160591125
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9987179040908813
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:2",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9868491888046265
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:3",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.994491696357727
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9992000460624695
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:5",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9999556541442871
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9946215152740479
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:7",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9998039603233337
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.8781626224517822
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9933392405509949
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:10",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9798529148101807
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9603339433670044
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9944781064987183
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:13",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9989687204360962
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:14",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9673676490783691
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:15",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9995434880256653
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9895294308662415
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9998958110809326
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:18",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.993421733379364
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:19",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9960590600967407
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9957910776138306
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000420:player:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9947786331176758
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.7814980745315552
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9964606165885925
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:2",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.7547957301139832
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:3",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9968928098678589
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9999498128890991
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:5",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.999985933303833
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9971592426300049
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:7",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9995517134666443
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9945989847183228
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9975918531417847
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:10",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.8193506598472595
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9930201172828674
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9997811913490295
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:13",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9952419996261597
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:14",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9569754004478455
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:15",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.998223602771759
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.997393012046814
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999558925628662
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:18",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9996145963668823
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:19",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9910668730735779
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9997715353965759
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000480:player:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.998084545135498
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.8992395401000977
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9992517828941345
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:2",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9622443914413452
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:3",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9994739890098572
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9956197142601013
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:5",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9979103207588196
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9951539039611816
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:7",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.928067684173584
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9417319297790527
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.7937763929367065
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:10",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9997276663780212
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9827812314033508
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999635219573975
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:13",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9787343740463257
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:14",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9915466904640198
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:15",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9981656670570374
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9995501637458801
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9996352195739746
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:18",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9976206421852112
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:19",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9996541738510132
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9966453909873962
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000540:player:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9994733929634094
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9966548681259155
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9132301807403564
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:2",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9983202815055847
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:3",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9982908368110657
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9896798729896545
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:5",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9991669654846191
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9981439113616943
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:7",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9998100399971008
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9482719302177429
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9852578043937683
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:10",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.8904351592063904
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9998615980148315
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9701250195503235
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:13",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.999824583530426
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:14",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9715767502784729
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:15",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9603614211082458
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9981131553649902
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9986788630485535
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:18",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9993896484375
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:19",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999619722366333
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9935742020606995
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000600:player:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999127388000488
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.992492139339447
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.999487042427063
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:2",
+        "truth": "team_a",
+        "prediction": "team_b",
+        "confidence": 0.9328362345695496
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:3",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9981657862663269
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9747801423072815
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:5",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9966773986816406
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9929914474487305
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:7",
+        "truth": "team_a",
+        "prediction": "team_b",
+        "confidence": 0.9622105360031128
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9143136143684387
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9990956783294678
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:10",
+        "truth": "team_a",
+        "prediction": "team_b",
+        "confidence": 0.5820348262786865
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9944315552711487
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9475163817405701
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:13",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999772310256958
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:14",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9836235046386719
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:15",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9954914450645447
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9970845580101013
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999858140945435
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:18",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9289324879646301
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:19",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9871081709861755
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9871920347213745
+      },
+      {
+        "id": "F_20200220_1_0660_0690_000660:player:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9996926784515381
+      },
+      {
+        "id": "original-002100:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9984374642372131
+      },
+      {
+        "id": "original-002100:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9642958045005798
+      },
+      {
+        "id": "original-002100:2",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.973846971988678
+      },
+      {
+        "id": "original-002100:4",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.993802547454834
+      },
+      {
+        "id": "original-002100:14",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9991574287414551
+      },
+      {
+        "id": "original-002100:15",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9998620748519897
+      },
+      {
+        "id": "original-002100:17",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9997202754020691
+      },
+      {
+        "id": "original-002100:18",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9965919256210327
+      },
+      {
+        "id": "original-002100:3",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9948198199272156
+      },
+      {
+        "id": "original-002100:5",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.8909812569618225
+      },
+      {
+        "id": "original-002100:6",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9411118626594543
+      },
+      {
+        "id": "original-002100:8",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9503450393676758
+      },
+      {
+        "id": "original-002100:9",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9985613226890564
+      },
+      {
+        "id": "original-002100:10",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9963690042495728
+      },
+      {
+        "id": "original-002100:13",
+        "truth": "team_b",
+        "prediction": "team_a",
+        "confidence": 0.6470338106155396
+      },
+      {
+        "id": "original-002100:16",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.8917580842971802
+      },
+      {
+        "id": "original-002175:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9882410168647766
+      },
+      {
+        "id": "original-002175:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9956704378128052
+      },
+      {
+        "id": "original-002175:8",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9991744160652161
+      },
+      {
+        "id": "original-002175:13",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9062405228614807
+      },
+      {
+        "id": "original-002175:16",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9982851147651672
+      },
+      {
+        "id": "original-002175:17",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.961927592754364
+      },
+      {
+        "id": "original-002175:2",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9960689544677734
+      },
+      {
+        "id": "original-002175:3",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9682464003562927
+      },
+      {
+        "id": "original-002175:4",
+        "truth": "team_b",
+        "prediction": "team_a",
+        "confidence": 0.6060672998428345
+      },
+      {
+        "id": "original-002175:5",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9906030893325806
+      },
+      {
+        "id": "original-002175:6",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9782434701919556
+      },
+      {
+        "id": "original-002175:9",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9989186525344849
+      },
+      {
+        "id": "original-002175:10",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9998691082000732
+      },
+      {
+        "id": "original-002175:11",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9850601553916931
+      },
+      {
+        "id": "original-002175:12",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9882823824882507
+      },
+      {
+        "id": "original-002175:20",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.7955043911933899
+      },
+      {
+        "id": "original-002250:0",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9988771080970764
+      },
+      {
+        "id": "original-002250:1",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.997946560382843
+      },
+      {
+        "id": "original-002250:2",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9961993098258972
+      },
+      {
+        "id": "original-002250:4",
+        "truth": "team_a",
+        "prediction": "team_b",
+        "confidence": 0.7824185490608215
+      },
+      {
+        "id": "original-002250:6",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9940409064292908
+      },
+      {
+        "id": "original-002250:9",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9983622431755066
+      },
+      {
+        "id": "original-002250:12",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9926283359527588
+      },
+      {
+        "id": "original-002250:13",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9969672560691833
+      },
+      {
+        "id": "original-002250:14",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9568249583244324
+      },
+      {
+        "id": "original-002250:15",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9376247525215149
+      },
+      {
+        "id": "original-002250:18",
+        "truth": "team_a",
+        "prediction": "team_a",
+        "confidence": 0.9904534816741943
+      },
+      {
+        "id": "original-002250:3",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9983308911323547
+      },
+      {
+        "id": "original-002250:5",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.8210160732269287
+      },
+      {
+        "id": "original-002250:7",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9999865293502808
+      },
+      {
+        "id": "original-002250:8",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.8857690691947937
+      },
+      {
+        "id": "original-002250:10",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9394609928131104
+      },
+      {
+        "id": "original-002250:17",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.9471109509468079
+      },
+      {
+        "id": "original-002250:21",
+        "truth": "team_b",
+        "prediction": "team_b",
+        "confidence": 0.6734375953674316
+      }
+    ]
+  },
+  "human_review_completed": false,
+  "independent_final_test": false
+}

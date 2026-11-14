@@ -1,0 +1,35 @@
+{
+  "job": "C:\\Messi10\\artifacts\\training-workbench\\20261030-132437-45a808fe",
+  "status": "complete",
+  "trained_roles": [
+    "keypoints"
+  ],
+  "training_performed": true,
+  "epochs": [
+    [
+      {
+        "epoch": 1,
+        "train_loss": 9.146539468929404e-06,
+        "valid_loss": 1.7383002159476746e-05,
+        "learning_rate": 1e-05,
+        "runtime_s": 4.922000000020489,
+        "peak_gpu_bytes": 3114742784,
+        "time_limit_reached": false
+      }
+    ]
+  ],
+  "result": {
+    "status": "complete",
+    "weights": "C:\\Messi10\\artifacts\\training-workbench\\20261030-132437-45a808fe\\field_points\\training\\field-runtime.json",
+    "weights_sha256": "ee8357046521229d03164f6dd47cf35a560e0838909897c410fea3423db795f2",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "activated": false,
+    "evaluation_required": true,
+    "training_data": {
+      "profile": "configs/models-broadcast.json",
+      "field": "artifacts\\player-field-reliability-20261030\\field-smoke-index.json"
+    }
+  },
+  "technical_only": true
+}

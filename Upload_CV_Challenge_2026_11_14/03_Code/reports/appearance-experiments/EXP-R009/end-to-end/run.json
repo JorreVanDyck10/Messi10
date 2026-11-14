@@ -1,0 +1,84 @@
+{
+  "models": {
+    "schema_version": 1,
+    "profile_name": "R009 rollen en teams - extra gecontroleerde speler/officialcrops, experimenteel",
+    "models": [
+      {
+        "model_id": "exp-p004-teamtrack-v2_1",
+        "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\players-v2\\players_best.pt",
+        "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+        "class_mapping": {
+          "0": "player",
+          "1": "referee"
+        },
+        "expected_names": {
+          "0": "player",
+          "1": "referee"
+        },
+        "imgsz": 1920,
+        "confidence": 0.1,
+        "iou": 0.7,
+        "device": "0"
+      },
+      {
+        "model_id": "coco-person-proposals",
+        "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\appearance-v1\\person_proposals.pt",
+        "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+        "class_mapping": {
+          "0": "person"
+        },
+        "expected_names": {
+          "0": "person"
+        },
+        "imgsz": 1920,
+        "confidence": 0.1,
+        "iou": 0.7,
+        "device": "0"
+      }
+    ],
+    "handoff": {
+      "evaluation_record": "../reports/appearance-experiments/EXP-R009/metrics.json",
+      "evaluation_sha256": "791fa24d800e1ed357968fe46aa3f5c5536b4d89bef6a4448a47ab9c43fbf08e",
+      "human_review_completed": false,
+      "independent_final_test_completed": false,
+      "referee_coverage": "central and near assistant; far roles unresolved",
+      "detector_evaluation_record": "../reports/players-experiments/EXP-P004/validation-metrics/metrics.json",
+      "detector_evaluation_sha256": "2b725cbb140f22297f5e397e5277ad51f17c957ac109f55ebdee56c3f1f7c240",
+      "evaluation_kind": "Conditional ground-truth crop classification, not end-to-end detection AP",
+      "team_scope": "Two supervised team matches; added third match contains role labels only and uses neutral video-local kit clusters.",
+      "broadcast_transfer_adequate": false,
+      "broadcast_validation_record": "../reports/player-pipeline-4050.json",
+      "broadcast_validation_scope": "Historical P004-only record; R007 classifier is not measured on this clip"
+    },
+    "appearance": {
+      "model_id": "appearance-r009",
+      "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\appearance-v2\\roles_teams_r009.pt",
+      "weights_sha256": "e8704ac4e973f7d71a41a7e43bd4d0a14aebbea893d25f0e069de009806c4bbe",
+      "role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "role_confidence": 0.65,
+      "team_confidence": 0.65,
+      "device": "0"
+    }
+  },
+  "runtime_s": 3.6157807000017783,
+  "video_frames": 12,
+  "val_photo_sources": 7,
+  "test_frames": 0,
+  "AP_inference_confidence_floor": 0.1,
+  "workpoint_proposal_confidence": 0.25,
+  "role_confidence": 0.65,
+  "human_review_completed": false,
+  "role_counts": {
+    "assistant_referee": 12,
+    "player": 321,
+    "referee": 9,
+    "person": 7
+  }
+}

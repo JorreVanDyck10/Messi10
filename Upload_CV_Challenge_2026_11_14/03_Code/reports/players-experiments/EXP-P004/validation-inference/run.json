@@ -1,0 +1,69 @@
+{
+  "recorded_at": "2026-10-16T19:11:05.727827+00:00",
+  "kind": "inference",
+  "split": "val",
+  "manifest_sha256": "69b6f83426125f5826044afd868aad2e021b7ca2cf25e5982a779ff038e17773",
+  "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\runs\\EXP-P004-teamtrack-players\\batch-4\\weights\\best.pt",
+  "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+  "config": {
+    "imgsz": 1920,
+    "device": "0",
+    "confidence": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "mapping": {
+      "player": "player",
+      "referee": "referee"
+    }
+  },
+  "environment": {
+    "recorded_at": "2026-10-16T19:11:05.733890+00:00",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.6.0+cu124",
+      "torchvision": "0.21.0+cu124",
+      "ultralytics": "8.3.221",
+      "numpy": "2.2.6",
+      "opencv-python": "4.11.0.86",
+      "Pillow": "11.3.0",
+      "PyYAML": "6.0.2",
+      "av": "16.0.1"
+    },
+    "source_code_sha256": {
+      "__init__.py": "66805ab972173f9440b0c998545a1197b3540176911f57f24120b272853c3fd3",
+      "__main__.py": "cce2a672e6ea6fc41ced11104365aed532ca7ec647fb321eb8667039ea4941ea",
+      "annotation.py": "ab2172c147ea236dcbe3675a05559d19f776f564d614c6bc11a1b82a56f42356",
+      "core.py": "4c3cad40263168bce0b4c47791978e95948623c8ea2cd1abd0bb771fd4a08b93",
+      "metrics.py": "6723edcb1f92a3e49329bd1e633b1c37c7d0bbe9fa1c3159b4176e9bd3d38a1f",
+      "modeling.py": "c7e345cd14ab7f8004924c092631808b209b29f6f84a57a411b972728dc72465",
+      "participant_baseline.py": "8b9176072e322f581a85a153af48c8a0fb7d85baa1259837fd83320c0fdb6085",
+      "project_dataset.py": "030e9693cbf1321233fa4775e5155ab461fd94b471b14723c6a013d75abd8d56",
+      "review_sheets.py": "b1d27552756e036cd6d04fd3dc58ed4d7544a65d626b087541252454d4cc006c",
+      "teamtrack_dataset.py": "1fc72a39a0cb5fbfb878a4f76d5cb4adab0ceae68f26359000b6178cab7f706b",
+      "technical_check.py": "43dcecffa5948eea3546c871b9b135db3524bc47d9e670a7aed009056a2d4ec0",
+      "video.py": "94639fd093f0d13ab3bc40f0a1c908ded8d29811cf4ad9bd5eb7c7205c3112b4"
+    },
+    "nvidia_smi": "NVIDIA GeForce RTX 3050 Laptop GPU, 4096 MiB, 3406 MiB, 566.07",
+    "git_commit": null,
+    "cuda_available": true,
+    "torch_cuda": "12.4",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_total_bytes": 4294443008
+  },
+  "input_hashes": {
+    "F_20200220_1_0660_0690_000000": "dbea1d5513b435026c7d599e70e0ffc25bebb9760ee5f96a111f67157654c296",
+    "F_20200220_1_0660_0690_000060": "3ae4d06d81701ebdaf9639bfaa49195fcae079853e2fdcba0b4d225ffe9a5743",
+    "F_20200220_1_0660_0690_000120": "3569a83b5c26729e8ea1cfe22c1887ae4c4a6554a34cd39f336e291966a9312c",
+    "F_20200220_1_0660_0690_000180": "f8d869bdb23fc35b028095ea07b066855add4e8644bd49adbdc0e652765a66ab",
+    "F_20200220_1_0660_0690_000240": "9646dd5c19dbe7949a6c7bed731904868512662a3ce8a9b08f855b49917724fd",
+    "F_20200220_1_0660_0690_000300": "a9232384b0ecf7d3ad9c9ce20038bc2a6034ef01dfae0c5361a92c7cbde2b5cb",
+    "F_20200220_1_0660_0690_000360": "5fce41e5846e97d8bfaba4dfe1913b31b44e549b1fbf77e4b569a906430b8a23",
+    "F_20200220_1_0660_0690_000420": "b4a265024a4310da5e3f810393876ec5a6bc077685dfdf781f25c41756e91ac6",
+    "F_20200220_1_0660_0690_000480": "6f06ee08fe7300b25592a77c8731227cfc9d078e8fd8588d823c39c95b1cabf9",
+    "F_20200220_1_0660_0690_000540": "97ed40e74d75b25dd6e052748bd63252457049a842b65675f360944d24756bdb",
+    "F_20200220_1_0660_0690_000600": "460f096b06a659a2bea2fecc088673960149ac0d9facd70685def35047b585bc",
+    "F_20200220_1_0660_0690_000660": "887cc73a2cb79eae0091ae0a461a25ebf3c3842c147fe34b3a19244473edfb74"
+  },
+  "annotation_status": "automatic_proposals_only_not_human_reviewed"
+}

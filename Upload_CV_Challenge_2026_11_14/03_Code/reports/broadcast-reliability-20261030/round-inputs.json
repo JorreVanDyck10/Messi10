@@ -1,0 +1,17 @@
+{
+  "phase": "day4",
+  "objective": "Offline future-anchor backfill with unchanged two-second age bound, unchanged detector/role/team weights",
+  "baseline": "MOTION_RANK_SETTINGS selected on 2026-10-28",
+  "dataset": "data/broadcast-temporal-v1/manifest.json",
+  "selection": "Keep all forward-valid states. Recover gaps only through reverse CameraCalibration from a direct future anchor; reject camera cuts and hard geometry/input failures. No threshold search on labels.",
+  "required_gates": [
+    "no lost valid frames",
+    "same projections on common valid frames",
+    "finite provider errors on added positions",
+    "improved automatic recall/team fraction without precision or identity regressions",
+    "runtime within20% on same frames",
+    "fresh detection inference for changed projection states"
+  ],
+  "human_review_completed": false,
+  "independent_final_test_completed": false
+}

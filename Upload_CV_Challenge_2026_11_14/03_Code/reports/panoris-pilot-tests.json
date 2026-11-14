@@ -1,0 +1,12 @@
+{
+  "command": "python -m pytest -q",
+  "passed": 70,
+  "subtests_passed": 4,
+  "warnings": 33,
+  "warning_kind": "Existing Pillow getdata deprecation in person1 tests",
+  "runtime_s": 12.79,
+  "lint": "passed",
+  "format_check": "24 files already formatted",
+  "source_sha256": "1c9b6d25c43566f6acd7ef646cc9562e0eb6dad3fa2364cfe186890a32775ca8",
+  "human_reviewed": false
+}

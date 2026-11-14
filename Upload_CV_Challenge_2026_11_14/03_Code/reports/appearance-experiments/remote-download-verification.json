@@ -1,0 +1,157 @@
+{
+  "recorded_at": "2026-10-16T20:53:09.906451+00:00",
+  "asset_commit": "d1df20f396a0f2ca201857ad26fc53edd215a8bd",
+  "remote": "origin/main",
+  "verification": "Fetched all selected LFS objects into a new empty cache; validated each committed pointer SHA and size, and loaded the fresh classifier. Not a check against the existing local cache.",
+  "file_count": 23,
+  "unique_objects": 23,
+  "download_bytes": 43021348,
+  "verified_role_names": [
+    "player",
+    "referee",
+    "assistant_referee",
+    "steward",
+    "spectator",
+    "person"
+  ],
+  "records": [
+    {
+      "path": "artifacts/appearance-v1/person_proposals.pt",
+      "sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+      "bytes": 5613764,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "artifacts/appearance-v1/roles_seed_r004.pt",
+      "sha256": "71ad2936dac1b3ce649934d1e4fd7f7ca10f1f9811b589897bd8d44c2b5740d8",
+      "bytes": 3851118,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "artifacts/appearance-v1/roles_teams.pt",
+      "sha256": "adad67b0e3b60803d11a179c11c24d5c6cf2a31cbe9804a93c5da43b2bc008f2",
+      "bytes": 3853678,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/cardiff-fans.jpg",
+      "sha256": "fccd2090857abba26cd7b514d03ec5aa95bd1fa429fada255b34a0e1fb6bc3fd",
+      "bytes": 214345,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/chennai-fan.jpg",
+      "sha256": "0d12eda06ed745751dcc55c39de917f6a600d507851fc9416647e8923744dd5a",
+      "bytes": 1307354,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/liverpool-steward.png",
+      "sha256": "b4f2ab2d9b92262167e03e28bd6c2b90a24e1953f96cd5e69f7f1b98950efcfe",
+      "bytes": 15966690,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/local-fans.jpg",
+      "sha256": "2967684c531040d50e52b6ce7e439a18d2ad6d528f5fb0f0c8bc08da72f4d8b5",
+      "bytes": 511322,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/london-control.jpg",
+      "sha256": "2b734878e2ecdef84e76f3e68d5372ed0e3c27dc2d7ae300ced4f549ec2f0d2e",
+      "bytes": 1134012,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/mkdons-stewards.jpg",
+      "sha256": "5966d4c0c9b317b5491c4e3b60de452c7149767a8b0fd049e04916ef82f89c39",
+      "bytes": 75223,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/original-000000.jpg",
+      "sha256": "139dc89ce8756de7efdb450d54380f2a1b53e07028b41d9187d1c4c53d13805b",
+      "bytes": 829797,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/original-000075.jpg",
+      "sha256": "350e82f7eb4b0d6e1d12f3bca25bbe4c3387a532edc881a8f445f6108e3fe6ac",
+      "bytes": 771283,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/original-000150.jpg",
+      "sha256": "51c4d21373a7d4b54e214894a6425ecaa98112822710f2b337601a5458a1805e",
+      "bytes": 806792,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/original-000350.jpg",
+      "sha256": "3399c98e2f73b0b1bd7d053120fa8612c991da02e3fd38f5fd38612304ebf82f",
+      "bytes": 914635,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/original-000425.jpg",
+      "sha256": "14cc71f27677572d81380be61f6c5b0671ade9e9cb2898132f89d5f12f92b096",
+      "bytes": 859882,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/original-000500.jpg",
+      "sha256": "173ddd60770eb9aae9927f9e3bc567e8680805e76a3d737ec6c7c122c0cf9915",
+      "bytes": 817254,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/original-002100.jpg",
+      "sha256": "1c59f63b5373faece39b2d2151abf5c2d541e65e924fccdf809f53ac01585123",
+      "bytes": 954837,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/original-002175.jpg",
+      "sha256": "21aad23d19d9fb4968cc62d241d0e7400789ca478199db681f71f6ffe0327374",
+      "bytes": 856545,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/original-002250.jpg",
+      "sha256": "9251cf154511151c16a784950466e259ef6511b4419dfd069b57df7f6408dc0a",
+      "bytes": 817971,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/steward-cardiff.jpg",
+      "sha256": "f02938421622bce5038573459ace6b88c6a44d811a600cd1aa45c59c7204eafb",
+      "bytes": 284338,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/steward-nec.jpg",
+      "sha256": "6c7fc47f640c79c7cb07b227a0a553922219977dbd2458ab2b5b5dd17aa9a850",
+      "bytes": 726193,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/steward-torino.jpg",
+      "sha256": "445d935058f882752d6ddb50f5a73abb6765d319d343f1a42a676b30cff24bfb",
+      "bytes": 1401941,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/troyes-fans.jpg",
+      "sha256": "38b0d83623d626fb7a70c962d56e0a0d3c6ddf8702a75cd35d48e68e29a3f6c8",
+      "bytes": 193744,
+      "fresh_remote_download_verified": true
+    },
+    {
+      "path": "datasets/roles-teams-v1/sources/uganda-fan.jpg",
+      "sha256": "d053ce64e75533d28a591b84e490bf7c0a215d4e10ad2b1f88b1d51e2aafb123",
+      "bytes": 258630,
+      "fresh_remote_download_verified": true
+    }
+  ]
+}

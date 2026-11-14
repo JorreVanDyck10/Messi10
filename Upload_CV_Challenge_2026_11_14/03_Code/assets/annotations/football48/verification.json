@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "frames": 48,
+  "unique_source_frames": 48,
+  "unique_input_pixel_hashes": 48,
+  "splits": {
+    "train": 36,
+    "val": 12
+  },
+  "time_groups": 8,
+  "minimum_cross_split_gap_s": 195.0,
+  "objects": {
+    "person": 512,
+    "ball": 36
+  },
+  "ball_presence": {
+    "positive": 36,
+    "negative": 12
+  },
+  "image_hashes_checked": 48,
+  "coco_yolo_source_box_agreement": true,
+  "ball_only_export_checked": true,
+  "ultralytics_loader": {
+    "joint": {
+      "train": {
+        "images": 36,
+        "objects": 459
+      },
+      "val": {
+        "images": 12,
+        "objects": 89
+      }
+    },
+    "ball_only": {
+      "train": {
+        "images": 36,
+        "objects": 26
+      },
+      "val": {
+        "images": 12,
+        "objects": 10
+      }
+    }
+  },
+  "reference_clip_checks": {
+    "clips": 8,
+    "duration_each_s": 20,
+    "frames_each": 500,
+    "fps": 25,
+    "size": [
+      4096,
+      1080
+    ],
+    "checksums_checked": 8,
+    "dataset_frames_covered": 48
+  },
+  "independent_human_review_complete": false,
+  "model_training_performed": false,
+  "scope": "File integrity, coordinates, class mapping, actual images and temporal separation; no semantic accuracy metric or independent-match test."
+}

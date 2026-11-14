@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "evidence_kind": "actual_model_output_opened_in_Streamlit_AppTest",
+  "run_directory": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\runs\\joint-automatic-roles\\1a10a3304e7c6811e0c900994b1fe146410b3f788b1429e39565f9a93d63309e",
+  "video_sha256": "92750cbcb504bf3a3aa529754d9c0f3d4037660bcb6ebc80c537e3a757ba8201",
+  "checked_frame_indices": [
+    0,
+    60,
+    119
+  ],
+  "human_review_performed": false,
+  "new_inference_performed": false,
+  "scope": "Saved video and exact frame overlay opened without app errors; no accuracy reference."
+}

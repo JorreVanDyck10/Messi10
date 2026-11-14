@@ -1,0 +1,19 @@
+{
+  "source_dataset": "football48-001",
+  "mapping": {
+    "person": 0,
+    "ball": 32
+  },
+  "counts": {
+    "train": {
+      "0": 433,
+      "32": 26
+    },
+    "val": {
+      "0": 79,
+      "32": 10
+    }
+  },
+  "head_classes": 80,
+  "scope": "Existing masked person/ball annotations, not player/role annotations or independent test data."
+}

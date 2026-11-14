@@ -1,0 +1,80 @@
+{
+  "recorded_at": "2026-10-16T12:07:44.960746+00:00",
+  "errors": [],
+  "warnings": [
+    "Global-image similarity screen: 216 near-duplicate pairs across test/train; static backgrounds can trigger this. Manual action/group review required.",
+    "Global-image similarity screen: 96 near-duplicate pairs across test/val; static backgrounds can trigger this. Manual action/group review required.",
+    "Global-image similarity screen: 324 near-duplicate pairs across train/val; static backgrounds can trigger this. Manual action/group review required."
+  ],
+  "counts": {
+    "train": {
+      "frames": 27,
+      "labelled_frames": 27,
+      "reviewed_frames": 0,
+      "negative_frames": 0,
+      "class_0_objects": 27
+    },
+    "val": {
+      "frames": 12,
+      "labelled_frames": 12,
+      "reviewed_frames": 0,
+      "negative_frames": 0,
+      "class_0_objects": 12
+    },
+    "test": {
+      "frames": 8,
+      "labelled_frames": 8,
+      "reviewed_frames": 0,
+      "negative_frames": 0,
+      "class_0_objects": 8
+    }
+  },
+  "near_duplicate_pair_counts": {
+    "train/val": 324,
+    "test/train": 216,
+    "test/val": 96
+  },
+  "near_duplicate_examples": [
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000050"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000055"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000075"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000080"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000125"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000350"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000355"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000425"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000430"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000475"
+    ]
+  ],
+  "dataset_fingerprint": "1cf505020932c4f490383a29646d02cb6fa0aaf870fe3d312125fbf3212a542f"
+}

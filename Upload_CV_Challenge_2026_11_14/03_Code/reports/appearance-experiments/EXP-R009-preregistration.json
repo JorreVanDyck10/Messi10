@@ -1,0 +1,9 @@
+{
+  "recorded_at": "2026-10-24T16:42:51.870225+00:00",
+  "reference": "EXP-R007",
+  "dataset_sha256": "129079c8e5380ade5962f533a55fa00b1298145b990f718eeb2103c051da93d7",
+  "warm_start_sha256": "adad67b0e3b60803d11a179c11c24d5c6cf2a31cbe9804a93c5da43b2bc008f2",
+  "hypothesis": "AI-corrected player and official crops from the third match may reduce its player-to-steward/spectator confusions without harming established roles.",
+  "changes": "52 added training crops and 59 new validation crops; same partial-backbone/head optimization recipe; warm start selected R007.",
+  "selection": "Compare R007 and candidate on identical expanded val crops, also reporting retained and newly added sources separately; no final-test claim."
+}

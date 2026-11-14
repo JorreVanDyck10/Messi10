@@ -1,0 +1,29 @@
+{
+  "source_video_sha256": "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+  "source_frames": [
+    0,
+    29
+  ],
+  "scope": "Development inference only; no player/team ground truth and no accuracy claim",
+  "elapsed_s": 3.3026183999973,
+  "processed_fps": 9.08370158660308,
+  "team_calibration": {
+    "method": "video_colour_clusters",
+    "ready": false,
+    "samples": 9,
+    "updates": 30,
+    "centers": null,
+    "radii": null,
+    "names": "neutral A/B; no club or home-away claim",
+    "confidence_meaning": "relative colour distance margin, not probability"
+  },
+  "last_frame_visible_roles": {
+    "person": 9,
+    "assistant_referee": 7,
+    "steward": 6,
+    "player": 1
+  },
+  "last_frame_visible_teams": {
+    "null": 1
+  }
+}

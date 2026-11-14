@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "profile_name": "Gezamenlijke training 27 oktober — spelers, rollen, bal en teams",
+  "models": [
+    {
+      "model_id": "joint-selected-players",
+      "weights": "C:\\Messi10\\artifacts\\joint-retrain-20261027-v2\\players\\training\\batch-4\\weights\\best.pt",
+      "weights_sha256": "87bbc7f900ae45e7a096adda71688169f8e03c4d19149c64ac0efe03e3ff8cf1",
+      "class_mapping": {
+        "0": "player",
+        "1": "referee"
+      },
+      "expected_names": {
+        "0": "player",
+        "1": "referee"
+      },
+      "imgsz": 1280,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    },
+    {
+      "model_id": "coco-person-proposals",
+      "weights": "C:\\Messi10\\artifacts\\appearance-v1\\person_proposals.pt",
+      "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+      "class_mapping": {
+        "0": "person"
+      },
+      "expected_names": {
+        "0": "person"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    },
+    {
+      "model_id": "joint-selected-ball",
+      "weights": "C:\\Messi10\\artifacts\\joint-retrain-20261027-v2\\ball\\training\\batch-2\\weights\\best.pt",
+      "weights_sha256": "d69928999f48a2a5011123d5b7a636a686273d5dd573747e45eb5deb6021d00e",
+      "class_mapping": {
+        "32": "ball"
+      },
+      "expected_names": {
+        "32": "sports ball"
+      },
+      "imgsz": 1280,
+      "confidence": 0.25,
+      "iou": 0.7,
+      "device": "0",
+      "ball_tiles": {
+        "sizes": [
+          1280,
+          640
+        ],
+        "imgsz": 1280,
+        "overlap": 0.2,
+        "merge_iou": 0.5
+      }
+    }
+  ],
+  "handoff": {
+    "evaluation_record": "C:\\Messi10\\artifacts\\joint-retrain-20261027-v2\\comparison.json",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "scope": "Local development validation; no general accuracy or in-play ball claim"
+  },
+  "appearance": {
+    "model_id": "joint-selected-roles",
+    "weights": "C:\\Messi10\\artifacts\\appearance-v1\\roles_teams.pt",
+    "weights_sha256": "adad67b0e3b60803d11a179c11c24d5c6cf2a31cbe9804a93c5da43b2bc008f2",
+    "role_names": [
+      "player",
+      "referee",
+      "assistant_referee",
+      "steward",
+      "spectator",
+      "person"
+    ],
+    "role_confidence": 0.65,
+    "team_confidence": 0.65,
+    "device": "0"
+  }
+}

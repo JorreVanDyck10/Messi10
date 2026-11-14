@@ -1,0 +1,166 @@
+{
+  "status": "complete",
+  "dataset_fingerprint": "a6488c003091b7d8c225d14abb6de734f9deb24d765ff78e524080e3e3603935",
+  "is_smoke_test": false,
+  "selected_step": 1000,
+  "curve": [
+    {
+      "step": 0,
+      "internal_training_match_holdout_KL": 0.10248115649502879
+    },
+    {
+      "step": 50,
+      "internal_training_match_holdout_KL": 0.08825033029609916
+    },
+    {
+      "step": 100,
+      "internal_training_match_holdout_KL": 0.08439990105421473
+    },
+    {
+      "step": 150,
+      "internal_training_match_holdout_KL": 0.08258358870117051
+    },
+    {
+      "step": 200,
+      "internal_training_match_holdout_KL": 0.08105389910076521
+    },
+    {
+      "step": 250,
+      "internal_training_match_holdout_KL": 0.07965206313303372
+    },
+    {
+      "step": 300,
+      "internal_training_match_holdout_KL": 0.0782785673182845
+    },
+    {
+      "step": 350,
+      "internal_training_match_holdout_KL": 0.07701339086519515
+    },
+    {
+      "step": 400,
+      "internal_training_match_holdout_KL": 0.07576854498182559
+    },
+    {
+      "step": 450,
+      "internal_training_match_holdout_KL": 0.07459658383489139
+    },
+    {
+      "step": 500,
+      "internal_training_match_holdout_KL": 0.07348868843890978
+    },
+    {
+      "step": 550,
+      "internal_training_match_holdout_KL": 0.07246601779393855
+    },
+    {
+      "step": 600,
+      "internal_training_match_holdout_KL": 0.07152136048353917
+    },
+    {
+      "step": 650,
+      "internal_training_match_holdout_KL": 0.07059165455001676
+    },
+    {
+      "step": 700,
+      "internal_training_match_holdout_KL": 0.06973871386132909
+    },
+    {
+      "step": 750,
+      "internal_training_match_holdout_KL": 0.06888399589840676
+    },
+    {
+      "step": 800,
+      "internal_training_match_holdout_KL": 0.06810788578531435
+    },
+    {
+      "step": 850,
+      "internal_training_match_holdout_KL": 0.06734941022720006
+    },
+    {
+      "step": 900,
+      "internal_training_match_holdout_KL": 0.06665552034400736
+    },
+    {
+      "step": 950,
+      "internal_training_match_holdout_KL": 0.06592327116318678
+    },
+    {
+      "step": 1000,
+      "internal_training_match_holdout_KL": 0.06521431963077137
+    }
+  ],
+  "head_training_elapsed_s": 2.8137209999840707,
+  "internal_holdout_matches": [
+    "000fdcdf6ea42bd80ea2513deb1166f73ef138a33d45160e3c1607e6538a5ad0",
+    "0541d729b9a984409c0c1794d3e4fb0cd219a95caca836ec73145a57d0651e21",
+    "0b900c33844b4be3363625c0555250984f31d95d861f3f5e3af45d116af0f822",
+    "103165cb7f04ece0e04c4197ad7a3007f1e2af8e82bccfc60993f469610ed0ba",
+    "133a5763edd886c412cd205d33af1875c431dc2394a3032482ad3731311e6745",
+    "189b934cb617a968d5a7f79a064965156b92cbe4ac330e0e0680a6348c26b616",
+    "1b74d47c41007e872d5e681b1b111da4d3bdd6833e24d41a1d061da0502789c8",
+    "1d72467befc0f04c23e1d2241fa659fd1dd307c8b23a084a9e92f78001ce973b",
+    "20f8946d41eb0b6802536ef7f84bb854971e9237befeae3ce3b2d5c6c7042af1",
+    "241f69125daa4149086ee121be811cad502b9b865ad36b7af301616f07f4cdf3",
+    "2b548521de8a595c84f80d1dc95e95ce5dd541d70093757b589e8b1d4ff31dbb",
+    "32b092878cd569a8994920020160ce2467bcf1e8083bc237723626a0bba7854e",
+    "36699c40617000c39687e5ccfc850d486a5b179c3c4de0e47837e5b2dda3ff83",
+    "3be0870d5e4e3362938223bd7f5cb03a4eb5b61bc815220d456c03877868b6ca",
+    "3fdd2c130c0587d40d44e13f89491346f57eeecf6743518b876a6ba4a1e85d9c",
+    "4849220382852e25c3d3fdc4dab9516fbf970487a31376669f7ecb9e380980ee",
+    "4b2d683a607454f358aa08a5aabe910346e0d94b08f4bc7bfe60b367f53f0464",
+    "4e5cd4a4fb5e6fd94c75cb87f0b9cae77dfd70152e1d28a690059a93d9eacd04",
+    "543554c31eb69f20b22e0ae941798045e7cb1f49502c8c35acd0b26808c315d1",
+    "5fbfc277ca7dd85a1b934283e4bee8a74af6d00f9f417547bee5e047a7f6b31a",
+    "64729666cb00ae1b7282d70ec98a907acffc8681b746d4855b23907a3c67fa53",
+    "675235afc245efbb754391b712bb66defb2a84503ddd766dd9a29dbb7dbc4889",
+    "6c8a6db114d5ee35d7c5de30a427acfe04e2f54e1ea96ba809160b165f2eaa19",
+    "71756cc812a3c319ce68f30855f4772fead022f55c0ff44cc858b506f59a5e82",
+    "75fc84cb131503d9fd3896344d48549c75838a4358ff48d20adc504e140949ef",
+    "79606ae42c0b1b2c5b32e2f780dccaeee3f3003c630df83c1a112d2b01288d56",
+    "7d0a11b0c98a689cccd772f558fb61d53e70a25ec2cef751fb2ddbe744c597dc",
+    "80b483dee68f504d3563111e05584c28f807dea625fe2ca7505612b6fd9681d0",
+    "85ba38cd80f391ae0d94995d2827a51101514e598b6f9da7497604b3a6ca5d53",
+    "88fac39b0880f85bcf5985c6b06777bcee2b0b11934a81a9947c19736f934baa",
+    "91894bdc18c684986bd47a325dbb6a2563f913383e3a7fd174752a6b8d92c594",
+    "94735484804b66e6c41f84a2c7ce927a4f448e90353e517f591abd8d5cff18a0",
+    "998b8b54238b7ff80050f894f500614de003ab46ecf8e77d8fe8cea872f85f8a",
+    "9deca8c981fce4a7ecf5b06581be88b7e60702270072a4c0c0bcfa343d7bdc93",
+    "a0c12dbe420a4777fe5d0f3cb262194c3ad92744d5e7596960db16eca3d3f9c1",
+    "a5b816a8b6f12b08f2ec1912b2cee8c864fb666667f2a8091d565e724c030d24",
+    "a9e2f53fef0348dc911c818f412251412679a4cac78a33a9033c0aad3abb8bd0",
+    "acea7a7911f0d1d162d2a5c55d3c7c824a1a5e09ce37044efb8d875adc625908",
+    "b106208f9144b97bf6ca88c27b2d38670ea0f3150f36bae619e5fea4ce0b784c",
+    "b4f94984665a4bf3fd7034f956ab399852b0ca1bd1b0e5a278a01a6a06a798db",
+    "b949f1960b17f0b4d38a96a66518951581f2af3e540c444090851f14f44f5eae",
+    "bbee33b70a2b7ac7605540e59a83602443989aa90f42714fdfc155ba113f919b",
+    "bf91a0c8ad8fdc293b5d797f3eb86ee17932743f768e1f397c38a6e93c74400c",
+    "c0e13b9d27bd19c86604fbbfa342ffa05b9aafb45489038a8ab75d9b27f1c826",
+    "c38b3aa869d46337e382039ace2e380e395ca49fe6caf899df9fca9006334d18",
+    "c5a3fec991bb07cea22177c70d44a33209b3b72a157b7f7c53ea81ad3b5e47c8",
+    "c8326ef7b4adfb07a520cdaa0062d8221ff939a74dd901d2cb5060bcce8d6449",
+    "ca202fc2aaea26298980d0c9ea0ea2687cc4aa63b02c0d0e37529d965ed886c3",
+    "cc7787c16c4c334846ab773232bf7a67ad0bce7e11474b318301b616e39453f6",
+    "d02e5d0ef9439a3b2f8109e4d585a6c381fe28e84800eef09ca36e8b1001c249",
+    "d51b2eadb6736bad4b723c4621d2dde813678c9268364f1d21a3be3ab38702ef",
+    "d95efa665e4c6422236ab98ef63c335e30d948b9c46cb98acd3c9aeab5a58bf0",
+    "dd8b7126fc714591176be8d15b0df9225715ee29edb3fb6c4172b00a136c58fa",
+    "e59fbcb151f16a2c128b1f983612d8c68ac067e4cfb89bf4bc207d440ca48380",
+    "ef031deb8b7509dd56e4a25689cdb0d8ae30256226796a505c087bcd9d906a33",
+    "f642f00c180003695fa1556376a2d6b3db44ea1de94e2dc1d94a12c6b80647df",
+    "f88a3b5a5b81d72951ec23ae813a50097bb0791abc96101f1d9b751c45512be4",
+    "fbfef22e062774c85a1c217e7a803464eb147b1072ff2b120bd843d191cce4e9"
+  ],
+  "training_matches": 231,
+  "validation_used_for_selection": false,
+  "test_accessed": false,
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "models": {
+    "keypoints": {
+      "status": "complete",
+      "sha256": "96f3d9a022d0dcc0db4536045adbf8ee3fd4decc9e85af1202d4cb94fe489e93",
+      "path": "C:\\Messi10\\artifacts\\broadcast-reliability-20261030\\sparse-field-head-v1\\keypoints.pt"
+    }
+  },
+  "identity": "5f258f87981727e54b9afb4f55326c53cb18122040536bcd9b091ff964ad318f"
+}

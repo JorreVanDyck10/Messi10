@@ -1,0 +1,9 @@
+{
+  "attempts": [
+    {
+      "batch": 4,
+      "status": "completed",
+      "best_sha256": "f523fec4e72c994d9d454e86e7a52c7a8be32334c0085713ba1bc2ce7dc2fdb4"
+    }
+  ]
+}

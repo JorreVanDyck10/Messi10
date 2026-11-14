@@ -1,0 +1,28 @@
+{
+  "recorded_at": "2026-10-28T07:03:04.881456+00:00",
+  "errors": [
+    "No frames in test; independent end evaluation is required for this tooling route",
+    "No objects of class ball in test"
+  ],
+  "warnings": [],
+  "counts": {
+    "train": {
+      "frames": 48,
+      "labelled_frames": 48,
+      "reviewed_frames": 0,
+      "negative_frames": 0,
+      "class_0_objects": 48
+    },
+    "val": {
+      "frames": 32,
+      "labelled_frames": 32,
+      "reviewed_frames": 0,
+      "negative_frames": 0,
+      "class_0_objects": 32
+    },
+    "test": {}
+  },
+  "near_duplicate_pair_counts": {},
+  "near_duplicate_examples": [],
+  "dataset_fingerprint": "1148a95f0bb01b8f1356f13f124f8afb9ae5ee7c8b976e88793c1b0b8c76fce5"
+}

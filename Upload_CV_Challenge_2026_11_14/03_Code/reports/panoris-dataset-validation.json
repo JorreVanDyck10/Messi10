@@ -1,0 +1,135 @@
+{
+  "recorded_at": "2026-10-16T11:09:51.721434+00:00",
+  "errors": [
+    "7990708af29a_00000000: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000000.txt'",
+    "7990708af29a_00000025: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000025.txt'",
+    "7990708af29a_00000050: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000050.txt'",
+    "7990708af29a_00000075: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000075.txt'",
+    "7990708af29a_00000100: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000100.txt'",
+    "7990708af29a_00000125: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000125.txt'",
+    "7990708af29a_00000350: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000350.txt'",
+    "7990708af29a_00000375: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000375.txt'",
+    "7990708af29a_00000400: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000400.txt'",
+    "7990708af29a_00000425: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000425.txt'",
+    "7990708af29a_00000450: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000450.txt'",
+    "7990708af29a_00000475: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000475.txt'",
+    "7990708af29a_00000700: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000700.txt'",
+    "7990708af29a_00000725: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000725.txt'",
+    "7990708af29a_00000750: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000750.txt'",
+    "7990708af29a_00000775: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000775.txt'",
+    "7990708af29a_00000800: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000800.txt'",
+    "7990708af29a_00000825: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00000825.txt'",
+    "7990708af29a_00001050: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001050.txt'",
+    "7990708af29a_00001075: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001075.txt'",
+    "7990708af29a_00001100: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001100.txt'",
+    "7990708af29a_00001125: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001125.txt'",
+    "7990708af29a_00001150: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001150.txt'",
+    "7990708af29a_00001175: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001175.txt'",
+    "7990708af29a_00001400: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001400.txt'",
+    "7990708af29a_00001425: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001425.txt'",
+    "7990708af29a_00001450: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001450.txt'",
+    "7990708af29a_00001475: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001475.txt'",
+    "7990708af29a_00001500: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001500.txt'",
+    "7990708af29a_00001525: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001525.txt'",
+    "7990708af29a_00001750: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001750.txt'",
+    "7990708af29a_00001775: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001775.txt'",
+    "7990708af29a_00001800: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001800.txt'",
+    "7990708af29a_00001825: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001825.txt'",
+    "7990708af29a_00001850: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001850.txt'",
+    "7990708af29a_00001875: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00001875.txt'",
+    "7990708af29a_00002100: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002100.txt'",
+    "7990708af29a_00002125: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002125.txt'",
+    "7990708af29a_00002150: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002150.txt'",
+    "7990708af29a_00002175: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002175.txt'",
+    "7990708af29a_00002200: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002200.txt'",
+    "7990708af29a_00002225: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002225.txt'",
+    "7990708af29a_00002450: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002450.txt'",
+    "7990708af29a_00002475: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002475.txt'",
+    "7990708af29a_00002500: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002500.txt'",
+    "7990708af29a_00002525: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002525.txt'",
+    "7990708af29a_00002550: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002550.txt'",
+    "7990708af29a_00002575: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002575.txt'",
+    "7990708af29a_00002800: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002800.txt'",
+    "7990708af29a_00002825: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002825.txt'",
+    "7990708af29a_00002850: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002850.txt'",
+    "7990708af29a_00002875: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002875.txt'",
+    "7990708af29a_00002900: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002900.txt'",
+    "7990708af29a_00002925: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00002925.txt'",
+    "7990708af29a_00003150: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00003150.txt'",
+    "7990708af29a_00003175: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00003175.txt'",
+    "7990708af29a_00003200: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00003200.txt'",
+    "7990708af29a_00003225: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00003225.txt'",
+    "7990708af29a_00003250: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00003250.txt'",
+    "7990708af29a_00003275: [Errno 2] No such file or directory: 'C:\\\\Allerlaatste\\\\DeepLearning\\\\CV\\\\Messi10\\\\data\\\\panoris\\\\labels\\\\7990708af29a_00003275.txt'",
+    "No objects of class person in train",
+    "No objects of class ball in train",
+    "No objects of class person in val",
+    "No objects of class ball in val",
+    "No objects of class person in test",
+    "No objects of class ball in test"
+  ],
+  "warnings": [
+    "Global-image similarity screen: 432 near-duplicate pairs across test/train; static backgrounds can trigger this. Manual action/group review required.",
+    "Global-image similarity screen: 144 near-duplicate pairs across test/val; static backgrounds can trigger this. Manual action/group review required.",
+    "Global-image similarity screen: 432 near-duplicate pairs across train/val; static backgrounds can trigger this. Manual action/group review required."
+  ],
+  "counts": {
+    "train": {
+      "frames": 36
+    },
+    "val": {
+      "frames": 12
+    },
+    "test": {
+      "frames": 12
+    }
+  },
+  "near_duplicate_pair_counts": {
+    "train/val": 432,
+    "test/train": 432,
+    "test/val": 144
+  },
+  "near_duplicate_examples": [
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000000"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000025"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000050"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000075"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000100"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000125"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000350"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000375"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000400"
+    ],
+    [
+      "7990708af29a_00002100",
+      "7990708af29a_00000425"
+    ]
+  ],
+  "dataset_fingerprint": "315b2499d4a86b05d0c110a57c724180550130a166cf4cf9d319d56d7f057ad2"
+}

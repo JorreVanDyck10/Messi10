@@ -1,0 +1,5 @@
+{
+  "status": "rejected_incomplete_labels",
+  "reason": "P001 omitted central official. P002 stopped after two central-official validation boxes failed final visual review. Neither checkpoint is the delivered model.",
+  "human_review_completed": false
+}
