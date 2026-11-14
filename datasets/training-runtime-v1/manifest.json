@@ -1549,7 +1549,7 @@
     "assets/annotations/football48/images/val/128057_00050650.png": "14770fad37eabfc683b3af98675a000a0d1f1960cc4716e5dea98a73214b7599",
     "configs/models-andrew.json": "ce336679ea1ab9d898fa2e99d1d6249bf2fae751bc4a0b823480c1360ba30817",
     "configs/models-ball-broadcast-v3.json": "348d7e64b85a6f2bc3a830b904685777f553457eac33cd5f4bd74b2c5f3c9c18",
-    "configs/models-broadcast.json": "b1fe7c9ee6f9ce8fa01a00c1975cac1b67a24e500a563ba092603256e5812421",
+    "configs/models-broadcast.json": "a752a5458d0803566f17a4f5d8a2af15d676edb086355cb7f4d69ef92eced538",
     "data/andrew-four-class-v1/data.yaml": "5cb89665f82a0a6bd76157c289f7a6783539fd25e8143fea7a656f8447de692d",
     "data/andrew-four-class-v1/manifest.json": "27554c8c1f0812265bb25e202a0709abc8b04ecdc03d9cb6f1a8586cfe086208",
     "data/broadcast-multisource-v1/data.yaml": "49f3115c81f838e2fac137d77848f8ac4775bdcdd8c4f3eff186999f4f65dbe4",
@@ -16675,7 +16675,7 @@
   "purpose": "Verified inputs for eight learned-model training tasks, including the supplied Andrew four-class detector",
   "files_already_tracked": 1626,
   "files_added": 15030,
-  "bytes": 5377081341,
+  "bytes": 5377081920,
   "groups": {
     "Andrew_Prototype/archive": {
       "files": 1327,

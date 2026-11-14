@@ -158,6 +158,32 @@ def save_result(directory, weights, inputs):
         },
     )
 
+def preserve_team_metadata(trained_weights, original_weights):
+    import torch
+    """Behoud teamclassificatievelden wanneer de roltrainer ze niet wegschrijft."""
+    trained = torch.load(trained_weights, map_location="cpu", weights_only=True)
+    original = torch.load(original_weights, map_location="cpu", weights_only=True)
+
+    for key in ("team_names", "team_head", "team_video_hashes"):
+        if key not in trained and key in original:
+            trained[key] = original[key]
+
+    required = (
+        "backbone",
+        "role_head",
+        "team_head",
+        "role_names",
+        "team_names",
+        "team_video_hashes",
+    )
+    missing = [key for key in required if key not in trained]
+    if missing:
+        raise ValueError(
+            "Het getrainde rolcheckpoint mist vereiste velden: " + ", ".join(missing)
+        )
+
+    torch.save(trained, trained_weights)
+
 
 def one_model(spec_path, task):
     """Train een gekozen onderdeel in een eigen GPU-proces en bewaar zijn geisoleerde kandidaat."""
@@ -276,6 +302,8 @@ def one_model(spec_path, task):
             torch.save({"backbone": data["backbone"]}, baseline)
             broadcast_refine.BASE_ROLES = baseline
             weights = broadcast_refine.roles(data, directory / "training", minutes=minutes, epochs=epochs)
+            original_appearance = load_model_manifest(base_profile_path)["appearance"]["weights"]
+            preserve_team_metadata(weights, original_appearance)
             key, model_id = "appearance", "workbench-roles"
         else:
             weights = broadcast_refine.teams(data, directory / "training", minutes=minutes)

@@ -86,6 +86,8 @@ class AppearanceClassifier:
         if self.device.isdigit():
             self.device = "cuda:" + self.device
         state = torch.load(path, map_location="cpu", weights_only=True)
+        print("APPEARANCE CHECKPOINT:", path.resolve())
+        print("CHECKPOINT FIELDS:", list(state.keys()))
         if state["role_names"] not in (ROLE_NAMES, PITCH_ROLE_NAMES) or state["team_names"] != TEAM_NAMES:
             raise PipelineError("Onverwachte uitvoerklassen van de rol-/teamclassifier.")
         self.role_names = state["role_names"]
