@@ -1,13 +1,27 @@
-param([string]$Python = 'py', [switch]$SkipField)
+
+param([string]$Python = '', [switch]$SkipField)
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 Push-Location $projectRoot
 try {
     if (-not (Get-Command git -ErrorAction SilentlyContinue)) { throw 'Installeer Git voor Windows en open daarna een nieuwe PowerShell.' }
+
+    # Detect Python 3.11 using the Python launcher or python command.
+    if ([string]::IsNullOrWhiteSpace($Python)) {
+        if (Get-Command py -ErrorAction SilentlyContinue) {
+            $Python = 'py'
+        } elseif (Get-Command python -ErrorAction SilentlyContinue) {
+            $Python = 'python'
+        } else {
+            throw 'Python is niet gevonden. Installeer Python 3.11 of geef -Python met het volledige pad naar python.exe.'
+        }
+    }
+
     # New laptops use Python 3.11 for both app and PnLCalib compatibility.
     $pythonArgs = if ($Python -eq 'py') { @('-3.11') } else { @() }
-    $version = & $Python @pythonArgs -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")'
-    if ($LASTEXITCODE -ne 0 -or $version -ne '3.11') { throw 'Installeer Python 3.11 of geef -Python met het volledige pad naar python.exe.' }
+    $version = & $Python @pythonArgs -c "import sys; print('{}.{}'.format(sys.version_info.major, sys.version_info.minor))"
+    if ($LASTEXITCODE -ne 0 -or $version.Trim() -ne '3.11') { throw 'Installeer Python 3.11 of geef -Python met het volledige pad naar python.exe.' }
+
     if (Test-Path -LiteralPath '.venv/Scripts/python.exe') {
         $markerPath = '.venv/sportsvision-laptop-setup.json'
         if (-not (Test-Path -LiteralPath $markerPath) -or (Get-Content -LiteralPath $markerPath -Raw | ConvertFrom-Json).setup -ne 'sportsvision-cu128') {
@@ -18,9 +32,17 @@ try {
         if ($LASTEXITCODE -ne 0) { throw 'Aanmaken van de omgeving mislukt.' }
         '{"setup":"sportsvision-cu128","python":"3.11"}' | Set-Content -LiteralPath '.venv/sportsvision-laptop-setup.json' -Encoding utf8
     }
+
     $runtimePython = Join-Path $projectRoot '.venv/Scripts/python.exe'
-    & $runtimePython -m pip install torch==2.7.1 torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cu128
+
+    # Upgrade pip from the standard Python Package Index.
+    & $runtimePython -m pip install --upgrade pip --index-url https://pypi.org/simple
+    if ($LASTEXITCODE -ne 0) { throw 'Pip bijwerken mislukt.' }
+
+    # Install CUDA 12.8 PyTorch wheels; obtain other dependencies from PyPI.
+    & $runtimePython -m pip install torch==2.7.1+cu128 torchvision==0.22.1+cu128 --index-url https://download.pytorch.org/whl/cu128 --extra-index-url https://pypi.org/simple
     if ($LASTEXITCODE -ne 0) { throw 'PyTorch/CUDA installeren mislukt.' }
+
     & $runtimePython -m pip install -r requirements-laptop.txt
     if ($LASTEXITCODE -ne 0) { throw 'Applicatiebibliotheken installeren mislukt.' }
     & $runtimePython -m pip install --no-deps --editable .

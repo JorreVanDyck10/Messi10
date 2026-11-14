@@ -1,3 +1,4 @@
+
 """Verify and bind the reviewed training files shipped through Git and Git LFS."""
 
 from __future__ import annotations
@@ -18,18 +19,23 @@ def verify_repository(root=ROOT, *, allow_lfs_pointers=False):
     manifest = read_json(root / CATALOG)
     failures = []
     total = 0
+
     for name, expected in manifest["files"].items():
         parts = PurePosixPath(name).parts
         if not parts or ".." in parts or ":" in name or "\\" in name or PurePosixPath(name).is_absolute():
             raise PipelineError("Ongeldig pad in de trainingscatalogus")
+
         path = root.joinpath(*parts).resolve()
         if not path.is_relative_to(root):
             raise PipelineError("Trainingspad valt buiten het project")
+
         if not path.is_file():
             failures.append((name, "ontbreekt"))
             continue
+
         with path.open("rb") as stream:
             pointer = stream.read(128).startswith(b"version https://git-lfs.github.com/spec/v1")
+
         if pointer:
             if not allow_lfs_pointers:
                 failures.append((name, "Git LFS-pointer; voer git lfs pull uit"))
@@ -44,11 +50,20 @@ def verify_repository(root=ROOT, *, allow_lfs_pointers=False):
             failures.append((name, "SHA-256 wijkt af"))
         else:
             total += path.stat().st_size
+
     if failures:
         first = "; ".join(f"{name}: {reason}" for name, reason in failures[:6])
         raise PipelineError(f"{len(failures)} trainingsbestanden niet bruikbaar. {first}")
-    if "bytes" in manifest and total != manifest["bytes"]:
-        raise PipelineError("De totale trainingsgrootte wijkt af van de catalogus")
+
+    expected_total = manifest.get("bytes")
+    if expected_total is not None and total != expected_total:
+        difference = total - expected_total
+        raise PipelineError(
+            "Totale trainingsgrootte wijkt af van de catalogus: "
+            f"werkelijk {total:,} bytes, verwacht {expected_total:,} bytes "
+            f"(verschil: {difference:+,} bytes)."
+        )
+
     return manifest, total
 
 
@@ -76,6 +91,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("verify", "prepare", "check-git"), default="prepare", nargs="?")
     args = parser.parse_args()
+
     try:
         if args.command in {"verify", "check-git"}:
             manifest, total = verify_repository(allow_lfs_pointers=args.command == "check-git")
@@ -84,7 +100,9 @@ def main():
                 result["lfs_pointer_hashes_allowed"] = True
         else:
             result = prepare_repository()
+
         print(json.dumps(result, indent=2), flush=True)
+
     except PipelineError as exc:
         parser.exit(1, f"Trainingsdata niet klaar: {exc}\n")
 
