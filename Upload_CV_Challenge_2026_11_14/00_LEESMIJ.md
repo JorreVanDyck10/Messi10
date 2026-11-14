@@ -6,7 +6,6 @@ Broncode: main commit 524d081a, inclusief de technische fixes en bevestigde revi
 ## Inhoud
 
 - 01_Rapport/Sports_Vision_Rapport.pdf: projectverslag met aanpak, training, fouten, resultaten, extra's en GenAI.
-- 01_Rapport/Bronmateriaal_Milan/: originele studiegids-PDF gepubliceerd door Milan; historische bron, geen actuele statusverklaring.
 - 02_Presentatie/Sports_Vision_Presentatie.pptx: bewerkbare presentatie met bronverwijzingen in de notities.
 - 03_Code/Training_en_Evaluatie.ipynb: gecontroleerd overzicht, checkpointmetadata en optionele herhaling van training.
 - 03_Code/Andrew_Prototype/train.ipynb en check_mAP.ipynb: originele notebooks met historische uitvoer.
