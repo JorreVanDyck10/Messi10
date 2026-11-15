@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-13",
+  "status": "passed_with_existing_calibration_limitation",
+  "default_workflow": "Full automatic upload; no separate school UI; tracking and teams enabled",
+  "software_tests": {
+    "passed": 555,
+    "subtests_passed": 4,
+    "seconds": 199.28,
+    "failures": 0,
+    "errors": 0,
+    "report": "herstel-volledige-tests.xml"
+  },
+  "lint": "passed",
+  "powershell_syntax": "passed",
+  "launch_checks": [
+    "automatic GPU",
+    "CPU",
+    "legacy school shortcut",
+    "optional broadcast ball tiles",
+    "environment restoration"
+  ],
+  "local_dependencies_installed": true,
+  "independent_final_app_venv": true,
+  "independent_final_field_venv": true,
+  "video_tools": "final/.tools ffmpeg and ffprobe; also verified without PATH and from a different working directory",
+  "real_gpu_runs": [
+    {
+      "run_id": "c7c1cf2c01e8772dee5230e0aca3cbc00e4a201dac7a067d07213b6a0844954a",
+      "frames": 12,
+      "tracker": "bytetrack",
+      "teams": true,
+      "ball_tiles": false,
+      "calibration_usable_fraction": 0.0
+    },
+    {
+      "run_id": "0649ab74b2b749355aa9076c3959afbfec4932d650cf50ae47e7e6b6b3ac8a31",
+      "frames": 12,
+      "tracker": "bytetrack",
+      "teams": true,
+      "ball_tiles": true,
+      "calibration_usable_fraction": 0.0
+    },
+    {
+      "run_id": "047ea7c421432cbb14324245c3c0db14b1eb9fed401576597ce6410060c410ab",
+      "frames": 12,
+      "tracker": "bytetrack",
+      "teams": true,
+      "ball_tiles": false,
+      "calibration_usable_fraction": 0.0
+    }
+  ],
+  "real_results_views_checked": [
+    "frame inspection",
+    "players and distance summaries",
+    "teams",
+    "downloads"
+  ],
+  "field_quality_limitation": "All 36 short development frames lacked reliable calibration. Original strict validator returns identical results on the same observations. No measured-distance or general model-accuracy claim.",
+  "browser_check": {
+    "automatic_default_visible": true,
+    "training_tasks_visible": 8,
+    "server_health": "ok",
+    "real_upload_via_streamlit_apptest": true,
+    "browser_extension_upload": "Not executed: extension file URL access disabled. Browser permission was not changed."
+  },
+  "training": "Management preserved; full training was not run and requires its own datasets and field-training environment.",
+  "model_preservation": "Selected weights and inference settings match the original project; see herstel-bronvergelijking.json.",
+  "package_scope": "Changes in final; source checkout outside final was preserved."
+}

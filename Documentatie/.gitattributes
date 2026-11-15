@@ -1,0 +1,7 @@
+# Preserve evidence and generated artifact bytes: their SHA-256 and PDF offsets are exact.
+*.pdf binary
+*.pptx binary
+Training_en_Resultaten.ipynb -text whitespace=cr-at-eol
+Bronnen/** -text
+Trainingsbewijs/** -text whitespace=cr-at-eol
+Versiebewijs/** -text whitespace=cr-at-eol

@@ -1,3 +1,5 @@
+> **Gezamenlijke documentatie:** [rapport, presentatie, notebook en requirementscontrole](Documentatie/README.md), bijgewerkt met Andrew en Jorre op 15 november 2026.
+
 > **Technische afronding (14 november 2026):** interfacetests en codecontroles hersteld; 537 tests en vier subtests geslaagd, één GPU-test overgeslagen. De menselijke review van de 80-beeldenselectie is door het team bevestigd. [Wijzigingen, controles en grenzen](docs/Afronding_20261114.md).
 
 > **Korte projectuitleg:** [Word-document over technieken en modellen](docs/Projectuitleg_Technieken_en_Modellen.docx), één pagina over de gewone projectcode buiten `final`.
