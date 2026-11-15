@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "identity": "48d90686caca64d4ab9adc32192cb22ffdc1ad4947fabf4f68ab53518368e898",
+  "started_at": "2026-10-19T07:52:46.577325+00:00",
+  "dataset_fingerprint": "bae967693dd09af90bf7f1dc9adcbae8a4d1d58414a87e1100f8fed89f2e9d74",
+  "dataset_version": "course-multimatch-v1",
+  "config": {
+    "epochs": 8,
+    "batch": 1,
+    "lr": 0.0001,
+    "optimizer": "Adam",
+    "patience": 4,
+    "weight_decay": 0.0001,
+    "scheduler": "ReduceLROnPlateau_factor_0.5_patience_1",
+    "best_checkpoint_includes_unmodified_baseline": true,
+    "head_only": true,
+    "target_generation": "geometry_seeded_interpolation; exact_float32_compressed_cache",
+    "seed": 42,
+    "amp": true,
+    "image_size": [
+      960,
+      540
+    ],
+    "smoke": false,
+    "limit_train": null,
+    "limit_valid": null
+  },
+  "models": {
+    "keypoints": {
+      "status": "complete",
+      "path": "C:\\Messi10\\artifacts\\course-improvement-20261019\\field-head-v2\\keypoints-best-000.pt",
+      "sha256": "ccd26d7b10cca81ccc903e5e96f47e73ee030b0f963427493d4d35dea1c38628",
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.6955741807578305e-05,
+          "valid_loss": 1.712847499675263e-05,
+          "learning_rate": 0.0001,
+          "runtime_s": 42.360000000015134,
+          "peak_gpu_bytes": 1061588992
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.919606505301393e-05,
+          "valid_loss": 1.9603117789301904e-05,
+          "learning_rate": 0.0001,
+          "runtime_s": 24.312000000005355,
+          "peak_gpu_bytes": 1061588992
+        },
+        {
+          "epoch": 3,
+          "train_loss": 2.3330444825357215e-05,
+          "valid_loss": 2.3689713907515396e-05,
+          "learning_rate": 0.0001,
+          "runtime_s": 23.125,
+          "peak_gpu_bytes": 1061588992
+        },
+        {
+          "epoch": 4,
+          "train_loss": 2.647151997431744e-05,
+          "valid_loss": 2.5724737179189104e-05,
+          "learning_rate": 5e-05,
+          "runtime_s": 15.515999999974156,
+          "peak_gpu_bytes": 1061588992
+        }
+      ],
+      "base_model": {
+        "name": "SV_kp",
+        "sha256": "7ea78fa76aaf94976a8eca428d6e3c59697a93430cba1a4603e20284b61f5113"
+      },
+      "best_valid_loss": 1.5885958964645398e-05,
+      "baseline_valid_loss": 1.5885958964645398e-05,
+      "selected_epoch": 0,
+      "improved_over_baseline_loss": false,
+      "trainable_parameters": 45530,
+      "train_frames": 60,
+      "valid_frames": 20,
+      "last_path": "C:\\Messi10\\artifacts\\course-improvement-20261019\\field-head-v2\\keypoints-resume-004.pt",
+      "last_sha256": "41a58632f6add50348a874ba5e523cf9eacbf040185c41c6e54d90707c030f53"
+    },
+    "lines": {
+      "status": "complete",
+      "path": "C:\\Messi10\\artifacts\\course-improvement-20261019\\field-head-v2\\lines-best-001.pt",
+      "sha256": "ab3eca59899aa2e06e4d0cf5456107bab45804eca1624a3cbdd1874a111a607c",
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.00018118968976826483,
+          "valid_loss": 0.00014109258863754804,
+          "learning_rate": 0.0001,
+          "runtime_s": 105.20299999997951,
+          "peak_gpu_bytes": 1020176384
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.00018157552264407665,
+          "valid_loss": 0.0001414948386809556,
+          "learning_rate": 0.0001,
+          "runtime_s": 55.73399999999674,
+          "peak_gpu_bytes": 1020176384
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.00018043479655413346,
+          "valid_loss": 0.00014218867363524623,
+          "learning_rate": 0.0001,
+          "runtime_s": 43.187000000005355,
+          "peak_gpu_bytes": 1020176384
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.00017857353426128006,
+          "valid_loss": 0.00014255916667025304,
+          "learning_rate": 5e-05,
+          "runtime_s": 22.984000000025844,
+          "peak_gpu_bytes": 1020176384
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.00018258663221786263,
+          "valid_loss": 0.00014309028738352937,
+          "learning_rate": 5e-05,
+          "runtime_s": 20.578999999997905,
+          "peak_gpu_bytes": 1020176384
+        }
+      ],
+      "base_model": {
+        "name": "SV_lines",
+        "sha256": "d72f4ed71734a2e3df9fa084f666e9b8adaef21bf69bac8952d6d3f970ff7455"
+      },
+      "best_valid_loss": 0.00014109258863754804,
+      "baseline_valid_loss": 0.00014187223678163718,
+      "selected_epoch": 1,
+      "improved_over_baseline_loss": true,
+      "trainable_parameters": 18840,
+      "train_frames": 60,
+      "valid_frames": 20,
+      "last_path": "C:\\Messi10\\artifacts\\course-improvement-20261019\\field-head-v2\\lines-resume-005.pt",
+      "last_sha256": "ff1a760c25d7928ea1fb3e62b8c39a6929b9e877680ab662a018409841cfec40"
+    }
+  },
+  "status": "complete",
+  "training_performed": true,
+  "is_smoke_test": false,
+  "independent_accuracy_claim": false,
+  "trainer_sha256": "92b80ad52f1478691e5096be2cbdea4cdb311587b0acb8ac2b7661460dfae0c8",
+  "upstream": {
+    "url": "https://github.com/mguti97/PnLCalib",
+    "revision": "8c87391d6f4ea40c5e4d65e61529916c7a49ce62",
+    "license": "GPL-2.0",
+    "license_sha256": "189b1af95d661151e054cea10c91b3d754e4de4d3fecfb074c1fb29476f7167b"
+  },
+  "dependencies": {
+    "torch": "2.3.1+cu121",
+    "torchvision": "0.18.1+cu121",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "lsq-ellipse": "2.2.1"
+  },
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "updated_at": "2026-10-19T07:59:52.160131+00:00",
+  "completed_at": "2026-10-19T07:59:52.186397+00:00"
+}

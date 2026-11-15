@@ -1,0 +1,10 @@
+{
+  "dataset_fingerprint": "REPLACE_WITH_VALIDATION_REPORT_FINGERPRINT",
+  "reviewers": [],
+  "source_approved": false,
+  "label_rules_approved": false,
+  "split_approved": false,
+  "class_coverage_approved": false,
+  "model_roles_approved": false,
+  "near_duplicates_reviewed": false
+}

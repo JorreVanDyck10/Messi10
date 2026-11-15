@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-10-16T12:31:19.056524+00:00",
+  "frames": 12,
+  "person_predictions": 135,
+  "ball_predictions_at_025": 0,
+  "application_confidence": 0.25,
+  "coordinate_space": "Original 3840x960 source pixels",
+  "frame_index": "zero-based original decoded video index",
+  "time": "source presentation time in seconds",
+  "class_names": [
+    "person",
+    "ball"
+  ],
+  "roles": "Person is generic human, not independently recognized player/referee. Ball checkpoint is experimental and failed validation; not promoted.",
+  "checks": "Both streams have exactly matching video/frame IDs, timestamps and image dimensions. Empty ball records are detector misses, not negative labels.",
+  "examples": {
+    "normal_source_frame_index": 2100,
+    "difficult_source_frame_index": 2525,
+    "empty_ball_output_frame_index": 2100
+  },
+  "synchronized_tactical_map_integration_tested": false
+}

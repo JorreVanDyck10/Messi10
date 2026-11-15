@@ -1,0 +1,75 @@
+{
+  "recorded_at": "2026-10-27T22:26:19.105845+00:00",
+  "ball_dataset": {
+    "status": "passed",
+    "frames": 132,
+    "boxes": 132,
+    "counts": {
+      "train": 59,
+      "val": 73
+    },
+    "duplicate_images": 0,
+    "split_group_overlap": 0,
+    "image_decode": "full",
+    "fingerprint": "a4c9724b184ba383e138293ad33b3f9af8435c17b986d1b79ba86d8d364888a0"
+  },
+  "ball_review": {
+    "correct": 2,
+    "accept": 130,
+    "reject": 100
+  },
+  "raw_referee_dataset": {
+    "status": "passed",
+    "frames": 1450,
+    "boxes": 1036,
+    "counts": {
+      "train": 1185,
+      "val": 265
+    },
+    "duplicate_images": 0,
+    "split_group_overlap": 0,
+    "image_decode": "full",
+    "fingerprint": "3e1460fbd4ce12fec209d26bdb13fbb0de4dae61e68a61023449e975a771ca0f"
+  },
+  "curated_referee_dataset": {
+    "status": "passed",
+    "frames": 1380,
+    "boxes": 915,
+    "counts": {
+      "train": 1115,
+      "val": 265
+    },
+    "duplicate_images": 0,
+    "split_group_overlap": 0,
+    "image_decode": "header; underlying source fully decoded",
+    "fingerprint": "87a313db1bb567716f8e3ad528ab4f156451b81d09a3b028d0424bf468b20c51"
+  },
+  "referee_quarantine_count": 70,
+  "referee_negative_frames": 619,
+  "referee_match_independence_verified": false,
+  "collected_unique_source_images": 9450,
+  "recommended_unique_source_images": 9380,
+  "ball_examples_are_subset_of_main_corpus": true,
+  "training_configs": {
+    "players": "data/broadcast-sngsr-v1/data-players.yaml",
+    "balls": "data/broadcast-ball-review-v1/curated/data.yaml",
+    "referees": "data/referee-broadcast-v1/curated/data.yaml"
+  },
+  "software_tests": {
+    "tests": 48,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "project_human_review_completed": false,
+  "model_training_started": false,
+  "active_models_changed": false,
+  "source_sha256": {
+    "src/football_pipeline/referee_dataset.py": "0a641c760577c630ab0447ef2938dd33da293b5f4a46c101be9653d187b7ef9b",
+    "scripts/curate_broadcast_balls.py": "f2ca049829b5274f462a8fbc1ae8379fb2e85cb92a99642232dd23223b1c8555",
+    "scripts/curate_referee_data.py": "7bce9eac2d1f1bb5d61d3ed945b3b8cc2ab88771b2a5e397dc28e3be92dec85e",
+    "scripts/audit_broadcast_extensions.py": "71e072a349a9dcc14db6ebd94f47f1389d9246acef7d618f417ab41e9e7ddc7a",
+    "tests/test_broadcast_curation.py": "e2811ea277deb5c11d1f372d11f48d7c2764f09bef0eec4f62909027e588e0d0"
+  },
+  "v2_summary": "reports/broadcast-data/v2-summary.json"
+}

@@ -1,0 +1,55 @@
+{
+  "recorded_at": "2026-10-16T20:46:03.633590+00:00",
+  "dataset_version": "roles-teams-v1.1",
+  "manifest_sha256": "3148976f198dfd9b5fd8a2a60240966d24e1d6f38ebef1cbdf8bfaeabbe0e668",
+  "source_images_used": 68,
+  "samples": 1417,
+  "counts": {
+    "train": {
+      "player": 928,
+      "referee": 43,
+      "assistant_referee": 42,
+      "steward": 7,
+      "spectator": 13,
+      "person": 12
+    },
+    "val": {
+      "player": 314,
+      "referee": 15,
+      "assistant_referee": 15,
+      "steward": 8,
+      "spectator": 11,
+      "person": 9
+    }
+  },
+  "groups": {
+    "train": [
+      "F_20200220_1_0540_0570",
+      "cardiff-fans",
+      "chennai-fan",
+      "local-fans",
+      "mkdons-stewards",
+      "original-dev-00",
+      "original-dev-14",
+      "steward-cardiff",
+      "steward-nec",
+      "steward-torino"
+    ],
+    "val": [
+      "F_20200220_1_0660_0690",
+      "liverpool-steward",
+      "london-control",
+      "original-val-84",
+      "troyes-fans",
+      "uganda-fan"
+    ]
+  },
+  "cross_split_exact_duplicates": 0,
+  "invalid_boxes": 0,
+  "errors": [],
+  "reserved_test_frames_used": 0,
+  "human_review_completed": false,
+  "scope": "Partial crop classification dataset, no exhaustive photo box GT",
+  "active_player_role_source_images_including_reserved_test": 80,
+  "cumulative_unique_source_images_including_historical_ball_experiments": 122
+}

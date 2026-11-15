@@ -1,0 +1,18 @@
+{
+  "scope": "Additional role development sources; split by source event before annotations or predictions. Not an independent final test.",
+  "sources": [
+    {"id": "portugal-stewards", "title": "File:Stewards – Portugal vs. Argentina, 9th February 2011 (2).jpg", "split": "val", "group": "portugal-argentina-2011-02-09"},
+    {"id": "sosnowiec-night", "title": "File:Mecz piłkarski Wisła Kraków - Zagłębie Sosnwoiec, 28 października 2022, Pożegnanie Stadionu Ludowego, KP.jpg", "split": "train", "group": "sosnowiec-2022-10-28"},
+    {"id": "grand-rapids", "title": "File:Grand Rapids FC spectators at Houseman Field on June 5 2015.jpg", "split": "train", "group": "grand-rapids-2015-06-05"},
+    {"id": "us-venezuela-fans", "title": "File:USAvVEN 2019-06-09 - United States fans (51170270456).jpg", "split": "train", "group": "us-venezuela-2019-06-09"},
+    {"id": "seattle-portland", "title": "File:Crowd at Seattle Reign FC vs Portland Thorns match.JPG", "split": "train", "group": "seattle-portland-crowd"},
+    {"id": "japan-audience", "title": "File:Football audience (9897888786).jpg", "split": "val", "group": "japan-audience-9897888786"},
+    {"id": "faroe-fans", "title": "File:Faroese football supporters - Skansin - 13 June 2015.JPG", "split": "val", "group": "faroe-2015-06-13"},
+    {"id": "sweden-u21-fans", "title": "File:Fans for Sweden national under-21 football team in 2015.jpg", "split": "train", "group": "sweden-u21-2015"},
+    {"id": "shimizu-fans", "title": "File:Emperor's Cup Final Shimizu S-Pulse 2011-01-01.JPG", "split": "train", "group": "emperor-cup-2011-01-01"},
+    {"id": "leverkusen-fans", "title": "File:Bayer Leverkusen-Fans.JPG", "split": "val", "group": "leverkusen-fans-photo"},
+    {"id": "bohemians-fans", "title": "File:Bohemian Dublin supporters during the match vs.Red Bull Salzburg.JPG", "split": "train", "group": "bohemians-salzburg-photo"},
+    {"id": "event-stewards-2012", "title": "File:Stewards (7782147950).jpg", "split": "train", "group": "event-stewards-7782147950"},
+    {"id": "event-stewards-2010", "title": "File:Stewards working the crowd (4960674375).jpg", "split": "train", "group": "event-stewards-4960674375"}
+  ]
+}

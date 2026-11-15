@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-16T18:58:48.405396+00:00",
+  "candidate_run": "0b2006b23d066695e0c35ebe1d282748e2d083217f3a33ee638783db251c4167",
+  "code": {
+    "git_commit": "5403a39d0e3f24f11ff4b370c118007c0b0b6f42",
+    "source_sha256": "e96f2f962e470b21b6c69ae1ecad98f5e1ad609b5fe9cfe6d3c7a76fedd37e8c",
+    "files": {
+      "src\\football_pipeline\\__init__.py": "b130f200a792b9d0af46123ab875d28ededf9f741aec8dfef41abbc55653862e",
+      "src\\football_pipeline\\__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "src\\football_pipeline\\automatic_calibration.py": "161a1ebe7e9acab46db35ceb658309f913c36417258d3043195efb105e4db233",
+      "src\\football_pipeline\\calibration_evaluation.py": "c31e48bc86740fc79d3232e216732f7eadeeb3e008ce707518613d797331bced",
+      "src\\football_pipeline\\calibration_input.py": "93ffbceec0e7ff83f9138bf1a1c3d221d99f0a8e6c5efd911561fd19a919d83f",
+      "src\\football_pipeline\\cli.py": "04a6cb9b877710940e997fb9535717f67d9a682f8317e3759233c5b38d8318b1",
+      "src\\football_pipeline\\contracts.py": "9780c736dea65358cc2c8bf42f480132959441bf8fabfe1a49602a6d5b424e9c",
+      "src\\football_pipeline\\demo.py": "f26e522703651485498d55ab2418fa34e9e3ba9443dc4407389b78ab5e6f2e92",
+      "src\\football_pipeline\\detection.py": "720ad9e82662c09feeaae4a6822da19d58ab344e0a4bf3c27cef02f1910d2068",
+      "src\\football_pipeline\\evaluation.py": "bda4c6d973ea0cbf26504eb631d927571dcbb7aa4363df785fffc81800ced8a3",
+      "src\\football_pipeline\\field_layout.py": "99f33d3b4a137bd17feaaad421630e03ef4c68151e91623f821c8afe8c3cbf1f",
+      "src\\football_pipeline\\field_model_spec.py": "731c22db1c7897a3c9b1cf853d41ffbefbca5b40edf721d2629f693e70ea2892",
+      "src\\football_pipeline\\field_motion.py": "07eaf1eddfba882fc2a08307f0a09ab07a195f526497fff5f43e3fbd7138bdfd",
+      "src\\football_pipeline\\field_review.py": "17a26fd1efb01b8bc93ec8b6dbe6aab3b41bcf585b0441bf92ea37acc67d0363",
+      "src\\football_pipeline\\field_review_ui.py": "cd74da465d3386ffa68d68671f4dcb1b111d1654628fab366b448b4b5fccf445",
+      "src\\football_pipeline\\geometry.py": "be472de24606f58b7ba88e3d3c5e735db9831f7af1c75aeb2f38013d3a61fbe5",
+      "src\\football_pipeline\\model_handoff.py": "a7dab90147f2f32e64611d780fb870cc68a18e548fa0e81f3221776480723a72",
+      "src\\football_pipeline\\pipeline.py": "c92a0f8ec207a2a64febbe6b4a1242481f9875aaad45452b4443f9756a3dccb0",
+      "src\\football_pipeline\\point_picker.py": "4c690ee2e1b7f88a63ce125a673a07ff22ff3b244f21adaf0dc6e75d42344ca8",
+      "src\\football_pipeline\\render.py": "f92761273367fa78c1ff0ae771265ad7d2b1abe3183180835465d069e41f1e27",
+      "src\\football_pipeline\\replay.py": "4ad66e8ce3ddf56ea2fb9f7333b061a8b908cf8ba9b37e2ee56a852f5494f69e",
+      "src\\football_pipeline\\tracking.py": "77f43b4b2dd379c26d8820cf5acf737426c50f226e9b5593db25f3f89b89cab8",
+      "src\\football_pipeline\\video.py": "62a459da4b90fb26654903ec44b34a20d6f0df4adc38d33c585cfc0326f5765d",
+      "streamlit_app.py": "24bc20e4fc6ec7b451386460de7f5555a78a67a2da05acbd17fca0dd2ee46eb2",
+      "pyproject.toml": "84b294023e07584324ee385b581fab9c226e3cefb50a6c4e5f3fb5852a784942"
+    }
+  },
+  "pytest": {
+    "passed": 141,
+    "subtests_passed": 4,
+    "warnings": 33,
+    "runtime_s": 44.97,
+    "note": "Existing Pillow deprecations in person-1 tests; no failures"
+  },
+  "ruff_check": "passed",
+  "ruff_format_check": {
+    "passed": true,
+    "python_files": 43
+  },
+  "diff_check": "passed",
+  "output_hash_validation": "passed",
+  "all_original_detections_preserved": true,
+  "automatic_player_tracking_disabled": true,
+  "invalid_calibrations_have_no_field_positions": true,
+  "tracked_frames_meet_motion_and_age_limits": true,
+  "seek_matches_sequential_decode_on_frames": [
+    0,
+    114,
+    723,
+    1238
+  ],
+  "human_reference_files_created_by_agent": false,
+  "human_content_accepted": null,
+  "videos": {
+    "demonstratie.mp4": {
+      "sha256": "6b22c482eb744329ab50603b2733f2e90422b6f951599a7ab2fed254054d657e",
+      "frames": 1239,
+      "fps": 25.0,
+      "image_size": [
+        1920,
+        720
+      ],
+      "codec": "h264"
+    },
+    "vergelijking.mp4": {
+      "sha256": "ef60cd763a9ab3afdea7eeca32b63822e2cd41dbbf4d95c3294575e4fc6804c5",
+      "frames": 1239,
+      "fps": 25.0,
+      "image_size": [
+        1920,
+        720
+      ],
+      "codec": "h264"
+    }
+  }
+}

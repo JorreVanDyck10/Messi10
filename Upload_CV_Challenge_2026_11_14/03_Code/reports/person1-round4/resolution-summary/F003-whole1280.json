@@ -1,0 +1,7005 @@
+{
+  "summary": {
+    "model": "F003",
+    "mode": "whole1280",
+    "frames": 14,
+    "class_id": 0,
+    "name": "ball",
+    "objects": 67,
+    "AP50": 0.0,
+    "AP50_95": 0.0,
+    "TP": 0,
+    "FP": 16,
+    "FN": 67,
+    "precision": 0.0,
+    "recall": 0.0,
+    "in_play_visible_references": 14,
+    "in_play_matched": 0
+  },
+  "metrics": {
+    "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+    "mAP50": 0.0,
+    "mAP50_95": 0.0,
+    "workpoint": {
+      "confidence": 0.25,
+      "matching_iou": 0.5
+    },
+    "per_class": [
+      {
+        "class_id": 0,
+        "name": "ball",
+        "objects": 67,
+        "AP50": 0.0,
+        "AP50_95": 0.0,
+        "TP": 0,
+        "FP": 16,
+        "FN": 67,
+        "precision": 0.0,
+        "recall": 0.0
+      }
+    ],
+    "errors": [
+      {
+        "frame_id": "128057_full_00050300",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2131.430419921875,
+            792.7657470703125,
+            2177.496337890625,
+            824.4602661132812
+          ],
+          "confidence": 0.4530212879180908
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00050675",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2131.214599609375,
+            792.5093994140625,
+            2177.493408203125,
+            825.2490234375
+          ],
+          "confidence": 0.4048759639263153
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013800",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2132.1875,
+            793.2171630859375,
+            2178.075927734375,
+            822.0695190429688
+          ],
+          "confidence": 0.3709776997566223
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00050725",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2131.417724609375,
+            792.9513549804688,
+            2176.571533203125,
+            825.13671875
+          ],
+          "confidence": 0.35987454652786255
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050306",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2131.143310546875,
+            792.5217895507812,
+            2177.653564453125,
+            825.0057983398438
+          ],
+          "confidence": 0.3585565686225891
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050282",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2130.880126953125,
+            792.6205444335938,
+            2177.083984375,
+            824.5880737304688
+          ],
+          "confidence": 0.3519172668457031
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050275",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2130.953857421875,
+            792.533447265625,
+            2177.020263671875,
+            824.8115234375
+          ],
+          "confidence": 0.3355017900466919
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050275",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1453.891845703125,
+            786.7726440429688,
+            1503.8590087890625,
+            814.1879272460938
+          ],
+          "confidence": 0.3240753412246704
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013519",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2131.630859375,
+            792.4326171875,
+            2177.399658203125,
+            823.05078125
+          ],
+          "confidence": 0.3191698491573334
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013725",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1451.5799560546875,
+            788.4320068359375,
+            1502.8724365234375,
+            814.0023803710938
+          ],
+          "confidence": 0.31208351254463196
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013725",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2129.263671875,
+            794.5540161132812,
+            2175.915283203125,
+            823.1153564453125
+          ],
+          "confidence": 0.30841922760009766
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050282",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1454.0802001953125,
+            786.63720703125,
+            1503.7413330078125,
+            814.0071411132812
+          ],
+          "confidence": 0.30070847272872925
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013532",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2130.991943359375,
+            792.8145751953125,
+            2176.89794921875,
+            823.3682861328125
+          ],
+          "confidence": 0.289175420999527
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00050725",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2769.077880859375,
+            740.5958862304688,
+            2807.195068359375,
+            767.76416015625
+          ],
+          "confidence": 0.2883422374725342
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013675",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2129.887451171875,
+            793.3837280273438,
+            2175.578369140625,
+            821.7091064453125
+          ],
+          "confidence": 0.28816595673561096
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013532",
+        "type": "FP",
+        "class_id": 0,
+        "prediction": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1453.7376708984375,
+            787.3201293945312,
+            1504.2962646484375,
+            813.9382934570312
+          ],
+          "confidence": 0.26261240243911743
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013519",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1555.100389376,
+            488.46000672,
+            1565.3463449600001,
+            498.73100328
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013519",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            49.999998976,
+            692.99999982,
+            65.999998976,
+            706.99999986
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013519",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            262.000001024,
+            775.9999999799999,
+            278.000001024,
+            790.00000002
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013519",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            342.000001024,
+            795.00000042,
+            358.000001024,
+            809.0000004600001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013519",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3732.000002048,
+            748.9999999799999,
+            3748.000002048,
+            763.00000002
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013519",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4016.0,
+            631.00000026,
+            4028.000002048,
+            640.99999998
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013525",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1554.981322752,
+            488.19729564,
+            1565.444702208,
+            499.49826012
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013525",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            49.999998976,
+            692.99999982,
+            65.999998976,
+            706.99999986
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013525",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            262.000001024,
+            775.9999999799999,
+            278.000001024,
+            790.00000002
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013525",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            342.000001024,
+            795.00000042,
+            358.000001024,
+            809.0000004600001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013525",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3732.000002048,
+            748.9999999799999,
+            3748.000002048,
+            763.00000002
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013525",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4016.0,
+            631.00000026,
+            4028.000002048,
+            640.99999998
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013532",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1555.40681728,
+            488.18399004,
+            1565.671815168,
+            499.41152963999997
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013532",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            49.999998976,
+            692.99999982,
+            65.999998976,
+            706.99999986
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013532",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            262.000001024,
+            775.9999999799999,
+            278.000001024,
+            790.00000002
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013532",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            342.000001024,
+            795.00000042,
+            358.000001024,
+            809.0000004600001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013532",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3732.000002048,
+            748.9999999799999,
+            3748.000002048,
+            763.00000002
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013532",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4016.0,
+            631.00000026,
+            4028.000002048,
+            640.99999998
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013675",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1553.175597056,
+            487.78939800000006,
+            1567.1268925440002,
+            500.86080864
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013675",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            49.999998976,
+            692.99999982,
+            65.999998976,
+            706.99999986
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013675",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            262.000001024,
+            775.9999999799999,
+            278.000001024,
+            790.00000002
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013675",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            342.000001024,
+            795.00000042,
+            358.000001024,
+            809.0000004600001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013675",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3731.000000512,
+            748.9999999799999,
+            3747.000000512,
+            763.00000002
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013675",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4014.999998464,
+            631.00000026,
+            4027.000000512,
+            640.99999998
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013681",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1552.693725184,
+            488.18618783999995,
+            1566.5981747199999,
+            501.03051768
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013681",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            49.999998976,
+            692.99999982,
+            65.999998976,
+            706.99999986
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013681",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            260.999999488,
+            775.9999999799999,
+            276.999999488,
+            790.00000002
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013681",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            340.999999488,
+            795.00000042,
+            356.999999488,
+            809.0000004600001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013681",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3731.000000512,
+            748.9999999799999,
+            3747.000000512,
+            763.00000002
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00013681",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4014.999998464,
+            631.00000026,
+            4027.000000512,
+            640.99999998
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050269",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1112.8536678399998,
+            324.29560842,
+            1118.708891648,
+            330.70800798
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050269",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3671.000000512,
+            752.0000002200001,
+            3688.999999488,
+            768.0000004200001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050269",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4000.0,
+            633.00000042,
+            4012.000002048,
+            643.00000014
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050275",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1111.288209408,
+            340.02117954,
+            1118.970888192,
+            348.03875717999995
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050275",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3671.000000512,
+            752.0000002200001,
+            3688.999999488,
+            768.0000004200001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050275",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4000.0,
+            633.00000042,
+            4012.000002048,
+            643.00000014
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050282",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1109.858686976,
+            355.03378272000003,
+            1116.5067448319999,
+            362.943558
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050282",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3671.000000512,
+            752.0000002200001,
+            3688.999999488,
+            768.0000004200001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050282",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4000.0,
+            633.00000042,
+            4012.000002048,
+            643.00000014
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050300",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1102.0000010239999,
+            386.0000001,
+            1111.00000256,
+            394.9999997400001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050300",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3671.000000512,
+            752.0000002200001,
+            3688.999999488,
+            768.0000004200001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050300",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4000.0,
+            633.00000042,
+            4012.000002048,
+            643.00000014
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050306",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1097.106962432,
+            384.38931294,
+            1105.6320040960002,
+            392.70610025999997
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050306",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3671.000000512,
+            752.0000002200001,
+            3688.999999488,
+            768.0000004200001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_full_00050306",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4000.0,
+            633.00000042,
+            4012.000002048,
+            643.00000014
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013725",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1271.6645826560002,
+            195.43077846,
+            1276.72430592,
+            199.7045901
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013725",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            49.999998976,
+            692.99999982,
+            65.999998976,
+            706.99999986
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013725",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            260.999999488,
+            775.9999999799999,
+            276.999999488,
+            790.00000002
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013725",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            340.999999488,
+            795.00000042,
+            356.999999488,
+            809.0000004600001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013725",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3730.172362752,
+            744.5238654600001,
+            3746.7739258879997,
+            757.6105959
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013725",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4014.999998464,
+            631.00000026,
+            4027.000000512,
+            640.99999998
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013725",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2209.999998976,
+            1057.99999986,
+            2235.000000512,
+            1064.99999934
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013800",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            739.1242670080001,
+            606.9618829799999,
+            750.449645568,
+            619.5042415800001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013800",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            49.999998976,
+            692.99999982,
+            65.999998976,
+            706.99999986
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013800",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            262.000001024,
+            775.9999999799999,
+            278.000001024,
+            790.00000002
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013800",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            342.000001024,
+            795.00000042,
+            358.000001024,
+            809.0000004600001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013800",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3729.27972352,
+            741.7818604800001,
+            3743.517087744,
+            755.30133072
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013800",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4016.0,
+            631.00000026,
+            4028.000002048,
+            640.99999998
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00013800",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2209.999998976,
+            1056.9999997799998,
+            2235.000000512,
+            1064.99999934
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00050675",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1466.0567920639999,
+            239.49111888,
+            1471.490598912,
+            244.7925948
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00050675",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3671.000000512,
+            752.0000002200001,
+            3688.999999488,
+            768.0000004200001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00050675",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4000.0,
+            633.00000042,
+            4012.000002048,
+            643.00000014
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00050675",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2366.000001024,
+            1051.00000038,
+            2391.00000256,
+            1064.00000034
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00050725",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            1469.03445504,
+            234.4484709,
+            1475.2349880319998,
+            240.26119182
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00050725",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            3671.000000512,
+            752.0000002200001,
+            3688.999999488,
+            768.0000004200001
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00050725",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            4000.0,
+            633.00000042,
+            4012.000002048,
+            643.00000014
+          ]
+        },
+        "cause": "not established"
+      },
+      {
+        "frame_id": "128057_scene_00050725",
+        "type": "FN",
+        "class_id": 0,
+        "annotation": {
+          "class_id": 0,
+          "bbox_xyxy": [
+            2366.000001024,
+            1051.00000038,
+            2391.00000256,
+            1064.00000034
+          ]
+        },
+        "cause": "not established"
+      }
+    ]
+  },
+  "predictions": {
+    "128057_full_00013519": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2131.630859375,
+          792.4326171875,
+          2177.399658203125,
+          823.05078125
+        ],
+        "confidence": 0.3191698491573334
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1453.7047119140625,
+          787.7551879882812,
+          1504.1805419921875,
+          813.5936889648438
+        ],
+        "confidence": 0.16456523537635803
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2769.165771484375,
+          740.3659057617188,
+          2806.97265625,
+          767.449951171875
+        ],
+        "confidence": 0.04510149732232094
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1990.8765869140625,
+          845.5285034179688,
+          2056.643798828125,
+          870.6242065429688
+        ],
+        "confidence": 0.013795124366879463
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2740.44775390625,
+          737.6666259765625,
+          2806.953125,
+          768.49609375
+        ],
+        "confidence": 0.013400852680206299
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1916.58984375,
+          919.3115234375,
+          1974.4500732421875,
+          947.8023681640625
+        ],
+        "confidence": 0.007326371036469936
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          776.7990112304688,
+          734.685302734375,
+          817.5807495117188,
+          768.0574951171875
+        ],
+        "confidence": 0.007187153212726116
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2422.026611328125,
+          830.7072143554688,
+          2458.3203125,
+          869.5349731445312
+        ],
+        "confidence": 0.006342247594147921
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          760.9287719726562,
+          728.1788940429688,
+          818.7041625976562,
+          765.4271850585938
+        ],
+        "confidence": 0.005710941273719072
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1580.3699951171875,
+          839.4906616210938,
+          1630.9486083984375,
+          871.8234252929688
+        ],
+        "confidence": 0.004621478263288736
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2307.430419921875,
+          836.6632690429688,
+          2350.760009765625,
+          869.6879272460938
+        ],
+        "confidence": 0.004517915192991495
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2968.62890625,
+          721.5779418945312,
+          3005.57666015625,
+          749.1767578125
+        ],
+        "confidence": 0.0037043760530650616
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1894.4442138671875,
+          848.4900512695312,
+          1940.7230224609375,
+          880.2150268554688
+        ],
+        "confidence": 0.0032616278622299433
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1124.564208984375,
+          844.1571655273438,
+          1173.2318115234375,
+          892.9512939453125
+        ],
+        "confidence": 0.0023322904016822577
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          745.1715698242188,
+          719.4844970703125,
+          784.1258544921875,
+          748.6370239257812
+        ],
+        "confidence": 0.0023117561358958483
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3276.569580078125,
+          767.2992553710938,
+          3327.2109375,
+          790.662841796875
+        ],
+        "confidence": 0.002235904335975647
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3008.926025390625,
+          760.6484375,
+          3099.332275390625,
+          836.3556518554688
+        ],
+        "confidence": 0.0021188859827816486
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1307.4364013671875,
+          824.6970825195312,
+          1448.3714599609375,
+          918.0525512695312
+        ],
+        "confidence": 0.001846008119173348
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3414.737060546875,
+          675.5914306640625,
+          3471.509033203125,
+          727.0521850585938
+        ],
+        "confidence": 0.0018272731686010957
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2704.322509765625,
+          928.4810791015625,
+          2766.721435546875,
+          955.87109375
+        ],
+        "confidence": 0.0018061770824715495
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1769.6551513671875,
+          915.2789306640625,
+          1822.197265625,
+          946.6613159179688
+        ],
+        "confidence": 0.0016992205055430532
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2594.8369140625,
+          823.3082275390625,
+          2647.489990234375,
+          898.9304809570312
+        ],
+        "confidence": 0.0016845294740051031
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3242.27587890625,
+          725.7257690429688,
+          3291.146484375,
+          759.6693725585938
+        ],
+        "confidence": 0.0016020158072933555
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2289.299072265625,
+          971.65185546875,
+          2356.690185546875,
+          1005.8850708007812
+        ],
+        "confidence": 0.0014126416062936187
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1139.9674072265625,
+          817.5308837890625,
+          1264.8837890625,
+          889.2826538085938
+        ],
+        "confidence": 0.0012908882927149534
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1965.8250732421875,
+          845.8295288085938,
+          2057.199951171875,
+          875.0053100585938
+        ],
+        "confidence": 0.0012135201832279563
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1214.5958251953125,
+          823.4932861328125,
+          1340.891357421875,
+          899.3678588867188
+        ],
+        "confidence": 0.001038827933371067
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1927.4676513671875,
+          859.4859619140625,
+          2032.1441650390625,
+          943.2449340820312
+        ],
+        "confidence": 0.0010054020676761866
+      }
+    ],
+    "128057_full_00013525": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2131.395751953125,
+          793.1455688476562,
+          2177.173583984375,
+          824.3834228515625
+        ],
+        "confidence": 0.24845938384532928
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1453.9345703125,
+          787.9855346679688,
+          1503.7646484375,
+          814.5054931640625
+        ],
+        "confidence": 0.19455260038375854
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2772.47119140625,
+          740.4918823242188,
+          2806.78759765625,
+          767.3165283203125
+        ],
+        "confidence": 0.07712168991565704
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2741.11962890625,
+          737.5380249023438,
+          2806.634033203125,
+          768.4931030273438
+        ],
+        "confidence": 0.020960327237844467
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1995.8719482421875,
+          847.9010009765625,
+          2056.489013671875,
+          869.8463134765625
+        ],
+        "confidence": 0.015300929546356201
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2423.03173828125,
+          830.5660400390625,
+          2457.126220703125,
+          867.267578125
+        ],
+        "confidence": 0.013488691300153732
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1916.6937255859375,
+          919.6793823242188,
+          1978.3863525390625,
+          948.3622436523438
+        ],
+        "confidence": 0.010855332016944885
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          777.2066650390625,
+          736.7022705078125,
+          817.4601440429688,
+          768.1573486328125
+        ],
+        "confidence": 0.007256014738231897
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2970.27392578125,
+          721.8941040039062,
+          3005.190185546875,
+          749.0584716796875
+        ],
+        "confidence": 0.006000639870762825
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2307.546630859375,
+          836.6187744140625,
+          2350.564453125,
+          869.6775512695312
+        ],
+        "confidence": 0.005869078915566206
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1897.8001708984375,
+          849.5593872070312,
+          1940.3587646484375,
+          879.9633178710938
+        ],
+        "confidence": 0.004848190117627382
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          750.7322998046875,
+          727.46630859375,
+          818.7061157226562,
+          766.31787109375
+        ],
+        "confidence": 0.00351431081071496
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1577.3624267578125,
+          839.9529418945312,
+          1630.6837158203125,
+          877.5111694335938
+        ],
+        "confidence": 0.0033707027323544025
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3414.844482421875,
+          675.7395629882812,
+          3465.968017578125,
+          719.8617553710938
+        ],
+        "confidence": 0.0032521928660571575
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3276.806396484375,
+          767.3692626953125,
+          3327.118896484375,
+          790.7815551757812
+        ],
+        "confidence": 0.002801744733005762
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2289.251708984375,
+          972.5538940429688,
+          2346.197998046875,
+          1006.3549194335938
+        ],
+        "confidence": 0.002720284042879939
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1124.42822265625,
+          846.67041015625,
+          1172.798583984375,
+          892.98779296875
+        ],
+        "confidence": 0.0026982284616678953
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2596.03759765625,
+          821.3176879882812,
+          2647.779052734375,
+          899.0485229492188
+        ],
+        "confidence": 0.002455039182677865
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3241.54150390625,
+          725.67822265625,
+          3290.068115234375,
+          759.6288452148438
+        ],
+        "confidence": 0.002345761051401496
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          744.1432495117188,
+          718.5596313476562,
+          784.0507202148438,
+          748.9813842773438
+        ],
+        "confidence": 0.002194073051214218
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1769.626953125,
+          913.8150634765625,
+          1816.951171875,
+          947.7166137695312
+        ],
+        "confidence": 0.0019476375309750438
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3008.74658203125,
+          760.5570678710938,
+          3099.003662109375,
+          836.1687622070312
+        ],
+        "confidence": 0.0019417540170252323
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2703.96875,
+          928.6124877929688,
+          2766.453857421875,
+          956.1840209960938
+        ],
+        "confidence": 0.0019073525909334421
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1307.319580078125,
+          824.6897583007812,
+          1449.0445556640625,
+          918.45947265625
+        ],
+        "confidence": 0.001839623786509037
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1217.9451904296875,
+          823.4672241210938,
+          1340.7034912109375,
+          898.234375
+        ],
+        "confidence": 0.0013182511320337653
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3175.446533203125,
+          769.0802612304688,
+          3226.227783203125,
+          807.8095703125
+        ],
+        "confidence": 0.0012944821501150727
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1137.485595703125,
+          817.4386596679688,
+          1265.001220703125,
+          889.9713134765625
+        ],
+        "confidence": 0.0012934289406985044
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3411.87158203125,
+          678.4129028320312,
+          3477.395751953125,
+          749.21484375
+        ],
+        "confidence": 0.0012197537580505013
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2236.329345703125,
+          821.2400512695312,
+          2279.48486328125,
+          851.4298706054688
+        ],
+        "confidence": 0.0011316706659272313
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2306.561279296875,
+          834.93505859375,
+          2365.183349609375,
+          868.8919067382812
+        ],
+        "confidence": 0.0011216321727260947
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2737.501953125,
+          735.9223022460938,
+          2807.90283203125,
+          777.5507202148438
+        ],
+        "confidence": 0.0011044613784179091
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1945.9158935546875,
+          861.0318603515625,
+          2031.4544677734375,
+          942.5050659179688
+        ],
+        "confidence": 0.0010816967114806175
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2825.228271484375,
+          732.4688720703125,
+          2851.337890625,
+          766.8886108398438
+        ],
+        "confidence": 0.0010443605715408921
+      }
+    ],
+    "128057_full_00013532": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2130.991943359375,
+          792.8145751953125,
+          2176.89794921875,
+          823.3682861328125
+        ],
+        "confidence": 0.289175420999527
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1453.7376708984375,
+          787.3201293945312,
+          1504.2962646484375,
+          813.9382934570312
+        ],
+        "confidence": 0.26261240243911743
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2772.871337890625,
+          740.4091796875,
+          2806.553466796875,
+          767.5748291015625
+        ],
+        "confidence": 0.08623512834310532
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2742.680908203125,
+          737.4931030273438,
+          2805.968505859375,
+          768.4815673828125
+        ],
+        "confidence": 0.023434147238731384
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2422.947998046875,
+          830.6736450195312,
+          2456.842529296875,
+          860.8353881835938
+        ],
+        "confidence": 0.018139008432626724
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1898.4515380859375,
+          849.1019897460938,
+          1938.6273193359375,
+          879.7644653320312
+        ],
+        "confidence": 0.015119483694434166
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1992.1219482421875,
+          846.0675659179688,
+          2056.566162109375,
+          870.6277465820312
+        ],
+        "confidence": 0.012241690419614315
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          776.6373291015625,
+          736.66455078125,
+          817.2492065429688,
+          768.2471923828125
+        ],
+        "confidence": 0.009531110525131226
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2971.170654296875,
+          722.5447387695312,
+          3004.739013671875,
+          749.0789184570312
+        ],
+        "confidence": 0.007787525653839111
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1916.2191162109375,
+          918.62548828125,
+          1974.446533203125,
+          947.8635864257812
+        ],
+        "confidence": 0.007697966415435076
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          744.9392700195312,
+          718.5881958007812,
+          783.74755859375,
+          748.4138793945312
+        ],
+        "confidence": 0.007117930334061384
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1578.4842529296875,
+          839.2459106445312,
+          1631.3052978515625,
+          875.0209350585938
+        ],
+        "confidence": 0.0065159243531525135
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2307.203857421875,
+          837.2804565429688,
+          2350.03125,
+          869.2312622070312
+        ],
+        "confidence": 0.006038649473339319
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2289.031982421875,
+          973.4340209960938,
+          2347.840576171875,
+          1006.5031127929688
+        ],
+        "confidence": 0.005556050222367048
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          749.4743041992188,
+          727.4014892578125,
+          818.4405517578125,
+          765.4182739257812
+        ],
+        "confidence": 0.005460229702293873
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3414.17431640625,
+          675.74365234375,
+          3464.336669921875,
+          718.6835327148438
+        ],
+        "confidence": 0.004958919249475002
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2295.399658203125,
+          238.84532165527344,
+          2335.148193359375,
+          272.677490234375
+        ],
+        "confidence": 0.004488970618695021
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1888.3929443359375,
+          847.2527465820312,
+          1941.667236328125,
+          881.2761840820312
+        ],
+        "confidence": 0.0033455039374530315
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3277.779052734375,
+          767.4953002929688,
+          3326.97900390625,
+          790.29443359375
+        ],
+        "confidence": 0.0032870452851057053
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2703.862060546875,
+          929.271484375,
+          2765.451171875,
+          956.2238159179688
+        ],
+        "confidence": 0.0029862255323678255
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3241.237060546875,
+          725.8635864257812,
+          3289.35986328125,
+          759.6331176757812
+        ],
+        "confidence": 0.002798335161060095
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1123.4935302734375,
+          844.5094604492188,
+          1174.015380859375,
+          893.4872436523438
+        ],
+        "confidence": 0.002739029238000512
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3008.701904296875,
+          760.3323974609375,
+          3098.23876953125,
+          835.2601928710938
+        ],
+        "confidence": 0.0019047643290832639
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1307.2894287109375,
+          824.6359252929688,
+          1448.6160888671875,
+          918.4879150390625
+        ],
+        "confidence": 0.001837005838751793
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3176.325927734375,
+          770.3826293945312,
+          3226.47265625,
+          807.5806884765625
+        ],
+        "confidence": 0.0015199034241959453
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1215.9593505859375,
+          823.1892700195312,
+          1340.6395263671875,
+          899.2221069335938
+        ],
+        "confidence": 0.001396447536535561
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1131.846923828125,
+          817.5084228515625,
+          1264.735595703125,
+          894.4164428710938
+        ],
+        "confidence": 0.0013457534369081259
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3410.864990234375,
+          678.5556030273438,
+          3477.984375,
+          748.5352172851562
+        ],
+        "confidence": 0.0012633211445063353
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2825.56884765625,
+          733.7803344726562,
+          2852.290771484375,
+          767.0553588867188
+        ],
+        "confidence": 0.001159857725724578
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1769.4921875,
+          916.9602661132812,
+          1817.2835693359375,
+          947.1155395507812
+        ],
+        "confidence": 0.001098018023185432
+      }
+    ],
+    "128057_full_00013675": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2129.887451171875,
+          793.3837280273438,
+          2175.578369140625,
+          821.7091064453125
+        ],
+        "confidence": 0.28816595673561096
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1451.8597412109375,
+          787.5335083007812,
+          1503.96142578125,
+          813.7796020507812
+        ],
+        "confidence": 0.18753062188625336
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1903.78125,
+          849.4851684570312,
+          1936.9765625,
+          877.1902465820312
+        ],
+        "confidence": 0.014664812944829464
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1580.8182373046875,
+          839.0107421875,
+          1630.1702880859375,
+          872.3959350585938
+        ],
+        "confidence": 0.01201767846941948
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2288.026123046875,
+          974.9828491210938,
+          2356.585693359375,
+          1005.2882690429688
+        ],
+        "confidence": 0.009812355041503906
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1915.3609619140625,
+          919.0517578125,
+          1970.9891357421875,
+          946.6849975585938
+        ],
+        "confidence": 0.009639408439397812
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1993.427001953125,
+          844.5505981445312,
+          2054.990966796875,
+          871.7818603515625
+        ],
+        "confidence": 0.008156727068126202
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          775.1514892578125,
+          737.2234497070312,
+          816.9661254882812,
+          768.0164184570312
+        ],
+        "confidence": 0.0065071978606283665
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2974.06884765625,
+          722.8342895507812,
+          3004.6953125,
+          747.5725708007812
+        ],
+        "confidence": 0.00540506187826395
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2750.214111328125,
+          739.7320556640625,
+          2806.06103515625,
+          769.1271362304688
+        ],
+        "confidence": 0.005250048357993364
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2423.433837890625,
+          829.8961181640625,
+          2458.457763671875,
+          866.6199340820312
+        ],
+        "confidence": 0.005041573662310839
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3279.747802734375,
+          766.8511962890625,
+          3325.47119140625,
+          789.0939331054688
+        ],
+        "confidence": 0.0038697272539138794
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2306.7080078125,
+          836.6459350585938,
+          2349.5595703125,
+          869.4490356445312
+        ],
+        "confidence": 0.003710598684847355
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          746.7731323242188,
+          727.1155395507812,
+          817.8469848632812,
+          766.0354614257812
+        ],
+        "confidence": 0.0033598612062633038
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1217.565673828125,
+          824.2299194335938,
+          1338.9410400390625,
+          898.5302734375
+        ],
+        "confidence": 0.003112322185188532
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3239.88916015625,
+          725.4425048828125,
+          3282.15234375,
+          758.7448120117188
+        ],
+        "confidence": 0.0026477931533008814
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3413.426513671875,
+          674.9806518554688,
+          3467.198486328125,
+          713.8253784179688
+        ],
+        "confidence": 0.002440018579363823
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3008.618896484375,
+          760.1456909179688,
+          3097.81298828125,
+          836.5261840820312
+        ],
+        "confidence": 0.002105745254084468
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1892.7249755859375,
+          847.3881225585938,
+          1940.4696044921875,
+          878.9599609375
+        ],
+        "confidence": 0.0019211521139368415
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1307.3287353515625,
+          823.8543090820312,
+          1451.3486328125,
+          918.052734375
+        ],
+        "confidence": 0.0018324516713619232
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1125.3798828125,
+          842.8077392578125,
+          1174.4888916015625,
+          892.5772705078125
+        ],
+        "confidence": 0.0015368119347840548
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3477.377685546875,
+          677.4371948242188,
+          3564.97314453125,
+          735.9268798828125
+        ],
+        "confidence": 0.0010750812944024801
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2703.5859375,
+          929.7785034179688,
+          2767.229736328125,
+          956.2314453125
+        ],
+        "confidence": 0.001051072496920824
+      }
+    ],
+    "128057_full_00013681": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2129.932373046875,
+          794.1668701171875,
+          2175.858154296875,
+          821.4207153320312
+        ],
+        "confidence": 0.21935416758060455
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1451.888916015625,
+          788.3869018554688,
+          1504.105712890625,
+          814.6822509765625
+        ],
+        "confidence": 0.16503030061721802
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1899.6219482421875,
+          850.6101684570312,
+          1937.21484375,
+          879.1652221679688
+        ],
+        "confidence": 0.011015107855200768
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          744.6095581054688,
+          717.3460083007812,
+          784.0271606445312,
+          749.4303588867188
+        ],
+        "confidence": 0.010725964792072773
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2287.953857421875,
+          974.6920166015625,
+          2354.145263671875,
+          1005.4044799804688
+        ],
+        "confidence": 0.01003369502723217
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1580.0052490234375,
+          839.7833251953125,
+          1630.5897216796875,
+          872.8987426757812
+        ],
+        "confidence": 0.008573945611715317
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1915.6663818359375,
+          918.7781372070312,
+          1973.4110107421875,
+          947.7974853515625
+        ],
+        "confidence": 0.008388961665332317
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2973.368896484375,
+          723.2792358398438,
+          3004.242919921875,
+          748.0819702148438
+        ],
+        "confidence": 0.006710263900458813
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          776.0139770507812,
+          737.4799194335938,
+          817.0530395507812,
+          768.3621215820312
+        ],
+        "confidence": 0.006618451327085495
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2747.65673828125,
+          739.1920776367188,
+          2806.091796875,
+          768.9813842773438
+        ],
+        "confidence": 0.00539432605728507
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1994.7503662109375,
+          845.8834228515625,
+          2055.326171875,
+          871.4451293945312
+        ],
+        "confidence": 0.005168262869119644
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3279.890625,
+          766.2343139648438,
+          3325.36962890625,
+          789.0331420898438
+        ],
+        "confidence": 0.0050972807221114635
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2422.548095703125,
+          829.75146484375,
+          2458.790283203125,
+          879.0032348632812
+        ],
+        "confidence": 0.004800640512257814
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1214.680908203125,
+          824.3145751953125,
+          1338.6207275390625,
+          900.3167114257812
+        ],
+        "confidence": 0.004274444188922644
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3238.996826171875,
+          725.1859741210938,
+          3280.431396484375,
+          758.3038940429688
+        ],
+        "confidence": 0.0036192273255437613
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2306.714599609375,
+          836.5369262695312,
+          2349.4560546875,
+          870.1005859375
+        ],
+        "confidence": 0.0031716590747237206
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1307.1854248046875,
+          824.7449340820312,
+          1451.4798583984375,
+          918.1257934570312
+        ],
+        "confidence": 0.00283828261308372
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1887.5191650390625,
+          848.2681884765625,
+          1940.6590576171875,
+          880.2056884765625
+        ],
+        "confidence": 0.002796974265947938
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          745.5772705078125,
+          726.4442749023438,
+          817.9882202148438,
+          766.8341064453125
+        ],
+        "confidence": 0.0024605444632470608
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3476.641357421875,
+          677.6817016601562,
+          3564.79296875,
+          735.9113159179688
+        ],
+        "confidence": 0.002012265846133232
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3411.903076171875,
+          675.4251098632812,
+          3469.237548828125,
+          717.2156372070312
+        ],
+        "confidence": 0.0017484024865552783
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1125.574462890625,
+          842.5924682617188,
+          1174.5576171875,
+          892.55615234375
+        ],
+        "confidence": 0.0017084251157939434
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3007.05078125,
+          759.16357421875,
+          3098.70703125,
+          835.09521484375
+        ],
+        "confidence": 0.0015129158273339272
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2703.51708984375,
+          929.0779418945312,
+          2768.113525390625,
+          956.2767944335938
+        ],
+        "confidence": 0.0014260467141866684
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1137.0142822265625,
+          818.45751953125,
+          1269.291259765625,
+          897.28369140625
+        ],
+        "confidence": 0.0012063173344358802
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3407.398193359375,
+          678.1672973632812,
+          3477.420654296875,
+          749.5980834960938
+        ],
+        "confidence": 0.0010217318776994944
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1809.1185302734375,
+          845.6295166015625,
+          1865.3260498046875,
+          882.1334228515625
+        ],
+        "confidence": 0.0010140766389667988
+      }
+    ],
+    "128057_full_00050269": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2130.974365234375,
+          792.9630737304688,
+          2178.099365234375,
+          824.3876953125
+        ],
+        "confidence": 0.22329169511795044
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1452.991455078125,
+          786.6427001953125,
+          1503.948486328125,
+          813.6417236328125
+        ],
+        "confidence": 0.2053651362657547
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2768.989013671875,
+          740.8932495117188,
+          2806.901611328125,
+          768.7261962890625
+        ],
+        "confidence": 0.03646259382367134
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2975.949462890625,
+          720.3998413085938,
+          3005.936279296875,
+          748.8054809570312
+        ],
+        "confidence": 0.017403261736035347
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2742.685302734375,
+          738.0936889648438,
+          2806.153076171875,
+          769.19873046875
+        ],
+        "confidence": 0.012525106780230999
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          774.9319458007812,
+          737.7665405273438,
+          817.0944213867188,
+          770.0211791992188
+        ],
+        "confidence": 0.009747208096086979
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1991.7645263671875,
+          846.6033325195312,
+          2056.146484375,
+          872.6689453125
+        ],
+        "confidence": 0.008780473843216896
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3280.786376953125,
+          767.6410522460938,
+          3326.403564453125,
+          790.664306640625
+        ],
+        "confidence": 0.0075439815409481525
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1579.9951171875,
+          840.2931518554688,
+          1631.2763671875,
+          874.6953125
+        ],
+        "confidence": 0.007396653760224581
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1916.0859375,
+          920.017578125,
+          1971.4156494140625,
+          948.5219116210938
+        ],
+        "confidence": 0.006523407530039549
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3358.724365234375,
+          670.2325439453125,
+          3414.075927734375,
+          707.6989135742188
+        ],
+        "confidence": 0.006114108022302389
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          744.3369750976562,
+          716.5774536132812,
+          783.7767333984375,
+          749.2930908203125
+        ],
+        "confidence": 0.006013283506035805
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2306.513671875,
+          836.1170043945312,
+          2351.030029296875,
+          868.9181518554688
+        ],
+        "confidence": 0.00562862865626812
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1897.1395263671875,
+          850.0906372070312,
+          1939.9136962890625,
+          880.6820678710938
+        ],
+        "confidence": 0.005307646468281746
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2705.013427734375,
+          929.6392822265625,
+          2764.844482421875,
+          956.2162475585938
+        ],
+        "confidence": 0.004831734579056501
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2978.763916015625,
+          715.18408203125,
+          3009.822021484375,
+          755.26220703125
+        ],
+        "confidence": 0.004242779687047005
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3241.74853515625,
+          726.115234375,
+          3292.64306640625,
+          760.892578125
+        ],
+        "confidence": 0.003149050986394286
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          744.6425170898438,
+          725.5968017578125,
+          818.2557983398438,
+          768.3395385742188
+        ],
+        "confidence": 0.0029746307991445065
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1123.427734375,
+          859.6141967773438,
+          1172.0750732421875,
+          893.2385864257812
+        ],
+        "confidence": 0.0029384882654994726
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2421.845458984375,
+          830.3015747070312,
+          2458.0263671875,
+          892.5167846679688
+        ],
+        "confidence": 0.002647386398166418
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3480.067138671875,
+          677.8456420898438,
+          3545.861083984375,
+          731.0221557617188
+        ],
+        "confidence": 0.001471667317673564
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3337.729248046875,
+          668.7084350585938,
+          3411.163818359375,
+          713.5447998046875
+        ],
+        "confidence": 0.0014629148645326495
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1214.9046630859375,
+          824.0099487304688,
+          1340.172119140625,
+          898.2127075195312
+        ],
+        "confidence": 0.001423725625500083
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3010.033935546875,
+          761.1442260742188,
+          3084.879638671875,
+          816.5336303710938
+        ],
+        "confidence": 0.0013934231828898191
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3365.660888671875,
+          675.2939453125,
+          3477.504638671875,
+          750.9794921875
+        ],
+        "confidence": 0.0013588105794042349
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2290.621826171875,
+          973.2330322265625,
+          2356.234375,
+          1006.4318237304688
+        ],
+        "confidence": 0.0013215270591899753
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3269.380126953125,
+          762.1838989257812,
+          3328.788818359375,
+          793.2199096679688
+        ],
+        "confidence": 0.001281284843571484
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3238.975830078125,
+          724.5257568359375,
+          3297.297607421875,
+          780.0371704101562
+        ],
+        "confidence": 0.001274824608117342
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3175.954833984375,
+          767.1640014648438,
+          3225.388427734375,
+          807.7344970703125
+        ],
+        "confidence": 0.0012266739504411817
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1886.8258056640625,
+          848.1179809570312,
+          1942.2991943359375,
+          881.8408203125
+        ],
+        "confidence": 0.001169288530945778
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3391.630859375,
+          736.1671142578125,
+          3420.636474609375,
+          764.23779296875
+        ],
+        "confidence": 0.0011089371982961893
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1769.4449462890625,
+          907.0017700195312,
+          1832.608642578125,
+          948.4392700195312
+        ],
+        "confidence": 0.0010939340572804213
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1913.4329833984375,
+          918.4470825195312,
+          1989.6580810546875,
+          948.9566650390625
+        ],
+        "confidence": 0.0010691023198887706
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3399.321533203125,
+          674.0333251953125,
+          3478.251953125,
+          751.6334228515625
+        ],
+        "confidence": 0.0010484992526471615
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1306.7698974609375,
+          825.0043334960938,
+          1451.9583740234375,
+          919.5880737304688
+        ],
+        "confidence": 0.0010452782735228539
+      }
+    ],
+    "128057_full_00050275": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2130.953857421875,
+          792.533447265625,
+          2177.020263671875,
+          824.8115234375
+        ],
+        "confidence": 0.3355017900466919
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1453.891845703125,
+          786.7726440429688,
+          1503.8590087890625,
+          814.1879272460938
+        ],
+        "confidence": 0.3240753412246704
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2770.246826171875,
+          740.9146728515625,
+          2806.976806640625,
+          768.4611206054688
+        ],
+        "confidence": 0.03910766914486885
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2977.703125,
+          722.373291015625,
+          3005.5625,
+          748.472900390625
+        ],
+        "confidence": 0.025235246866941452
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          776.2540283203125,
+          737.4041748046875,
+          817.05224609375,
+          769.1246948242188
+        ],
+        "confidence": 0.019022423774003983
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1898.9573974609375,
+          850.4381713867188,
+          1939.244140625,
+          879.8961791992188
+        ],
+        "confidence": 0.01449467334896326
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1990.3406982421875,
+          845.8748168945312,
+          2056.335205078125,
+          873.2322387695312
+        ],
+        "confidence": 0.011753879487514496
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2743.408935546875,
+          738.0821533203125,
+          2806.09423828125,
+          768.8955078125
+        ],
+        "confidence": 0.011179222725331783
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1576.7117919921875,
+          838.7584228515625,
+          1632.3394775390625,
+          887.4611206054688
+        ],
+        "confidence": 0.010455007664859295
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3355.680419921875,
+          670.2899780273438,
+          3414.735107421875,
+          708.2059936523438
+        ],
+        "confidence": 0.008326693437993526
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1916.3153076171875,
+          920.3258056640625,
+          1973.1090087890625,
+          948.4207153320312
+        ],
+        "confidence": 0.007790858391672373
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2306.42919921875,
+          835.9931030273438,
+          2350.916748046875,
+          868.6454467773438
+        ],
+        "confidence": 0.007732823025435209
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3280.208740234375,
+          767.4307250976562,
+          3326.578857421875,
+          790.1913452148438
+        ],
+        "confidence": 0.007154684979468584
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          744.5922241210938,
+          714.7765502929688,
+          783.671875,
+          749.5914306640625
+        ],
+        "confidence": 0.005435592494904995
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2705.1044921875,
+          929.6781616210938,
+          2764.83935546875,
+          956.4957275390625
+        ],
+        "confidence": 0.004596140701323748
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2979.678466796875,
+          718.3604736328125,
+          3009.803466796875,
+          754.7442626953125
+        ],
+        "confidence": 0.004342748783528805
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          748.06298828125,
+          726.1388549804688,
+          818.1633911132812,
+          768.635498046875
+        ],
+        "confidence": 0.004114977549761534
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2421.303955078125,
+          829.9900512695312,
+          2458.828125,
+          895.1357421875
+        ],
+        "confidence": 0.003723855596035719
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3010.793212890625,
+          761.2951049804688,
+          3082.037353515625,
+          809.6859741210938
+        ],
+        "confidence": 0.0029797207098454237
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1887.9429931640625,
+          848.1511840820312,
+          1942.0531005859375,
+          881.4246215820312
+        ],
+        "confidence": 0.002958002733066678
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1122.6322021484375,
+          852.1817626953125,
+          1172.8385009765625,
+          893.5993041992188
+        ],
+        "confidence": 0.002788715297356248
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3338.12109375,
+          668.7356567382812,
+          3412.068115234375,
+          714.7830200195312
+        ],
+        "confidence": 0.0023025935515761375
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3369.678955078125,
+          675.0615844726562,
+          3477.1328125,
+          750.3477172851562
+        ],
+        "confidence": 0.0019125030376017094
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3390.69189453125,
+          737.2167358398438,
+          3420.86767578125,
+          764.6435546875
+        ],
+        "confidence": 0.001833497080951929
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3241.229248046875,
+          726.8984375,
+          3292.629638671875,
+          761.5997924804688
+        ],
+        "confidence": 0.001778394915163517
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3480.34765625,
+          677.7877807617188,
+          3553.33984375,
+          732.5848999023438
+        ],
+        "confidence": 0.0016669140895828605
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2290.756591796875,
+          973.4091796875,
+          2356.39599609375,
+          1006.6115112304688
+        ],
+        "confidence": 0.001642865827307105
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1209.3641357421875,
+          824.0338134765625,
+          1340.0328369140625,
+          900.1638793945312
+        ],
+        "confidence": 0.001564239151775837
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3401.403076171875,
+          674.3949584960938,
+          3477.878173828125,
+          751.0187377929688
+        ],
+        "confidence": 0.0015294651966542006
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3008.235107421875,
+          760.2325439453125,
+          3095.951416015625,
+          826.05322265625
+        ],
+        "confidence": 0.001521987491287291
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3079.833984375,
+          752.7340698242188,
+          3118.047607421875,
+          775.6893920898438
+        ],
+        "confidence": 0.0013074682792648673
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3380.985107421875,
+          734.7846069335938,
+          3420.353271484375,
+          769.0504760742188
+        ],
+        "confidence": 0.001275655347853899
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3415.960205078125,
+          691.1143188476562,
+          3478.35400390625,
+          750.5060424804688
+        ],
+        "confidence": 0.0012398313265293837
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1308.893798828125,
+          828.4459228515625,
+          1450.48046875,
+          915.0551147460938
+        ],
+        "confidence": 0.0012197642354294658
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1965.6864013671875,
+          846.2398681640625,
+          2057.00830078125,
+          882.3507690429688
+        ],
+        "confidence": 0.0011912130285054445
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1769.5960693359375,
+          905.4533081054688,
+          1838.2781982421875,
+          948.6329956054688
+        ],
+        "confidence": 0.0011138311820104718
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3271.360107421875,
+          762.0552978515625,
+          3328.83203125,
+          792.4970703125
+        ],
+        "confidence": 0.0010373583063483238
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3351.561767578125,
+          669.81494140625,
+          3464.321044921875,
+          752.2899780273438
+        ],
+        "confidence": 0.001001246739178896
+      }
+    ],
+    "128057_full_00050282": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2130.880126953125,
+          792.6205444335938,
+          2177.083984375,
+          824.5880737304688
+        ],
+        "confidence": 0.3519172668457031
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1454.0802001953125,
+          786.63720703125,
+          1503.7413330078125,
+          814.0071411132812
+        ],
+        "confidence": 0.30070847272872925
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2771.18212890625,
+          740.6281127929688,
+          2807.364990234375,
+          768.7494506835938
+        ],
+        "confidence": 0.10457310080528259
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2742.626708984375,
+          737.7882690429688,
+          2806.947998046875,
+          769.408203125
+        ],
+        "confidence": 0.029488522559404373
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          776.7777709960938,
+          737.4799194335938,
+          816.9965209960938,
+          769.49267578125
+        ],
+        "confidence": 0.024563981220126152
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1899.29296875,
+          850.5300903320312,
+          1939.1953125,
+          880.0433959960938
+        ],
+        "confidence": 0.020848091691732407
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1990.3348388671875,
+          845.8603515625,
+          2056.318359375,
+          873.3966674804688
+        ],
+        "confidence": 0.017367631196975708
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1578.3043212890625,
+          840.2639770507812,
+          1631.4156494140625,
+          877.16259765625
+        ],
+        "confidence": 0.009957165457308292
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2306.309814453125,
+          836.015625,
+          2349.98095703125,
+          868.705078125
+        ],
+        "confidence": 0.009454411454498768
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1916.3359375,
+          920.3328247070312,
+          1972.6187744140625,
+          948.2511596679688
+        ],
+        "confidence": 0.009324302896857262
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3278.890380859375,
+          767.1696166992188,
+          3326.38330078125,
+          790.021484375
+        ],
+        "confidence": 0.008143497630953789
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3349.461669921875,
+          670.5822143554688,
+          3417.710205078125,
+          713.6701049804688
+        ],
+        "confidence": 0.006786041427403688
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2705.08203125,
+          929.7562866210938,
+          2765.4296875,
+          956.4447631835938
+        ],
+        "confidence": 0.006431907881051302
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          744.1617431640625,
+          714.0708618164062,
+          783.6082153320312,
+          749.7411499023438
+        ],
+        "confidence": 0.006108851172029972
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2421.556640625,
+          830.0213012695312,
+          2458.710693359375,
+          886.9674072265625
+        ],
+        "confidence": 0.005529613234102726
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3241.650390625,
+          726.2418212890625,
+          3292.21728515625,
+          761.3800659179688
+        ],
+        "confidence": 0.004780990537256002
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2974.974609375,
+          723.0514526367188,
+          3004.99462890625,
+          748.9805297851562
+        ],
+        "confidence": 0.004608154762536287
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          748.2748413085938,
+          726.5022583007812,
+          818.2255859375,
+          769.5186767578125
+        ],
+        "confidence": 0.004555765073746443
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1888.3480224609375,
+          848.25341796875,
+          1941.990234375,
+          881.63916015625
+        ],
+        "confidence": 0.004480704199522734
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1122.439697265625,
+          851.779296875,
+          1173.6072998046875,
+          893.4093627929688
+        ],
+        "confidence": 0.003197354730218649
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3009.818359375,
+          760.63427734375,
+          3087.533203125,
+          820.0968017578125
+        ],
+        "confidence": 0.003033303888514638
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2290.844482421875,
+          973.3709106445312,
+          2356.55078125,
+          1006.7208862304688
+        ],
+        "confidence": 0.002383436542004347
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3480.041015625,
+          677.4606323242188,
+          3552.40673828125,
+          731.3985595703125
+        ],
+        "confidence": 0.002294011414051056
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3390.573486328125,
+          737.6484375,
+          3421.109375,
+          764.9480590820312
+        ],
+        "confidence": 0.002093806630000472
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3176.556640625,
+          767.7315673828125,
+          3225.219970703125,
+          807.3765869140625
+        ],
+        "confidence": 0.0020198114216327667
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3338.71337890625,
+          669.24853515625,
+          3413.505615234375,
+          720.0993041992188
+        ],
+        "confidence": 0.001988329691812396
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3362.27978515625,
+          674.1442260742188,
+          3478.001708984375,
+          750.8900756835938
+        ],
+        "confidence": 0.0019314204109832644
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3415.478271484375,
+          689.3118286132812,
+          3478.901611328125,
+          750.71240234375
+        ],
+        "confidence": 0.001867030980065465
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1967.985595703125,
+          846.2474975585938,
+          2056.908935546875,
+          879.9794921875
+        ],
+        "confidence": 0.0017471868777647614
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3238.9765625,
+          724.763671875,
+          3299.767333984375,
+          782.5367431640625
+        ],
+        "confidence": 0.0017389835556969047
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3270.005859375,
+          762.2135620117188,
+          3328.57080078125,
+          792.5549926757812
+        ],
+        "confidence": 0.0015857379185035825
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1211.6297607421875,
+          824.2355346679688,
+          1339.9783935546875,
+          899.1928100585938
+        ],
+        "confidence": 0.001380386296659708
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3382.288330078125,
+          734.9757080078125,
+          3421.022705078125,
+          769.1279296875
+        ],
+        "confidence": 0.001186979003250599
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1307.585205078125,
+          824.9105834960938,
+          1448.758056640625,
+          918.53515625
+        ],
+        "confidence": 0.0011667407816275954
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1769.4500732421875,
+          913.5043334960938,
+          1828.3719482421875,
+          948.615234375
+        ],
+        "confidence": 0.0011537896934896708
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2832.519287109375,
+          733.6342163085938,
+          2897.413818359375,
+          767.2379760742188
+        ],
+        "confidence": 0.0011200652224943042
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1125.4820556640625,
+          818.9136962890625,
+          1270.9888916015625,
+          901.0896606445312
+        ],
+        "confidence": 0.00108781224116683
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1956.8671875,
+          853.2722778320312,
+          2028.964111328125,
+          925.0687866210938
+        ],
+        "confidence": 0.00106205849442631
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2131.36181640625,
+          782.24462890625,
+          2180.096923828125,
+          827.2922973632812
+        ],
+        "confidence": 0.0010120989754796028
+      }
+    ],
+    "128057_full_00050300": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2131.430419921875,
+          792.7657470703125,
+          2177.496337890625,
+          824.4602661132812
+        ],
+        "confidence": 0.4530212879180908
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1453.0555419921875,
+          785.8964233398438,
+          1503.9613037109375,
+          813.3200073242188
+        ],
+        "confidence": 0.12402419745922089
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2773.47265625,
+          740.9210205078125,
+          2807.99072265625,
+          768.6824340820312
+        ],
+        "confidence": 0.11972669512033463
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2740.777099609375,
+          738.0120239257812,
+          2807.630859375,
+          770.1672973632812
+        ],
+        "confidence": 0.02113911882042885
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2307.143310546875,
+          837.2720947265625,
+          2348.342041015625,
+          868.3904418945312
+        ],
+        "confidence": 0.015193401835858822
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1991.3577880859375,
+          844.8300170898438,
+          2057.012451171875,
+          870.7258911132812
+        ],
+        "confidence": 0.013569729402661324
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1916.6668701171875,
+          920.1900634765625,
+          1974.6214599609375,
+          948.0322265625
+        ],
+        "confidence": 0.012918630614876747
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3277.38671875,
+          766.9445190429688,
+          3325.852294921875,
+          791.1797485351562
+        ],
+        "confidence": 0.012821999378502369
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          775.8798217773438,
+          736.5201416015625,
+          817.1175537109375,
+          768.3148803710938
+        ],
+        "confidence": 0.01098669320344925
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3372.580078125,
+          670.9414672851562,
+          3413.688720703125,
+          704.1240844726562
+        ],
+        "confidence": 0.00869548786431551
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          745.9542236328125,
+          726.0590209960938,
+          817.9685668945312,
+          767.5750122070312
+        ],
+        "confidence": 0.005823809653520584
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2833.6015625,
+          734.956298828125,
+          2902.64453125,
+          767.2923583984375
+        ],
+        "confidence": 0.005518527235835791
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1894.634033203125,
+          849.1973876953125,
+          1942.497314453125,
+          879.2682495117188
+        ],
+        "confidence": 0.0048174988478422165
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          743.9743041992188,
+          714.9591064453125,
+          784.2965087890625,
+          751.03662109375
+        ],
+        "confidence": 0.004765514750033617
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2969.325927734375,
+          725.3267211914062,
+          3008.469482421875,
+          747.6517944335938
+        ],
+        "confidence": 0.003997556399554014
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2703.612060546875,
+          928.5797729492188,
+          2765.58056640625,
+          956.2809448242188
+        ],
+        "confidence": 0.003968366887420416
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1581.5369873046875,
+          839.7271728515625,
+          1632.3544921875,
+          870.2994384765625
+        ],
+        "confidence": 0.0028984479140490294
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3242.039794921875,
+          727.5136108398438,
+          3293.333984375,
+          761.7421264648438
+        ],
+        "confidence": 0.0028664865531027317
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1123.6856689453125,
+          850.1596069335938,
+          1172.9661865234375,
+          892.7037353515625
+        ],
+        "confidence": 0.0026608621701598167
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3270.742431640625,
+          761.67431640625,
+          3328.128173828125,
+          793.8893432617188
+        ],
+        "confidence": 0.0020253995899111032
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2131.478271484375,
+          782.5771484375,
+          2180.352294921875,
+          826.8269653320312
+        ],
+        "confidence": 0.0018826858140528202
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3011.307861328125,
+          760.7802124023438,
+          3080.067138671875,
+          799.1865234375
+        ],
+        "confidence": 0.0018327318830415606
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2968.939453125,
+          720.662109375,
+          3011.552001953125,
+          755.4047241210938
+        ],
+        "confidence": 0.0015371653717011213
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3339.956787109375,
+          668.9461059570312,
+          3411.853515625,
+          710.1256103515625
+        ],
+        "confidence": 0.0015332016628235579
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1965.301025390625,
+          845.2498168945312,
+          2057.522216796875,
+          873.9939575195312
+        ],
+        "confidence": 0.0014125582529231906
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2307.072998046875,
+          832.6638793945312,
+          2360.522216796875,
+          868.7705078125
+        ],
+        "confidence": 0.0013032988645136356
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1256.092529296875,
+          824.6555786132812,
+          1340.486083984375,
+          886.4442749023438
+        ],
+        "confidence": 0.0012260228395462036
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3280.656982421875,
+          745.3572387695312,
+          3328.87353515625,
+          788.0287475585938
+        ],
+        "confidence": 0.0011833017924800515
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1128.482421875,
+          818.6617431640625,
+          1264.9613037109375,
+          900.4500122070312
+        ],
+        "confidence": 0.001141683547757566
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3365.338623046875,
+          674.3782348632812,
+          3476.573974609375,
+          750.79541015625
+        ],
+        "confidence": 0.0011292702984064817
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1200.072021484375,
+          823.5582885742188,
+          1340.4647216796875,
+          904.99365234375
+        ],
+        "confidence": 0.0010276674292981625
+      }
+    ],
+    "128057_full_00050306": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2131.143310546875,
+          792.5217895507812,
+          2177.653564453125,
+          825.0057983398438
+        ],
+        "confidence": 0.3585565686225891
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2765.2578125,
+          740.2889404296875,
+          2807.930419921875,
+          769.0327758789062
+        ],
+        "confidence": 0.09634318202733994
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1453.066650390625,
+          785.8794555664062,
+          1504.070556640625,
+          813.1674194335938
+        ],
+        "confidence": 0.06532298028469086
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2739.1201171875,
+          737.7601928710938,
+          2807.514404296875,
+          770.4567260742188
+        ],
+        "confidence": 0.027210071682929993
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1991.099609375,
+          844.7639770507812,
+          2056.855224609375,
+          871.54345703125
+        ],
+        "confidence": 0.014059945940971375
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1916.729736328125,
+          920.3173828125,
+          1973.9808349609375,
+          948.2076416015625
+        ],
+        "confidence": 0.011127710342407227
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3276.31201171875,
+          767.2449340820312,
+          3326.266357421875,
+          791.5912475585938
+        ],
+        "confidence": 0.010052221827208996
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          776.0172119140625,
+          736.2968139648438,
+          817.1808471679688,
+          768.4593505859375
+        ],
+        "confidence": 0.009621480479836464
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2307.39111328125,
+          836.79931640625,
+          2349.054443359375,
+          868.3381958007812
+        ],
+        "confidence": 0.009103428572416306
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          745.3023681640625,
+          726.2081909179688,
+          818.0084228515625,
+          767.7472534179688
+        ],
+        "confidence": 0.004586262162774801
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3366.394287109375,
+          670.6456298828125,
+          3415.058349609375,
+          704.5509033203125
+        ],
+        "confidence": 0.004315126221626997
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2703.572998046875,
+          928.0205078125,
+          2766.545654296875,
+          956.1795043945312
+        ],
+        "confidence": 0.003263173857703805
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          742.8844604492188,
+          715.3909301757812,
+          784.5565795898438,
+          751.8756713867188
+        ],
+        "confidence": 0.0032355263829231262
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3242.689208984375,
+          726.6041870117188,
+          3293.041748046875,
+          760.8661499023438
+        ],
+        "confidence": 0.0031990634743124247
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2833.29296875,
+          733.8653564453125,
+          2900.446044921875,
+          767.3143920898438
+        ],
+        "confidence": 0.003057316644117236
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1893.5301513671875,
+          848.9435424804688,
+          1943.7972412109375,
+          879.7685546875
+        ],
+        "confidence": 0.0028118425980210304
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3080.369140625,
+          753.0580444335938,
+          3119.188720703125,
+          776.46826171875
+        ],
+        "confidence": 0.002678163116797805
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1581.8101806640625,
+          840.0554809570312,
+          1631.5614013671875,
+          870.033203125
+        ],
+        "confidence": 0.0025408293586224318
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3269.994873046875,
+          762.9334106445312,
+          3328.085693359375,
+          794.265625
+        ],
+        "confidence": 0.002131432993337512
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3010.467041015625,
+          760.5399780273438,
+          3091.86865234375,
+          819.22509765625
+        ],
+        "confidence": 0.002016410930082202
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1124.23046875,
+          848.8751831054688,
+          1172.7523193359375,
+          892.3677978515625
+        ],
+        "confidence": 0.0019628661684691906
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3081.509521484375,
+          749.2511596679688,
+          3166.028564453125,
+          821.5746459960938
+        ],
+        "confidence": 0.0018204005900770426
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1964.9329833984375,
+          845.0189819335938,
+          2057.185302734375,
+          875.1744384765625
+        ],
+        "confidence": 0.0015436639077961445
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2131.204833984375,
+          782.5631713867188,
+          2180.4326171875,
+          827.6266479492188
+        ],
+        "confidence": 0.0014466115972027183
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3239.379638671875,
+          725.1234741210938,
+          3299.91259765625,
+          779.7392578125
+        ],
+        "confidence": 0.0011587135959416628
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1129.0299072265625,
+          818.6521606445312,
+          1265.2652587890625,
+          900.0291137695312
+        ],
+        "confidence": 0.0011226288042962551
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1283.6353759765625,
+          825.2186889648438,
+          1340.3287353515625,
+          877.6483764648438
+        ],
+        "confidence": 0.0010855818400159478
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3358.745361328125,
+          673.0105590820312,
+          3476.979736328125,
+          751.2068481445312
+        ],
+        "confidence": 0.0010762428864836693
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3278.289794921875,
+          745.7239379882812,
+          3328.821044921875,
+          788.2708129882812
+        ],
+        "confidence": 0.0010545814875513315
+      }
+    ],
+    "128057_scene_00013725": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1451.5799560546875,
+          788.4320068359375,
+          1502.8724365234375,
+          814.0023803710938
+        ],
+        "confidence": 0.31208351254463196
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2129.263671875,
+          794.5540161132812,
+          2175.915283203125,
+          823.1153564453125
+        ],
+        "confidence": 0.30841922760009766
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2423.9658203125,
+          829.4849853515625,
+          2458.473388671875,
+          859.6119384765625
+        ],
+        "confidence": 0.01826665550470352
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1898.0992431640625,
+          850.0556640625,
+          1937.6898193359375,
+          880.4521484375
+        ],
+        "confidence": 0.017707860097289085
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1914.3895263671875,
+          918.0626831054688,
+          1971.8699951171875,
+          947.4547119140625
+        ],
+        "confidence": 0.016848744824528694
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          775.8529663085938,
+          738.6742553710938,
+          817.1874389648438,
+          770.7429809570312
+        ],
+        "confidence": 0.01424297783523798
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1995.7742919921875,
+          846.5808715820312,
+          2055.77734375,
+          871.8414306640625
+        ],
+        "confidence": 0.01370985060930252
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2745.656982421875,
+          739.6205444335938,
+          2806.196044921875,
+          768.4683837890625
+        ],
+        "confidence": 0.01304442249238491
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2975.803955078125,
+          723.1517944335938,
+          3004.489013671875,
+          748.5025634765625
+        ],
+        "confidence": 0.011415458284318447
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          742.4666748046875,
+          717.4581298828125,
+          784.5659790039062,
+          753.4010620117188
+        ],
+        "confidence": 0.00927107036113739
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3239.587646484375,
+          724.5719604492188,
+          3284.71923828125,
+          758.9108276367188
+        ],
+        "confidence": 0.008900226093828678
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3278.155029296875,
+          764.8689575195312,
+          3326.263671875,
+          789.1723022460938
+        ],
+        "confidence": 0.007082331459969282
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2286.942138671875,
+          975.0999145507812,
+          2354.78271484375,
+          1005.4200439453125
+        ],
+        "confidence": 0.006801267620176077
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1577.2255859375,
+          839.9793090820312,
+          1632.1646728515625,
+          887.1417846679688
+        ],
+        "confidence": 0.005167843773961067
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1209.9517822265625,
+          823.7755126953125,
+          1339.703369140625,
+          900.8895874023438
+        ],
+        "confidence": 0.00511643011122942
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1886.435546875,
+          848.0435791015625,
+          1940.564453125,
+          881.4822387695312
+        ],
+        "confidence": 0.005012538284063339
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1306.248046875,
+          825.7560424804688,
+          1447.6324462890625,
+          918.7931518554688
+        ],
+        "confidence": 0.004861397203058004
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2305.982177734375,
+          836.7898559570312,
+          2350.714111328125,
+          870.5060424804688
+        ],
+        "confidence": 0.004182808101177216
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          742.5948486328125,
+          723.9627075195312,
+          817.5731811523438,
+          768.9576416015625
+        ],
+        "confidence": 0.003938885405659676
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1125.1611328125,
+          846.3915405273438,
+          1173.3238525390625,
+          893.4469604492188
+        ],
+        "confidence": 0.0037697788793593645
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3412.318115234375,
+          674.1399536132812,
+          3471.185302734375,
+          723.056640625
+        ],
+        "confidence": 0.0031598047353327274
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3238.74853515625,
+          722.4140625,
+          3292.42236328125,
+          783.8601684570312
+        ],
+        "confidence": 0.002872952725738287
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3476.114013671875,
+          677.9796142578125,
+          3565.70947265625,
+          736.8698120117188
+        ],
+        "confidence": 0.0027715980540961027
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3078.80224609375,
+          752.8239135742188,
+          3117.06201171875,
+          773.0834350585938
+        ],
+        "confidence": 0.0026392305735498667
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1140.900634765625,
+          818.0343627929688,
+          1266.4237060546875,
+          889.3759765625
+        ],
+        "confidence": 0.002564425114542246
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3008.294189453125,
+          760.5914916992188,
+          3096.14111328125,
+          833.4249877929688
+        ],
+        "confidence": 0.0023012026213109493
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3398.876220703125,
+          674.0862426757812,
+          3477.744873046875,
+          751.0016479492188
+        ],
+        "confidence": 0.002121542114764452
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1795.0673828125,
+          847.6615600585938,
+          1865.5068359375,
+          883.4682006835938
+        ],
+        "confidence": 0.0020671014208346605
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3278.45947265625,
+          750.1153564453125,
+          3328.9140625,
+          787.49169921875
+        ],
+        "confidence": 0.0019903338979929686
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3270.260498046875,
+          760.0094604492188,
+          3328.382568359375,
+          790.89208984375
+        ],
+        "confidence": 0.001698933308944106
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1443.7623291015625,
+          787.8291625976562,
+          1504.6177978515625,
+          828.5346069335938
+        ],
+        "confidence": 0.0015830736374482512
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2592.614501953125,
+          817.6691284179688,
+          2649.776123046875,
+          899.3609619140625
+        ],
+        "confidence": 0.0015399936819449067
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2228.958251953125,
+          819.97021484375,
+          2277.81884765625,
+          861.4493408203125
+        ],
+        "confidence": 0.0013901640195399523
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1437.6439208984375,
+          871.615234375,
+          1504.9639892578125,
+          923.1882934570312
+        ],
+        "confidence": 0.0013822976034134626
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3414.844482421875,
+          684.9877319335938,
+          3477.649169921875,
+          748.6295776367188
+        ],
+        "confidence": 0.001359999063424766
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1775.9332275390625,
+          847.8767700195312,
+          1865.4046630859375,
+          932.6384887695312
+        ],
+        "confidence": 0.0013291649520397186
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1310.2314453125,
+          888.505859375,
+          1350.9351806640625,
+          916.3449096679688
+        ],
+        "confidence": 0.0013052026042714715
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3077.867919921875,
+          748.5429077148438,
+          3166.79296875,
+          820.5468139648438
+        ],
+        "confidence": 0.001115818740800023
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1912.7017822265625,
+          890.9278564453125,
+          2020.2791748046875,
+          947.39501953125
+        ],
+        "confidence": 0.0010757590644061565
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1128.217041015625,
+          819.8605346679688,
+          1323.4381103515625,
+          900.5512084960938
+        ],
+        "confidence": 0.001054618158377707
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3171.39111328125,
+          765.6415405273438,
+          3228.123046875,
+          809.5612182617188
+        ],
+        "confidence": 0.0010430108522996306
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1448.0260009765625,
+          785.0690307617188,
+          1503.0408935546875,
+          848.9939575195312
+        ],
+        "confidence": 0.001041499082930386
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1956.072509765625,
+          855.4857788085938,
+          2011.9990234375,
+          920.6224975585938
+        ],
+        "confidence": 0.0010317317210137844
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1913.884765625,
+          908.3140869140625,
+          1991.4652099609375,
+          948.9334106445312
+        ],
+        "confidence": 0.0010254771914333105
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1768.5848388671875,
+          911.1790161132812,
+          1824.2191162109375,
+          948.2032470703125
+        ],
+        "confidence": 0.001003446988761425
+      }
+    ],
+    "128057_scene_00013800": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2132.1875,
+          793.2171630859375,
+          2178.075927734375,
+          822.0695190429688
+        ],
+        "confidence": 0.3709776997566223
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1453.1702880859375,
+          787.0348510742188,
+          1504.8433837890625,
+          813.22412109375
+        ],
+        "confidence": 0.21540698409080505
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1580.1790771484375,
+          838.65625,
+          1631.0537109375,
+          869.9851684570312
+        ],
+        "confidence": 0.013358918018639088
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2770.3154296875,
+          740.0894775390625,
+          2807.124755859375,
+          768.0035400390625
+        ],
+        "confidence": 0.012360251508653164
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2293.680908203125,
+          238.22216796875,
+          2334.365966796875,
+          271.6507873535156
+        ],
+        "confidence": 0.010350304655730724
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1916.5406494140625,
+          921.1329956054688,
+          1973.7508544921875,
+          947.7099609375
+        ],
+        "confidence": 0.009293881244957447
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1902.8304443359375,
+          849.16064453125,
+          1939.862548828125,
+          877.80322265625
+        ],
+        "confidence": 0.007596157491207123
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          778.2862548828125,
+          736.1753540039062,
+          816.8137817382812,
+          768.1618041992188
+        ],
+        "confidence": 0.006304537877440453
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1991.6328125,
+          845.5324096679688,
+          2056.302490234375,
+          871.2470703125
+        ],
+        "confidence": 0.006273867096751928
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          754.7750244140625,
+          727.4357299804688,
+          817.3377075195312,
+          765.3660278320312
+        ],
+        "confidence": 0.005465333350002766
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          744.8432006835938,
+          717.7301635742188,
+          783.3154296875,
+          751.0253295898438
+        ],
+        "confidence": 0.0042225574143230915
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2307.113037109375,
+          836.9304809570312,
+          2348.757568359375,
+          868.6129150390625
+        ],
+        "confidence": 0.003913743421435356
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1123.83251953125,
+          844.4791259765625,
+          1174.1009521484375,
+          892.8935546875
+        ],
+        "confidence": 0.003825799096375704
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2741.763671875,
+          737.7924194335938,
+          2806.63330078125,
+          768.968017578125
+        ],
+        "confidence": 0.003569398308172822
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2974.535400390625,
+          723.4124145507812,
+          3005.855224609375,
+          749.4686889648438
+        ],
+        "confidence": 0.003441796638071537
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3278.88134765625,
+          767.4401245117188,
+          3326.9921875,
+          791.1493530273438
+        ],
+        "confidence": 0.0033118717838078737
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2704.4453125,
+          929.3253784179688,
+          2766.318115234375,
+          955.6480712890625
+        ],
+        "confidence": 0.003207856323570013
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2288.95556640625,
+          971.7203369140625,
+          2353.13134765625,
+          1005.2926025390625
+        ],
+        "confidence": 0.002872250974178314
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2423.219482421875,
+          830.6707153320312,
+          2458.14111328125,
+          862.8859252929688
+        ],
+        "confidence": 0.00269045727327466
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3414.02587890625,
+          675.4973754882812,
+          3463.79296875,
+          715.35009765625
+        ],
+        "confidence": 0.0026580553967505693
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1148.416748046875,
+          816.88623046875,
+          1263.02880859375,
+          880.6671142578125
+        ],
+        "confidence": 0.0024320578668266535
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1203.6649169921875,
+          822.8732299804688,
+          1339.3011474609375,
+          907.3375244140625
+        ],
+        "confidence": 0.0024265132378786802
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1307.623046875,
+          825.4747924804688,
+          1446.9761962890625,
+          918.0392456054688
+        ],
+        "confidence": 0.0017245328053832054
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3009.1845703125,
+          759.8895263671875,
+          3098.86474609375,
+          833.9089965820312
+        ],
+        "confidence": 0.0015817373059689999
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2073.10791015625,
+          866.7320556640625,
+          2165.020263671875,
+          948.9584350585938
+        ],
+        "confidence": 0.001126226270571351
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3478.94140625,
+          677.3560180664062,
+          3565.624267578125,
+          736.4461669921875
+        ],
+        "confidence": 0.0011194763937965035
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1885.572265625,
+          846.6511840820312,
+          1942.4449462890625,
+          879.8455200195312
+        ],
+        "confidence": 0.0010683994041755795
+      }
+    ],
+    "128057_scene_00050675": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2131.214599609375,
+          792.5093994140625,
+          2177.493408203125,
+          825.2490234375
+        ],
+        "confidence": 0.4048759639263153
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1453.6976318359375,
+          787.016357421875,
+          1503.8082275390625,
+          813.5363159179688
+        ],
+        "confidence": 0.22485396265983582
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2770.572998046875,
+          741.2156982421875,
+          2806.87060546875,
+          767.732666015625
+        ],
+        "confidence": 0.19880396127700806
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2741.249755859375,
+          738.6736450195312,
+          2806.0498046875,
+          768.5797119140625
+        ],
+        "confidence": 0.07080013304948807
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1988.8485107421875,
+          845.6690673828125,
+          2056.78515625,
+          872.6292114257812
+        ],
+        "confidence": 0.021962322294712067
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1895.009033203125,
+          850.498046875,
+          1940.946533203125,
+          880.26171875
+        ],
+        "confidence": 0.016350768506526947
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2974.40283203125,
+          722.5099487304688,
+          3004.333251953125,
+          749.5565795898438
+        ],
+        "confidence": 0.013930732384324074
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2306.33203125,
+          836.6574096679688,
+          2349.9921875,
+          868.658203125
+        ],
+        "confidence": 0.011890285648405552
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          775.2102661132812,
+          737.12548828125,
+          817.2483520507812,
+          769.5514526367188
+        ],
+        "confidence": 0.011648398824036121
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1916.430908203125,
+          919.7423706054688,
+          1973.2308349609375,
+          947.6767578125
+        ],
+        "confidence": 0.010617565363645554
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2832.628662109375,
+          735.65625,
+          2872.700439453125,
+          766.3317260742188
+        ],
+        "confidence": 0.008444524370133877
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3280.897216796875,
+          768.0518188476562,
+          3327.092529296875,
+          790.6576538085938
+        ],
+        "confidence": 0.008441870100796223
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1573.6937255859375,
+          838.9058837890625,
+          1632.2158203125,
+          893.2687377929688
+        ],
+        "confidence": 0.0077178580686450005
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1577.9271240234375,
+          839.8019409179688,
+          1632.0006103515625,
+          877.1414184570312
+        ],
+        "confidence": 0.00759136350825429
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          742.8035888671875,
+          723.8385620117188,
+          818.0140991210938,
+          768.89306640625
+        ],
+        "confidence": 0.007195181213319302
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2704.478271484375,
+          928.8316650390625,
+          2765.40478515625,
+          956.9578247070312
+        ],
+        "confidence": 0.00683749932795763
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2821.837890625,
+          666.5046997070312,
+          2871.97705078125,
+          693.6115112304688
+        ],
+        "confidence": 0.005988359916955233
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2737.541748046875,
+          737.3900756835938,
+          2807.544189453125,
+          779.0746459960938
+        ],
+        "confidence": 0.005980364046990871
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3479.828125,
+          677.4408569335938,
+          3565.397705078125,
+          736.0068969726562
+        ],
+        "confidence": 0.005687176715582609
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3241.537109375,
+          725.8356323242188,
+          3292.791748046875,
+          761.4579467773438
+        ],
+        "confidence": 0.004376421216875315
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1885.2781982421875,
+          847.8717041015625,
+          1942.9930419921875,
+          882.0576171875
+        ],
+        "confidence": 0.003960042726248503
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1202.74755859375,
+          823.2037353515625,
+          1339.002685546875,
+          906.8377075195312
+        ],
+        "confidence": 0.0038204363081604242
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3338.06494140625,
+          670.1281127929688,
+          3440.87744140625,
+          745.115478515625
+        ],
+        "confidence": 0.003576053772121668
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1770.06640625,
+          862.3461303710938,
+          1844.4898681640625,
+          947.2574462890625
+        ],
+        "confidence": 0.0033393024932593107
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2825.858154296875,
+          734.9061889648438,
+          2853.513427734375,
+          767.06494140625
+        ],
+        "confidence": 0.002814208623021841
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1123.531005859375,
+          840.8365478515625,
+          1177.66650390625,
+          893.3474731445312
+        ],
+        "confidence": 0.002780735958367586
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3412.227294921875,
+          685.9775390625,
+          3479.164794921875,
+          750.4047241210938
+        ],
+        "confidence": 0.002478062640875578
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3009.563232421875,
+          761.3485717773438,
+          3098.341552734375,
+          835.27490234375
+        ],
+        "confidence": 0.002471775282174349
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1962.244140625,
+          846.80712890625,
+          2057.180908203125,
+          882.4186401367188
+        ],
+        "confidence": 0.0023762215860188007
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3175.163818359375,
+          765.1669311523438,
+          3225.14501953125,
+          808.6427001953125
+        ],
+        "confidence": 0.0022178676445037127
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3338.640625,
+          669.8831176757812,
+          3420.102294921875,
+          733.95654296875
+        ],
+        "confidence": 0.0021263156086206436
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2421.272216796875,
+          830.0014038085938,
+          2460.235107421875,
+          903.1146850585938
+        ],
+        "confidence": 0.0020046436693519354
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3351.48046875,
+          669.5133666992188,
+          3478.84619140625,
+          751.4972534179688
+        ],
+        "confidence": 0.0019222887931391597
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1307.8951416015625,
+          825.9611206054688,
+          1447.8095703125,
+          918.3230590820312
+        ],
+        "confidence": 0.0017760543851181865
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1122.6864013671875,
+          817.9876098632812,
+          1274.07763671875,
+          902.7532348632812
+        ],
+        "confidence": 0.001672230428084731
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3238.743408203125,
+          724.2810668945312,
+          3301.68798828125,
+          789.5514526367188
+        ],
+        "confidence": 0.0015022148145362735
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1940.3773193359375,
+          858.4242553710938,
+          2032.315673828125,
+          940.0626831054688
+        ],
+        "confidence": 0.0014612323138862848
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2306.527099609375,
+          832.6036987304688,
+          2363.40185546875,
+          868.9361572265625
+        ],
+        "confidence": 0.0014472949551418424
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2290.58642578125,
+          973.3922119140625,
+          2357.958251953125,
+          1005.6402587890625
+        ],
+        "confidence": 0.0013779648579657078
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1954.6754150390625,
+          852.0836791992188,
+          2036.7301025390625,
+          933.1298217773438
+        ],
+        "confidence": 0.001317917718552053
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3266.646484375,
+          762.8739624023438,
+          3329.124755859375,
+          793.0256958007812
+        ],
+        "confidence": 0.0012849352788180113
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1502.9765625,
+          841.0521850585938,
+          1634.755859375,
+          924.6814575195312
+        ],
+        "confidence": 0.001208969857543707
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3392.46484375,
+          737.8521728515625,
+          3420.62109375,
+          763.6734619140625
+        ],
+        "confidence": 0.0011352330911904573
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3354.341552734375,
+          721.6695556640625,
+          3389.110107421875,
+          774.8126831054688
+        ],
+        "confidence": 0.0010851268889382482
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2131.805419921875,
+          782.3700561523438,
+          2180.23779296875,
+          827.98876953125
+        ],
+        "confidence": 0.0010676210513338447
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1721.47265625,
+          846.0662231445312,
+          1776.6292724609375,
+          881.5494384765625
+        ],
+        "confidence": 0.0010505514219403267
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2977.101318359375,
+          719.6470336914062,
+          3010.046630859375,
+          755.2113037109375
+        ],
+        "confidence": 0.001039654714986682
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2073.184814453125,
+          851.21240234375,
+          2172.759033203125,
+          948.66943359375
+        ],
+        "confidence": 0.001022558193653822
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2714.844482421875,
+          737.1873168945312,
+          2805.77978515625,
+          800.81005859375
+        ],
+        "confidence": 0.0010040600318461657
+      }
+    ],
+    "128057_scene_00050725": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2131.417724609375,
+          792.9513549804688,
+          2176.571533203125,
+          825.13671875
+        ],
+        "confidence": 0.35987454652786255
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2769.077880859375,
+          740.5958862304688,
+          2807.195068359375,
+          767.76416015625
+        ],
+        "confidence": 0.2883422374725342
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1453.7847900390625,
+          786.8458251953125,
+          1503.151611328125,
+          813.30908203125
+        ],
+        "confidence": 0.19222834706306458
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2739.99658203125,
+          737.7200927734375,
+          2806.593505859375,
+          768.805908203125
+        ],
+        "confidence": 0.09859801828861237
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2833.006591796875,
+          735.40087890625,
+          2887.881103515625,
+          766.5907592773438
+        ],
+        "confidence": 0.021526869386434555
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2972.99560546875,
+          724.0234375,
+          3002.9912109375,
+          747.7529296875
+        ],
+        "confidence": 0.01765434443950653
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1916.6805419921875,
+          920.0595092773438,
+          1972.1453857421875,
+          947.6161499023438
+        ],
+        "confidence": 0.0145978182554245
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1990.044921875,
+          844.8746337890625,
+          2056.514404296875,
+          872.9674072265625
+        ],
+        "confidence": 0.010804389603435993
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          776.375,
+          736.9844970703125,
+          816.9453125,
+          768.1477661132812
+        ],
+        "confidence": 0.009148591198027134
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2306.5234375,
+          838.0855712890625,
+          2349.266845703125,
+          868.6925659179688
+        ],
+        "confidence": 0.008392531424760818
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1581.5628662109375,
+          840.1570434570312,
+          1632.3216552734375,
+          874.0543212890625
+        ],
+        "confidence": 0.008010175079107285
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2703.859130859375,
+          928.5679931640625,
+          2765.37158203125,
+          956.6765747070312
+        ],
+        "confidence": 0.007631242740899324
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2825.6416015625,
+          734.6279907226562,
+          2853.635498046875,
+          767.6304321289062
+        ],
+        "confidence": 0.00739252008497715
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          745.0178833007812,
+          725.627197265625,
+          817.5746459960938,
+          767.1701049804688
+        ],
+        "confidence": 0.0060804435051977634
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1577.950439453125,
+          839.0814819335938,
+          1632.6219482421875,
+          889.4912109375
+        ],
+        "confidence": 0.006029431242495775
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3280.227783203125,
+          768.6539306640625,
+          3325.956787109375,
+          790.9449462890625
+        ],
+        "confidence": 0.0049571809358894825
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1894.6695556640625,
+          849.4431762695312,
+          1941.598876953125,
+          878.2279663085938
+        ],
+        "confidence": 0.00419971439987421
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1124.124267578125,
+          842.8912353515625,
+          1175.6845703125,
+          893.3154296875
+        ],
+        "confidence": 0.003148321993649006
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1203.4989013671875,
+          823.4120483398438,
+          1339.3035888671875,
+          907.03662109375
+        ],
+        "confidence": 0.0027487212792038918
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3009.67822265625,
+          761.3134765625,
+          3097.93212890625,
+          834.8544921875
+        ],
+        "confidence": 0.002629416063427925
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          741.3716430664062,
+          715.302734375,
+          784.9638061523438,
+          751.9279174804688
+        ],
+        "confidence": 0.0026117991656064987
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3480.089111328125,
+          677.0430908203125,
+          3564.966552734375,
+          733.9661254882812
+        ],
+        "confidence": 0.002586631802842021
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2978.017333984375,
+          720.2389526367188,
+          3010.210693359375,
+          755.1087036132812
+        ],
+        "confidence": 0.0021107171196490526
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1769.8465576171875,
+          862.7978515625,
+          1848.1903076171875,
+          948.1248168945312
+        ],
+        "confidence": 0.00210025766864419
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3340.8515625,
+          668.7911376953125,
+          3428.404052734375,
+          735.3043212890625
+        ],
+        "confidence": 0.0020536095835268497
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2131.661865234375,
+          782.1878051757812,
+          2179.9375,
+          829.2969970703125
+        ],
+        "confidence": 0.0014824075624346733
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2422.2177734375,
+          830.5892944335938,
+          2459.358154296875,
+          877.0341796875
+        ],
+        "confidence": 0.0014562751166522503
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1123.520751953125,
+          818.5086059570312,
+          1275.119140625,
+          901.9421997070312
+        ],
+        "confidence": 0.0013886317610740662
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1308.5845947265625,
+          828.703125,
+          1450.643798828125,
+          913.7631225585938
+        ],
+        "confidence": 0.0013836995931342244
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1963.2156982421875,
+          845.4076538085938,
+          2056.772216796875,
+          886.3834228515625
+        ],
+        "confidence": 0.0013646186562255025
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1917.2640380859375,
+          909.1047973632812,
+          1999.3641357421875,
+          949.27099609375
+        ],
+        "confidence": 0.001119685359299183
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3241.706787109375,
+          725.607666015625,
+          3291.34033203125,
+          758.7562255859375
+        ],
+        "confidence": 0.0011190642835572362
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1927.2098388671875,
+          860.318359375,
+          2032.4144287109375,
+          941.7664184570312
+        ],
+        "confidence": 0.0010518883354961872
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2833.839111328125,
+          734.01904296875,
+          2905.339599609375,
+          765.4244995117188
+        ],
+        "confidence": 0.0010237981332466006
+      }
+    ]
+  },
+  "truth": {
+    "128057_full_00013519": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1555.100389376,
+          488.46000672,
+          1565.3463449600001,
+          498.73100328
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          49.999998976,
+          692.99999982,
+          65.999998976,
+          706.99999986
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          262.000001024,
+          775.9999999799999,
+          278.000001024,
+          790.00000002
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          342.000001024,
+          795.00000042,
+          358.000001024,
+          809.0000004600001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3732.000002048,
+          748.9999999799999,
+          3748.000002048,
+          763.00000002
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4016.0,
+          631.00000026,
+          4028.000002048,
+          640.99999998
+        ]
+      }
+    ],
+    "128057_full_00013525": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1554.981322752,
+          488.19729564,
+          1565.444702208,
+          499.49826012
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          49.999998976,
+          692.99999982,
+          65.999998976,
+          706.99999986
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          262.000001024,
+          775.9999999799999,
+          278.000001024,
+          790.00000002
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          342.000001024,
+          795.00000042,
+          358.000001024,
+          809.0000004600001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3732.000002048,
+          748.9999999799999,
+          3748.000002048,
+          763.00000002
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4016.0,
+          631.00000026,
+          4028.000002048,
+          640.99999998
+        ]
+      }
+    ],
+    "128057_full_00013532": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1555.40681728,
+          488.18399004,
+          1565.671815168,
+          499.41152963999997
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          49.999998976,
+          692.99999982,
+          65.999998976,
+          706.99999986
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          262.000001024,
+          775.9999999799999,
+          278.000001024,
+          790.00000002
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          342.000001024,
+          795.00000042,
+          358.000001024,
+          809.0000004600001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3732.000002048,
+          748.9999999799999,
+          3748.000002048,
+          763.00000002
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4016.0,
+          631.00000026,
+          4028.000002048,
+          640.99999998
+        ]
+      }
+    ],
+    "128057_full_00013675": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1553.175597056,
+          487.78939800000006,
+          1567.1268925440002,
+          500.86080864
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          49.999998976,
+          692.99999982,
+          65.999998976,
+          706.99999986
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          262.000001024,
+          775.9999999799999,
+          278.000001024,
+          790.00000002
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          342.000001024,
+          795.00000042,
+          358.000001024,
+          809.0000004600001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3731.000000512,
+          748.9999999799999,
+          3747.000000512,
+          763.00000002
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4014.999998464,
+          631.00000026,
+          4027.000000512,
+          640.99999998
+        ]
+      }
+    ],
+    "128057_full_00013681": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1552.693725184,
+          488.18618783999995,
+          1566.5981747199999,
+          501.03051768
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          49.999998976,
+          692.99999982,
+          65.999998976,
+          706.99999986
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          260.999999488,
+          775.9999999799999,
+          276.999999488,
+          790.00000002
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          340.999999488,
+          795.00000042,
+          356.999999488,
+          809.0000004600001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3731.000000512,
+          748.9999999799999,
+          3747.000000512,
+          763.00000002
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4014.999998464,
+          631.00000026,
+          4027.000000512,
+          640.99999998
+        ]
+      }
+    ],
+    "128057_full_00050269": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1112.8536678399998,
+          324.29560842,
+          1118.708891648,
+          330.70800798
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3671.000000512,
+          752.0000002200001,
+          3688.999999488,
+          768.0000004200001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4000.0,
+          633.00000042,
+          4012.000002048,
+          643.00000014
+        ]
+      }
+    ],
+    "128057_full_00050275": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1111.288209408,
+          340.02117954,
+          1118.970888192,
+          348.03875717999995
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3671.000000512,
+          752.0000002200001,
+          3688.999999488,
+          768.0000004200001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4000.0,
+          633.00000042,
+          4012.000002048,
+          643.00000014
+        ]
+      }
+    ],
+    "128057_full_00050282": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1109.858686976,
+          355.03378272000003,
+          1116.5067448319999,
+          362.943558
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3671.000000512,
+          752.0000002200001,
+          3688.999999488,
+          768.0000004200001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4000.0,
+          633.00000042,
+          4012.000002048,
+          643.00000014
+        ]
+      }
+    ],
+    "128057_full_00050300": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1102.0000010239999,
+          386.0000001,
+          1111.00000256,
+          394.9999997400001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3671.000000512,
+          752.0000002200001,
+          3688.999999488,
+          768.0000004200001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4000.0,
+          633.00000042,
+          4012.000002048,
+          643.00000014
+        ]
+      }
+    ],
+    "128057_full_00050306": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1097.106962432,
+          384.38931294,
+          1105.6320040960002,
+          392.70610025999997
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3671.000000512,
+          752.0000002200001,
+          3688.999999488,
+          768.0000004200001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4000.0,
+          633.00000042,
+          4012.000002048,
+          643.00000014
+        ]
+      }
+    ],
+    "128057_scene_00013725": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1271.6645826560002,
+          195.43077846,
+          1276.72430592,
+          199.7045901
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          49.999998976,
+          692.99999982,
+          65.999998976,
+          706.99999986
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          260.999999488,
+          775.9999999799999,
+          276.999999488,
+          790.00000002
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          340.999999488,
+          795.00000042,
+          356.999999488,
+          809.0000004600001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3730.172362752,
+          744.5238654600001,
+          3746.7739258879997,
+          757.6105959
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4014.999998464,
+          631.00000026,
+          4027.000000512,
+          640.99999998
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2209.999998976,
+          1057.99999986,
+          2235.000000512,
+          1064.99999934
+        ]
+      }
+    ],
+    "128057_scene_00013800": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          739.1242670080001,
+          606.9618829799999,
+          750.449645568,
+          619.5042415800001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          49.999998976,
+          692.99999982,
+          65.999998976,
+          706.99999986
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          262.000001024,
+          775.9999999799999,
+          278.000001024,
+          790.00000002
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          342.000001024,
+          795.00000042,
+          358.000001024,
+          809.0000004600001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3729.27972352,
+          741.7818604800001,
+          3743.517087744,
+          755.30133072
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4016.0,
+          631.00000026,
+          4028.000002048,
+          640.99999998
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2209.999998976,
+          1056.9999997799998,
+          2235.000000512,
+          1064.99999934
+        ]
+      }
+    ],
+    "128057_scene_00050675": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1466.0567920639999,
+          239.49111888,
+          1471.490598912,
+          244.7925948
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3671.000000512,
+          752.0000002200001,
+          3688.999999488,
+          768.0000004200001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4000.0,
+          633.00000042,
+          4012.000002048,
+          643.00000014
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2366.000001024,
+          1051.00000038,
+          2391.00000256,
+          1064.00000034
+        ]
+      }
+    ],
+    "128057_scene_00050725": [
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          1469.03445504,
+          234.4484709,
+          1475.2349880319998,
+          240.26119182
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          3671.000000512,
+          752.0000002200001,
+          3688.999999488,
+          768.0000004200001
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          4000.0,
+          633.00000042,
+          4012.000002048,
+          643.00000014
+        ]
+      },
+      {
+        "class_id": 0,
+        "bbox_xyxy": [
+          2366.000001024,
+          1051.00000038,
+          2391.00000256,
+          1064.00000034
+        ]
+      }
+    ]
+  },
+  "identities": {
+    "128057_full_00013519": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullframe40\\images\\val\\128057_full_00013519.png",
+      "image_sha256": "b8d659e2610c63a0be948ba4d46e856128c910a5298ea3ff32a3cdfdb804a0dd",
+      "label_sha256": "a1fc0e5693523ee675f06cb9829f173ab1518242274fa0058c74a6d36602ed8a",
+      "frame_index": 13519,
+      "group_id": "phase-0540",
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ]
+    },
+    "128057_full_00013525": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullframe40\\images\\val\\128057_full_00013525.png",
+      "image_sha256": "3a8028f56dc2e9e62da8f6cf58169c18fce692cf76ae8708a14941a323d19e27",
+      "label_sha256": "39893eec3982b578b45fe8fe335462bb70f7842c3ef529afeebd5762aaa11c11",
+      "frame_index": 13525,
+      "group_id": "phase-0540",
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ]
+    },
+    "128057_full_00013532": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullframe40\\images\\val\\128057_full_00013532.png",
+      "image_sha256": "db190bd03af386c9c567a564d689ac296dc15ada358e3dcde1033ef447e956c9",
+      "label_sha256": "e07a64edfdba226df209989934aa21ce94ee598271f1761f65b67271e410d236",
+      "frame_index": 13532,
+      "group_id": "phase-0540",
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ]
+    },
+    "128057_full_00013675": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullframe40\\images\\val\\128057_full_00013675.png",
+      "image_sha256": "6a67bedb6904a63c9be93c3e9fe837e7f957b075aa44ab2b1fce3fea86766401",
+      "label_sha256": "b45d6818d6fa5905610661297968445490d81554a7b23c9e0ac397e00849d71d",
+      "frame_index": 13675,
+      "group_id": "phase-0540",
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ]
+    },
+    "128057_full_00013681": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullframe40\\images\\val\\128057_full_00013681.png",
+      "image_sha256": "4a48cda85012c49148e72a129969925047d5955470bfe277bde0b296dcc8e0b9",
+      "label_sha256": "42ef4a705f19f48a1e7effd3d9534040a466d64ced82f96623cd41c41309c3cd",
+      "frame_index": 13681,
+      "group_id": "phase-0540",
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ]
+    },
+    "128057_full_00050269": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullframe40\\images\\val\\128057_full_00050269.png",
+      "image_sha256": "f00b9209d0fa79c30095ef54572c80f7962690073d6061558a3154f4703bfeb6",
+      "label_sha256": "f2e302fd68906a8ca398b944e6d86bc238c201beb8de07a3f82040c8c9283c85",
+      "frame_index": 50269,
+      "group_id": "phase-2010",
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ]
+    },
+    "128057_full_00050275": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullframe40\\images\\val\\128057_full_00050275.png",
+      "image_sha256": "dbd3d39896b8a46db9345448cc9ab9214662f608e3a26da6b30a4817ae2254e8",
+      "label_sha256": "4d2112dccdceb54b376f7d0bd1025cd9da0014fe33dbd28997006a3e1de5b992",
+      "frame_index": 50275,
+      "group_id": "phase-2010",
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ]
+    },
+    "128057_full_00050282": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullframe40\\images\\val\\128057_full_00050282.png",
+      "image_sha256": "df805de1d7dc0936a7f82d07288fa873a252623f31c86056713ecbd7681aba05",
+      "label_sha256": "6554e9ae2941e9cdcbde82d099da2ac61f911b296bbe940a23c11aede3b671fe",
+      "frame_index": 50282,
+      "group_id": "phase-2010",
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ]
+    },
+    "128057_full_00050300": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullframe40\\images\\val\\128057_full_00050300.png",
+      "image_sha256": "d6f84fb416bc6a531d371124e61375133c9d8d08cd4626154226dcaef04df181",
+      "label_sha256": "97474fc1d5ab73b174c470ac3b24d9391644a52b4867003b3e33bd09cd52974f",
+      "frame_index": 50300,
+      "group_id": "phase-2010",
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ]
+    },
+    "128057_full_00050306": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullframe40\\images\\val\\128057_full_00050306.png",
+      "image_sha256": "03d9ee23265784aa0286c4057fca5fc18cb2df96ad0288dc9945b47f79be0363",
+      "label_sha256": "6a3bdc8140f2e65a9d6bad248ad4d5854872b30682762fe7235aa066bd167741",
+      "frame_index": 50306,
+      "group_id": "phase-2010",
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ]
+    },
+    "128057_scene_00013725": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullscene16\\images\\val\\128057_scene_00013725.png",
+      "image_sha256": "fe09a9f594084fd462400452b5877d75c54eae0a0277d830f1d1a40c90cfb92a",
+      "label_sha256": "ac740f39c00402a645f264d8d6f516894787e53731a2b5f763e7c70de76bfc9e",
+      "frame_index": 13725,
+      "group_id": "phase-0540",
+      "unresolved_regions": []
+    },
+    "128057_scene_00013800": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullscene16\\images\\val\\128057_scene_00013800.png",
+      "image_sha256": "34c2d2c2c3f535c6822fc678c7f49a8134f46bc2625d41b093f6731c24d366e8",
+      "label_sha256": "03fb10a67e8a530da54b5d45300db93588214529e7fa52f495dc9638e8955d0f",
+      "frame_index": 13800,
+      "group_id": "phase-0540",
+      "unresolved_regions": []
+    },
+    "128057_scene_00050675": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullscene16\\images\\val\\128057_scene_00050675.png",
+      "image_sha256": "c9586c0f50998e8aeffb9f77564183f3ec7b9bc3203f55626a8e52bc482c7722",
+      "label_sha256": "a73c5dc24012c1059579506a8286f482fff2c2c7afffd67d7cc42f108cf91324",
+      "frame_index": 50675,
+      "group_id": "phase-2010",
+      "unresolved_regions": []
+    },
+    "128057_scene_00050725": {
+      "image": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\assets\\annotations\\football-fullscene16\\images\\val\\128057_scene_00050725.png",
+      "image_sha256": "734d9f62868d40e503c55926038c26cbbe7ef9798c5b6ba4af4a41a6256e79b2",
+      "label_sha256": "9b937aa2dcc7ab0cf94f59106a9b3fa6deef988066daa9e2f2c75e6897fd16c9",
+      "frame_index": 50725,
+      "group_id": "phase-2010",
+      "unresolved_regions": []
+    }
+  },
+  "in_play_references": [
+    {
+      "frame_id": "128057_full_00013519",
+      "bbox_xyxy": [
+        1555.1003875732422,
+        488.4600067138672,
+        1565.3463439941406,
+        498.7310028076172
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_full_00013525",
+      "bbox_xyxy": [
+        1554.9813232421875,
+        488.1972961425781,
+        1565.4447021484375,
+        499.4982604980469
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_full_00013532",
+      "bbox_xyxy": [
+        1555.4068145751953,
+        488.1839904785156,
+        1565.6718139648438,
+        499.4115295410156
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_full_00013675",
+      "bbox_xyxy": [
+        1553.1755981445312,
+        487.7893981933594,
+        1567.1268920898438,
+        500.8608093261719
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_full_00013681",
+      "bbox_xyxy": [
+        1552.6937255859375,
+        488.1861877441406,
+        1566.5981750488281,
+        501.030517578125
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_full_00050269",
+      "bbox_xyxy": [
+        1112.8536682128906,
+        324.2956085205078,
+        1118.7088928222656,
+        330.7080078125
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_full_00050275",
+      "bbox_xyxy": [
+        1111.2882080078125,
+        340.02117919921875,
+        1118.9708862304688,
+        348.03875732421875
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_full_00050282",
+      "bbox_xyxy": [
+        1109.8586883544922,
+        355.0337829589844,
+        1116.5067443847656,
+        362.9435577392578
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_full_00050300",
+      "bbox_xyxy": [
+        1102,
+        386,
+        1111,
+        395
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_full_00050306",
+      "bbox_xyxy": [
+        1097.1069641113281,
+        384.3893127441406,
+        1105.6320037841797,
+        392.7061004638672
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_scene_00013725",
+      "bbox_xyxy": [
+        1271.6645812988281,
+        195.43077850341797,
+        1276.7243041992188,
+        199.70458984375
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_scene_00013800",
+      "bbox_xyxy": [
+        739.124267578125,
+        606.9618835449219,
+        750.4496459960938,
+        619.5042419433594
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_scene_00050675",
+      "bbox_xyxy": [
+        1466.0567932128906,
+        239.49111938476562,
+        1471.4906005859375,
+        244.79259490966797
+      ],
+      "matched": false
+    },
+    {
+      "frame_id": "128057_scene_00050725",
+      "bbox_xyxy": [
+        1469.0344543457031,
+        234.44847106933594,
+        1475.2349853515625,
+        240.26119232177734
+      ],
+      "matched": false
+    }
+  ],
+  "selection_scope": "Development comparison. Multiscale is a post-hoc fusion motivated by the single-scale results; no independent-test claim."
+}

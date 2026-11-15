@@ -1,0 +1,154 @@
+{
+  "recorded_at": "2026-10-27T16:55:02.853325+00:00",
+  "pulled_git_revision": "3a5b9573a679d7e1c1fb2a9db15cfb5b5c7788b9",
+  "dataset_directory": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\data\\broadcast-sngsr-v1",
+  "dataset_fingerprint": "4fa69bad392c33bffb8d6c97397246c5b052e745c09e2bbc4e6c5a44cbdde421",
+  "source": "https://huggingface.co/datasets/SoccerNet/SN-GSR-2024",
+  "source_revision": "3cc710eb6d53a23350a3d2863311c1c0a2e645d7",
+  "source_annotation_version": "1.3",
+  "quality": {
+    "status": "passed",
+    "frames": 8000,
+    "counts": {
+      "train": 6000,
+      "val": 2000
+    },
+    "object_counts": {
+      "train": {
+        "player": 88336,
+        "referee": 8634,
+        "ball": 5748,
+        "person": 202
+      },
+      "val": {
+        "player": 29676,
+        "referee": 2851,
+        "ball": 1878,
+        "person": 18
+      }
+    },
+    "role_counts": {
+      "train": {
+        "player": 84964,
+        "referee": 8634,
+        "ball": 5748,
+        "goalkeeper": 3372,
+        "other": 202
+      },
+      "val": {
+        "player": 28483,
+        "referee": 2851,
+        "ball": 1878,
+        "goalkeeper": 1193,
+        "other": 18
+      }
+    },
+    "match_ids": {
+      "train": [
+        "4",
+        "6",
+        "9"
+      ],
+      "val": [
+        "2",
+        "3",
+        "5"
+      ]
+    },
+    "duplicate_images": 0,
+    "match_split_overlap": 0,
+    "clip_count": 115,
+    "fully_decoded_images": 8000,
+    "clipped_boxes": 0,
+    "dropped_boxes": 0,
+    "project_human_review_completed": false,
+    "test_accessed": false
+  },
+  "profiles": {
+    "players": {
+      "status": "passed",
+      "verified_labels": 8000,
+      "counts": {
+        "train": 6000,
+        "val": 2000
+      },
+      "object_counts": {
+        "train": {
+          "player": 88336,
+          "referee": 8634
+        },
+        "val": {
+          "player": 29676,
+          "referee": 2851
+        }
+      }
+    },
+    "participants": {
+      "status": "passed",
+      "verified_labels": 8000,
+      "counts": {
+        "train": 6000,
+        "val": 2000
+      },
+      "object_counts": {
+        "train": {
+          "player": 84964,
+          "referee": 8634,
+          "goalkeeper": 3372
+        },
+        "val": {
+          "player": 28483,
+          "referee": 2851,
+          "goalkeeper": 1193
+        }
+      }
+    }
+  },
+  "field_labels": {
+    "valid": {
+      "train": 5977,
+      "valid": 1981
+    },
+    "excluded": 42
+  },
+  "visual_review": {
+    "method": "AI visual inspection of full-frame overlays and ball enlargements",
+    "sample_size": 24,
+    "sample_manifest": "visual-review/sample.json",
+    "full_human_review_completed": false,
+    "findings": [
+      {
+        "frame_id": "SNGS-071_000371",
+        "finding": "suspected displaced ball box"
+      },
+      {
+        "frame_id": "SNGS-097_000376",
+        "finding": "suspected displaced ball box"
+      }
+    ],
+    "decision": "Recommend participant-only training profiles; ball training requires label correction/review."
+  },
+  "recommended_training_yaml": "data/broadcast-sngsr-v1/data-players.yaml",
+  "review_manifest": "data/broadcast-sngsr-v1/review-workspace/manifest.json",
+  "software_tests": {
+    "tests": 48,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "ruff": "passed",
+  "powershell_parser": "passed",
+  "source_sha256": {
+    "src/football_pipeline/broadcast_dataset.py": "9fe3dd4701aaddb0ef0317b2513a989c48e1815332634140df5f3afa4793fe86",
+    "scripts/review_broadcast_data.py": "e0f4cc9e1b38742813db2c01ea22e02891abcacbb8c7594a73550c2c46b8fab4",
+    "scripts/Collect-BroadcastData.ps1": "54bd633c80fec3f18aac2d6e9d2ba1cf48119948364db2c4ef2e6955e22a071e",
+    "tests/test_broadcast_dataset.py": "c382eb805027c29ee21a7b7b33b792bf1aacf40a32aa5e5112f255bf02e837bd"
+  },
+  "original_image_bytes": 1853996607,
+  "trained_model": false,
+  "active_model_changed": false,
+  "project_human_review_completed": false,
+  "test_accessed": false,
+  "follow_up_summary": "reports/broadcast-data/follow-up-summary.json",
+  "v2_summary": "reports/broadcast-data/v2-summary.json"
+}

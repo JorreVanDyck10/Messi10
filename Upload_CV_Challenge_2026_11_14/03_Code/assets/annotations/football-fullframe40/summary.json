@@ -1,0 +1,35 @@
+{
+  "images": 40,
+  "unique_source_frames": 40,
+  "new_source_frames_vs_football48": 24,
+  "objects": {
+    "player": 843,
+    "referee": 80,
+    "ball": 192
+  },
+  "splits": {
+    "train": {
+      "player": 631,
+      "referee": 60,
+      "ball": 147,
+      "reserve_ball": 120,
+      "images": 30,
+      "in_play_ball": 27
+    },
+    "val": {
+      "player": 212,
+      "referee": 20,
+      "ball": 45,
+      "in_play_ball": 10,
+      "reserve_ball": 35,
+      "images": 10
+    }
+  },
+  "native_size": [
+    4096,
+    1080
+  ],
+  "preprocessing": "none",
+  "independent_human_review_complete": false,
+  "model_training_performed": false
+}

@@ -1,0 +1,34 @@
+{
+  "experiments": [
+    {
+      "id": "EXP-P001",
+      "status": "rejected_incomplete_labels",
+      "dataset": "v1",
+      "decision": "Do not promote; central official omitted."
+    },
+    {
+      "id": "EXP-P002",
+      "status": "interrupted_during_label_review",
+      "dataset": "v2",
+      "decision": "Two validation boxes required correction."
+    },
+    {
+      "id": "EXP-P003",
+      "status": "completed_reference",
+      "dataset": "v2.1",
+      "freeze": 10,
+      "epochs": 73,
+      "selected_checkpoint_epoch": 53
+    },
+    {
+      "id": "EXP-P004",
+      "status": "selected_provisional",
+      "dataset": "v2.1",
+      "freeze": 0,
+      "epochs": 78,
+      "selected_checkpoint_epoch": 58
+    }
+  ],
+  "human_review_completed": false,
+  "final_test_completed": false
+}

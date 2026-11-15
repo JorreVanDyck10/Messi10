@@ -1,0 +1,80 @@
+{
+  "inventory_sha256": "15c1100f81aa8e218e591e475ec95adf1634fedfb60bfa9610f0eb9c4f16ca38",
+  "source_manifests": [
+    {
+      "path": "C:\\Messi10\\datasets\\roles-teams-v1\\manifest.json",
+      "sha256": "3148976f198dfd9b5fd8a2a60240966d24e1d6f38ebef1cbdf8bfaeabbe0e668",
+      "version": "roles-teams-v1.1"
+    },
+    {
+      "path": "C:\\Messi10\\datasets\\roles-teams-v2\\manifest.json",
+      "sha256": "129079c8e5380ade5962f533a55fa00b1298145b990f718eeb2103c051da93d7",
+      "version": "roles-teams-v2.0"
+    },
+    {
+      "path": "C:\\Messi10\\datasets\\roles-teams-v3\\manifest.json",
+      "sha256": "e5a9dc823411e86b615134b1a29011012546350d640154ac40acc94883d7b6b0",
+      "version": "roles-teams-v3.1"
+    },
+    {
+      "path": "C:\\Messi10\\assets\\annotations\\football-fullframe40\\manifest.json",
+      "sha256": "3bae5f0c8d2a50d1da3b5552adeb082fb311bc91093f1f52594b845c2ee4db2f",
+      "version": "football-fullframe40-001"
+    },
+    {
+      "path": "C:\\Messi10\\assets\\annotations\\football-fullscene16\\manifest.json",
+      "sha256": "c3c9d34ad9e4810811ac216e2cb16d76c63de8616738f6b3b0144503724d7dad",
+      "version": "football-fullscene16-001"
+    },
+    {
+      "path": "C:\\Messi10\\assets\\annotations\\football-fullscene20\\manifest.json",
+      "sha256": "5ffebb947dc739bbcb22cefc2115f0f6e241b3cc7c3718e6901b264bf4994756",
+      "version": "football-fullscene20-001"
+    },
+    {
+      "path": "C:\\Messi10\\assets\\annotations\\football-fullscene50\\manifest.json",
+      "sha256": "1560469f2d5c00df2feb21f4d515d61651397123eaab7ae0f26eaeb05d51856d",
+      "version": "football-fullscene50-001"
+    },
+    {
+      "path": "C:\\Messi10\\assets\\annotations\\football-fullscene60\\manifest.json",
+      "sha256": "905df00bcc5234ccc83dd74340e55cd146d7ffc9ed8146a11e3a2b809d5e5a1b",
+      "version": "football-fullscene60-001"
+    },
+    {
+      "path": "C:\\Messi10\\assets\\annotations\\football48\\manifest.json",
+      "sha256": "1809275b31d05140849cda906d4390f2b4d3c956e1e267169c481cd7ef4b86af",
+      "version": "football48-001"
+    },
+    {
+      "path": "C:\\Messi10\\assets\\annotations\\panorama128057\\manifest.json",
+      "sha256": "4d243aea81037b40fa40239bed5371631412aa2b7d7a04b00f03805517c5d648",
+      "version": "128057-small-001"
+    },
+    {
+      "path": "C:\\Messi10\\assets\\annotations\\teamtrack0750\\manifest.json",
+      "sha256": "0b64e234068574677026f86a19a8f67548c78745d1d62091484877f99a27be01",
+      "version": "teamtrack0750-small-001"
+    },
+    {
+      "path": "C:\\Messi10\\data\\course-multimatch-v1\\manifest.json",
+      "sha256": "17a1507e7f145c31cd9308f5f4d8604e0e4a7d282b2197a7e3d3c59ddd109381",
+      "version": "course-multimatch-v1"
+    }
+  ],
+  "human_review_completed": false,
+  "field_extraction_manifests": [
+    {
+      "path": "C:\\Messi10\\data\\field-corpus\\soccernet\\train.extracted.json",
+      "sha256": "738e84d5793865ab64cbe3a00d8813c3ed11525029d1d330814957d92d19f028",
+      "files": 32928
+    },
+    {
+      "path": "C:\\Messi10\\data\\field-corpus\\soccernet\\valid.extracted.json",
+      "sha256": "4a66001289838f01d2014f579847ed14190453295ec434025f315c5cff55fc5e",
+      "files": 6426
+    }
+  ],
+  "field_filter": "Only original/main-camera frames with equal ms_time/replay_time are eligible; replays excluded before target creation",
+  "correction": "Original full frames precede their older crops; source manifests are unchanged"
+}

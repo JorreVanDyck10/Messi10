@@ -1,0 +1,8 @@
+[
+  {"name": "hoek_00", "role": "fit", "x": null, "y": null, "u": 0, "v": 0},
+  {"name": "hoek_10", "role": "fit", "x": null, "y": null, "u": 1, "v": 0},
+  {"name": "hoek_11", "role": "fit", "x": null, "y": null, "u": 1, "v": 1},
+  {"name": "hoek_01", "role": "fit", "x": null, "y": null, "u": 0, "v": 1},
+  {"name": "middenlijn_v0", "role": "check", "x": null, "y": null, "u": 0.5, "v": 0},
+  {"name": "middenlijn_v1", "role": "check", "x": null, "y": null, "u": 0.5, "v": 1}
+]

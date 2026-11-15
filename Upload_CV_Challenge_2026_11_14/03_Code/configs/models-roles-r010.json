@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "profile_name": "R010 rollen en teams - vaste beeldkenmerken en extra rolcrops, experimenteel",
+  "models": [
+    {
+      "model_id": "exp-p004-teamtrack-v2_1",
+      "weights": "../artifacts/players-v2/players_best.pt",
+      "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+      "class_mapping": {
+        "0": "player",
+        "1": "referee"
+      },
+      "expected_names": {
+        "0": "player",
+        "1": "referee"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    },
+    {
+      "model_id": "coco-person-proposals",
+      "weights": "../artifacts/appearance-v1/person_proposals.pt",
+      "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+      "class_mapping": {
+        "0": "person"
+      },
+      "expected_names": {
+        "0": "person"
+      },
+      "imgsz": 1920,
+      "confidence": 0.1,
+      "iou": 0.7,
+      "device": "0"
+    }
+  ],
+  "handoff": {
+    "evaluation_record": "../reports/appearance-experiments/EXP-R010/metrics.json",
+    "evaluation_sha256": "6a0e30a77f3a264505a9e19dfd437c482f02f072ebca8a10cd09be3244c9211f",
+    "human_review_completed": false,
+    "independent_final_test_completed": false,
+    "referee_coverage": "central and near assistant; far roles unresolved",
+    "detector_evaluation_record": "../reports/players-experiments/EXP-P004/validation-metrics/metrics.json",
+    "detector_evaluation_sha256": "2b725cbb140f22297f5e397e5277ad51f17c957ac109f55ebdee56c3f1f7c240",
+    "evaluation_kind": "Conditional ground-truth crop classification, not end-to-end detection AP",
+    "team_scope": "Two supervised team matches; added third match contains role labels only and uses neutral video-local kit clusters.",
+    "broadcast_transfer_adequate": false,
+    "broadcast_validation_record": "../reports/player-pipeline-4050.json",
+    "broadcast_validation_scope": "Historical P004-only record; R007 classifier is not measured on this clip"
+  },
+  "appearance": {
+    "model_id": "appearance-r010",
+    "weights": "../artifacts/appearance-v2/roles_teams_r010.pt",
+    "weights_sha256": "39656a85cac05192854aeb217f218d652368a03c1efb81f446b58e0387f9b2ec",
+    "role_names": [
+      "player",
+      "referee",
+      "assistant_referee",
+      "steward",
+      "spectator",
+      "person"
+    ],
+    "role_confidence": 0.65,
+    "team_confidence": 0.65,
+    "device": "0"
+  }
+}

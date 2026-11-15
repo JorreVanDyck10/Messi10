@@ -1,0 +1,68 @@
+{
+  "created_at": "2026-10-16T12:38:26.057629+00:00",
+  "annotator": "Codex (AI; model-assisted visual annotation)",
+  "frames": 6,
+  "object_counts": {
+    "person": 143,
+    "ball": 29
+  },
+  "crowd_ignore_regions_per_frame": 2,
+  "independent_human_review": false,
+  "frames_detail": [
+    {
+      "frame_id": "128057_00001375",
+      "timestamp_s": 55,
+      "counts": {
+        "person": 24,
+        "ball": 5
+      },
+      "notes": "Two overlapping people at midfield are separate instances. The pink official holds a flag, not a football. Match ball is near x2685,y235."
+    },
+    {
+      "frame_id": "128057_00001450",
+      "timestamp_s": 58,
+      "counts": {
+        "person": 23,
+        "ball": 5
+      },
+      "notes": "Added the partly occluded blue player behind the white player near x2205. Rejected the red bottle detected as ball, proposal 34."
+    },
+    {
+      "frame_id": "128057_00001525",
+      "timestamp_s": 61,
+      "counts": {
+        "person": 24,
+        "ball": 5
+      },
+      "notes": "Removed duplicate partial person box 31; added the ball that has crossed onto the walkway at the right. Rejected bottle 38."
+    },
+    {
+      "frame_id": "128057_00001600",
+      "timestamp_s": 64,
+      "counts": {
+        "person": 24,
+        "ball": 4
+      },
+      "notes": "Split a merged white/blue player pair. Only clearly visible balls are labelled; no inferred position for an occluded/out-of-view ball. Rejected bottle 38."
+    },
+    {
+      "frame_id": "128057_00001675",
+      "timestamp_s": 67,
+      "counts": {
+        "person": 24,
+        "ball": 5
+      },
+      "notes": "Removed a background false positive and partial-body duplicates 25,30,34. Ball 43 is visually confirmed at the blue player's foot. Rejected bottle 44."
+    },
+    {
+      "frame_id": "128057_00001750",
+      "timestamp_s": 70,
+      "counts": {
+        "person": 24,
+        "ball": 5
+      },
+      "notes": "Ball 36 at the blue player's foot is visually confirmed. Overlapping blue and white players near x3090 are distinct instances."
+    }
+  ],
+  "note": "Six validation excerpt frames, not a complete training dataset. Ball counts include stationary spare balls and partly visible spare balls."
+}

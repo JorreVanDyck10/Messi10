@@ -1,0 +1,43 @@
+{
+  "frames": 1800,
+  "splits": {
+    "train": 900,
+    "val": 900
+  },
+  "games": {
+    "train": [
+      "4",
+      "6",
+      "9"
+    ],
+    "val": [
+      "2",
+      "3",
+      "5"
+    ]
+  },
+  "sequences": {
+    "SNGS-060-last": 150,
+    "SNGS-060-middle": 150,
+    "SNGS-097-last": 150,
+    "SNGS-097-middle": 150,
+    "SNGS-151-last": 150,
+    "SNGS-151-middle": 150,
+    "SNGS-021-last": 150,
+    "SNGS-021-middle": 150,
+    "SNGS-039-last": 150,
+    "SNGS-039-middle": 150,
+    "SNGS-078-last": 150,
+    "SNGS-078-middle": 150
+  },
+  "source_frame_id_overlap": 0,
+  "identical_pixel_hash_overlap_with_first_windows": 0,
+  "distinct_new_pixel_hashes": 1800,
+  "field_labels": 1800,
+  "image_integrity": "Each prepared image checked against source ZIP CRC and SHA256 recorded; replay checks SHA256",
+  "manifest_sha256": "d167ede2a68fa2e97f0ca10f967df0a541da20590b15bb68d6a99f3dd4e8dfbc",
+  "fingerprint": "7753f1295304e3325d0a8d0390dad025d6df7f858992bbb2908659681acfb015",
+  "independent_final_test": false,
+  "human_review_completed": false,
+  "limitations": "Same previously selected development matches; first/middle/last18seconds of30secondclips, not full games; no new training in this extension"
+}

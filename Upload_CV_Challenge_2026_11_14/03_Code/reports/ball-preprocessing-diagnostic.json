@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-16T12:10:21.037177+00:00",
+  "training_frames": 27,
+  "native_dimensions": [
+    3840,
+    960
+  ],
+  "surviving_boxes_by_scale_wh_threshold_2_pixels": {
+    "640": 0,
+    "960": 4,
+    "1920": 27
+  },
+  "evidence": "EXP-001 training log has zero effective instances and box/DFL loss zero; pinned ultralytics/data/augment.py RandomPerspective.box_candidates uses width>2 and height>2. Static augmentations still call this filter.",
+  "experiment": "EXP-002",
+  "hypothesis": "1920 preserves the annotated ball; rect=True reduces padding and GPU memory. This joint practical change does not isolate all effects of training resolution.",
+  "reference": "EXP-001",
+  "decision_rule": "Compare target mAP50_95 then mAP50 on unchanged validation labels and matched inference resolutions; do not claim improvement from training loss alone.",
+  "test_inference_allowed": false
+}

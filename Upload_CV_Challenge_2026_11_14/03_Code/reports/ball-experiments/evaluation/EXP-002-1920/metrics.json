@@ -1,0 +1,41 @@
+{
+  "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+  "mAP50": 0.0,
+  "mAP50_95": 0.0,
+  "workpoint": {
+    "confidence": 0.25,
+    "matching_iou": 0.5
+  },
+  "per_class": [
+    {
+      "class_id": 0,
+      "name": "ball",
+      "objects": 12,
+      "AP50": 0.0,
+      "AP50_95": 0.0,
+      "TP": 0,
+      "FP": 0,
+      "FN": 12,
+      "precision": 0.0,
+      "recall": 0.0
+    }
+  ],
+  "recorded_at": "2026-10-16T12:28:14.185156+00:00",
+  "split": "val",
+  "inference_config": {
+    "imgsz": 1920,
+    "device": "0",
+    "confidence": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "mapping": {
+      "ball": "ball"
+    }
+  },
+  "manifest_sha256": "f2e14af9a96b4ce56ffb9e82dfa33d829a212754ab9d5429164872935d708dfa",
+  "label_fingerprint": "ac14800261768f74fe9b825eb2cb318c9cddd3d877f07e161cdacbbd8fe65e52",
+  "prediction_sha256": "1239bbcae60cf2047c3da36acc28f55d3eef9fc9457237a00379047b2769eabc",
+  "weights_sha256": "8fa01974339a0511cbde8495ae6e4fc3bc2baddeef11aaed895fe2edd9b5b172",
+  "review_policy": "provisional_ai_visual",
+  "human_review_completed": false
+}

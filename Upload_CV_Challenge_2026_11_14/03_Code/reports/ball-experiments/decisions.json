@@ -1,0 +1,36 @@
+{
+  "recorded_at": "2026-10-16T12:20:20.953673+00:00",
+  "records": [
+    {
+      "id": "DEC-001",
+      "decision": "Use exact user-selected PANORIS source, unchanged spatial resolution, shared through Git LFS.",
+      "status": "user_selected_geometry_review_pending"
+    },
+    {
+      "id": "DEC-002",
+      "decision": "Ball is target: repeated missed or poorly localized balls on development frames, visible source labels possible.",
+      "evidence": "12 validation objects; baseline mAP50 and mAP50_95 zero at both 640 and 1920."
+    },
+    {
+      "id": "DEC-003",
+      "decision": "Separate ball specialist alongside unchanged pretrained person detector; no player/referee identity claim.",
+      "status": "implemented_provisional_team_decision_pending"
+    },
+    {
+      "id": "DEC-004",
+      "decision": "47 positive-only localizable frames; retain original group boundaries, add 13 nearby training frames in same groups.",
+      "limitation": "Visibility selection and few action groups restrict conclusions; no negative-frame performance claim."
+    },
+    {
+      "id": "DEC-005",
+      "decision": "Execute real development training/scoring using explicitly disclosed AI visual annotations; do not invent human reviewers.",
+      "status": "human_review_pending_final_test_blocked"
+    },
+    {
+      "id": "DEC-006",
+      "decision": "1920 with rectangular batches after 640 removed all 27 target boxes; 960 would retain four.",
+      "evidence": "reports/ball-preprocessing-diagnostic.json",
+      "limitation": "Rectangular padding also disables shuffle in pinned version; not a single-variable causal comparison."
+    }
+  ]
+}

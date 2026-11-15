@@ -1,0 +1,11 @@
+{
+  "reference": "EXP-R001",
+  "observations": "All 8 val stewards missed; central torso HSV mask deleted yellow-green fluorescent clothing, and training had no wide-view stewards.",
+  "changes": [
+    "Preserve all central-torso clothing hues",
+    "Two visually confirmed stewards from one additional train-only source photo",
+    "Photo-only horizontal flip and simulated low-resolution feature augmentation; no validation augmentation"
+  ],
+  "settings": "Other settings identical to R001; mixed intervention, not a single-factor causal ablation.",
+  "selection": "Validation macro F1; all outputs retained; extra-photo results are development results not final project test"
+}

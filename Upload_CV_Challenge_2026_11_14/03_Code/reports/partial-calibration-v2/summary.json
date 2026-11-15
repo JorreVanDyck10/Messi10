@@ -1,0 +1,3409 @@
+{
+  "protocol": {
+    "source_fingerprint": "4fa69bad392c33bffb8d6c97397246c5b052e745c09e2bbc4e6c5a44cbdde421",
+    "script_sha256": "83739b3d621f5dd95099a0962f1a8c11d4199da4568e833bf6c2cf6fd00f6772",
+    "selection": "First frame per clip/side with all seven polylines and six intersections inside the image; no selection on check errors.",
+    "geometry_sha256": "28c186ae7f6594884afa3e125b2c13fe7f5958a463e167595e8312a23f7dc851",
+    "point_definitions_sha256": "5d3bb7a6831ff886019bab1b8627aff6e2e8c7a5ea552cf7804ff89fff5caf7e",
+    "fit": "Four intersections of separate penalty-area boundary lines",
+    "checks": "Two intersections of goal-area lines, excluded from fitting",
+    "pitch_dimensions_m": [
+      105,
+      68
+    ],
+    "human_review_completed": false,
+    "scope": "Provider-derived development geometry; no independent human ground truth or MVP approval."
+  },
+  "counts": {
+    "rejected": 34,
+    "six_visible_landmarks_unavailable": 195,
+    "passed": 1
+  },
+  "cases": [
+    {
+      "clip": "SNGS-021",
+      "side": "left",
+      "split": "val",
+      "frame_id": "SNGS-021_000481",
+      "game_id": "2",
+      "image": "images/val/SNGS-021_000481.jpg",
+      "field_label": "field/valid/SNGS-021_000481.json",
+      "field_label_sha256": "5b89c9261649afdf6f46d4c3bed5e4c302b2f21f686273b5ec0b18814b704f35",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1006.1324932655303,
+          "y": 105.7733716047939
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1384.0796605436924,
+          "y": 134.8608461660057
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 468.45776130295366,
+          "y": 336.7872977028238
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 39.71808193864282,
+          "y": 257.204461206473
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 934.7301554254325,
+          "y": 148.8165222401065
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 524.6401110451086,
+          "y": 218.99993634959665
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-021",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-022",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-022",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-023",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-023",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-024",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-024",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-025",
+      "side": "left",
+      "split": "val",
+      "frame_id": "SNGS-025_000526",
+      "game_id": "2",
+      "image": "images/val/SNGS-025_000526.jpg",
+      "field_label": "field/valid/SNGS-025_000526.json",
+      "field_label_sha256": "ebd7ee5c59e4a25657534bd6d2c5f8c5bad7ffde97d04a6f169f4fae3dc0a46f",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1145.364481377912,
+          "y": 222.9513180096456
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1616.9685410693194,
+          "y": 258.24812432656995
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 503.71610124947745,
+          "y": 490.7524300800424
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 3.7216367210605736,
+          "y": 392.29740447068207
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 1067.321866166201,
+          "y": 272.754830135038
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 576.3196683676775,
+          "y": 351.6620230192598
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-025",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-026",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-026",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-027",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-027",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-028",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-028",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-029",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-029",
+      "side": "right",
+      "split": "val",
+      "frame_id": "SNGS-029_000151",
+      "game_id": "2",
+      "image": "images/val/SNGS-029_000151.jpg",
+      "field_label": "field/valid/SNGS-029_000151.json",
+      "field_label_sha256": "2515eff51628c42f1ad75638afa0fecb948f2ee1e4d2756c326ed7e4925d2c1c",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 23.081027328079067,
+          "y": 246.19050352598254
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 504.68191744923973,
+          "y": 194.723571670951
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1568.6832172536012,
+          "y": 320.2971755703683
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1114.3800953810244,
+          "y": 435.74476682928946
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 581.9285553066173,
+          "y": 241.43085588017306
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1055.236129986327,
+          "y": 302.2670654581414
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-030",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-030",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-031",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-031",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-032",
+      "side": "left",
+      "split": "val",
+      "frame_id": "SNGS-032_000696",
+      "game_id": "2",
+      "image": "images/val/SNGS-032_000696.jpg",
+      "field_label": "field/valid/SNGS-032_000696.json",
+      "field_label_sha256": "5b048077870abeb6c6cdc0de265bbe17bb504b6028be6ca9940af49b7518b078",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1268.8592409881608,
+          "y": 216.81959891589057
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1806.1754447865508,
+          "y": 254.0392725960693
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 584.736414019886,
+          "y": 503.0335914683369
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 47.663680395683784,
+          "y": 392.89787203847084
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 1188.9996643807772,
+          "y": 270.61734722747485
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 656.8808475961009,
+          "y": 353.3769219926885
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-032",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-033",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-033",
+      "side": "right",
+      "split": "val",
+      "frame_id": "SNGS-033_000001",
+      "game_id": "2",
+      "image": "images/val/SNGS-033_000001.jpg",
+      "field_label": "field/valid/SNGS-033_000001.json",
+      "field_label_sha256": "25f5aa900c90b0c57bd0dd7f5390c58d97844e4527ec4293976bc664968bb744",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 655.446988420316,
+          "y": 407.6783971516142
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 989.9012567303026,
+          "y": 373.9371899520228
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1860.4441165665066,
+          "y": 498.2384711204954
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1474.1227826043355,
+          "y": 577.6160574569595
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 1054.7814066421754,
+          "y": 410.1390557283731
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1426.53894697669,
+          "y": 469.2158641828782
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-034",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-034",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-035",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-035",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-036",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-036",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-037",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-037",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-038",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-038",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-039",
+      "side": "left",
+      "split": "val",
+      "frame_id": "SNGS-039_000106",
+      "game_id": "3",
+      "image": "images/val/SNGS-039_000106.jpg",
+      "field_label": "field/valid/SNGS-039_000106.json",
+      "field_label_sha256": "a897255b458b5078ce826c774f2e66d5d43c901800b1a26320afc11c2f695adc",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1386.8040033499906,
+          "y": 273.7257537677713
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1899.0599523196777,
+          "y": 328.97538129887386
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 923.5113686059909,
+          "y": 631.6156145635913
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 363.6627756497325,
+          "y": 496.97753053817104
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 1331.4684825093905,
+          "y": 343.36586832040143
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 887.0374560154311,
+          "y": 451.5561275445548
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-039",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-040",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-040",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-041",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-041",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-042",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-042",
+      "side": "right",
+      "split": "val",
+      "frame_id": "SNGS-042_000196",
+      "game_id": "3",
+      "image": "images/val/SNGS-042_000196.jpg",
+      "field_label": "field/valid/SNGS-042_000196.json",
+      "field_label_sha256": "a5524340698674d68fcbbeddf03fa877ed9d5c845a081dc7071d82b5c781f3ac",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 6.862581769745631,
+          "y": 521.3615611545587
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 574.0860931895188,
+          "y": 456.2827772978357
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1739.7270344260235,
+          "y": 717.2149680372769
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1094.4732439325096,
+          "y": 864.1286128152776
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 638.2045584882303,
+          "y": 533.013849165949
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1135.2290753569027,
+          "y": 657.1870168561169
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-043",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-043",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-044",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-044",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-045",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-045",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-046",
+      "side": "left",
+      "split": "val",
+      "frame_id": "SNGS-046_000371",
+      "game_id": "3",
+      "image": "images/val/SNGS-046_000371.jpg",
+      "field_label": "field/valid/SNGS-046_000371.json",
+      "field_label_sha256": "26a307719ae1e5cc93e95ca40cf2ed23f181b3115f3a53e7236281bd2fa27629",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1172.4536070180022,
+          "y": 239.83873248138414
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1638.1380438054832,
+          "y": 289.9512373241173
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 733.6679866574717,
+          "y": 593.0035812963889
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 176.2964250857028,
+          "y": 470.899671423696
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 1116.930253597348,
+          "y": 307.3201303567328
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 695.700324684288,
+          "y": 417.48012176677685
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-046",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-047",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-047",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-048",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-048",
+      "side": "right",
+      "split": "val",
+      "frame_id": "SNGS-048_000631",
+      "game_id": "3",
+      "image": "images/val/SNGS-048_000631.jpg",
+      "field_label": "field/valid/SNGS-048_000631.json",
+      "field_label_sha256": "de07a2f9b8e44fe16f1cd5c96396b21a505ca95deeff680ea286b6229e38bb27",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 645.1676605262504,
+          "y": 243.79011702423753
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 1011.2964726719324,
+          "y": 208.70203760005504
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1818.0329867678265,
+          "y": 410.05339456031913
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1354.0553058086603,
+          "y": 498.64067796959614
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 1048.6703861436642,
+          "y": 262.45308437481935
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1389.7738964320026,
+          "y": 357.8010852908737
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-049",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-049",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-050",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-050",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-051",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-051",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-052",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-052",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-053",
+      "side": "left",
+      "split": "val",
+      "frame_id": "SNGS-053_000181",
+      "game_id": "3",
+      "image": "images/val/SNGS-053_000181.jpg",
+      "field_label": "field/valid/SNGS-053_000181.json",
+      "field_label_sha256": "e221404c369a48a2dda7f00c57f73171b265010c9e6a3ef0a7f3db829b525aea",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 767.3298771159917,
+          "y": 155.98888906462443
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1097.100029122995,
+          "y": 185.75647587815894
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 448.0280395578593,
+          "y": 430.58385875653835
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 11.862694193979435,
+          "y": 355.6726179589685
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 728.4863307751107,
+          "y": 206.5285830508642
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 413.2645561796702,
+          "y": 300.0150880412634
+        }
+      ],
+      "status": "passed",
+      "median_check_px": 2.7483340142804993,
+      "max_check_px": 3.452019578686331,
+      "homography": [
+        [
+          0.0006732688068410337,
+          0.0025471906864920064,
+          -0.9139527347569665
+        ],
+        [
+          -0.0005445701453665793,
+          0.007010150046962436,
+          -0.31896443726860996
+        ],
+        [
+          -3.563065817173405e-06,
+          0.0048413001878980354,
+          1.0
+        ]
+      ],
+      "all_full_field_corners_visible": false,
+      "provider_player_position_differences_m": [
+        0.25316773848874913,
+        0.2664826190941555,
+        0.05124528617137695,
+        0.37537332809182195,
+        0.24329683893411408,
+        0.3464405262726538,
+        0.07504500455589046,
+        0.07095963136566645,
+        0.2606717768971618,
+        0.12736815016083008,
+        0.177816136403142,
+        0.06755557952778142,
+        0.28990021380222,
+        0.36360111504838144,
+        0.18242817893445878,
+        0.1372418984363782
+      ],
+      "preview": "SNGS-053_000181-left.jpg"
+    },
+    {
+      "clip": "SNGS-053",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-054",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-054",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-055",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-055",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-056",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-056",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-057",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-057",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-058",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-058",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-059",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-059",
+      "side": "right",
+      "split": "val",
+      "frame_id": "SNGS-059_000181",
+      "game_id": "3",
+      "image": "images/val/SNGS-059_000181.jpg",
+      "field_label": "field/valid/SNGS-059_000181.json",
+      "field_label_sha256": "3f3f502f34dcba093e1026f4643a35926a743504a36e6d7623b2110326416d1e",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 608.7898581867404,
+          "y": 247.370204268517
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 994.9432435646762,
+          "y": 209.8512169652246
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1861.0480583217457,
+          "y": 422.6150595709844
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1363.737763316313,
+          "y": 517.1859416191514
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 1039.6658477290193,
+          "y": 266.76100641751236
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1401.1421513161702,
+          "y": 367.02618223313567
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-060",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-060",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-061",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-061",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-062",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-062",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-063",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-063",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-064",
+      "side": "left",
+      "split": "train",
+      "frame_id": "SNGS-064_000546",
+      "game_id": "4",
+      "image": "images/train/SNGS-064_000546.jpg",
+      "field_label": "field/train/SNGS-064_000546.json",
+      "field_label_sha256": "e16f35e838e043a1534c32e5755bf496fe613d15227992f8804f4b935747e3d9",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 753.2223568321549,
+          "y": 415.3979731931352
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1051.4190112860736,
+          "y": 434.67106679753255
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 387.9234579740834,
+          "y": 620.090143202018
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 9.862427140749547,
+          "y": 564.002005891467
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 705.5819709983247,
+          "y": 451.3019885287606
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 392.48830792142417,
+          "y": 520.3023391190876
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-064",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-065",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-065",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-066",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-066",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-067",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-067",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-068",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-068",
+      "side": "right",
+      "split": "train",
+      "frame_id": "SNGS-068_000436",
+      "game_id": "4",
+      "image": "images/train/SNGS-068_000436.jpg",
+      "field_label": "field/train/SNGS-068_000436.json",
+      "field_label_sha256": "240f658a100556d91a080458ffa2509e37d1f31b10a33c923cf0c7988b4a2e74",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 195.4381394653057,
+          "y": 367.13629732161155
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 708.1039374821675,
+          "y": 328.7658547350197
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1877.4474846806968,
+          "y": 526.9498818496071
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1294.5485843937124,
+          "y": 635.8306662809692
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 782.7296111156597,
+          "y": 383.13611642908825
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1278.645738197079,
+          "y": 477.3503317315785
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-069",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-069",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-070",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-070",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-071",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-071",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-072",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-072",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-073",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-073",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-074",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-074",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-075",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-075",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-076",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-076",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-077",
+      "side": "left",
+      "split": "train",
+      "frame_id": "SNGS-077_000486",
+      "game_id": "4",
+      "image": "images/train/SNGS-077_000486.jpg",
+      "field_label": "field/train/SNGS-077_000486.json",
+      "field_label_sha256": "d08c16814a61bdbfecc873d7a01ab41428b43699972dfa306136269c153ad039",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 871.6534886636838,
+          "y": 238.77934649471877
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1225.226955928162,
+          "y": 264.79465361788436
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 444.005982140652,
+          "y": 472.85813492275616
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 0.3995248141038392,
+          "y": 401.01388977198627
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 814.8402937203473,
+          "y": 280.07901670375054
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 449.6550944283521,
+          "y": 356.0863352065602
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-077",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-078",
+      "side": "left",
+      "split": "val",
+      "frame_id": "SNGS-078_000001",
+      "game_id": "5",
+      "image": "images/val/SNGS-078_000001.jpg",
+      "field_label": "field/valid/SNGS-078_000001.json",
+      "field_label_sha256": "5356a5dd49620e1a34d93b0e45307f04ce7d43738cc715992fc0f5c1f48f6b7b",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1359.9132237354627,
+          "y": 231.19283666249018
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1859.2177750113444,
+          "y": 276.83130755922673
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 799.1843772688698,
+          "y": 512.1897093002407
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 263.3491116838628,
+          "y": 395.9346020415182
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 1283.06950361881,
+          "y": 283.8825996970117
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 809.9520124923773,
+          "y": 364.69571585847615
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-078",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-079",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-079",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-080",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-080",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-081",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-081",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-082",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-082",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-083",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-083",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-084",
+      "side": "left",
+      "split": "val",
+      "frame_id": "SNGS-084_000306",
+      "game_id": "5",
+      "image": "images/val/SNGS-084_000306.jpg",
+      "field_label": "field/valid/SNGS-084_000306.json",
+      "field_label_sha256": "3e032281941811db63c9f21449801cdf60019c0742938ef3e152b62992364e96",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1003.973060973536,
+          "y": 397.2864392813794
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1403.964991025854,
+          "y": 433.0927738314715
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 518.7237823031979,
+          "y": 650.4914744114235
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 30.284727862651824,
+          "y": 561.0803085988671
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 941.8769501720531,
+          "y": 442.5671940798446
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 532.6237208091416,
+          "y": 519.9414823975694
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-084",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-085",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-085",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-086",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-086",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-087",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-087",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-088",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-088",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-089",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-089",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-090",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-090",
+      "side": "right",
+      "split": "val",
+      "frame_id": "SNGS-090_000606",
+      "game_id": "5",
+      "image": "images/val/SNGS-090_000606.jpg",
+      "field_label": "field/valid/SNGS-090_000606.json",
+      "field_label_sha256": "ceb547f5a04112445cec0149ab9f3e4256ecb70a4e36ecefd7932c9d5e3a55f7",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 203.0642694820098,
+          "y": 452.21483225146
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 677.7409723266657,
+          "y": 409.1637268945293
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1740.1458292687582,
+          "y": 577.4638118267694
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1216.0479418597854,
+          "y": 683.6494888219117
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 747.3559672201573,
+          "y": 459.3445315642523
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1203.5916266614574,
+          "y": 539.35180626063
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-091",
+      "side": "left",
+      "split": "val",
+      "frame_id": "SNGS-091_000746",
+      "game_id": "5",
+      "image": "images/val/SNGS-091_000746.jpg",
+      "field_label": "field/valid/SNGS-091_000746.json",
+      "field_label_sha256": "05bcdc8280348366bde38779492c20b847007844d12858c1006048d71dd7c07b",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1241.3448563197564,
+          "y": 315.61833168155096
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1726.4265303191055,
+          "y": 359.3130867404961
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 689.4769104976572,
+          "y": 596.9513931177448
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 148.25208773423634,
+          "y": 486.0680162383683
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 1169.7651151971218,
+          "y": 366.6845787346731
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 703.1833111788534,
+          "y": 448.9212334555674
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-091",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-092",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-092",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-093",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-093",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-094",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-094",
+      "side": "right",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-095",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-095",
+      "side": "right",
+      "split": "val",
+      "frame_id": "SNGS-095_000316",
+      "game_id": "5",
+      "image": "images/val/SNGS-095_000316.jpg",
+      "field_label": "field/valid/SNGS-095_000316.json",
+      "field_label_sha256": "685ac51b3a144d9268cb5a9efd1ea66d981ec608e35cf26358a80b687a6c19bd",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 632.670529498312,
+          "y": 410.6108145342957
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 997.2130411668076,
+          "y": 381.38512997009354
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1887.7181626626736,
+          "y": 535.0716146148528
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1437.5494103898359,
+          "y": 614.4951963598913
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 1055.2649589446623,
+          "y": 422.1162925968655
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1428.395963337914,
+          "y": 494.08797739642495
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-096",
+      "side": "left",
+      "split": "val",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-096",
+      "side": "right",
+      "split": "val",
+      "frame_id": "SNGS-096_000746",
+      "game_id": "5",
+      "image": "images/val/SNGS-096_000746.jpg",
+      "field_label": "field/valid/SNGS-096_000746.json",
+      "field_label_sha256": "8f3125fc8c629aff7a4913cc1a2b50518c7b93721df04215fd767e945444b289",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 180.822585580815,
+          "y": 246.90717560474647
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 667.2035256779797,
+          "y": 205.90003910955232
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1771.2610085224555,
+          "y": 378.3327443545456
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1227.7996103663804,
+          "y": 489.9166914814299
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 747.1706567671096,
+          "y": 257.24788388970694
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1219.3254135186821,
+          "y": 340.411458234028
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-097",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-097",
+      "side": "right",
+      "split": "train",
+      "frame_id": "SNGS-097_000096",
+      "game_id": "6",
+      "image": "images/train/SNGS-097_000096.jpg",
+      "field_label": "field/train/SNGS-097_000096.json",
+      "field_label_sha256": "9301fd32dc19dcdd32138cee4f0c9882050095ddb2e9fcb85292177e6c53bcd1",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 703.0020387380808,
+          "y": 293.373797706211
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 1035.8952604142737,
+          "y": 268.3005816412736
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1917.8223743200151,
+          "y": 406.38198586637435
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1521.4849427373592,
+          "y": 474.42301034987344
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 1102.1761404938743,
+          "y": 304.22613797879444
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1475.9237802225298,
+          "y": 369.4663449484782
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-098",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-098",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-099",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-099",
+      "side": "right",
+      "split": "train",
+      "frame_id": "SNGS-099_000001",
+      "game_id": "6",
+      "image": "images/train/SNGS-099_000001.jpg",
+      "field_label": "field/train/SNGS-099_000001.json",
+      "field_label_sha256": "bf9e045a174f2170434b136d95de8b2ac79d68d14edd21b5f7a5238e8682b29c",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 182.31326796845016,
+          "y": 432.98530270041897
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 685.0465495791149,
+          "y": 390.4895646027202
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1894.8602680307247,
+          "y": 554.555173179777
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1356.4352439720217,
+          "y": 662.8060152108392
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 774.0315616518312,
+          "y": 439.6134137945846
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1290.8388010951219,
+          "y": 518.3262081760868
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-100",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-100",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-101",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-101",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-102",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-102",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-103",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-103",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-104",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-104",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-105",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-105",
+      "side": "right",
+      "split": "train",
+      "frame_id": "SNGS-105_000606",
+      "game_id": "6",
+      "image": "images/train/SNGS-105_000606.jpg",
+      "field_label": "field/train/SNGS-105_000606.json",
+      "field_label_sha256": "15f0a539355e6bbe3bcd7029641236e94f03382dc7fd80c99881c5b13dd50f5d",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 357.7579296481557,
+          "y": 441.5692116138425
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 800.2109602618139,
+          "y": 404.69479994938416
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1900.4574586836018,
+          "y": 557.9333452921068
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1407.6835918209663,
+          "y": 653.6933519298867
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 878.3821818554408,
+          "y": 448.9176463208403
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1350.6003930785034,
+          "y": 522.7544402757444
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-106",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-106",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-107",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-107",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-108",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-108",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-109",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-109",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-110",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-110",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-111",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-111",
+      "side": "right",
+      "split": "train",
+      "frame_id": "SNGS-111_000001",
+      "game_id": "6",
+      "image": "images/train/SNGS-111_000001.jpg",
+      "field_label": "field/train/SNGS-111_000001.json",
+      "field_label_sha256": "b91e5c730968858e43d47093ff7c5121286a6d988d9aa366527b4e39373fd1b6",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 108.18612562442497,
+          "y": 354.08939419465327
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 584.406639542902,
+          "y": 314.81460963257956
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1677.0692603904906,
+          "y": 457.30469825315447
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1199.366149372855,
+          "y": 560.2909771274996
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 670.2146202468274,
+          "y": 359.48327154020797
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1144.3308253245025,
+          "y": 429.80379751711484
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-112",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-112",
+      "side": "right",
+      "split": "train",
+      "frame_id": "SNGS-112_000391",
+      "game_id": "6",
+      "image": "images/train/SNGS-112_000391.jpg",
+      "field_label": "field/train/SNGS-112_000391.json",
+      "field_label_sha256": "cd67523e70654b1ccef2e01f8766fc1576e89827ffb332c78a0b8f3f261dcd5a",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 368.7781917995572,
+          "y": 415.6016988472836
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 811.0887985640533,
+          "y": 379.30361364160575
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1914.0982069685067,
+          "y": 533.5530086648516
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1416.8560845128957,
+          "y": 628.7194777304206
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 888.9744419710572,
+          "y": 423.8613863271006
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1362.2492011091915,
+          "y": 497.5706179587557
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-113",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-113",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-114",
+      "side": "left",
+      "split": "train",
+      "frame_id": "SNGS-114_000581",
+      "game_id": "6",
+      "image": "images/train/SNGS-114_000581.jpg",
+      "field_label": "field/train/SNGS-114_000581.json",
+      "field_label_sha256": "4dda710f0c0360d7e6898582404690785b918af2eefa7002a9b119722b9496e4",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1042.1262761164667,
+          "y": 324.47036651689285
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1439.6560291621934,
+          "y": 358.9023060179064
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 490.95249918104304,
+          "y": 550.9627487342501
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 32.928416243487895,
+          "y": 463.1728184312719
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 968.7641246818624,
+          "y": 364.86936393288715
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 538.9974166071842,
+          "y": 431.6330850367681
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-114",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-115",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-115",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-151",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-151",
+      "side": "right",
+      "split": "train",
+      "frame_id": "SNGS-151_000701",
+      "game_id": "9",
+      "image": "images/train/SNGS-151_000701.jpg",
+      "field_label": "field/train/SNGS-151_000701.json",
+      "field_label_sha256": "60c31da9a12da9affa8fbc9f1206a79beb606d887cf537b2968735bae2fffc4b",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 394.3519133167837,
+          "y": 191.58387373615315
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 822.4997232122614,
+          "y": 161.50773980628736
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1907.7642919135665,
+          "y": 301.572565675971
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1434.555873246378,
+          "y": 389.5939720698397
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 903.0450499563092,
+          "y": 200.9466586425511
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1368.5807073608764,
+          "y": 270.3151446424271
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-152",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-152",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-153",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-153",
+      "side": "right",
+      "split": "train",
+      "frame_id": "SNGS-153_000511",
+      "game_id": "9",
+      "image": "images/train/SNGS-153_000511.jpg",
+      "field_label": "field/train/SNGS-153_000511.json",
+      "field_label_sha256": "0aee80fd1ef819e9802f372f5a8fbf7cc024583f35f190a34205278435158d52",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 413.8968205771608,
+          "y": 330.85668714976845
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 822.6042759758424,
+          "y": 300.7438901800687
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1864.4481686250351,
+          "y": 437.8142926166466
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1409.5203486952764,
+          "y": 520.4025427279759
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 900.3303834542812,
+          "y": 339.45269725959184
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1347.2403861816558,
+          "y": 406.00620045576613
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-154",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-154",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-155",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-155",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-156",
+      "side": "left",
+      "split": "train",
+      "frame_id": "SNGS-156_000721",
+      "game_id": "9",
+      "image": "images/train/SNGS-156_000721.jpg",
+      "field_label": "field/train/SNGS-156_000721.json",
+      "field_label_sha256": "a95105195516544da3b82849919e310967c898447125e9781e41c4e92900bc2a",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1271.0868221621324,
+          "y": 390.5743108515549
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1788.3288975572254,
+          "y": 433.44900851408556
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 549.2225163908853,
+          "y": 645.1657982386646
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 2.990084119238784,
+          "y": 536.1306421777674
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 1171.0355927413402,
+          "y": 435.61015379528993
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 628.566859209208,
+          "y": 506.73960992195975
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-156",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-157",
+      "side": "left",
+      "split": "train",
+      "frame_id": "SNGS-157_000501",
+      "game_id": "9",
+      "image": "images/train/SNGS-157_000501.jpg",
+      "field_label": "field/train/SNGS-157_000501.json",
+      "field_label_sha256": "a4848f16bc66313df7059c82d4db47e2444f664011afcddf2a881dde969972d2",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1024.359956027044,
+          "y": 374.7795336137783
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1406.4964701279694,
+          "y": 407.0749991280056
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 450.3727439776326,
+          "y": 584.5913885689741
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 28.444551876745525,
+          "y": 497.68213857033544
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 946.2798535512147,
+          "y": 411.2863626755077
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 512.4636520232932,
+          "y": 471.2684720075141
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-157",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-158",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-158",
+      "side": "right",
+      "split": "train",
+      "frame_id": "SNGS-158_000001",
+      "game_id": "9",
+      "image": "images/train/SNGS-158_000001.jpg",
+      "field_label": "field/train/SNGS-158_000001.json",
+      "field_label_sha256": "f1a42d34eba92d9e8eeb5008211390da3e81d86c2ce5b6d3e64e59c9260c982f",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 325.2408440778704,
+          "y": 335.3517863509198
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 721.9611038249635,
+          "y": 304.6209141447734
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1699.6247843190456,
+          "y": 428.0515575798411
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1282.764155424578,
+          "y": 509.4657508576844
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 801.024303199353,
+          "y": 340.79133551986826
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1222.4597096441234,
+          "y": 401.33003543844814
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-159",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-159",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-160",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-160",
+      "side": "right",
+      "split": "train",
+      "frame_id": "SNGS-160_000666",
+      "game_id": "9",
+      "image": "images/train/SNGS-160_000666.jpg",
+      "field_label": "field/train/SNGS-160_000666.json",
+      "field_label_sha256": "231f188100843b2007e09a8374df8dc2931750f4f7f90d1fa3007afc84fcf1ef",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.20352941176470588,
+          "x": 532.6522446500095,
+          "y": 385.4150238243675
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.20352941176470588,
+          "x": 881.2800174814519,
+          "y": 359.4432099270714
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 1,
+          "v": 0.796470588235294,
+          "x": 1775.9756752093883,
+          "y": 480.5987337214729
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0.8428571428571429,
+          "v": 0.796470588235294,
+          "x": 1390.3578326930224,
+          "y": 549.9052903875627
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.3652941176470588,
+          "x": 949.6574456007313,
+          "y": 392.01569197087605
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.9476190476190476,
+          "v": 0.6347058823529411,
+          "x": 1336.0264889325213,
+          "y": 451.05011690772324
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-161",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-161",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-162",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-162",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-163",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-163",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-164",
+      "side": "left",
+      "split": "train",
+      "frame_id": "SNGS-164_000001",
+      "game_id": "9",
+      "image": "images/train/SNGS-164_000001.jpg",
+      "field_label": "field/train/SNGS-164_000001.json",
+      "field_label_sha256": "e7019eb5b87c20ea5395e6fbd0fc84fd59be19ebacbdc429b8bbf1268b07dce4",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1290.2686583909224,
+          "y": 339.5212727318857
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1617.4379217796168,
+          "y": 372.8757087820795
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 814.2365244635956,
+          "y": 502.718830726028
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 482.68255783028536,
+          "y": 430.7356375620044
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 1221.055078708272,
+          "y": 368.95698687871146
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 863.9701615127683,
+          "y": 412.83113733541916
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-164",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-165",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-165",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-166",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-166",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-167",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-167",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-168",
+      "side": "left",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-168",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-169",
+      "side": "left",
+      "split": "train",
+      "frame_id": "SNGS-169_000701",
+      "game_id": "9",
+      "image": "images/train/SNGS-169_000701.jpg",
+      "field_label": "field/train/SNGS-169_000701.json",
+      "field_label_sha256": "351c56d551f8692573610a1473a219caaf3c21a95e23e38c98f7181c15e2c10e",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1262.958770986106,
+          "y": 375.68409487531875
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1775.8802789846177,
+          "y": 417.28156102901005
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 555.5889192212288,
+          "y": 629.4204267390243
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 14.990014985489596,
+          "y": 523.2772311436316
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 1170.3847603785923,
+          "y": 420.774604322704
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 631.7924440560956,
+          "y": 493.19774845547806
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-169",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    },
+    {
+      "clip": "SNGS-170",
+      "side": "left",
+      "split": "train",
+      "frame_id": "SNGS-170_000316",
+      "game_id": "9",
+      "image": "images/train/SNGS-170_000316.jpg",
+      "field_label": "field/train/SNGS-170_000316.json",
+      "field_label_sha256": "dfff429902ce86e2e6c7927ed26320bdb13f3362db6b07a0f4236c5186a84bc2",
+      "points": [
+        {
+          "name": "Strafschopgebied boven, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.20352941176470588,
+          "x": 1254.2236367032563,
+          "y": 352.75815666785684
+        },
+        {
+          "name": "Strafschopgebied boven, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.20352941176470588,
+          "x": 1761.9780398934784,
+          "y": 392.30911816178616
+        },
+        {
+          "name": "Strafschopgebied onder, rechterkant",
+          "role": "fit",
+          "u": 0.15714285714285714,
+          "v": 0.796470588235294,
+          "x": 576.2411059478399,
+          "y": 598.9724826955282
+        },
+        {
+          "name": "Strafschopgebied onder, linkerkant",
+          "role": "fit",
+          "u": 0,
+          "v": 0.796470588235294,
+          "x": 48.01746393687406,
+          "y": 494.13059471700313
+        },
+        {
+          "name": "Doelgebied boven, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.3652941176470588,
+          "x": 1172.637079259381,
+          "y": 396.0894602675063
+        },
+        {
+          "name": "Doelgebied onder, hoek op 5,5 m van de doellijn",
+          "role": "check",
+          "u": 0.05238095238095238,
+          "v": 0.6347058823529411,
+          "x": 649.9567658154049,
+          "y": 466.1252841887415
+        }
+      ],
+      "status": "rejected",
+      "reason": "Deze punten leveren geen begrensd veld op. Kies beter verspreide veldpunten."
+    },
+    {
+      "clip": "SNGS-170",
+      "side": "right",
+      "split": "train",
+      "status": "six_visible_landmarks_unavailable"
+    }
+  ],
+  "passed_without_all_field_corners_visible": 1,
+  "provider_position_comparison": {
+    "objects": 16,
+    "median_m": 0.21286250893428643,
+    "p90_m": 0.35502082066051766,
+    "scope": "Agreement with provider box ground positions, not independent measured positional accuracy."
+  }
+}

@@ -44,3 +44,6 @@ artifacts/broadcast-ball-v3/*
 
 # Local inference cache; compact reliability reports remain versioned.
 /reports/broadcast-reliability-day1-20261028/confidence-*/detections.json
+
+# Lokale inzendings-ZIP; de uploadmap zelf staat in GitHub.
+/Inzending_Sports_Vision_2026_11_15.zip

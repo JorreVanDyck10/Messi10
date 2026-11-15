@@ -1,0 +1,366 @@
+{
+  "scope": "Post-hoc development snapshot, conditional kit assignment on 15 visually unambiguous SINGLE-PERSON proposals, not exhaustive detector GT or held-out video accuracy. Exclusions and all 20 crop proposals retained.",
+  "human_review_completed": false,
+  "review_policy": "provisional_ai_visual",
+  "video_sha256": "d9b92e58063e29be376319f680af7e136551a90f578dffff02a371f852c70ee3",
+  "frame_index": 29,
+  "references": [
+    {
+      "detection_id": "29:1",
+      "bbox_xyxy": [
+        1346.4539794921875,
+        213.73077392578125,
+        1362.4508056640625,
+        245.7289581298828
+      ],
+      "team": "team_a",
+      "review_index": 0
+    },
+    {
+      "detection_id": "29:2",
+      "bbox_xyxy": [
+        1146.753173828125,
+        318.7392883300781,
+        1173.4298095703125,
+        368.922607421875
+      ],
+      "team": "team_b",
+      "review_index": 1
+    },
+    {
+      "detection_id": "29:3",
+      "bbox_xyxy": [
+        1686.6724853515625,
+        172.32260131835938,
+        1703.97607421875,
+        204.43887329101562
+      ],
+      "team": "team_a",
+      "review_index": 2
+    },
+    {
+      "detection_id": "29:4",
+      "bbox_xyxy": [
+        1262.7208251953125,
+        230.6934051513672,
+        1277.62939453125,
+        269.80706787109375
+      ],
+      "team": "team_a",
+      "review_index": 3
+    },
+    {
+      "detection_id": "29:6",
+      "bbox_xyxy": [
+        777.9404296875,
+        421.3769836425781,
+        815.2422485351562,
+        493.81292724609375
+      ],
+      "team": "team_b",
+      "review_index": 4
+    },
+    {
+      "detection_id": "29:8",
+      "bbox_xyxy": [
+        1281.8751220703125,
+        334.0765686035156,
+        1311.4974365234375,
+        384.66766357421875
+      ],
+      "team": "team_b",
+      "review_index": 5
+    },
+    {
+      "detection_id": "29:11",
+      "bbox_xyxy": [
+        1241.4393310546875,
+        264.2959899902344,
+        1261.1966552734375,
+        303.1996765136719
+      ],
+      "team": "team_a",
+      "review_index": 7
+    },
+    {
+      "detection_id": "29:12",
+      "bbox_xyxy": [
+        1521.05712890625,
+        474.3050231933594,
+        1557.4342041015625,
+        550.7733764648438
+      ],
+      "team": "team_a",
+      "review_index": 8
+    },
+    {
+      "detection_id": "29:13",
+      "bbox_xyxy": [
+        1275.5511474609375,
+        278.6687316894531,
+        1294.612548828125,
+        325.80291748046875
+      ],
+      "team": "team_b",
+      "review_index": 9
+    },
+    {
+      "detection_id": "29:31",
+      "bbox_xyxy": [
+        1003.0697631835938,
+        327.1192932128906,
+        1027.6414794921875,
+        381.5031433105469
+      ],
+      "team": "team_b",
+      "review_index": 11
+    },
+    {
+      "detection_id": "29:35",
+      "bbox_xyxy": [
+        588.10888671875,
+        498.19598388671875,
+        621.5093994140625,
+        570.486083984375
+      ],
+      "team": "team_a",
+      "review_index": 12
+    },
+    {
+      "detection_id": "29:42",
+      "bbox_xyxy": [
+        1174.6693115234375,
+        245.03346252441406,
+        1196.8756103515625,
+        291.113037109375
+      ],
+      "team": "team_b",
+      "review_index": 13
+    },
+    {
+      "detection_id": "29:44",
+      "bbox_xyxy": [
+        1030.360107421875,
+        317.9347839355469,
+        1057.3626708984375,
+        372.3472900390625
+      ],
+      "team": "team_a",
+      "review_index": 14
+    },
+    {
+      "detection_id": "29:48",
+      "bbox_xyxy": [
+        1067.521484375,
+        281.9466552734375,
+        1083.865234375,
+        333.20806884765625
+      ],
+      "team": "team_b",
+      "review_index": 15
+    },
+    {
+      "detection_id": "29:53",
+      "bbox_xyxy": [
+        1145.0545654296875,
+        263.8940124511719,
+        1164.90673828125,
+        312.8330993652344
+      ],
+      "team": "team_a",
+      "review_index": 17
+    }
+  ],
+  "excluded": [
+    {
+      "review_index": 6,
+      "reason": "Only a narrow body fragment is inside this proposal."
+    },
+    {
+      "review_index": 10,
+      "reason": "Blurred upper-body fragment, not a reliable single-kit reference."
+    },
+    {
+      "review_index": 16,
+      "reason": "One box covers two separate blue players; not a single-person reference."
+    },
+    {
+      "review_index": 18,
+      "reason": "Red goalkeeper kit; team affiliation has not been verified."
+    },
+    {
+      "review_index": 19,
+      "reason": "One box covers overlapping white and blue players."
+    }
+  ],
+  "models": {
+    "baseline": {
+      "input": "reports/appearance-experiments/EXP-R009/raw-video-R009/detections.jsonl",
+      "input_sha256": "233e629e0116986280f4640995395ff9f4190ddd798d1bfbbde5bc24d808e8b7",
+      "correct": 9,
+      "wrong": 4,
+      "unknown": 2,
+      "records": [
+        {
+          "id": "29:1",
+          "truth": "team_a",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:2",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:3",
+          "truth": "team_a",
+          "prediction": null
+        },
+        {
+          "id": "29:4",
+          "truth": "team_a",
+          "prediction": "team_a"
+        },
+        {
+          "id": "29:6",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:8",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:11",
+          "truth": "team_a",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:12",
+          "truth": "team_a",
+          "prediction": "team_a"
+        },
+        {
+          "id": "29:13",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:31",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:35",
+          "truth": "team_a",
+          "prediction": null
+        },
+        {
+          "id": "29:42",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:44",
+          "truth": "team_a",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:48",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:53",
+          "truth": "team_a",
+          "prediction": "team_b"
+        }
+      ]
+    },
+    "candidate": {
+      "input": "reports/team-colour-v2/raw-r009-final/detections.jsonl",
+      "input_sha256": "fe8027c5e689df5eacece00055b418c74051b8c167a6d0013e155e963382dcfd",
+      "correct": 15,
+      "wrong": 0,
+      "unknown": 0,
+      "records": [
+        {
+          "id": "29:1",
+          "truth": "team_a",
+          "prediction": "team_a"
+        },
+        {
+          "id": "29:2",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:3",
+          "truth": "team_a",
+          "prediction": "team_a"
+        },
+        {
+          "id": "29:4",
+          "truth": "team_a",
+          "prediction": "team_a"
+        },
+        {
+          "id": "29:6",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:8",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:11",
+          "truth": "team_a",
+          "prediction": "team_a"
+        },
+        {
+          "id": "29:12",
+          "truth": "team_a",
+          "prediction": "team_a"
+        },
+        {
+          "id": "29:13",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:31",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:35",
+          "truth": "team_a",
+          "prediction": "team_a"
+        },
+        {
+          "id": "29:42",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:44",
+          "truth": "team_a",
+          "prediction": "team_a"
+        },
+        {
+          "id": "29:48",
+          "truth": "team_b",
+          "prediction": "team_b"
+        },
+        {
+          "id": "29:53",
+          "truth": "team_a",
+          "prediction": "team_a"
+        }
+      ]
+    }
+  }
+}

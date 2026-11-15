@@ -1,0 +1,34 @@
+{
+  "recorded_at": "2026-10-16T19:09:30.193239+00:00",
+  "manifest_sha256": "69b6f83426125f5826044afd868aad2e021b7ca2cf25e5982a779ff038e17773",
+  "same_original_match": true,
+  "original_time_ranges": {
+    "train": [
+      540.0,
+      568.0
+    ],
+    "val": [
+      660.0,
+      686.4
+    ],
+    "test": [
+      720.0,
+      746.4
+    ]
+  },
+  "nearest_train_val_gap_s": 92.0,
+  "nearest_val_test_gap_s": 33.60000000000002,
+  "external_development_overlap": {
+    "clip": "F_20200220_1_0720_0750",
+    "incoming_commit": "5403a39",
+    "annotation_frames": [
+      225,
+      250,
+      275
+    ],
+    "package": "assets/annotations/teamtrack0750",
+    "consequence": "No untouched independent project-final-test claim; reserved role test not used for player model selection."
+  },
+  "exact_duplicate_decoded_images": false,
+  "near_duplicates": "See dataset validation: all global-hash warnings retained. Full-frame and action review performed; static panorama dominates global hashes."
+}

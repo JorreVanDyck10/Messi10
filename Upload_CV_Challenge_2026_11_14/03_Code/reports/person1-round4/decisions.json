@@ -1,0 +1,47 @@
+{
+  "default_roles_unchanged": "R007",
+  "ball_profiles": "Optional ball-only and R007 combined pretrained/F005 multiscale profiles",
+  "same_inference_weight_comparison": {
+    "reference": {
+      "model": "pretrained",
+      "mode": "multiscale",
+      "frames": 51,
+      "class_id": 0,
+      "name": "ball",
+      "objects": 265,
+      "AP50": 0.6504295650597789,
+      "AP50_95": 0.23350164505531779,
+      "TP": 110,
+      "FP": 5,
+      "FN": 155,
+      "precision": 0.9565217391304348,
+      "recall": 0.41509433962264153,
+      "in_play_visible_references": 47,
+      "in_play_matched": 18
+    },
+    "candidate": {
+      "model": "F005",
+      "mode": "multiscale",
+      "frames": 51,
+      "class_id": 0,
+      "name": "ball",
+      "objects": 265,
+      "AP50": 0.7569925390946075,
+      "AP50_95": 0.3787909735266992,
+      "TP": 193,
+      "FP": 36,
+      "FN": 72,
+      "precision": 0.8427947598253275,
+      "recall": 0.7283018867924528,
+      "in_play_visible_references": 47,
+      "in_play_matched": 20
+    },
+    "delta_AP50": 0.10656297403482862,
+    "delta_AP50_95": 0.14528932847138143
+  },
+  "highest_AP95_geometry_for_F005": "whole4096: .380099, but75FP versus36FP for multiscale .378791",
+  "inference_choice": "Publish the mixed result; multiscale trades a small AP95 decrease for far fewer FP versus whole4096. No application threshold tuning.",
+  "scope": "51 development frames from two time groups in one match; 265 football labels including218reserves and47visible in-play labels. No final test or independent human review.",
+  "role_work": "78review cases prioritised; no new role training or label modifications in this round.",
+  "round3_results_unchanged": true
+}

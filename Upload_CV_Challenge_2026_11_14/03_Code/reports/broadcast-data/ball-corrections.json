@@ -1,0 +1,41 @@
+{
+  "corrections": [
+    {
+      "frame_id": "SNGS-097_000376",
+      "before": [
+        935.0,
+        446.0,
+        949.0,
+        460.0
+      ],
+      "after": [
+        932,
+        456,
+        947,
+        471
+      ],
+      "review_status": "open",
+      "annotator": "Codex (AI)",
+      "human_review_completed": false
+    },
+    {
+      "frame_id": "SNGS-071_000371",
+      "before": [
+        704.0,
+        660.0,
+        721.0,
+        677.0
+      ],
+      "after": [
+        700,
+        672,
+        719,
+        692
+      ],
+      "review_status": "open",
+      "annotator": "Codex (AI)",
+      "human_review_completed": false
+    }
+  ],
+  "source_fingerprint": "4fa69bad392c33bffb8d6c97397246c5b052e745c09e2bbc4e6c5a44cbdde421"
+}

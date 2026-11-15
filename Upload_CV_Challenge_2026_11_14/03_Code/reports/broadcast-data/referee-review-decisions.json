@@ -1,0 +1,58 @@
+{
+  "source_fingerprint": "3e1460fbd4ce12fec209d26bdb13fbb0de4dae61e68a61023449e975a771ca0f",
+  "reviewer": "Codex (AI)",
+  "sample_size": 30,
+  "human_review_completed": false,
+  "clips": [
+    {
+      "source_clip_id": "032ca2db-960f-480c-bb9c-c6ed108fb291",
+      "status": "include",
+      "reason": "AI visual spot-check of first, middle and last frame shows no obvious label error; not a complete human review."
+    },
+    {
+      "source_clip_id": "0f8fc039-1fc2-4cd5-ae78-3dcd0f7cc7e1",
+      "status": "include",
+      "reason": "AI visual spot-check of first, middle and last frame shows no obvious label error; not a complete human review."
+    },
+    {
+      "source_clip_id": "2e3b6c35-72de-4135-8fab-d55ff4a6eb23",
+      "status": "include",
+      "reason": "AI visual spot-check of first, middle and last frame shows no obvious label error; not a complete human review."
+    },
+    {
+      "source_clip_id": "3f96530a-c145-484f-82fa-1d044c3025a2",
+      "status": "include",
+      "reason": "AI visual spot-check of first, middle and last frame shows no obvious label error; not a complete human review."
+    },
+    {
+      "source_clip_id": "5c2081b3-ebb8-4de3-a357-7580c730a059",
+      "status": "include",
+      "reason": "AI visual spot-check of first, middle and last frame shows no obvious label error; not a complete human review."
+    },
+    {
+      "source_clip_id": "71125020-e8bb-431a-bb51-b2e17e33a20d",
+      "status": "include",
+      "reason": "AI visual spot-check of first, middle and last frame shows no obvious label error; not a complete human review."
+    },
+    {
+      "source_clip_id": "7d503a7a-0927-4587-97d2-06f43d05cb23",
+      "status": "include",
+      "reason": "AI visual spot-check of first, middle and last frame shows no obvious label error; not a complete human review."
+    },
+    {
+      "source_clip_id": "81926caa-6cb9-4206-b709-60d55623d18a",
+      "status": "quarantine",
+      "reason": "Standing referee boxes overlap an occluding coach and seated officials; visible/amodal extents ambiguous. Whole clip withheld."
+    },
+    {
+      "source_clip_id": "b0558318-3605-4d54-9930-41c77fd4b20a",
+      "status": "include",
+      "reason": "AI visual spot-check of first, middle and last frame shows no obvious label error; not a complete human review."
+    },
+    {
+      "source_clip_id": "bd8d9aab-a312-4a5b-86f0-d1258687bcfb",
+      "status": "quarantine",
+      "reason": "Frame 29 labels a supporter/flag below the goal as referee. Whole clip withheld, including ambiguous distant negative frames."
+    }
+  ]
+}

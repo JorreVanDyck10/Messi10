@@ -1,0 +1,370 @@
+{
+  "schema_version": 3,
+  "field_settings": {
+    "version": 2,
+    "keypoint_threshold": 0.3434,
+    "line_threshold": 0.7867,
+    "motion": true,
+    "tracking_width": 960,
+    "forward_backward_px": 1.5,
+    "minimum_motion_inliers": 20,
+    "minimum_motion_ratio": 0.6,
+    "maximum_age_s": 2.0,
+    "ransac_px": 3.0,
+    "median_diagonal_fraction": 0.005,
+    "maximum_diagonal_fraction": 0.01,
+    "minimum_image_hull_fraction": 0.001,
+    "minimum_motion_hull_fraction": 0.01,
+    "cut_mean_difference": 45.0,
+    "cut_histogram_distance": 0.55,
+    "holdout_rule": "two_semantic_tertiles_no_refit"
+  },
+  "recalibrate_replay": false,
+  "calibration_mode": "automatic",
+  "player_policy": {
+    "version": 1,
+    "role": "player",
+    "position": "bottom_center_inside_normalized_field",
+    "requires_valid_current_calibration": true,
+    "display_confidence": 0.25,
+    "include_matched_low_confidence": true,
+    "meaning": "current_detected_players_not_unique_people_or_verified_match_roster"
+  },
+  "team_settings": {
+    "schema_version": 1,
+    "method": "torso_embedding_dominant_modes_v1",
+    "sample_hz": 5.0,
+    "max_samples": 2048,
+    "min_track_samples": 3,
+    "min_cluster_members": 2,
+    "min_cluster_frames": 3,
+    "min_box_width": 10,
+    "min_box_height": 24,
+    "background_distance": 8.0,
+    "min_foreground_fraction": 0.3,
+    "max_color_spread": 24.0,
+    "cluster_radius": 14.0,
+    "min_separation": 28.0,
+    "max_match_distance": 24.0,
+    "min_distance_margin": 8.0,
+    "confirmation_samples": 1,
+    "switch_samples": 5,
+    "history_seconds": 1.2,
+    "embedding_radius": 0.12,
+    "embedding_separation": 0.35,
+    "embedding_max_distance": 0.5,
+    "embedding_margin": 0.1,
+    "kit_player_recovery": true,
+    "referee_kit_consensus": true
+  },
+  "cache_key": "e3de2b4584e37df53beb857f22610d1351b1652d9efc1728f9746483ab69b138",
+  "status": "completed",
+  "started_at": "2026-11-14T17:19:22.008570+00:00",
+  "video": {
+    "path": "C:\\CV\\Messi10-AN-verify\\data\\uploads\\a9a615e5349db1c84f9e49960e7f0233e46d70fd540f32275e3eb9f67adf5143.mp4",
+    "sha256": "a9a615e5349db1c84f9e49960e7f0233e46d70fd540f32275e3eb9f67adf5143",
+    "width": 1920,
+    "height": 1080,
+    "fps_num": 25,
+    "fps_den": 1,
+    "frame_count": 75,
+    "codec": "h264",
+    "duration_s": 3.0
+  },
+  "calibration_id": "48dbf9f2586f59351625a22741dda4eadb22190b9561be0161bdb23e51760d94",
+  "models": {
+    "schema_version": 1,
+    "profile_name": "Broadcast — spelers, teams en Andrew-bal (ontwikkelprofiel)",
+    "models": [
+      {
+        "model_id": "broadcast-pitch-players-v7",
+        "weights": "C:\\AI2\\Messi10\\artifacts\\broadcast-players-v1\\players_best.pt",
+        "weights_sha256": "fb6deea2d6c51bada9d3f8bfd666882212f45d1a1584547d02dc98aa59aaaa25",
+        "class_mapping": {
+          "0": "player"
+        },
+        "expected_names": {
+          "0": "player"
+        },
+        "imgsz": 1920,
+        "confidence": 0.1,
+        "iou": 0.7,
+        "device": "cpu"
+      },
+      {
+        "model_id": "coco-person-proposals",
+        "weights": "C:\\AI2\\Messi10\\artifacts\\broadcast-players-v1\\person_proposals.pt",
+        "weights_sha256": "d5ffc1a674953a08e11a8d21e022781b1b23a19b730afc309290bd9fb5305b95",
+        "class_mapping": {
+          "0": "person"
+        },
+        "expected_names": {
+          "0": "person"
+        },
+        "imgsz": 1920,
+        "confidence": 0.1,
+        "iou": 0.5,
+        "device": "cpu"
+      },
+      {
+        "model_id": "andrew-ball-v1",
+        "weights": "C:\\AI2\\Messi10\\artifacts\\andrew-four-class-v1\\best.pt",
+        "weights_sha256": "78a847ecd67f78566e666a54aabca6141e7e63495fb76783e17b3a859d90fee9",
+        "class_mapping": {
+          "0": "ball"
+        },
+        "expected_names": {
+          "0": "ball"
+        },
+        "imgsz": 1280,
+        "confidence": 0.03,
+        "iou": 0.5,
+        "device": "cpu"
+      }
+    ],
+    "appearance": {
+      "model_id": "joint-selected-roles",
+      "weights": "C:\\AI2\\Messi10\\artifacts\\broadcast-players-v1\\roles_teams.pt",
+      "weights_sha256": "8987a94964d8d00802cac5b863a889dc0b7ca9052ac159e6c5480830e7c69025",
+      "role_names": [
+        "player",
+        "referee",
+        "person"
+      ],
+      "role_confidence": 0.5,
+      "team_confidence": 0.65,
+      "device": "cpu",
+      "role_policy": "preserve_detector_players"
+    },
+    "analysis_scope": "on_pitch_players",
+    "kit_embedding": {
+      "model_id": "broadcast-kit-v1",
+      "weights": "C:\\AI2\\Messi10\\artifacts\\broadcast-players-v1\\kit_embedding.pt",
+      "weights_sha256": "bb37f14d7f6b85a61b3d688e18563895f3c1ebac82db340e39f125af2c4125fe",
+      "device": "cpu"
+    },
+    "person_geometry": true,
+    "role_context": {
+      "model_id": "pitch-role-context-observed-v8",
+      "weights": "C:\\AI2\\Messi10\\artifacts\\broadcast-players-v1\\role_context.pt",
+      "weights_sha256": "fa9fd730d668a4225279fe31ffacb450e2b5bc1c2f7674df7550006b7ba76541",
+      "player_threshold": 0.95,
+      "nonplayer_threshold": 0.99,
+      "protect_end_fraction": 0.08
+    },
+    "person_box_fusion_weight": 0.5,
+    "handoff": {
+      "evaluation_record": "C:\\CV\\Messi10-AN-verify\\reports\\broadcast-pitch-v1\\summary.json",
+      "human_review_completed": false,
+      "independent_final_test_completed": false,
+      "targets_met": false,
+      "scope": "Broadcast development validation covers players inside current field only; Andrew ball accuracy not independently evaluated",
+      "ball_source": "Andrew supplied four-class checkpoint, inference restricted to ball class 0"
+    }
+  },
+  "code": {
+    "git_commit": "19b0767fa04281b2ed01b020b627473cc74d5238",
+    "source_sha256": "e3e77292d5592ebf0afab76118ddc067873df4b5716efa18bcbd75ac66fc21ce",
+    "files": {
+      "src\\football_pipeline\\__init__.py": "7b19e6b3cc600011e88359f5d88d08da790073876701684a4d7a839b71c39ea7",
+      "src\\football_pipeline\\__main__.py": "0e56e163f1a37b566369d7d12c8553ada884cfbffc96af08dfffea2537b4e310",
+      "src\\football_pipeline\\app_results.py": "818e6d9fa8840d196ab4e9aca86072166708c64344657adb860bad653045df9d",
+      "src\\football_pipeline\\appearance.py": "f08f153615c7fc9689d6c544b803f9753fc7ec5d21f01f0d4b6580d3e2d2233a",
+      "src\\football_pipeline\\automatic_analysis_ui.py": "d697fe9c6b6c92bd3ffaa44ebe2ab0d73f266f25e1727a9873798ab3be9ca67b",
+      "src\\football_pipeline\\automatic_calibration.py": "104936b3501dff9ee784af7e9dc8369420690593c8de01d95f009059a581a389",
+      "src\\football_pipeline\\ball_tiles.py": "606d0393bc630dda9300c57ce641102d4dc35df016e6a25d3f420ea8c3f76d63",
+      "src\\football_pipeline\\bidirectional_field.py": "c4638a6f19001b1d78280dfa352399fc3dc156cef0d7ceed1c7d584a38dbcfd5",
+      "src\\football_pipeline\\broadcast_context_training.py": "a4b9ed9a3058c218b9adfe2c8a33274525b48dc4dfb61e30bcc56ee1121d85bc",
+      "src\\football_pipeline\\broadcast_data.py": "869ab2c874ab00863deff0616e3ee37a26efa51fc9f4888b6007744b487240df",
+      "src\\football_pipeline\\broadcast_dataset.py": "3b5dfe17885ca3dd677872750a6eaffb30c46ef022f910ae68a98af1a6f39ea1",
+      "src\\football_pipeline\\broadcast_detector_refine.py": "7a52d0458a1493c8970710a056ac01815d3f41a8255ece5ea9a8c77bdb3b5d60",
+      "src\\football_pipeline\\broadcast_evaluation.py": "f937c98c983bc4cfb245afcfa44eb5690ce2254c252c60347133f7c46ca18733",
+      "src\\football_pipeline\\broadcast_multisource_training.py": "5b6457e3016d025a9932eabc32a16b2bb2611738c56860aa093c5e81ddc565ce",
+      "src\\football_pipeline\\broadcast_observed_context.py": "4a4cf7ba0e61d356ab908730488ed8e8a8707ddc7be069210e22b386ad14cf55",
+      "src\\football_pipeline\\broadcast_refine.py": "40035937d65593b30d965b5660cc77508aaa49acda97d04fda5e99f10bb20099",
+      "src\\football_pipeline\\broadcast_release.py": "8a4022e95a2cdbb618cc3a027292909e731fe1bb52490e7ae565a8c8314a00eb",
+      "src\\football_pipeline\\broadcast_resume.py": "ac63425f6b04a11536fe866f4d0c7922547326ce32b0474db04ccf4a22ed7b7a",
+      "src\\football_pipeline\\broadcast_training.py": "26f4ccb8272c13edd85ead1fc9980069f1cfe6ed56b2bc29c37cdb2f2f4334c9",
+      "src\\football_pipeline\\calibration_evaluation.py": "abef995bcd735835dce132cfa936c8484815c3fb128f6277292a54304740da74",
+      "src\\football_pipeline\\calibration_input.py": "2e9f6b7dbf8cb2a7d3ad86a777fd6dbaae5f674ff1c63fb9c1e0586c02aa5221",
+      "src\\football_pipeline\\cli.py": "a968c9ee73b3055259ebe2f482b1f8fac8fa89df6dfc05a2b0fbf9476eefc330",
+      "src\\football_pipeline\\contracts.py": "e5bbf94b547ea472270fad6a73342c2a2746ac1a131de0d504379f9bdff57689",
+      "src\\football_pipeline\\course_dataset.py": "2a880c9c39abe8ebdbe42e7729b02158ce0ab65c7b73073ec2ab1f0c7480196e",
+      "src\\football_pipeline\\course_experiments.py": "bc17276a39bb16a47cdb074b88c73155a6aacfd6a3bf6035a397ee5e46162417",
+      "src\\football_pipeline\\course_field_evaluation.py": "2649e5333f89a1ccbf8ccf97bb9861b103e33a7bbf180bda48980a1eceb6f5e0",
+      "src\\football_pipeline\\demo.py": "3cd4b957c7262a6c4c7ce8a80f016e93d03fa03d33fdf623984118ca0634f960",
+      "src\\football_pipeline\\detection.py": "b30356c5a6040ce07a8cab12ddd6a71e23c37400cbc6aef1f579d13c69d0546d",
+      "src\\football_pipeline\\distance_ui.py": "27ac4e550dd282291ee9aaf15553d4527a9be9e87672e0aa36707849fc34b06c",
+      "src\\football_pipeline\\distances.py": "d82ecde13e0691e6e806a77f74255de5cb79ae97c0b58ecba2d2bead7ea65ea9",
+      "src\\football_pipeline\\dropout_analysis.py": "82d20aaa03214a617a6bfb05733e456e9849e08a7f92f025b47a21a4525d13ac",
+      "src\\football_pipeline\\evaluation.py": "38da28c4136bcc16bddf6c0202804e625c86f88e73ec23205835465a157a17cb",
+      "src\\football_pipeline\\field_bounds.py": "32f4b8bd2d9a0ef4669a92171521535038acbf2ea13023821fa9dfab945d1b72",
+      "src\\football_pipeline\\field_comparison.py": "df9657f55459d1c41cccbfb9d2876bac1bb41f30159c2ae0bc30ce88a3d864f8",
+      "src\\football_pipeline\\field_coordinates.py": "da9bdeab694073349df6d22fbb13bd3fed2a3fd16735520c04056182deb36ebb",
+      "src\\football_pipeline\\field_crop_observations.py": "ba3e2cf7797b5dd6d4a6eb183018f556c1d7866fe647d7a6a00686e85dd4b019",
+      "src\\football_pipeline\\field_data.py": "9ba628ff189af2685ca65604806f619d89b18f65cb6520d16f92ddc34c8c8832",
+      "src\\football_pipeline\\field_head_ensemble.py": "e1506961a4a20dc28a5f114381121a435537a63d7fd3113a2ebbbeab72225670",
+      "src\\football_pipeline\\field_layout.py": "490675e281ea5231fc4a05d3f14f05cc568efff07c27a843a1a18123a6f12573",
+      "src\\football_pipeline\\field_layout_bridge.py": "7ed95f9d94418582e0b80ecdb59719adb8c64c407bc2398d966438451f4435c9",
+      "src\\football_pipeline\\field_learning.py": "f805584d0a5375c6d26cbef71b4a2f43aa0eddfc54bb379528e580a2d78ba214",
+      "src\\football_pipeline\\field_lens.py": "13a05a5569cf5ea77aee29419094d9bcd252e6a4de2f5e35b0f852fedd371473",
+      "src\\football_pipeline\\field_line_experiment.py": "ea9159010e44ce225413e1055edfe1ddcdf8a2f2aaab57868a3ed1cfba704e90",
+      "src\\football_pipeline\\field_line_geometry.py": "3932b09fd985d93821b994add100a38e35ff74b4db1720d533d95bb344479799",
+      "src\\football_pipeline\\field_model_spec.py": "810762dd296ae6125db4d5f9f1a21296d0f6184bf6fd76afe2a976228685261e",
+      "src\\football_pipeline\\field_motion.py": "f8ccc318d7da83584567c16da6b0c27d3b090b44a9d0c2a629e197285972a514",
+      "src\\football_pipeline\\field_paint_checks.py": "2ede84b0b5c171b783d1247e2ef6e5d8a2093793d5342624607f739d17bb1faa",
+      "src\\football_pipeline\\field_pose.py": "c2ade41ba17193422de93d0fde93e82dfc32ec8e81ee5ba1b6463fd6306187ca",
+      "src\\football_pipeline\\field_pose_dataset.py": "99defd2d3b0d3b4971fa0812c61136332995a4cdfdc5321cb5723307c1a16627",
+      "src\\football_pipeline\\field_pose_training.py": "195a831a3ccc3b684620720834829ad3f7c85c5861b5fbd0ee6656ab329774c9",
+      "src\\football_pipeline\\field_recovery.py": "3663e02564065dec57032c372b52e54ce29bb9c4b62d88f77d5bcc4d9e582464",
+      "src\\football_pipeline\\field_review.py": "6c66eca56bcc53d27bc5d77ea371075c66bf8b4f15975cafe483ff3b0a3c50fa",
+      "src\\football_pipeline\\field_review_ui.py": "9e1e3aac203c4d7678d84dece14d5a3c515d669312f69db3a5a4cbf8fc827b14",
+      "src\\football_pipeline\\geometry.py": "0b4d2484abdb348dd64c8da0d64f287840826e3d2e81ef7813ef52c419da1142",
+      "src\\football_pipeline\\joint_data.py": "ca99652237beeab8fedab8e2576d3ff559ebe57c0e467b61610749bbc756b55b",
+      "src\\football_pipeline\\joint_field.py": "e21f6cd6c212966ae3344553e87b685c67a1e3773ad76ea27cf82f4f12c9a6a9",
+      "src\\football_pipeline\\joint_report.py": "fb2b2737c3d47b272f70db55317aeed504c1689f0c5e9d9ccd3035e7de1d4b17",
+      "src\\football_pipeline\\joint_training.py": "7afb48e35b6d30f812170b89b834579c818f6f844f670766e319efd474c70161",
+      "src\\football_pipeline\\keeper_teams.py": "d86dfa20b3a9e4534cbf8f18c62dba8367203488710c670166ce904321084401",
+      "src\\football_pipeline\\kit_embedding.py": "a4114e940d276128a2dc711800942753c22e9cbe8f0dbcec9b05f00232e21c21",
+      "src\\football_pipeline\\model_handoff.py": "bc99a2ae82d037a6a7c5d788d88546b7c0d45855ecbd685027020e359602bfd6",
+      "src\\football_pipeline\\participants.py": "f155efe98f197360d027b83a48a07a9a5b71ac2d65fbbc0327b65c40218636bb",
+      "src\\football_pipeline\\pipeline.py": "8b5beb58fe4157b8048cfb0d81b2de214903db3da7dd8f1bd473581523510fdd",
+      "src\\football_pipeline\\player_controls_ui.py": "6480eee90abf32785f6f9273643a9be00bdd83c819ecf668c08ddac1e05cbb54",
+      "src\\football_pipeline\\point_picker.py": "8f5855c09cbcf424820840457e8288539be41330841bcb548987866d03664923",
+      "src\\football_pipeline\\referee_dataset.py": "b9d3bfa03608a4b663010247fe652a4c3aa192c5e3058c6f8dce95e0a2bee3eb",
+      "src\\football_pipeline\\render.py": "3bdeeb7b452a7d103d1bcacc5e257b24138e2191704e802d6cd417f03f385392",
+      "src\\football_pipeline\\replay.py": "d46b23eda60a29248e35ee39f5fc2fcc1cf24e9f843382d7da02dd6f17ad4a20",
+      "src\\football_pipeline\\repository_training.py": "fdb77103467ad7285dab3906453f8d1141179f158d8762ba62b1b2b211fcb1d9",
+      "src\\football_pipeline\\research_archive.py": "0144282cbb25653b1f340d65b65a3f7498887c481e117bbb5a4bc6c307e7f67f",
+      "src\\football_pipeline\\role_context.py": "4fa9a97a3755f650b517135c7c76ff755d53274f588dd75909f54ef7fdfef1d7",
+      "src\\football_pipeline\\sportsmot_data.py": "acbf6f120bf8ae17a49b8fefe55820ddfb66eda200cbb7c5c2a22b6d665750f1",
+      "src\\football_pipeline\\team_results.py": "7e07b5097b21c7eebdc3c50bd544ccfb3b8e38c3c628462b54cc1b24706be34f",
+      "src\\football_pipeline\\team_ui.py": "ec52ab6ab2e6aa365a0e52ae30c4228b5020ab4ab4910907de78dc1dc08db0c5",
+      "src\\football_pipeline\\teams.py": "fcc0a9b68cd80296a75a47c8c8167a91833b345f4283674a207da3a9d554dabb",
+      "src\\football_pipeline\\temporal_roles.py": "300bbea7b96dc0bbcde3e89e6b9a02af578e31eea0044a2eaf03f9fb27efe2d9",
+      "src\\football_pipeline\\tracking.py": "d291914fa7c461d3a886f6dda7fa9e5950da0ebb42e3db7bb80b137470bfd604",
+      "src\\football_pipeline\\tracking_evaluation.py": "1ea08e418d4653b0716c6c99c7897037e2a95cb5348bde9791ed87313e010baf",
+      "src\\football_pipeline\\tracking_motion.py": "66bb220faa2d7feecabc95cc35ff39e485ac8954dc160a1af84d948f7ee6edd3",
+      "src\\football_pipeline\\training_budget.py": "b1a025c413851dd74b718c96491d86d1c5d44d3c562b6dbf204efc409fdc53ed",
+      "src\\football_pipeline\\training_hardware.py": "88c743dae277dbb0c72265ba33edc52ffd8ad0707c2947182f87b739f95e8afe",
+      "src\\football_pipeline\\training_status_ui.py": "f2476d47c68e22559e3c90d507adc7abe59ebf16261de2068f2760fa2cc5710a",
+      "src\\football_pipeline\\training_transfer.py": "92bb33b0ac87e0e08ab2a4458b71e48e04d0c9af576f3238b4d7f1eb8dd5c399",
+      "src\\football_pipeline\\training_ui.py": "801dd9d7a0e3ec3f590f093ceb3b870f22c15d8b6dc4c0e81ae4a88b7b725e16",
+      "src\\football_pipeline\\training_workbench.py": "a7511b8a67cd4f3d2c0a524812941f9a59e65a9225bf964c8119a201234d2728",
+      "src\\football_pipeline\\training_worker.py": "b26225360090b7cd2625a4cbdaf39c32ef12748c47d1c6c32358ba6dcbc77757",
+      "src\\football_pipeline\\video.py": "b98920de90dd22392dda5c75ca628acebfb76b927d3db823b68eb0f5d8f89880",
+      "src\\football_pipeline\\video_teams.py": "47ea4b2a9cc6e73f808002ae8ec751589bf44171070f6564359500f747bcfd25",
+      "src\\football_pipeline\\yolo26_comparison.py": "8c39ff34b7a383feaa0248b7cace66b824f3139cd3d3b1623287fb28472850f6",
+      "streamlit_app.py": "14d2926c0b903a371542a90d6a49731892ab8238d97114ff794559886a46968e",
+      "pyproject.toml": "84b294023e07584324ee385b581fab9c226e3cefb50a6c4e5f3fb5852a784942"
+    }
+  },
+  "dependencies": {
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.10.0+cpu",
+    "torchvision": "0.25.0",
+    "opencv-python": "4.10.0.84",
+    "numpy": "2.3.5",
+    "psutil": "7.2.2",
+    "lap": "0.5.13",
+    "scipy": "1.17.1"
+  },
+  "tools": {
+    "ffmpeg": "ffmpeg version N-128837-g986bab2b47-20261112 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version N-128837-g986bab2b47-20261112 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "tracker_config": {
+    "tracker_type": "bytetrack",
+    "track_high_thresh": 0.25,
+    "track_low_thresh": 0.1,
+    "new_track_thresh": 0.25,
+    "track_buffer": 30,
+    "match_thresh": 0.8,
+    "fuse_score": true
+  },
+  "tracking_policy": {
+    "camera_compensation": "background_affine_ransac",
+    "reset_on_cut_or_unreliable_motion": true,
+    "field_required_for_image_ids": false,
+    "human_accuracy_validated": false,
+    "status": "experimental"
+  },
+  "mvp_acceptance": null,
+  "evidence_kind": "ultralytics",
+  "technical_pilot": false,
+  "custom_provenance": {},
+  "replayed_from": null,
+  "field_evidence_kind": "pnlcalib",
+  "tracker_effective": {
+    "effective_buffer_updates": 30,
+    "effective_buffer_seconds": 1.2,
+    "fps_scaling": "one_update_per_source_frame",
+    "index_compatibility": "8.3.221_source_indices",
+    "camera_compensation": "background_affine_ransac",
+    "motion_state_transform": "xyah_box_envelope_jacobian",
+    "field_required_for_image_ids": false
+  },
+  "team_model_status": "available",
+  "team_origin": {
+    "directory": "C:\\CV\\Messi10-AN-verify\\runs\\e3de2b4584e37df53beb857f22610d1351b1652d9efc1728f9746483ab69b138",
+    "cache_key": "e3de2b4584e37df53beb857f22610d1351b1652d9efc1728f9746483ab69b138"
+  },
+  "team_calibration": {
+    "method": "video_colour_clusters",
+    "feature_version": "saturation_weighted_hsv_v2",
+    "calibration_observation_limit": 200,
+    "ready": false,
+    "samples": 0,
+    "updates": 0,
+    "centers": null,
+    "radii": null,
+    "names": "neutral A/B; no club or home-away claim",
+    "confidence_meaning": "relative colour distance margin, not probability",
+    "supervised_known_match": false
+  },
+  "completed_at": "2026-11-14T17:27:51.716597+00:00",
+  "artifacts": {
+    "calibration.json": "32b7e4866e3586c209ec6dfe666e63eceba44217c6f9b9b3e5f6bb62fa357764",
+    "framegegevens.jsonl": "d4fbc49d410f3fcbcb0522204c3c18bc5f5730cc2e79b7139ed6db09e5fa70c7",
+    "observations.jsonl": "7d70e68d2a06080230222be0cc27d9e2cb3246dbba3f95aecfc88903ed39afdd",
+    "samengestelde_video.mp4": "71d8ba18ee4ce809313a923d728080a9761c5be86507fc8bab991282d83b0629",
+    "teamcorrecties.json": "02fc1d6e220b58eb171be6e1d00f2485cf667db928f8825edcb4c5693f4be2b2",
+    "teaminstellingen.json": "b39f9c07b9518350198d1a01059ddbdd38320e34b435f626df493d0e156bb83d",
+    "teamtelling.csv": "84a2826b670c0a8a800a26cb202ea13a6a79addccfd30fb0d926c3160941437b",
+    "controlebeelden\\frame_000000.jpg": "030cf2723ae3bd9dd4b562eba15a24db37bcf305fae54111ffa8652953bf5f73",
+    "controlebeelden\\frame_000037.jpg": "aacbfea07737fbdfc1bdda265a8cc0c50e190a5ae6cfac5d8327e30b7c44d706",
+    "controlebeelden\\frame_000074.jpg": "5a420946984a9a59f8e92c30e28f437c90a3276fa7f3b8dac93f0dabc81eba40"
+  },
+  "measurements": {
+    "processed_frames": 75,
+    "runtime_s": 1047.0724487002008,
+    "processing_fps": 0.07162828139839071,
+    "inference_or_replay_s": 483.2589713004418,
+    "tracking_s": 5.821269401349127,
+    "teams": {
+      "runtime_s": 5.211240000091493,
+      "observations": {
+        "assigned": 1626,
+        "unknown": 85
+      },
+      "peak_process_ram_bytes_sampled": 3817295872,
+      "model_status": "available"
+    },
+    "peak_process_ram_bytes_sampled": 3950333952,
+    "peak_gpu_allocated_bytes": null,
+    "projection_counts": {
+      "valid": 3310,
+      "outside_field": 938,
+      "truncated_bottom": 54,
+      "not_ground_projected": 87,
+      "calibration_unavailable": 105
+    },
+    "calibration_preparation_s": 537.2948249001056,
+    "calibration_status_counts": {
+      "valid": 73,
+      "motion_semantic_disagreement": 2
+    },
+    "calibration_usable_fraction": 0.9733333333333334
+  }
+}

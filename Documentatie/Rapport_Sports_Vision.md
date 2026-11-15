@@ -1,12 +1,12 @@
 # Sports Vision & Tactical Mapping
 
-**Projectrapport, versie 3 - 15 november 2026**
+**Projectrapport, versie 4 - 15 november 2026**
 
-**Team:** Messi10
+**Team:** Messi10 — Andrew, Milan Wouters, Raoul en Jorre
 
 **Bronversie:** GitHub main `524d081a445dd57762e14eeb1e7142bbb9a3ba53`
 
-**Bijdragen:** Andrews vierklassenmodel en AI-verantwoording; Jorres integratie, technische afronding en registratie van de teamreview
+**Bijdragen:** Milans videokeuze, ondersteund labelwerk en persoonlijke AI-verantwoording; Andrews vierklassenmodel en AI-verantwoording; Jorres integratie, technische afronding en registratie van de teamreview
 
 **Status:** documentatie bijgewerkt; open opleverpunten staan afzonderlijk vermeld.
 
@@ -14,7 +14,7 @@
 
 Sports Vision analyseert voetbalvideo met objectdetectie, perspectieftransformatie, tijdelijke speler-ID's en een gesynchroniseerde tactical map. Het project combineert bestaande en gefinetunede modellen met een lokale Streamlit-interface. De belangrijkste afwegingen gaan over kleine objecten, onderscheid tussen personenrollen, betrouwbare veldgeometrie en het verschil tussen een echte waarneming en een voorspelde positie.
 
-Dit rapport verwerkt de bijdragen die op 15 november uit GitHub main zijn opgehaald. Andrews `docs/VierKlassenModel.md` beschrijft zijn oorspronkelijke bal-/scheidsrechterprototype en zijn AI-gebruik. Zijn trainingsnotebook start van YOLOv8x en traint een model met vier klassen. De gezamenlijke broadcastpipeline gebruikt daarvan uitsluitend de baluitvoer; het bestaande YOLO11s-spelermodel blijft een afzonderlijke detector. Andrews eigen bewegingsvoorspelling is niet stilzwijgend gelijkgesteld aan de ByteTrack-route van de gezamenlijke app. [B24, B25, B28]
+Dit rapport verwerkt de bijdragen uit GitHub main en Jorres uploadbranch `8e29c3ff`. De uploadmap bevat de definitieve documenten, zijn twaalf-slidepresentatie als basis, uitvoer- en trainingscode en een werkelijk berekende demonstratie. Andrews `docs/VierKlassenModel.md` beschrijft zijn oorspronkelijke bal-/scheidsrechterprototype en zijn AI-gebruik. Zijn trainingsnotebook start van YOLOv8x en traint een model met vier klassen. De gezamenlijke broadcastpipeline gebruikt daarvan uitsluitend de baluitvoer; het bestaande YOLO11s-spelermodel blijft een afzonderlijke detector. Andrews eigen bewegingsvoorspelling is niet stilzwijgend gelijkgesteld aan de ByteTrack-route van de gezamenlijke app. [B24, B25, B28]
 
 Jorre heeft de toepassing en controles afgerond en de menselijke review van de 80-beeldenselectie geregistreerd op 14 november. Volgens de expliciete teambevestiging zijn alle huidige labels goedgekeurd en vielen twijfelgevallen buiten deze selectie. De labels en de 48/32-split zijn niet aangepast. De oorspronkelijke AI/provider-herkomst blijft behouden. Dit actualiseert de eerdere documentatie waarin de review nog open stond. [B29, B30]
 
@@ -26,9 +26,11 @@ De opdracht vraagt een MP4-fragment om te zetten naar een gesynchroniseerde 2D t
 
 De beoordelingsgewichten zijn 25% data en annotatie, 35% modellering en fine-tuning, 20% foutanalyse, 10% pipeline/homography en 10% proces/GenAI-eigenaarschap. Daarom beschrijft dit rapport de gevolgde keuzes en tegenresultaten, niet uitsluitend de interface. Tracking, automatische keypoints en teamanalyse zijn uitbreidingen boven op een degelijk MVP. De opdracht noemt geen verplichte YOLO-versie, minimum-mAP of minimum-FPS. Een aparte onafhankelijke eindtest is niet als afzonderlijk indieningsbestand voorgeschreven, maar blijft nodig voor sterke claims over ongeziene wedstrijden.
 
-Het indieningsbericht vraagt één ZIP per team met PDF-rapport, trainingsnotebook of vergelijkbare Python-code, uitvoercode en presentatie. De GitHub-map `Documentatie` bevat de compacte, leesbare documenten en hun bewerkbare bronnen. Grote lokale ZIP-bestanden worden apart gehouden; zij zijn geen vervanging van een actuele GitHub-documentatieversie.
+Het indieningsbericht vraagt één ZIP per team met PDF-rapport, trainingsnotebook of vergelijkbare Python-code, uitvoercode en presentatie. De GitHub-map `Documentatie` bevat de compacte, leesbare documenten en hun bewerkbare bronnen. De definitieve inzending wordt samengebracht in `Upload_CV_Challenge_2026_11_14`, met een nieuwe ZIP van precies die map. Het rapport en de presentatie in die map zijn identiek aan de actuele bestanden onder Documentatie. Oude ZIP-bestanden blijven historische versies.
 
 ### 2.1 Welke codeversie wordt beschreven?
+
+Voor het uploadpakket gebruiken we Jorres branch `8e29c3ff`, met hoofdbron `524d081a`, draagbare uploadstarters, trainingsdata, gewichten en demonstratie. `03_Code/START_HIER.md` beschrijft deze route. De inhoudelijke documentatie is op 15 november aangevuld; dit is geen nieuwe modeltraining. De uitvoercode is niet stilzwijgend vervangen door andere lokale appaanpassingen. [B31]
 
 De gezamenlijke functies worden beschreven voor de opgehaalde hoofdbron op `524d081a`. De GitHub-map `final` is een afzonderlijk eindpakket met de eenvoudige schoolroute als standaardstart volgens haar meegecommitte README. De hoofdbron biedt de gezamenlijke automatische route. Lokale, niet-gepubliceerde uitbreidingen worden niet als al gedeelde GitHub-functionaliteit voorgesteld. [B02, B27]
 
@@ -89,7 +91,7 @@ Transfer learning begint met eerder geleerde kenmerken en past de gewichten aan 
 
 Het bronnotebook `Andrew_Prototype/train.ipynb` laadt `yolov8x.pt` en stelt maximaal vijftig epochs in, invoer 1280, batch 6, patience 20, workers 2, device 0 en AMP. Het beperkt de PyTorch-processallocatie tot 85% van het GPU-geheugen. Dat voorkomt niet iedere mogelijke geheugenfout. De runnaam `ball_detector_640` is alleen een naam: de ingestelde trainingsinvoer is hier 1280. [B28]
 
-Het notebook toont de trainingsopdracht; de instellingen bewijzen niet hoeveel epochs uiteindelijk voltooid zijn. Er is in deze publicatie geen nieuw voltooid trainingslog of onafhankelijke mAP voor Andrews checkpoint toegevoegd. De bestaande technische inferentiecontrole op drie frames toont dat het checkpoint bruikbare uitvoer produceert, maar is geen nauwkeurigheidsmeting. [B25]
+De oorspronkelijke uitvoer in Jorres uploadkopie van `Andrew_Prototype/train.ipynb` vermeldt 50 voltooide epochs in 1,625 uur. Dat is historisch trainingsbewijs, geen nieuwe run. `check_mAP.ipynb` bewaart de afzonderlijke validatie op 38 beelden met 905 instanties. Beide notebooks blijven ongewijzigd bewaard. De meting is geen onafhankelijke projecteindtest. [B31] De bestaande technische inferentiecontrole op drie frames toont dat het checkpoint bruikbare uitvoer produceert, maar is geen nauwkeurigheidsmeting. [B25]
 
 ### 5.2 Historische bal- en spelerproeven
 
@@ -151,7 +153,21 @@ De trackinghandleiding rapporteert IDF1 van 98,12%, 89,73% en 95,12% op drie cli
 
 Jorres machineleesbare afronding van 14 november rapporteert 537 geslaagde tests, één overgeslagen GPU-proef en vier geslaagde subtests op een CPU-omgeving. Ruff, functiedocumentatie en codekaart zijn gecontroleerd. De cataloguscontrole omvat 16.656 bestanden en laat LFS-pointerhashes toe. Dit is geen nieuwe CUDA-installatieproef of modelbenchmark. [B29]
 
-Na het lokaal samenvoegen van de nieuwe wijzigingen zijn in deze publicatieronde 75 gerichte regressietests geslaagd. Deze tests bewijzen softwaregedrag; er is geen nieuwe training of volledige echte video-evaluatie uitgevoerd. Oudere totalen van 555 plus vier en 117 gerichte tests blijven historische controles van andere snapshots en zijn niet bij dit totaal opgeteld.
+In de vorige publicatieronde zijn na lokale samenvoeging 75 gerichte regressietests geslaagd. Deze tests bewijzen softwaregedrag; er is geen nieuwe training of volledige echte video-evaluatie uitgevoerd. Oudere totalen van 555 plus vier en 117 gerichte tests blijven historische controles van andere snapshots en zijn niet bij dit totaal opgeteld.
+
+### 6.5 Checkpointresultaten uit Jorres uploadpakket
+
+Het uploadpakket bevat oorspronkelijke Andrew-notebooks met uitvoer en `03_Code/reports/submission/checkpoint_metadata.json`. De gekozen YOLO11s-gewichten hebben hash `fb6deea2d6c51bada9d3f8bfd666882212f45d1a1584547d02dc98aa59aaaa25`. De opgeslagen checkpointmetrics zijn mAP@50 93,61%, mAP@50:95 60,28%, precision 90,48% en recall 86,98%. Deze detectorvalidatie verschilt van de conditionele ketenmeting op 341 beelden hierboven. [B31]
+
+| Andrews afzonderlijke validatie | AP@50 | AP@50:95 |
+|---|---|---|
+| Ball | 61,0% | 32,8% |
+| Goalkeeper | 96,5% | 78,2% |
+| Player | 99,3% | 83,7% |
+| Referee | 97,3% | 72,2% |
+| Gemiddelde over vier klassen | 88,53% | 66,74% |
+
+Dit zijn de waarden uit `check_mAP.ipynb` op 38 validatiebeelden; zij gelden niet voor uitsluitend de baluitvoer in de gezamenlijke keten. De checkpointmetadata bewaart voor Andrews gemiddelde mAP@50:95 66,70%; de afzonderlijke notebookvalidatie meldt 66,74%. We behouden beide met hun eigen meetbron. Het pakket voert tijdens deze documentatieronde geen nieuwe evaluatie uit. [B31]
 
 ## 7. Homography en minimap
 
@@ -162,6 +178,14 @@ Het midden onder de spelerbox benadert het grondcontact. Het boxcentrum ligt hog
 De handmatige route gebruikt vier fitpunten en extra controlepunten die niet in de fit zitten. De mediane terugprojectiefout mag binnen de projectimplementatie maximaal 0,5% en de maximale fout 1% van de beelddiagonaal zijn. Dat zijn projectdrempels, geen garantie in meters. Controle aan begin, midden en einde helpt cameraverandering opsporen; lensvervorming kan één homography alsnog beperken.
 
 De automatische veldroute probeert punten en lijnen zelf te vinden en weigert onvoldoende onderbouwde geometrie. Bij onbekend veld is een veldtelling onbekend, niet nul. De bestaande lokale herstelproeven van drie keer twaalf frames hadden geen bruikbare kalibratie. Een oudere demonstratie toont wel bruikbare historische projecties. Geen van beide is hier opnieuw uitgevoerd of omgedoopt tot een nieuwe geaccepteerde MVP-run. De actuele statische demonstratie blijft een apart opleverpunt. [B07, B16]
+
+### 7.1 Meegeleverde demonstratie
+
+Jorres uploadmap bevat de werkelijke invoer en uitvoer van een fragment van drie seconden (75 frames). De automatische route vond direct 12 bruikbare frames en beschikte na bewegingscompensatie op 73 van 75 frames over een projectie. De teamuitvoer bevat 1.626 toegewezen waarnemingen en 85 onbekende; herhaalde observaties tellen niet als verschillende spelers. De CPU-run duurde ongeveer 1.047 seconden. Beschikbaarheid van projectie is geen bewezen positiejuistheid of realtime werking. [B31]
+
+Dit is concreet bewijs voor synchronisatie en de automatische uitbreiding. Een geaccepteerde statische MVP-clip met eigen puntparen en onafhankelijke visuele controles blijft apart nodig. De demonstratie heft eerdere veldproblemen op andere camerahoeken niet op.
+
+![Werkelijke demonstratie uit Jorres uploadpakket, frame op 1 seconde.](Trainingsbewijs/jorre_upload_demo.jpg)
 
 ## 8. Andrews oorspronkelijke tracker en het verschil met de integratie
 
@@ -190,7 +214,9 @@ De concrete historische balfouten staan met oorspronkelijke beelden in `Training
 
 ## 10. Installatie, gebruik en extra's
 
-Voor de actuele hoofdbron beschrijft `docs/Trainen_op_Andere_Laptop.md` installatie en Git LFS. De volledige trainingsroute gebruikt een echte checkout, passende Python/CUDA-versies en de cataloguscontrole. Het beginscherm is Laptop instellen; kies daarna Nieuwe analyse. `scripts/Start-Laptop.ps1` start de hoofdbron. De GitHub-final-route heeft haar eigen README en starters en gebruikt volgens die bron de eenvoudige schoolmodus. Gebruik de instructies van de gekozen versie. [B02, B29]
+Voor de inzending geldt de meegeleverde uploadroute: open `03_Code`, voer `Setup-Upload.ps1` en daarna `Start-Upload.ps1` uit. Met `-Manual` opent de starter de handmatige kalibratieroute. `Training_en_Evaluatie.ipynb` toont echte checkpointmetadata en heeft een expliciet uitgeschakelde trainingsoptie. De oorspronkelijke Andrew-notebooks bewaren de historische uitvoer. Een nieuwe spelersrun begint bij pretrained YOLO11s omdat het oude tussencheckpoint ontbreekt; dit is geen exacte reconstructie van de hele historische reeks. [B31]
+
+De hoofdbron en het afzonderlijke GitHub-final-pakket hebben eigen starters. Voor deze inzending gelden de meegeleverde uploadinstructies. [B02, B29]
 
 Voor de opdrachtbasis: kies een geschikte statische MP4, wijs bekende fit- en controlepunten aan, beoordeel de veldoriëntatie en verwerk de clip. Bekijk detecties en minimap op hetzelfde tijdstip. Gebruik opgeslagen framegegevens voor nadere controle en export. Voer een installatie op een tweede eigen machine uit als overdrachtscontrole; een lokaal aanwezige virtuele omgeving is niet draagbaar.
 
@@ -198,11 +224,15 @@ De uitbreidingen omvatten tijdelijke tracking, teams, automatische veldherkennin
 
 ## 11. GenAI-gebruik en persoonlijk eigenaarschap
 
+Milan Wouters verklaart zelf voetbalvideo's te hebben gezocht en geselecteerd en te hebben meegewerkt aan ondersteund labelen en controleren. De eerste labelvoorstellen kwamen van providers en Codex; de teamreview van de 80 beelden blijft als zodanig geregistreerd. Er is geen individueel correctielog of claim dat alle boxen volledig zonder hulpmiddelen zijn gemaakt.
+
+Milan gebruikte Codex voor hulp bij code en interface, annotatiegereedschap, datasetcuratie, trainings- en evaluatieopdrachten, foutdiagnose, installatie, modelintegratie, mergeconflicten en documentatie. Hij koos onder meer de PANORIS-bronvideo en gaf de RTX 4050 als beoogde laptop aan. AI hielp bij het technisch uitvoeren en uitwerken; de vastgelegde lokale RTX 3050-metingen gelden niet als RTX 4050-benchmark. Rapport, presentatie en deze verklaring zijn ook met AI opgesteld en nagekeken. Milan blijft verantwoordelijk voor zijn bijdrage en eigen verdediging. De volledige persoonlijke verklaring staat in `AI_Usage_Milan_Wouters.md`. [B20, B32]
+
 Andrew beschrijft in hoofdstuk 16 van `docs/VierKlassenModel.md` AI-hulp bij documentstructuur, eerste codeonderdelen en debugging. De hulp omvat onder meer de stappen in de detectieroute, bal- en scheidsrechtertracking, afstandsberekeningen en positievoorspelling. Volgens zijn verklaring zijn voorstellen handmatig beoordeeld, aangepast en getest. Andrew behoudt verantwoordelijkheid voor implementatie, parameters, resultaten en documentatie. De gebruikte toolnamen, model-ID's en volledige prompts worden daar niet gespecificeerd; dit rapport vult die niet zelf in. [B28]
 
 De gezamenlijke Codex-disclosures beschrijven daarnaast hulp bij code, annotatiegereedschap, AI-curatie, experimenten, installatie, integratie, tests en uitleg. Dat gaat verder dan spellingcontrole. De teamreview van de 80 beelden is nu geregistreerd op basis van gebruikersbevestiging, terwijl AI/provider-herkomst behouden blijft. Een geregistreerde verklaring wordt niet gepresenteerd alsof de AI zelf de menselijke bespreking bijwoonde. [B20, B30]
 
-Jorres afronding herstelt de gedeelde module-imports en Streamlit-tests, registreert de review en bewaart de modelgewichten en drempels. De voorliggende publicatieronde gebruikt Codex voor pull en conflictoplossing, het actualiseren van rapport/notebook/slides, technische controles en het publiceren van de documenten. Zij start geen nieuwe training of onafhankelijke modeltest. [B29]
+Jorres afronding herstelt imports en tests en registreert de review. Codex hielp ook bij het samenvoegen, schrijven, controleren en publiceren van deze documenten. De documentatieronde start geen nieuwe training of onafhankelijke modeltest. [B29]
 
 De opdracht verwijst naar een afzonderlijke GenAI-policy; die is niet als apart aangeleverd stuk beoordeeld. Het team moet die voorschriften controleren. Iedere student moet zonder AI zijn code en keuzes kunnen uitleggen: splits, transfer learning, optimizer/loss, beide AP-maten, confidence versus IoU, homography, tracking en beperkingen. Een geschreven ownershipverklaring vervangt de mondelinge verdediging niet.
 
@@ -212,7 +242,7 @@ De afzonderlijke `Requirementscontrole.md` koppelt de eisen aan hun bewijs. De s
 
 De YOLO26-keuze staat niet langer als een lopende beslissing vermeld: de bron behoudt YOLO11s. Voor de nieuwe vergelijkingen ontbreken nog ruwe lokale experimentbestanden in de gedeelde checkout. De individuele verdediging, volledige bron-/gebruiksafspraken en de afzonderlijke GenAI-policy blijven verantwoordelijkheden van het team. Het rapport verzint daarvoor geen namen, scores of acceptaties.
 
-Het project toont dat een detector slechts een onderdeel van de keten is. Meer resolutie of tegels kunnen een bal helpen, maar kosten rekentijd. Teamkenmerken zijn conditioneel en werken zwakker voor keepers. Een correcte spelerbox is pas een zinvolle veldpositie met betrouwbare geometrie. Het ontwikkelproces is verdedigbaar wanneer de studenten fouten, hypotheses, experimenten en beperkingen aan concrete eigen voorbeelden verbinden.
+Het project toont hoe kleine objecten, rolverwarring en geometrie samen de kwaliteit bepalen. Het team onderbouwt keuzes met concrete fouten, reproduceerbare experimenten en zichtbare grenzen.
 
 ## Bronnen en bewijsregister
 
@@ -239,6 +269,8 @@ Paden zijn relatief aan de repository. De documentatiemap bevat kopieën van bel
 | B28 | `docs/VierKlassenModel.md`, hoofdstukken 1-16; `Andrew_Prototype/train.ipynb` en `model_deployment.ipynb` |
 | B29 | `docs/Afronding_20261114.md` en `reports/release-20261114/checks.json` |
 | B30 | `final/datasets/school-ball80-review-v1/REVIEW.md` en actuele manifestregistratie |
+| B31 | Uploadbranch `8e29c3ff`: `Upload_CV_Challenge_2026_11_14`, oorspronkelijke Andrew-notebooks, checkpoint_metadata.json, CONTROLE.json en demonstratie/runmanifest.json |
+| B32 | `Documentatie/AI_Usage_Milan_Wouters.md`; persoonlijke verklaring en vastgelegde projectgeschiedenis |
 
 ### Aanvullende figuren
 

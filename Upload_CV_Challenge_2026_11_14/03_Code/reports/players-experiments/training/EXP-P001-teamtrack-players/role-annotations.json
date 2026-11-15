@@ -1,0 +1,773 @@
+{
+  "recorded_at": "2026-10-16T13:03:14.868267+00:00",
+  "official_geometry_ids_as_player": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "goalkeeper_ids": [
+    0,
+    13
+  ],
+  "excluded_ball_id": 22,
+  "human_role_review_completed": false,
+  "roles": [
+    {
+      "frame_id": "F_20200220_1_0540_0570_000000",
+      "referee_bbox_xyxy": [
+        4171,
+        808,
+        4214,
+        911
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000020",
+      "referee_bbox_xyxy": [
+        4174,
+        807,
+        4214,
+        910
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000040",
+      "referee_bbox_xyxy": [
+        4174,
+        808,
+        4214,
+        912
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000060",
+      "referee_bbox_xyxy": [
+        4172,
+        809,
+        4214,
+        912
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000080",
+      "referee_bbox_xyxy": [
+        4172,
+        809,
+        4214,
+        913
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000100",
+      "referee_bbox_xyxy": [
+        4167,
+        809,
+        4214,
+        912
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000120",
+      "referee_bbox_xyxy": [
+        4169,
+        809,
+        4214,
+        912
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000140",
+      "referee_bbox_xyxy": [
+        4167,
+        809,
+        4214,
+        912
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000160",
+      "referee_bbox_xyxy": [
+        4172,
+        808,
+        4214,
+        911
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000180",
+      "referee_bbox_xyxy": [
+        4169,
+        809,
+        4214,
+        910
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000200",
+      "referee_bbox_xyxy": [
+        4172,
+        808,
+        4214,
+        911
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000220",
+      "referee_bbox_xyxy": [
+        4170,
+        808,
+        4214,
+        911
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000240",
+      "referee_bbox_xyxy": [
+        4170,
+        808,
+        4214,
+        914
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000260",
+      "referee_bbox_xyxy": [
+        4176,
+        811,
+        4233,
+        914
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000280",
+      "referee_bbox_xyxy": [
+        4201,
+        806,
+        4256,
+        912
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000300",
+      "referee_bbox_xyxy": [
+        4225,
+        807,
+        4294,
+        907
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000320",
+      "referee_bbox_xyxy": [
+        4275,
+        801,
+        4337,
+        901
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000340",
+      "referee_bbox_xyxy": [
+        4329,
+        807,
+        4395,
+        909
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000360",
+      "referee_bbox_xyxy": [
+        4380,
+        804,
+        4444,
+        909
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000380",
+      "referee_bbox_xyxy": [
+        4417,
+        803,
+        4475,
+        908
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000400",
+      "referee_bbox_xyxy": [
+        4438,
+        804,
+        4497,
+        905
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000420",
+      "referee_bbox_xyxy": [
+        4458,
+        799,
+        4513,
+        898
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000440",
+      "referee_bbox_xyxy": [
+        4477,
+        803,
+        4556,
+        906
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000460",
+      "referee_bbox_xyxy": [
+        4541,
+        807,
+        4612,
+        913
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000480",
+      "referee_bbox_xyxy": [
+        4612,
+        810,
+        4675,
+        914
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000500",
+      "referee_bbox_xyxy": [
+        4652,
+        811,
+        4736,
+        914
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000520",
+      "referee_bbox_xyxy": [
+        4723,
+        812,
+        4793,
+        913
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000540",
+      "referee_bbox_xyxy": [
+        4793,
+        820,
+        4873,
+        910
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000560",
+      "referee_bbox_xyxy": [
+        4937,
+        816,
+        4996,
+        913
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000580",
+      "referee_bbox_xyxy": [
+        5071,
+        812,
+        5134,
+        908
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000600",
+      "referee_bbox_xyxy": [
+        5147,
+        809,
+        5244,
+        908
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000620",
+      "referee_bbox_xyxy": [
+        5227,
+        801,
+        5311,
+        902
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000640",
+      "referee_bbox_xyxy": [
+        5282,
+        795,
+        5341,
+        892
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000660",
+      "referee_bbox_xyxy": [
+        5292,
+        793,
+        5354,
+        885
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000680",
+      "referee_bbox_xyxy": [
+        5297,
+        788,
+        5357,
+        885
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0540_0570_000700",
+      "referee_bbox_xyxy": [
+        5292,
+        793,
+        5359,
+        890
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000000",
+      "referee_bbox_xyxy": [
+        4466,
+        802,
+        4518,
+        901
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000060",
+      "referee_bbox_xyxy": [
+        4206,
+        802,
+        4274,
+        903
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000120",
+      "referee_bbox_xyxy": [
+        4182,
+        808,
+        4226,
+        915
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000180",
+      "referee_bbox_xyxy": [
+        4246,
+        818,
+        4288,
+        930
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000240",
+      "referee_bbox_xyxy": [
+        4252,
+        817,
+        4308,
+        925
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000300",
+      "referee_bbox_xyxy": [
+        4323,
+        808,
+        4383,
+        908
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000360",
+      "referee_bbox_xyxy": [
+        4423,
+        801,
+        4490,
+        897
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "referee_bbox_xyxy": [
+        4554,
+        804,
+        4622,
+        905
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Corrected false role proposal on white player; selected visibly flagged assistant referee."
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000480",
+      "referee_bbox_xyxy": [
+        4699,
+        817,
+        4757,
+        926
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000540",
+      "referee_bbox_xyxy": [
+        4685,
+        813,
+        4739,
+        921
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000600",
+      "referee_bbox_xyxy": [
+        4574,
+        804,
+        4639,
+        900
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0660_0690_000660",
+      "referee_bbox_xyxy": [
+        4495,
+        805,
+        4538,
+        906
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0720_0750_000000",
+      "referee_bbox_xyxy": [
+        5685,
+        800,
+        5767,
+        900
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0720_0750_000060",
+      "referee_bbox_xyxy": [
+        5405,
+        798,
+        5525,
+        895
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0720_0750_000120",
+      "referee_bbox_xyxy": [
+        5272,
+        793,
+        5352,
+        891
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0720_0750_000180",
+      "referee_bbox_xyxy": [
+        5135,
+        795,
+        5231,
+        893
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0720_0750_000240",
+      "referee_bbox_xyxy": [
+        4962,
+        800,
+        5024,
+        898
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0720_0750_000300",
+      "referee_bbox_xyxy": [
+        4726,
+        807,
+        4790,
+        906
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0720_0750_000360",
+      "referee_bbox_xyxy": [
+        4563,
+        806,
+        4632,
+        908
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0720_0750_000420",
+      "referee_bbox_xyxy": [
+        4635,
+        820,
+        4692,
+        927
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0720_0750_000480",
+      "referee_bbox_xyxy": [
+        4688,
+        815,
+        4753,
+        917
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0720_0750_000540",
+      "referee_bbox_xyxy": [
+        4665,
+        799,
+        4727,
+        906
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0720_0750_000600",
+      "referee_bbox_xyxy": [
+        4675,
+        804,
+        4728,
+        899
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    },
+    {
+      "frame_id": "F_20200220_1_0720_0750_000660",
+      "referee_bbox_xyxy": [
+        4623,
+        796,
+        4681,
+        897
+      ],
+      "reviewer": "Codex AI",
+      "human_review_completed": false,
+      "note": "Visually checked assistant referee: flag, yellow bib and dark clothing; all 60 proposal crops inspected."
+    }
+  ],
+  "corrections": [
+    {
+      "frame_id": "F_20200220_1_0660_0690_000420",
+      "before": [
+        4067,
+        752,
+        4104,
+        840
+      ],
+      "after": [
+        4554,
+        804,
+        4622,
+        905
+      ],
+      "reason": "Automatic color score selected a white player because the surrounding grass looked yellow. Context and flag resolve the role."
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "video_sha256": "d9b92e58063e29be376319f680af7e136551a90f578dffff02a371f852c70ee3",
+  "source_frames": [
+    0,
+    29
+  ],
+  "runtime_s": 3.502782200001093,
+  "processing_fps": 8.564620432292548,
+  "models": {
+    "schema_version": 1,
+    "profile_name": "R007 rollen en teams — twee wedstrijden, experimenteel",
+    "models": [
+      {
+        "model_id": "exp-p004-teamtrack-v2_1",
+        "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\players-v2\\players_best.pt",
+        "weights_sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498",
+        "class_mapping": {
+          "0": "player",
+          "1": "referee"
+        },
+        "expected_names": {
+          "0": "player",
+          "1": "referee"
+        },
+        "imgsz": 1920,
+        "confidence": 0.1,
+        "iou": 0.7,
+        "device": "0"
+      },
+      {
+        "model_id": "coco-person-proposals",
+        "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\appearance-v1\\person_proposals.pt",
+        "weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+        "class_mapping": {
+          "0": "person"
+        },
+        "expected_names": {
+          "0": "person"
+        },
+        "imgsz": 1920,
+        "confidence": 0.1,
+        "iou": 0.7,
+        "device": "0"
+      }
+    ],
+    "handoff": {
+      "evaluation_record": "../reports/appearance-experiments/EXP-R007/metrics.json",
+      "evaluation_sha256": "261544ac110d9f872f2890736256c1c61ad6399d533719bd0c37438b72d75616",
+      "human_review_completed": false,
+      "independent_final_test_completed": false,
+      "referee_coverage": "central and near assistant; far roles unresolved",
+      "detector_evaluation_record": "../reports/players-experiments/EXP-P004/validation-metrics/metrics.json",
+      "detector_evaluation_sha256": "2b725cbb140f22297f5e397e5277ad51f17c957ac109f55ebdee56c3f1f7c240",
+      "evaluation_kind": "Conditional ground-truth crop classification, not end-to-end detection AP",
+      "team_scope": "Two explicitly labelled matches; neutral automatic kit clusters for other video identities, no unseen-match accuracy claim",
+      "broadcast_transfer_adequate": false,
+      "broadcast_validation_record": "../reports/player-pipeline-4050.json",
+      "broadcast_validation_scope": "Historical P004-only record; R007 classifier is not measured on this clip"
+    },
+    "appearance": {
+      "model_id": "appearance-r007",
+      "weights": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\appearance-v1\\roles_teams.pt",
+      "weights_sha256": "adad67b0e3b60803d11a179c11c24d5c6cf2a31cbe9804a93c5da43b2bc008f2",
+      "role_names": [
+        "player",
+        "referee",
+        "assistant_referee",
+        "steward",
+        "spectator",
+        "person"
+      ],
+      "role_confidence": 0.65,
+      "team_confidence": 0.65,
+      "device": "0"
+    }
+  },
+  "known_team_match": false,
+  "scope": "Development video inference only, no accuracy claim without independent role/team GT",
+  "team_calibration": {
+    "method": "video_colour_clusters",
+    "ready": true,
+    "samples": 26,
+    "updates": 30,
+    "centers": [
+      [
+        0.00033333332976326346,
+        0.0,
+        0.0,
+        0.0,
+        0.003719008294865489,
+        0.013234932906925678,
+        0.02266976796090603,
+        0.025491472333669662,
+        0.2667943835258484,
+        0.6367164850234985,
+        0.031040659174323082,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.05301889777183533,
+        0.1664663702249527,
+        0.15666882693767548,
+        0.2460874766111374,
+        0.24693909287452698,
+        0.0645320937037468,
+        0.04654750972986221,
+        0.019739722833037376,
+        0.0006400818238034844,
+        0.0009468302014283836,
+        0.02449853904545307,
+        0.10197927802801132,
+        0.24537694454193115,
+        0.27348873019218445,
+        0.14899562299251556,
+        0.2040739804506302
+      ],
+      [
+        0.003994422499090433,
+        0.0055856299586594105,
+        0.0038616438396275043,
+        0.003572265151888132,
+        0.01360405795276165,
+        0.03712614253163338,
+        0.014438711106777191,
+        0.005861952435225248,
+        0.13809233903884888,
+        0.48306354880332947,
+        0.28512370586395264,
+        0.0056755724363029,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.026226241141557693,
+        0.09471973031759262,
+        0.08178824186325073,
+        0.09557096660137177,
+        0.12313327938318253,
+        0.13392028212547302,
+        0.13586834073066711,
+        0.3087729215621948,
+        0.002738114446401596,
+        0.0342121422290802,
+        0.18893462419509888,
+        0.3071857690811157,
+        0.22905419766902924,
+        0.13340535759925842,
+        0.06078008562326431,
+        0.04368967562913895
+      ]
+    ],
+    "radii": [
+      0.535963237285614,
+      0.46585536003112793
+    ],
+    "names": "neutral A/B; no club or home-away claim",
+    "confidence_meaning": "relative colour distance margin, not probability"
+  },
+  "last_visible_roles": {
+    "steward": 2,
+    "player": 17,
+    "spectator": 1,
+    "referee": 1,
+    "person": 3
+  },
+  "last_visible_teams": {
+    "team_a": 7,
+    "team_b": 7,
+    "unknown": 3
+  }
+}

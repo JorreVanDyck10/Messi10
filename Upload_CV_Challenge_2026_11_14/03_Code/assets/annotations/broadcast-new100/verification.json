@@ -1,0 +1,45 @@
+{
+  "frames": 100,
+  "pixel_identical_frames_checked": 100,
+  "unique_image_hashes": 100,
+  "verified_source_hashes": 5,
+  "classes": {
+    "player": 2053,
+    "referee": 238,
+    "other_person": 779,
+    "crowd": 109,
+    "in_play_ball": 94,
+    "goal": 27,
+    "corner_flag": 38
+  },
+  "all_frames_split": {
+    "train": 80,
+    "val": 20
+  },
+  "training_views": {
+    "all": {
+      "train": 74,
+      "val": 20
+    },
+    "players": {
+      "train": 80,
+      "val": 20
+    },
+    "in-play-ball": {
+      "train": 74,
+      "val": 20
+    }
+  },
+  "ball_unresolved": [
+    "2e57b9_0_000240",
+    "2e57b9_0_000662",
+    "2e57b9_0_000700",
+    "573e61_0_000048",
+    "573e61_0_000086",
+    "573e61_0_000623"
+  ],
+  "human_review_complete": false,
+  "model_training_performed": false,
+  "semantic_accuracy_measured": false,
+  "opencv_version": "4.13.0"
+}

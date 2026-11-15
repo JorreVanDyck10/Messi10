@@ -1,0 +1,9 @@
+# Preserve the verified submission bytes on every platform.
+* -text
+**/*.pt filter=lfs diff=lfs merge=lfs -text
+**/*.jpg filter=lfs diff=lfs merge=lfs -text
+**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+**/*.png filter=lfs diff=lfs merge=lfs -text
+**/*.mp4 filter=lfs diff=lfs merge=lfs -text
+03_Code/weights/pnlcalib/SV_kp filter=lfs diff=lfs merge=lfs -text
+03_Code/weights/pnlcalib/SV_lines filter=lfs diff=lfs merge=lfs -text

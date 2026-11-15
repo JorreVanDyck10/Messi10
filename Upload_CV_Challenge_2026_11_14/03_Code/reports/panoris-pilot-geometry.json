@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "clip_sha256": "9baec79f611f7eae97ef484be181a2b426ea1c6b0ddeab03245afd7a96823836",
+  "technical_passed": true,
+  "human_reviewed": false,
+  "point_selection": "Codex visual estimates on native-resolution frame crops; not human-reviewed ground truth",
+  "reference_errors_px": [
+    6.813960256947872,
+    12.973713116074551,
+    3.752421647013691,
+    3.4382107026526034,
+    4.841046242504365
+  ],
+  "reference_median_px": 4.841046242504365,
+  "reference_max_px": 12.973713116074551,
+  "thresholds": {
+    "median_px": 19.790907002964772,
+    "max_px": 39.581814005929544,
+    "anchor_min_ncc": 0.8,
+    "anchor_max_shift_px": 2
+  },
+  "camera_anchor_check_passed": true,
+  "per_frame": [
+    {
+      "frame_index": 0,
+      "check_errors_px": [
+        6.813960256947872,
+        12.973713116074777,
+        3.752421647013691,
+        3.4382107026526296,
+        4.84104624250397
+      ],
+      "median_error_px": 4.84104624250397,
+      "max_error_px": 12.973713116074777
+    },
+    {
+      "frame_index": 75,
+      "check_errors_px": [
+        6.813960256947872,
+        12.973713116074777,
+        8.017295407081546,
+        3.4382107026526296,
+        10.671412130726202
+      ],
+      "median_error_px": 8.017295407081546,
+      "max_error_px": 12.973713116074777
+    },
+    {
+      "frame_index": 149,
+      "check_errors_px": [
+        6.813960256947872,
+        12.973713116074777,
+        3.752421647013691,
+        0.44537479144117037,
+        4.84104624250397
+      ],
+      "median_error_px": 4.84104624250397,
+      "max_error_px": 12.973713116074777
+    }
+  ],
+  "patch_samples": [
+    {
+      "frame_index": 0,
+      "point": "hoek_00",
+      "ncc": 1.0,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true
+    },
+    {
+      "frame_index": 0,
+      "point": "hoek_10",
+      "ncc": 0.9999984502792358,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true
+    },
+    {
+      "frame_index": 0,
+      "point": "hoek_11",
+      "ncc": 0.9999992251396179,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true
+    },
+    {
+      "frame_index": 0,
+      "point": "hoek_01",
+      "ncc": 0.9999930262565613,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true
+    },
+    {
+      "frame_index": 0,
+      "point": "middenlijn_ver",
+      "ncc": 1.0,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true,
+      "reprojection_error_px": 6.813960256947872
+    },
+    {
+      "frame_index": 0,
+      "point": "middenlijn_nabij",
+      "ncc": 1.0,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true,
+      "reprojection_error_px": 12.973713116074777
+    },
+    {
+      "frame_index": 0,
+      "point": "middenstip",
+      "ncc": 1.0,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": false,
+      "reprojection_error_px": 3.752421647013691
+    },
+    {
+      "frame_index": 0,
+      "point": "doelmidden_links",
+      "ncc": 1.0,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": false,
+      "reprojection_error_px": 3.4382107026526296
+    },
+    {
+      "frame_index": 0,
+      "point": "doelmidden_rechts",
+      "ncc": 1.0,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": false,
+      "reprojection_error_px": 4.84104624250397
+    },
+    {
+      "frame_index": 75,
+      "point": "hoek_00",
+      "ncc": 0.8349325656890869,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true
+    },
+    {
+      "frame_index": 75,
+      "point": "hoek_10",
+      "ncc": 0.9167682528495789,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true
+    },
+    {
+      "frame_index": 75,
+      "point": "hoek_11",
+      "ncc": 0.9602142572402954,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true
+    },
+    {
+      "frame_index": 75,
+      "point": "hoek_01",
+      "ncc": 0.9543094635009766,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true
+    },
+    {
+      "frame_index": 75,
+      "point": "middenlijn_ver",
+      "ncc": 0.9134995937347412,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true,
+      "reprojection_error_px": 6.813960256947872
+    },
+    {
+      "frame_index": 75,
+      "point": "middenlijn_nabij",
+      "ncc": 0.9274042844772339,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true,
+      "reprojection_error_px": 12.973713116074777
+    },
+    {
+      "frame_index": 75,
+      "point": "middenstip",
+      "ncc": 0.9460538625717163,
+      "dx": 0,
+      "dy": -5,
+      "camera_anchor": false,
+      "reprojection_error_px": 8.017295407081546
+    },
+    {
+      "frame_index": 75,
+      "point": "doelmidden_links",
+      "ncc": 0.9293596148490906,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": false,
+      "reprojection_error_px": 3.4382107026526296
+    },
+    {
+      "frame_index": 75,
+      "point": "doelmidden_rechts",
+      "ncc": 0.878517746925354,
+      "dx": 5,
+      "dy": 3,
+      "camera_anchor": false,
+      "reprojection_error_px": 10.671412130726202
+    },
+    {
+      "frame_index": 149,
+      "point": "hoek_00",
+      "ncc": 0.8537776470184326,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true
+    },
+    {
+      "frame_index": 149,
+      "point": "hoek_10",
+      "ncc": 0.9486058950424194,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true
+    },
+    {
+      "frame_index": 149,
+      "point": "hoek_11",
+      "ncc": 0.9330973029136658,
+      "dx": 1,
+      "dy": 1,
+      "camera_anchor": true
+    },
+    {
+      "frame_index": 149,
+      "point": "hoek_01",
+      "ncc": 0.9353078603744507,
+      "dx": 1,
+      "dy": 0,
+      "camera_anchor": true
+    },
+    {
+      "frame_index": 149,
+      "point": "middenlijn_ver",
+      "ncc": 0.9479650259017944,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true,
+      "reprojection_error_px": 6.813960256947872
+    },
+    {
+      "frame_index": 149,
+      "point": "middenlijn_nabij",
+      "ncc": 0.975451648235321,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": true,
+      "reprojection_error_px": 12.973713116074777
+    },
+    {
+      "frame_index": 149,
+      "point": "middenstip",
+      "ncc": 0.9780355095863342,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": false,
+      "reprojection_error_px": 3.752421647013691
+    },
+    {
+      "frame_index": 149,
+      "point": "doelmidden_links",
+      "ncc": 0.9069761633872986,
+      "dx": 3,
+      "dy": -2,
+      "camera_anchor": false,
+      "reprojection_error_px": 0.44537479144117037
+    },
+    {
+      "frame_index": 149,
+      "point": "doelmidden_rechts",
+      "ncc": 0.9113601446151733,
+      "dx": 0,
+      "dy": 0,
+      "camera_anchor": false,
+      "reprojection_error_px": 4.84104624250397
+    }
+  ],
+  "limitations": [
+    "Agent-selected points; human geometric review pending",
+    "Sparse checks do not prove metric accuracy or absence of panoramic distortion",
+    "Goal centres estimated from goalpost feet; patch matching on plain lines is ambiguous",
+    "Near-touchline midpoint differs from straight corner polygon; no clipping or correction applied"
+  ]
+}

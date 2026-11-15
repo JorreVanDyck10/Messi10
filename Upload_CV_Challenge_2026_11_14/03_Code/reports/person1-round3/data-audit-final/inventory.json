@@ -1,0 +1,2449 @@
+{
+  "scope": "Technical development-data audit, NOT human label review or model accuracy. Dataset versions reuse sources and must not be summed as independent data.",
+  "roles": [
+    {
+      "manifest": "datasets\\roles-teams-v1\\manifest.json",
+      "manifest_sha256": "3148976f198dfd9b5fd8a2a60240966d24e1d6f38ebef1cbdf8bfaeabbe0e668",
+      "version": "roles-teams-v1.1",
+      "raw_crops": 1417,
+      "used_source_images": 68,
+      "counts": {
+        "train": {
+          "player": 928,
+          "referee": 43,
+          "assistant_referee": 42,
+          "steward": 7,
+          "spectator": 13,
+          "person": 12
+        },
+        "val": {
+          "player": 314,
+          "referee": 15,
+          "assistant_referee": 15,
+          "steward": 8,
+          "spectator": 11,
+          "person": 9
+        }
+      },
+      "sources": [
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000000.jpg",
+          "sha256": "ad4ac81eb3d795e084ea50bcb4db90111b8972ec7f5db21a131925cfb46dcb5b",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000020.jpg",
+          "sha256": "fb16a43943aefd72e35e712040be5e47319f50d2a8eb35abac3f9253ebc7de97",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000040.jpg",
+          "sha256": "c0c9dfc707486e7b077d8036e1bc3402d627da71db84ad5b22af1462a5f64405",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000060.jpg",
+          "sha256": "188a9488a910f547a361987e748cefba7f7e3d7710b9949d3e03f5998a7fa301",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000080.jpg",
+          "sha256": "47e38f907d9f2acdebec957ae186bd37f5fee5a07f1fe0605de92a02c63687dd",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000100.jpg",
+          "sha256": "1c4cccd7b13c7b57ec0f40bd5e5fbb19768b948ce02597739436c4ab7bee59dd",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000120.jpg",
+          "sha256": "5dab02756bcff4e0fc9afa26a4507f067970f896101be3971d0aabe8bbfeccbc",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000140.jpg",
+          "sha256": "08b3644720e550f795dad1be786963020e554b002bc4aab77adf0c31191dd55d",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000160.jpg",
+          "sha256": "a9643382689f33e5b9b5ecf262fcbe4b9d630fa8b8744e8719e22fc8c1c0a7a9",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000180.jpg",
+          "sha256": "38379d565dac7c2e01a904971189f4b3212e917b60214de3b0b95f04d7759934",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000200.jpg",
+          "sha256": "8bbd8dded1548e1959f4e2b93363d4ab98dd48aaa3511316c9dbd63bf1117527",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000220.jpg",
+          "sha256": "84b2d7e3e71b26fd7f54fe802a83739809e2e1da7617ce93471a4d1d955ee670",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000240.jpg",
+          "sha256": "31df6d33f9f3207a400f01168bc3cdf658f84dc7d95d94d184a6aeb5d684d1ab",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000260.jpg",
+          "sha256": "eec8be521160d6196aa53fc6ccfdbeea70e5887f7c2900c274ae0b1b1899993a",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000280.jpg",
+          "sha256": "039aa2aa96e03bcd5e13a6d5a18612629d7481d4d9a884a14b8bc472add3608f",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000300.jpg",
+          "sha256": "d58b235223f534bab31d4defd59ad9a03bac055d7c00fe64e24fc9f5a542111d",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000320.jpg",
+          "sha256": "9b900c7b0b9e863017f582fd8046d287cee9724d19ebcd7b2b71ad51235f493c",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000340.jpg",
+          "sha256": "b9871864fee40e84569034ae91be182912d2ba058cec5faab60c84f6eb042579",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000360.jpg",
+          "sha256": "b037c7d40b811b2c78412ebc02ead31ff6ac79a03b1e31be7410d1bd31893465",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000380.jpg",
+          "sha256": "7fa54e3d8868a17cc4873e45253f2dd05db3e1c2ececfdcedb6adfb21d6a2bd6",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000400.jpg",
+          "sha256": "cfb7ea022f8e059849635f74d9752030b1956ebef068df9d49de71afc92d7b82",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000420.jpg",
+          "sha256": "924d81eb7ed910f8eb48a416879e81c2581e0da32f45793a1fbc49b336ff4546",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000440.jpg",
+          "sha256": "76046eb0679ed05ab9e5b4d60093084f15c64db75f35df7a9c84996e430a4f30",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000460.jpg",
+          "sha256": "6710f98540ff0924d4feef1af179000ef47d6aeac029db3fa12413d5c0966219",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000480.jpg",
+          "sha256": "2e812a46b15a5339547d409eae9bd223a1825a576617822bee829f3ba5b53850",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000500.jpg",
+          "sha256": "55ae668c3bcd6eea27952f6290521808361c9af5c90beda4f28717244db37a29",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000520.jpg",
+          "sha256": "7b259cfe28ab4f9051e4db2074821158f4d880c2cab725d12458db768a71025f",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000540.jpg",
+          "sha256": "09c65bc965460f63f1a72b0a3a5b338a52bbcaaa4ff33a480b66eec37fad75aa",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000560.jpg",
+          "sha256": "cfd4be6fddd47a2caa21e391b07d4b54ff2c6c2a0c2a5a683a8a0578083de672",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000580.jpg",
+          "sha256": "78568943f8775d80d8cc14db1f39ef3ca8b6fe1d34efc2d17f07d5570e934638",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000600.jpg",
+          "sha256": "2eee6339fdb6bce59ff1224c9c12ad027a32d9d4dcb1bddddad44e2977e8fe9d",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000620.jpg",
+          "sha256": "5e81239c495b2315fe3dfe76e0f67d3e41244a0e3234ea35d7690e846f1e95bd",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000640.jpg",
+          "sha256": "1c7aca53d52d76c4e08763fb851473d21b7443afa888a31523de2d54300e25a4",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000660.jpg",
+          "sha256": "0f4c796802bb81484142b00ccc46b033d2375c6b671733ff044a5b356d657828",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000680.jpg",
+          "sha256": "9db870eed2e5a3889fdd65fd345606e119cad988309f3afb716b231962603ae0",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000700.jpg",
+          "sha256": "36f30c1b561af1086151d74518403e6499e05649d9bf3f2667875a833839a08b",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "sha256": "dbea1d5513b435026c7d599e70e0ffc25bebb9760ee5f96a111f67157654c296",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "sha256": "3ae4d06d81701ebdaf9639bfaa49195fcae079853e2fdcba0b4d225ffe9a5743",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "sha256": "3569a83b5c26729e8ea1cfe22c1887ae4c4a6554a34cd39f336e291966a9312c",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "sha256": "f8d869bdb23fc35b028095ea07b066855add4e8644bd49adbdc0e652765a66ab",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "sha256": "9646dd5c19dbe7949a6c7bed731904868512662a3ce8a9b08f855b49917724fd",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "sha256": "a9232384b0ecf7d3ad9c9ce20038bc2a6034ef01dfae0c5361a92c7cbde2b5cb",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "sha256": "5fce41e5846e97d8bfaba4dfe1913b31b44e549b1fbf77e4b569a906430b8a23",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "sha256": "b4a265024a4310da5e3f810393876ec5a6bc077685dfdf781f25c41756e91ac6",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "sha256": "6f06ee08fe7300b25592a77c8731227cfc9d078e8fd8588d823c39c95b1cabf9",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "sha256": "97ed40e74d75b25dd6e052748bd63252457049a842b65675f360944d24756bdb",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "sha256": "460f096b06a659a2bea2fecc088673960149ac0d9facd70685def35047b585bc",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "sha256": "887cc73a2cb79eae0091ae0a461a25ebf3c3842c147fe34b3a19244473edfb74",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "sources/steward-nec.jpg",
+          "sha256": "6c7fc47f640c79c7cb07b227a0a553922219977dbd2458ab2b5b5dd17aa9a850",
+          "split": "train",
+          "group": "steward-nec",
+          "crops": 1
+        },
+        {
+          "image": "sources/steward-torino.jpg",
+          "sha256": "445d935058f882752d6ddb50f5a73abb6765d319d343f1a42a676b30cff24bfb",
+          "split": "train",
+          "group": "steward-torino",
+          "crops": 1
+        },
+        {
+          "image": "sources/steward-cardiff.jpg",
+          "sha256": "f02938421622bce5038573459ace6b88c6a44d811a600cd1aa45c59c7204eafb",
+          "split": "train",
+          "group": "steward-cardiff",
+          "crops": 3
+        },
+        {
+          "image": "sources/london-control.jpg",
+          "sha256": "2b734878e2ecdef84e76f3e68d5372ed0e3c27dc2d7ae300ced4f549ec2f0d2e",
+          "split": "val",
+          "group": "london-control",
+          "crops": 11
+        },
+        {
+          "image": "sources/liverpool-steward.png",
+          "sha256": "b4f2ab2d9b92262167e03e28bd6c2b90a24e1953f96cd5e69f7f1b98950efcfe",
+          "split": "val",
+          "group": "liverpool-steward",
+          "crops": 1
+        },
+        {
+          "image": "sources/local-fans.jpg",
+          "sha256": "2967684c531040d50e52b6ce7e439a18d2ad6d528f5fb0f0c8bc08da72f4d8b5",
+          "split": "train",
+          "group": "local-fans",
+          "crops": 2
+        },
+        {
+          "image": "sources/chennai-fan.jpg",
+          "sha256": "0d12eda06ed745751dcc55c39de917f6a600d507851fc9416647e8923744dd5a",
+          "split": "train",
+          "group": "chennai-fan",
+          "crops": 2
+        },
+        {
+          "image": "sources/cardiff-fans.jpg",
+          "sha256": "fccd2090857abba26cd7b514d03ec5aa95bd1fa429fada255b34a0e1fb6bc3fd",
+          "split": "train",
+          "group": "cardiff-fans",
+          "crops": 9
+        },
+        {
+          "image": "sources/uganda-fan.jpg",
+          "sha256": "d053ce64e75533d28a591b84e490bf7c0a215d4e10ad2b1f88b1d51e2aafb123",
+          "split": "val",
+          "group": "uganda-fan",
+          "crops": 1
+        },
+        {
+          "image": "sources/troyes-fans.jpg",
+          "sha256": "38b0d83623d626fb7a70c962d56e0a0d3c6ddf8702a75cd35d48e68e29a3f6c8",
+          "split": "val",
+          "group": "troyes-fans",
+          "crops": 6
+        },
+        {
+          "image": "sources/mkdons-stewards.jpg",
+          "sha256": "5966d4c0c9b317b5491c4e3b60de452c7149767a8b0fd049e04916ef82f89c39",
+          "split": "train",
+          "group": "mkdons-stewards",
+          "crops": 2
+        },
+        {
+          "image": "sources/original-000000.jpg",
+          "sha256": "139dc89ce8756de7efdb450d54380f2a1b53e07028b41d9187d1c4c53d13805b",
+          "split": "train",
+          "group": "original-dev-00",
+          "crops": 24
+        },
+        {
+          "image": "sources/original-000075.jpg",
+          "sha256": "350e82f7eb4b0d6e1d12f3bca25bbe4c3387a532edc881a8f445f6108e3fe6ac",
+          "split": "train",
+          "group": "original-dev-00",
+          "crops": 23
+        },
+        {
+          "image": "sources/original-000150.jpg",
+          "sha256": "51c4d21373a7d4b54e214894a6425ecaa98112822710f2b337601a5458a1805e",
+          "split": "train",
+          "group": "original-dev-00",
+          "crops": 29
+        },
+        {
+          "image": "sources/original-000350.jpg",
+          "sha256": "3399c98e2f73b0b1bd7d053120fa8612c991da02e3fd38f5fd38612304ebf82f",
+          "split": "train",
+          "group": "original-dev-14",
+          "crops": 30
+        },
+        {
+          "image": "sources/original-000425.jpg",
+          "sha256": "14cc71f27677572d81380be61f6c5b0671ade9e9cb2898132f89d5f12f92b096",
+          "split": "train",
+          "group": "original-dev-14",
+          "crops": 25
+        },
+        {
+          "image": "sources/original-000500.jpg",
+          "sha256": "173ddd60770eb9aae9927f9e3bc567e8680805e76a3d737ec6c7c122c0cf9915",
+          "split": "train",
+          "group": "original-dev-14",
+          "crops": 30
+        },
+        {
+          "image": "sources/original-002100.jpg",
+          "sha256": "1c59f63b5373faece39b2d2151abf5c2d541e65e924fccdf809f53ac01585123",
+          "split": "val",
+          "group": "original-val-84",
+          "crops": 21
+        },
+        {
+          "image": "sources/original-002175.jpg",
+          "sha256": "21aad23d19d9fb4968cc62d241d0e7400789ca478199db681f71f6ffe0327374",
+          "split": "val",
+          "group": "original-val-84",
+          "crops": 21
+        },
+        {
+          "image": "sources/original-002250.jpg",
+          "sha256": "9251cf154511151c16a784950466e259ef6511b4419dfd069b57df7f6408dc0a",
+          "split": "val",
+          "group": "original-val-84",
+          "crops": 23
+        }
+      ],
+      "exact_duplicate_crops": 0,
+      "cross_split_source_group_or_image_bytes": 0,
+      "human_review_completed": false,
+      "exhaustive_detection_reference": false
+    },
+    {
+      "manifest": "datasets\\roles-teams-v2\\manifest.json",
+      "manifest_sha256": "129079c8e5380ade5962f533a55fa00b1298145b990f718eeb2103c051da93d7",
+      "version": "roles-teams-v2.0",
+      "raw_crops": 1528,
+      "used_source_images": 92,
+      "counts": {
+        "train": {
+          "player": 963,
+          "referee": 52,
+          "assistant_referee": 50,
+          "steward": 7,
+          "spectator": 13,
+          "person": 12
+        },
+        "val": {
+          "player": 369,
+          "referee": 19,
+          "assistant_referee": 15,
+          "steward": 8,
+          "spectator": 11,
+          "person": 9
+        }
+      },
+      "sources": [
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000000.jpg",
+          "sha256": "ad4ac81eb3d795e084ea50bcb4db90111b8972ec7f5db21a131925cfb46dcb5b",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000020.jpg",
+          "sha256": "fb16a43943aefd72e35e712040be5e47319f50d2a8eb35abac3f9253ebc7de97",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000040.jpg",
+          "sha256": "c0c9dfc707486e7b077d8036e1bc3402d627da71db84ad5b22af1462a5f64405",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000060.jpg",
+          "sha256": "188a9488a910f547a361987e748cefba7f7e3d7710b9949d3e03f5998a7fa301",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000080.jpg",
+          "sha256": "47e38f907d9f2acdebec957ae186bd37f5fee5a07f1fe0605de92a02c63687dd",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000100.jpg",
+          "sha256": "1c4cccd7b13c7b57ec0f40bd5e5fbb19768b948ce02597739436c4ab7bee59dd",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000120.jpg",
+          "sha256": "5dab02756bcff4e0fc9afa26a4507f067970f896101be3971d0aabe8bbfeccbc",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000140.jpg",
+          "sha256": "08b3644720e550f795dad1be786963020e554b002bc4aab77adf0c31191dd55d",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000160.jpg",
+          "sha256": "a9643382689f33e5b9b5ecf262fcbe4b9d630fa8b8744e8719e22fc8c1c0a7a9",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000180.jpg",
+          "sha256": "38379d565dac7c2e01a904971189f4b3212e917b60214de3b0b95f04d7759934",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000200.jpg",
+          "sha256": "8bbd8dded1548e1959f4e2b93363d4ab98dd48aaa3511316c9dbd63bf1117527",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000220.jpg",
+          "sha256": "84b2d7e3e71b26fd7f54fe802a83739809e2e1da7617ce93471a4d1d955ee670",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000240.jpg",
+          "sha256": "31df6d33f9f3207a400f01168bc3cdf658f84dc7d95d94d184a6aeb5d684d1ab",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000260.jpg",
+          "sha256": "eec8be521160d6196aa53fc6ccfdbeea70e5887f7c2900c274ae0b1b1899993a",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000280.jpg",
+          "sha256": "039aa2aa96e03bcd5e13a6d5a18612629d7481d4d9a884a14b8bc472add3608f",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000300.jpg",
+          "sha256": "d58b235223f534bab31d4defd59ad9a03bac055d7c00fe64e24fc9f5a542111d",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000320.jpg",
+          "sha256": "9b900c7b0b9e863017f582fd8046d287cee9724d19ebcd7b2b71ad51235f493c",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000340.jpg",
+          "sha256": "b9871864fee40e84569034ae91be182912d2ba058cec5faab60c84f6eb042579",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000360.jpg",
+          "sha256": "b037c7d40b811b2c78412ebc02ead31ff6ac79a03b1e31be7410d1bd31893465",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000380.jpg",
+          "sha256": "7fa54e3d8868a17cc4873e45253f2dd05db3e1c2ececfdcedb6adfb21d6a2bd6",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000400.jpg",
+          "sha256": "cfb7ea022f8e059849635f74d9752030b1956ebef068df9d49de71afc92d7b82",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000420.jpg",
+          "sha256": "924d81eb7ed910f8eb48a416879e81c2581e0da32f45793a1fbc49b336ff4546",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000440.jpg",
+          "sha256": "76046eb0679ed05ab9e5b4d60093084f15c64db75f35df7a9c84996e430a4f30",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000460.jpg",
+          "sha256": "6710f98540ff0924d4feef1af179000ef47d6aeac029db3fa12413d5c0966219",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000480.jpg",
+          "sha256": "2e812a46b15a5339547d409eae9bd223a1825a576617822bee829f3ba5b53850",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000500.jpg",
+          "sha256": "55ae668c3bcd6eea27952f6290521808361c9af5c90beda4f28717244db37a29",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000520.jpg",
+          "sha256": "7b259cfe28ab4f9051e4db2074821158f4d880c2cab725d12458db768a71025f",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000540.jpg",
+          "sha256": "09c65bc965460f63f1a72b0a3a5b338a52bbcaaa4ff33a480b66eec37fad75aa",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000560.jpg",
+          "sha256": "cfd4be6fddd47a2caa21e391b07d4b54ff2c6c2a0c2a5a683a8a0578083de672",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000580.jpg",
+          "sha256": "78568943f8775d80d8cc14db1f39ef3ca8b6fe1d34efc2d17f07d5570e934638",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000600.jpg",
+          "sha256": "2eee6339fdb6bce59ff1224c9c12ad027a32d9d4dcb1bddddad44e2977e8fe9d",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000620.jpg",
+          "sha256": "5e81239c495b2315fe3dfe76e0f67d3e41244a0e3234ea35d7690e846f1e95bd",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000640.jpg",
+          "sha256": "1c7aca53d52d76c4e08763fb851473d21b7443afa888a31523de2d54300e25a4",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000660.jpg",
+          "sha256": "0f4c796802bb81484142b00ccc46b033d2375c6b671733ff044a5b356d657828",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000680.jpg",
+          "sha256": "9db870eed2e5a3889fdd65fd345606e119cad988309f3afb716b231962603ae0",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000700.jpg",
+          "sha256": "36f30c1b561af1086151d74518403e6499e05649d9bf3f2667875a833839a08b",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "sha256": "dbea1d5513b435026c7d599e70e0ffc25bebb9760ee5f96a111f67157654c296",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "sha256": "3ae4d06d81701ebdaf9639bfaa49195fcae079853e2fdcba0b4d225ffe9a5743",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "sha256": "3569a83b5c26729e8ea1cfe22c1887ae4c4a6554a34cd39f336e291966a9312c",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "sha256": "f8d869bdb23fc35b028095ea07b066855add4e8644bd49adbdc0e652765a66ab",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "sha256": "9646dd5c19dbe7949a6c7bed731904868512662a3ce8a9b08f855b49917724fd",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "sha256": "a9232384b0ecf7d3ad9c9ce20038bc2a6034ef01dfae0c5361a92c7cbde2b5cb",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "sha256": "5fce41e5846e97d8bfaba4dfe1913b31b44e549b1fbf77e4b569a906430b8a23",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "sha256": "b4a265024a4310da5e3f810393876ec5a6bc077685dfdf781f25c41756e91ac6",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "sha256": "6f06ee08fe7300b25592a77c8731227cfc9d078e8fd8588d823c39c95b1cabf9",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "sha256": "97ed40e74d75b25dd6e052748bd63252457049a842b65675f360944d24756bdb",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "sha256": "460f096b06a659a2bea2fecc088673960149ac0d9facd70685def35047b585bc",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "sha256": "887cc73a2cb79eae0091ae0a461a25ebf3c3842c147fe34b3a19244473edfb74",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../roles-teams-v1/sources/steward-nec.jpg",
+          "sha256": "6c7fc47f640c79c7cb07b227a0a553922219977dbd2458ab2b5b5dd17aa9a850",
+          "split": "train",
+          "group": "steward-nec",
+          "crops": 1
+        },
+        {
+          "image": "../roles-teams-v1/sources/steward-torino.jpg",
+          "sha256": "445d935058f882752d6ddb50f5a73abb6765d319d343f1a42a676b30cff24bfb",
+          "split": "train",
+          "group": "steward-torino",
+          "crops": 1
+        },
+        {
+          "image": "../roles-teams-v1/sources/steward-cardiff.jpg",
+          "sha256": "f02938421622bce5038573459ace6b88c6a44d811a600cd1aa45c59c7204eafb",
+          "split": "train",
+          "group": "steward-cardiff",
+          "crops": 3
+        },
+        {
+          "image": "../roles-teams-v1/sources/london-control.jpg",
+          "sha256": "2b734878e2ecdef84e76f3e68d5372ed0e3c27dc2d7ae300ced4f549ec2f0d2e",
+          "split": "val",
+          "group": "london-control",
+          "crops": 11
+        },
+        {
+          "image": "../roles-teams-v1/sources/liverpool-steward.png",
+          "sha256": "b4f2ab2d9b92262167e03e28bd6c2b90a24e1953f96cd5e69f7f1b98950efcfe",
+          "split": "val",
+          "group": "liverpool-steward",
+          "crops": 1
+        },
+        {
+          "image": "../roles-teams-v1/sources/local-fans.jpg",
+          "sha256": "2967684c531040d50e52b6ce7e439a18d2ad6d528f5fb0f0c8bc08da72f4d8b5",
+          "split": "train",
+          "group": "local-fans",
+          "crops": 2
+        },
+        {
+          "image": "../roles-teams-v1/sources/chennai-fan.jpg",
+          "sha256": "0d12eda06ed745751dcc55c39de917f6a600d507851fc9416647e8923744dd5a",
+          "split": "train",
+          "group": "chennai-fan",
+          "crops": 2
+        },
+        {
+          "image": "../roles-teams-v1/sources/cardiff-fans.jpg",
+          "sha256": "fccd2090857abba26cd7b514d03ec5aa95bd1fa429fada255b34a0e1fb6bc3fd",
+          "split": "train",
+          "group": "cardiff-fans",
+          "crops": 9
+        },
+        {
+          "image": "../roles-teams-v1/sources/uganda-fan.jpg",
+          "sha256": "d053ce64e75533d28a591b84e490bf7c0a215d4e10ad2b1f88b1d51e2aafb123",
+          "split": "val",
+          "group": "uganda-fan",
+          "crops": 1
+        },
+        {
+          "image": "../roles-teams-v1/sources/troyes-fans.jpg",
+          "sha256": "38b0d83623d626fb7a70c962d56e0a0d3c6ddf8702a75cd35d48e68e29a3f6c8",
+          "split": "val",
+          "group": "troyes-fans",
+          "crops": 6
+        },
+        {
+          "image": "../roles-teams-v1/sources/mkdons-stewards.jpg",
+          "sha256": "5966d4c0c9b317b5491c4e3b60de452c7149767a8b0fd049e04916ef82f89c39",
+          "split": "train",
+          "group": "mkdons-stewards",
+          "crops": 2
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-000000.jpg",
+          "sha256": "139dc89ce8756de7efdb450d54380f2a1b53e07028b41d9187d1c4c53d13805b",
+          "split": "train",
+          "group": "original-dev-00",
+          "crops": 24
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-000075.jpg",
+          "sha256": "350e82f7eb4b0d6e1d12f3bca25bbe4c3387a532edc881a8f445f6108e3fe6ac",
+          "split": "train",
+          "group": "original-dev-00",
+          "crops": 23
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-000150.jpg",
+          "sha256": "51c4d21373a7d4b54e214894a6425ecaa98112822710f2b337601a5458a1805e",
+          "split": "train",
+          "group": "original-dev-00",
+          "crops": 29
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-000350.jpg",
+          "sha256": "3399c98e2f73b0b1bd7d053120fa8612c991da02e3fd38f5fd38612304ebf82f",
+          "split": "train",
+          "group": "original-dev-14",
+          "crops": 30
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-000425.jpg",
+          "sha256": "14cc71f27677572d81380be61f6c5b0671ade9e9cb2898132f89d5f12f92b096",
+          "split": "train",
+          "group": "original-dev-14",
+          "crops": 25
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-000500.jpg",
+          "sha256": "173ddd60770eb9aae9927f9e3bc567e8680805e76a3d737ec6c7c122c0cf9915",
+          "split": "train",
+          "group": "original-dev-14",
+          "crops": 30
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "sha256": "1c59f63b5373faece39b2d2151abf5c2d541e65e924fccdf809f53ac01585123",
+          "split": "val",
+          "group": "original-val-84",
+          "crops": 21
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "sha256": "21aad23d19d9fb4968cc62d241d0e7400789ca478199db681f71f6ffe0327374",
+          "split": "val",
+          "group": "original-val-84",
+          "crops": 21
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "sha256": "9251cf154511151c16a784950466e259ef6511b4419dfd069b57df7f6408dc0a",
+          "split": "val",
+          "group": "original-val-84",
+          "crops": 23
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-0330_000250.jpg",
+          "sha256": "b18a5dad7bb1546899c0a046e32b75950e190671105f2ac852206ac2c7e31fe8",
+          "split": "train",
+          "group": "phase-0330",
+          "crops": 3
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-0330_000400.jpg",
+          "sha256": "225aa4940738fef3d49d5b5e17f7a8476292f22db5a481fdeb264c8721a2f257",
+          "split": "train",
+          "group": "phase-0330",
+          "crops": 4
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-0750_000325.jpg",
+          "sha256": "c6173a3695e01437740ec7a17d09492b178560749399806749da6ea1e35e18f4",
+          "split": "train",
+          "group": "phase-0750",
+          "crops": 4
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-0750_000400.jpg",
+          "sha256": "a441da3e8a5630651e7793c620fbb728882f48d56119289d777f5b48d672a378",
+          "split": "train",
+          "group": "phase-0750",
+          "crops": 5
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-0960_000250.jpg",
+          "sha256": "1a4d43f902ab04a95ecc330208ea3e259005e6c98833705206e43ef6b76107b0",
+          "split": "train",
+          "group": "phase-0960",
+          "crops": 5
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-0960_000325.jpg",
+          "sha256": "8812cd0bd94feb75f788fd285d290eb5e9b6d239cf756efe85b8ae79adb9745f",
+          "split": "train",
+          "group": "phase-0960",
+          "crops": 3
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-1170_000025.jpg",
+          "sha256": "57e9a560d185cf0704622d302effe1f4ecf19004d0ad6bbd0c50b1ab34dcbee2",
+          "split": "train",
+          "group": "phase-1170",
+          "crops": 4
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-1170_000400.jpg",
+          "sha256": "da2af3f9b0b6fd689bf41893b397af5cf4e206f90f6f7633a08eb7794b178f45",
+          "split": "train",
+          "group": "phase-1170",
+          "crops": 6
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-1380_000025.jpg",
+          "sha256": "7aaefb54f3fe9afd3f567adcff064d0822369b186fee40ca7487cbc15d577d41",
+          "split": "train",
+          "group": "phase-1380",
+          "crops": 5
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-1380_000175.jpg",
+          "sha256": "5596f1a4048564d243c46213c8e05c9df6becd352ef7b53e83d9b5ced466dc00",
+          "split": "train",
+          "group": "phase-1380",
+          "crops": 4
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-1590_000175.jpg",
+          "sha256": "505f7fba97aaf5dd05830ac69f637a0b7380868e04cf2426da425e59c1b801a1",
+          "split": "train",
+          "group": "phase-1590",
+          "crops": 5
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-1590_000325.jpg",
+          "sha256": "5b7728b49055aa0aebfbccd3bb7a97312b06a61ab1addaf3559869243eb68f10",
+          "split": "train",
+          "group": "phase-1590",
+          "crops": 4
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00013525.png",
+          "sha256": "957260a54a496d42918499d0be48f9a310929a8a051908bbbf8bae549efe294e",
+          "split": "val",
+          "group": "phase-0540",
+          "crops": 3
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00013675.png",
+          "sha256": "f62449e5d4b71b5349a84ca04f45c9499bf4dd363afee338f6d8e628a973f99d",
+          "split": "val",
+          "group": "phase-0540",
+          "crops": 4
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00013825.png",
+          "sha256": "c6bb548c288f9755f97670b434e98d777833edbd744c34907d3259747c38e8bd",
+          "split": "val",
+          "group": "phase-0540",
+          "crops": 5
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "sha256": "7c92c477cbbbc413fc82a14c458f3af7abeb1a7001206c4a837dd75cc97bff3d",
+          "split": "val",
+          "group": "phase-0540",
+          "crops": 19
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00050275.png",
+          "sha256": "050f0e9a06ff4b294d0437547e09c6d88867367cbce0a811a9350ad615957d82",
+          "split": "val",
+          "group": "phase-2010",
+          "crops": 7
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00050300.png",
+          "sha256": "9c613b3379f955fdfec8bfd53c0f12412370b57548ddd0f5a38995d98641301a",
+          "split": "val",
+          "group": "phase-2010",
+          "crops": 2
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00050500.png",
+          "sha256": "3d9fe764f0ca5f76e9beb05f739cbda82ffe51695c8d5cb9453237b2d3be27ad",
+          "split": "val",
+          "group": "phase-2010",
+          "crops": 5
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00050525.png",
+          "sha256": "2d80227c98081a0fd074608d30278f9de2844d35ccbc4d64c75bab8a1ad15cf6",
+          "split": "val",
+          "group": "phase-2010",
+          "crops": 2
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00050575.png",
+          "sha256": "39c6cf67cb661f8b3fb191a6e9ec4639400918c9e27baec9379f4f11b5f8c013",
+          "split": "val",
+          "group": "phase-2010",
+          "crops": 6
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00050650.png",
+          "sha256": "14770fad37eabfc683b3af98675a000a0d1f1960cc4716e5dea98a73214b7599",
+          "split": "val",
+          "group": "phase-2010",
+          "crops": 4
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00013550.png",
+          "sha256": "d1a288461de9cac64b963ac33866b81a3a964baa65131a6a5b39d24007f3056e",
+          "split": "val",
+          "group": "phase-0540",
+          "crops": 1
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00013700.png",
+          "sha256": "32f6a273a1530d5e53d8d8a0b07587ecbb129390bc93359c189e1bcc99c5dbe7",
+          "split": "val",
+          "group": "phase-0540",
+          "crops": 1
+        }
+      ],
+      "exact_duplicate_crops": 0,
+      "cross_split_source_group_or_image_bytes": 0,
+      "human_review_completed": false,
+      "exhaustive_detection_reference": false
+    },
+    {
+      "manifest": "datasets\\roles-teams-v3\\manifest.json",
+      "manifest_sha256": "e5a9dc823411e86b615134b1a29011012546350d640154ac40acc94883d7b6b0",
+      "version": "roles-teams-v3.1",
+      "raw_crops": 1621,
+      "used_source_images": 105,
+      "counts": {
+        "train": {
+          "player": 963,
+          "referee": 52,
+          "assistant_referee": 50,
+          "steward": 11,
+          "spectator": 56,
+          "person": 21
+        },
+        "val": {
+          "player": 369,
+          "referee": 19,
+          "assistant_referee": 15,
+          "steward": 14,
+          "spectator": 41,
+          "person": 10
+        }
+      },
+      "sources": [
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000000.jpg",
+          "sha256": "ad4ac81eb3d795e084ea50bcb4db90111b8972ec7f5db21a131925cfb46dcb5b",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000020.jpg",
+          "sha256": "fb16a43943aefd72e35e712040be5e47319f50d2a8eb35abac3f9253ebc7de97",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000040.jpg",
+          "sha256": "c0c9dfc707486e7b077d8036e1bc3402d627da71db84ad5b22af1462a5f64405",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000060.jpg",
+          "sha256": "188a9488a910f547a361987e748cefba7f7e3d7710b9949d3e03f5998a7fa301",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000080.jpg",
+          "sha256": "47e38f907d9f2acdebec957ae186bd37f5fee5a07f1fe0605de92a02c63687dd",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000100.jpg",
+          "sha256": "1c4cccd7b13c7b57ec0f40bd5e5fbb19768b948ce02597739436c4ab7bee59dd",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000120.jpg",
+          "sha256": "5dab02756bcff4e0fc9afa26a4507f067970f896101be3971d0aabe8bbfeccbc",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000140.jpg",
+          "sha256": "08b3644720e550f795dad1be786963020e554b002bc4aab77adf0c31191dd55d",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000160.jpg",
+          "sha256": "a9643382689f33e5b9b5ecf262fcbe4b9d630fa8b8744e8719e22fc8c1c0a7a9",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000180.jpg",
+          "sha256": "38379d565dac7c2e01a904971189f4b3212e917b60214de3b0b95f04d7759934",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000200.jpg",
+          "sha256": "8bbd8dded1548e1959f4e2b93363d4ab98dd48aaa3511316c9dbd63bf1117527",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000220.jpg",
+          "sha256": "84b2d7e3e71b26fd7f54fe802a83739809e2e1da7617ce93471a4d1d955ee670",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000240.jpg",
+          "sha256": "31df6d33f9f3207a400f01168bc3cdf658f84dc7d95d94d184a6aeb5d684d1ab",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000260.jpg",
+          "sha256": "eec8be521160d6196aa53fc6ccfdbeea70e5887f7c2900c274ae0b1b1899993a",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000280.jpg",
+          "sha256": "039aa2aa96e03bcd5e13a6d5a18612629d7481d4d9a884a14b8bc472add3608f",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000300.jpg",
+          "sha256": "d58b235223f534bab31d4defd59ad9a03bac055d7c00fe64e24fc9f5a542111d",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000320.jpg",
+          "sha256": "9b900c7b0b9e863017f582fd8046d287cee9724d19ebcd7b2b71ad51235f493c",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000340.jpg",
+          "sha256": "b9871864fee40e84569034ae91be182912d2ba058cec5faab60c84f6eb042579",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000360.jpg",
+          "sha256": "b037c7d40b811b2c78412ebc02ead31ff6ac79a03b1e31be7410d1bd31893465",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000380.jpg",
+          "sha256": "7fa54e3d8868a17cc4873e45253f2dd05db3e1c2ececfdcedb6adfb21d6a2bd6",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000400.jpg",
+          "sha256": "cfb7ea022f8e059849635f74d9752030b1956ebef068df9d49de71afc92d7b82",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000420.jpg",
+          "sha256": "924d81eb7ed910f8eb48a416879e81c2581e0da32f45793a1fbc49b336ff4546",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000440.jpg",
+          "sha256": "76046eb0679ed05ab9e5b4d60093084f15c64db75f35df7a9c84996e430a4f30",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000460.jpg",
+          "sha256": "6710f98540ff0924d4feef1af179000ef47d6aeac029db3fa12413d5c0966219",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000480.jpg",
+          "sha256": "2e812a46b15a5339547d409eae9bd223a1825a576617822bee829f3ba5b53850",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000500.jpg",
+          "sha256": "55ae668c3bcd6eea27952f6290521808361c9af5c90beda4f28717244db37a29",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000520.jpg",
+          "sha256": "7b259cfe28ab4f9051e4db2074821158f4d880c2cab725d12458db768a71025f",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000540.jpg",
+          "sha256": "09c65bc965460f63f1a72b0a3a5b338a52bbcaaa4ff33a480b66eec37fad75aa",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000560.jpg",
+          "sha256": "cfd4be6fddd47a2caa21e391b07d4b54ff2c6c2a0c2a5a683a8a0578083de672",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000580.jpg",
+          "sha256": "78568943f8775d80d8cc14db1f39ef3ca8b6fe1d34efc2d17f07d5570e934638",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000600.jpg",
+          "sha256": "2eee6339fdb6bce59ff1224c9c12ad027a32d9d4dcb1bddddad44e2977e8fe9d",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000620.jpg",
+          "sha256": "5e81239c495b2315fe3dfe76e0f67d3e41244a0e3234ea35d7690e846f1e95bd",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000640.jpg",
+          "sha256": "1c7aca53d52d76c4e08763fb851473d21b7443afa888a31523de2d54300e25a4",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000660.jpg",
+          "sha256": "0f4c796802bb81484142b00ccc46b033d2375c6b671733ff044a5b356d657828",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000680.jpg",
+          "sha256": "9db870eed2e5a3889fdd65fd345606e119cad988309f3afb716b231962603ae0",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/train/F_20200220_1_0540_0570_000700.jpg",
+          "sha256": "36f30c1b561af1086151d74518403e6499e05649d9bf3f2667875a833839a08b",
+          "split": "train",
+          "group": "F_20200220_1_0540_0570",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000000.jpg",
+          "sha256": "dbea1d5513b435026c7d599e70e0ffc25bebb9760ee5f96a111f67157654c296",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000060.jpg",
+          "sha256": "3ae4d06d81701ebdaf9639bfaa49195fcae079853e2fdcba0b4d225ffe9a5743",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000120.jpg",
+          "sha256": "3569a83b5c26729e8ea1cfe22c1887ae4c4a6554a34cd39f336e291966a9312c",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000180.jpg",
+          "sha256": "f8d869bdb23fc35b028095ea07b066855add4e8644bd49adbdc0e652765a66ab",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000240.jpg",
+          "sha256": "9646dd5c19dbe7949a6c7bed731904868512662a3ce8a9b08f855b49917724fd",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000300.jpg",
+          "sha256": "a9232384b0ecf7d3ad9c9ce20038bc2a6034ef01dfae0c5361a92c7cbde2b5cb",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000360.jpg",
+          "sha256": "5fce41e5846e97d8bfaba4dfe1913b31b44e549b1fbf77e4b569a906430b8a23",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000420.jpg",
+          "sha256": "b4a265024a4310da5e3f810393876ec5a6bc077685dfdf781f25c41756e91ac6",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000480.jpg",
+          "sha256": "6f06ee08fe7300b25592a77c8731227cfc9d078e8fd8588d823c39c95b1cabf9",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000540.jpg",
+          "sha256": "97ed40e74d75b25dd6e052748bd63252457049a842b65675f360944d24756bdb",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000600.jpg",
+          "sha256": "460f096b06a659a2bea2fecc088673960149ac0d9facd70685def35047b585bc",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../teamtrack-players-v2/images/val/F_20200220_1_0660_0690_000660.jpg",
+          "sha256": "887cc73a2cb79eae0091ae0a461a25ebf3c3842c147fe34b3a19244473edfb74",
+          "split": "val",
+          "group": "F_20200220_1_0660_0690",
+          "crops": 24
+        },
+        {
+          "image": "../roles-teams-v1/sources/steward-nec.jpg",
+          "sha256": "6c7fc47f640c79c7cb07b227a0a553922219977dbd2458ab2b5b5dd17aa9a850",
+          "split": "train",
+          "group": "steward-nec",
+          "crops": 1
+        },
+        {
+          "image": "../roles-teams-v1/sources/steward-torino.jpg",
+          "sha256": "445d935058f882752d6ddb50f5a73abb6765d319d343f1a42a676b30cff24bfb",
+          "split": "train",
+          "group": "steward-torino",
+          "crops": 1
+        },
+        {
+          "image": "../roles-teams-v1/sources/steward-cardiff.jpg",
+          "sha256": "f02938421622bce5038573459ace6b88c6a44d811a600cd1aa45c59c7204eafb",
+          "split": "train",
+          "group": "steward-cardiff",
+          "crops": 3
+        },
+        {
+          "image": "../roles-teams-v1/sources/london-control.jpg",
+          "sha256": "2b734878e2ecdef84e76f3e68d5372ed0e3c27dc2d7ae300ced4f549ec2f0d2e",
+          "split": "val",
+          "group": "london-control",
+          "crops": 11
+        },
+        {
+          "image": "../roles-teams-v1/sources/liverpool-steward.png",
+          "sha256": "b4f2ab2d9b92262167e03e28bd6c2b90a24e1953f96cd5e69f7f1b98950efcfe",
+          "split": "val",
+          "group": "liverpool-steward",
+          "crops": 1
+        },
+        {
+          "image": "../roles-teams-v1/sources/local-fans.jpg",
+          "sha256": "2967684c531040d50e52b6ce7e439a18d2ad6d528f5fb0f0c8bc08da72f4d8b5",
+          "split": "train",
+          "group": "local-fans",
+          "crops": 2
+        },
+        {
+          "image": "../roles-teams-v1/sources/chennai-fan.jpg",
+          "sha256": "0d12eda06ed745751dcc55c39de917f6a600d507851fc9416647e8923744dd5a",
+          "split": "train",
+          "group": "chennai-fan",
+          "crops": 2
+        },
+        {
+          "image": "../roles-teams-v1/sources/cardiff-fans.jpg",
+          "sha256": "fccd2090857abba26cd7b514d03ec5aa95bd1fa429fada255b34a0e1fb6bc3fd",
+          "split": "train",
+          "group": "cardiff-fans",
+          "crops": 9
+        },
+        {
+          "image": "../roles-teams-v1/sources/uganda-fan.jpg",
+          "sha256": "d053ce64e75533d28a591b84e490bf7c0a215d4e10ad2b1f88b1d51e2aafb123",
+          "split": "val",
+          "group": "uganda-fan",
+          "crops": 1
+        },
+        {
+          "image": "../roles-teams-v1/sources/troyes-fans.jpg",
+          "sha256": "38b0d83623d626fb7a70c962d56e0a0d3c6ddf8702a75cd35d48e68e29a3f6c8",
+          "split": "val",
+          "group": "troyes-fans",
+          "crops": 6
+        },
+        {
+          "image": "../roles-teams-v1/sources/mkdons-stewards.jpg",
+          "sha256": "5966d4c0c9b317b5491c4e3b60de452c7149767a8b0fd049e04916ef82f89c39",
+          "split": "train",
+          "group": "mkdons-stewards",
+          "crops": 2
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-000000.jpg",
+          "sha256": "139dc89ce8756de7efdb450d54380f2a1b53e07028b41d9187d1c4c53d13805b",
+          "split": "train",
+          "group": "original-dev-00",
+          "crops": 24
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-000075.jpg",
+          "sha256": "350e82f7eb4b0d6e1d12f3bca25bbe4c3387a532edc881a8f445f6108e3fe6ac",
+          "split": "train",
+          "group": "original-dev-00",
+          "crops": 23
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-000150.jpg",
+          "sha256": "51c4d21373a7d4b54e214894a6425ecaa98112822710f2b337601a5458a1805e",
+          "split": "train",
+          "group": "original-dev-00",
+          "crops": 29
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-000350.jpg",
+          "sha256": "3399c98e2f73b0b1bd7d053120fa8612c991da02e3fd38f5fd38612304ebf82f",
+          "split": "train",
+          "group": "original-dev-14",
+          "crops": 30
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-000425.jpg",
+          "sha256": "14cc71f27677572d81380be61f6c5b0671ade9e9cb2898132f89d5f12f92b096",
+          "split": "train",
+          "group": "original-dev-14",
+          "crops": 25
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-000500.jpg",
+          "sha256": "173ddd60770eb9aae9927f9e3bc567e8680805e76a3d737ec6c7c122c0cf9915",
+          "split": "train",
+          "group": "original-dev-14",
+          "crops": 30
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-002100.jpg",
+          "sha256": "1c59f63b5373faece39b2d2151abf5c2d541e65e924fccdf809f53ac01585123",
+          "split": "val",
+          "group": "original-val-84",
+          "crops": 21
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-002175.jpg",
+          "sha256": "21aad23d19d9fb4968cc62d241d0e7400789ca478199db681f71f6ffe0327374",
+          "split": "val",
+          "group": "original-val-84",
+          "crops": 21
+        },
+        {
+          "image": "../roles-teams-v1/sources/original-002250.jpg",
+          "sha256": "9251cf154511151c16a784950466e259ef6511b4419dfd069b57df7f6408dc0a",
+          "split": "val",
+          "group": "original-val-84",
+          "crops": 23
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-0330_000250.jpg",
+          "sha256": "b18a5dad7bb1546899c0a046e32b75950e190671105f2ac852206ac2c7e31fe8",
+          "split": "train",
+          "group": "phase-0330",
+          "crops": 3
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-0330_000400.jpg",
+          "sha256": "225aa4940738fef3d49d5b5e17f7a8476292f22db5a481fdeb264c8721a2f257",
+          "split": "train",
+          "group": "phase-0330",
+          "crops": 4
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-0750_000325.jpg",
+          "sha256": "c6173a3695e01437740ec7a17d09492b178560749399806749da6ea1e35e18f4",
+          "split": "train",
+          "group": "phase-0750",
+          "crops": 4
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-0750_000400.jpg",
+          "sha256": "a441da3e8a5630651e7793c620fbb728882f48d56119289d777f5b48d672a378",
+          "split": "train",
+          "group": "phase-0750",
+          "crops": 5
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-0960_000250.jpg",
+          "sha256": "1a4d43f902ab04a95ecc330208ea3e259005e6c98833705206e43ef6b76107b0",
+          "split": "train",
+          "group": "phase-0960",
+          "crops": 5
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-0960_000325.jpg",
+          "sha256": "8812cd0bd94feb75f788fd285d290eb5e9b6d239cf756efe85b8ae79adb9745f",
+          "split": "train",
+          "group": "phase-0960",
+          "crops": 3
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-1170_000025.jpg",
+          "sha256": "57e9a560d185cf0704622d302effe1f4ecf19004d0ad6bbd0c50b1ab34dcbee2",
+          "split": "train",
+          "group": "phase-1170",
+          "crops": 4
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-1170_000400.jpg",
+          "sha256": "da2af3f9b0b6fd689bf41893b397af5cf4e206f90f6f7633a08eb7794b178f45",
+          "split": "train",
+          "group": "phase-1170",
+          "crops": 6
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-1380_000025.jpg",
+          "sha256": "7aaefb54f3fe9afd3f567adcff064d0822369b186fee40ca7487cbc15d577d41",
+          "split": "train",
+          "group": "phase-1380",
+          "crops": 5
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-1380_000175.jpg",
+          "sha256": "5596f1a4048564d243c46213c8e05c9df6becd352ef7b53e83d9b5ced466dc00",
+          "split": "train",
+          "group": "phase-1380",
+          "crops": 4
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-1590_000175.jpg",
+          "sha256": "505f7fba97aaf5dd05830ac69f637a0b7380868e04cf2426da425e59c1b801a1",
+          "split": "train",
+          "group": "phase-1590",
+          "crops": 5
+        },
+        {
+          "image": "../development-candidates-v1/images/phase-1590_000325.jpg",
+          "sha256": "5b7728b49055aa0aebfbccd3bb7a97312b06a61ab1addaf3559869243eb68f10",
+          "split": "train",
+          "group": "phase-1590",
+          "crops": 4
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00013525.png",
+          "sha256": "957260a54a496d42918499d0be48f9a310929a8a051908bbbf8bae549efe294e",
+          "split": "val",
+          "group": "phase-0540",
+          "crops": 3
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00013675.png",
+          "sha256": "f62449e5d4b71b5349a84ca04f45c9499bf4dd363afee338f6d8e628a973f99d",
+          "split": "val",
+          "group": "phase-0540",
+          "crops": 4
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00013825.png",
+          "sha256": "c6bb548c288f9755f97670b434e98d777833edbd744c34907d3259747c38e8bd",
+          "split": "val",
+          "group": "phase-0540",
+          "crops": 5
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00013900.png",
+          "sha256": "7c92c477cbbbc413fc82a14c458f3af7abeb1a7001206c4a837dd75cc97bff3d",
+          "split": "val",
+          "group": "phase-0540",
+          "crops": 19
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00050275.png",
+          "sha256": "050f0e9a06ff4b294d0437547e09c6d88867367cbce0a811a9350ad615957d82",
+          "split": "val",
+          "group": "phase-2010",
+          "crops": 7
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00050300.png",
+          "sha256": "9c613b3379f955fdfec8bfd53c0f12412370b57548ddd0f5a38995d98641301a",
+          "split": "val",
+          "group": "phase-2010",
+          "crops": 2
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00050500.png",
+          "sha256": "3d9fe764f0ca5f76e9beb05f739cbda82ffe51695c8d5cb9453237b2d3be27ad",
+          "split": "val",
+          "group": "phase-2010",
+          "crops": 5
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00050525.png",
+          "sha256": "2d80227c98081a0fd074608d30278f9de2844d35ccbc4d64c75bab8a1ad15cf6",
+          "split": "val",
+          "group": "phase-2010",
+          "crops": 2
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00050575.png",
+          "sha256": "39c6cf67cb661f8b3fb191a6e9ec4639400918c9e27baec9379f4f11b5f8c013",
+          "split": "val",
+          "group": "phase-2010",
+          "crops": 6
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00050650.png",
+          "sha256": "14770fad37eabfc683b3af98675a000a0d1f1960cc4716e5dea98a73214b7599",
+          "split": "val",
+          "group": "phase-2010",
+          "crops": 4
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00013550.png",
+          "sha256": "d1a288461de9cac64b963ac33866b81a3a964baa65131a6a5b39d24007f3056e",
+          "split": "val",
+          "group": "phase-0540",
+          "crops": 1
+        },
+        {
+          "image": "../../assets/annotations/football48/images/val/128057_00013700.png",
+          "sha256": "32f6a273a1530d5e53d8d8a0b07587ecbb129390bc93359c189e1bcc99c5dbe7",
+          "split": "val",
+          "group": "phase-0540",
+          "crops": 1
+        },
+        {
+          "image": "sources/portugal-stewards.jpg",
+          "sha256": "01a73c2f5049f21cd1f20310e4ec193e0cd185e8ac328e52969c6e579f4c25d4",
+          "split": "val",
+          "group": "portugal-argentina-2011-02-09",
+          "crops": 11
+        },
+        {
+          "image": "sources/sosnowiec-night.jpg",
+          "sha256": "ba7bdde60b825c99377ccf327c0387aba3994abdb8818c753f17ca1cfe9f123f",
+          "split": "train",
+          "group": "sosnowiec-2022-10-28",
+          "crops": 3
+        },
+        {
+          "image": "sources/grand-rapids.jpg",
+          "sha256": "6ade885962386f97de8f9b00ba84c73c5dc0f0395866b9f4d9111f22f051269f",
+          "split": "train",
+          "group": "grand-rapids-2015-06-05",
+          "crops": 7
+        },
+        {
+          "image": "sources/us-venezuela-fans.jpg",
+          "sha256": "298d4fad4c1c982fdb70854d1f61882442b60f8073f8fab87e95c9cbdf204717",
+          "split": "train",
+          "group": "us-venezuela-2019-06-09",
+          "crops": 11
+        },
+        {
+          "image": "sources/seattle-portland.jpg",
+          "sha256": "679efe9dc70ae2eb77542d403a0e2bd7baa3127cd9d4ad40a6aec2c3cd03dfb4",
+          "split": "train",
+          "group": "seattle-portland-crowd",
+          "crops": 9
+        },
+        {
+          "image": "sources/japan-audience.jpg",
+          "sha256": "dc2457f4e209d72f8cccd631f583de2d48d281e261b2a253b8f5a1dccc5ba092",
+          "split": "val",
+          "group": "japan-audience-9897888786",
+          "crops": 6
+        },
+        {
+          "image": "sources/faroe-fans.jpg",
+          "sha256": "1096cd391ada985969d25b6c3ad8a037e04c84e25d8e86234000938e05bcd5d3",
+          "split": "val",
+          "group": "faroe-2015-06-13",
+          "crops": 8
+        },
+        {
+          "image": "sources/sweden-u21-fans.jpg",
+          "sha256": "15e09cded357fbd64a068a36ec88287fba89cd95c319d2d12ca38ddf2ce35b89",
+          "split": "train",
+          "group": "sweden-u21-2015",
+          "crops": 7
+        },
+        {
+          "image": "sources/shimizu-fans.jpg",
+          "sha256": "853fa22656a69b5227bb198cb2d94433c8a67415ca2d9a204e8f9323dcca2648",
+          "split": "train",
+          "group": "emperor-cup-2011-01-01",
+          "crops": 7
+        },
+        {
+          "image": "sources/leverkusen-fans.jpg",
+          "sha256": "ed60f5b4376ab08628fada59e5951df24a7d811a551edba8dd369cc230942bda",
+          "split": "val",
+          "group": "leverkusen-fans-photo",
+          "crops": 12
+        },
+        {
+          "image": "sources/bohemians-fans.jpg",
+          "sha256": "334c5fffca284a16733349d365998d0ab075e87bfcbb7a440ce0387e18562706",
+          "split": "train",
+          "group": "bohemians-salzburg-photo",
+          "crops": 6
+        },
+        {
+          "image": "sources/event-stewards-2012.jpg",
+          "sha256": "6d5483263f99ba2f94e9a44f360fe77506ac06676ec166693155c762a63a50fc",
+          "split": "train",
+          "group": "event-stewards-7782147950",
+          "crops": 3
+        },
+        {
+          "image": "sources/nz-canada-frame0.jpg",
+          "sha256": "ffef76388dd5636386c525e59d7445b624c556d0c7ba33270e7d5c5ad5860b05",
+          "split": "train",
+          "group": "nz-canada-2018-u17-commons-24",
+          "crops": 3
+        }
+      ],
+      "exact_duplicate_crops": 0,
+      "cross_split_source_group_or_image_bytes": 0,
+      "human_review_completed": false,
+      "exhaustive_detection_reference": false
+    }
+  ],
+  "player_detection": {
+    "manifest": "datasets\\teamtrack-players-v2\\manifest.json",
+    "manifest_sha256": "69b6f83426125f5826044afd868aad2e021b7ca2cf25e5982a779ff038e17773",
+    "recorded_image_hash_reference": "datasets\\roles-teams-v2\\manifest.json",
+    "recorded_image_hash_reference_sha256": "129079c8e5380ade5962f533a55fa00b1298145b990f718eeb2103c051da93d7",
+    "frames_checked": {
+      "train": 36,
+      "val": 12
+    },
+    "class_counts": {
+      "train": {
+        "player": 792,
+        "referee": 72
+      },
+      "val": {
+        "player": 264,
+        "referee": 24
+      }
+    },
+    "reserved_test_frames_not_opened": [
+      "F_20200220_1_0720_0750_000000",
+      "F_20200220_1_0720_0750_000060",
+      "F_20200220_1_0720_0750_000120",
+      "F_20200220_1_0720_0750_000180",
+      "F_20200220_1_0720_0750_000240",
+      "F_20200220_1_0720_0750_000300",
+      "F_20200220_1_0720_0750_000360",
+      "F_20200220_1_0720_0750_000420",
+      "F_20200220_1_0720_0750_000480",
+      "F_20200220_1_0720_0750_000540",
+      "F_20200220_1_0720_0750_000600",
+      "F_20200220_1_0720_0750_000660"
+    ],
+    "exact_cross_split_image_duplicates": 0,
+    "group_crossings": 0,
+    "closest_cross_split_source_moments_metadata_only": [
+      {
+        "left": "F_20200220_1_0660_0690_000660",
+        "right": "F_20200220_1_0720_0750_000000",
+        "splits": [
+          "test",
+          "val"
+        ],
+        "gap_s": 33.60000000000002
+      },
+      {
+        "left": "F_20200220_1_0660_0690_000600",
+        "right": "F_20200220_1_0720_0750_000000",
+        "splits": [
+          "test",
+          "val"
+        ],
+        "gap_s": 36.0
+      },
+      {
+        "left": "F_20200220_1_0660_0690_000660",
+        "right": "F_20200220_1_0720_0750_000060",
+        "splits": [
+          "test",
+          "val"
+        ],
+        "gap_s": 36.0
+      }
+    ],
+    "perceptual_cross_split_review_candidates": [],
+    "image_and_label_identity": [
+      {
+        "frame_id": "F_20200220_1_0540_0570_000000",
+        "split": "train",
+        "image_sha256": "ad4ac81eb3d795e084ea50bcb4db90111b8972ec7f5db21a131925cfb46dcb5b",
+        "label_sha256": "8ec6e92f69466505985ab469c9db1471961e8dcadf996aa7985b7e742dd6c07a"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000020",
+        "split": "train",
+        "image_sha256": "fb16a43943aefd72e35e712040be5e47319f50d2a8eb35abac3f9253ebc7de97",
+        "label_sha256": "717f1268edf4d8a0398976bfdbf693cc24c6cada438de2476df6cb574fcc8165"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000040",
+        "split": "train",
+        "image_sha256": "c0c9dfc707486e7b077d8036e1bc3402d627da71db84ad5b22af1462a5f64405",
+        "label_sha256": "ccaefe97bf73b04983eb8b07f1ac15975c5a4ab73f555c642ffac184c9815c3d"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000060",
+        "split": "train",
+        "image_sha256": "188a9488a910f547a361987e748cefba7f7e3d7710b9949d3e03f5998a7fa301",
+        "label_sha256": "b5855bdd421c5345d26659825c9a9a15869e003e7cdfc39645885f942558742a"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000080",
+        "split": "train",
+        "image_sha256": "47e38f907d9f2acdebec957ae186bd37f5fee5a07f1fe0605de92a02c63687dd",
+        "label_sha256": "1ba8035cd4986c9e62495c8bc85f25549bcd46601cb922b2b4ca6fcc85944dd1"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000100",
+        "split": "train",
+        "image_sha256": "1c4cccd7b13c7b57ec0f40bd5e5fbb19768b948ce02597739436c4ab7bee59dd",
+        "label_sha256": "df3547a69686391f8c4b72e8acd7cd4b4e8c1f66d076ddcf2fcc19337fe3807d"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000120",
+        "split": "train",
+        "image_sha256": "5dab02756bcff4e0fc9afa26a4507f067970f896101be3971d0aabe8bbfeccbc",
+        "label_sha256": "7336ebfb3a9e0b3b4090670677f35f8c7162cf093f4eba0e0ece1afb1ddfc92a"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000140",
+        "split": "train",
+        "image_sha256": "08b3644720e550f795dad1be786963020e554b002bc4aab77adf0c31191dd55d",
+        "label_sha256": "89d681191c8a82619df91c5a7b1715c7788da0be7112be6b5723772a5af48467"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000160",
+        "split": "train",
+        "image_sha256": "a9643382689f33e5b9b5ecf262fcbe4b9d630fa8b8744e8719e22fc8c1c0a7a9",
+        "label_sha256": "a67c7b88203143c202d7499f9d263a9cb838be4455f1861e0b1a655a7d86b63b"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000180",
+        "split": "train",
+        "image_sha256": "38379d565dac7c2e01a904971189f4b3212e917b60214de3b0b95f04d7759934",
+        "label_sha256": "66692f1c0f29766ecd750cd850b412af119810931f3e7ec996a752c9683364d5"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000200",
+        "split": "train",
+        "image_sha256": "8bbd8dded1548e1959f4e2b93363d4ab98dd48aaa3511316c9dbd63bf1117527",
+        "label_sha256": "6eaea6cc43aa6cd32e4987b6af03f785b357655b4d126c945c8adb8af31c6d22"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000220",
+        "split": "train",
+        "image_sha256": "84b2d7e3e71b26fd7f54fe802a83739809e2e1da7617ce93471a4d1d955ee670",
+        "label_sha256": "560af2f1aa9fa5cdb364d82439085b3fde7ce9c94c6e557000b804dfef56622f"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000240",
+        "split": "train",
+        "image_sha256": "31df6d33f9f3207a400f01168bc3cdf658f84dc7d95d94d184a6aeb5d684d1ab",
+        "label_sha256": "22e78d6d710c771b21932e7b288f6d41292dd1e980acf2d8a7a087656795f2a8"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000260",
+        "split": "train",
+        "image_sha256": "eec8be521160d6196aa53fc6ccfdbeea70e5887f7c2900c274ae0b1b1899993a",
+        "label_sha256": "c5d2b8e567ec677d5a6fc0d1e3f90287474c5786f99680b513687a7f76784885"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000280",
+        "split": "train",
+        "image_sha256": "039aa2aa96e03bcd5e13a6d5a18612629d7481d4d9a884a14b8bc472add3608f",
+        "label_sha256": "fedd5cb404b6080b1f8ab79c6cdf720d16e15f3254a7b3f7ad31ebc76a877e2f"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000300",
+        "split": "train",
+        "image_sha256": "d58b235223f534bab31d4defd59ad9a03bac055d7c00fe64e24fc9f5a542111d",
+        "label_sha256": "36a1f6f25086ae39891f21af055015d277105b726acb1b9a2f9094d725beda74"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000320",
+        "split": "train",
+        "image_sha256": "9b900c7b0b9e863017f582fd8046d287cee9724d19ebcd7b2b71ad51235f493c",
+        "label_sha256": "9f916537c862e7aaa6017ef718fc3fe9cd32a23807f2ae260c7be68ce04fa361"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000340",
+        "split": "train",
+        "image_sha256": "b9871864fee40e84569034ae91be182912d2ba058cec5faab60c84f6eb042579",
+        "label_sha256": "197ce79083ae186edd4256ae81a7a649fa4fe16581508ce771d5ecd3e779b81d"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000360",
+        "split": "train",
+        "image_sha256": "b037c7d40b811b2c78412ebc02ead31ff6ac79a03b1e31be7410d1bd31893465",
+        "label_sha256": "cf1b8f544026cb485acefce2e8bafbdafaf601ea82c0cfababf35850831b6993"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000380",
+        "split": "train",
+        "image_sha256": "7fa54e3d8868a17cc4873e45253f2dd05db3e1c2ececfdcedb6adfb21d6a2bd6",
+        "label_sha256": "f381903132c8376a002f15bf971c3955b86b7bf7d6aa63ae73254c057709ad64"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000400",
+        "split": "train",
+        "image_sha256": "cfb7ea022f8e059849635f74d9752030b1956ebef068df9d49de71afc92d7b82",
+        "label_sha256": "ecd592244728cad9707abfdc6713f34ce97b6a85a001c5f881821cfbc0d568ee"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000420",
+        "split": "train",
+        "image_sha256": "924d81eb7ed910f8eb48a416879e81c2581e0da32f45793a1fbc49b336ff4546",
+        "label_sha256": "23ef7e09e855df560a9bdfa86e89e1cc1a367a983df23502a350617fc17111ee"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000440",
+        "split": "train",
+        "image_sha256": "76046eb0679ed05ab9e5b4d60093084f15c64db75f35df7a9c84996e430a4f30",
+        "label_sha256": "06f2b136d3a081b61cd4168f758badfa80eaad3063d5f6f4b758287f65c2a0ce"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000460",
+        "split": "train",
+        "image_sha256": "6710f98540ff0924d4feef1af179000ef47d6aeac029db3fa12413d5c0966219",
+        "label_sha256": "cebe81f931e7bdd378b20eb76993b577a7c524c831be4ecd895cc954fea893d0"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000480",
+        "split": "train",
+        "image_sha256": "2e812a46b15a5339547d409eae9bd223a1825a576617822bee829f3ba5b53850",
+        "label_sha256": "1cc9d580b9cd3a4b350248cb66817512494ca1a122323286a918e8058c49b4f8"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000500",
+        "split": "train",
+        "image_sha256": "55ae668c3bcd6eea27952f6290521808361c9af5c90beda4f28717244db37a29",
+        "label_sha256": "74cb94221c3d5d9e8ef2e7dc259e89a022f61e732c0ca83594d2dd752984333e"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000520",
+        "split": "train",
+        "image_sha256": "7b259cfe28ab4f9051e4db2074821158f4d880c2cab725d12458db768a71025f",
+        "label_sha256": "36991a0b3b5ae3ba225caf697e7ff61c5a40c029e08a9641ed171a98df88017e"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000540",
+        "split": "train",
+        "image_sha256": "09c65bc965460f63f1a72b0a3a5b338a52bbcaaa4ff33a480b66eec37fad75aa",
+        "label_sha256": "f4278934ee85d1561512c7c650f6bd2e7dd6cf485a2a898cfd456639778921c5"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000560",
+        "split": "train",
+        "image_sha256": "cfd4be6fddd47a2caa21e391b07d4b54ff2c6c2a0c2a5a683a8a0578083de672",
+        "label_sha256": "8395833451a2c11f80a047293bfa359dde415fa87a8b13321c529cc0a058d69e"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000580",
+        "split": "train",
+        "image_sha256": "78568943f8775d80d8cc14db1f39ef3ca8b6fe1d34efc2d17f07d5570e934638",
+        "label_sha256": "aba3650a0d096220a77fb2c2e88f7c0b56f7eb6d1634e328e4033a8bc7a35ef2"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000600",
+        "split": "train",
+        "image_sha256": "2eee6339fdb6bce59ff1224c9c12ad027a32d9d4dcb1bddddad44e2977e8fe9d",
+        "label_sha256": "937a6ebfa43811ac65e2fde9351f7608e0e12f44259a6a867feefd53857305f8"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000620",
+        "split": "train",
+        "image_sha256": "5e81239c495b2315fe3dfe76e0f67d3e41244a0e3234ea35d7690e846f1e95bd",
+        "label_sha256": "a32307a9525de2690ac625d3e1a2ad4d9a1c692168e712b8149f9dd3d507896d"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000640",
+        "split": "train",
+        "image_sha256": "1c7aca53d52d76c4e08763fb851473d21b7443afa888a31523de2d54300e25a4",
+        "label_sha256": "5284f1bf3872cae6148e0e522e5f773378a042e45d76d071e99ac4302c3e5aed"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000660",
+        "split": "train",
+        "image_sha256": "0f4c796802bb81484142b00ccc46b033d2375c6b671733ff044a5b356d657828",
+        "label_sha256": "9ea6307d88942c9ae5948b2cf71afac1dc9b2f8831a77cd6ae3936dfaffab160"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000680",
+        "split": "train",
+        "image_sha256": "9db870eed2e5a3889fdd65fd345606e119cad988309f3afb716b231962603ae0",
+        "label_sha256": "32b511449c145068645dd27f917f630742ea9b5687c022d55c9e1d6cbc125c98"
+      },
+      {
+        "frame_id": "F_20200220_1_0540_0570_000700",
+        "split": "train",
+        "image_sha256": "36f30c1b561af1086151d74518403e6499e05649d9bf3f2667875a833839a08b",
+        "label_sha256": "911d1b73a43884e1e1918e8dd3abd44e52fbbf0856bbdd59882c9983cb590b44"
+      },
+      {
+        "frame_id": "F_20200220_1_0660_0690_000000",
+        "split": "val",
+        "image_sha256": "dbea1d5513b435026c7d599e70e0ffc25bebb9760ee5f96a111f67157654c296",
+        "label_sha256": "7edf2404c792f4187db16fda7ba428a04a09ce5641236ba03619cc495ddba5ae"
+      },
+      {
+        "frame_id": "F_20200220_1_0660_0690_000060",
+        "split": "val",
+        "image_sha256": "3ae4d06d81701ebdaf9639bfaa49195fcae079853e2fdcba0b4d225ffe9a5743",
+        "label_sha256": "88cbe7dd84eba8bed7fa851233aa06a202d61ab3ee0dc2fc445cb45fd4b603fb"
+      },
+      {
+        "frame_id": "F_20200220_1_0660_0690_000120",
+        "split": "val",
+        "image_sha256": "3569a83b5c26729e8ea1cfe22c1887ae4c4a6554a34cd39f336e291966a9312c",
+        "label_sha256": "0b7393d523139b5cff736b559dd1df16c582fcc70f5b958244e6c5d48048b4a6"
+      },
+      {
+        "frame_id": "F_20200220_1_0660_0690_000180",
+        "split": "val",
+        "image_sha256": "f8d869bdb23fc35b028095ea07b066855add4e8644bd49adbdc0e652765a66ab",
+        "label_sha256": "26865baff9d3f55e60b87e18681c610ff732476b1bb8b41b4630b6df35d8736d"
+      },
+      {
+        "frame_id": "F_20200220_1_0660_0690_000240",
+        "split": "val",
+        "image_sha256": "9646dd5c19dbe7949a6c7bed731904868512662a3ce8a9b08f855b49917724fd",
+        "label_sha256": "940e4d83202d950fa8b2a4515ede48f83e712bbe49375304bf9dfcbbb2d27560"
+      },
+      {
+        "frame_id": "F_20200220_1_0660_0690_000300",
+        "split": "val",
+        "image_sha256": "a9232384b0ecf7d3ad9c9ce20038bc2a6034ef01dfae0c5361a92c7cbde2b5cb",
+        "label_sha256": "f23e262dcd1ff29e5a893339e9eb4e78e92c6238d6ef84746e08849e4c2f2e9d"
+      },
+      {
+        "frame_id": "F_20200220_1_0660_0690_000360",
+        "split": "val",
+        "image_sha256": "5fce41e5846e97d8bfaba4dfe1913b31b44e549b1fbf77e4b569a906430b8a23",
+        "label_sha256": "fa9c7ce7a7f33f32038469c5b8e292847d29d17bacb59e86b6f11d5b604e5603"
+      },
+      {
+        "frame_id": "F_20200220_1_0660_0690_000420",
+        "split": "val",
+        "image_sha256": "b4a265024a4310da5e3f810393876ec5a6bc077685dfdf781f25c41756e91ac6",
+        "label_sha256": "c01c5a0b937149146401c4f154ac5b7b7de944f84e6c2ce65ce10058f8a94b74"
+      },
+      {
+        "frame_id": "F_20200220_1_0660_0690_000480",
+        "split": "val",
+        "image_sha256": "6f06ee08fe7300b25592a77c8731227cfc9d078e8fd8588d823c39c95b1cabf9",
+        "label_sha256": "dcaeadfd4171aaa73f07b6f51ba7b3d7a4d86a121486651bf38fff74fbe9996d"
+      },
+      {
+        "frame_id": "F_20200220_1_0660_0690_000540",
+        "split": "val",
+        "image_sha256": "97ed40e74d75b25dd6e052748bd63252457049a842b65675f360944d24756bdb",
+        "label_sha256": "a019415e14beed2017d80c0960e64a85458734002dcbe9bebf638360bbbbed2d"
+      },
+      {
+        "frame_id": "F_20200220_1_0660_0690_000600",
+        "split": "val",
+        "image_sha256": "460f096b06a659a2bea2fecc088673960149ac0d9facd70685def35047b585bc",
+        "label_sha256": "fa856e25ff8241f6abc4724eb0aa019836b81444fa622e3a80d439274efeb201"
+      },
+      {
+        "frame_id": "F_20200220_1_0660_0690_000660",
+        "split": "val",
+        "image_sha256": "887cc73a2cb79eae0091ae0a461a25ebf3c3842c147fe34b3a19244473edfb74",
+        "label_sha256": "588cc4a48bc6372f024d2092c494aa6f51dec9e152d4b911c1c5347633edaee2"
+      }
+    ],
+    "human_review_completed": false
+  },
+  "football48": {
+    "frames": 48,
+    "fingerprint": "2cde5e0f402bd4be0284cad1ae7c7c8d492375dadbc558ae39844bc63631474d",
+    "files": {
+      "images/train/128057_00008335.png": "dba80fe536a7c59119770b36a021a6093c3493c531fcc5c54a0d43e4ab7cd768",
+      "labels/train/128057_00008335.txt": "c7a824edf7fb229083131db6a04ea271f35c026d38277c18bc0fc877f162738c",
+      "images/train/128057_00008355.png": "22b740629eafafda3c3e76021dc464f7bb614da289d43da0db995f98e2eac54b",
+      "labels/train/128057_00008355.txt": "ff32f91f41a192701baa109fe5fedb989fe64ff5f1a070aa302a4b05ff056d11",
+      "images/train/128057_00008365.png": "25ff6deb4f3201005eadcbdbcc9a32d8a741d2beeaff2d178ab4d5030c0c2d51",
+      "labels/train/128057_00008365.txt": "69c0b7cb4ed37a4f932e0b1f74d8209a5ebda86d52583f0469e9d68e3c0f9c8f",
+      "images/val/128057_00013525.png": "957260a54a496d42918499d0be48f9a310929a8a051908bbbf8bae549efe294e",
+      "labels/val/128057_00013525.txt": "8b7d5f4de8f806e5c1d87a33f36af4ce513f225a32b9af87104a3fd4449539ec",
+      "images/val/128057_00013675.png": "f62449e5d4b71b5349a84ca04f45c9499bf4dd363afee338f6d8e628a973f99d",
+      "labels/val/128057_00013675.txt": "071a563801ef9a5a9d88ba3f03fd2d4aed55ad7e764cba4f837b0827e07847a4",
+      "images/val/128057_00013825.png": "c6bb548c288f9755f97670b434e98d777833edbd744c34907d3259747c38e8bd",
+      "labels/val/128057_00013825.txt": "9ebd98ec443acdc4c3ec50872b2a63e7dc8e41a682a015dd27ef7ae33d0b186d",
+      "images/val/128057_00013900.png": "7c92c477cbbbc413fc82a14c458f3af7abeb1a7001206c4a837dd75cc97bff3d",
+      "labels/val/128057_00013900.txt": "87b0ea9b20d0a44410bb8670459dc8cebbb9d670649e9345bb1cb081041fc9d2",
+      "images/train/128057_00018775.png": "22b9529daf7bcf1b7a10f17bf28a63e44d92e077cbac60699f77398c94400a0c",
+      "labels/train/128057_00018775.txt": "fc3c699d77daeb6c714be7815180427711c903e8b12ce7c1bd00544a2f612941",
+      "images/train/128057_00018800.png": "f922b28f42efa6acf5c94266e0adf59e393b80d8500eec25559e098980ec17b5",
+      "labels/train/128057_00018800.txt": "686fa4b953881583528137bff1f6caa65388ba8dbca9f5027fb2692ee746759e",
+      "images/train/128057_00018825.png": "b191b79059caf8b3c5e5cc80ac1ba1e1355c6cebe384c38bac8c241a3c5f28f8",
+      "labels/train/128057_00018825.txt": "9178ed944b713de01f7898e326bd7c921a6c409dfcad3344321ecadfc90ae30d",
+      "images/train/128057_00018850.png": "47ea53243408a467a8eea469937ea8236383b088b0e79e59b90a8a989dca30fd",
+      "labels/train/128057_00018850.txt": "5107849f0ee7360fa778079b9bd6a09c58010236255ab5580a3b2a9c2daf6277",
+      "images/train/128057_00018875.png": "2378259669b049ea11f69c583d2670ea405290611c859f8a1bad622b8daba1ae",
+      "labels/train/128057_00018875.txt": "175900cd88950c6836be55a77f6292f2e21a8b7279d622bed8bd54303897645c",
+      "images/train/128057_00018925.png": "da4ad6b6a185bee63f8f5a7f5ffa75ed94db789f1aad929320504a2a57e00e3a",
+      "labels/train/128057_00018925.txt": "f4192592608ff0f180ca761f9b33ee1dda8bbbf22762360dbee891f32acb24b1",
+      "images/train/128057_00024000.png": "7edc173c6641ef61cffb5fcd6cd8a4e36945a0a2d55beebc0d098061065af45d",
+      "labels/train/128057_00024000.txt": "2483f2240124a5b407260d7af7a930e53456edfcc45ed83476bafd1c2c384887",
+      "images/train/128057_00024025.png": "c79f2fc42597bbe0f6a6deae4e991fe1d972855f14db6bf88d5a03b601df0236",
+      "labels/train/128057_00024025.txt": "6e1539f5b17d14586cb53ecc49f62774150e8ab7b6e2502aa031641c58326023",
+      "images/train/128057_00024050.png": "81cab4994c0b3c914919ac2430b914328b621ad59e910decf7e167636efbfd99",
+      "labels/train/128057_00024050.txt": "1d1e8528d356accab6d044985e586a386d2e21aa3f80944fa21f0542e70d687c",
+      "images/train/128057_00024125.png": "b2d9be80c161e5e3f76dc67b7479d64d1197f48787ecd86a127dc1aa459d7a26",
+      "labels/train/128057_00024125.txt": "3daec99cb3e12ec929c014c466eb692bdad25a54febe30e249d43ac136be9faa",
+      "images/train/128057_00024175.png": "d1fb2729500ac84ba64dd5c23bc1d9e3fbf85900af329554ca1dea04e40f4862",
+      "labels/train/128057_00024175.txt": "e25f715c74419422e37906d18cb57539cb9ba8bb1e6d82ceacfe02d40922294c",
+      "images/train/128057_00029475.png": "91c2c03e139afe7b1b5a98aeb821b24e591fbeb17bb99673de695161c2181e6e",
+      "labels/train/128057_00029475.txt": "9d5077a6f8bb128e01b7f1dad038fc37204c2e7ef1a14344932f92c8a6b354ee",
+      "images/train/128057_00029500.png": "5895a8697e12578d60caa527de9b8decdfe2fb04b2a55b25a96ac5c2fdf2557e",
+      "labels/train/128057_00029500.txt": "17105bf3a0adab9c8b9346add6d4e7bf123fea7896835523e0d42bd9ce1e25c7",
+      "images/train/128057_00029575.png": "32351f3bb5b1ed007d958d6077f68eb94a518cb11561cba41200a8ed7ad51dfb",
+      "labels/train/128057_00029575.txt": "d6287b984781ef31c211a515947ac19696ac6b4e23eb8a78b525b51ec12042fc",
+      "images/train/128057_00034775.png": "220a46e2cbd852bedbe67bf5a33bc92842be3ad4dd7091c4b7f0bbeace53f29c",
+      "labels/train/128057_00034775.txt": "f5f77c090b2e35e97ca14ca032f86bacf19f88cd74d30551f3c21bfe4e0ca833",
+      "images/train/128057_00034800.png": "c0c15b9851a3145b516eb721efaa0e17472000ba71f70d10c0785852f7d107f6",
+      "labels/train/128057_00034800.txt": "7e8b3b554c6e67c7bbc2c6eae9d790f27d236d942b8d4e7b8d71192ca3a1b738",
+      "images/train/128057_00034825.png": "c1fbc41cc66affd8707b51baa47084463926363b5783dc2d12b5b6c7d43fefff",
+      "labels/train/128057_00034825.txt": "63c2a79f825c2ce63fad8b993030103108f8ae3e57031943febc2637fb79d177",
+      "images/train/128057_00034875.png": "eff1c1133a2e3eb2ed9a041557c2be47136b0eab66127f3b6b43a1f24437ca01",
+      "labels/train/128057_00034875.txt": "bea4010868e40dcab83355045f31ec69117b3e2478a4be8930dd98dcb3396002",
+      "images/train/128057_00040120.png": "968c05c4efa244b8c22ee8b5a141f7831bfdc411f61c26d27d1b33f67b742cb8",
+      "labels/train/128057_00040120.txt": "9eb859aa843229d07c9af58b7a5ed07c1c626704cb172ae67fc79314135995c1",
+      "images/train/128057_00040130.png": "bc7adcae23f23602a0eea58f0f3e85e27806ae5d14100e442006a9df1e387381",
+      "labels/train/128057_00040130.txt": "7f075bbaf3be448c222ed02bcd56ee7d487f3a273eb913be80109d2498af1ede",
+      "images/train/128057_00040150.png": "fa2e7af03a3e9899802b6935bc17aac9cd8d622864b413c957e84c3e4941861f",
+      "labels/train/128057_00040150.txt": "67934f982e9d6cea9ecdfef91e2b850990018668afaacee0b8a4f07af2f2fe7e",
+      "images/train/128057_00040160.png": "fff913428a43ffd674c7a2ab30fb831d4a7f0b54441255f82f2370707e1160a5",
+      "labels/train/128057_00040160.txt": "fde0285e117d555355f6a731d9fad96413bc9b14f927381c94f4d436874306eb",
+      "images/train/128057_00040170.png": "24f278d3a426d8194b62cb67c21dfc56bb5605f531677236118393d88aa3e5c6",
+      "labels/train/128057_00040170.txt": "9b0bc7dd0c062612d3a69e2d5a299033a971d6adf5a3cf86a654aefafd869ff5",
+      "images/val/128057_00050275.png": "050f0e9a06ff4b294d0437547e09c6d88867367cbce0a811a9350ad615957d82",
+      "labels/val/128057_00050275.txt": "3c86b497ff0a96f712e7234b6224016fc47c613811e5f40fbc18f4b3514faa39",
+      "images/val/128057_00050300.png": "9c613b3379f955fdfec8bfd53c0f12412370b57548ddd0f5a38995d98641301a",
+      "labels/val/128057_00050300.txt": "df72b11db79b688b718d182e82082d618a821dfda3e1301466682663ca0f6117",
+      "images/val/128057_00050500.png": "3d9fe764f0ca5f76e9beb05f739cbda82ffe51695c8d5cb9453237b2d3be27ad",
+      "labels/val/128057_00050500.txt": "e993cbe41186ba66e4306df630086a1e8bb7f90d263f8462fd309f80f378b414",
+      "images/val/128057_00050525.png": "2d80227c98081a0fd074608d30278f9de2844d35ccbc4d64c75bab8a1ad15cf6",
+      "labels/val/128057_00050525.txt": "07c71ee711f3f9f1ef9e739596d949becb37e2108bfcf1f2ea3d289ff35e7428",
+      "images/val/128057_00050575.png": "39c6cf67cb661f8b3fb191a6e9ec4639400918c9e27baec9379f4f11b5f8c013",
+      "labels/val/128057_00050575.txt": "3165cbbc52565e2a24d871bf72e6b245e2edb6cfdb4c211c5d38b53abc3f296e",
+      "images/val/128057_00050650.png": "14770fad37eabfc683b3af98675a000a0d1f1960cc4716e5dea98a73214b7599",
+      "labels/val/128057_00050650.txt": "ce7af2c1c52585de3948dd8c1fca5384d2b82c1c974860b8e631d4572383872c",
+      "images/train/128057_00008275.png": "d3efd9ba93f1911ddd4ab9ee4d9e0b73815cc4ba2b24e580e90e2c6dfe34a133",
+      "labels/train/128057_00008275.txt": "eff1f6814a97be320bad051ca766663f8ed1a9ff485b675de4bb12b8e491dca3",
+      "images/train/128057_00018860.png": "7cb7cfb1d150eed6b83bc32be85a773d92bcb107d279163bf84e555869af6d98",
+      "labels/train/128057_00018860.txt": "4be6cc006e4c0c2d34dc023c2f8a092e5b51463f27d9486837e8550f6d3351bf",
+      "images/train/128057_00024075.png": "c4450ae6ac34de9f1a4f0eec0e8785e45d884132034afc261497c80eb118e71a",
+      "labels/train/128057_00024075.txt": "9d2c5518c04eb2e1c68d37689e354a607b0ebc968f191e116b4f870a0e249dda",
+      "images/train/128057_00024100.png": "a2c1aac079a617c926e5c9a3436b9d1ba1420e4e29d590fd12b9ccf84712a648",
+      "labels/train/128057_00024100.txt": "1952d77857077e90d0fb3380a71459311b2eee2342ed3a74725fb592bd230e4b",
+      "images/train/128057_00029350.png": "3b0b3b781e00826d1947f33c45d9c02836ffc852281ae406056f3618f39471ae",
+      "labels/train/128057_00029350.txt": "45953339401163dc264240f2953dd42499bb5918de3bab546c1bf2ec0819d79f",
+      "images/train/128057_00029375.png": "0d74289d5aed4f6e6184e0f9bdd008931ddcb08fc186abb7de5a671d57c5d4aa",
+      "labels/train/128057_00029375.txt": "bbc30ad6a1699a79d25e97a1069565f46f2dd7628d64f96b43126ec12df44219",
+      "images/train/128057_00034600.png": "e799a7c1762c5f7989bc22ffe61d8f803b124a134c1a954c8c987af630b6417c",
+      "labels/train/128057_00034600.txt": "c032e49a3ddfddc296563ba9b8179c5d25f5162ec07a1c734312d3f381fcb7b0",
+      "images/train/128057_00034750.png": "27a50b467ab2e9c0e1d8f06bfd90825d22c6a2b87e464e4c5bf51530d91e57ae",
+      "labels/train/128057_00034750.txt": "beeda6f7496e11147dace9cec920834ee79e86ebda416b252dc1cdcb2ab549b8",
+      "images/train/128057_00039850.png": "e54e75055830a393fe07c98a729f7bfa0157d9e79e53c063f57f0795a2b8c378",
+      "labels/train/128057_00039850.txt": "128f0e0d86827e15b5d2dbf79c7d29d4a9d5ba21f990239ec551323ca98eec49",
+      "images/train/128057_00040000.png": "a3db72fb44b10a82bf7f43bd19628f60ddb23f331df23662d7a79097e01a08e4",
+      "labels/train/128057_00040000.txt": "80b18f729cdd1bc8d1f81fd0ec417518095fd9eb5f551e0402d44230ad27bd65",
+      "images/val/128057_00013550.png": "d1a288461de9cac64b963ac33866b81a3a964baa65131a6a5b39d24007f3056e",
+      "labels/val/128057_00013550.txt": "d340770a83f3a084f611a878dd27418550e02a32f5217ae9eb4e3636586c26bd",
+      "images/val/128057_00013700.png": "32f6a273a1530d5e53d8d8a0b07587ecbb129390bc93359c189e1bcc99c5dbe7",
+      "labels/val/128057_00013700.txt": "fb55517fa32aa203eacdf4bf4d57f8f6dd954c9e46441dd78918e4b34aa18e6f"
+    },
+    "groups": {
+      "phase-0330": "train",
+      "phase-0540": "val",
+      "phase-0750": "train",
+      "phase-0960": "train",
+      "phase-1170": "train",
+      "phase-1380": "train",
+      "phase-1590": "train",
+      "phase-2010": "val"
+    },
+    "ball_size_min_median_max_px": [
+      [
+        4.5351296,
+        5.100768
+      ],
+      [
+        9.155212800000001,
+        9.0
+      ],
+      [
+        15.0,
+        13.0714112
+      ]
+    ],
+    "review_policy": "provisional_ai_visual",
+    "human_review_completed": false,
+    "independent_final_test_available": false
+  },
+  "legacy_panoramic_ball_metadata_only": {
+    "frames_by_split": {
+      "train": 27,
+      "test": 8,
+      "val": 12
+    },
+    "test_images_not_opened": true,
+    "selection_sha256": "45ffc1fc35be4517da44c49fa22ef358a966104d5a0414f6458c1e42456251fd"
+  },
+  "human_review_completed": false
+}

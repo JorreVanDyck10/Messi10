@@ -1,0 +1,1234 @@
+{
+  "candidate": "official-context-weight6",
+  "workpoint": 0.25,
+  "checks": {
+    "precision_improves": true,
+    "correct_team_fraction_improves": false,
+    "recall_drop_within_1pp": true,
+    "per_game_drop_within_2pp": true
+  },
+  "selected": false,
+  "reason": "Correct-team fraction must improve; failed candidate not activated",
+  "baseline": {
+    "players": {
+      "class_id": 0,
+      "name": "player",
+      "objects": 5078,
+      "AP50": 0.8912747336524033,
+      "AP50_95": 0.5382975104933229,
+      "TP": 4623,
+      "FP": 398,
+      "FN": 455,
+      "precision": 0.9207329217287393,
+      "recall": 0.910397794407247
+    },
+    "teams": {
+      "matched_players": 4623,
+      "correct": 4208,
+      "wrong": 128,
+      "unknown": 287,
+      "missed_players": 455,
+      "false_positive_players": 398,
+      "accuracy_assigned": 0.9704797047970479,
+      "coverage_matched": 0.9379191001514168,
+      "correct_fraction_all_players": 0.828672705789681,
+      "goalkeepers_total": 194,
+      "goalkeepers_matched": 176,
+      "goalkeepers_correct_team": 16,
+      "per_clip": [
+        {
+          "clip": "SNGS-021",
+          "team_status": "available",
+          "matched": 82,
+          "correct": 78,
+          "wrong": 0,
+          "unknown": 4,
+          "missed_players": 4,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-022",
+          "team_status": "available",
+          "matched": 70,
+          "correct": 67,
+          "wrong": 0,
+          "unknown": 3,
+          "missed_players": 6,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-023",
+          "team_status": "available",
+          "matched": 92,
+          "correct": 89,
+          "wrong": 2,
+          "unknown": 1,
+          "missed_players": 6,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-024",
+          "team_status": "available",
+          "matched": 57,
+          "correct": 54,
+          "wrong": 0,
+          "unknown": 3,
+          "missed_players": 1,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-025",
+          "team_status": "available",
+          "matched": 87,
+          "correct": 82,
+          "wrong": 0,
+          "unknown": 5,
+          "missed_players": 5,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-026",
+          "team_status": "available",
+          "matched": 61,
+          "correct": 56,
+          "wrong": 3,
+          "unknown": 2,
+          "missed_players": 7,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-027",
+          "team_status": "available",
+          "matched": 86,
+          "correct": 82,
+          "wrong": 0,
+          "unknown": 4,
+          "missed_players": 7,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-028",
+          "team_status": "available",
+          "matched": 56,
+          "correct": 54,
+          "wrong": 2,
+          "unknown": 0,
+          "missed_players": 4,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-029",
+          "team_status": "available",
+          "matched": 57,
+          "correct": 55,
+          "wrong": 0,
+          "unknown": 2,
+          "missed_players": 14,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-030",
+          "team_status": "available",
+          "matched": 87,
+          "correct": 82,
+          "wrong": 0,
+          "unknown": 5,
+          "missed_players": 5,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-031",
+          "team_status": "available",
+          "matched": 71,
+          "correct": 68,
+          "wrong": 3,
+          "unknown": 0,
+          "missed_players": 4,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-032",
+          "team_status": "available",
+          "matched": 65,
+          "correct": 62,
+          "wrong": 1,
+          "unknown": 2,
+          "missed_players": 10,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-033",
+          "team_status": "available",
+          "matched": 30,
+          "correct": 29,
+          "wrong": 0,
+          "unknown": 1,
+          "missed_players": 15,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-034",
+          "team_status": "available",
+          "matched": 95,
+          "correct": 89,
+          "wrong": 3,
+          "unknown": 3,
+          "missed_players": 10,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-035",
+          "team_status": "available",
+          "matched": 55,
+          "correct": 53,
+          "wrong": 1,
+          "unknown": 1,
+          "missed_players": 2,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-036",
+          "team_status": "available",
+          "matched": 95,
+          "correct": 90,
+          "wrong": 3,
+          "unknown": 2,
+          "missed_players": 2,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-037",
+          "team_status": "available",
+          "matched": 52,
+          "correct": 49,
+          "wrong": 0,
+          "unknown": 3,
+          "missed_players": 3,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-038",
+          "team_status": "available",
+          "matched": 64,
+          "correct": 57,
+          "wrong": 1,
+          "unknown": 6,
+          "missed_players": 13,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-039",
+          "team_status": "available",
+          "matched": 91,
+          "correct": 80,
+          "wrong": 5,
+          "unknown": 6,
+          "missed_players": 17,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-040",
+          "team_status": "available",
+          "matched": 88,
+          "correct": 83,
+          "wrong": 3,
+          "unknown": 2,
+          "missed_players": 19,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-041",
+          "team_status": "available",
+          "matched": 79,
+          "correct": 70,
+          "wrong": 1,
+          "unknown": 8,
+          "missed_players": 4,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-042",
+          "team_status": "available",
+          "matched": 99,
+          "correct": 85,
+          "wrong": 6,
+          "unknown": 8,
+          "missed_players": 12,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-043",
+          "team_status": "available",
+          "matched": 83,
+          "correct": 75,
+          "wrong": 2,
+          "unknown": 6,
+          "missed_players": 15,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-044",
+          "team_status": "available",
+          "matched": 88,
+          "correct": 81,
+          "wrong": 1,
+          "unknown": 6,
+          "missed_players": 13,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-045",
+          "team_status": "available",
+          "matched": 75,
+          "correct": 58,
+          "wrong": 7,
+          "unknown": 10,
+          "missed_players": 6,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-046",
+          "team_status": "available",
+          "matched": 85,
+          "correct": 74,
+          "wrong": 3,
+          "unknown": 8,
+          "missed_players": 14,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-047",
+          "team_status": "available",
+          "matched": 91,
+          "correct": 88,
+          "wrong": 2,
+          "unknown": 1,
+          "missed_players": 4,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-048",
+          "team_status": "available",
+          "matched": 103,
+          "correct": 41,
+          "wrong": 29,
+          "unknown": 33,
+          "missed_players": 6,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-049",
+          "team_status": "available",
+          "matched": 112,
+          "correct": 105,
+          "wrong": 0,
+          "unknown": 7,
+          "missed_players": 5,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-050",
+          "team_status": "available",
+          "matched": 112,
+          "correct": 108,
+          "wrong": 1,
+          "unknown": 3,
+          "missed_players": 2,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-051",
+          "team_status": "available",
+          "matched": 78,
+          "correct": 62,
+          "wrong": 1,
+          "unknown": 15,
+          "missed_players": 5,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-052",
+          "team_status": "available",
+          "matched": 88,
+          "correct": 77,
+          "wrong": 0,
+          "unknown": 11,
+          "missed_players": 15,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-053",
+          "team_status": "available",
+          "matched": 96,
+          "correct": 79,
+          "wrong": 6,
+          "unknown": 11,
+          "missed_players": 1,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-054",
+          "team_status": "available",
+          "matched": 68,
+          "correct": 56,
+          "wrong": 0,
+          "unknown": 12,
+          "missed_players": 19,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-055",
+          "team_status": "available",
+          "matched": 68,
+          "correct": 67,
+          "wrong": 1,
+          "unknown": 0,
+          "missed_players": 15,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-056",
+          "team_status": "available",
+          "matched": 72,
+          "correct": 56,
+          "wrong": 0,
+          "unknown": 16,
+          "missed_players": 3,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-057",
+          "team_status": "available",
+          "matched": 93,
+          "correct": 83,
+          "wrong": 8,
+          "unknown": 2,
+          "missed_players": 11,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-058",
+          "team_status": "available",
+          "matched": 73,
+          "correct": 65,
+          "wrong": 4,
+          "unknown": 4,
+          "missed_players": 8,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-059",
+          "team_status": "available",
+          "matched": 88,
+          "correct": 74,
+          "wrong": 3,
+          "unknown": 11,
+          "missed_players": 6,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-078",
+          "team_status": "available",
+          "matched": 66,
+          "correct": 60,
+          "wrong": 3,
+          "unknown": 3,
+          "missed_players": 3,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-079",
+          "team_status": "available",
+          "matched": 80,
+          "correct": 69,
+          "wrong": 8,
+          "unknown": 3,
+          "missed_players": 10,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-080",
+          "team_status": "available",
+          "matched": 47,
+          "correct": 45,
+          "wrong": 0,
+          "unknown": 2,
+          "missed_players": 4,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-081",
+          "team_status": "available",
+          "matched": 76,
+          "correct": 70,
+          "wrong": 4,
+          "unknown": 2,
+          "missed_players": 8,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-082",
+          "team_status": "available",
+          "matched": 94,
+          "correct": 90,
+          "wrong": 0,
+          "unknown": 4,
+          "missed_players": 10,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-083",
+          "team_status": "available",
+          "matched": 74,
+          "correct": 69,
+          "wrong": 4,
+          "unknown": 1,
+          "missed_players": 7,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-084",
+          "team_status": "available",
+          "matched": 80,
+          "correct": 77,
+          "wrong": 1,
+          "unknown": 2,
+          "missed_players": 13,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-085",
+          "team_status": "available",
+          "matched": 94,
+          "correct": 90,
+          "wrong": 0,
+          "unknown": 4,
+          "missed_players": 4,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-086",
+          "team_status": "available",
+          "matched": 99,
+          "correct": 92,
+          "wrong": 1,
+          "unknown": 6,
+          "missed_players": 6,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-087",
+          "team_status": "available",
+          "matched": 78,
+          "correct": 77,
+          "wrong": 0,
+          "unknown": 1,
+          "missed_players": 3,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-088",
+          "team_status": "available",
+          "matched": 92,
+          "correct": 89,
+          "wrong": 1,
+          "unknown": 2,
+          "missed_players": 7,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-089",
+          "team_status": "available",
+          "matched": 91,
+          "correct": 86,
+          "wrong": 1,
+          "unknown": 4,
+          "missed_players": 1,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-090",
+          "team_status": "available",
+          "matched": 66,
+          "correct": 61,
+          "wrong": 1,
+          "unknown": 4,
+          "missed_players": 10,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-091",
+          "team_status": "available",
+          "matched": 79,
+          "correct": 72,
+          "wrong": 0,
+          "unknown": 7,
+          "missed_players": 14,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-092",
+          "team_status": "available",
+          "matched": 82,
+          "correct": 79,
+          "wrong": 0,
+          "unknown": 3,
+          "missed_players": 7,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-093",
+          "team_status": "available",
+          "matched": 75,
+          "correct": 69,
+          "wrong": 2,
+          "unknown": 4,
+          "missed_players": 9,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-094",
+          "team_status": "available",
+          "matched": 92,
+          "correct": 90,
+          "wrong": 0,
+          "unknown": 2,
+          "missed_players": 2,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-095",
+          "team_status": "available",
+          "matched": 63,
+          "correct": 61,
+          "wrong": 0,
+          "unknown": 2,
+          "missed_players": 10,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-096",
+          "team_status": "available",
+          "matched": 103,
+          "correct": 99,
+          "wrong": 0,
+          "unknown": 4,
+          "missed_players": 9,
+          "single_fixed_swap": true
+        }
+      ]
+    }
+  },
+  "candidate_result": {
+    "players": {
+      "class_id": 0,
+      "name": "player",
+      "objects": 5078,
+      "AP50": 0.8918530823126296,
+      "AP50_95": 0.538729624476308,
+      "TP": 4616,
+      "FP": 394,
+      "FN": 462,
+      "precision": 0.9213572854291417,
+      "recall": 0.9090192989365892
+    },
+    "teams": {
+      "matched_players": 4616,
+      "correct": 4203,
+      "wrong": 130,
+      "unknown": 283,
+      "missed_players": 462,
+      "false_positive_players": 394,
+      "accuracy_assigned": 0.9699976921301638,
+      "coverage_matched": 0.9386915077989602,
+      "correct_fraction_all_players": 0.8276880661677826,
+      "goalkeepers_total": 194,
+      "goalkeepers_matched": 174,
+      "goalkeepers_correct_team": 17,
+      "per_clip": [
+        {
+          "clip": "SNGS-021",
+          "team_status": "available",
+          "matched": 82,
+          "correct": 78,
+          "wrong": 0,
+          "unknown": 4,
+          "missed_players": 4,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-022",
+          "team_status": "available",
+          "matched": 70,
+          "correct": 67,
+          "wrong": 0,
+          "unknown": 3,
+          "missed_players": 6,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-023",
+          "team_status": "available",
+          "matched": 92,
+          "correct": 89,
+          "wrong": 2,
+          "unknown": 1,
+          "missed_players": 6,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-024",
+          "team_status": "available",
+          "matched": 57,
+          "correct": 54,
+          "wrong": 0,
+          "unknown": 3,
+          "missed_players": 1,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-025",
+          "team_status": "available",
+          "matched": 87,
+          "correct": 82,
+          "wrong": 0,
+          "unknown": 5,
+          "missed_players": 5,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-026",
+          "team_status": "available",
+          "matched": 61,
+          "correct": 56,
+          "wrong": 3,
+          "unknown": 2,
+          "missed_players": 7,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-027",
+          "team_status": "available",
+          "matched": 86,
+          "correct": 82,
+          "wrong": 0,
+          "unknown": 4,
+          "missed_players": 7,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-028",
+          "team_status": "available",
+          "matched": 56,
+          "correct": 54,
+          "wrong": 2,
+          "unknown": 0,
+          "missed_players": 4,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-029",
+          "team_status": "available",
+          "matched": 57,
+          "correct": 55,
+          "wrong": 0,
+          "unknown": 2,
+          "missed_players": 14,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-030",
+          "team_status": "available",
+          "matched": 87,
+          "correct": 82,
+          "wrong": 0,
+          "unknown": 5,
+          "missed_players": 5,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-031",
+          "team_status": "available",
+          "matched": 71,
+          "correct": 68,
+          "wrong": 3,
+          "unknown": 0,
+          "missed_players": 4,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-032",
+          "team_status": "available",
+          "matched": 65,
+          "correct": 62,
+          "wrong": 1,
+          "unknown": 2,
+          "missed_players": 10,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-033",
+          "team_status": "available",
+          "matched": 30,
+          "correct": 29,
+          "wrong": 0,
+          "unknown": 1,
+          "missed_players": 15,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-034",
+          "team_status": "available",
+          "matched": 95,
+          "correct": 89,
+          "wrong": 3,
+          "unknown": 3,
+          "missed_players": 10,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-035",
+          "team_status": "available",
+          "matched": 55,
+          "correct": 53,
+          "wrong": 1,
+          "unknown": 1,
+          "missed_players": 2,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-036",
+          "team_status": "available",
+          "matched": 95,
+          "correct": 90,
+          "wrong": 3,
+          "unknown": 2,
+          "missed_players": 2,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-037",
+          "team_status": "available",
+          "matched": 52,
+          "correct": 49,
+          "wrong": 0,
+          "unknown": 3,
+          "missed_players": 3,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-038",
+          "team_status": "available",
+          "matched": 64,
+          "correct": 57,
+          "wrong": 1,
+          "unknown": 6,
+          "missed_players": 13,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-039",
+          "team_status": "available",
+          "matched": 90,
+          "correct": 79,
+          "wrong": 5,
+          "unknown": 6,
+          "missed_players": 18,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-040",
+          "team_status": "available",
+          "matched": 88,
+          "correct": 83,
+          "wrong": 3,
+          "unknown": 2,
+          "missed_players": 19,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-041",
+          "team_status": "available",
+          "matched": 78,
+          "correct": 69,
+          "wrong": 1,
+          "unknown": 8,
+          "missed_players": 5,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-042",
+          "team_status": "available",
+          "matched": 98,
+          "correct": 84,
+          "wrong": 6,
+          "unknown": 8,
+          "missed_players": 13,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-043",
+          "team_status": "available",
+          "matched": 83,
+          "correct": 75,
+          "wrong": 2,
+          "unknown": 6,
+          "missed_players": 15,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-044",
+          "team_status": "available",
+          "matched": 88,
+          "correct": 81,
+          "wrong": 1,
+          "unknown": 6,
+          "missed_players": 13,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-045",
+          "team_status": "available",
+          "matched": 75,
+          "correct": 58,
+          "wrong": 7,
+          "unknown": 10,
+          "missed_players": 6,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-046",
+          "team_status": "available",
+          "matched": 85,
+          "correct": 74,
+          "wrong": 3,
+          "unknown": 8,
+          "missed_players": 14,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-047",
+          "team_status": "available",
+          "matched": 91,
+          "correct": 88,
+          "wrong": 2,
+          "unknown": 1,
+          "missed_players": 4,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-048",
+          "team_status": "available",
+          "matched": 102,
+          "correct": 41,
+          "wrong": 29,
+          "unknown": 32,
+          "missed_players": 7,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-049",
+          "team_status": "available",
+          "matched": 112,
+          "correct": 105,
+          "wrong": 0,
+          "unknown": 7,
+          "missed_players": 5,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-050",
+          "team_status": "available",
+          "matched": 112,
+          "correct": 108,
+          "wrong": 1,
+          "unknown": 3,
+          "missed_players": 2,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-051",
+          "team_status": "available",
+          "matched": 78,
+          "correct": 62,
+          "wrong": 1,
+          "unknown": 15,
+          "missed_players": 5,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-052",
+          "team_status": "available",
+          "matched": 88,
+          "correct": 77,
+          "wrong": 0,
+          "unknown": 11,
+          "missed_players": 15,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-053",
+          "team_status": "available",
+          "matched": 96,
+          "correct": 79,
+          "wrong": 6,
+          "unknown": 11,
+          "missed_players": 1,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-054",
+          "team_status": "available",
+          "matched": 68,
+          "correct": 56,
+          "wrong": 0,
+          "unknown": 12,
+          "missed_players": 19,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-055",
+          "team_status": "available",
+          "matched": 68,
+          "correct": 67,
+          "wrong": 1,
+          "unknown": 0,
+          "missed_players": 15,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-056",
+          "team_status": "available",
+          "matched": 72,
+          "correct": 56,
+          "wrong": 0,
+          "unknown": 16,
+          "missed_players": 3,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-057",
+          "team_status": "available",
+          "matched": 93,
+          "correct": 83,
+          "wrong": 8,
+          "unknown": 2,
+          "missed_players": 11,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-058",
+          "team_status": "available",
+          "matched": 73,
+          "correct": 65,
+          "wrong": 4,
+          "unknown": 4,
+          "missed_players": 8,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-059",
+          "team_status": "available",
+          "matched": 87,
+          "correct": 72,
+          "wrong": 6,
+          "unknown": 9,
+          "missed_players": 7,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-078",
+          "team_status": "available",
+          "matched": 66,
+          "correct": 60,
+          "wrong": 3,
+          "unknown": 3,
+          "missed_players": 3,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-079",
+          "team_status": "available",
+          "matched": 80,
+          "correct": 69,
+          "wrong": 8,
+          "unknown": 3,
+          "missed_players": 10,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-080",
+          "team_status": "available",
+          "matched": 47,
+          "correct": 45,
+          "wrong": 0,
+          "unknown": 2,
+          "missed_players": 4,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-081",
+          "team_status": "available",
+          "matched": 76,
+          "correct": 70,
+          "wrong": 4,
+          "unknown": 2,
+          "missed_players": 8,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-082",
+          "team_status": "available",
+          "matched": 94,
+          "correct": 90,
+          "wrong": 0,
+          "unknown": 4,
+          "missed_players": 10,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-083",
+          "team_status": "available",
+          "matched": 74,
+          "correct": 69,
+          "wrong": 4,
+          "unknown": 1,
+          "missed_players": 7,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-084",
+          "team_status": "available",
+          "matched": 80,
+          "correct": 77,
+          "wrong": 1,
+          "unknown": 2,
+          "missed_players": 13,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-085",
+          "team_status": "available",
+          "matched": 94,
+          "correct": 90,
+          "wrong": 0,
+          "unknown": 4,
+          "missed_players": 4,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-086",
+          "team_status": "available",
+          "matched": 99,
+          "correct": 92,
+          "wrong": 1,
+          "unknown": 6,
+          "missed_players": 6,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-087",
+          "team_status": "available",
+          "matched": 78,
+          "correct": 77,
+          "wrong": 0,
+          "unknown": 1,
+          "missed_players": 3,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-088",
+          "team_status": "available",
+          "matched": 91,
+          "correct": 89,
+          "wrong": 0,
+          "unknown": 2,
+          "missed_players": 8,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-089",
+          "team_status": "available",
+          "matched": 91,
+          "correct": 86,
+          "wrong": 1,
+          "unknown": 4,
+          "missed_players": 1,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-090",
+          "team_status": "available",
+          "matched": 66,
+          "correct": 61,
+          "wrong": 1,
+          "unknown": 4,
+          "missed_players": 10,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-091",
+          "team_status": "available",
+          "matched": 79,
+          "correct": 72,
+          "wrong": 0,
+          "unknown": 7,
+          "missed_players": 14,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-092",
+          "team_status": "available",
+          "matched": 81,
+          "correct": 79,
+          "wrong": 0,
+          "unknown": 2,
+          "missed_players": 8,
+          "single_fixed_swap": false
+        },
+        {
+          "clip": "SNGS-093",
+          "team_status": "available",
+          "matched": 75,
+          "correct": 69,
+          "wrong": 2,
+          "unknown": 4,
+          "missed_players": 9,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-094",
+          "team_status": "available",
+          "matched": 92,
+          "correct": 90,
+          "wrong": 0,
+          "unknown": 2,
+          "missed_players": 2,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-095",
+          "team_status": "available",
+          "matched": 63,
+          "correct": 61,
+          "wrong": 0,
+          "unknown": 2,
+          "missed_players": 10,
+          "single_fixed_swap": true
+        },
+        {
+          "clip": "SNGS-096",
+          "team_status": "available",
+          "matched": 103,
+          "correct": 99,
+          "wrong": 0,
+          "unknown": 4,
+          "missed_players": 9,
+          "single_fixed_swap": true
+        }
+      ]
+    }
+  },
+  "independent_final_test": false,
+  "runtime_gate": "Not assessed: accuracy gate already fails; evaluation wall time is not pipeline throughput"
+}

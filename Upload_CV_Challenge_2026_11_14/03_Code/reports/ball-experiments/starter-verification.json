@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-10-16T12:38:56.600575+00:00",
+  "status": "passed",
+  "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Run-BallExperiment.ps1 -Resolution 1920 -RunName verify-4050-starter -CandidateWeights artifacts/ball-ai-v1/EXP-002-best.pt",
+  "actual_hardware": "RTX 3050 Laptop GPU, 4 GB; not a measurement on target RTX 4050",
+  "script_sha256": "94009a56dfa1133e033602f53e1c76615c213cb4726b2a8824977616b8c9c5ea",
+  "candidate_weights_sha256": "8fa01974339a0511cbde8495ae6e4fc3bc2baddeef11aaed895fe2edd9b5b172",
+  "baseline_validation_frames": 12,
+  "candidate_validation_frames": 12,
+  "comparison": {
+    "recorded_at": "2026-10-16T12:37:15.632693+00:00",
+    "baseline": "runs/verify-4050-starter/baseline-metrics/metrics.json",
+    "candidate": "runs/verify-4050-starter/candidate-metrics/metrics.json",
+    "deltas": {
+      "mAP50": 0.0,
+      "mAP50_95": 0.0
+    },
+    "conclusion": "Requires error examples, sample-size assessment and review; no automatic improvement claim"
+  },
+  "human_review_completed": false
+}

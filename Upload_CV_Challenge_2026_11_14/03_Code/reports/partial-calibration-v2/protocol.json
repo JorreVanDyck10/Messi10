@@ -1,0 +1,15 @@
+{
+  "source_fingerprint": "4fa69bad392c33bffb8d6c97397246c5b052e745c09e2bbc4e6c5a44cbdde421",
+  "script_sha256": "83739b3d621f5dd95099a0962f1a8c11d4199da4568e833bf6c2cf6fd00f6772",
+  "selection": "First frame per clip/side with all seven polylines and six intersections inside the image; no selection on check errors.",
+  "geometry_sha256": "28c186ae7f6594884afa3e125b2c13fe7f5958a463e167595e8312a23f7dc851",
+  "point_definitions_sha256": "5d3bb7a6831ff886019bab1b8627aff6e2e8c7a5ea552cf7804ff89fff5caf7e",
+  "fit": "Four intersections of separate penalty-area boundary lines",
+  "checks": "Two intersections of goal-area lines, excluded from fitting",
+  "pitch_dimensions_m": [
+    105,
+    68
+  ],
+  "human_review_completed": false,
+  "scope": "Provider-derived development geometry; no independent human ground truth or MVP approval."
+}

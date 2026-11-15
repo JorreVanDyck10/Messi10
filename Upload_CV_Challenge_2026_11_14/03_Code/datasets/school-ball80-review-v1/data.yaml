@@ -1,0 +1,5 @@
+# Dataset root is this YAML's directory; pass the absolute YAML path to Ultralytics.
+train: images/train
+val: images/val
+names:
+  0: ball

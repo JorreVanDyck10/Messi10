@@ -1,6 +1,8 @@
 # Gezamenlijke documentatie - Sports Vision
 
-**Bijgewerkt op 15 november 2026**, na pull van main op `524d081a`. Andrews vierklassenmodel, oorspronkelijke tracker en AI-verantwoording en Jorres technische afronding en labelreview zijn verwerkt.
+**Versie 4, bijgewerkt op 15 november 2026**, na pull van main en ophalen van Jorres uploadbranch `8e29c3ff`. Andrews vierklassenmodel, oorspronkelijke tracker en AI-verantwoording en Jorres technische afronding en labelreview zijn verwerkt.
+
+De definitieve inzendingsmap is [Upload_CV_Challenge_2026_11_14](../Upload_CV_Challenge_2026_11_14). Versie 4 gebruikt Jorres twaalf-slidepresentatie en bevat Milans persoonlijke bijdrage en AI-gebruik. De PDF en presentatie in beide mappen zijn gelijk.
 
 ## Direct openen
 
@@ -8,7 +10,8 @@
 - [PowerPointpresentatie](Presentatie_Sports_Vision.pptx)
 - [Uitgevoerd trainings- en resultatennotebook](Training_en_Resultaten.ipynb)
 - [Requirementscontrole en resterende opleverpunten](Requirementscontrole.md)
-- [Bijdragen van Andrew en Jorre](Bijdragen_Andrew_en_Jorre.md)
+- [Persoonlijke AI-verantwoording Milan Wouters](AI_Usage_Milan_Wouters.md)
+- [Bijdragen van Milan, Andrew en Jorre](Bijdragen_Andrew_en_Jorre.md)
 - [GenAI-gebruik en eigenaarschap](GenAI_en_Eigenaarschap.md)
 - [Versie en wijzigingen](Versie_en_Wijzigingen.md)
 
@@ -30,4 +33,4 @@ Open blijven onder meer de exacte koppeling van de definitieve reviewselectie aa
 
 Het notebook leest de meegeleverde bewijzen en echte historische logs en start geen training. De oorspronkelijke trainingscode staat al in de repository. De scripts onder Bouwdocumentatie houden de documenten bewerkbaar. Voor model-/data-inspectie moet Git LFS de echte bestanden hebben opgehaald.
 
-De compacte documenten staan rechtstreeks in GitHub. Grote lokale ZIP-bestanden, virtuele omgevingen en caches worden niet meegecommit. Maak voor de uiteindelijke upload één gecontroleerde ZIP per team met de actuele PDF, presentatie en gekozen uitvoer-/trainingscode. Een oudere lokale ZIP is geen actuele release.
+De compacte documenten staan rechtstreeks in GitHub. Grote lokale ZIP-bestanden, virtuele omgevingen en caches worden niet meegecommit. De nieuwe inzendings-ZIP wordt gemaakt uit de uploadmap, inclusief Jorres uitvoer-/trainingscode, modellen, data en demonstratie. Volg de uploadstarters in die map. Een oudere lokale ZIP is geen actuele release.

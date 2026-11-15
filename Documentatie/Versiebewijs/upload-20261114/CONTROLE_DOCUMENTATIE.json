@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-15T14:01:18.722972+00:00",
+  "documentation_version": 4,
+  "source_main_commit": "524d081a",
+  "source_upload_commit": "8e29c3ff",
+  "pdf_pages": 13,
+  "presentation_slides": 12,
+  "presentation_base": "Jorre original upload deck",
+  "pdf_and_presentation_identical_to_Documentatie": true,
+  "personal_ai_usage": "Milan Wouters",
+  "reviewed_frames": 80,
+  "source_payload_original_hash_verification": "12410 original files passed before replacing documents",
+  "lfs_pointers": [],
+  "submission_notebook_code_cells": 8,
+  "submission_notebook_saved_errors": 0,
+  "submission_notebook_training_disabled": true,
+  "new_training_performed": false,
+  "new_full_app_test_performed": false,
+  "new_clean_install_performed": false,
+  "prior_software_tests": "Jorre: 537 passed, 4 subtests, 1 GPU skip; prior local publication: 75 targeted passed. No new run in this document round.",
+  "required_files_present": [
+    "01_Rapport/Sports_Vision_Rapport.pdf",
+    "02_Presentatie/Sports_Vision_Presentatie.pptx",
+    "03_Code/Training_en_Evaluatie.ipynb",
+    "03_Code/Andrew_Prototype/train.ipynb",
+    "03_Code/streamlit_app.py",
+    "03_Code/Setup-Upload.ps1",
+    "03_Code/Start-Upload.ps1",
+    "05_Documentatie/AI_Usage_Milan_Wouters.md",
+    "05_Documentatie/Requirementscontrole.md"
+  ],
+  "open_content_points": [
+    "Exact mapping of final 80-frame review set to training and both AP metrics",
+    "Accepted static-camera MVP demonstration with point pairs and visual checks",
+    "Separate GenAI policy and individual defense"
+  ],
+  "historical_control_file": "CONTROLE.json",
+  "zip_name": "Inzending_Sports_Vision_2026_11_15.zip"
+}

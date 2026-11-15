@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-14",
+  "source_commit": "524d081a",
+  "source_branch": "main",
+  "format": "GitHub folder, no ZIP created",
+  "pdf_pages": 12,
+  "powerpoint_slides": 12,
+  "python_files_syntax_checked": 325,
+  "notebooks": 9,
+  "overview_notebook_default_cells_executed": 8,
+  "notebook_errors": 0,
+  "tests": {
+    "passed": 537,
+    "skipped": 1,
+    "subtests_passed": 4,
+    "note": "Actual GPU test skipped on CPU"
+  },
+  "reviewed_ball_frames": 80,
+  "player_dataset": {
+    "train": 3936,
+    "val": 348
+  },
+  "andrew_dataset": {
+    "train": 612,
+    "valid": 38,
+    "test": 13
+  },
+  "lfs_pointers_in_local_payload": [],
+  "packaged_worker_three_frame_smoke_test": "passed; one valid and two insufficient-line frames",
+  "upload_app_actual_mp4_smoke_test": "passed",
+  "powershell_parse_check": "passed",
+  "fresh_dependency_install_performed": false,
+  "exact_historical_player_intermediate_checkpoint_included": false,
+  "presentation_validation": "PPTX package, geometry, font and editable chart-data checks passed; all slides visually reviewed",
+  "report_validation": "12 pages rendered and visually reviewed",
+  "external_dependencies": "Python packages and FFmpeg install from official registries; model weights and upstream source are included"
+}

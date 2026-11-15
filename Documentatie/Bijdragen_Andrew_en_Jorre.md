@@ -1,6 +1,10 @@
-# Bijdragen van Andrew en Jorre
+# Bijdragen van Milan, Andrew en Jorre
 
 Bijgewerkt op 15 november 2026, op basis van main `524d081a`.
+
+## Milan Wouters
+
+Milan verklaart zelf voetbalvideo's te hebben gezocht en geselecteerd en aan het ondersteund labelen en controleren te hebben gewerkt. De oorspronkelijke AI/provider-voorstellen en de gezamenlijke goedkeuring blijven herkenbaar. Zijn persoonlijke AI-gebruik voor code, curatie, experimenten, diagnose en documentatie staat in [zijn verklaring](AI_Usage_Milan_Wouters.md). Er zijn geen individuele aantallen gecorrigeerde boxen achteraf ingevuld.
 
 ## Andrew
 
@@ -22,6 +26,8 @@ De technische afronding staat in [Afronding_20261114.md](../docs/Afronding_20261
 - De gedeelde CPU-controle meldt 537 geslaagde tests, één overgeslagen GPU-proef en vier geslaagde subtests. Ruff, codekaart en functie-uitleg zijn gecontroleerd. Dit is geen nieuwe GPU-installatie- of nauwkeurigheidsproef.
 - De menselijke review van alle huidige 80 labels is geregistreerd op basis van expliciete gebruikersbevestiging. Twijfelgevallen lagen buiten de selectie; beelden, labels en 48/32-splits zijn niet veranderd. De oorspronkelijke AI/provider-herkomst blijft vermeld.
 - Het volledige [reviewverslag](../final/datasets/school-ball80-review-v1/REVIEW.md) benoemt de afspraken en grenzen. Er zijn geen individuele reviewernamen, aantallen meningsverschillen of specifieke correcties achteraf ingevuld.
+
+Jorre heeft daarnaast het uploadpakket en de presentatie op `origin/codex/upload-cv-challenge` aangeleverd. Zijn twaalf slides vormen vanaf versie 4 onze definitieve presentatie, met een aanvulling over Milans bijdrage en AI-gebruik. De uploadcode en demonstratie blijven die van zijn pakket; lokale niet-gepubliceerde appwijzigingen zijn niet meegenomen.
 
 ## Gezamenlijke documentatie
 

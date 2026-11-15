@@ -1,0 +1,18 @@
+{
+  "clip_frames": 500,
+  "fps": 25,
+  "duration_s": 20,
+  "source_frame_alignment_mean_absolute_pixel_errors": [
+    1.303598964361497,
+    2.0326854564525463,
+    1.4022426275559414,
+    0.9303847324701003,
+    1.4102251971209492,
+    1.3568500283323688
+  ],
+  "valid_yolo_label_files": 6,
+  "regular_coco_annotations": 172,
+  "crowd_regions": 12,
+  "independent_human_review": false,
+  "checks": "actual clip decode and source alignment; label bounds/class validation; COCO counts and live editor checked"
+}

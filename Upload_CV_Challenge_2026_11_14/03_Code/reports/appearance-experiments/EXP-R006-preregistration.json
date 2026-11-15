@@ -1,0 +1,7 @@
+{
+  "reference": "EXP-R005",
+  "observation": "Further backbone adaptation on both matches reduced steward recall (3/8 argmax).",
+  "hypothesis": "Retain the R004 adapted vest features and refit appearance heads on the expanded two-match dataset without changing that backbone.",
+  "changes": "Frozen R004 encoder, same six classes and dataset as R005; 400 supervised head updates and selection at .65 unchanged.",
+  "test_data_used": false
+}

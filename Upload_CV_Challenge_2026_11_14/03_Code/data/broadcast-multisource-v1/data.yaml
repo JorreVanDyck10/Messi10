@@ -1,0 +1,5 @@
+names:
+  0: player
+path: C:/Messi10/data/broadcast-multisource-v1
+train: images/train
+val: images/val

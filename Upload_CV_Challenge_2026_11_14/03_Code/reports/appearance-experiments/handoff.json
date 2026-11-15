@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "selected_experiment": "EXP-R007",
+  "recorded_at": "2026-10-16T20:46:03.651572+00:00",
+  "review_policy": "provisional_ai_visual",
+  "human_review_completed": false,
+  "independent_final_test_completed": false,
+  "reserved_test_frames_used_in_this_extension": 0,
+  "source_images_active_selection": 80,
+  "cumulative_historical_images": 122,
+  "models": {
+    "person_proposals.pt": {
+      "sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+      "bytes": 5613764
+    },
+    "roles_seed_r004.pt": {
+      "sha256": "71ad2936dac1b3ce649934d1e4fd7f7ca10f1f9811b589897bd8d44c2b5740d8",
+      "bytes": 3851118
+    },
+    "roles_teams.pt": {
+      "sha256": "adad67b0e3b60803d11a179c11c24d5c6cf2a31cbe9804a93c5da43b2bc008f2",
+      "bytes": 3853678
+    }
+  },
+  "roles": {
+    "0": "player",
+    "1": "referee",
+    "2": "assistant_referee",
+    "3": "steward",
+    "4": "spectator",
+    "5": "person"
+  },
+  "teams": {
+    "0": "team_a",
+    "1": "team_b"
+  },
+  "detector_source_classes": {
+    "exp-p004-teamtrack-v2_1": {
+      "0": "player",
+      "1": "referee"
+    },
+    "coco-person-proposals": {
+      "0": "person"
+    }
+  },
+  "runtime_profile": "configs/models-players.json",
+  "profile_sha256": "679f19324989d8e3c845e4fd9af77316040687efbb7847e5efe7848cc36ba035",
+  "dataset_manifest": "datasets/roles-teams-v1/manifest.json",
+  "dataset_sha256": "3148976f198dfd9b5fd8a2a60240966d24e1d6f38ebef1cbdf8bfaeabbe0e668",
+  "conditional_classification_metrics": "reports/appearance-experiments/EXP-R007/metrics.json",
+  "real_detector_evaluation": "reports/appearance-experiments/EXP-R007/end-to-end-delivery",
+  "original_video_probe": "reports/appearance-experiments/EXP-R007/original-video-development",
+  "team_video_hashes": [
+    "678c8070c60a60a5f8c939caf5ea6f3fa36403bf2d136a1920726dc2e9a2933e",
+    "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+    "939eaae38f9d14d4141154f931e00e95bdc2d8d7e24f006551a3e48952a539fb",
+    "caaf63af7750eb56c6f31fbb9bceeb5d51bc06a1654659f110b34f5462ae542d"
+  ],
+  "input_crop_size_width_height": [
+    128,
+    192
+  ],
+  "role_confidence": 0.65,
+  "team_confidence": 0.65,
+  "detector_confidence": 0.1,
+  "display_confidence": 0.25,
+  "original_source_dimensions_preserved": true,
+  "field_algorithm_changed": false,
+  "person_tracking_enabled": false,
+  "team_scope": "Known labelled matches use supervised head; other video hashes use neutral within-video kit clusters with abstention. No verified club names or unseen-match accuracy.",
+  "limitations": [
+    "Supporter crop recall 4/11 at .65; fewer end-to-end detections and false role labels remain.",
+    "Central official full detection TP3/12; assistant TP9/12; partial far-official annotation coverage.",
+    "Goalkeeper kits and sideline people can be misclassified.",
+    "No independent project final test; historical source exposure remains disclosed.",
+    "RTX4050 not measured; actual GPU RTX3050 Laptop."
+  ],
+  "software": {
+    "python": "3.12.14",
+    "streamlit": "1.64.0",
+    "ultralytics": "8.3.221",
+    "torch": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "opencv-python": "4.11.0.86",
+    "numpy": "2.2.6",
+    "psutil": "7.2.2",
+    "lap": "0.5.13"
+  },
+  "actual_gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "code_at_delivery_preparation": {
+    "git_commit": "f7b6acda135121b37d4f8500fd8b2fbbf4cda3d2",
+    "source_sha256": "5a1ffa8920e38b8aa6deee015284967ed86c475c80a2f300dfdb9e35cd0ccecf",
+    "files": {
+      "src\\football_pipeline\\__init__.py": "b130f200a792b9d0af46123ab875d28ededf9f741aec8dfef41abbc55653862e",
+      "src\\football_pipeline\\__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "src\\football_pipeline\\appearance.py": "2531d0e8983ecd227c4b5a26b64e2d85c71362be83261ed83379f5b45aff805b",
+      "src\\football_pipeline\\automatic_calibration.py": "5f9fbe2a1898f907bcfe7ed982a80311fd171c11ecff950589147f3202bc2f8d",
+      "src\\football_pipeline\\calibration_evaluation.py": "c31e48bc86740fc79d3232e216732f7eadeeb3e008ce707518613d797331bced",
+      "src\\football_pipeline\\calibration_input.py": "93ffbceec0e7ff83f9138bf1a1c3d221d99f0a8e6c5efd911561fd19a919d83f",
+      "src\\football_pipeline\\cli.py": "04a6cb9b877710940e997fb9535717f67d9a682f8317e3759233c5b38d8318b1",
+      "src\\football_pipeline\\contracts.py": "74b2eb7ae54c625c64a1cfe6bfaa9a4a0af046021546d5a25827b8380176ea51",
+      "src\\football_pipeline\\demo.py": "f26e522703651485498d55ab2418fa34e9e3ba9443dc4407389b78ab5e6f2e92",
+      "src\\football_pipeline\\detection.py": "a813802d22304c01184179af24279ab3e151ceb98429c7483aeb627c390c5d53",
+      "src\\football_pipeline\\evaluation.py": "bda4c6d973ea0cbf26504eb631d927571dcbb7aa4363df785fffc81800ced8a3",
+      "src\\football_pipeline\\field_layout.py": "62c42c3e671856b81b437eddd6bb7c30059fa8bc014852af384be021b1aaefaa",
+      "src\\football_pipeline\\field_model_spec.py": "6ef224544647b18a8c35b4ec975c7c1963f2f786b407b5c3cbd3e6aee339c080",
+      "src\\football_pipeline\\field_motion.py": "07eaf1eddfba882fc2a08307f0a09ab07a195f526497fff5f43e3fbd7138bdfd",
+      "src\\football_pipeline\\field_review.py": "17a26fd1efb01b8bc93ec8b6dbe6aab3b41bcf585b0441bf92ea37acc67d0363",
+      "src\\football_pipeline\\field_review_ui.py": "aab9f7de1af13634cbe10bf669a0767ebd4a0dcb170f42a7331118f24fefd092",
+      "src\\football_pipeline\\geometry.py": "be472de24606f58b7ba88e3d3c5e735db9831f7af1c75aeb2f38013d3a61fbe5",
+      "src\\football_pipeline\\model_handoff.py": "a7dab90147f2f32e64611d780fb870cc68a18e548fa0e81f3221776480723a72",
+      "src\\football_pipeline\\participants.py": "aaf6a0b41cc465adfd225a6f683337bdb80563c29d08c1b1efef0ddc9b357b8d",
+      "src\\football_pipeline\\pipeline.py": "9978638f121e63c4a5e1f2305f5ba63dae685d36778317acf5bc69bcde23d2c4",
+      "src\\football_pipeline\\point_picker.py": "6fc4134b6366c6a504f0ccf871e1ae8afb724d31a094b63b0cfd1dd882597cc4",
+      "src\\football_pipeline\\render.py": "fa988d7c64b12146243ef3cc25924d041c0941e50f689fedb5aa4a8451a1c1e8",
+      "src\\football_pipeline\\replay.py": "8776bf37790da4e0e93ed4f7054c0cb905375cfe9556bc32b79c31f4498d69b7",
+      "src\\football_pipeline\\teams.py": "2ad65cba247b4390e9c7a47a57bf182720e29c9752bb3704fc6c5896ea66311b",
+      "src\\football_pipeline\\tracking.py": "5c1f56a4050372796fd7cca83816340943834323041f19bd4250bce938097e7f",
+      "src\\football_pipeline\\video.py": "62a459da4b90fb26654903ec44b34a20d6f0df4adc38d33c585cfc0326f5765d",
+      "streamlit_app.py": "7f0d940cccaca229f4133ac065eb2dd6b349b75dfb5bce473f34161d7eb7e19f",
+      "pyproject.toml": "84b294023e07584324ee385b581fab9c226e3cefb50a6c4e5f3fb5852a784942"
+    }
+  },
+  "role_launch_command": "powershell -ExecutionPolicy Bypass -File scripts/Start-Spelermodel.ps1 -Recognition players",
+  "default_profile": "configs/models.json remains person-only to preserve the latest verified field pipeline",
+  "retained_p004_weights": {
+    "path": "artifacts/players-v2/players_best.pt",
+    "sha256": "e81c648679da69579f5b07e420f9853f7f965b005b5f21cb792bd900ab96f498"
+  },
+  "historical_4050_verification": {
+    "record": "reports/player-pipeline-4050.json",
+    "scope": "P004 detector only; does not verify the additional R007 classifier on RTX4050 or Broadcast"
+  },
+  "merged_main": "4844567",
+  "software_validation": "reports/appearance-experiments/software-validation.json"
+}

@@ -1,0 +1,188 @@
+[
+  {
+    "error_id": "ERR-P001",
+    "frame_id": "F_20200220_1_0660_0690_000420",
+    "type": "FN",
+    "class_id": 0,
+    "annotation": {
+      "class_id": 0,
+      "bbox_xyxy": [
+        3519.0000001000003,
+        484.0,
+        3532.0000001000003,
+        507.0
+      ]
+    },
+    "cause": "Hypothesis requires interpretation; see the report",
+    "source_crop_xyxy": [
+      3475,
+      445,
+      3575,
+      545
+    ],
+    "evidence": "error-examples.jpg"
+  },
+  {
+    "error_id": "ERR-P002",
+    "frame_id": "F_20200220_1_0660_0690_000180",
+    "type": "FN",
+    "class_id": 0,
+    "annotation": {
+      "class_id": 0,
+      "bbox_xyxy": [
+        3444.00000035,
+        484.0,
+        3456.0000000500004,
+        511.0
+      ]
+    },
+    "cause": "Hypothesis requires interpretation; see the report",
+    "source_crop_xyxy": [
+      3400,
+      447,
+      3500,
+      547
+    ],
+    "evidence": "error-examples.jpg"
+  },
+  {
+    "error_id": "ERR-P003",
+    "frame_id": "F_20200220_1_0660_0690_000060",
+    "type": "FN",
+    "class_id": 0,
+    "annotation": {
+      "class_id": 0,
+      "bbox_xyxy": [
+        2475.9999998499998,
+        733.0,
+        2546.00000005,
+        842.0
+      ]
+    },
+    "cause": "Hypothesis requires interpretation; see the report",
+    "source_crop_xyxy": [
+      2405,
+      678,
+      2616,
+      896
+    ],
+    "evidence": "error-examples.jpg"
+  },
+  {
+    "error_id": "ERR-P004",
+    "frame_id": "F_20200220_1_0660_0690_000120",
+    "type": "FN",
+    "class_id": 0,
+    "annotation": {
+      "class_id": 0,
+      "bbox_xyxy": [
+        2612.9999996750003,
+        742.0,
+        2667.999999925,
+        844.0000000000001
+      ]
+    },
+    "cause": "Hypothesis requires interpretation; see the report",
+    "source_crop_xyxy": [
+      2557,
+      690,
+      2723,
+      895
+    ],
+    "evidence": "error-examples.jpg"
+  },
+  {
+    "error_id": "ERR-P005",
+    "frame_id": "F_20200220_1_0660_0690_000240",
+    "type": "FP",
+    "class_id": 0,
+    "prediction": {
+      "class_id": 0,
+      "bbox_xyxy": [
+        3467.52685546875,
+        536.6047973632812,
+        3491.962646484375,
+        586.9784545898438
+      ],
+      "confidence": 0.9399962425231934
+    },
+    "cause": "Hypothesis requires interpretation; see the report",
+    "source_crop_xyxy": [
+      3429,
+      511,
+      3529,
+      612
+    ],
+    "evidence": "error-examples.jpg"
+  },
+  {
+    "error_id": "ERR-P006",
+    "frame_id": "F_20200220_1_0660_0690_000480",
+    "type": "FP",
+    "class_id": 0,
+    "prediction": {
+      "class_id": 0,
+      "bbox_xyxy": [
+        3442.6279296875,
+        502.0268859863281,
+        3463.68212890625,
+        546.7476806640625
+      ],
+      "confidence": 0.9108717441558838
+    },
+    "cause": "Hypothesis requires interpretation; see the report",
+    "source_crop_xyxy": [
+      3403,
+      474,
+      3503,
+      574
+    ],
+    "evidence": "error-examples.jpg"
+  },
+  {
+    "error_id": "ERR-P007",
+    "frame_id": "F_20200220_1_0660_0690_000660",
+    "type": "FN",
+    "class_id": 1,
+    "annotation": {
+      "class_id": 1,
+      "bbox_xyxy": [
+        3635.9999997750006,
+        525.0,
+        3646.999999825,
+        559.9999999999999
+      ]
+    },
+    "cause": "Hypothesis requires interpretation; see the report",
+    "source_crop_xyxy": [
+      3591,
+      492,
+      3691,
+      592
+    ],
+    "evidence": "error-examples.jpg"
+  },
+  {
+    "error_id": "ERR-P008",
+    "frame_id": "F_20200220_1_0660_0690_000600",
+    "type": "FN",
+    "class_id": 1,
+    "annotation": {
+      "class_id": 1,
+      "bbox_xyxy": [
+        4574.00000005,
+        803.9999999999999,
+        4639.00000005,
+        900.0
+      ]
+    },
+    "cause": "Hypothesis requires interpretation; see the report",
+    "source_crop_xyxy": [
+      4509,
+      755,
+      4704,
+      948
+    ],
+    "evidence": "error-examples.jpg"
+  }
+]

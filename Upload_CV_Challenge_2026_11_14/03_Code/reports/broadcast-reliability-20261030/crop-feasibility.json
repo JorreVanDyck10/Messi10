@@ -1,0 +1,38 @@
+{
+  "dense": {
+    "SNGS-060": {
+      "frames": 150,
+      "cropped": 43
+    },
+    "SNGS-097": {
+      "frames": 150,
+      "cropped": 126
+    },
+    "SNGS-151": {
+      "frames": 150,
+      "cropped": 150
+    },
+    "SNGS-021": {
+      "frames": 150,
+      "cropped": 20
+    },
+    "SNGS-039": {
+      "frames": 150,
+      "cropped": 150
+    },
+    "SNGS-078": {
+      "frames": 150,
+      "cropped": 150
+    }
+  },
+  "historical": {
+    "train": {
+      "frames": 60,
+      "cropped": 34
+    },
+    "valid": {
+      "frames": 20,
+      "cropped": 17
+    }
+  }
+}

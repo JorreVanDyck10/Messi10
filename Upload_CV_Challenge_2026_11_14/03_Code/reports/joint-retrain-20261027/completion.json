@@ -1,0 +1,24 @@
+{
+  "status": "completed_with_accuracy_limitations",
+  "model_profile": "C:\\Messi10\\configs\\models-integrated-20261027.json",
+  "profile_sha256": "b49c9593051c8efbfab446e64774e8a0a30721125fa21ca8ee1ec5aa5b1bf7bd",
+  "report": "C:\\Messi10\\docs\\Gezamenlijke_Training_20261027.md",
+  "report_sha256": "ecf754eb672b9843a7e5713371585f0b77c2496c3eceaf0e15cc4c7249b95246",
+  "new_weights_selected": {
+    "players": true,
+    "roles": false,
+    "ball": true,
+    "field": false
+  },
+  "tests_passed": 340,
+  "subtests_passed": 4,
+  "app_url": "http://127.0.0.1:8501/?run=63d6a606d9cda9ade4c1719aecc03e50f573ec97469e7d5b3904a0d1f72425cb",
+  "videos": {
+    "broadcast": "C:\\Messi10\\runs\\63d6a606d9cda9ade4c1719aecc03e50f573ec97469e7d5b3904a0d1f72425cb\\samengestelde_video.mp4",
+    "panorama": "C:\\Messi10\\runs\\4434349444f416df7ddf05c6fcba10ece8b5533b9b03fd01cb62d4f99a91c82f\\samengestelde_video.mp4"
+  },
+  "app_preview": "C:\\Messi10\\reports\\joint-retrain-20261027\\app-preview.png",
+  "human_review_completed": false,
+  "independent_accuracy_evaluation": false,
+  "app_preview_sha256": "9d0dba232d2aaba3991bd1ebfb133e65a6236d519b7d3e0b2c8d5d21a637aa20"
+}

@@ -1,0 +1,146 @@
+{
+  "revision": "524d081a445dd57762e14eeb1e7142bbb9a3ba53",
+  "upstream_revision": "524d081a445dd57762e14eeb1e7142bbb9a3ba53",
+  "date": "2026-11-15",
+  "source_scope": "GitHub main op 524d081a; lokale niet-gepubliceerde appwijzigingen worden niet als GitHub-functies voorgesteld.",
+  "yolo26_evidence": "Opgehaalde docs/Yolo26_Spelersvergelijking.md; ruwe experimentmap niet aanwezig",
+  "tracking_evidence": "Opgehaalde docs/Spelersdrempel_en_tracking.md; ruwe auditmap niet aanwezig",
+  "yolo26_rows": [
+    {
+      "model": "Huidig YOLO11s",
+      "pipeline_F1_pct": 91.81,
+      "detectorstack_median_ms": 250.81
+    },
+    {
+      "model": "Opnieuw getraind YOLO11s",
+      "pipeline_F1_pct": 91.62,
+      "detectorstack_median_ms": 251.18
+    },
+    {
+      "model": "Opnieuw getraind YOLO26s",
+      "pipeline_F1_pct": 91.45,
+      "detectorstack_median_ms": 252.67
+    }
+  ],
+  "tracking_rows": [
+    {
+      "clip": "SNGS-021",
+      "frames": 150,
+      "IDF1_pct": 98.12,
+      "ID_switches": 0
+    },
+    {
+      "clip": "SNGS-039",
+      "frames": 150,
+      "IDF1_pct": 89.73,
+      "ID_switches": 8
+    },
+    {
+      "clip": "SNGS-078",
+      "frames": 150,
+      "IDF1_pct": 95.12,
+      "ID_switches": 1
+    }
+  ],
+  "tracking_aggregate": {
+    "frames": 450,
+    "IDF1_pct": 93.95,
+    "ID_switches": 9
+  },
+  "copied_evidence": [
+    {
+      "path": "merge-tests.xml",
+      "sha256": "c2331769d8642dbe1627804222959cde952b8feb11622fd1e035285bc8d5ae86"
+    },
+    {
+      "path": "pakket-opstartcontrole.log",
+      "sha256": "35fdef6d23ba05850fc6e5552b2207693546d4b6c36444d8bd6eb1bb04d8b2b1"
+    },
+    {
+      "path": "Andrew_Prototype/train.ipynb",
+      "sha256": "90fa9600a397e39cba426f3a7cec2cc050e39d3ae1b0fa4cd39711d0795fb3d7"
+    },
+    {
+      "path": "configs/models-andrew.json",
+      "sha256": "ce336679ea1ab9d898fa2e99d1d6249bf2fae751bc4a0b823480c1360ba30817"
+    },
+    {
+      "path": "configs/models-broadcast.json",
+      "sha256": "a752a5458d0803566f17a4f5d8a2af15d676edb086355cb7f4d69ef92eced538"
+    },
+    {
+      "path": "docs/Afronding_20261114.md",
+      "sha256": "281803f6c463e897bdaaf80f3be3953628e1ce3db03a67cb52d53e503060bba3"
+    },
+    {
+      "path": "docs/GenAI_Disclosure.md",
+      "sha256": "03d4a3418e785d276104637cf756d09d11c2696883a277bc587a33fdff301c2f"
+    },
+    {
+      "path": "docs/Spelersdrempel_en_tracking.md",
+      "sha256": "87d894b128962ab178256653b48f03ac0ba1d82ad85b849d45e0899de4e2de2f"
+    },
+    {
+      "path": "docs/VierKlassenModel.md",
+      "sha256": "0f72769365ded94df1afd4efd04666ea970df16b7593fc927f0cb87eaccb6072"
+    },
+    {
+      "path": "docs/Yolo26_Spelersvergelijking.md",
+      "sha256": "cf19ce7a340bdc7514b71a9b99f7131352bfad339a7c54cc2142b866dd57deb8"
+    },
+    {
+      "path": "final/README.md",
+      "sha256": "d35425e74d089885ef1397899db5b88dd005a8ea03b3b7f8beaa21bab5594788"
+    },
+    {
+      "path": "reports/portable-training-20261105/andrew-inference.json",
+      "sha256": "214efd045ea1e7a3c3c21ccc8d4defc71d1324df93b9f87e926e07f9cfb83561"
+    },
+    {
+      "path": "reports/release-20261114/checks.json",
+      "sha256": "a4b5c814e16481cf256d5e846af02fee5bb6c5c163c674b17dfce1eb676c1f01"
+    },
+    {
+      "path": "final/datasets/school-ball80-review-v1/manifest.json",
+      "sha256": "c22a7caf66ca7791c655b8aa94a992c19bc37e056d61a227e66e60f4bf95444d"
+    },
+    {
+      "path": "final/datasets/school-ball80-review-v1/REVIEW.md",
+      "sha256": "9932828c59ea8396dfd918de254a9d5d59a3d3892672f3b1f32101929ec00984"
+    },
+    {
+      "path": "datasets/training-runtime-v1/README.md",
+      "sha256": "b29ac210c582b7be914010b2e853e53054c5aa111a926c34d313b0c028a5e4f0"
+    },
+    {
+      "path": "artifacts/andrew-four-class-v1/provenance.json",
+      "sha256": "ef7301cdd5887655eea8ba62c9ecc158e0e97bc5a43f85e54db35ecac2611784"
+    },
+    {
+      "path": "artifacts/andrew-four-class-v1/README.md",
+      "sha256": "d87d46c38e06d7c1fb44f6891753179c59f06dc2ed511e711c1a51bf05dba104"
+    },
+    {
+      "path": "gerichte-tests-20261115.xml",
+      "sha256": "0309a38bbc3883daae28d90affb8a3b177eed8ed50c37b13b42e87837406facc"
+    },
+    {
+      "path": "historisch/herstel-controles.json",
+      "sha256": "c49731811ccfd2eb36afee4447f4429845fcbb51a178ffc88cbefa31279d623d"
+    }
+  ],
+  "validation_date": "2026-11-14",
+  "new_checks": {
+    "targeted_tests_passed": 75,
+    "date": "2026-11-15",
+    "report": "gerichte-tests-20261115.xml",
+    "scope": "samengevoegde lokale hoofdbron; geen nieuwe modeltraining"
+  },
+  "documentation_version": 3,
+  "human_review": {
+    "approved_frames": 80,
+    "recorded_at": "2026-11-14",
+    "basis": "explicit user confirmation registered by Jorre; label files unchanged",
+    "independent_test": false
+  }
+}

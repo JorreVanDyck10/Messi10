@@ -1,0 +1,66 @@
+{
+  "kind": "AI qualitative visual review of actual inference; not independent accuracy evaluation",
+  "human_review_completed": false,
+  "date": "2026-10-27",
+  "frames_checked": {
+    "broadcast": [
+      0,
+      75,
+      149
+    ],
+    "panorama": [
+      0,
+      75,
+      149
+    ]
+  },
+  "findings": [
+    "Broadcast: veldprojectie is beschikbaar op 112/150 frames; op de overige 38 frames blijven veldpositie en telling onbekend.",
+    "Broadcast: meerdere zichtbare spelers krijgen het label lijnrechter of person. De actieve R007-classifier blijft een belangrijke foutbron; de getoonde spelertelling is geen betrouwbare volledige bezetting.",
+    "Broadcast: automatische teamgroepering is onvoldoende; alle 1.833 spelerwaarnemingen blijven qua team onbekend.",
+    "Panorama: 0/150 frames met bruikbare veldkalibratie. Er worden geen veldpunten of teamtotalen verzonnen; beeldlabels en tijdelijke IDs blijven zichtbaar.",
+    "Panorama: Team A/B-kleurgroepen worden getoond, maar kleine spelers en overlappende labels maken visuele inspectie lastig.",
+    "Tracking: 170 verschillende tijdelijke IDs op broadcast en 56 op panorama in zes seconden; zichtbare fragmentatie, geen gemeten identiteitnauwkeurigheid.",
+    "Beide clips bevatten geen gedetecteerde cameracuts. Camerawisselgedrag wordt door de regressietests gedekt; deze clips leveren daarvoor geen zelfstandige nauwkeurigheidsmeting.",
+    "De eerste als broadcast benoemde bron bleek bij visuele controle een drone-opname. Die proef is apart bewaard; de definitieve broadcast gebruikt de gecontroleerde zijlijnbron 6cdaf4089cb5."
+  ],
+  "consistency_checks": {
+    "broadcast": {
+      "frames": 150,
+      "frames_with_count": 112,
+      "unknown_field_frames": 38,
+      "timestamp_and_fps_checks": "passed",
+      "camera_reset_frames": []
+    },
+    "panorama": {
+      "frames": 150,
+      "frames_with_count": 0,
+      "unknown_field_frames": 150,
+      "timestamp_and_fps_checks": "passed",
+      "camera_reset_frames": []
+    }
+  },
+  "software_tests": {
+    "passed": 340,
+    "subtests_passed": 4
+  },
+  "gpu_training_accounting": {
+    "measured_stage_minutes": 159.50539672323504,
+    "prior_round_reserved_minutes": 9,
+    "cap_minutes": 240,
+    "pause_time_excluded": true
+  },
+  "browser_playback": {
+    "broadcast": {
+      "duration_s": 6,
+      "reached_end": true,
+      "media_error": null
+    },
+    "panorama": {
+      "duration_s": 6,
+      "reached_end": true,
+      "media_error": null
+    }
+  },
+  "app_preview": "app-preview.png"
+}

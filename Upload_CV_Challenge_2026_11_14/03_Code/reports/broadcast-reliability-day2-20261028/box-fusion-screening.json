@@ -1,0 +1,137 @@
+{
+  "screening_only": true,
+  "split": "train",
+  "limitation": "No rerun of role crops, projection, NMS or team fitting; not release evidence",
+  "results": [
+    {
+      "specialist_weight": 0,
+      "metrics": {
+        "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+        "mAP50": 0.9518893595264099,
+        "mAP50_95": 0.6623963569377457,
+        "workpoint": {
+          "confidence": 0.25,
+          "matching_iou": 0.5
+        },
+        "per_class": [
+          {
+            "class_id": 0,
+            "name": "player",
+            "objects": 6416,
+            "AP50": 0.9518893595264099,
+            "AP50_95": 0.6623963569377457,
+            "TP": 6193,
+            "FP": 136,
+            "FN": 223,
+            "precision": 0.9785116132090378,
+            "recall": 0.9652431421446384
+          }
+        ]
+      }
+    },
+    {
+      "specialist_weight": 0.25,
+      "metrics": {
+        "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+        "mAP50": 0.9522855118895188,
+        "mAP50_95": 0.6919376467733042,
+        "workpoint": {
+          "confidence": 0.25,
+          "matching_iou": 0.5
+        },
+        "per_class": [
+          {
+            "class_id": 0,
+            "name": "player",
+            "objects": 6416,
+            "AP50": 0.9522855118895188,
+            "AP50_95": 0.6919376467733042,
+            "TP": 6207,
+            "FP": 122,
+            "FN": 209,
+            "precision": 0.9807236530257545,
+            "recall": 0.967425187032419
+          }
+        ]
+      }
+    },
+    {
+      "specialist_weight": 0.5,
+      "metrics": {
+        "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+        "mAP50": 0.9619330428380388,
+        "mAP50_95": 0.7138888285516122,
+        "workpoint": {
+          "confidence": 0.25,
+          "matching_iou": 0.5
+        },
+        "per_class": [
+          {
+            "class_id": 0,
+            "name": "player",
+            "objects": 6416,
+            "AP50": 0.9619330428380388,
+            "AP50_95": 0.7138888285516122,
+            "TP": 6211,
+            "FP": 118,
+            "FN": 205,
+            "precision": 0.9813556644019592,
+            "recall": 0.9680486284289277
+          }
+        ]
+      }
+    },
+    {
+      "specialist_weight": 0.75,
+      "metrics": {
+        "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+        "mAP50": 0.9620385851600709,
+        "mAP50_95": 0.7219011656367933,
+        "workpoint": {
+          "confidence": 0.25,
+          "matching_iou": 0.5
+        },
+        "per_class": [
+          {
+            "class_id": 0,
+            "name": "player",
+            "objects": 6416,
+            "AP50": 0.9620385851600709,
+            "AP50_95": 0.7219011656367933,
+            "TP": 6213,
+            "FP": 116,
+            "FN": 203,
+            "precision": 0.9816716700900616,
+            "recall": 0.968360349127182
+          }
+        ]
+      }
+    },
+    {
+      "specialist_weight": 1,
+      "metrics": {
+        "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+        "mAP50": 0.9619327292702206,
+        "mAP50_95": 0.7180598380294976,
+        "workpoint": {
+          "confidence": 0.25,
+          "matching_iou": 0.5
+        },
+        "per_class": [
+          {
+            "class_id": 0,
+            "name": "player",
+            "objects": 6416,
+            "AP50": 0.9619327292702206,
+            "AP50_95": 0.7180598380294976,
+            "TP": 6214,
+            "FP": 115,
+            "FN": 202,
+            "precision": 0.9818296729341128,
+            "recall": 0.9685162094763092
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "source": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\final\\reports\\broadcast-pitch-v1\\frame_000075.jpg",
+    "copy": "Trainingsbewijs\\historische_demo.jpg",
+    "sha256": "379bcf127226415e01f1a582f5f7a0faa5e8804f0a8a04437affed7d293159a5"
+  },
+  {
+    "source": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\broadcast-ball-v2\\fine-tune\\args.yaml",
+    "copy": "Trainingsbewijs\\bal-v2\\args.yaml",
+    "sha256": "1f3eb2a40211b809d17ca4f445ca5bd93641a45fda54d7cbc3f0685003f81cea"
+  },
+  {
+    "source": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\broadcast-ball-v2\\fine-tune\\results.csv",
+    "copy": "Trainingsbewijs\\bal-v2\\results.csv",
+    "sha256": "c72f63f45b3d9cf75fe226aa499b87287d29b96f6268e49dcbc2f1cad33b6ac8"
+  },
+  {
+    "source": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\broadcast-ball-v3\\freeze-0\\args.yaml",
+    "copy": "Trainingsbewijs\\bal-v3-freeze0\\args.yaml",
+    "sha256": "f3d37210919c233ff66f19f6defd9516ab6c559c14b552c3a87dc66a02e865e3"
+  },
+  {
+    "source": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\broadcast-ball-v3\\freeze-0\\results.csv",
+    "copy": "Trainingsbewijs\\bal-v3-freeze0\\results.csv",
+    "sha256": "d7abd5a5cb12ce92e223a9bd129ca68e5db934a2a7bcd5471ca5fc2bf7d9b65c"
+  },
+  {
+    "source": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\broadcast-ball-v3\\freeze-10\\args.yaml",
+    "copy": "Trainingsbewijs\\bal-v3-freeze10\\args.yaml",
+    "sha256": "c556fa44b356e904b9c8b2380262985969079635031d461a732ffed53214f888"
+  },
+  {
+    "source": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\artifacts\\broadcast-ball-v3\\freeze-10\\results.csv",
+    "copy": "Trainingsbewijs\\bal-v3-freeze10\\results.csv",
+    "sha256": "55a246903ec55ceb167a5c208ef9c5edae0d30af0d5d2899e93d035c29d66e49"
+  },
+  {
+    "source": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\reports\\ball-experiments\\assisted-label-correction.jpg",
+    "copy": "Trainingsbewijs\\fouten\\assisted-label-correction.jpg",
+    "sha256": "19bd6b9acbc243cfcee6182796b9db09cbdb7886de30211a17366983e3653fa7"
+  },
+  {
+    "source": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\reports\\ball-experiments\\baseline-false-positive.jpg",
+    "copy": "Trainingsbewijs\\fouten\\baseline-false-positive.jpg",
+    "sha256": "e152772b15c470cc8c8464df60fa798a1c003d9fc2e9f1d1e82c7e2bc7d166ef"
+  },
+  {
+    "source": "C:\\Allerlaatste\\DeepLearning\\CV\\Messi10\\reports\\ball-experiments\\baseline-localisation.jpg",
+    "copy": "Trainingsbewijs\\fouten\\baseline-localisation.jpg",
+    "sha256": "dbea38c278d61c65639173dab7719e9288fd97d2c2b35ed899c538cbdec944c9"
+  }
+]

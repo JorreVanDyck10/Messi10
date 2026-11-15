@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-26T08:17:16.542407+00:00",
+  "hypothesis": "High colour weighting can confuse yellow/green supporter shirts with high-visibility stewards. Reduce the role histogram scale from 8 to 1, retaining the frozen R007 backbone and the exact same V3 labels.",
+  "reference": "EXP-R012 is historical V3.0. EXP-R014 will be the controlled colour-scale reference on corrected V3.1.",
+  "changed_setting": {
+    "role_colour_scale": [
+      8,
+      1
+    ],
+    "training_label": "One ambiguous fluorescent-vest supporter changed to generic person; validation unchanged."
+  },
+  "shared_fine_tune_blocks": 0,
+  "primary_selection": "Validation macro F1, with per-class and source-cohort regressions and actual pipeline results reported before promotion.",
+  "dataset_sha256": "e5a9dc823411e86b615134b1a29011012546350d640154ac40acc94883d7b6b0",
+  "training_source_sha256": "0bf915687f5272ae8f72b9cf994f248d9f75a1b264064c4ded1efd806ef7c76a",
+  "human_review_completed": false,
+  "independent_final_test": false,
+  "timing_note": "Amended before R013 starts. Two differences from R012; compare R013 with R014 to isolate colour scale."
+}

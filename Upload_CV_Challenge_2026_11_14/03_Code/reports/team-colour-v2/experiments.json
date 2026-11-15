@@ -1,0 +1,117 @@
+{
+  "reference_revision": "1d7c2994aee37d919ff21f17d91152eda3584517",
+  "hypothesis": "Achromatic hue noise and prematurely frozen kit centres cause avoidable team errors; containment across proposal sources causes duplicate people and incorrect feet.",
+  "selection_rule": "Development comparison across all available labelled sources, retaining the supervised team classifier for known videos; balance wrong assignments and abstention. No unseen-test claim.",
+  "baseline_reproduction_identical": true,
+  "notes": [
+    "Early candidate diagnostic feature_version strings were stale median_torso_lab_v2 labels. The actual algorithms are described explicitly here; their captured implementation hashes and predictions are retained. Final version is saturation_weighted_hsv_v2.",
+    "338 eligible team-labelled crops; recorded TeamTrack keepers and new unknown-identity keepers excluded. Original video keeper metadata is incomplete.",
+    "No new weight training; all labels provisional AI visual. Raw snapshot comparison is a post-hoc development example."
+  ],
+  "experiments": [
+    {
+      "id": "candidate-lab",
+      "description": "Median Lab, central 22-52% vertical and 30-70% horizontal torso; Lab L/510, chroma/128; cluster median update, separation .18, radius minimum .06, tolerance .04; frozen after first fit.",
+      "metrics": "reports/team-colour-v2/candidate-lab/metrics.json",
+      "metrics_sha256": "96bc302a92b0cc83723e99845bd66fa93d5c60c56144851f6ce89a6523dfa4c2",
+      "totals": {
+        "outfield_crops": 338,
+        "correct": 218,
+        "wrong": 22,
+        "unknown_including_warmup": 98
+      },
+      "selected": false
+    },
+    {
+      "id": "candidate-circular-hsv",
+      "description": "Same tight torso, saturation-weighted circular hue mean + saturation quantiles + .3 value quantiles; mean cluster updates, frozen after first fit.",
+      "metrics": "reports/team-colour-v2/candidate-circular-hsv/metrics.json",
+      "metrics_sha256": "e5ed3ba7603d69a7b9b0d439eac27cd4dae994ca457a196c829b0fe9e5f96c7b",
+      "totals": {
+        "outfield_crops": 338,
+        "correct": 210,
+        "wrong": 15,
+        "unknown_including_warmup": 113
+      },
+      "selected": false
+    },
+    {
+      "id": "candidate-saturation-histogram",
+      "description": "Original-size torso, no turf filter; hue weighted saturation squared; saturation histogram x1.5, value histogram x.3; frozen first fit.",
+      "metrics": "reports/team-colour-v2/candidate-saturation-histogram/metrics.json",
+      "metrics_sha256": "134e0029d9e1dfa9c0a1f5fe128c1574411cc276d7c43a75422ed5ce1dc0c2a7",
+      "totals": {
+        "outfield_crops": 338,
+        "correct": 205,
+        "wrong": 22,
+        "unknown_including_warmup": 111
+      },
+      "selected": false
+    },
+    {
+      "id": "candidate-adaptive-turf",
+      "description": "Original torso, adaptive turf filter, saturation-weighted hue, saturation x1, value x.3; frozen first fit.",
+      "metrics": "reports/team-colour-v2/candidate-adaptive-turf/metrics.json",
+      "metrics_sha256": "932f9735f07e1cedb2ee635a6f448ae6e0ed23e2e74cfd61d890cc319655b09c",
+      "totals": {
+        "outfield_crops": 338,
+        "correct": 225,
+        "wrong": 7,
+        "unknown_including_warmup": 106
+      },
+      "selected": false
+    },
+    {
+      "id": "candidate-weighted-hue",
+      "description": "Adaptive turf and weighted hue; value x1; frozen first fit.",
+      "metrics": "reports/team-colour-v2/candidate-weighted-hue/metrics.json",
+      "metrics_sha256": "2e806125c72fc3ff399ec96c772e0a8bdb0644435b3e126a2802782b7a4d86f8",
+      "totals": {
+        "outfield_crops": 338,
+        "correct": 234,
+        "wrong": 5,
+        "unknown_including_warmup": 99
+      },
+      "selected": false
+    },
+    {
+      "id": "candidate-balanced-value",
+      "description": "Adaptive turf and weighted hue; value x.6; frozen first fit.",
+      "metrics": "reports/team-colour-v2/candidate-balanced-value/metrics.json",
+      "metrics_sha256": "ddb6eebe39e4a8479f7c779b664ec001a9047507ea5865f5e18b428ac1ba0937",
+      "totals": {
+        "outfield_crops": 338,
+        "correct": 227,
+        "wrong": 3,
+        "unknown_including_warmup": 108
+      },
+      "selected": false
+    },
+    {
+      "id": "candidate-refinement",
+      "description": "Same value x.6 and first-200-observation refinement, aligned team names; selected behaviour.",
+      "metrics": "reports/team-colour-v2/candidate-refinement/metrics.json",
+      "metrics_sha256": "afcff65dd30705f62b22ae25f8f31191976eaa58a214ae0b04652c76bf2800f7",
+      "totals": {
+        "outfield_crops": 338,
+        "correct": 230,
+        "wrong": 3,
+        "unknown_including_warmup": 105
+      },
+      "selected": false
+    },
+    {
+      "id": "final",
+      "description": "Selected behaviour plus correct diagnostic version and clearing previous assignments before each update.",
+      "metrics": "reports/team-colour-v2/final/metrics.json",
+      "metrics_sha256": "97ecc8103543bb62a361eb402c6d003fe27339f667656d8c038aac1b8abf24a2",
+      "totals": {
+        "outfield_crops": 338,
+        "correct": 230,
+        "wrong": 3,
+        "unknown_including_warmup": 105
+      },
+      "selected": true
+    }
+  ]
+}

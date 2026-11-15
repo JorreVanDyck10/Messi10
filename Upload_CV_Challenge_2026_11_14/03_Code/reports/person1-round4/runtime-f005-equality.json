@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "frames": [
+    {
+      "frame_id": "128057_full_00013519",
+      "detections": 5,
+      "source_pixels_match": true
+    },
+    {
+      "frame_id": "128057_scene50_00050475",
+      "detections": 3,
+      "source_pixels_match": true
+    },
+    {
+      "frame_id": "128057_scene_00050725",
+      "detections": 4,
+      "source_pixels_match": true
+    }
+  ],
+  "model_profile_sha256": "6c73e7132089fdc66e6a242ee779f621c20b3bed243f6055b7a42c3034846bef",
+  "reference_sha256": "0cec1cce33c6d01dc9acf6484e6b2131c2797763ca4cbfc942ebff68ea8de399",
+  "coordinate_tolerance_pixels": 0.001,
+  "confidence_tolerance": 1e-06,
+  "scope": "Application/evaluation path equality, not a new accuracy measurement."
+}

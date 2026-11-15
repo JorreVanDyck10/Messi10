@@ -1,0 +1,41 @@
+{
+  "method": "101-point interpolated box AP, IoU 0.50:0.05:0.95, no crowd/ignore",
+  "mAP50": 0.1485148514851485,
+  "mAP50_95": 0.13069306930693067,
+  "workpoint": {
+    "confidence": 0.25,
+    "matching_iou": 0.5
+  },
+  "per_class": [
+    {
+      "class_id": 0,
+      "name": "ball",
+      "objects": 27,
+      "AP50": 0.1485148514851485,
+      "AP50_95": 0.13069306930693067,
+      "TP": 4,
+      "FP": 0,
+      "FN": 23,
+      "precision": 1.0,
+      "recall": 0.14814814814814814
+    }
+  ],
+  "recorded_at": "2026-10-16T12:29:15.701393+00:00",
+  "split": "train",
+  "inference_config": {
+    "imgsz": 1920,
+    "device": "0",
+    "confidence": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "mapping": {
+      "ball": "ball"
+    }
+  },
+  "manifest_sha256": "f2e14af9a96b4ce56ffb9e82dfa33d829a212754ab9d5429164872935d708dfa",
+  "label_fingerprint": "b76d507fe6e9c2dc6cf39ddbe093002f224b8ca2118ec659db8a1ca60e5f3f5e",
+  "prediction_sha256": "d4e403bd8aeb3e801b2552e6032e085dbacda8665901605b81ec5bd9ec3c4bcf",
+  "weights_sha256": "8fa01974339a0511cbde8495ae6e4fc3bc2baddeef11aaed895fe2edd9b5b172",
+  "review_policy": "provisional_ai_visual",
+  "human_review_completed": false
+}

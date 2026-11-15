@@ -1,0 +1,1512 @@
+{
+  "schema_version": "1.0",
+  "dataset_version": "football-fullframe40-001",
+  "source": {
+    "filename": "128057_panorama_1st_half.mp4",
+    "sha256": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+    "width": 4096,
+    "height": 1080,
+    "fps": 25,
+    "first_video_pts_s": 1,
+    "time_basis": "frame_index / 25, relative to first decoded video frame"
+  },
+  "names": [
+    "player",
+    "ball",
+    "referee"
+  ],
+  "preprocessing": "none: full decoded 4096x1080 RGB frames, no masking, crops, resizing or drawn labels",
+  "independent_human_review_complete": false,
+  "video": {
+    "filename": "128057_panorama_1st_half.mp4",
+    "sha256": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+    "width": 4096,
+    "height": 1080,
+    "fps": 25,
+    "first_video_pts_s": 1,
+    "time_basis": "frame_index / 25, relative to first decoded video frame"
+  },
+  "minimum_split_gap_s": 60,
+  "frames": [
+    {
+      "frame_id": "128057_full_00008329",
+      "frame_index": 8329,
+      "timestamp_s": 333.16,
+      "group_id": "phase-0330",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "not_reliably_visible_no_guessed_box",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00008329.png",
+      "label": "labels/train/128057_full_00008329.txt",
+      "label_status": "positive",
+      "image_sha256": "d8a35852f07def0fbf38d8adef08408c33beb990599650d8918e4d501e532232",
+      "source_frame_rgb_sha256": "ed8471385f5dd579cb4374e661a3e9a32f3e4c918d8f7fa15c81d1fbe0482f18",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00008335",
+      "frame_index": 8335,
+      "timestamp_s": 333.4,
+      "group_id": "phase-0330",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00008335.png",
+      "label": "labels/train/128057_full_00008335.txt",
+      "label_status": "positive",
+      "image_sha256": "b11ab3db75187287391dd303e5d1f65697c7f4f36d5b97c91843f1957d2148e0",
+      "source_frame_rgb_sha256": "3904e8ef6353b254b3ac014ce06b079cb56a7d82e716ce04ab17bfd4a0253e43",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00008342",
+      "frame_index": 8342,
+      "timestamp_s": 333.68,
+      "group_id": "phase-0330",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "not_reliably_visible_no_guessed_box",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00008342.png",
+      "label": "labels/train/128057_full_00008342.txt",
+      "label_status": "positive",
+      "image_sha256": "f091a722c92c7fa6277840ff2bbb939141438582ce4701286ad416f4d90dd7fe",
+      "source_frame_rgb_sha256": "ecd9f7ff25973f93a82eb7107d5a113c534dada3d7c6b4056d9998ee13308e58",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00008355",
+      "frame_index": 8355,
+      "timestamp_s": 334.2,
+      "group_id": "phase-0330",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00008355.png",
+      "label": "labels/train/128057_full_00008355.txt",
+      "label_status": "positive",
+      "image_sha256": "7e224c14f585f1b57bce20eac9e1607401ae6a242a16416a9ece1b25700fbd75",
+      "source_frame_rgb_sha256": "6f4090a7bd1b2922465bdf8e131f56e0eaebcc5f096bfe7a545b37cfe990b626",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00008361",
+      "frame_index": 8361,
+      "timestamp_s": 334.44,
+      "group_id": "phase-0330",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00008361.png",
+      "label": "labels/train/128057_full_00008361.txt",
+      "label_status": "positive",
+      "image_sha256": "30258cc29f0f3d55e72ddd6d6864972134caca2310a067eec8de8acd5f6681d3",
+      "source_frame_rgb_sha256": "9f83e6f5d81592311efa7ba44eca4cff76d107332522fd8650cd74b590b839bb",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00013519",
+      "frame_index": 13519,
+      "timestamp_s": 540.76,
+      "group_id": "phase-0540",
+      "split": "val",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/val/128057_full_00013519.png",
+      "label": "labels/val/128057_full_00013519.txt",
+      "label_status": "positive",
+      "image_sha256": "b8d659e2610c63a0be948ba4d46e856128c910a5298ea3ff32a3cdfdb804a0dd",
+      "source_frame_rgb_sha256": "6780a89b490194bbbb55efa2efa4cb2f739a42b93228c8e693dea8d63c0956a8",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00013525",
+      "frame_index": 13525,
+      "timestamp_s": 541.0,
+      "group_id": "phase-0540",
+      "split": "val",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/val/128057_full_00013525.png",
+      "label": "labels/val/128057_full_00013525.txt",
+      "label_status": "positive",
+      "image_sha256": "3a8028f56dc2e9e62da8f6cf58169c18fce692cf76ae8708a14941a323d19e27",
+      "source_frame_rgb_sha256": "6129d27daf1e3b3ec05509c717127d044236d241b25fb69cdae835c89579f36f",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00013532",
+      "frame_index": 13532,
+      "timestamp_s": 541.28,
+      "group_id": "phase-0540",
+      "split": "val",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/val/128057_full_00013532.png",
+      "label": "labels/val/128057_full_00013532.txt",
+      "label_status": "positive",
+      "image_sha256": "db190bd03af386c9c567a564d689ac296dc15ada358e3dcde1033ef447e956c9",
+      "source_frame_rgb_sha256": "4c46b1bff6e63a032d02e724cb46abecd91fa419161978f6463fc25302e91980",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00013675",
+      "frame_index": 13675,
+      "timestamp_s": 547.0,
+      "group_id": "phase-0540",
+      "split": "val",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/val/128057_full_00013675.png",
+      "label": "labels/val/128057_full_00013675.txt",
+      "label_status": "positive",
+      "image_sha256": "6a67bedb6904a63c9be93c3e9fe837e7f957b075aa44ab2b1fce3fea86766401",
+      "source_frame_rgb_sha256": "7d8a78c2893716f975d7251b3c8456accb54235ad2f559fcc4a2e6a43a923f0b",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00013681",
+      "frame_index": 13681,
+      "timestamp_s": 547.24,
+      "group_id": "phase-0540",
+      "split": "val",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/val/128057_full_00013681.png",
+      "label": "labels/val/128057_full_00013681.txt",
+      "label_status": "positive",
+      "image_sha256": "4a48cda85012c49148e72a129969925047d5955470bfe277bde0b296dcc8e0b9",
+      "source_frame_rgb_sha256": "6308920d7c50719a4ea7adb380b51afe81c2f3fa9fc0be0519532a6268d4dafd",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00018769",
+      "frame_index": 18769,
+      "timestamp_s": 750.76,
+      "group_id": "phase-0750",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "not_reliably_visible_no_guessed_box",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00018769.png",
+      "label": "labels/train/128057_full_00018769.txt",
+      "label_status": "positive",
+      "image_sha256": "f6868dcc1624a705e9e4b88b1fe9fad78b11f898683bc8c933dc7ade4541e8f9",
+      "source_frame_rgb_sha256": "6c31babd4313fe01089480d2cc9174fe2170da7d6aead9d69dce1b45bbb1cd72",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00018775",
+      "frame_index": 18775,
+      "timestamp_s": 751.0,
+      "group_id": "phase-0750",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00018775.png",
+      "label": "labels/train/128057_full_00018775.txt",
+      "label_status": "positive",
+      "image_sha256": "34266f8b461968a63e2ef264324c04b664b6b230fbb7dc2fb3520dc531d5a99d",
+      "source_frame_rgb_sha256": "c0824158ecc68e90208d1ff810159b1e5af669b87829ffca663f567781eee095",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00018782",
+      "frame_index": 18782,
+      "timestamp_s": 751.28,
+      "group_id": "phase-0750",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00018782.png",
+      "label": "labels/train/128057_full_00018782.txt",
+      "label_status": "positive",
+      "image_sha256": "9bc4d5a6eb130725987699a2b93b0578b552a161e33fd64a5cee669ebbbed42c",
+      "source_frame_rgb_sha256": "6d52389bbf888ff6510860c326024e6ec4c2f84ece891b90e6f401ac686c2dd5",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00018800",
+      "frame_index": 18800,
+      "timestamp_s": 752.0,
+      "group_id": "phase-0750",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00018800.png",
+      "label": "labels/train/128057_full_00018800.txt",
+      "label_status": "positive",
+      "image_sha256": "f15f7f9fb042b8c81b73b95e4ded4deb8cfae17c19a057b446f4e09ec8e4d6b1",
+      "source_frame_rgb_sha256": "c357cb6a7887d324d15898d662fda536911161653e9607e5530544feec565429",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00018806",
+      "frame_index": 18806,
+      "timestamp_s": 752.24,
+      "group_id": "phase-0750",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00018806.png",
+      "label": "labels/train/128057_full_00018806.txt",
+      "label_status": "positive",
+      "image_sha256": "e507365b07999f163521008a0bce7cad421eb28eeca7942b01ac63b762c300af",
+      "source_frame_rgb_sha256": "21d3945396413bf98669af9d12165a143c2366f837d8ca92e4243b585fa53da9",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00023994",
+      "frame_index": 23994,
+      "timestamp_s": 959.76,
+      "group_id": "phase-0960",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00023994.png",
+      "label": "labels/train/128057_full_00023994.txt",
+      "label_status": "positive",
+      "image_sha256": "efd5d69a35632d64a59b4e63a3ae14c6c5bd765b23684eae6b1e0da93fe17b28",
+      "source_frame_rgb_sha256": "3fa670dca93f557057317a54a073063db644bafc165ae053b8b00c5727c4c7ba",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00024000",
+      "frame_index": 24000,
+      "timestamp_s": 960.0,
+      "group_id": "phase-0960",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00024000.png",
+      "label": "labels/train/128057_full_00024000.txt",
+      "label_status": "positive",
+      "image_sha256": "b70fd73d21e37c83cdc29dda73780ae54d8911ea9f6490c746fa4eccf6b01fa2",
+      "source_frame_rgb_sha256": "7d17d168121a7331d9e1d874f914aeb37b7bc03ad491c97e646f5bcde4e4d872",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00024007",
+      "frame_index": 24007,
+      "timestamp_s": 960.28,
+      "group_id": "phase-0960",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00024007.png",
+      "label": "labels/train/128057_full_00024007.txt",
+      "label_status": "positive",
+      "image_sha256": "3ca390e4f9e98d83a4ecef63e561dba45b19acb466670483bdef0e87663753e1",
+      "source_frame_rgb_sha256": "a21edb6a2e84d4b723451e2962fd9cc7d68476a20f3d41790038aa5cbb0d7acb",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00024025",
+      "frame_index": 24025,
+      "timestamp_s": 961.0,
+      "group_id": "phase-0960",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00024025.png",
+      "label": "labels/train/128057_full_00024025.txt",
+      "label_status": "positive",
+      "image_sha256": "0961df041aaaa6e10d1e1632ef5f96e0d2be524f2e430107de1893b6c76d269c",
+      "source_frame_rgb_sha256": "5cb50fa95b51253f81e112c298f83ac67f51c049a9e6d15330e3a1e950dcc0f6",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00024031",
+      "frame_index": 24031,
+      "timestamp_s": 961.24,
+      "group_id": "phase-0960",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00024031.png",
+      "label": "labels/train/128057_full_00024031.txt",
+      "label_status": "positive",
+      "image_sha256": "d2e23844194cfd18ed892be2d87487cdc204bdd8ef345bf3bce33bd9d4ee8bab",
+      "source_frame_rgb_sha256": "8fa37590e313be5095a3e8de44ec01e74ba6872fa348bf9c4b306def72939363",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00029469",
+      "frame_index": 29469,
+      "timestamp_s": 1178.76,
+      "group_id": "phase-1170",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00029469.png",
+      "label": "labels/train/128057_full_00029469.txt",
+      "label_status": "positive",
+      "image_sha256": "c468ad36ca3c6c98bd789b46401ad6710ae4793d815ac0e6f1fdd1b63d309910",
+      "source_frame_rgb_sha256": "358a6a3f2148f0ea69982778d68fd5c9c91bb9535210011a104d44bf8704c328",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00029475",
+      "frame_index": 29475,
+      "timestamp_s": 1179.0,
+      "group_id": "phase-1170",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00029475.png",
+      "label": "labels/train/128057_full_00029475.txt",
+      "label_status": "positive",
+      "image_sha256": "8d67cde5be0e0bc388ebbeceffbabb48e556a1587a4e3918cd2d3c39746fde3a",
+      "source_frame_rgb_sha256": "b7726bcc3f3c5be2a8e3c6890701e04ddb26f43f91c01c3bb129564b3957692e",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00029482",
+      "frame_index": 29482,
+      "timestamp_s": 1179.28,
+      "group_id": "phase-1170",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00029482.png",
+      "label": "labels/train/128057_full_00029482.txt",
+      "label_status": "positive",
+      "image_sha256": "1dd4158e63ca5542b326002c65180f568c523d8c841ed0ccd7d11b283c6c5fb4",
+      "source_frame_rgb_sha256": "0c9af2e410d7dc2ff2947139b13c66393caf2fa6fcaa27a46d6a4bf77c697319",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00029500",
+      "frame_index": 29500,
+      "timestamp_s": 1180.0,
+      "group_id": "phase-1170",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00029500.png",
+      "label": "labels/train/128057_full_00029500.txt",
+      "label_status": "positive",
+      "image_sha256": "2c5a3f4db5ca21fe95a0913fc117c2dc7e5f08af687bc85607beea24f61d18c3",
+      "source_frame_rgb_sha256": "bf6a6302945023842327989ce1ee45349b767f0331bf1d7c302917f52a441fbd",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00029506",
+      "frame_index": 29506,
+      "timestamp_s": 1180.24,
+      "group_id": "phase-1170",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00029506.png",
+      "label": "labels/train/128057_full_00029506.txt",
+      "label_status": "positive",
+      "image_sha256": "025b2509e9a0ee9dbd7780360b2ab5b847ed4572b11d82d4d6c8be99dace675b",
+      "source_frame_rgb_sha256": "bbcf68f89756e485b7df12c3f2b7531465dfba1dd9f980396623f0d8c9307610",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00034769",
+      "frame_index": 34769,
+      "timestamp_s": 1390.76,
+      "group_id": "phase-1380",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00034769.png",
+      "label": "labels/train/128057_full_00034769.txt",
+      "label_status": "positive",
+      "image_sha256": "5ed5777178dfe5d4395864730b3e5706e40dd10139dbbde340e1bbff172d0f24",
+      "source_frame_rgb_sha256": "98963637cd4fae06853c6256bfd8df3bb6d260e60e779b3bb72239dcf1ddb760",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00034775",
+      "frame_index": 34775,
+      "timestamp_s": 1391.0,
+      "group_id": "phase-1380",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00034775.png",
+      "label": "labels/train/128057_full_00034775.txt",
+      "label_status": "positive",
+      "image_sha256": "e9d0135e276e59dc957075a071c633fa7c8fdb7f0dc723c2cd9c822c49a7568c",
+      "source_frame_rgb_sha256": "ba659f35223abd8849528b0ced4944d520bde355845c40ee3ddbd8c9abe12100",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00034782",
+      "frame_index": 34782,
+      "timestamp_s": 1391.28,
+      "group_id": "phase-1380",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00034782.png",
+      "label": "labels/train/128057_full_00034782.txt",
+      "label_status": "positive",
+      "image_sha256": "7e325b690a9d6e35bc0066a7f7a4daf1aed1476ad87c2427519679eb4438a777",
+      "source_frame_rgb_sha256": "2b0a992d7e542eb0db64626bbe98566b0f85c827663257db2ad6d16740e38d93",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00034800",
+      "frame_index": 34800,
+      "timestamp_s": 1392.0,
+      "group_id": "phase-1380",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00034800.png",
+      "label": "labels/train/128057_full_00034800.txt",
+      "label_status": "positive",
+      "image_sha256": "b03cc129dd3b5f8ee15aa9e94fbd13dcf95e61a7d36443f66e09355f148d0a43",
+      "source_frame_rgb_sha256": "9a06c0d0c9ba64272bf34ba7dcbeee4ec438a9a4573b39a147e2fe4d755bcf20",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00034806",
+      "frame_index": 34806,
+      "timestamp_s": 1392.24,
+      "group_id": "phase-1380",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00034806.png",
+      "label": "labels/train/128057_full_00034806.txt",
+      "label_status": "positive",
+      "image_sha256": "86c97d6a3d70786e863787b4bfa572c227afa1ac06503ac01dbdae08fbcc1c82",
+      "source_frame_rgb_sha256": "653396a6aebdc05ef3456b342da1b46000ce0d1174b9e7aae67fca0537dc3abd",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00040114",
+      "frame_index": 40114,
+      "timestamp_s": 1604.56,
+      "group_id": "phase-1590",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00040114.png",
+      "label": "labels/train/128057_full_00040114.txt",
+      "label_status": "positive",
+      "image_sha256": "32c69a52c27b48df25a4c12539e354dc84412b1085ee3d75504f900edfee4461",
+      "source_frame_rgb_sha256": "f2f4ad9b536a580bb99ec6d7d31d469a95f1ec5af0d09ebb43e9400ec6d36564",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00040120",
+      "frame_index": 40120,
+      "timestamp_s": 1604.8,
+      "group_id": "phase-1590",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00040120.png",
+      "label": "labels/train/128057_full_00040120.txt",
+      "label_status": "positive",
+      "image_sha256": "daa5e2ed1f3d13197e634d85a46b8eca30078512203b9a1c8fb5215ee7d19d44",
+      "source_frame_rgb_sha256": "54e97c3809343a342b9b12efb4b2c493eb7775e19015aefb758402f4b123b103",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00040127",
+      "frame_index": 40127,
+      "timestamp_s": 1605.08,
+      "group_id": "phase-1590",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00040127.png",
+      "label": "labels/train/128057_full_00040127.txt",
+      "label_status": "positive",
+      "image_sha256": "58ab1f3879039b6d63bd2de8050fcbae101da10d57c6bfb500c0bb862930f489",
+      "source_frame_rgb_sha256": "99818ab30652562858729885a994fdcb37d0f9be84f7c667cd7e274ed9c0b3f4",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00040130",
+      "frame_index": 40130,
+      "timestamp_s": 1605.2,
+      "group_id": "phase-1590",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00040130.png",
+      "label": "labels/train/128057_full_00040130.txt",
+      "label_status": "positive",
+      "image_sha256": "86d04a67b15a4d9ec8dca4604bfca3c49b3d230db2a139f11c2029f8d46e3c4d",
+      "source_frame_rgb_sha256": "41bf17a898827db021562681f1b94eed97739435a9423cab16b715c21d972532",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00040136",
+      "frame_index": 40136,
+      "timestamp_s": 1605.44,
+      "group_id": "phase-1590",
+      "split": "train",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/train/128057_full_00040136.png",
+      "label": "labels/train/128057_full_00040136.txt",
+      "label_status": "positive",
+      "image_sha256": "434a2251dc89b95e851890fb2b396e2a46eb40d8a90b8b5fb5439d50aff2789c",
+      "source_frame_rgb_sha256": "b0189cb9c791e18d76c6b9e24a4dff842e78b226555b2638690af39cdbbf3d30",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00050269",
+      "frame_index": 50269,
+      "timestamp_s": 2010.76,
+      "group_id": "phase-2010",
+      "split": "val",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/val/128057_full_00050269.png",
+      "label": "labels/val/128057_full_00050269.txt",
+      "label_status": "positive",
+      "image_sha256": "f00b9209d0fa79c30095ef54572c80f7962690073d6061558a3154f4703bfeb6",
+      "source_frame_rgb_sha256": "9aab28e88a4e4ad82c794cc7bb72a6e343d17a94536fb412f0a6f128d421724b",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00050275",
+      "frame_index": 50275,
+      "timestamp_s": 2011.0,
+      "group_id": "phase-2010",
+      "split": "val",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/val/128057_full_00050275.png",
+      "label": "labels/val/128057_full_00050275.txt",
+      "label_status": "positive",
+      "image_sha256": "dbd3d39896b8a46db9345448cc9ab9214662f608e3a26da6b30a4817ae2254e8",
+      "source_frame_rgb_sha256": "c7befeadb74195b9ae711cf970a0a9fdd558b43ae7ffba2edd9fb56d7802733c",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00050282",
+      "frame_index": 50282,
+      "timestamp_s": 2011.28,
+      "group_id": "phase-2010",
+      "split": "val",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/val/128057_full_00050282.png",
+      "label": "labels/val/128057_full_00050282.txt",
+      "label_status": "positive",
+      "image_sha256": "df805de1d7dc0936a7f82d07288fa873a252623f31c86056713ecbd7681aba05",
+      "source_frame_rgb_sha256": "508070cec4443c8fcc4ebea6a923dfd0970ebb71fed8c68b8f65600b37635c86",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00050300",
+      "frame_index": 50300,
+      "timestamp_s": 2012.0,
+      "group_id": "phase-2010",
+      "split": "val",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": true,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/val/128057_full_00050300.png",
+      "label": "labels/val/128057_full_00050300.txt",
+      "label_status": "positive",
+      "image_sha256": "d6f84fb416bc6a531d371124e61375133c9d8d08cd4626154226dcaef04df181",
+      "source_frame_rgb_sha256": "5c140e082bc3bb1cd8e4ca11d287a7d680dd8ae1c0e11da09212f7ec062b55a4",
+      "preprocessing": "none"
+    },
+    {
+      "frame_id": "128057_full_00050306",
+      "frame_index": 50306,
+      "timestamp_s": 2012.24,
+      "group_id": "phase-2010",
+      "split": "val",
+      "annotator": "Codex (AI; pretrained-assisted, visually checked)",
+      "reviewer": "",
+      "review_status": "open",
+      "previously_selected_in_cropped_set": false,
+      "visual_check": {
+        "full_field_context": true,
+        "participant_contact_sheet": true,
+        "ball_native_pixels": true
+      },
+      "unresolved_regions": [
+        {
+          "xyxy": [
+            2200,
+            1050,
+            2280,
+            1080
+          ],
+          "reason": "Ambiguous tiny partial objects at the stitched bottom boundary; no guessed ball or role labels."
+        }
+      ],
+      "in_play_ball_status": "visible_labelled",
+      "video_id": "3bc95a7bb31baec68be8d737e7b99fa083c595ba856e879106223a26548cbf23",
+      "width": 4096,
+      "height": 1080,
+      "image": "images/val/128057_full_00050306.png",
+      "label": "labels/val/128057_full_00050306.txt",
+      "label_status": "positive",
+      "image_sha256": "03d9ee23265784aa0286c4057fca5fc18cb2df96ad0288dc9945b47f79be0363",
+      "source_frame_rgb_sha256": "77990c145607bf2be3ef5306dae8cec39f624802689adc34213ce2320d232933",
+      "preprocessing": "none"
+    }
+  ]
+}

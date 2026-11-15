@@ -1,0 +1,8 @@
+{
+  "reference": "EXP-R003",
+  "hypothesis": "Frozen ImageNet features insufficiently encode reflective vests and visual role cues.",
+  "change": "Adapt last 3 MobileNet feature blocks for 20 epochs, 10 balanced 60-crop updates/epoch, backbone lr .0001, head lr .0005; running batchnorm statistics fixed; refit both heads afterwards.",
+  "selection": "Best development macro F1 at actual confidence .65, followed by supervised head refit using same criterion.",
+  "human_review_completed": false,
+  "no_test_frames": true
+}
