@@ -16,3 +16,7 @@ Bronregistraties staan in Versiebewijs, trainingslogs en foutvoorbeelden in Trai
 De code en het inferentieprofiel volgen Jorres uploadpakket. Versie 5 voegt oorspronkelijke bal-v2-trainingsdata, gewichten, een audit en een uitgevoerd inspectie-/hertrainnotebook toe. De huidige app blijft Andrews balmodel gebruiken. Standaard start geen van de nieuwe notebookcellen training. Er is geen nieuwe nauwkeurigheidsmeting uitgevoerd.
 
 Alle vereiste bestandstypen zijn aanwezig. Inhoudelijk blijven een heldere vaste-camera-MVP-demonstratie, de aparte GenAI-policy en de individuele verdediging aandachtspunten. De verbinding van alle 80 reviewbeelden met de grotere historische baltraining is nu aangetoond; de scores gelden voor de volledige historische validatie. CONTROLE.json bewaart Jorres oorspronkelijke controles; CONTROLE_DOCUMENTATIE.json beschrijft versie 5.
+
+## Download voor indiening
+
+[Download de definitieve inzendings-ZIP](https://github.com/JorreVanDyck10/Messi10/releases/download/cv-challenge-inzending-v5-20261115/Inzending_Sports_Vision_DEFINITIEF_v5_GITHUB_2026_11_15.zip). Alle persoonlijke bijdragen en AI-verklaringen zijn inbegrepen. De grote historische bronvideo staat afzonderlijk bij dezelfde release; de vereiste demonstratie en alle bijgevoegde annotatiebeelden blijven in de ZIP. Zie [DOWNLOAD_ZIP.md](../DOWNLOAD_ZIP.md).

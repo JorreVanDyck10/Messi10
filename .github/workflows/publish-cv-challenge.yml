@@ -1,0 +1,173 @@
+name: Publish CV Challenge submission ZIP
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cv-challenge-submission-v5
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GIT_LFS_SKIP_SMUDGE: '1'
+      GH_REPO: ${{ github.repository }}
+      TAG: cv-challenge-inzending-v5-20261115
+      ZIP_NAME: Inzending_Sports_Vision_DEFINITIEF_v5_GITHUB_2026_11_15.zip
+    steps:
+      - name: Check out the submission and original source video
+        uses: actions/checkout@v4
+        with:
+          lfs: false
+          sparse-checkout: |
+            Upload_CV_Challenge_2026_11_14
+            assets/videos
+
+      - name: Download actual models and data from Git LFS
+        env:
+          GIT_LFS_SKIP_SMUDGE: '0'
+        run: |
+          git lfs install --local
+          git -c lfs.concurrenttransfers=16 lfs pull --include='Upload_CV_Challenge_2026_11_14/**,assets/videos/HBTFZwMdcCw.mp4' --exclude=''
+
+      - name: Check every source file and build one submission ZIP
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import shutil
+          import zipfile
+          from pathlib import Path
+
+          root = Path('Upload_CV_Challenge_2026_11_14')
+          output = Path('dist')
+          output.mkdir()
+          manifest_path = root / 'BESTANDEN_SHA256.json'
+          manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+
+          def checksum(path):
+              with path.open('rb') as stream:
+                  return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+          expected = {row['path']: row for row in manifest['files']}
+          expected['BESTANDEN_SHA256.json'] = {
+              'bytes': manifest_path.stat().st_size,
+              'sha256': checksum(manifest_path),
+          }
+          actual = {p.relative_to(root).as_posix(): p for p in root.rglob('*') if p.is_file()}
+          assert set(actual) == set(expected), 'Package file list differs from manifest'
+          for i, (name, path) in enumerate(sorted(actual.items())):
+              assert path.stat().st_size == expected[name]['bytes'], name
+              assert checksum(path) == expected[name]['sha256'], name
+              if path.stat().st_size < 1024:
+                  assert not path.read_bytes().startswith(b'version https://git-lfs.github.com/spec/v1'), name
+              if i and i % 3000 == 0:
+                  print('Verified source files:', i, flush=True)
+          for required in [
+              '01_Rapport/Sports_Vision_Rapport.pdf',
+              '02_Presentatie/Sports_Vision_Presentatie.pptx',
+              '03_Code/Training_en_Evaluatie.ipynb',
+              '03_Code/Bal_v2_Training_en_Labelkoppeling.ipynb',
+              '03_Code/Andrew_Prototype/train.ipynb',
+              '05_Documentatie/AI_Usage_Milan_Wouters.md',
+              '05_Documentatie/AI_Usage_Jorre_Van_Dyck.md',
+              '05_Documentatie/AI_Usage_Raoul.md',
+              '03_Code/docs/VierKlassenModel.md',
+          ]:
+              assert required in actual, required
+          archive = output / os.environ['ZIP_NAME']
+          with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=1, allowZip64=True) as z:
+              for i, (name, path) in enumerate(sorted(actual.items())):
+                  info = zipfile.ZipInfo(root.name + '/' + name, date_time=(2026, 11, 15, 0, 0, 0))
+                  info.compress_type = zipfile.ZIP_DEFLATED
+                  info._compresslevel = 1
+                  info.create_system = 3
+                  info.external_attr = 0o100644 << 16
+                  with path.open('rb') as source, z.open(info, 'w', force_zip64=True) as target:
+                      shutil.copyfileobj(source, target, length=1024 * 1024)
+                  if i and i % 3000 == 0:
+                      print('Archived files:', i, flush=True)
+          assert archive.stat().st_size < 2 * 1024 ** 3, 'Archive exceeds GitHub release limit'
+          with zipfile.ZipFile(archive) as z:
+              assert len(z.namelist()) == len(actual)
+              for i, name in enumerate(sorted(actual)):
+                  with z.open(root.name + '/' + name) as stream:
+                      assert hashlib.file_digest(stream, 'sha256').hexdigest() == expected[name]['sha256'], name
+                  if i and i % 3000 == 0:
+                      print('Verified archived files:', i, flush=True)
+          raw_video = Path('assets/videos/HBTFZwMdcCw.mp4')
+          assert checksum(raw_video) == '7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611'
+          shutil.copyfile(raw_video, output / 'HBTFZwMdcCw_bronvideo.mp4')
+          assets = [archive, output / 'HBTFZwMdcCw_bronvideo.mp4']
+          receipt = {
+              'source_commit': os.environ['GITHUB_SHA'],
+              'workflow_run': os.environ['GITHUB_SERVER_URL'] + '/' + os.environ['GITHUB_REPOSITORY'] + '/actions/runs/' + os.environ['GITHUB_RUN_ID'],
+              'package_files': len(actual),
+              'all_source_and_archived_hashes_verified': True,
+              'required_submission_files_present': True,
+              'personal_ai_usage': ['Milan Wouters', 'Andrew', 'Jorre Van Dyck', 'Raoul'],
+              'assets': [{'name': p.name, 'bytes': p.stat().st_size, 'sha256': checksum(p)} for p in assets],
+              'raw_video_note': 'Historical source video is separate; actual demonstration and annotated frames remain in ZIP.',
+          }
+          receipt_path = output / 'CONTROLE_GITHUB_RELEASE.json'
+          receipt_path.write_text(json.dumps(receipt, indent=2) + '\n', encoding='utf-8')
+          assets.append(receipt_path)
+          (output / 'SHA256SUMS.txt').write_text(''.join(checksum(p) + '  ' + p.name + '\n' for p in assets), encoding='utf-8')
+          (output / 'RELEASE_NOTES.md').write_text(
+              '# CV Challenge — inzending versie 5\n\n'
+              'Download **' + archive.name + '** en upload dat ene ZIP-bestand bij de opdracht. Opnieuw zippen is niet nodig.\n\n'
+              'De ZIP bevat het definitieve PDF-rapport, Jorres bijgewerkte presentatie, code, trainingsnotebooks, modellen, trainingsdata, 80 gereviewde beelden, trainingskoppeling en de daadwerkelijke demonstratie. Milans eigen bijdrage en de AI-verantwoording van alle vier teamleden staan erin.\n\n'
+              'De historische PANORIS-bronvideo staat als extra bijlage, zodat de inzendings-ZIP onder GitHubs limiet van 2 GiB blijft. De originele bronvideo blijft ook in de repository bewaard.\n\n'
+              'Alle ' + str(len(actual)) + ' pakketbestanden zijn op SHA-256 gecontroleerd, zowel voor het inpakken als vanuit de ZIP. SHA256SUMS.txt en CONTROLE_GITHUB_RELEASE.json bevatten de controles.\n\n'
+              'De aparte GenAI-policy, de vaste-camera-MVP-scope en de individuele mondelinge verdediging blijven aandachtspunten uit de requirementscontrole. Er is voor deze publicatie geen nieuwe training uitgevoerd.\n',
+              encoding='utf-8',
+          )
+          print(json.dumps(receipt, indent=2), flush=True)
+          PY
+
+      - name: Upload the verified files to a draft release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$TAG" --target "$GITHUB_SHA" --title 'CV Challenge - definitieve inzending v5' --notes-file dist/RELEASE_NOTES.md --draft
+          gh release upload "$TAG" "dist/$ZIP_NAME" dist/HBTFZwMdcCw_bronvideo.mp4 dist/SHA256SUMS.txt dist/CONTROLE_GITHUB_RELEASE.json
+
+      - name: Verify GitHub asset digests and publish the download
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import urllib.request
+          from pathlib import Path
+
+          url = 'https://api.github.com/repos/' + os.environ['GITHUB_REPOSITORY'] + '/releases?per_page=100'
+          request = urllib.request.Request(url, headers={
+              'Authorization': 'Bearer ' + os.environ['GH_TOKEN'],
+              'Accept': 'application/vnd.github+json',
+              'X-GitHub-Api-Version': '2026-03-10',
+              'User-Agent': 'CV-Challenge-Release-Verification',
+          })
+          with urllib.request.urlopen(request) as response:
+              releases = json.load(response)
+          release = next(item for item in releases if item['tag_name'] == os.environ['TAG'])
+          assert release['draft'] is True
+          remote = {asset['name']: asset for asset in release['assets']}
+          for name in [os.environ['ZIP_NAME'], 'HBTFZwMdcCw_bronvideo.mp4', 'SHA256SUMS.txt', 'CONTROLE_GITHUB_RELEASE.json']:
+              path = Path('dist') / name
+              with path.open('rb') as stream:
+                  digest = hashlib.file_digest(stream, 'sha256').hexdigest()
+              assert remote[name]['state'] == 'uploaded', name
+              assert remote[name]['size'] == path.stat().st_size, name
+              assert remote[name]['digest'] == 'sha256:' + digest, name
+              print('Verified GitHub digest:', name, flush=True)
+          PY
+          gh release edit "$TAG" --draft=false --latest

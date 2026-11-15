@@ -35,3 +35,5 @@ De [audit van de 80 beelden en baltraining](Koppeling_80_Beelden_en_Baltraining.
 Het notebook leest de meegeleverde bewijzen en echte historische logs en start geen training. De oorspronkelijke trainingscode staat al in de repository. De scripts onder Bouwdocumentatie houden de documenten bewerkbaar. Voor model-/data-inspectie moet Git LFS de echte bestanden hebben opgehaald.
 
 De compacte documenten staan rechtstreeks in GitHub. Grote lokale ZIP-bestanden, virtuele omgevingen en caches worden niet meegecommit. De nieuwe inzendings-ZIP wordt gemaakt uit de uploadmap, inclusief Jorres uitvoer-/trainingscode, modellen, data en demonstratie. Volg de uploadstarters in die map. Een oudere lokale ZIP is geen actuele release.
+
+[Downloadbare GitHub-inzendings-ZIP](https://github.com/JorreVanDyck10/Messi10/releases/download/cv-challenge-inzending-v5-20261115/Inzending_Sports_Vision_DEFINITIEF_v5_GITHUB_2026_11_15.zip): de grote historische bronvideo staat apart bij dezelfde release; alle verplichte bestanden en teamverklaringen zitten in de ZIP.

@@ -1,3 +1,5 @@
+> **Download voor indiening:** [Definitieve ZIP op GitHub](https://github.com/JorreVanDyck10/Messi10/releases/download/cv-challenge-inzending-v5-20261115/Inzending_Sports_Vision_DEFINITIEF_v5_GITHUB_2026_11_15.zip). Alle persoonlijke bijdragen en AI-verklaringen zijn inbegrepen.
+
 > **Definitieve inzending:** [Upload_CV_Challenge_2026_11_14](Upload_CV_Challenge_2026_11_14/README.md) bevat het rapport, Jorres bijgewerkte presentatie, code en AI-verantwoording van alle vier teamleden.
 
 > **Gezamenlijke documentatie:** [rapport, presentatie, notebook en requirementscontrole](Documentatie/README.md), bijgewerkt met Andrew en Jorre op 15 november 2026.

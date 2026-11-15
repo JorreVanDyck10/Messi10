@@ -1,3 +1,9 @@
+# Downloadbare GitHub-inzending — documentatieversie 5
+
+De downloadbare ZIP heet Inzending_Sports_Vision_DEFINITIEF_v5_GITHUB_2026_11_15.zip en staat bij release cv-challenge-inzending-v5-20261115. De grote historische PANORIS-bronvideo staat als afzonderlijke releasebijlage en blijft in de repository bewaard. Daardoor past de ZIP onder GitHubs 2-GiB-limiet. Alle verplichte indieningsbestanden, persoonlijke bijdragen, AI-verklaringen, annotatiebeelden, trainingsdata, modellen en de werkelijk berekende demonstratie blijven in de ZIP.
+
+De inhoudelijke PDF en presentatie zijn ongewijzigd ten opzichte van versie 5. De pakketbestandslijst en checksums zijn vernieuwd voor deze downloadvariant. De eerder genoemde inhoudelijke aandachtspunten blijven gelden.
+
 # Versie 5 — AI-gebruik van alle vier teamleden
 
 15 november 2026. Gebaseerd op gepubliceerde versie 38925ad6; code en modellen blijven die uit Jorres uploadpakket.

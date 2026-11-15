@@ -77,6 +77,16 @@
     "Check separately referenced GenAI policy",
     "Individual live defense and ownership"
   ],
-  "zip_name": "Inzending_Sports_Vision_DEFINITIEF_v5_2026_11_15.zip",
-  "local_markdown_links_valid": true
+  "zip_name": "Inzending_Sports_Vision_DEFINITIEF_v5_GITHUB_2026_11_15.zip",
+  "local_markdown_links_valid": true,
+  "release_tag": "cv-challenge-inzending-v5-20261115",
+  "release_package_variant": "github_under_2GiB",
+  "external_raw_video": {
+    "original_repository_path": "assets/videos/HBTFZwMdcCw.mp4",
+    "release_asset_name": "HBTFZwMdcCw_bronvideo.mp4",
+    "sha256": "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611",
+    "bytes": 130034094,
+    "required_for_current_app_or_training_notebooks": false,
+    "reason": "Historical raw external source video supplied separately; annotated frames and actual demonstration stay inside ZIP"
+  }
 }

@@ -56,10 +56,14 @@ PnLCalib staat onder GPL-2.0. De originele LICENSE en broncode zijn meegeleverd.
 
 ## Ophalen via GitHub
 
-De grote bestanden gebruiken Git LFS. Na het ophalen van de repository: `git lfs pull --include="Upload_CV_Challenge_2026_11_14/**"`. Controleer dat modellen en beelden echte bestanden zijn, geen kleine LFS-pointerteksten. De lokale inzendings-ZIP heet `Inzending_Sports_Vision_DEFINITIEF_v5_2026_11_15.zip` en bevat deze volledige map. De ZIP staat buiten deze map zodat zij zichzelf niet insluit. Voor GitHub blijven de map en Git LFS de bron; de ZIP is het uploadbestand.
+De grote bestanden gebruiken Git LFS. Na het ophalen van de repository: `git lfs pull --include="Upload_CV_Challenge_2026_11_14/**"`. Controleer dat modellen en beelden echte bestanden zijn, geen kleine LFS-pointerteksten. De lokale inzendings-ZIP heet `Inzending_Sports_Vision_DEFINITIEF_v5_GITHUB_2026_11_15.zip` en bevat deze volledige map. De ZIP staat buiten deze map zodat zij zichzelf niet insluit. Voor GitHub blijven de map en Git LFS de bron; de ZIP is het uploadbestand.
 
 ## Aanvulling versie 5
 
 Het AI-gebruik van alle vier teamleden staat in 05_Documentatie, het rapport en de presentatie. De beschrijvingen van Jorre en Raoul zijn aangeleverd door Milan.
 
 Alle 80 gereviewde beelden zijn op hash, split en cropcoördinaten verbonden met de grotere historische baltraining. De oorspronkelijke 132 bronbeelden, 282 complete COCO-trainingscrops, begin-/eindgewichten en logs zijn toegevoegd. Open 03_Code/Bal_v2_Training_en_Labelkoppeling.ipynb voor de uitgevoerde audit en de standaard uitgeschakelde hertraincel. De historische AP geldt voor de volledige validatie van 73 beelden, niet voor een nieuwe afzonderlijke 32-beeldenmeting of Andrews huidige balmodel.
+
+## Download voor indiening
+
+[Download de definitieve inzendings-ZIP](https://github.com/JorreVanDyck10/Messi10/releases/download/cv-challenge-inzending-v5-20261115/Inzending_Sports_Vision_DEFINITIEF_v5_GITHUB_2026_11_15.zip). Alle persoonlijke bijdragen en AI-verklaringen zijn inbegrepen. De grote historische bronvideo staat afzonderlijk bij dezelfde release; de vereiste demonstratie en alle bijgevoegde annotatiebeelden blijven in de ZIP. Zie [DOWNLOAD_ZIP.md](DOWNLOAD_ZIP.md).

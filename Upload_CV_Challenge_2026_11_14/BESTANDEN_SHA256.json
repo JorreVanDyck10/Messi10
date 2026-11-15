@@ -2,8 +2,9 @@
   "source_commit": "524d081a",
   "source_upload_commit": "8e29c3ff",
   "documentation_version": 5,
-  "file_count": 13308,
-  "total_bytes": 2398082224,
+  "release_package_variant": "github_under_2GiB",
+  "file_count": 13309,
+  "total_bytes": 2268053873,
   "files": [
     {
       "path": ".gitattributes",
@@ -12,8 +13,8 @@
     },
     {
       "path": "00_LEESMIJ.md",
-      "bytes": 6467,
-      "sha256": "a4d849e1f7a53346be645413df4cf1304c3342d68a2e4015ce82c08936be986a"
+      "bytes": 6962,
+      "sha256": "12a98705ac875ec4676418575e5f309c5aae895c6db20d0470e83bfec61944c0"
     },
     {
       "path": "01_Rapport/figuren/resultaat.jpg",
@@ -11481,9 +11482,9 @@
       "sha256": "55d71069c311d978bc5747b6a7a165176e8eac7e863ba463983a6642432e0769"
     },
     {
-      "path": "03_Code/assets/videos/HBTFZwMdcCw.mp4",
-      "bytes": 130034094,
-      "sha256": "7990708af29a660f089a204b9a39ad16c5ebf9063ed1eaf0ee325c01bbdda611"
+      "path": "03_Code/assets/videos/BRONVIDEO_DOWNLOAD.md",
+      "bytes": 1107,
+      "sha256": "953faffbfd2cd309f8c8d6a55c48c9d3f6ae41729c1dd8429cbe8c3fa7811bfd"
     },
     {
       "path": "03_Code/Bal_v2_Training_en_Labelkoppeling.ipynb",
@@ -66297,8 +66298,8 @@
     },
     {
       "path": "05_Documentatie/README.md",
-      "bytes": 2136,
-      "sha256": "02eb90541d2404bd24fc10fec96872742b036d340d193b374f951481214ae92e"
+      "bytes": 2627,
+      "sha256": "4a2193cc512cc4a9a02bb37077ca28cb446f0d47a06009da284795bac86227b4"
     },
     {
       "path": "05_Documentatie/Requirementscontrole.md",
@@ -66377,8 +66378,8 @@
     },
     {
       "path": "05_Documentatie/Versie_en_Wijzigingen.md",
-      "bytes": 5353,
-      "sha256": "2cbbb7475fbd6d7ec94dabbb3ff515a82e970368ad16e9531715f4671aafbe98"
+      "bytes": 6123,
+      "sha256": "2c94b3224249cb7b3f4b6c731e5b6d5fcc44ee81312ce3a72d17205b40098a8a"
     },
     {
       "path": "05_Documentatie/Versiebewijs/Andrew_Prototype/train.ipynb",
@@ -66507,8 +66508,8 @@
     },
     {
       "path": "05_Documentatie/Versiebewijs/upload-20261114/CONTROLE_DOCUMENTATIE.json",
-      "bytes": 3657,
-      "sha256": "7b3d0f81dff0b793a78864f42d582176386ea187aac07c3ce77e1a808470058a"
+      "bytes": 4229,
+      "sha256": "d3e3ffbd7383f7b0c12dc3e38bac4b19da947e199c68a386b744600e6e2744c2"
     },
     {
       "path": "05_Documentatie/Versiebewijs/upload-20261114/CONTROLE_oorspronkelijk.json",
@@ -66532,8 +66533,8 @@
     },
     {
       "path": "CONTROLE_DOCUMENTATIE.json",
-      "bytes": 3657,
-      "sha256": "7b3d0f81dff0b793a78864f42d582176386ea187aac07c3ce77e1a808470058a"
+      "bytes": 4229,
+      "sha256": "d3e3ffbd7383f7b0c12dc3e38bac4b19da947e199c68a386b744600e6e2744c2"
     },
     {
       "path": "CONTROLEER_BESTANDEN.py",
@@ -66541,9 +66542,14 @@
       "sha256": "4a549c8957970f2adb60371ac6d4ea95349a2e34fa902e38022a7b45abc865fb"
     },
     {
+      "path": "DOWNLOAD_ZIP.md",
+      "bytes": 1241,
+      "sha256": "683ce7e8853a71669a717e7657100011b139f43476cc20e08ba55e640d615aa1"
+    },
+    {
       "path": "README.md",
-      "bytes": 6467,
-      "sha256": "a4d849e1f7a53346be645413df4cf1304c3342d68a2e4015ce82c08936be986a"
+      "bytes": 6962,
+      "sha256": "12a98705ac875ec4676418575e5f309c5aae895c6db20d0470e83bfec61944c0"
     }
   ]
 }
