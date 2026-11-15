@@ -1,3 +1,5 @@
+> Documentatieversie 5: AI-gebruik van alle vier teamleden staat in ../05_Documentatie. Bal_v2_Training_en_Labelkoppeling.ipynb toont de historische baltraining en de gecontroleerde verbinding met alle 80 reviewbeelden. De app en het huidige inferentieprofiel blijven gelijk.
+
 # Sports Vision - uploadpakket
 
 Team: Andrew, Milan, Raoul en Jorre. Versie: 14 november 2026.

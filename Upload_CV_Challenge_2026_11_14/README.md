@@ -1,9 +1,9 @@
 # Sports Vision - uploadpakket
 
-Team: Andrew, Milan Wouters, Raoul en Jorre. Documentatieversie 4: 15 november 2026.
+Team: Andrew, Milan Wouters, Raoul en Jorre. Documentatieversie 5: 15 november 2026.
 Broncode: main commit 524d081a, inclusief de technische fixes en bevestigde review van 80 balbeelden.
 
-De definitieve PDF en Jorres presentatie staan in 01_Rapport en 02_Presentatie. [05_Documentatie](05_Documentatie/README.md) bevat Milans persoonlijke AI-verantwoording, de gezamenlijke disclosures, requirementscontrole en bronbewijzen. De PDF en presentatie zijn gelijk aan de actuele repository-documentatie. De code, modellen, data en demonstratie volgen Jorres uploadpakket; de documentatieronde voegt geen nieuwe training toe.
+De definitieve PDF en Jorres presentatie staan in 01_Rapport en 02_Presentatie. [05_Documentatie](05_Documentatie/README.md) bevat de AI-beschrijvingen van Milan, Jorre en Raoul en Andrews eigen verklaring, de gezamenlijke disclosures, requirementscontrole en bronbewijzen. De PDF en presentatie zijn gelijk aan de actuele repository-documentatie. De code, modellen, data en demonstratie volgen Jorres uploadpakket; de documentatieronde voegt geen nieuwe training toe.
 
 ## Inhoud
 
@@ -56,4 +56,10 @@ PnLCalib staat onder GPL-2.0. De originele LICENSE en broncode zijn meegeleverd.
 
 ## Ophalen via GitHub
 
-De grote bestanden gebruiken Git LFS. Na het ophalen van de repository: `git lfs pull --include="Upload_CV_Challenge_2026_11_14/**"`. Controleer dat modellen en beelden echte bestanden zijn, geen kleine LFS-pointerteksten. De lokale inzendings-ZIP heet `Inzending_Sports_Vision_2026_11_15.zip` en bevat deze volledige map. De ZIP staat buiten deze map zodat zij zichzelf niet insluit. Voor GitHub blijven de map en Git LFS de bron; de ZIP is het uploadbestand.
+De grote bestanden gebruiken Git LFS. Na het ophalen van de repository: `git lfs pull --include="Upload_CV_Challenge_2026_11_14/**"`. Controleer dat modellen en beelden echte bestanden zijn, geen kleine LFS-pointerteksten. De lokale inzendings-ZIP heet `Inzending_Sports_Vision_DEFINITIEF_v5_2026_11_15.zip` en bevat deze volledige map. De ZIP staat buiten deze map zodat zij zichzelf niet insluit. Voor GitHub blijven de map en Git LFS de bron; de ZIP is het uploadbestand.
+
+## Aanvulling versie 5
+
+Het AI-gebruik van alle vier teamleden staat in 05_Documentatie, het rapport en de presentatie. De beschrijvingen van Jorre en Raoul zijn aangeleverd door Milan.
+
+Alle 80 gereviewde beelden zijn op hash, split en cropcoördinaten verbonden met de grotere historische baltraining. De oorspronkelijke 132 bronbeelden, 282 complete COCO-trainingscrops, begin-/eindgewichten en logs zijn toegevoegd. Open 03_Code/Bal_v2_Training_en_Labelkoppeling.ipynb voor de uitgevoerde audit en de standaard uitgeschakelde hertraincel. De historische AP geldt voor de volledige validatie van 73 beelden, niet voor een nieuwe afzonderlijke 32-beeldenmeting of Andrews huidige balmodel.

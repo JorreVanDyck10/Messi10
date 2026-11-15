@@ -1,4 +1,4 @@
-> **Definitieve inzending:** [Upload_CV_Challenge_2026_11_14](Upload_CV_Challenge_2026_11_14/README.md) bevat het rapport, Jorres bijgewerkte presentatie, code en Milans AI-verantwoording.
+> **Definitieve inzending:** [Upload_CV_Challenge_2026_11_14](Upload_CV_Challenge_2026_11_14/README.md) bevat het rapport, Jorres bijgewerkte presentatie, code en AI-verantwoording van alle vier teamleden.
 
 > **Gezamenlijke documentatie:** [rapport, presentatie, notebook en requirementscontrole](Documentatie/README.md), bijgewerkt met Andrew en Jorre op 15 november 2026.
 

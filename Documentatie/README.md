@@ -1,8 +1,8 @@
 # Gezamenlijke documentatie - Sports Vision
 
-**Versie 4, bijgewerkt op 15 november 2026**, na pull van main en ophalen van Jorres uploadbranch `8e29c3ff`. Andrews vierklassenmodel, oorspronkelijke tracker en AI-verantwoording en Jorres technische afronding en labelreview zijn verwerkt.
+**Versie 5, bijgewerkt op 15 november 2026**, na pull van main en ophalen van Jorres uploadbranch `8e29c3ff`. Andrews vierklassenmodel, oorspronkelijke tracker en AI-verantwoording en Jorres technische afronding en labelreview zijn verwerkt.
 
-De definitieve inzendingsmap is [Upload_CV_Challenge_2026_11_14](../Upload_CV_Challenge_2026_11_14). Versie 4 gebruikt Jorres twaalf-slidepresentatie en bevat Milans persoonlijke bijdrage en AI-gebruik. De PDF en presentatie in beide mappen zijn gelijk.
+De definitieve inzendingsmap is [Upload_CV_Challenge_2026_11_14](../Upload_CV_Challenge_2026_11_14). Versie 5 gebruikt Jorres twaalf-slidepresentatie en bevat Milans persoonlijke bijdrage en AI-gebruik. De PDF en presentatie in beide mappen zijn gelijk.
 
 ## Direct openen
 
@@ -10,8 +10,9 @@ De definitieve inzendingsmap is [Upload_CV_Challenge_2026_11_14](../Upload_CV_Ch
 - [PowerPointpresentatie](Presentatie_Sports_Vision.pptx)
 - [Uitgevoerd trainings- en resultatennotebook](Training_en_Resultaten.ipynb)
 - [Requirementscontrole en resterende opleverpunten](Requirementscontrole.md)
-- [Persoonlijke AI-verantwoording Milan Wouters](AI_Usage_Milan_Wouters.md)
-- [Bijdragen van Milan, Andrew en Jorre](Bijdragen_Andrew_en_Jorre.md)
+- [AI-gebruik Milan Wouters](AI_Usage_Milan_Wouters.md), [Jorre Van Dyck](AI_Usage_Jorre_Van_Dyck.md) en [Raoul](AI_Usage_Raoul.md)
+- [Andrews eigen AI-verantwoording](../docs/VierKlassenModel.md#16-gebruik-van-ai-tijdens-de-ontwikkeling)
+- [Bijdragen van alle vier teamleden](Bijdragen_Andrew_en_Jorre.md)
 - [GenAI-gebruik en eigenaarschap](GenAI_en_Eigenaarschap.md)
 - [Versie en wijzigingen](Versie_en_Wijzigingen.md)
 
@@ -27,7 +28,7 @@ De menselijke review van alle huidige 80 labels is geregistreerd en goedgekeurd 
 
 De hoofdbron gebruikt het bestaande YOLO11s-spelermodel en uitsluitend de baluitvoer uit Andrews YOLOv8x. De hoofdbron en het afzonderlijke GitHub-final-pakket hebben verschillende starters; volg de README van de gekozen versie. Lokale niet-gepubliceerde appaanpassingen worden niet als gedeelde GitHub-functies voorgesteld.
 
-Open blijven onder meer de exacte koppeling van de definitieve reviewselectie aan training/evaluatie, een actuele geaccepteerde statische minimapdemonstratie, ruwe nieuwe experimentbewijzen en de individuele verdediging. Zie de requirementscontrole.
+De [audit van de 80 beelden en baltraining](Koppeling_80_Beelden_en_Baltraining.md) toont nu hun opname in de grotere historische trainingsset. Open blijven een heldere vaste-camera-MVP-demonstratie, ruwe nieuwe experimentbewijzen, de aparte GenAI-policy en de individuele verdediging. Zie de requirementscontrole.
 
 ## Reproduceren en indienen
 

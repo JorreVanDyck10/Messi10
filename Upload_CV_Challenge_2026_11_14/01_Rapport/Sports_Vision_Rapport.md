@@ -1,12 +1,12 @@
 # Sports Vision & Tactical Mapping
 
-**Projectrapport, versie 4 - 15 november 2026**
+**Projectrapport, versie 5 - 15 november 2026**
 
 **Team:** Messi10 — Andrew, Milan Wouters, Raoul en Jorre
 
 **Bronversie:** GitHub main `524d081a445dd57762e14eeb1e7142bbb9a3ba53`
 
-**Bijdragen:** Milans videokeuze, ondersteund labelwerk en persoonlijke AI-verantwoording; Andrews vierklassenmodel en AI-verantwoording; Jorres integratie, technische afronding en registratie van de teamreview
+**Bijdragen:** Milans videokeuze en ondersteund labelwerk; Andrews vierklassenmodel; Jorres integratie en inzending; Raouls oriëntatie en vergelijking van opties. AI-gebruik van alle vier teamleden is beschreven.
 
 **Status:** documentatie bijgewerkt; open opleverpunten staan afzonderlijk vermeld.
 
@@ -18,7 +18,7 @@ Dit rapport verwerkt de bijdragen uit GitHub main en Jorres uploadbranch `8e29c3
 
 Jorre heeft de toepassing en controles afgerond en de menselijke review van de 80-beeldenselectie geregistreerd op 14 november. Volgens de expliciete teambevestiging zijn alle huidige labels goedgekeurd en vielen twijfelgevallen buiten deze selectie. De labels en de 48/32-split zijn niet aangepast. De oorspronkelijke AI/provider-herkomst blijft behouden. Dit actualiseert de eerdere documentatie waarin de review nog open stond. [B29, B30]
 
-De ontwikkelmetingen ondersteunen concrete verbeteringen, maar geen algemene nauwkeurigheidsgarantie. Historische bal v3 verbetert de tegelroute tegenover v2, terwijl diezelfde v3 zonder tegels minder goed scoort. De opgehaalde YOLO26-handleiding behoudt het bestaande YOLO11s-model. Menselijke labelreview is nu geregistreerd; het koppelen van de definitieve reviewselectie aan het concrete trainingsbewijs, een actuele geaccepteerde statische minimapdemonstratie en de individuele verdediging blijven aparte aandachtspunten.
+De ontwikkelmetingen ondersteunen concrete verbeteringen, maar geen algemene nauwkeurigheidsgarantie. Historische bal v3 verbetert de tegelroute tegenover v2, terwijl diezelfde v3 zonder tegels minder goed scoort. De opgehaalde YOLO26-handleiding behoudt het bestaande YOLO11s-model. Menselijke labelreview is geregistreerd en de koppeling van de 80 beelden aan de grotere historische baltraining is nu aangetoond. Een heldere vaste-camera-MVP-demonstratie en de individuele verdediging blijven aandachtspunten.
 
 ## 2. Opdracht en afbakening
 
@@ -30,7 +30,7 @@ Het indieningsbericht vraagt één ZIP per team met PDF-rapport, trainingsnotebo
 
 ### 2.1 Welke codeversie wordt beschreven?
 
-Voor het uploadpakket gebruiken we Jorres branch `8e29c3ff`, met hoofdbron `524d081a`, draagbare uploadstarters, trainingsdata, gewichten en demonstratie. `03_Code/START_HIER.md` beschrijft deze route. De inhoudelijke documentatie is op 15 november aangevuld; dit is geen nieuwe modeltraining. De uitvoercode is niet stilzwijgend vervangen door andere lokale appaanpassingen. [B31]
+Voor het uploadpakket gebruiken we Jorres branch `8e29c3ff`, met hoofdbron `524d081a`, draagbare uploadstarters, trainingsdata, gewichten en demonstratie. `03_Code/START_HIER.md` beschrijft deze route. De inhoudelijke documentatie is op 15 november aangevuld, inclusief controleerbare v2-baltrainingsbijlagen uit de oorspronkelijke projectbestanden; dit is geen nieuwe modeltraining. De uitvoercode is niet stilzwijgend vervangen door andere lokale appaanpassingen. [B31]
 
 De gezamenlijke functies worden beschreven voor de opgehaalde hoofdbron op `524d081a`. De GitHub-map `final` is een afzonderlijk eindpakket met de eenvoudige schoolroute als standaardstart volgens haar meegecommitte README. De hoofdbron biedt de gezamenlijke automatische route. Lokale, niet-gepubliceerde uitbreidingen worden niet als al gedeelde GitHub-functionaliteit voorgesteld. [B02, B27]
 
@@ -106,9 +106,11 @@ De echte epochregels staan in de meegeleverde CSV-logboeken. De multisource-spel
 
 Sterke mosaic-, mixup- en schaalveranderingen zijn in de kleine-balproef uitgeschakeld om details te behouden. Horizontaal spiegelen en beperkte kleurvariatie blijven beschikbaar. Dat is een gemotiveerde projectkeuze, geen algemene regel dat andere augmentatie altijd slecht is. De volledige historische corpora en alle tussencheckpoints zijn niet in de documentatiemap gedupliceerd. Exacte hertraining vereist de juiste data, startgewichten en fingerprints.
 
-### 5.3 Training op de gereviewde selectie
+### 5.3 Aantoonbare koppeling van de 80 beelden aan training
 
-De nieuwe reviewregistratie keurt de huidige 80 labels goed zonder hun inhoud te veranderen. Er is daarmee niet automatisch een nieuwe fine-tuning op exact deze 80 beelden uitgevoerd. Het team moet het definitieve dataset- en trainingsbewijs aan elkaar koppelen: welke beelden, gewichten, instellingen en evaluatie horen bij de eigen bijdrage? Bij nieuwe labelcorrecties volgt een nieuwe datasetversie en meting. Zonder labelwijziging blijft de goedkeuringsregistratie bij de bestaande selectie horen. [B30]
+Een nieuwe bestandsaudit toont dat alle 80 reviewbeelden ongewijzigd uit het oorspronkelijke corpus van 132 beelden komen. Beeld- en labelhashes en splits komen exact overeen. Zij leveren samen 174 positieve crops in de historische set van 282 crops. Voor iedere betrokken box is de vertaling naar het cropvenster gecontroleerd. De datasetfingerprint verbindt dit manifest met de COCO-klasse-32-trainingsdata en het v2-experiment; begin- en eindgewichten zijn op hash gecontroleerd. [B35]
+
+Dit is een bestaande training op een grotere dataset, met een later gereviewde subset van 48 train- en 32 validatiebeelden. Er is geen nieuwe run op exact 80 beelden uitgevoerd. De v2-scores hieronder gelden voor de oorspronkelijke volledige validatie van 73 beelden, niet voor een afzonderlijke nieuwe 32-beeldenmeting of Andrews huidige model. De overige beelden worden door de latere review niet automatisch menselijk goedgekeurd. Het uploadpakket bevat nu ook de oorspronkelijke data, v2-gewichten, trainingslogs en een uitgevoerd notebook met uitgeschakelde hertraincel. [B35]
 
 ## 6. Metingen en hun betekenis
 
@@ -224,21 +226,21 @@ De uitbreidingen omvatten tijdelijke tracking, teams, automatische veldherkennin
 
 ## 11. GenAI-gebruik en persoonlijk eigenaarschap
 
-Milan Wouters verklaart zelf voetbalvideo's te hebben gezocht en geselecteerd en te hebben meegewerkt aan ondersteund labelen en controleren. De eerste labelvoorstellen kwamen van providers en Codex; de teamreview van de 80 beelden blijft als zodanig geregistreerd. Er is geen individueel correctielog of claim dat alle boxen volledig zonder hulpmiddelen zijn gemaakt.
+Milan Wouters verklaart zelf voetbalvideo's te hebben gezocht en geselecteerd en te hebben meegewerkt aan ondersteund labelen en controleren. Codex hielp hem met code en interface, curatie, trainings- en evaluatieopdrachten, foutdiagnose, installatie, integratie, mergeconflicten en documenten. De eerste labelvoorstellen kwamen van providers en Codex; de teamreview blijft afzonderlijk geregistreerd. Zijn volledige verklaring staat in `AI_Usage_Milan_Wouters.md`. [B20, B32]
 
-Milan gebruikte Codex voor hulp bij code en interface, annotatiegereedschap, datasetcuratie, trainings- en evaluatieopdrachten, foutdiagnose, installatie, modelintegratie, mergeconflicten en documentatie. Hij koos onder meer de PANORIS-bronvideo en gaf de RTX 4050 als beoogde laptop aan. AI hielp bij het technisch uitvoeren en uitwerken; de vastgelegde lokale RTX 3050-metingen gelden niet als RTX 4050-benchmark. Rapport, presentatie en deze verklaring zijn ook met AI opgesteld en nagekeken. Milan blijft verantwoordelijk voor zijn bijdrage en eigen verdediging. De volledige persoonlijke verklaring staat in `AI_Usage_Milan_Wouters.md`. [B20, B32]
+Andrew vermeldt in zijn eigen hoofdstuk 16 AI-hulp voor documentstructuur, eerste codeonderdelen en debugging, waaronder tracking, afstandsberekeningen en positievoorspelling. Volgens zijn verklaring heeft hij voorstellen handmatig beoordeeld, aangepast en getest. Hij blijft verantwoordelijk voor zijn implementatie, parameters en resultaten. [B28]
 
-Andrew beschrijft in hoofdstuk 16 van `docs/VierKlassenModel.md` AI-hulp bij documentstructuur, eerste codeonderdelen en debugging. De hulp omvat onder meer de stappen in de detectieroute, bal- en scheidsrechtertracking, afstandsberekeningen en positievoorspelling. Volgens zijn verklaring zijn voorstellen handmatig beoordeeld, aangepast en getest. Andrew behoudt verantwoordelijkheid voor implementatie, parameters, resultaten en documentatie. De gebruikte toolnamen, model-ID's en volledige prompts worden daar niet gespecificeerd; dit rapport vult die niet zelf in. [B28]
+Jorre Van Dyck gebruikte volgens Milans aangeleverde beschrijving AI om de PowerPoint te verbeteren, bij een eerste modelopzet om de data te verkennen en te controleren, en bij algemeen programmeren. De hulp omvatte codevoorstellen en het uitwerken van projectonderdelen. Zijn technische afronding en oorspronkelijke uploadpakket bewaren de controles en resultaten. [B29, B33]
 
-De gezamenlijke Codex-disclosures beschrijven daarnaast hulp bij code, annotatiegereedschap, AI-curatie, experimenten, installatie, integratie, tests en uitleg. Dat gaat verder dan spellingcontrole. De teamreview van de 80 beelden is nu geregistreerd op basis van gebruikersbevestiging, terwijl AI/provider-herkomst behouden blijft. Een geregistreerde verklaring wordt niet gepresenteerd alsof de AI zelf de menselijke bespreking bijwoonde. [B20, B30]
+Raoul gebruikte volgens dezelfde aangeleverde beschrijving AI als leidraad, voor ideeën en voor het vergelijken van oplossingen. Hij vroeg om duidelijke uitleg van verschillen en voor- en nadelen om beter te begrijpen welke optie bij het project paste. AI-advies vormt op zichzelf geen experimenteel bewijs. [B34]
 
-Jorres afronding herstelt imports en tests en registreert de review. Codex hielp ook bij het samenvoegen, schrijven, controleren en publiceren van deze documenten. De documentatieronde start geen nieuwe training of onafhankelijke modeltest. [B29]
+De afzonderlijke persoonlijke AI-bestanden en gezamenlijke disclosures maken het gebruik controleerbaar. Exacte persoonlijke toolnamen, model-ID's, prompts en niet-gedocumenteerde resultaten worden niet aangevuld. De oorspronkelijke AI/provider-herkomst van labels blijft behouden. Codex hielp ook bij het schrijven, controleren en verpakken van verslag en presentatie. Deze ronde start geen nieuwe training of onafhankelijke modelmeting.
 
-De opdracht verwijst naar een afzonderlijke GenAI-policy; die is niet als apart aangeleverd stuk beoordeeld. Het team moet die voorschriften controleren. Iedere student moet zonder AI zijn code en keuzes kunnen uitleggen: splits, transfer learning, optimizer/loss, beide AP-maten, confidence versus IoU, homography, tracking en beperkingen. Een geschreven ownershipverklaring vervangt de mondelinge verdediging niet.
+Iedere student blijft verantwoordelijk voor zijn bijdrage en moet zijn code en keuzes zonder AI kunnen uitleggen. De aparte cursuspolicy voor GenAI is niet als afzonderlijk aangeleverd stuk beoordeeld. Een geschreven verklaring en softwaretests vervangen de individuele mondelinge verdediging niet.
 
 ## 12. Requirementscontrole en slot
 
-De afzonderlijke `Requirementscontrole.md` koppelt de eisen aan hun bewijs. De status van de 80-labelreview is bijgewerkt naar goedgekeurd volgens de geregistreerde teamverklaring. De conclusie blijft gedeeltelijk aangetoond: datacuratie, historische fine-tuning, beide AP-maten, foutanalyse en de implementatie zijn aanwezig, maar de exacte koppeling tussen de eigen definitieve reviewselectie en training/evaluatie en een actuele geaccepteerde statische MVP-demonstratie vragen nog een helder opleverdossier.
+De afzonderlijke `Requirementscontrole.md` koppelt de eisen aan hun bewijs. De status van de 80-labelreview is bijgewerkt naar goedgekeurd volgens de geregistreerde teamverklaring. De conclusie blijft gedeeltelijk aangetoond: datacuratie, historische fine-tuning, beide AP-maten, foutanalyse en de implementatie zijn aanwezig, en de opname van de 80 reviewbeelden in de grotere historische baltraining is op hash en cropgeometrie aangetoond. Een duidelijke vaste-camera-MVP-demonstratie en individuele verdediging blijven afzonderlijk te onderbouwen.
 
 De YOLO26-keuze staat niet langer als een lopende beslissing vermeld: de bron behoudt YOLO11s. Voor de nieuwe vergelijkingen ontbreken nog ruwe lokale experimentbestanden in de gedeelde checkout. De individuele verdediging, volledige bron-/gebruiksafspraken en de afzonderlijke GenAI-policy blijven verantwoordelijkheden van het team. Het rapport verzint daarvoor geen namen, scores of acceptaties.
 
@@ -271,6 +273,9 @@ Paden zijn relatief aan de repository. De documentatiemap bevat kopieën van bel
 | B30 | `final/datasets/school-ball80-review-v1/REVIEW.md` en actuele manifestregistratie |
 | B31 | Uploadbranch `8e29c3ff`: `Upload_CV_Challenge_2026_11_14`, oorspronkelijke Andrew-notebooks, checkpoint_metadata.json, CONTROLE.json en demonstratie/runmanifest.json |
 | B32 | `Documentatie/AI_Usage_Milan_Wouters.md`; persoonlijke verklaring en vastgelegde projectgeschiedenis |
+| B33 | `Documentatie/AI_Usage_Jorre_Van_Dyck.md`; persoonlijke beschrijving aangeleverd door Milan Wouters |
+| B34 | `Documentatie/AI_Usage_Raoul.md`; persoonlijke beschrijving aangeleverd door Milan Wouters |
+| B35 | `Koppeling_80_Beelden_en_Baltraining.md`, `Trainingsbewijs/labelset_training_koppeling.json`; oorspronkelijke cropdata en v2-experiment met dataset- en gewichthashes |
 
 ### Aanvullende figuren
 

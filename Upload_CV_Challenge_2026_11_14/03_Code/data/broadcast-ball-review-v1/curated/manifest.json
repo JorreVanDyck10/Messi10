@@ -1,0 +1,4532 @@
+{
+  "dataset_version": "broadcast-balls-ai-curated-v1",
+  "source_fingerprint": "4fa69bad392c33bffb8d6c97397246c5b052e745c09e2bbc4e6c5a44cbdde421",
+  "candidate_fingerprint": "b1e5e5a4a29a526e602eb2f36d73357980fe72b6aadfce5baf1c86f898fad526",
+  "decisions_sha256": "d5c47d9a9334e5b2dd5bb9c90be7593d87b9a96495d3ed8d5b2754b099c411e2",
+  "frames": [
+    {
+      "candidate_id": 0,
+      "frame_id": "SNGS-097_000376",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-097",
+      "image": "images/train/SNGS-097_000376.jpg",
+      "image_sha256": "5d6b4f2ebbbc60529955f59de373bc9c77ced2e7359491e4acc6f8c51ec7458b",
+      "source_label_sha256": "173a5b21ce46dc88fa64aa4465352dd99c99323d593944421f91bcce667ba34a",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        932,
+        456,
+        947,
+        471
+      ],
+      "crop_origin": [
+        902,
+        413
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 0,
+      "label": "labels/train/SNGS-097_000376.txt",
+      "label_sha256": "439476bd83aac3d2d3805192a725446e1150c0af5cdf7528ce9b328cbba73da7",
+      "decision": {
+        "candidate_id": 0,
+        "status": "correct",
+        "reason": "Original source box lies above the visible ball; moved and resized to the ball's visible extent using the original-pixel grid.",
+        "corrected_bbox_xyxy": [
+          932,
+          456,
+          947,
+          471
+        ]
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 1,
+      "frame_id": "SNGS-071_000371",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-071",
+      "image": "images/train/SNGS-071_000371.jpg",
+      "image_sha256": "01119ec099994b7b76a4a0eef9ad8ca8e7348c4e1d0fdbe90513798eb4710c48",
+      "source_label_sha256": "ecef469e4849c70bd8785fd95d9d0aadb762ebd794aaa0c2fa239376ec9d6f37",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        700,
+        672,
+        719,
+        692
+      ],
+      "crop_origin": [
+        672,
+        628
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 1,
+      "label": "labels/train/SNGS-071_000371.txt",
+      "label_sha256": "a045e6ac84e8cc0f3875c44cb567b8be24f39098059ef50911ad8d2421a83cae",
+      "decision": {
+        "candidate_id": 1,
+        "status": "correct",
+        "reason": "Original source box lies above the visible ball; moved and resized to the ball's visible extent using the original-pixel grid.",
+        "corrected_bbox_xyxy": [
+          700,
+          672,
+          719,
+          692
+        ]
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 2,
+      "frame_id": "SNGS-021_000241",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-021",
+      "image": "images/val/SNGS-021_000241.jpg",
+      "image_sha256": "e4b0e9f09ffcf698c0315ad63c69af4f7b33be23adc94b97222162d5d104df69",
+      "source_label_sha256": "91aa8e121e75c299a031a2b1684d157c84677a2e7c2e64cbfea444f4b7102104",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1664.0,
+        577.0,
+        1679.0,
+        592.0
+      ],
+      "crop_origin": [
+        1631,
+        544
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 2,
+      "label": "labels/val/SNGS-021_000241.txt",
+      "label_sha256": "dcda5625ec73151a7c3fb49c5bcd598d5ad67e2f75324dc599eb75732613ccb2",
+      "decision": {
+        "candidate_id": 2,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 4,
+      "frame_id": "SNGS-022_000216",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-022",
+      "image": "images/val/SNGS-022_000216.jpg",
+      "image_sha256": "41079646cb2d59541de8dddbd94ed9f028f95a381a723ee892b50f71ed51146e",
+      "source_label_sha256": "73f70ea4292c6a95eea770a358b5188d23cd395b80c2bb85d857211f7eecacfa",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1147.0,
+        390.0,
+        1161.0,
+        405.0
+      ],
+      "crop_origin": [
+        1114,
+        357
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 4,
+      "label": "labels/val/SNGS-022_000216.txt",
+      "label_sha256": "4ac10fea396e983d2e586ce86ca7537e84a3ec25d37503ea4e300025a4f12097",
+      "decision": {
+        "candidate_id": 4,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 5,
+      "frame_id": "SNGS-022_000526",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-022",
+      "image": "images/val/SNGS-022_000526.jpg",
+      "image_sha256": "2349d0fd6e7ff485baaec5b4f1935e2db7a0a8178177b9eb07d047be6e09c3a5",
+      "source_label_sha256": "3a4c991bc48ec28e30f8ce1d967cb3a1e1cfabffdf98cc3c4bfbef5f2ca7e3bb",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        951.0,
+        567.0,
+        970.0,
+        580.0
+      ],
+      "crop_origin": [
+        920,
+        533
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 5,
+      "label": "labels/val/SNGS-022_000526.txt",
+      "label_sha256": "a6ff77867098a01cead4044f7e4323c4be690f0fbcd753cc17012aac7f8a5c46",
+      "decision": {
+        "candidate_id": 5,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 6,
+      "frame_id": "SNGS-023_000241",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-023",
+      "image": "images/val/SNGS-023_000241.jpg",
+      "image_sha256": "6341008e9343cf684c1ad38ecead48f028955ed83d77e3ef56baeba7d666b192",
+      "source_label_sha256": "132adde58a583974c9d8a78de9ced1287f356e62031860617e857bbaba3b0aa2",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        413.0,
+        725.0,
+        431.0,
+        744.0
+      ],
+      "crop_origin": [
+        382,
+        694
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 6,
+      "label": "labels/val/SNGS-023_000241.txt",
+      "label_sha256": "31695a69d1cd30b4181a1cbecad9fe821c586aed58ae1ef83baf2930558120db",
+      "decision": {
+        "candidate_id": 6,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 7,
+      "frame_id": "SNGS-023_000501",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-023",
+      "image": "images/val/SNGS-023_000501.jpg",
+      "image_sha256": "56873649bc3a7db4998be940ef886686403c30ea1327d4734abc3b13276b10e1",
+      "source_label_sha256": "e72195c7232c2987e4bd2f673e6f14dd89bbf07b7de15e615e6b175e7f991d25",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        290.0,
+        757.0,
+        312.0,
+        776.0
+      ],
+      "crop_origin": [
+        261,
+        726
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 7,
+      "label": "labels/val/SNGS-023_000501.txt",
+      "label_sha256": "de6569753056e59865ee95f01c0e996c3b419292e7ca8acd73bff4b68845e61a",
+      "decision": {
+        "candidate_id": 7,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 8,
+      "frame_id": "SNGS-024_000216",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-024",
+      "image": "images/val/SNGS-024_000216.jpg",
+      "image_sha256": "1b860e3a9335193831c3c6ed22167197542b5859efeec383df2a9e19386edbcd",
+      "source_label_sha256": "c2a130c7720800dfc9265470f1f3d49abfa7b1d45cb99ee311ffce21acf4a347",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        570.0,
+        68.0,
+        583.0,
+        82.0
+      ],
+      "crop_origin": [
+        536,
+        35
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 8,
+      "label": "labels/val/SNGS-024_000216.txt",
+      "label_sha256": "2db476e4d563964c196143083f209007ad6acc202bf31afc611761556e3b45e3",
+      "decision": {
+        "candidate_id": 8,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 9,
+      "frame_id": "SNGS-024_000461",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-024",
+      "image": "images/val/SNGS-024_000461.jpg",
+      "image_sha256": "ea7e4f43a78f0361185f9d7711776138cfedacc5e785f12b3fc88d9d3db9e7c3",
+      "source_label_sha256": "f50c6ad5975a291c626e3f7328c9521098876e3007cde8382e0c6308aa560c2a",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1303.0,
+        35.0,
+        1321.0,
+        49.0
+      ],
+      "crop_origin": [
+        1272,
+        2
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 9,
+      "label": "labels/val/SNGS-024_000461.txt",
+      "label_sha256": "c3f0def8a5b585fb7fa606b5e46ff8eced545cceedfa2f496cdb9b0c24b7e261",
+      "decision": {
+        "candidate_id": 9,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 11,
+      "frame_id": "SNGS-025_000526",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-025",
+      "image": "images/val/SNGS-025_000526.jpg",
+      "image_sha256": "2cea1f9d67ab733e6f8b8da5ab60b21b58416c3eb61185ee578905f8b819b9e0",
+      "source_label_sha256": "5495256f5e40a98555ea41b845a1d560beac8b263d7590c3a2d9e40134d78f70",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        930.0,
+        775.0,
+        952.0,
+        796.0
+      ],
+      "crop_origin": [
+        901,
+        745
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 11,
+      "label": "labels/val/SNGS-025_000526.txt",
+      "label_sha256": "d0c748c5d4d4a67756bd1b99d52b7aa00f7813bc37e1ad8570ce53756cb93e5a",
+      "decision": {
+        "candidate_id": 11,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 12,
+      "frame_id": "SNGS-026_000241",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-026",
+      "image": "images/val/SNGS-026_000241.jpg",
+      "image_sha256": "d1dd6b05056b3afc12dd08803e78fa5a87333b98f5ef4d26f27c863f499f96ad",
+      "source_label_sha256": "478f6d9fe97538bda7c777a7fab48ff3a6ca28f162866a8a349bcc64ca48d7c4",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        786.0,
+        553.0,
+        806.0,
+        573.0
+      ],
+      "crop_origin": [
+        756,
+        523
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 12,
+      "label": "labels/val/SNGS-026_000241.txt",
+      "label_sha256": "2f5e470240bacfc0ed2e735a108fbc1df0a5581024d2c9b49c619e9f730d06b9",
+      "decision": {
+        "candidate_id": 12,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 15,
+      "frame_id": "SNGS-027_000481",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-027",
+      "image": "images/val/SNGS-027_000481.jpg",
+      "image_sha256": "1eae6795f462193799e0f43b8239414bc2ea627f8e7734e076fbac5f4532a94d",
+      "source_label_sha256": "5e39ea04a7815cb1054c1b05dc824a8fb5b1b9bc7e799572ccdeb503cb21090a",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        292.0,
+        581.0,
+        306.0,
+        594.0
+      ],
+      "crop_origin": [
+        259,
+        547
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 15,
+      "label": "labels/val/SNGS-027_000481.txt",
+      "label_sha256": "f35035312d48aab19ce79208099288f6cae65b58a552a1f6264fbcb997f4ade1",
+      "decision": {
+        "candidate_id": 15,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 19,
+      "frame_id": "SNGS-029_000391",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-029",
+      "image": "images/val/SNGS-029_000391.jpg",
+      "image_sha256": "6fd906c23af81ad12e8c9d69a51e6f409c6cd1ff004759a5bf07e8b691a9b19d",
+      "source_label_sha256": "e3b9ffed61b85d23ea02099d8f388176a43b40fa3d8338fe8cd66ae93a038367",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1250.0,
+        478.0,
+        1268.0,
+        495.0
+      ],
+      "crop_origin": [
+        1219,
+        446
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 19,
+      "label": "labels/val/SNGS-029_000391.txt",
+      "label_sha256": "2344ae1050b62912b8e0b240f0f604d5c713f92fa7000ed51a13d7f91042f125",
+      "decision": {
+        "candidate_id": 19,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 20,
+      "frame_id": "SNGS-030_000241",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-030",
+      "image": "images/val/SNGS-030_000241.jpg",
+      "image_sha256": "e8c520aaccd31c3afe8d5a1a826c90d5de9a8876ab19f3a9ed5f8db2cce20003",
+      "source_label_sha256": "47229f5524e31d23cde21f0c5b6ffb74a7c2e2d6ca7c79c63d8eddd22b2c49fe",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1321.0,
+        209.0,
+        1342.0,
+        229.0
+      ],
+      "crop_origin": [
+        1291,
+        179
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 20,
+      "label": "labels/val/SNGS-030_000241.txt",
+      "label_sha256": "bddd1c37c9fa4cb613a954f743b55682c0f99dd3f65a9d7b200cb50f797191a5",
+      "decision": {
+        "candidate_id": 20,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 22,
+      "frame_id": "SNGS-031_000246",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-031",
+      "image": "images/val/SNGS-031_000246.jpg",
+      "image_sha256": "7d1e17b14563b9398fa409d96428d9dd647c30b5a93a0cecc6411030806373da",
+      "source_label_sha256": "37f732ea75e0ad6d821d96d8d8b992c9dba76af4129f260a79b48247feab4606",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1209.0,
+        441.0,
+        1225.0,
+        454.0
+      ],
+      "crop_origin": [
+        1177,
+        407
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 22,
+      "label": "labels/val/SNGS-031_000246.txt",
+      "label_sha256": "8bdfe321ee4c927fa220074d7f2cbaed29aa250b0be495c7acf94ec04057911b",
+      "decision": {
+        "candidate_id": 22,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 23,
+      "frame_id": "SNGS-031_000541",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-031",
+      "image": "images/val/SNGS-031_000541.jpg",
+      "image_sha256": "9fa7793d1cbb03fdc8f316894b78f2f407b5f0190108e0f8829c52edc6ecfc08",
+      "source_label_sha256": "5e3c2932347f2b19b45f65d6bc0990a2e0a03da6cc1f46f164d92abe68e21d1c",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        91.0,
+        696.0,
+        108.0,
+        713.0
+      ],
+      "crop_origin": [
+        59,
+        664
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 1,
+      "tile": 23,
+      "label": "labels/val/SNGS-031_000541.txt",
+      "label_sha256": "bb439d07a3c07ff40f8dc0d92e073e275b477cd14017629eaaa7fea68d9b0b7d",
+      "decision": {
+        "candidate_id": 23,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 24,
+      "frame_id": "SNGS-032_000246",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-032",
+      "image": "images/val/SNGS-032_000246.jpg",
+      "image_sha256": "32428958de2da1f2d63754c3f651476968b13033ef573ec01e54397132006f84",
+      "source_label_sha256": "6215a9967da4753afca448593db5a319e1bf81f1ebb782e55a4600a0ebabde44",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        942.0,
+        557.0,
+        970.0,
+        579.0
+      ],
+      "crop_origin": [
+        916,
+        528
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 0,
+      "label": "labels/val/SNGS-032_000246.txt",
+      "label_sha256": "89cf741633cf7535e4208d8f480c067b56d35d44eefd6a836dc8e8a4ed1d91aa",
+      "decision": {
+        "candidate_id": 24,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 25,
+      "frame_id": "SNGS-032_000496",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-032",
+      "image": "images/val/SNGS-032_000496.jpg",
+      "image_sha256": "5dbc4fb5c42bcf45bea1b55ac9fa26f709303c81ea03e653c14e386e542139c4",
+      "source_label_sha256": "b8c6bf00d0fc0db87a27ecfb77545549826b15c2d059d86a862ac87993f66ea6",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        707.0,
+        323.0,
+        725.0,
+        339.0
+      ],
+      "crop_origin": [
+        676,
+        291
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 1,
+      "label": "labels/val/SNGS-032_000496.txt",
+      "label_sha256": "7f59724534a93efaf656e830b14d7f5e0c357fdeb3606d6b52df2091da926b9b",
+      "decision": {
+        "candidate_id": 25,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 27,
+      "frame_id": "SNGS-033_000516",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-033",
+      "image": "images/val/SNGS-033_000516.jpg",
+      "image_sha256": "4c1d72cbbd961412e1b66d29b2f1e1687419d9d9762b9bfc5473b0f456a4966d",
+      "source_label_sha256": "2d785d597844185af227ffb27d9b9510b2a111f51441815ab87fa0696454b27d",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1541.0,
+        491.0,
+        1553.0,
+        501.0
+      ],
+      "crop_origin": [
+        1507,
+        456
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 3,
+      "label": "labels/val/SNGS-033_000516.txt",
+      "label_sha256": "bc841009c5fa45163902dbd7e497560bf0845ba222eba8b123fa58a48048d6af",
+      "decision": {
+        "candidate_id": 27,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 28,
+      "frame_id": "SNGS-034_000246",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-034",
+      "image": "images/val/SNGS-034_000246.jpg",
+      "image_sha256": "15abd45f69dee3ea12d9b9e8249810e38e6c2f6394201bc2914285da9bf1c169",
+      "source_label_sha256": "76fcd1639c0590008544a5212f4f3e1d3e3d1df229285b503d550522e98bb1be",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        319.0,
+        622.0,
+        330.0,
+        631.0
+      ],
+      "crop_origin": [
+        284,
+        586
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 4,
+      "label": "labels/val/SNGS-034_000246.txt",
+      "label_sha256": "19d549896f14db8ef26ce897dafe34c3628900aebfa3694b476ad9c2eba47201",
+      "decision": {
+        "candidate_id": 28,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 29,
+      "frame_id": "SNGS-034_000541",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-034",
+      "image": "images/val/SNGS-034_000541.jpg",
+      "image_sha256": "20e456c6f3f063183854ac4d7f51abf0e425e4ede361fa9647e58fc0ee5fc35d",
+      "source_label_sha256": "5a5070bd6530d27cbea5d1d37eab340ca66ec9b62f9755a5527bb1fb2eb9c136",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        220.0,
+        628.0,
+        231.0,
+        637.0
+      ],
+      "crop_origin": [
+        185,
+        592
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 5,
+      "label": "labels/val/SNGS-034_000541.txt",
+      "label_sha256": "32bff68c8d80d6fc5966d39bae6bd71620aee98d86f6472a3dd907826a370e6c",
+      "decision": {
+        "candidate_id": 29,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 31,
+      "frame_id": "SNGS-035_000381",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-035",
+      "image": "images/val/SNGS-035_000381.jpg",
+      "image_sha256": "063646f8947d72b70a1d4c734348389cd9060642459da91a9767da352efd6ead",
+      "source_label_sha256": "4841cea41d8779b2d03fa2eeae1093bc1e1b749d4afa66b837111d65ca6ddff1",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        908.0,
+        123.0,
+        925.0,
+        138.0
+      ],
+      "crop_origin": [
+        876,
+        90
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 7,
+      "label": "labels/val/SNGS-035_000381.txt",
+      "label_sha256": "9db6a53cc0308e9e33310f58dada501e1f2e3e02c60fb8b5bee0fbd04d863eaf",
+      "decision": {
+        "candidate_id": 31,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 32,
+      "frame_id": "SNGS-036_000471",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-036",
+      "image": "images/val/SNGS-036_000471.jpg",
+      "image_sha256": "7ea13767df5babad1d51081331f1373415810eee54263a2ee5d085545538009a",
+      "source_label_sha256": "cd21d0d17dfe14395452dd67048d1bfbdd0ee087a77dfaaf2e34ba8dc560e661",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        422.0,
+        740.0,
+        439.0,
+        758.0
+      ],
+      "crop_origin": [
+        390,
+        709
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 8,
+      "label": "labels/val/SNGS-036_000471.txt",
+      "label_sha256": "f51db67dd84be1a814cb40f38087cf3f5efcc96bb8ee9476c05f68651f65a0a2",
+      "decision": {
+        "candidate_id": 32,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 35,
+      "frame_id": "SNGS-037_000496",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-037",
+      "image": "images/val/SNGS-037_000496.jpg",
+      "image_sha256": "0a004670ffb292833986bf629e1bd1796aad1b5eb56275ad40fe93f28e1e76f0",
+      "source_label_sha256": "99384bab41bb2bdaac53f7a49e3f5bc08e9a4cb7bb0c47a640df09768b9bfcfc",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        976.0,
+        464.0,
+        987.0,
+        474.0
+      ],
+      "crop_origin": [
+        941,
+        429
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 11,
+      "label": "labels/val/SNGS-037_000496.txt",
+      "label_sha256": "74d143512e469b88dc8ead5d66090b93f0bf0c10882c6357454bb311ce6573e5",
+      "decision": {
+        "candidate_id": 35,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 37,
+      "frame_id": "SNGS-038_000561",
+      "split": "val",
+      "game_id": "2",
+      "clip": "SNGS-038",
+      "image": "images/val/SNGS-038_000561.jpg",
+      "image_sha256": "c2c444d4a205f4fcaf7785783eac1a295d1af20e3d8dd4620fd6a70cd885edd1",
+      "source_label_sha256": "ceee565ded8973e72d66449c5f0a65744634b3d0aabd916feae2d1f39259825c",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        427.0,
+        593.0,
+        440.0,
+        605.0
+      ],
+      "crop_origin": [
+        393,
+        559
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 13,
+      "label": "labels/val/SNGS-038_000561.txt",
+      "label_sha256": "3451db3c8eb1e41c2aff060b77820c7ac8802fe7f4863687e7fa1b1a7397d143",
+      "decision": {
+        "candidate_id": 37,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 38,
+      "frame_id": "SNGS-039_000216",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-039",
+      "image": "images/val/SNGS-039_000216.jpg",
+      "image_sha256": "b4c610c1c36dc692f4264f31fdc15ae0cb379be63ace1580be2d08ddea0da40c",
+      "source_label_sha256": "800605ed830ac82c13e1a54485d8fe94fbe8e67e8ed9195e2cac4cf6231f43b7",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1422.0,
+        513.0,
+        1432.0,
+        522.0
+      ],
+      "crop_origin": [
+        1387,
+        477
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 14,
+      "label": "labels/val/SNGS-039_000216.txt",
+      "label_sha256": "0ee2e94feaf3bfbde7d38a91e4fae9856903151b527c94faaf6c2cc98d706eae",
+      "decision": {
+        "candidate_id": 38,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 41,
+      "frame_id": "SNGS-040_000501",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-040",
+      "image": "images/val/SNGS-040_000501.jpg",
+      "image_sha256": "e0ff37682e135ec0335080b00b3fe23d296f94eaae140ccfa4d53f5d86424385",
+      "source_label_sha256": "2deaa0412d91d2dd4d9a91bc96f5537e417936a3cdea9b562d984d06c24a87c4",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        980.0,
+        491.0,
+        989.0,
+        499.0
+      ],
+      "crop_origin": [
+        944,
+        455
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 17,
+      "label": "labels/val/SNGS-040_000501.txt",
+      "label_sha256": "35f2112245d4142c379a36f5dcd2a4186334887d2c4089269e75266968ce5e5a",
+      "decision": {
+        "candidate_id": 41,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 42,
+      "frame_id": "SNGS-041_000241",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-041",
+      "image": "images/val/SNGS-041_000241.jpg",
+      "image_sha256": "9cbdd01c84c19d9e18f0e1862f48d59b85dd7a20f007e2c677be0f25f453080a",
+      "source_label_sha256": "22c54ab538d001f604fc1f1c947c85946ee125cdc2cff3f83ba832e2039fabe9",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        913.0,
+        482.0,
+        921.0,
+        489.0
+      ],
+      "crop_origin": [
+        877,
+        445
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 18,
+      "label": "labels/val/SNGS-041_000241.txt",
+      "label_sha256": "9bcdad5f6510fb70f82d68e7a9368aee2ae9180f87845260f65dfeb5e3c1ebb9",
+      "decision": {
+        "candidate_id": 42,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 43,
+      "frame_id": "SNGS-041_000501",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-041",
+      "image": "images/val/SNGS-041_000501.jpg",
+      "image_sha256": "3bfbf2fd44313693e7d756623fe81c15f553c54fc221614d89004c434a94c585",
+      "source_label_sha256": "01e28b8eede2498a3aac85457d0474ff38d9390c184d4d429ac7e9efd4cb929c",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        613.0,
+        505.0,
+        622.0,
+        513.0
+      ],
+      "crop_origin": [
+        577,
+        469
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 19,
+      "label": "labels/val/SNGS-041_000501.txt",
+      "label_sha256": "13931281f1967ef7db978f51add31d68302d1391940b82923c86efc1415d214f",
+      "decision": {
+        "candidate_id": 43,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 44,
+      "frame_id": "SNGS-042_000131",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-042",
+      "image": "images/val/SNGS-042_000131.jpg",
+      "image_sha256": "2bcf7190492970c8a1071d89015b6182ba4baff48ebff1a4948d7959d899dcfa",
+      "source_label_sha256": "f8e2ab7e32675506434845746317cd2e2f6ccc93bbedca111274670b592c7445",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1473.0,
+        793.0,
+        1487.0,
+        807.0
+      ],
+      "crop_origin": [
+        1440,
+        760
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 20,
+      "label": "labels/val/SNGS-042_000131.txt",
+      "label_sha256": "e5a0f70766c54e66d354d2af757d3e47a96482daa068450485724cd2d2f6b293",
+      "decision": {
+        "candidate_id": 44,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 45,
+      "frame_id": "SNGS-042_000611",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-042",
+      "image": "images/val/SNGS-042_000611.jpg",
+      "image_sha256": "b0324c121bf22dab450e756b36e0ed9b8f22f484486f4571073cca208780f52a",
+      "source_label_sha256": "489c1fe5e501d8affacabc68c297b34995c6fd79f0af943a582b0ea3dce27468",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        834.0,
+        494.0,
+        843.0,
+        501.0
+      ],
+      "crop_origin": [
+        798,
+        457
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 2,
+      "tile": 21,
+      "label": "labels/val/SNGS-042_000611.txt",
+      "label_sha256": "44e2cb322d2e9c760a63cbf4c429773e5e68d066b206da5a8f8b0d2d9e4e70bc",
+      "decision": {
+        "candidate_id": 45,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 48,
+      "frame_id": "SNGS-044_000261",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-044",
+      "image": "images/val/SNGS-044_000261.jpg",
+      "image_sha256": "d0ff4b5665890fadb2aa4bf2c0fce4d895a658c8ec9f1166891cf20e7aacbbc0",
+      "source_label_sha256": "d20f082f3f26822054f21ad9a478e209986051e20ef35eaecb866adf328f9ce8",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        891.0,
+        339.0,
+        902.0,
+        350.0
+      ],
+      "crop_origin": [
+        856,
+        304
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 3,
+      "tile": 0,
+      "label": "labels/val/SNGS-044_000261.txt",
+      "label_sha256": "ca4712630b1c67320cf1281c76df1026f4de892d7a4cb6cd786d261f9f88c2c1",
+      "decision": {
+        "candidate_id": 48,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 50,
+      "frame_id": "SNGS-045_000261",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-045",
+      "image": "images/val/SNGS-045_000261.jpg",
+      "image_sha256": "25ef8f2855fef6177fad60166dc2052c65a2f8fa8ca057473601535d0c02d5c8",
+      "source_label_sha256": "cecfcafbe257f3883a3c69cb33667b1d1971e49b80ef1a861e9646b19ba102bb",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        569.0,
+        836.0,
+        582.0,
+        850.0
+      ],
+      "crop_origin": [
+        535,
+        803
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 3,
+      "tile": 2,
+      "label": "labels/val/SNGS-045_000261.txt",
+      "label_sha256": "ec92e55da1faadf8767ffb02fa72c0d57807e3f7daf7375ee26e26659c1bd188",
+      "decision": {
+        "candidate_id": 50,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 51,
+      "frame_id": "SNGS-045_000501",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-045",
+      "image": "images/val/SNGS-045_000501.jpg",
+      "image_sha256": "db4d36ef45c9f0f2595b820a2317b8587fb3732db48da1feceb481a2c28b17b7",
+      "source_label_sha256": "ba4e2fa8841b1d6237fee6d91ce87e440a4678e593c309829e2534602a21747a",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        735.0,
+        655.0,
+        751.0,
+        671.0
+      ],
+      "crop_origin": [
+        703,
+        623
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 3,
+      "tile": 3,
+      "label": "labels/val/SNGS-045_000501.txt",
+      "label_sha256": "bf85c77281e794b98a371b024b6695d2f2df53742be74ec4be7734cd0097b837",
+      "decision": {
+        "candidate_id": 51,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 54,
+      "frame_id": "SNGS-047_000281",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-047",
+      "image": "images/val/SNGS-047_000281.jpg",
+      "image_sha256": "51ca22aa99021caa049dd69ecfbb22627654b1cdb83455abae3d8f70f96fc0a9",
+      "source_label_sha256": "1901679b28876522e86f19532b0121b23b6477a83d0bf5300db3b104bc86befe",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        940.0,
+        443.0,
+        952.0,
+        454.0
+      ],
+      "crop_origin": [
+        906,
+        408
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 3,
+      "tile": 6,
+      "label": "labels/val/SNGS-047_000281.txt",
+      "label_sha256": "5add7a3218c5e2280a148aa636171d905b2ab69e4a20e3c7f99b27fe1fa4ecde",
+      "decision": {
+        "candidate_id": 54,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 58,
+      "frame_id": "SNGS-049_000361",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-049",
+      "image": "images/val/SNGS-049_000361.jpg",
+      "image_sha256": "5ef8270157be853583ee20d1346ed8a2de39a08d960eb69b05a470d9152d84d1",
+      "source_label_sha256": "de2f41f788456d0b38d01643e7b7a1c203a07aaa6b7d47d2d5200654eb3acb24",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        659.0,
+        482.0,
+        668.0,
+        491.0
+      ],
+      "crop_origin": [
+        623,
+        446
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 3,
+      "tile": 10,
+      "label": "labels/val/SNGS-049_000361.txt",
+      "label_sha256": "e45dccfcb0bad3dba08c8b561719ddbc5476053ca8e899260f9d3dba82f67f35",
+      "decision": {
+        "candidate_id": 58,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 60,
+      "frame_id": "SNGS-050_000246",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-050",
+      "image": "images/val/SNGS-050_000246.jpg",
+      "image_sha256": "bd37187114264c2d489e3e3c929ad68de90a36741d4f30e19089051ce9d641ea",
+      "source_label_sha256": "0c68b9763da66cabdca8fa4937ffcc889433e07c0f3b4b82d0212893fd959576",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1074.0,
+        655.0,
+        1088.0,
+        669.0
+      ],
+      "crop_origin": [
+        1041,
+        622
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 3,
+      "tile": 12,
+      "label": "labels/val/SNGS-050_000246.txt",
+      "label_sha256": "4b0f8222f54400003e2189a746ca180ab5e0deafbdfb8ea6f1f17f002c95a1c8",
+      "decision": {
+        "candidate_id": 60,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 61,
+      "frame_id": "SNGS-050_000496",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-050",
+      "image": "images/val/SNGS-050_000496.jpg",
+      "image_sha256": "f519685dc9088822dff27362def05788b051adde3a0425e85564fd7eb4b7ee4f",
+      "source_label_sha256": "6ea1e434a0259aa8eb16ac9e3c227c76a7e84da6e64b52f113c7465682018614",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1091.0,
+        430.0,
+        1100.0,
+        441.0
+      ],
+      "crop_origin": [
+        1055,
+        395
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 3,
+      "tile": 13,
+      "label": "labels/val/SNGS-050_000496.txt",
+      "label_sha256": "1074e2f947937f7199950d790c217f8dbb0dc49c3b4162505e8e9ae51ac84a16",
+      "decision": {
+        "candidate_id": 61,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 63,
+      "frame_id": "SNGS-051_000496",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-051",
+      "image": "images/val/SNGS-051_000496.jpg",
+      "image_sha256": "769ea8f995c5f388365c1501e73af327c032e2684e6a70d56eecabb66e6ad720",
+      "source_label_sha256": "4688938a0f65ccdcbb227979519363674833a637c1c2315b7abe85b567c0c416",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        753.0,
+        433.0,
+        761.0,
+        440.0
+      ],
+      "crop_origin": [
+        717,
+        396
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 3,
+      "tile": 15,
+      "label": "labels/val/SNGS-051_000496.txt",
+      "label_sha256": "930a9c0fa889f82f415d86ead780ebb3a106303fdcf3a26788454c856b53a7e9",
+      "decision": {
+        "candidate_id": 63,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 64,
+      "frame_id": "SNGS-052_000246",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-052",
+      "image": "images/val/SNGS-052_000246.jpg",
+      "image_sha256": "6d2c887bd132016cc5ed86d3e33e456e873eaa3c0a393a76703ae1359ebd44fa",
+      "source_label_sha256": "648a6125ed466dc86b49bdfd971e64e85d6d6d51c5d2ec185fd5db797f165497",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        686.0,
+        479.0,
+        695.0,
+        488.0
+      ],
+      "crop_origin": [
+        650,
+        443
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 3,
+      "tile": 16,
+      "label": "labels/val/SNGS-052_000246.txt",
+      "label_sha256": "6189ddfceb6af38148b00f355d5e4b23e1d7eb4111e1cae7574d9667b1945512",
+      "decision": {
+        "candidate_id": 64,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 66,
+      "frame_id": "SNGS-053_000271",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-053",
+      "image": "images/val/SNGS-053_000271.jpg",
+      "image_sha256": "2f751dc344f9cc5c9e54eded35376c66159ca4277736651061618186b551febb",
+      "source_label_sha256": "9b22c65101abf953575d59c3f5cc76bf9505b2573f9a89fb72dfa6dc8751f38f",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        703.0,
+        805.0,
+        716.0,
+        817.0
+      ],
+      "crop_origin": [
+        669,
+        771
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 3,
+      "tile": 18,
+      "label": "labels/val/SNGS-053_000271.txt",
+      "label_sha256": "707e734267c67385dd71080cfc3a1b0ec68356ef3a949447781e2ae74fbbf507",
+      "decision": {
+        "candidate_id": 66,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 67,
+      "frame_id": "SNGS-053_000516",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-053",
+      "image": "images/val/SNGS-053_000516.jpg",
+      "image_sha256": "f29a0bd79234098cbf17f0c9298bec27d8353b00f1d1a9e3ca8a472944925c58",
+      "source_label_sha256": "73b55aa48dfa108205c9fc3febc9c5a4a2a0d6f0a01d4317aeb299fabf35de5a",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        681.0,
+        663.0,
+        693.0,
+        675.0
+      ],
+      "crop_origin": [
+        647,
+        629
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 3,
+      "tile": 19,
+      "label": "labels/val/SNGS-053_000516.txt",
+      "label_sha256": "4d92f4664868ba6d8ff80b2dd31fda53da5396e525c76803acc5c4718055d5ea",
+      "decision": {
+        "candidate_id": 67,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 70,
+      "frame_id": "SNGS-055_000246",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-055",
+      "image": "images/val/SNGS-055_000246.jpg",
+      "image_sha256": "73bb9404c0f0989d47727d8602032c67562fb8443e3856125dd695a1a07aa220",
+      "source_label_sha256": "8f7c30c210b6b6982c855d29a9a02e250fbe5065a07942b4db58028812698de0",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1404.0,
+        267.0,
+        1413.0,
+        276.0
+      ],
+      "crop_origin": [
+        1368,
+        231
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 3,
+      "tile": 22,
+      "label": "labels/val/SNGS-055_000246.txt",
+      "label_sha256": "0268e0ae3929b55925ea4260e4257653f1f5f725806de0c8d7caa99f403c5b42",
+      "decision": {
+        "candidate_id": 70,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 72,
+      "frame_id": "SNGS-056_000246",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-056",
+      "image": "images/val/SNGS-056_000246.jpg",
+      "image_sha256": "315602d88c310935ebf3b4172ef7edd04a77715df5d4c3274ab9f985c24d4bbd",
+      "source_label_sha256": "8b7192a6d2d2fedbf24b7a2765b752b8120b807f846fa922989a850eb6d00673",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        789.0,
+        564.0,
+        806.0,
+        579.0
+      ],
+      "crop_origin": [
+        757,
+        531
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 0,
+      "label": "labels/val/SNGS-056_000246.txt",
+      "label_sha256": "70f5d5c70af50d30683bf9aeb84dcd430146f873aee5149ba76ea80b520a15f0",
+      "decision": {
+        "candidate_id": 72,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 73,
+      "frame_id": "SNGS-056_000496",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-056",
+      "image": "images/val/SNGS-056_000496.jpg",
+      "image_sha256": "92beeffc7495a4f2b136f74ef450790240d982fb5179ee93bc75ea51244381d5",
+      "source_label_sha256": "b247353105c184212d7d272396dc97df00e4dd3afe7ba68cdc0a0297853befdf",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        790.0,
+        564.0,
+        806.0,
+        579.0
+      ],
+      "crop_origin": [
+        758,
+        531
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 1,
+      "label": "labels/val/SNGS-056_000496.txt",
+      "label_sha256": "c4bab9f23969574edc5cfcfe982fc17692a56bdb338a9e503f67a168b4a83d17",
+      "decision": {
+        "candidate_id": 73,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 74,
+      "frame_id": "SNGS-057_000246",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-057",
+      "image": "images/val/SNGS-057_000246.jpg",
+      "image_sha256": "1640877056107ae4a0be92ca10cb31cbe723924a19e570edfff454da2a501889",
+      "source_label_sha256": "bc58271e3fe6a0f3934722ac7a6e3160dd25fa113723cfa7922f4a7ed58e032d",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        761.0,
+        683.0,
+        777.0,
+        700.0
+      ],
+      "crop_origin": [
+        729,
+        651
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 2,
+      "label": "labels/val/SNGS-057_000246.txt",
+      "label_sha256": "aeba9f7155af6b78e45475b9c4b5e0ff7ff26c9cdfa10e72d86990deabfbb03b",
+      "decision": {
+        "candidate_id": 74,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 75,
+      "frame_id": "SNGS-057_000496",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-057",
+      "image": "images/val/SNGS-057_000496.jpg",
+      "image_sha256": "fbe53fe3ca294f4b83e64d3d7598f1128d75e97e1b1a01c22ea93889660f52b6",
+      "source_label_sha256": "cfeb4a5dd37bc9d556ebe33e2a6c160fe74383777a8a7f0e30aea94b18a9ee95",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1057.0,
+        473.0,
+        1066.0,
+        482.0
+      ],
+      "crop_origin": [
+        1021,
+        437
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 3,
+      "label": "labels/val/SNGS-057_000496.txt",
+      "label_sha256": "4cee6bbbde22566bd8c1b545c363fe1887cbd3de4d53b2ab5a8ba2addce4b8dd",
+      "decision": {
+        "candidate_id": 75,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 76,
+      "frame_id": "SNGS-058_000246",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-058",
+      "image": "images/val/SNGS-058_000246.jpg",
+      "image_sha256": "9f0f624341d506c77657632a28668ee30de04cf8a259a7cb0ada874c016c1464",
+      "source_label_sha256": "06e716d09cdad664f66b925fd3dafd00860b236cfa0b7dd465748f77cc53a54a",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        788.0,
+        217.0,
+        800.0,
+        229.0
+      ],
+      "crop_origin": [
+        754,
+        183
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 4,
+      "label": "labels/val/SNGS-058_000246.txt",
+      "label_sha256": "abd9d0b2e170d8d47d5a84431fa42a326304c7c29f97571df83c9733667ceb4c",
+      "decision": {
+        "candidate_id": 76,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 78,
+      "frame_id": "SNGS-059_000246",
+      "split": "val",
+      "game_id": "3",
+      "clip": "SNGS-059",
+      "image": "images/val/SNGS-059_000246.jpg",
+      "image_sha256": "9a9c46957f843ab20b1f4c9057646dec6ed51cbf96447405ffda5b535723e80f",
+      "source_label_sha256": "7d311800234b395a500737d1b337361a208f6aecebb58c269620029ffc07be85",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1036.0,
+        857.0,
+        1053.0,
+        873.0
+      ],
+      "crop_origin": [
+        1004,
+        825
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 6,
+      "label": "labels/val/SNGS-059_000246.txt",
+      "label_sha256": "c3c82ce2f885197a89dd7c4fbc5dbe96d40d6706c9f42f68a07b6f92a4c0905e",
+      "decision": {
+        "candidate_id": 78,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 81,
+      "frame_id": "SNGS-060_000486",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-060",
+      "image": "images/train/SNGS-060_000486.jpg",
+      "image_sha256": "b4d025949bd4fa8423fe8d4d247b90133dcace59c8269ec984fc0584d45849c7",
+      "source_label_sha256": "b0dee07055ddf79b2b39765f661a54675d4087e2a589bca97d242b198d2e28b5",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1648.0,
+        807.0,
+        1666.0,
+        824.0
+      ],
+      "crop_origin": [
+        1617,
+        775
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 9,
+      "label": "labels/train/SNGS-060_000486.txt",
+      "label_sha256": "cbb4623f1b7bbdd310c66d992ce265562d2474b12e8515138765bf6272516252",
+      "decision": {
+        "candidate_id": 81,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 82,
+      "frame_id": "SNGS-061_000241",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-061",
+      "image": "images/train/SNGS-061_000241.jpg",
+      "image_sha256": "0bfe535912c663c7c6bab3eefe0d935dd6bbda1bff6f721abda43fd056f0fd7c",
+      "source_label_sha256": "cb4af9a428eabf4916e26113f288ef0c18eb478a249a02385db0a967d0f752a1",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        453.0,
+        338.0,
+        464.0,
+        348.0
+      ],
+      "crop_origin": [
+        418,
+        303
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 10,
+      "label": "labels/train/SNGS-061_000241.txt",
+      "label_sha256": "181bd5ac014cfb4b4e469747aa91ec3479807003a4e04f99571846557108c6c5",
+      "decision": {
+        "candidate_id": 82,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 85,
+      "frame_id": "SNGS-062_000496",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-062",
+      "image": "images/train/SNGS-062_000496.jpg",
+      "image_sha256": "10b06c33ff49d64e7126d99a4d4db6e02b82addd09c67712dbb70d6a53348aa2",
+      "source_label_sha256": "bac34025ad41da54a040321c0e2ab00dd0fd75c525545296e5c1effdea2925f7",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1257.0,
+        401.0,
+        1268.0,
+        410.0
+      ],
+      "crop_origin": [
+        1222,
+        365
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 13,
+      "label": "labels/train/SNGS-062_000496.txt",
+      "label_sha256": "d94ffd92f54ebde43570025e592766b1367174bdc820ca1b9465caabc36cda95",
+      "decision": {
+        "candidate_id": 85,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 88,
+      "frame_id": "SNGS-064_000196",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-064",
+      "image": "images/train/SNGS-064_000196.jpg",
+      "image_sha256": "1edb45df5b00bc1a5a189b30db74c57a363b52e9daf378d962ce95f90fce64b2",
+      "source_label_sha256": "818405c799e9ccf110a0996645998ccd2d0afff69a676051948d9c2a9d68ea00",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1650.0,
+        447.0,
+        1660.0,
+        455.0
+      ],
+      "crop_origin": [
+        1615,
+        411
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 16,
+      "label": "labels/train/SNGS-064_000196.txt",
+      "label_sha256": "7fd6fd267a161f8202d2cf3a3234531048f838002d3d0c2b0c404ff85bb1919d",
+      "decision": {
+        "candidate_id": 88,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 93,
+      "frame_id": "SNGS-066_000506",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-066",
+      "image": "images/train/SNGS-066_000506.jpg",
+      "image_sha256": "23cf81933b4c81ae13c79b4be3e3514414d6878bd048c6acdd40182c9ac29483",
+      "source_label_sha256": "b6dc59cc60be5fbffbb713cda07a670ac99157b457a554c6bbb907de0812195e",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        949.0,
+        269.0,
+        958.0,
+        276.0
+      ],
+      "crop_origin": [
+        913,
+        232
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 21,
+      "label": "labels/train/SNGS-066_000506.txt",
+      "label_sha256": "812c92c111e8e4a33e037d5e75d8580f821a31794b73a4b87dd7f57206b72826",
+      "decision": {
+        "candidate_id": 93,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 94,
+      "frame_id": "SNGS-067_000271",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-067",
+      "image": "images/train/SNGS-067_000271.jpg",
+      "image_sha256": "787da4e68417a4ac371f2a96d55d1cc5429e626f0c4779971a3bf8ea0a6831d3",
+      "source_label_sha256": "cc199848e7c795693670585f938a935bd9783548c0f52aca5a43cf6884fb15b8",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1300.0,
+        176.0,
+        1319.0,
+        209.0
+      ],
+      "crop_origin": [
+        1269,
+        152
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 22,
+      "label": "labels/train/SNGS-067_000271.txt",
+      "label_sha256": "2124e81a0fdb415e1d45269d112b6047f5c79a29a4175b841648f07383de0a55",
+      "decision": {
+        "candidate_id": 94,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 95,
+      "frame_id": "SNGS-067_000506",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-067",
+      "image": "images/train/SNGS-067_000506.jpg",
+      "image_sha256": "f0a4fa11e5c8855becf8c11465ea5cd0612f7299436fae049bd27633318268e7",
+      "source_label_sha256": "8d11194cf371bd22435afde5946488acc905603b588e421f2f62229282544df3",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        115.0,
+        527.0,
+        125.0,
+        535.0
+      ],
+      "crop_origin": [
+        80,
+        491
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 4,
+      "tile": 23,
+      "label": "labels/train/SNGS-067_000506.txt",
+      "label_sha256": "24e30029b3e29a988f0f9328c59b064d07a4bbfe2082180a6c0f46d6b43b5160",
+      "decision": {
+        "candidate_id": 95,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 98,
+      "frame_id": "SNGS-069_000241",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-069",
+      "image": "images/train/SNGS-069_000241.jpg",
+      "image_sha256": "e363ef4269c6cbef344d56c567a9834d9a6acb45399e37695c65343769709e22",
+      "source_label_sha256": "b8bf3c5175ddcb0cf5703b9e0afe2600886562a1d8c77668a809a3a7b258b0be",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        948.0,
+        594.0,
+        964.0,
+        610.0
+      ],
+      "crop_origin": [
+        916,
+        562
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 2,
+      "label": "labels/train/SNGS-069_000241.txt",
+      "label_sha256": "7ea350409a35245c2e94a25d686dd8fa6d66a7f409edfa49cd217d066a1757c7",
+      "decision": {
+        "candidate_id": 98,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 99,
+      "frame_id": "SNGS-069_000486",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-069",
+      "image": "images/train/SNGS-069_000486.jpg",
+      "image_sha256": "d162ef25fc22b3430244f5ce2b8c5699580c9763b527d972ff4168a6c5ce1d18",
+      "source_label_sha256": "689024f2b93de8020c969181d3da438e555e9046b186ec40d66b90fa20054510",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        527.0,
+        382.0,
+        541.0,
+        395.0
+      ],
+      "crop_origin": [
+        494,
+        348
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 3,
+      "label": "labels/train/SNGS-069_000486.txt",
+      "label_sha256": "6cbef7438f1ca3e59e5a8909e53d2be7dc138728c417b038ca8c3b108e9e74eb",
+      "decision": {
+        "candidate_id": 99,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 101,
+      "frame_id": "SNGS-070_000501",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-070",
+      "image": "images/train/SNGS-070_000501.jpg",
+      "image_sha256": "58281a0a0819f6fdd51c714286904960dae248e1b6f24354b128aa48c337fa9d",
+      "source_label_sha256": "2905febeef86e63d80461d9e5bbf1cf0549fe57c0189c752679e3d3e1cba52cd",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1219.0,
+        731.0,
+        1239.0,
+        748.0
+      ],
+      "crop_origin": [
+        1189,
+        699
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 5,
+      "label": "labels/train/SNGS-070_000501.txt",
+      "label_sha256": "91dff6bda0d613df55d10f17c6478fff176a1853ac639f2927201e0e72dc86b2",
+      "decision": {
+        "candidate_id": 101,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 102,
+      "frame_id": "SNGS-071_000226",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-071",
+      "image": "images/train/SNGS-071_000226.jpg",
+      "image_sha256": "2cf2a2adc3dbb03d254099820b42b79f5948b0be8e75c12ce7cf8eb950a9409d",
+      "source_label_sha256": "d02a8a14be76b28ef331042148b88ea68946fd049260e5c356417d8e85e116b4",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1044.0,
+        196.0,
+        1063.0,
+        217.0
+      ],
+      "crop_origin": [
+        1013,
+        166
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 6,
+      "label": "labels/train/SNGS-071_000226.txt",
+      "label_sha256": "0b295c5845029faf99469dca28059923fe0cc92f98dfe9a56dec5fc3762eefe0",
+      "decision": {
+        "candidate_id": 102,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 104,
+      "frame_id": "SNGS-072_000211",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-072",
+      "image": "images/train/SNGS-072_000211.jpg",
+      "image_sha256": "9724af6f5cf18a3d9ca4fb021a0c42dde1cf57375311e4d90768a3666b0628ae",
+      "source_label_sha256": "b7b786cb120f2e28358e661259393a0b54822a7eda03802d581cda41157cf05e",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        743.0,
+        372.0,
+        753.0,
+        383.0
+      ],
+      "crop_origin": [
+        708,
+        337
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 8,
+      "label": "labels/train/SNGS-072_000211.txt",
+      "label_sha256": "f335bca7fd0f940604b622d74381a543ad9e23efd033d9c40ae740a6e8e85c3d",
+      "decision": {
+        "candidate_id": 104,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 105,
+      "frame_id": "SNGS-072_000426",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-072",
+      "image": "images/train/SNGS-072_000426.jpg",
+      "image_sha256": "2d63ea12ffb92849feb1f4658b55b68905d530f46a1fa93c6df2d354d99a5f7f",
+      "source_label_sha256": "9497c3a75030ec179faebace24e72971fb086d7a204c56fa879463a16931e040",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        270.0,
+        413.0,
+        282.0,
+        426.0
+      ],
+      "crop_origin": [
+        236,
+        379
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 9,
+      "label": "labels/train/SNGS-072_000426.txt",
+      "label_sha256": "4181f292060983843ecdc933ff8364a5f695c5e3caee9341d07fdcad0ed42f0a",
+      "decision": {
+        "candidate_id": 105,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 106,
+      "frame_id": "SNGS-073_000241",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-073",
+      "image": "images/train/SNGS-073_000241.jpg",
+      "image_sha256": "c1d2fe863c5b895a90ed2d8565ccd290c81f9b3f76c178d68ccffb38609afc9a",
+      "source_label_sha256": "2d77fd1fb55acaa12adb0238532783b6da221d1dccd3d93a855511343b96ad37",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1301.0,
+        786.0,
+        1312.0,
+        801.0
+      ],
+      "crop_origin": [
+        1266,
+        753
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 10,
+      "label": "labels/train/SNGS-073_000241.txt",
+      "label_sha256": "201f9eb3a55c55f1b2af701d7497f3c5a7d007062835f4e982ae2333bb63cd54",
+      "decision": {
+        "candidate_id": 106,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 107,
+      "frame_id": "SNGS-073_000491",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-073",
+      "image": "images/train/SNGS-073_000491.jpg",
+      "image_sha256": "5702b5685b943468db94b19c6ef47884cf5c7b5b8f81c2eb978e64e0e8116627",
+      "source_label_sha256": "32af2c0c01716bdb7baa120d77d453fa23fc8034dbe1324a646e04a11c870287",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1418.0,
+        629.0,
+        1436.0,
+        643.0
+      ],
+      "crop_origin": [
+        1387,
+        596
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 11,
+      "label": "labels/train/SNGS-073_000491.txt",
+      "label_sha256": "5797f1419b94285594ed3c889a4decbf7938917d91372259cdb2314ebd7f50bb",
+      "decision": {
+        "candidate_id": 107,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 109,
+      "frame_id": "SNGS-074_000501",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-074",
+      "image": "images/train/SNGS-074_000501.jpg",
+      "image_sha256": "da38f4f550f3d4f6a952e84e7d820327e1540a04f7d2e750969ddc59fc1890dd",
+      "source_label_sha256": "a1fb66ae2d56e225c5d2f8c1dc4f639f8cd967f6e81071a1ac6ae3213e4bae7c",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        471.0,
+        389.0,
+        482.0,
+        399.0
+      ],
+      "crop_origin": [
+        436,
+        354
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 13,
+      "label": "labels/train/SNGS-074_000501.txt",
+      "label_sha256": "8123ad19b54e049d13eefba104a82ef2722ad15c9dea6d6a6c2984750b7bbee7",
+      "decision": {
+        "candidate_id": 109,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 113,
+      "frame_id": "SNGS-076_000551",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-076",
+      "image": "images/train/SNGS-076_000551.jpg",
+      "image_sha256": "01265e54d751e1eee0cc0b8965069a779e08793f6d220ce346d8d1d50c2d6863",
+      "source_label_sha256": "b35072bc0f57a85bce0b496779cd077e9c8a6e0f32e203c5cc6ca50dccd71555",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1699.0,
+        471.0,
+        1706.0,
+        476.0
+      ],
+      "crop_origin": [
+        1662,
+        433
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 17,
+      "label": "labels/train/SNGS-076_000551.txt",
+      "label_sha256": "0df64b35f24258ca8d442d73dad19c65416e5d010b5853a6bda2d60fe3367fe9",
+      "decision": {
+        "candidate_id": 113,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 114,
+      "frame_id": "SNGS-077_000256",
+      "split": "train",
+      "game_id": "4",
+      "clip": "SNGS-077",
+      "image": "images/train/SNGS-077_000256.jpg",
+      "image_sha256": "7a79ee963b6fe7c03b35e264119cbac68cddcc2ba7c0334d4e14fee892964b11",
+      "source_label_sha256": "d5ff1cd9d926a5dde242b4bbae00368f040b566085c75786004c905e333a0df3",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        981.0,
+        904.0,
+        998.0,
+        922.0
+      ],
+      "crop_origin": [
+        949,
+        873
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 18,
+      "label": "labels/train/SNGS-077_000256.txt",
+      "label_sha256": "bd05a9a2c9ac88536b93a9468386d4474bafe5d26535648330519d51165f57a5",
+      "decision": {
+        "candidate_id": 114,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 116,
+      "frame_id": "SNGS-078_000281",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-078",
+      "image": "images/val/SNGS-078_000281.jpg",
+      "image_sha256": "892e4a8113cf50e19e03a20a2d3d74a455208fd8fc28f7b9d12a3fc62ffb26bd",
+      "source_label_sha256": "1b6bacdf3bf34a93db7004a7973e78e8b3d1ceae8afe018b517c6f15c69bbba0",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        707.0,
+        378.0,
+        715.0,
+        385.0
+      ],
+      "crop_origin": [
+        671,
+        341
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 20,
+      "label": "labels/val/SNGS-078_000281.txt",
+      "label_sha256": "c240d76f9d54f5bd82da7f394e0061eab1d404a865aec021a7a8638bbc4f4eec",
+      "decision": {
+        "candidate_id": 116,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 117,
+      "frame_id": "SNGS-078_000526",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-078",
+      "image": "images/val/SNGS-078_000526.jpg",
+      "image_sha256": "87a08af2ffc5ecb27c2e4cc1b89a30cf563f75269ee703cc85082ce4b36eeb32",
+      "source_label_sha256": "3af5b057284e9cf43deb055bd20be935dd62f724214a7baed01d231925cc67dc",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1183.0,
+        647.0,
+        1203.0,
+        664.0
+      ],
+      "crop_origin": [
+        1153,
+        615
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 21,
+      "label": "labels/val/SNGS-078_000526.txt",
+      "label_sha256": "7d1b8ed8dfaf760bfea8d867bf9f3885eebdbb5c6e870b7721b866d27393d8d7",
+      "decision": {
+        "candidate_id": 117,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 118,
+      "frame_id": "SNGS-079_000241",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-079",
+      "image": "images/val/SNGS-079_000241.jpg",
+      "image_sha256": "56b9299fc71b51c9cc545c6868d879396e967707968551f20cbd4af5d6920dba",
+      "source_label_sha256": "8b23ad8c82f59f840b9fc1c7f5a8d49dcb681ab76dc1f1f745297c3d0387a858",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        461.0,
+        518.0,
+        474.0,
+        531.0
+      ],
+      "crop_origin": [
+        427,
+        484
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 5,
+      "tile": 22,
+      "label": "labels/val/SNGS-079_000241.txt",
+      "label_sha256": "cb00550a1e078cb794e4b2b352adf337218251e21ff4c6851a74f52d71701975",
+      "decision": {
+        "candidate_id": 118,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 120,
+      "frame_id": "SNGS-080_000176",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-080",
+      "image": "images/val/SNGS-080_000176.jpg",
+      "image_sha256": "a911aa79c8ef45d294f13aa12ad08429b7a6fdbe9f6549ea021214cb92aafdef",
+      "source_label_sha256": "cb125bd761f670268466323fca2b90a5a7ff95a679fb5623726e163f1edb8a83",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        594.0,
+        586.0,
+        610.0,
+        600.0
+      ],
+      "crop_origin": [
+        562,
+        553
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 0,
+      "label": "labels/val/SNGS-080_000176.txt",
+      "label_sha256": "a8bdecc3f10c77f8816a92fd4eaa7d2768e05e2d5d9ed157b32e5965353cefdc",
+      "decision": {
+        "candidate_id": 120,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 122,
+      "frame_id": "SNGS-081_000216",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-081",
+      "image": "images/val/SNGS-081_000216.jpg",
+      "image_sha256": "3d4df8a308c941c69836a6d7d071147a075620d33f098ee408e317f3a1a3e01f",
+      "source_label_sha256": "2b696e61118a7e4afb0229441b897cbbcd71fae301ce916ad9dc853ad20b1202",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1154.0,
+        406.0,
+        1164.0,
+        415.0
+      ],
+      "crop_origin": [
+        1119,
+        370
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 2,
+      "label": "labels/val/SNGS-081_000216.txt",
+      "label_sha256": "38199a88207b6521a35ee449a94b3fcb52686e41c725851237e3ff74b5ff06b0",
+      "decision": {
+        "candidate_id": 122,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 124,
+      "frame_id": "SNGS-082_000241",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-082",
+      "image": "images/val/SNGS-082_000241.jpg",
+      "image_sha256": "f13dc18d831c736283b2a5f9b5e21f7fcd693664272c489873380a51c2d3ce8e",
+      "source_label_sha256": "5010c89de6e77a5710fa72cfa39790c2e0b3c2d133110cde06cb6354b999cada",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        793.0,
+        547.0,
+        807.0,
+        561.0
+      ],
+      "crop_origin": [
+        760,
+        514
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 4,
+      "label": "labels/val/SNGS-082_000241.txt",
+      "label_sha256": "c26a7a548e3dbcd3409d54ae3551ecec4bffaca06ad8d266e2250ac7543667af",
+      "decision": {
+        "candidate_id": 124,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 125,
+      "frame_id": "SNGS-082_000501",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-082",
+      "image": "images/val/SNGS-082_000501.jpg",
+      "image_sha256": "16d935fe903cd1050b63b90091a867bdf25a21eff0b9555a5241afc6fc2bd464",
+      "source_label_sha256": "b108e5bcaceec929c0373e6ff249a9bc9398e5e87deb48c4d656d6519d4f4b28",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1511.0,
+        421.0,
+        1523.0,
+        432.0
+      ],
+      "crop_origin": [
+        1477,
+        386
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 5,
+      "label": "labels/val/SNGS-082_000501.txt",
+      "label_sha256": "a19ccb9a1fa416028bd366154774fc560cced025eea17b651fadbf96c223d1f0",
+      "decision": {
+        "candidate_id": 125,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 127,
+      "frame_id": "SNGS-083_000501",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-083",
+      "image": "images/val/SNGS-083_000501.jpg",
+      "image_sha256": "0bb718c6fa2198fb4be7a3e2344ba7393e9e4d9a12b719512e2d7ed8023a4783",
+      "source_label_sha256": "156761b37900fd2beb66d69a525d7d9aedb97a31923aa7d44acee8ebef7d8552",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        837.0,
+        272.0,
+        850.0,
+        287.0
+      ],
+      "crop_origin": [
+        803,
+        239
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 7,
+      "label": "labels/val/SNGS-083_000501.txt",
+      "label_sha256": "6c94832123fbde0933d2a0340c95824abe5b25766708a0a16bb3b8314fc5f954",
+      "decision": {
+        "candidate_id": 127,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 128,
+      "frame_id": "SNGS-084_000216",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-084",
+      "image": "images/val/SNGS-084_000216.jpg",
+      "image_sha256": "ca5d0aad5ec251694aaf8e223fd2e78706d104f8ad0b59b1aa45b9270a4bdf91",
+      "source_label_sha256": "2564bb5d41b8fb4abe5f9a8e8c27ad471ed3b2679ca011e820ffc52a1627c746",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        469.0,
+        447.0,
+        486.0,
+        459.0
+      ],
+      "crop_origin": [
+        437,
+        413
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 8,
+      "label": "labels/val/SNGS-084_000216.txt",
+      "label_sha256": "5b551d4846e2234d65132286f2e3305be5556cdc3606879c6fb570bf07c3c61e",
+      "decision": {
+        "candidate_id": 128,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 130,
+      "frame_id": "SNGS-085_000241",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-085",
+      "image": "images/val/SNGS-085_000241.jpg",
+      "image_sha256": "1369a664a234720c8f8ac8972fa89573db90444494831e49516059fdacba7be0",
+      "source_label_sha256": "97fe5223989d8108fae0386d9c17d5d9017e5372d1d724cc0404290830faea0d",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1108.0,
+        686.0,
+        1131.0,
+        702.0
+      ],
+      "crop_origin": [
+        1079,
+        654
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 10,
+      "label": "labels/val/SNGS-085_000241.txt",
+      "label_sha256": "70c059aa07ab906a2654466ed9113d0ac97a3074dc7dff149d3925030ebb789e",
+      "decision": {
+        "candidate_id": 130,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 131,
+      "frame_id": "SNGS-085_000501",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-085",
+      "image": "images/val/SNGS-085_000501.jpg",
+      "image_sha256": "4b39d75682ef13e27d1c17cc57c47d3891d033933f232104ade336e046526aab",
+      "source_label_sha256": "bdcfb3c26bc4c5c38dc50e157d539551452413428baf5275db7bf8988ac5e723",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        744.0,
+        419.0,
+        759.0,
+        432.0
+      ],
+      "crop_origin": [
+        711,
+        385
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 11,
+      "label": "labels/val/SNGS-085_000501.txt",
+      "label_sha256": "48e4cd00c5e9b19d1b7a85d5cb4e8d0d4c10313b52297c74516d3f9f5a4ec93a",
+      "decision": {
+        "candidate_id": 131,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 133,
+      "frame_id": "SNGS-086_000501",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-086",
+      "image": "images/val/SNGS-086_000501.jpg",
+      "image_sha256": "cbca295caef11971f9933f010264d28f5afaa4815f89049d572ba372e14c6f48",
+      "source_label_sha256": "bd575398fbb423756954f422471de67a54459675a2f6b0197ce273eee05dd684",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1607.0,
+        485.0,
+        1619.0,
+        496.0
+      ],
+      "crop_origin": [
+        1573,
+        450
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 13,
+      "label": "labels/val/SNGS-086_000501.txt",
+      "label_sha256": "284c86a1c0d6ee65a4dfb2c671acfdc8b96fb8c614752423e2d94f08bdd15d80",
+      "decision": {
+        "candidate_id": 133,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 136,
+      "frame_id": "SNGS-088_000246",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-088",
+      "image": "images/val/SNGS-088_000246.jpg",
+      "image_sha256": "ac249b6e755091206dceec55efeb21dd77da1b5dd47d2bfd44a42acebd9b9d94",
+      "source_label_sha256": "5adced40161c789619c57e63c77e2b9e704b8bc301104933d9de03d1dab8e601",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        535.0,
+        592.0,
+        546.0,
+        603.0
+      ],
+      "crop_origin": [
+        500,
+        557
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 16,
+      "label": "labels/val/SNGS-088_000246.txt",
+      "label_sha256": "f187f1f0fec2ed1591aacae4ff6b0842b21590baa2719c01905d07bdb9ffb5b6",
+      "decision": {
+        "candidate_id": 136,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 138,
+      "frame_id": "SNGS-089_000271",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-089",
+      "image": "images/val/SNGS-089_000271.jpg",
+      "image_sha256": "1de01f4fb956bd40d662f9cb2c1c90b095953df58df68ea3aa7f6d5b69f4ac71",
+      "source_label_sha256": "b71add935e8832da93b73abc9e81fe2bd96edfee903d8b07d3ea11bba0754bd9",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1640.0,
+        398.0,
+        1648.0,
+        407.0
+      ],
+      "crop_origin": [
+        1604,
+        362
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 18,
+      "label": "labels/val/SNGS-089_000271.txt",
+      "label_sha256": "74bf24f6fb59dac32e153d767bf7314bddac40269bd5eff99fbe208f50f5106c",
+      "decision": {
+        "candidate_id": 138,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 139,
+      "frame_id": "SNGS-089_000516",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-089",
+      "image": "images/val/SNGS-089_000516.jpg",
+      "image_sha256": "5cf13b330d4738ec379f7f50531ef5cc6864c4d3d1f7b076b55735b9be1be1f2",
+      "source_label_sha256": "aab90f12b7b22c276348b1e9b2196722a1a964c6c90a3bc5861ac0ee2bc4c82d",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1139.0,
+        662.0,
+        1153.0,
+        677.0
+      ],
+      "crop_origin": [
+        1106,
+        629
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 19,
+      "label": "labels/val/SNGS-089_000516.txt",
+      "label_sha256": "9a963ff8948f9d20b94dcf7dcde281153d903845c1149a1ff3dfccc89b4ccc11",
+      "decision": {
+        "candidate_id": 139,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 140,
+      "frame_id": "SNGS-090_000181",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-090",
+      "image": "images/val/SNGS-090_000181.jpg",
+      "image_sha256": "e445be12c71c0794335b5a6f172e3637eeeeaa6e58a1899f477f2a012412fd54",
+      "source_label_sha256": "a0c5f95bea138028ee5a170f3dc6756c91bc3cb1cac89da7a499d43f18697bf9",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1719.0,
+        615.0,
+        1733.0,
+        627.0
+      ],
+      "crop_origin": [
+        1686,
+        581
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 20,
+      "label": "labels/val/SNGS-090_000181.txt",
+      "label_sha256": "c3cb2947cf48677b8f95a93b0dbd5421f116df765c2488f0695ce2f8a3dfaeb4",
+      "decision": {
+        "candidate_id": 140,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 142,
+      "frame_id": "SNGS-091_000246",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-091",
+      "image": "images/val/SNGS-091_000246.jpg",
+      "image_sha256": "9f869ab80f45ae71b88a7d204b0bcb5062d6caa421c324466bcaeff0b013ba6e",
+      "source_label_sha256": "e662f2c7d4c5a2e848ccc7035f4d4e5fefc5bfa8c6a20a10345c0564180d81cd",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1412.0,
+        461.0,
+        1428.0,
+        480.0
+      ],
+      "crop_origin": [
+        1380,
+        430
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 22,
+      "label": "labels/val/SNGS-091_000246.txt",
+      "label_sha256": "933a1fa33e885f46333ae4d1a41683b9f19011c9b310ea0e5b63acfba4edbc65",
+      "decision": {
+        "candidate_id": 142,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 143,
+      "frame_id": "SNGS-091_000496",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-091",
+      "image": "images/val/SNGS-091_000496.jpg",
+      "image_sha256": "a1b456c9cda4d1e19a3ab60aedf0e4e05147129967b7a43edc225022c76e6398",
+      "source_label_sha256": "bda0eaf0dff822c73826d2b8febd46441ac960b7536ab04ca55ccffe1d3adcd8",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        857.0,
+        961.0,
+        874.0,
+        981.0
+      ],
+      "crop_origin": [
+        825,
+        931
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 6,
+      "tile": 23,
+      "label": "labels/val/SNGS-091_000496.txt",
+      "label_sha256": "6e54bfe3ceecfac8f525b90440a42cdaf46ace384de57e55775394373ec70263",
+      "decision": {
+        "candidate_id": 143,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 145,
+      "frame_id": "SNGS-092_000496",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-092",
+      "image": "images/val/SNGS-092_000496.jpg",
+      "image_sha256": "5d33ca8d4eef8a613f3f50e804e9ff6b791420d63166ebfca30a64b371bffeec",
+      "source_label_sha256": "bb992b47a99ba85697fa3ccfc5367aa2662c701d039ec80c41e541c46b772599",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        953.0,
+        512.0,
+        973.0,
+        527.0
+      ],
+      "crop_origin": [
+        923,
+        479
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 1,
+      "label": "labels/val/SNGS-092_000496.txt",
+      "label_sha256": "bac80c5238cc58c1dc4e1800b5bac4d7149e82e3a297804631bbec5ca559f15a",
+      "decision": {
+        "candidate_id": 145,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 146,
+      "frame_id": "SNGS-093_000246",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-093",
+      "image": "images/val/SNGS-093_000246.jpg",
+      "image_sha256": "98e0ddc35848952c18f80d3041250e9eb95fe076b3ff7f05971fcde19831b767",
+      "source_label_sha256": "33d08bc1a0fd15442ba4d7c023b390cec101ab751d704e659911a8c4dcefe57f",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1458.0,
+        364.0,
+        1479.0,
+        384.0
+      ],
+      "crop_origin": [
+        1428,
+        334
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 2,
+      "label": "labels/val/SNGS-093_000246.txt",
+      "label_sha256": "287a2795281137cc8e74d995e244ab1569422249a57be11c50438f85d8df4598",
+      "decision": {
+        "candidate_id": 146,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 147,
+      "frame_id": "SNGS-093_000496",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-093",
+      "image": "images/val/SNGS-093_000496.jpg",
+      "image_sha256": "76258894ae68592bfb339dc20756d0864171e2b86608921286db8da241022dae",
+      "source_label_sha256": "e9ec90c4fba8507adb9560a01417e3f843c1f7e82d2382fc889714cbc2d0fcd3",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1600.0,
+        578.0,
+        1612.0,
+        589.0
+      ],
+      "crop_origin": [
+        1566,
+        543
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 3,
+      "label": "labels/val/SNGS-093_000496.txt",
+      "label_sha256": "24c06a8975ff5bc8f1abbab31eada1d14cbac36260a209ae31152cf32ac9bf23",
+      "decision": {
+        "candidate_id": 147,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 148,
+      "frame_id": "SNGS-094_000271",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-094",
+      "image": "images/val/SNGS-094_000271.jpg",
+      "image_sha256": "68d9209a06031051648bea3db59d83c6392cb7ec6d8ce12223366372c3d0832c",
+      "source_label_sha256": "29014850c42f33452e78d54e00298f410b44d7a7ef3c6562b554f07e5ed2a3b6",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1133.0,
+        526.0,
+        1147.0,
+        539.0
+      ],
+      "crop_origin": [
+        1100,
+        492
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 4,
+      "label": "labels/val/SNGS-094_000271.txt",
+      "label_sha256": "c150a0d222f31e7f57069c0df1be8a1c473016b2a3b04a57420cd92c0aad2bc6",
+      "decision": {
+        "candidate_id": 148,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 149,
+      "frame_id": "SNGS-094_000516",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-094",
+      "image": "images/val/SNGS-094_000516.jpg",
+      "image_sha256": "06ffb792a462053ade8992e4d4f8decbb459df9b1e93189aae0a334fe18d55b4",
+      "source_label_sha256": "a9531c44430ad0102f4ce157015ca9d1bcbcd7343a9f8539bccd3f0969e7ce44",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1445.0,
+        415.0,
+        1454.0,
+        424.0
+      ],
+      "crop_origin": [
+        1409,
+        379
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 5,
+      "label": "labels/val/SNGS-094_000516.txt",
+      "label_sha256": "81a85075cdedab1eafbccea7841114ac64a6066a0c98d45ff4eef2c52d7ceb09",
+      "decision": {
+        "candidate_id": 149,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 151,
+      "frame_id": "SNGS-095_000516",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-095",
+      "image": "images/val/SNGS-095_000516.jpg",
+      "image_sha256": "52fa2a834aa9554605642e3a0ced85357f99e9de8d42e874f285984a3d23a8f9",
+      "source_label_sha256": "0b267cd7807baec78e9078c581bb3507df5bc82191fdf3e2e3d879c1af43b5d0",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1790.0,
+        557.0,
+        1803.0,
+        568.0
+      ],
+      "crop_origin": [
+        1756,
+        522
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 7,
+      "label": "labels/val/SNGS-095_000516.txt",
+      "label_sha256": "3cbdf15978bf6d3d3e3acbaa3299d6b8b9ae706df5ceb4e07cc91cc7349c92ad",
+      "decision": {
+        "candidate_id": 151,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 152,
+      "frame_id": "SNGS-096_000381",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-096",
+      "image": "images/val/SNGS-096_000381.jpg",
+      "image_sha256": "2581b080b2fda41fdee3be4b154f3642523b5e3d17a0555822c9561bece57ba4",
+      "source_label_sha256": "124b876decf3db4bdd715e4835b5d17619505111e1483dc558608e13f66fe37e",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        145.0,
+        571.0,
+        156.0,
+        581.0
+      ],
+      "crop_origin": [
+        110,
+        536
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 8,
+      "label": "labels/val/SNGS-096_000381.txt",
+      "label_sha256": "b4c01cad6b2515bb62086f883f73863389666a294d48d4215cc86d4fdb133b14",
+      "decision": {
+        "candidate_id": 152,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 153,
+      "frame_id": "SNGS-096_000561",
+      "split": "val",
+      "game_id": "5",
+      "clip": "SNGS-096",
+      "image": "images/val/SNGS-096_000561.jpg",
+      "image_sha256": "b8fb49976a33381f1986efcd76121fe6b03703b5ae94fa896d9fbf19021543fc",
+      "source_label_sha256": "1f24e69c851942c5a3fa5a1be4e81022ace2bdd8d4e9f313dddfb71921303b61",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        193.0,
+        587.0,
+        203.0,
+        596.0
+      ],
+      "crop_origin": [
+        158,
+        551
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 9,
+      "label": "labels/val/SNGS-096_000561.txt",
+      "label_sha256": "9b1e7230fbeaa7a9a59a091749fc7c7bd579b3d323c871e21992aaf792deab7e",
+      "decision": {
+        "candidate_id": 153,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 154,
+      "frame_id": "SNGS-097_000256",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-097",
+      "image": "images/train/SNGS-097_000256.jpg",
+      "image_sha256": "c8861583737481582a7a2fa99ee673869953691d0845bd5560883d957252c4d5",
+      "source_label_sha256": "fc4949df5a4f78db04b90c9c09824d29b269662fa063f465753016caa2a3a052",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1268.0,
+        682.0,
+        1304.0,
+        718.0
+      ],
+      "crop_origin": [
+        1246,
+        660
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 10,
+      "label": "labels/train/SNGS-097_000256.txt",
+      "label_sha256": "b7d59556a23b9b4eb4f1d50f7a8d92c660bafc466b467ef746ac6641b6ffc64c",
+      "decision": {
+        "candidate_id": 154,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 156,
+      "frame_id": "SNGS-098_000246",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-098",
+      "image": "images/train/SNGS-098_000246.jpg",
+      "image_sha256": "868ab585562d0df41413231194a1ee38e2188ca87bb18b311c87654b74f8c4d9",
+      "source_label_sha256": "550d7ef7a83da4e1e5d98d81c93de65e45a8a72413f2a6d9cd922d9d03fa224b",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        622.0,
+        522.0,
+        631.0,
+        531.0
+      ],
+      "crop_origin": [
+        586,
+        486
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 12,
+      "label": "labels/train/SNGS-098_000246.txt",
+      "label_sha256": "3c0b044ca8b2db410eea9570db408260aa4a44ed29a427064bac4ad3525f5c85",
+      "decision": {
+        "candidate_id": 156,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 159,
+      "frame_id": "SNGS-099_000381",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-099",
+      "image": "images/train/SNGS-099_000381.jpg",
+      "image_sha256": "be76d2c12f5325fef0f1e33dd13852554dff4746c8bb9d991b80197ddd8fd086",
+      "source_label_sha256": "895287f12775ff7702c9d2b189ce3e394aed907871f00743921f042c7a876821",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        602.0,
+        628.0,
+        624.0,
+        645.0
+      ],
+      "crop_origin": [
+        573,
+        596
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 15,
+      "label": "labels/train/SNGS-099_000381.txt",
+      "label_sha256": "bb3f335cbf0862f7665fca9a3326af8f74ce1d5177a2f86ae04600e5c1161eac",
+      "decision": {
+        "candidate_id": 159,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 161,
+      "frame_id": "SNGS-100_000501",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-100",
+      "image": "images/train/SNGS-100_000501.jpg",
+      "image_sha256": "9bf5243d8f78218be2da017075709b52a98900be4c7e2361e2025b0d0b0a73bb",
+      "source_label_sha256": "2f8bb978dc1f81901d0e3b04c93d054c032a44d4b13c7981bd2653ca7a266983",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        864.0,
+        567.0,
+        878.0,
+        580.0
+      ],
+      "crop_origin": [
+        831,
+        533
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 17,
+      "label": "labels/train/SNGS-100_000501.txt",
+      "label_sha256": "502f784cd1fc593c6a65f6336ddd8a6bd4bee4c23ebe291f73e1f817123c5f0a",
+      "decision": {
+        "candidate_id": 161,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 162,
+      "frame_id": "SNGS-101_000246",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-101",
+      "image": "images/train/SNGS-101_000246.jpg",
+      "image_sha256": "8156a26d4196895fa9f0e6863e8a7fc5aa9ffd57f4706d1250c7c84a7e3c5276",
+      "source_label_sha256": "c1b0d903f57d376d68b76358f297221d1f64e916a90a149a665ae47310080b5a",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1428.0,
+        557.0,
+        1441.0,
+        568.0
+      ],
+      "crop_origin": [
+        1394,
+        522
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 18,
+      "label": "labels/train/SNGS-101_000246.txt",
+      "label_sha256": "81cfe2526bedf802a9f4816d763e48a23582157d1504b7bb806abfe07e941fb3",
+      "decision": {
+        "candidate_id": 162,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 163,
+      "frame_id": "SNGS-101_000496",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-101",
+      "image": "images/train/SNGS-101_000496.jpg",
+      "image_sha256": "b4b01d1ea8f8cf17b23459bd3d73a9b1edda52d938d4f94daac660a1a614b3d3",
+      "source_label_sha256": "a8cb4abe17cc8ce38564af7142e0f92bd721d43a5db7f31fc92926e4953662ef",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        738.0,
+        598.0,
+        751.0,
+        610.0
+      ],
+      "crop_origin": [
+        704,
+        564
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 19,
+      "label": "labels/train/SNGS-101_000496.txt",
+      "label_sha256": "649e40537688a0ba393790ede9cbd4a2b6f601831fa37f5975158841a03b7781",
+      "decision": {
+        "candidate_id": 163,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 165,
+      "frame_id": "SNGS-102_000451",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-102",
+      "image": "images/train/SNGS-102_000451.jpg",
+      "image_sha256": "74cd31de5b512c4793341fb4f2ad0b75a278b189a2db49672ce7a89677875257",
+      "source_label_sha256": "a96e64bc1b02e99a17363087dcabee87c854c8f884f4ac1336dd2de70e827f6c",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1287.0,
+        720.0,
+        1307.0,
+        739.0
+      ],
+      "crop_origin": [
+        1257,
+        689
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 7,
+      "tile": 21,
+      "label": "labels/train/SNGS-102_000451.txt",
+      "label_sha256": "c008bf557ce8b3f4344e8a19a7c0776c6474bb86486070fe71661163eca9a082",
+      "decision": {
+        "candidate_id": 165,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 168,
+      "frame_id": "SNGS-104_000251",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-104",
+      "image": "images/train/SNGS-104_000251.jpg",
+      "image_sha256": "fd91757fe0358c9ee9cc9b5529d68ecde9a57badc0b01c2d08016a94f0018c60",
+      "source_label_sha256": "00a2d5497587201bdaf6996256393cd7059e6068d2621886b08ad2c3c25e7057",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        357.0,
+        611.0,
+        370.0,
+        624.0
+      ],
+      "crop_origin": [
+        323,
+        577
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 8,
+      "tile": 0,
+      "label": "labels/train/SNGS-104_000251.txt",
+      "label_sha256": "fbabb62ad9e6d04e825f62a9227f548647160faf1d4940691c52d7d5bd87d248",
+      "decision": {
+        "candidate_id": 168,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 171,
+      "frame_id": "SNGS-105_000336",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-105",
+      "image": "images/train/SNGS-105_000336.jpg",
+      "image_sha256": "f9a08da25b4d597f285d58706f3ce9b8a8d8240e2f2e17626adda51a96c418c6",
+      "source_label_sha256": "89fb4653a37b25e4145627448b4d490fbeac4cc2b283d4819f81b361d1acc89c",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        896.0,
+        700.0,
+        914.0,
+        717.0
+      ],
+      "crop_origin": [
+        865,
+        668
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 8,
+      "tile": 3,
+      "label": "labels/train/SNGS-105_000336.txt",
+      "label_sha256": "1daa9b0e358c4d7554aabdd50680d7106593ba0ddd534ad70fb272c995ed6f6b",
+      "decision": {
+        "candidate_id": 171,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 173,
+      "frame_id": "SNGS-106_000491",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-106",
+      "image": "images/train/SNGS-106_000491.jpg",
+      "image_sha256": "cc2016bccd0e82eb1e07cb7a0c49746f287e52d0c08249b23202e71ac08441e9",
+      "source_label_sha256": "af34b56eb9b3e68ff6af6c9c90e92367f1a02a4894e0b735b17d7d3ace164b62",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        226.0,
+        597.0,
+        241.0,
+        609.0
+      ],
+      "crop_origin": [
+        193,
+        563
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 8,
+      "tile": 5,
+      "label": "labels/train/SNGS-106_000491.txt",
+      "label_sha256": "472b9746ef8590eeca725eb5a10d5d08cfddb6e700b3c750bd02c299aeae6e18",
+      "decision": {
+        "candidate_id": 173,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 179,
+      "frame_id": "SNGS-109_000491",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-109",
+      "image": "images/train/SNGS-109_000491.jpg",
+      "image_sha256": "5609997933f4829b96d3b02aab436d0868b843b85b7eb63513c7eb2f8fadc21d",
+      "source_label_sha256": "59b2ff9bc8ed38e3953bd95db150d3ecd159ef80a8274962f1ca3470846d1bb4",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        943.0,
+        659.0,
+        962.0,
+        679.0
+      ],
+      "crop_origin": [
+        912,
+        629
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 8,
+      "tile": 11,
+      "label": "labels/train/SNGS-109_000491.txt",
+      "label_sha256": "1e330b2061ca7e1c0ac314d1f1a8f84f53f54b942eb86185a99979f27047fd22",
+      "decision": {
+        "candidate_id": 179,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 182,
+      "frame_id": "SNGS-111_000266",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-111",
+      "image": "images/train/SNGS-111_000266.jpg",
+      "image_sha256": "e311ac66b54e10eaa31b1b1579861b008c0a0448d465bc3af27ff3893121c530",
+      "source_label_sha256": "47bc5b3c1b0fafdb0c7610ebe30b641b5501f11a7dbb501f63b54299270d589e",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1019.0,
+        609.0,
+        1042.0,
+        628.0
+      ],
+      "crop_origin": [
+        990,
+        578
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 8,
+      "tile": 14,
+      "label": "labels/train/SNGS-111_000266.txt",
+      "label_sha256": "6dd2b1e4bf14a4cb3172aa6e6bd080887416604bfbd8e5f5e25cc2e4894de0ee",
+      "decision": {
+        "candidate_id": 182,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 183,
+      "frame_id": "SNGS-111_000506",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-111",
+      "image": "images/train/SNGS-111_000506.jpg",
+      "image_sha256": "2c91a9c509aff3bd9a8b8a244264920fb0da60179ca746652f6a05fef8312672",
+      "source_label_sha256": "42cc0cc8dbd298ad83790daaac1d6b3f58e6544127719034e3b8e9616ffdd41e",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1012.0,
+        774.0,
+        1033.0,
+        795.0
+      ],
+      "crop_origin": [
+        982,
+        744
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 8,
+      "tile": 15,
+      "label": "labels/train/SNGS-111_000506.txt",
+      "label_sha256": "d09011343ab110322c79c1db5237bba9867ea43f6003db3da58af995c63c7aae",
+      "decision": {
+        "candidate_id": 183,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 184,
+      "frame_id": "SNGS-112_000241",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-112",
+      "image": "images/train/SNGS-112_000241.jpg",
+      "image_sha256": "a615cae2f0c6407c4bae9830d70acacb920c38f2bb4953e9aecc823e339d59e2",
+      "source_label_sha256": "1a9d470f81681d29a4d3d922a44fe2fbdae89cd4ffa6f10af36da7062ecac101",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        359.0,
+        711.0,
+        379.0,
+        729.0
+      ],
+      "crop_origin": [
+        329,
+        680
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 8,
+      "tile": 16,
+      "label": "labels/train/SNGS-112_000241.txt",
+      "label_sha256": "0a8c82aaa89af675fae05309543a57f52671f2b912a9aeda555ca088d3d0b79d",
+      "decision": {
+        "candidate_id": 184,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 186,
+      "frame_id": "SNGS-113_000251",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-113",
+      "image": "images/train/SNGS-113_000251.jpg",
+      "image_sha256": "13933d87e5deeff486ecdc118161998e44bb4f18368b14f055c03b65f5716d84",
+      "source_label_sha256": "ea4fee375e27d345511e1be69031ed7471e9bdb7e6a2f3100016bb002e3049f3",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1195.0,
+        610.0,
+        1211.0,
+        626.0
+      ],
+      "crop_origin": [
+        1163,
+        578
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 8,
+      "tile": 18,
+      "label": "labels/train/SNGS-113_000251.txt",
+      "label_sha256": "e8dd0331d6b68f70c28a4a94f5fe237956c818b6a083e0923a7cbdb1351a59f7",
+      "decision": {
+        "candidate_id": 186,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 187,
+      "frame_id": "SNGS-113_000501",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-113",
+      "image": "images/train/SNGS-113_000501.jpg",
+      "image_sha256": "ca37cbbb8a0a9d8fe250300066dec92b1663d5b97233f32026be74787b4054a6",
+      "source_label_sha256": "83262bcee7f7fc6ab2e0056477e9e5c5629649abb4a034826a4569d3dda8909f",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1066.0,
+        599.0,
+        1083.0,
+        615.0
+      ],
+      "crop_origin": [
+        1034,
+        567
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 8,
+      "tile": 19,
+      "label": "labels/train/SNGS-113_000501.txt",
+      "label_sha256": "e2071681d7b365009440b883f01a10c2d8280012b7c6c3b2854b41538fadba6a",
+      "decision": {
+        "candidate_id": 187,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 190,
+      "frame_id": "SNGS-115_000251",
+      "split": "train",
+      "game_id": "6",
+      "clip": "SNGS-115",
+      "image": "images/train/SNGS-115_000251.jpg",
+      "image_sha256": "4e89901278fbdcb8c4555093d0ea519893dbf80b76ea9bb8dd76a00c3cffcbbd",
+      "source_label_sha256": "1d13300500f39d5eac93d22c3ef8ce2e340c084387cfac7f92decfba1b9b1418",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        660.0,
+        496.0,
+        677.0,
+        514.0
+      ],
+      "crop_origin": [
+        628,
+        465
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 8,
+      "tile": 22,
+      "label": "labels/train/SNGS-115_000251.txt",
+      "label_sha256": "6488668e5d2d0dea1ff4ad092f62777bab64fdd85d4832b41af2a06214460598",
+      "decision": {
+        "candidate_id": 190,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 192,
+      "frame_id": "SNGS-151_000246",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-151",
+      "image": "images/train/SNGS-151_000246.jpg",
+      "image_sha256": "ff016f6593cd982961745f07ec835893cf21818cfe38bcc847380fbb8c80d915",
+      "source_label_sha256": "e6ff4b4e26e9fc05f99f2dcdeca5287b14c7413b5a988d7b8179e57f6327cfd2",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        914.0,
+        417.0,
+        926.0,
+        428.0
+      ],
+      "crop_origin": [
+        880,
+        382
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 9,
+      "tile": 0,
+      "label": "labels/train/SNGS-151_000246.txt",
+      "label_sha256": "87932c29e9c53597d4ff0d1d9b1d3317e7d6d27d45453fb9b91b834e3cf1a6e1",
+      "decision": {
+        "candidate_id": 192,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 194,
+      "frame_id": "SNGS-152_000241",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-152",
+      "image": "images/train/SNGS-152_000241.jpg",
+      "image_sha256": "717aaafc59c66f4cb802ea3ded871460bfa21a159b5a8c4c7f98f0422a47d2a9",
+      "source_label_sha256": "28403cdd7889f13bf3fffe42d2bedbb5790f561d10c9de3254cbce86b8676b9f",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        435.0,
+        895.0,
+        455.0,
+        916.0
+      ],
+      "crop_origin": [
+        405,
+        865
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 9,
+      "tile": 2,
+      "label": "labels/train/SNGS-152_000241.txt",
+      "label_sha256": "dfead8912980b7190fc338703b1b376535ee0ca75f8f65b5ae1ef4ac27e6eeb9",
+      "decision": {
+        "candidate_id": 194,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 195,
+      "frame_id": "SNGS-152_000481",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-152",
+      "image": "images/train/SNGS-152_000481.jpg",
+      "image_sha256": "0b9a5844ee439fd9cfa787094632d20fbacaa15de53041895263e6781987644c",
+      "source_label_sha256": "7c3bdd14059d2a84b60b4897691efd40380e2e3d3f06cb77cd72f0f83106999c",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        448.0,
+        878.0,
+        468.0,
+        899.0
+      ],
+      "crop_origin": [
+        418,
+        848
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 9,
+      "tile": 3,
+      "label": "labels/train/SNGS-152_000481.txt",
+      "label_sha256": "3971ef6430c2b9ce9ecf04686c43d22e8d1acb2a227a1d6ae1a9b2379345649d",
+      "decision": {
+        "candidate_id": 195,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 200,
+      "frame_id": "SNGS-155_000246",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-155",
+      "image": "images/train/SNGS-155_000246.jpg",
+      "image_sha256": "79db6095240e40fb078444c776890658411f559ad4128365a3e020c36f48efec",
+      "source_label_sha256": "17f61c3b214d50f1cd48dbfe7c04a71d3c23b15ca424f69562a0b93465d86330",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        980.0,
+        396.0,
+        989.0,
+        406.0
+      ],
+      "crop_origin": [
+        944,
+        361
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 9,
+      "tile": 8,
+      "label": "labels/train/SNGS-155_000246.txt",
+      "label_sha256": "fa8d70513a45cb55587ebe3b605c6a509f7a4f1da16437a9c8af2e9f17ec765a",
+      "decision": {
+        "candidate_id": 200,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 202,
+      "frame_id": "SNGS-156_000156",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-156",
+      "image": "images/train/SNGS-156_000156.jpg",
+      "image_sha256": "c1540da91a868585ee93e7fd17912ac86f0f5fc433b62782aee0380e77c3ed4a",
+      "source_label_sha256": "ec518d2ed37d04b9943a6bd18ecd74da6777f764fbe2b73f5e85acd8b26e1b0d",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        358.0,
+        686.0,
+        374.0,
+        702.0
+      ],
+      "crop_origin": [
+        326,
+        654
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 9,
+      "tile": 10,
+      "label": "labels/train/SNGS-156_000156.txt",
+      "label_sha256": "a6402710825449e2f82c32320e332557eaa9135f4cad6b36b188d06ec01277d5",
+      "decision": {
+        "candidate_id": 202,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 204,
+      "frame_id": "SNGS-157_000241",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-157",
+      "image": "images/train/SNGS-157_000241.jpg",
+      "image_sha256": "3f64c6b339eb535106b33307b9d7067fd6921c81c229bb107687fd8cf4ae4035",
+      "source_label_sha256": "90b52271ae62c4bbc1059b024685400443d92a04ad75259d03c7fbcad54b26d1",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        678.0,
+        173.0,
+        699.0,
+        193.0
+      ],
+      "crop_origin": [
+        648,
+        143
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 9,
+      "tile": 12,
+      "label": "labels/train/SNGS-157_000241.txt",
+      "label_sha256": "5ab97c18afee42c3a74d4526377a1dd1ffc1a3336748483e228ff6945c2f901e",
+      "decision": {
+        "candidate_id": 204,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 206,
+      "frame_id": "SNGS-158_000286",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-158",
+      "image": "images/train/SNGS-158_000286.jpg",
+      "image_sha256": "6655379672fa1615ded979af8bdb479557b731b0ed3cd110167e48ae8c682b9b",
+      "source_label_sha256": "dd310a157ef0af81bf8da43eb4614cccd2f5bf0f6a85e0955765f3afea807094",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        321.0,
+        724.0,
+        342.0,
+        740.0
+      ],
+      "crop_origin": [
+        291,
+        692
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 9,
+      "tile": 14,
+      "label": "labels/train/SNGS-158_000286.txt",
+      "label_sha256": "6a6ab8dd0c89ea0994da31b9e3a775c04b35a1f07f38078ff4009ab3a9baaef1",
+      "decision": {
+        "candidate_id": 206,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 207,
+      "frame_id": "SNGS-158_000506",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-158",
+      "image": "images/train/SNGS-158_000506.jpg",
+      "image_sha256": "fa5f8166b121a9ee64a852ccec428e8411c61660875827b274fa81d6e5d05af8",
+      "source_label_sha256": "a343f2b0066b46a6ac0150a859d85459f93575f3c8d2a038ee016ca7f7dfd940",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        627.0,
+        450.0,
+        639.0,
+        461.0
+      ],
+      "crop_origin": [
+        593,
+        415
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 9,
+      "tile": 15,
+      "label": "labels/train/SNGS-158_000506.txt",
+      "label_sha256": "612f72057ae1d3e0e299e4836021853c5069c79466c4cc174239189347b22403",
+      "decision": {
+        "candidate_id": 207,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 208,
+      "frame_id": "SNGS-159_000251",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-159",
+      "image": "images/train/SNGS-159_000251.jpg",
+      "image_sha256": "7b5d124b2c512c9fe7503b28cde360836c0266d33a4d671c22eca874d0740f2b",
+      "source_label_sha256": "c8341c561614ef62305ef517de2491d858cdc0e10d755f3b76f3b502155d94c1",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1065.0,
+        465.0,
+        1075.0,
+        475.0
+      ],
+      "crop_origin": [
+        1030,
+        430
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 9,
+      "tile": 16,
+      "label": "labels/train/SNGS-159_000251.txt",
+      "label_sha256": "917427ee8769f4696f48f3c9363ad444d536440824606d63db32384eb52c9260",
+      "decision": {
+        "candidate_id": 208,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 210,
+      "frame_id": "SNGS-160_000251",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-160",
+      "image": "images/train/SNGS-160_000251.jpg",
+      "image_sha256": "34906012c0d2c62ac6d456e704a137711590a69f3200767e71e15df560f2144e",
+      "source_label_sha256": "12c1c7887ae276685937669c3e2823bffffc9aa03204344a7cb8540f6fdba03c",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        480.0,
+        533.0,
+        498.0,
+        547.0
+      ],
+      "crop_origin": [
+        449,
+        500
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 9,
+      "tile": 18,
+      "label": "labels/train/SNGS-160_000251.txt",
+      "label_sha256": "e0d7fc107cedd982d1d557b036e416ba33c0f4c0eec1b4215b1eea08d8c53bbb",
+      "decision": {
+        "candidate_id": 210,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 214,
+      "frame_id": "SNGS-162_000226",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-162",
+      "image": "images/train/SNGS-162_000226.jpg",
+      "image_sha256": "a85d6e8630a60456c36aca06d50d0265f60b5276f980ebeedcef9eb306f4d3ae",
+      "source_label_sha256": "94425b3b6af9a5d7fb5954535d43f8efefe6ad92e63a1bdc53f87167fd4b5b11",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        642.0,
+        231.0,
+        662.0,
+        250.0
+      ],
+      "crop_origin": [
+        612,
+        200
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 9,
+      "tile": 22,
+      "label": "labels/train/SNGS-162_000226.txt",
+      "label_sha256": "c66ef4addd21f2ad8db77a2bc956b6270f7df500827882310fcbe9b7afa29e0b",
+      "decision": {
+        "candidate_id": 214,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 215,
+      "frame_id": "SNGS-162_000466",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-162",
+      "image": "images/train/SNGS-162_000466.jpg",
+      "image_sha256": "1578e45810054ca1e4a2718dca37b28b1abb8498614933b7b8bd84c7cf81feb7",
+      "source_label_sha256": "1ddd7e279eaf75c9afcf839cd50b1f924c90c7ef1a59f714d501d671000c0570",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        503.0,
+        435.0,
+        523.0,
+        452.0
+      ],
+      "crop_origin": [
+        473,
+        403
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 9,
+      "tile": 23,
+      "label": "labels/train/SNGS-162_000466.txt",
+      "label_sha256": "fc7d518b83e9295dd0e5f9af25215d36e4b81236b73a62ec40e354e74f8beb26",
+      "decision": {
+        "candidate_id": 215,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 216,
+      "frame_id": "SNGS-163_000226",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-163",
+      "image": "images/train/SNGS-163_000226.jpg",
+      "image_sha256": "91710c192146f990291b57c27955c454935a5a8f3c6276d354274ad9a51feea2",
+      "source_label_sha256": "d71e9fbdd495f5d6365d8fddd7ca8ec1e3d564e47fa171ba35a115bfaa78e945",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1139.0,
+        544.0,
+        1150.0,
+        555.0
+      ],
+      "crop_origin": [
+        1104,
+        509
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 10,
+      "tile": 0,
+      "label": "labels/train/SNGS-163_000226.txt",
+      "label_sha256": "bc473752b44fb4a6b2e8c9e6c0ec4a8a5f050bdaa804ab4f8e14de883af07276",
+      "decision": {
+        "candidate_id": 216,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 217,
+      "frame_id": "SNGS-163_000456",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-163",
+      "image": "images/train/SNGS-163_000456.jpg",
+      "image_sha256": "762c2d2130924fa817a7064cc6f5c1fdd33baed762c2513c16e36765eec51aba",
+      "source_label_sha256": "227d87659db3b6362151e05edac545a2215d9c98868f552c843559d7d8273926",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1072.0,
+        505.0,
+        1085.0,
+        516.0
+      ],
+      "crop_origin": [
+        1038,
+        470
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 10,
+      "tile": 1,
+      "label": "labels/train/SNGS-163_000456.txt",
+      "label_sha256": "37b7e4728cfb37bd86f627f75ec16ddbdb9b3bf92d480127c81cb9ba5dc92af3",
+      "decision": {
+        "candidate_id": 217,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 219,
+      "frame_id": "SNGS-164_000536",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-164",
+      "image": "images/train/SNGS-164_000536.jpg",
+      "image_sha256": "8b6fcc5029a19ad83e4913bfe55d15417cf144d37a34d63d980b5aed30915d7e",
+      "source_label_sha256": "7757bf7de7540228fef60d844b9fe0308b643ecd9accd2b8afcbaa497345a171",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        225.0,
+        545.0,
+        240.0,
+        558.0
+      ],
+      "crop_origin": [
+        192,
+        511
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 10,
+      "tile": 3,
+      "label": "labels/train/SNGS-164_000536.txt",
+      "label_sha256": "92f072986319b1fee60a59656402143ef272846f9c26f1d2c976bc4f902c1e69",
+      "decision": {
+        "candidate_id": 219,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 220,
+      "frame_id": "SNGS-165_000251",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-165",
+      "image": "images/train/SNGS-165_000251.jpg",
+      "image_sha256": "82e704013df70eb5923b002ae0eef56b9b1fd7be318e7f29f32c41f0635885d9",
+      "source_label_sha256": "ed9896b5e741fc268d4ebc7d9b86e5b50745e7a8c72aa63773498a46f32da461",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        140.0,
+        535.0,
+        156.0,
+        550.0
+      ],
+      "crop_origin": [
+        108,
+        502
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 10,
+      "tile": 4,
+      "label": "labels/train/SNGS-165_000251.txt",
+      "label_sha256": "7c5eb3bd9901a3f20006dba4cd2e75297729626e5a9a0c9fd156caab903e7458",
+      "decision": {
+        "candidate_id": 220,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 221,
+      "frame_id": "SNGS-165_000501",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-165",
+      "image": "images/train/SNGS-165_000501.jpg",
+      "image_sha256": "69ed13091c8c92a7c5a49122a32e72c86e9726bd4ae144860ba22b309419bd90",
+      "source_label_sha256": "4d9d81683d5827b1b24c9b3d914ecd7de5bb419c37a7187c419e384e2cae50d2",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1001.0,
+        676.0,
+        1023.0,
+        693.0
+      ],
+      "crop_origin": [
+        972,
+        644
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 10,
+      "tile": 5,
+      "label": "labels/train/SNGS-165_000501.txt",
+      "label_sha256": "1600fbb6020e8337505122724f89d4d773864f41ff966e9235d75b53f178f3bf",
+      "decision": {
+        "candidate_id": 221,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 224,
+      "frame_id": "SNGS-167_000251",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-167",
+      "image": "images/train/SNGS-167_000251.jpg",
+      "image_sha256": "66f2830ab61e0e52849fb7bdb31828cb2d3528454ab973de88bd604acee4397a",
+      "source_label_sha256": "75d5a06e990d07e80adc9f73d5f5dce4a48c12a4ba7fde5df8e03e92290034e8",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        368.0,
+        405.0,
+        383.0,
+        421.0
+      ],
+      "crop_origin": [
+        335,
+        373
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 10,
+      "tile": 8,
+      "label": "labels/train/SNGS-167_000251.txt",
+      "label_sha256": "794d58eb250202ecaab1086570727ae7667c1ffce9ddaa502fd494d08a35a838",
+      "decision": {
+        "candidate_id": 224,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 226,
+      "frame_id": "SNGS-168_000276",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-168",
+      "image": "images/train/SNGS-168_000276.jpg",
+      "image_sha256": "5e6a0601616af7550081c490118df37a8b89b26b0f4bcfb6234a1e3b98745103",
+      "source_label_sha256": "a99e58c65c81ed17ed6801f4aa00aff26a857b6e7afea24992d76775ec4c50df",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        596.0,
+        682.0,
+        614.0,
+        698.0
+      ],
+      "crop_origin": [
+        565,
+        650
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 10,
+      "tile": 10,
+      "label": "labels/train/SNGS-168_000276.txt",
+      "label_sha256": "978ce593b472467474cf09c96057a9d9826f2c6789d253c8d6c8b97ef66030b6",
+      "decision": {
+        "candidate_id": 226,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 227,
+      "frame_id": "SNGS-168_000516",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-168",
+      "image": "images/train/SNGS-168_000516.jpg",
+      "image_sha256": "0024b0759555ca17554c3ee11b6211ee351d849c5ca836ad53f42abb54a51f4c",
+      "source_label_sha256": "6ec6078f534e1d3949ba8a98c4ca90dee5250a0b7ccbb4ebc35e6f03bdb61a4b",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        565.0,
+        462.0,
+        577.0,
+        474.0
+      ],
+      "crop_origin": [
+        531,
+        428
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 10,
+      "tile": 11,
+      "label": "labels/train/SNGS-168_000516.txt",
+      "label_sha256": "41f0323fada6faac5ddf88b870721387888446d6de8910cea22d8b6667d1b115",
+      "decision": {
+        "candidate_id": 227,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 228,
+      "frame_id": "SNGS-169_000271",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-169",
+      "image": "images/train/SNGS-169_000271.jpg",
+      "image_sha256": "6f3786c3e3b44dea3b6ee8f38ff7201bc6a09c160014e6eeeb1e1568a3f9f513",
+      "source_label_sha256": "f254be2831d4df023e310d7836891f40f5b6a8b2441fc92179d60b6548f0a0c7",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1539.0,
+        558.0,
+        1552.0,
+        570.0
+      ],
+      "crop_origin": [
+        1505,
+        524
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 10,
+      "tile": 12,
+      "label": "labels/train/SNGS-169_000271.txt",
+      "label_sha256": "b3fba4ccad2082322b9d26ae9a306876f049c41c85289381dafc107416ea5767",
+      "decision": {
+        "candidate_id": 228,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    },
+    {
+      "candidate_id": 229,
+      "frame_id": "SNGS-169_000506",
+      "split": "train",
+      "game_id": "9",
+      "clip": "SNGS-169",
+      "image": "images/train/SNGS-169_000506.jpg",
+      "image_sha256": "d0199dea7455f2fcc11ecd623a2a87f0f1ab5622f7fcd1756bd88eb12a383289",
+      "source_label_sha256": "1cc20a7c7d6dbf04f49e2b36099722fe479baa9e6d247062972eb670622fc455",
+      "width": 1920,
+      "height": 1080,
+      "bbox_xyxy": [
+        1420.0,
+        456.0,
+        1429.0,
+        464.0
+      ],
+      "crop_origin": [
+        1384,
+        420
+      ],
+      "crop_size": 80,
+      "display_scale": 3,
+      "page": 10,
+      "tile": 13,
+      "label": "labels/train/SNGS-169_000506.txt",
+      "label_sha256": "5ea7dc2861051de2730e0563f2cb30a40ede8b0fb1d25889abd24c295302ab90",
+      "decision": {
+        "candidate_id": 229,
+        "status": "accept",
+        "reason": "Visible ball is enclosed by the source box in the native crop."
+      },
+      "project_human_review_completed": false
+    }
+  ],
+  "names": {
+    "0": "ball"
+  },
+  "counts": {
+    "train": 59,
+    "val": 73
+  },
+  "match_ids": {
+    "train": [
+      "4",
+      "6",
+      "9"
+    ],
+    "val": [
+      "2",
+      "3",
+      "5"
+    ]
+  },
+  "reviewer": "Codex (AI)",
+  "project_human_review_completed": false,
+  "negative_frames": 0,
+  "limitations": "AI-reviewed positive sample; not an independent test or full ball benchmark",
+  "fingerprint": "a4c9724b184ba383e138293ad33b3f9af8435c17b986d1b79ba86d8d364888a0"
+}

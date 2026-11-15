@@ -1,4 +1,4 @@
-# Bijdragen van Milan, Andrew en Jorre
+# Bijdragen van Milan, Andrew, Jorre en Raoul
 
 Bijgewerkt op 15 november 2026, op basis van main `524d081a`.
 
@@ -28,6 +28,12 @@ De technische afronding staat in [Afronding_20261114.md](../03_Code/docs/Afrondi
 - Het volledige [reviewverslag](../03_Code/datasets/school-ball80-review-v1/REVIEW.md) benoemt de afspraken en grenzen. Er zijn geen individuele reviewernamen, aantallen meningsverschillen of specifieke correcties achteraf ingevuld.
 
 Jorre heeft daarnaast het uploadpakket en de presentatie op `origin/codex/upload-cv-challenge` aangeleverd. Zijn twaalf slides vormen vanaf versie 4 onze definitieve presentatie, met een aanvulling over Milans bijdrage en AI-gebruik. De uploadcode en demonstratie blijven die van zijn pakket; lokale niet-gepubliceerde appwijzigingen zijn niet meegenomen.
+
+Jorres aanvullende persoonlijke AI-gebruik voor PowerPointverbetering, een eerste model voor datacontrole en algemeen programmeren staat in [zijn AI-beschrijving](AI_Usage_Jorre_Van_Dyck.md). Milan heeft deze beschrijving aangeleverd.
+
+## Raoul
+
+Volgens Milans beschrijving gebruikte Raoul AI als leidraad, voor ideeën, het vergelijken van mogelijke oplossingen en duidelijke uitleg van de verschillen. Zijn bijdrage aan het begrijpen en afwegen van opties staat in [zijn AI-beschrijving](AI_Usage_Raoul.md). De beschrijving kent hem geen niet-gedocumenteerde trainingsrun of implementatie toe.
 
 ## Gezamenlijke documentatie
 

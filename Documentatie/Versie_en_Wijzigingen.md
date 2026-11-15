@@ -1,3 +1,17 @@
+# Versie 5 — AI-gebruik van alle vier teamleden
+
+15 november 2026. Gebaseerd op gepubliceerde versie 38925ad6; code en modellen blijven die uit Jorres uploadpakket.
+
+Milans beschrijving van Jorres AI-gebruik voor presentatieverbetering, een eerste model voor datacontrole en programmeren en Raouls gebruik voor leidraad, ideeën en optie-vergelijking zijn toegevoegd. Beide hebben een eigen bestand. Het gezamenlijke AI-overzicht, rapport, Jorres presentatie en requirementscontrole zijn bijgewerkt. De oorspronkelijke verklaringen en meetbestanden blijven behouden.
+
+De nieuwe inzendings-ZIP heet Inzending_Sports_Vision_DEFINITIEF_v5_2026_11_15.zip en wordt rechtstreeks uit Upload_CV_Challenge_2026_11_14 gemaakt. De definitieve PDF en presentatie zijn gelijk aan de actuele Documentatie-versie. Alle bestandschecksums worden vernieuwd en vanuit de ZIP opnieuw gecontroleerd.
+
+Deze ronde controleert ook de twee demonstratievideo's bij begin, midden en einde en de bestaande notebookuitvoer, labels, geselecteerde gewichten en uitvoerbestanden. Dit zijn pakket- en visuele steekproefcontroles, geen nieuwe training, volledige app-herinstallatie of onafhankelijke nauwkeurigheidstest. Een punteninschatting aan het team vormt geen onderdeel van het wetenschappelijke rapport of een toegekende docentscore.
+
+Een aanvullende audit heeft de voorheen onduidelijke verbinding tussen alle 80 reviewbeelden en de historische v2-training aangetoond: 174 positieve crops, gelijke beeld- en labelhashes en splits en overeenkomende datasetfingerprints en gewichten. Bronbeelden, complete trainingscrops, begin-/eindgewichten en een uitgevoerd inspectie-/hertrainnotebook zijn toegevoegd. De appcode en het huidige Andrew-inferentieprofiel blijven dezelfde versie. Er is geen nieuwe training of geïsoleerde evaluatie op de 32 review-validatiebeelden uitgevoerd.
+
+## Vorige documentatieversies
+
 # Versie 4 — definitieve documentatie in de uploadmap
 
 15 november 2026. Hoofdbron `524d081a`; eerder gepubliceerde documentatie `afab3d03`; Jorres uploadbranch `8e29c3ff`.

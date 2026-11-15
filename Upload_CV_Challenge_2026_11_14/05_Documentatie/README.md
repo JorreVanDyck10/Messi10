@@ -1,16 +1,18 @@
-# Definitieve documentatie — versie 4
+# Definitieve documentatie — versie 5
 
 15 november 2026. Team: Andrew, Milan Wouters, Raoul en Jorre.
 
-- [Definitief PDF-rapport](../01_Rapport/Sports_Vision_Rapport.pdf) en [bewerkbare tekst](../01_Rapport/Sports_Vision_Rapport.md)
+- [Definitief rapport](../01_Rapport/Sports_Vision_Rapport.pdf) en [bewerkbare tekst](../01_Rapport/Sports_Vision_Rapport.md)
 - [Jorres bijgewerkte presentatie](../02_Presentatie/Sports_Vision_Presentatie.pptx), twaalf bewerkbare slides
-- [Trainings- en evaluatienotebook](../03_Code/Training_en_Evaluatie.ipynb) en [oorspronkelijke Andrew-training](../03_Code/Andrew_Prototype/train.ipynb)
-- [Persoonlijke bijdrage en AI-gebruik Milan Wouters](AI_Usage_Milan_Wouters.md)
+- [AI-gebruik Milan](AI_Usage_Milan_Wouters.md), [Jorre](AI_Usage_Jorre_Van_Dyck.md) en [Raoul](AI_Usage_Raoul.md)
+- [Andrews eigen verklaring](../03_Code/docs/VierKlassenModel.md#16-gebruik-van-ai-tijdens-de-ontwikkeling)
 - [Gezamenlijk GenAI-gebruik](GenAI_en_Eigenaarschap.md) en [bijdragen](Bijdragen_Andrew_en_Jorre.md)
-- [Controle van de opdrachtvereisten](Requirementscontrole.md) en [wijzigingen](Versie_en_Wijzigingen.md)
+- [Requirementscontrole](Requirementscontrole.md) en [wijzigingen](Versie_en_Wijzigingen.md)
+- [Aangetoonde koppeling van de 80 beelden aan baltraining](Koppeling_80_Beelden_en_Baltraining.md)
+- [Uitgevoerd overzichtsnotebook](../03_Code/Training_en_Evaluatie.ipynb), [bal-v2-training en audit](../03_Code/Bal_v2_Training_en_Labelkoppeling.ipynb) en [oorspronkelijke Andrew-training](../03_Code/Andrew_Prototype/train.ipynb)
 
-Bronregistraties staan in Versiebewijs, historische trainingslogs en foutvoorbeelden in Trainingsbewijs en de oorspronkelijke opdracht in Bronnen. De originele Jorre-presentatie is bewaard als bron; de bijgewerkte versie in 02_Presentatie is het definitieve slidedeck.
+Bronregistraties staan in Versiebewijs, trainingslogs en foutvoorbeelden in Trainingsbewijs en de oorspronkelijke opdracht in Bronnen. De originele Jorre-presentatie blijft bronmateriaal; de definitieve presentatie staat in 02_Presentatie.
 
-De uitvoerbare inzending gebruikt 03_Code. De losse inspectienotebooks en bouwscripts van de algemene repository-documentatie zijn niet nodig om dit pakket te draaien. De standaardsituatie van het uploadnotebook start geen nieuwe training.
+De code en het inferentieprofiel volgen Jorres uploadpakket. Versie 5 voegt oorspronkelijke bal-v2-trainingsdata, gewichten, een audit en een uitgevoerd inspectie-/hertrainnotebook toe. De huidige app blijft Andrews balmodel gebruiken. Standaard start geen van de nieuwe notebookcellen training. Er is geen nieuwe nauwkeurigheidsmeting uitgevoerd.
 
-De PDF en definitieve presentatie zijn bytegelijk aan de actuele repository-documentatie. De uitvoercode, data en demonstratie blijven afkomstig uit Jorres uploadbranch 8e29c3ff. CONTROLE.json bewaart zijn eerdere controles; CONTROLE_DOCUMENTATIE.json beschrijft de nieuwe pakketcontrole. De exacte training op de 80 gereviewde beelden, een geaccepteerde statische MVP-demo, de aparte GenAI-policy en individuele verdediging blijven inhoudelijke aandachtspunten.
+Alle vereiste bestandstypen zijn aanwezig. Inhoudelijk blijven een heldere vaste-camera-MVP-demonstratie, de aparte GenAI-policy en de individuele verdediging aandachtspunten. De verbinding van alle 80 reviewbeelden met de grotere historische baltraining is nu aangetoond; de scores gelden voor de volledige historische validatie. CONTROLE.json bewaart Jorres oorspronkelijke controles; CONTROLE_DOCUMENTATIE.json beschrijft versie 5.

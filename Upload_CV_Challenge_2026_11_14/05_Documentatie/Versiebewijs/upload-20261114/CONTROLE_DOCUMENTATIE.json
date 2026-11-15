@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-15T14:28:08.592993+00:00",
+  "documentation_version": 5,
+  "source_main_commit": "524d081a",
+  "source_upload_commit": "8e29c3ff",
+  "previous_publication_commit": "38925ad6",
+  "pdf_pages": 13,
+  "presentation_slides": 12,
+  "presentation_base": "Jorre original deck, same layout with updated AI and training evidence",
+  "pdf_and_presentation_identical_to_Documentatie": true,
+  "personal_ai_usage": [
+    "Milan Wouters",
+    "Andrew",
+    "Jorre Van Dyck",
+    "Raoul"
+  ],
+  "jorre_raoul_usage_source": "Description supplied by Milan Wouters, 15 November 2026",
+  "required_files_present": [
+    "01_Rapport/Sports_Vision_Rapport.pdf",
+    "02_Presentatie/Sports_Vision_Presentatie.pptx",
+    "03_Code/Training_en_Evaluatie.ipynb",
+    "03_Code/Bal_v2_Training_en_Labelkoppeling.ipynb",
+    "03_Code/Andrew_Prototype/train.ipynb",
+    "03_Code/Andrew_Prototype/check_mAP.ipynb",
+    "03_Code/streamlit_app.py",
+    "03_Code/upload_app.py",
+    "03_Code/Setup-Upload.ps1",
+    "03_Code/Start-Upload.ps1",
+    "05_Documentatie/AI_Usage_Milan_Wouters.md",
+    "05_Documentatie/AI_Usage_Jorre_Van_Dyck.md",
+    "05_Documentatie/AI_Usage_Raoul.md",
+    "03_Code/docs/VierKlassenModel.md",
+    "05_Documentatie/Requirementscontrole.md"
+  ],
+  "notebooks": [
+    {
+      "file": "Training_en_Evaluatie.ipynb",
+      "executed_code_cells": 8,
+      "saved_errors": 0,
+      "training_disabled": true
+    },
+    {
+      "file": "Bal_v2_Training_en_Labelkoppeling.ipynb",
+      "executed_code_cells": 3,
+      "saved_errors": 0,
+      "training_disabled": true
+    }
+  ],
+  "selected_model_hashes_verified": 8,
+  "lfs_pointers": [],
+  "review_to_training": {
+    "checked_review_frames": 80,
+    "split": {
+      "train": 48,
+      "val": 32
+    },
+    "positive_crops_from_review_set": 174,
+    "full_training_dataset_crops": 282,
+    "full_source_images": 132,
+    "dataset_fingerprint": "afa5bbce1eff649d9967e927d0d54f36671dcea3c855620b7919d0a926870d2e",
+    "candidate_weights_sha256": "0bfd52b880a6994b646c78374fb00156ba211b3a464f8c8a273873f9b5d2bb52",
+    "historical_v2_full_mAP50": 0.4163668559634949,
+    "historical_v2_full_mAP50_95": 0.18008868890445887,
+    "historical_v2_tiled_mAP50": 0.5748519958889426,
+    "historical_v2_tiled_mAP50_95": 0.23336801171460783,
+    "meaning": "The approved 80-frame set is an unchanged subset of the corpus used for historical v2 training/validation. No separate new run on exactly 80 frames.",
+    "limits": "Review approval is later than the historical run. Other source images are not thereby human-approved. Metrics cover the full historical validation, not an isolated 32-frame re-evaluation or the deployed Andrew model.",
+    "new_training_or_accuracy_evaluation": false
+  },
+  "demo_check": "Input/output both decode at sampled frames 0,37,74; both 75 frames at 25 fps. Same timestamps and plausible middle-line projection observed. Pan/zoom present. AI sample, not independent geometric accuracy or human approval.",
+  "new_training_performed": false,
+  "new_full_app_run_performed": false,
+  "new_clean_install_performed": false,
+  "historical_software_tests": "537 passed, 4 subtests, 1 GPU skip (Jorre); 75 targeted passed (prior local publication). No new suite in this documentation round.",
+  "open_content_points": [
+    "Demonstrate fixed-camera MVP scope and visually sound homography",
+    "Check separately referenced GenAI policy",
+    "Individual live defense and ownership"
+  ],
+  "zip_name": "Inzending_Sports_Vision_DEFINITIEF_v5_2026_11_15.zip",
+  "local_markdown_links_valid": true
+}

@@ -49,7 +49,7 @@ def notebook():
 Uitgevoerd inspectienotebook bij de documentatiesnapshot van **15 november 2026**.
 Dit notebook toont de echte meegeleverde trainingslogs, datasetindeling, gewichten en ontwikkelmetrics.
 Het reconstrueert geen nieuwe historische training. De modelruns zijn eerder uitgevoerd.
-Versie 4 na pull naar 524d081a. De menselijke teamreview van alle 80 beelden is op 14 november geregistreerd.
+Versie 5 na pull naar 524d081a. De menselijke teamreview van alle 80 beelden is op 14 november geregistreerd.
 De nieuwste handleiding meldt behoud van YOLO11s na de YOLO26-proef. Nieuwe cijfers zijn
 bronrapportages zolang de ruwe lokale experimentmappen ontbreken.
 
@@ -374,7 +374,7 @@ def pdf():
         s=re.sub(r'`([^`]+)`',r'<font color="#15725f">\1</font>',s)
         return s
     story=[]
-    story.extend([Spacer(1,75),Paragraph('CV CHALLENGE 2026-2027',styles['H2x']),Spacer(1,15),Paragraph('Sports Vision &amp;<br/>Tactical Mapping',ParagraphStyle(name='Cover',fontName='Body-Bold',fontSize=34,leading=39,textColor=colors.HexColor('#143a48'))),Spacer(1,24),Paragraph('Projectrapport met bijdragen van Milan, Andrew en Jorre',styles['H1x']),Paragraph('Andrew, Milan Wouters, Raoul en Jorre<br/>Versie 4 - 15 november 2026<br/>Broncommit 524d081a',styles['Text']),Spacer(1,35),Paragraph('Bijgewerkt met Milans persoonlijke bijdrage en AI-gebruik, Andrews oorspronkelijke model en Jorres uploadpakket en presentatie. De menselijke review van alle 80 labels is geregistreerd. Open bewijs- en opleverpunten blijven herkenbaar.',styles['Text']),Spacer(1,30),Paragraph('Persoonlijke bijdrage Milan Wouters en AI-gebruik opgenomen; overige bijdragen volgen de aangeleverde bronnen.',styles['CaptionX']),PageBreak()])
+    story.extend([Spacer(1,75),Paragraph('CV CHALLENGE 2026-2027',styles['H2x']),Spacer(1,15),Paragraph('Sports Vision &amp;<br/>Tactical Mapping',ParagraphStyle(name='Cover',fontName='Body-Bold',fontSize=34,leading=39,textColor=colors.HexColor('#143a48'))),Spacer(1,24),Paragraph('Projectrapport van Andrew, Milan, Raoul en Jorre',styles['H1x']),Paragraph('Andrew, Milan Wouters, Raoul en Jorre<br/>Versie 5 - 15 november 2026<br/>Broncommit 524d081a',styles['Text']),Spacer(1,35),Paragraph('Bijgewerkt met het AI-gebruik van alle vier teamleden, Andrews oorspronkelijke model en Jorres uploadpakket en presentatie. De menselijke review van alle 80 labels is geregistreerd. Open bewijs- en opleverpunten blijven herkenbaar.',styles['Text']),Spacer(1,30),Paragraph('De AI-beschrijvingen van Jorre en Raoul zijn aangeleverd door Milan Wouters; bronregistraties blijven behouden.',styles['CaptionX']),PageBreak()])
     text=(DOC/'Rapport_Sports_Vision.md').read_text(encoding='utf-8')
     text=text[text.index('## 1. Samenvatting'):]
     lines=text.splitlines();i=0
@@ -418,7 +418,7 @@ def pdf():
     def page(canvas,doc):
         canvas.saveState();canvas.setFont('Body',8);canvas.setFillColor(colors.HexColor('#607780'))
         canvas.drawString(50,815,'SPORTS VISION / TEAM MESSI10')
-        canvas.drawString(50,26,'Versie 4 - 15 november 2026 - Git 524d081a - teamreview geregistreerd')
+        canvas.drawString(50,26,'Versie 5 - 15 november 2026 - Git 524d081a - teamreview geregistreerd')
         canvas.drawRightString(545,26,str(doc.page));canvas.restoreState()
     dest=DOC/'Rapport_Sports_Vision.pdf'
     SimpleDocTemplate(str(dest),pagesize=(595.28,841.89),leftMargin=50,rightMargin=50,topMargin=51,bottomMargin=48,title='Sports Vision & Tactical Mapping',author='Team Messi10; documentatie met Codex-hulp').build(story,onFirstPage=page,onLaterPages=page)
